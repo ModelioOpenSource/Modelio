@@ -42,7 +42,6 @@
     <elements xsi:type="commands:Command" xmi:id="_yx-HwFBvEeOnQNx17ETh3g" elementId="diagram.editor.command.MoveDrawingsToBackground" commandName="Move drawings to background"/>
     <elements xsi:type="commands:Command" xmi:id="_oLaHkFEFEeOnQNx17ETh3g" elementId="diagram.editor.command.MoveDrawingsToForeground" commandName="Move drawings to foreground"/>
     <elements xsi:type="commands:Command" xmi:id="_fxV9sPEKEeW_FPFFAa9Baw" elementId="diagram.editor.command.opengmdebugger" commandName="OpenGmDebugger" description="Open the Gm model debugger"/>
-    <elements xsi:type="commands:Command" xmi:id="_AM5VQHuBEei1mJnH2xTBSw" elementId="org.modelio.diagram.editor.command.opensvgpreview" commandName="OpenSVGPreview" description="Open the SVG preview (debug)"/>
     <elements xsi:type="commands:Command" xmi:id="_aTd_cPQqEeqcbrcxRAavfQ" elementId="org.modelio.diagram.editor.command.ChangeCustomImageCommand" commandName="%ChangeCustomImage" description="%ChangeCustomImage"/>
     <elements xsi:type="commands:Command" xmi:id="_S2vIoMnEEeuPAIIekqN8LA" elementId="org.modelio.diagram.editor.resetlink" commandName="%ResetLink.Name" description="%ResetLink.Description"/>
     <elements xsi:type="commands:Command" xmi:id="_9Zo8kMqBEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.fullresetlink" commandName="%FullResetLink.Name" description="%FullResetLink.Description"/>

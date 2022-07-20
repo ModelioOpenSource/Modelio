@@ -42,7 +42,6 @@
   <imports xsi:type="commands:Command" xmi:id="_zi7aoHr5EeShLO3VXu_qAA" elementId="org.modelio.app.ui.command.openproperties"/>
   <imports xsi:type="commands:Command" xmi:id="_RPUCMPELEeW_FPFFAa9Baw" elementId="diagram.editor.command.opengmdebugger"/>
   <imports xsi:type="commands:Command" xmi:id="_sf6EMO60Eea0wqGx6Oaveg" elementId="org.modelio.app.ui.command.opendiagram"/>
-  <imports xsi:type="commands:Command" xmi:id="_xz4BQHuAEei1mJnH2xTBSw" elementId="org.modelio.diagram.editor.command.opensvgpreview"/>
   <imports xsi:type="commands:Command" xmi:id="_-HZ5gPZyEeqaga_r_8J0-Q" elementId="org.modelio.diagram.editor.command.ChangeCustomImageCommand"/>
   <imports xsi:type="commands:Command" xmi:id="_OdYoEMqbEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.resetlink"/>
   <imports xsi:type="commands:Command" xmi:id="_O66RkMqbEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.fullresetlink"/>
@@ -235,7 +234,6 @@
       <bindings xmi:id="_O5YT0GP3EeOKPIEepcCqnQ" elementId="" keySequence="*" command="_LNlXgGP3EeOKPIEepcCqnQ"/>
       <bindings xmi:id="_PVm80GP3EeOKPIEepcCqnQ" elementId="" keySequence="/" command="_eXxf0IkZEeWbO4MnNK7ogg"/>
       <bindings xmi:id="_33TjAPEIEeW_FPFFAa9Baw" elementId="diagram.editor.statik.keybinding.0" keySequence="M1+G M1+D M1+B" command="_RPUCMPELEeW_FPFFAa9Baw"/>
-      <bindings xmi:id="_L9Qk8HuBEei1mJnH2xTBSw" elementId="diagram.editor.statik.keybinding.12" keySequence="M1+S M1+V M1+G" command="_xz4BQHuAEei1mJnH2xTBSw"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_25jQcI2IEeKzwNCVVnW3jA" featurename="children" parentElementId="org.eclipse.ui.contexts.window">
