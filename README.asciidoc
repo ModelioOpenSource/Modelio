@@ -5,7 +5,7 @@ link:https://www.modelio.org[image:README/logo-modelio-v4.png[]]
 We are pleased to announce the release of Modelio 5.3.1. 
 link:https://github.com/ModelioOpenSource/Modelio/wiki[*Modelio 5.3.1 Download*]
 
-Discover the new features of this version:
+**Discover the new features of this version:**
 
 *ArchiMate 3.2 Support :*  Modelio supports the latest version of the ArchiMate standard. This new iteration of the standard proposes an evolution in the relationships between ArchiMate elements and a standardization of element representation modes. 
 
