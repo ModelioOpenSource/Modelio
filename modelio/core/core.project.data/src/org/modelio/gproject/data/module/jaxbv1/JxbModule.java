@@ -1050,7 +1050,8 @@ public class JxbModule {
         @objid ("cae74f7f-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class Command extends JxbContextualCommand {// empty
+        public static class Command extends JxbContextualCommand {
+// empty
             
         }
 
@@ -1532,7 +1533,8 @@ public class JxbModule {
         @objid ("cae74f81-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class ElementCreationCommand extends JxbContextualCommand {//          empty
+        public static class ElementCreationCommand extends JxbContextualCommand {
+//          empty
             
         }
 

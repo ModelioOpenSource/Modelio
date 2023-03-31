@@ -29,5 +29,5 @@ public interface IEditorListener {
 
     @objid ("c1e913e3-2e5d-11e2-a8ff-bc305ba4815c")
     void editorClosed();
-
 }
+

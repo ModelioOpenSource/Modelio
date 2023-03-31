@@ -33,14 +33,14 @@ public class SmStatusFactory {
      */
     @objid ("3796cd8e-d27b-11e1-b069-001ec947ccaf")
     private static final long DEFAULT_CMSNODE_RSTATUS_FALSE = IRStatus.BEINGDELETED | IRStatus.DELETED |
-                IRStatus.MASK_CMS | IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
+                    IRStatus.MASK_CMS | IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
 
     /**
      * Flags that are set to FALSE on non CMS node elements by default.
      */
     @objid ("3796cd94-d27b-11e1-b069-001ec947ccaf")
     private static final long DEFAULT_RSTATUS_FALSE = IRStatus.BEINGDELETED | IRStatus.DELETED |
-                IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
+                    IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
 
     /**
      * Flags that are set to TRUE on an object.
@@ -61,7 +61,7 @@ public class SmStatusFactory {
      */
     @objid ("2de2e232-1828-4f3f-9a1c-6c61139ad1ec")
     public static void deserializeStatuses(SmObjectData data, long readLong) {
-        data.status = readLong;
+        data.replaceAllFlags(readLong);
     }
 
     /**

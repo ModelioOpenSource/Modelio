@@ -33,6 +33,7 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEdi
 import org.modelio.diagram.elements.core.commands.DeleteInDiagramCommand;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
+import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.AutoExpandEditPolicy;
@@ -104,6 +105,8 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
         });
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         
+        // Needed to allow unmasking notes
+        installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy(false));
     }
 
     /**

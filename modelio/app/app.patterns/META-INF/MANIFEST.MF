@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Patterns
 Bundle-SymbolicName: org.modelio.app.patterns;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.patterns.plugin.Patterns
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.modelio.platform.ui,
  org.modelio.platform.utils,
@@ -33,7 +33,8 @@ Require-Bundle: org.modelio.platform.ui,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.di,
  org.eclipse.core.expressions,
- org.modelio.core.project.data
+ org.modelio.core.project.data,
+ org.modelio.jaxb;bundle-version="1.0.0"
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
 Export-Package: org.modelio.patterns.api,

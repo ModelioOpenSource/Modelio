@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2530]]
 
-[[r2530]]
+
+
 = R2530
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si un port reçoit une délégation venant d'une part, il doit requérir au moins une interface.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une délégation reçue est un _Connector_ reliant un _Port_ d'une _Classe_ ou d'un _Composant_ depuis une part de cette classe.
 
 Si un Port reçoit une délégation, il devrait requérir une interface (par un _RequiredInterface_) pour avoir quelque chose à demander.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Ajoutez une interface requise.

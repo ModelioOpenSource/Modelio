@@ -42,41 +42,41 @@ import org.eclipse.gef.requests.GroupRequest;
  * @see LayoutConnectionsOrderedLayoutEditPolicyDecorator to decorate ordered layout policies
  * @since 5.1.0
  */
-@objid ("cc7cc0fe-e62a-4de0-a946-c085952c84f8")
+@objid ("60b9135d-aeec-4787-a6c0-b520a9d1928f")
 public class LayoutConnectionsConstrainedLayoutEditPolicyDecorator extends LayoutConnectionsAbstractLayoutEditPolicyDecorator {
     /**
      * @param decorated the initial layout edit policy.
      */
-    @objid ("0f75fd2c-407d-4520-9ecd-5d67d0922c31")
+    @objid ("24e76c53-b04f-4da4-994d-9e3baf442048")
     public  LayoutConnectionsConstrainedLayoutEditPolicyDecorator(ConstrainedLayoutEditPolicy decorated) {
         super(decorated);
     }
 
-    @objid ("dd965647-06dd-4eea-8c58-18df0b7a5c20")
+    @objid ("f119a1ab-0b20-44b4-856f-89a22fc1e8df")
     @Override
     protected void addAddCommand(CompoundCommand command, Request request) {
         //LayoutChildrenNodeConnectionsHelper.addForAddRequest(getHost(), command, request);
     }
 
-    @objid ("7a20da76-48b7-423a-84be-06e53d15ed06")
+    @objid ("0e011931-b3f0-4674-b91c-10e4b7302930")
     @Override
     protected void addCloneCommand(CompoundCommand command, ChangeBoundsRequest request) {
         //LayoutChildrenNodeConnectionsHelper.addForAddRequest(getHost(), command, request);
     }
 
-    @objid ("bf317d44-1760-44cd-8e1c-159109374a7d")
+    @objid ("fae9d32b-b8f7-4c9b-99a9-363464fea201")
     @Override
     protected void addCreateCommand(CompoundCommand command, CreateRequest request) {
         //LayoutChildrenNodeConnectionsHelper.addForAddRequest(getHost(), command, request);
     }
 
-    @objid ("c4612a91-e873-49e3-ae9c-0804584587d5")
+    @objid ("9e65d0f7-75dc-4ede-b903-b3d86023d70b")
     @Override
     protected void addDeleteDependantCommand(CompoundCommand command, GroupRequest request) {
         //LayoutChildrenNodeConnectionsHelper.addForDeleteChildren(getHost(), request.getEditParts(), command, request);
     }
 
-    @objid ("a0b21fa2-e606-4385-a672-b8603024cbc7")
+    @objid ("2fd36255-4149-4c69-9771-db2164ed7de2")
     @Override
     protected void addMoveChildrenCommand(CompoundCommand command, ChangeBoundsRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -85,7 +85,7 @@ public class LayoutConnectionsConstrainedLayoutEditPolicyDecorator extends Layou
         
     }
 
-    @objid ("af33724b-4c14-4ed2-ba4a-5596b3d37ec8")
+    @objid ("2975e948-4378-4129-8870-bde40db0cab0")
     @Override
     protected void addOrphanChildrenCommand(CompoundCommand command, GroupRequest request) {
         

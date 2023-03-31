@@ -42,11 +42,12 @@ import org.modelio.api.module.contributor.IWizardContributor;
 import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.platform.mda.infra.IMdaResourceProviderRegistry;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModule.DiagramCustomizationDescriptor;
@@ -64,7 +65,7 @@ import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.meta.ISmMetamodelFragment;
 
 @objid ("bb7d18a6-71bf-4d80-a7b1-9c20a9e7e37f")
-class RTModule implements IRTModuleAccess {
+public class RTModule implements IRTModuleAccess {
     @objid ("02a8d537-99e0-11e1-b1e0-001ec947c8cc")
     private ModuleRuntimeState runtimeState = ModuleRuntimeState.Loaded;
 
@@ -96,7 +97,7 @@ class RTModule implements IRTModuleAccess {
     private final List<ISmMetamodelFragment> mmFrags = new ArrayList<>();
 
     @objid ("775231cc-6136-485f-bf77-de4053c6e46c")
-    private List<IRTModule> usedModules;
+    private List<IRTModule> optionalRequiredModules;
 
     @objid ("f776a6ec-76b9-4c02-b37c-fb07bcee27c4")
     private ModuleException downError;
@@ -105,7 +106,7 @@ class RTModule implements IRTModuleAccess {
     private final IRTModuleController controller;
 
     @objid ("478b0c48-1d25-4d49-bd34-6b7eb6119e43")
-    private List<IRTModule> requiredModules;
+    private List<IRTModule> mandatoryRequiredModules;
 
     @objid ("83b859d5-96df-4b0b-a777-a584a3a10698")
     private ClassLoader classLoader;
@@ -119,20 +120,17 @@ class RTModule implements IRTModuleAccess {
     @objid ("2774eabf-55cb-424e-8b4a-5eebb0a461f7")
     private IModuleAPIConfiguration moduleApiConfiguration;
 
-    @objid ("d4ace222-1ee2-437c-9903-94973a44c7c6")
-    private final IModuleRegistryAccess moduleRegistry;
-
     /**
      * Modules requiring this module.
      */
     @objid ("01abbf23-5509-4df2-bc09-524c4b034825")
-    private List<IRTModule> moduleUsers;
+    private List<IRTModule> moduleMandatoryUses;
 
     /**
      * Modules optionally using this module.
      */
     @objid ("a8796e36-f9fa-46a9-b02e-1ed34acc40ea")
-    private List<IRTModule> moduleOptionalUsers;
+    private List<IRTModule> moduleOptionalUses;
 
     /**
      * Returns the collection of {@link IModuleAction} associated with passed location.
@@ -255,10 +253,9 @@ class RTModule implements IRTModuleAccess {
     }
 
     @objid ("6a8d552f-e55f-4b45-9ee4-c3eaa092f085")
-    public  RTModule(GModule gModule, IModuleRegistryAccess moduleRegistry) {
+    public  RTModule(GModule gModule, IModuleRegistryAccess moduleRegistry, IMdaResourceProviderRegistry mdaResourceProviderRegistry) {
         this.gmodule = gModule;
-        this.moduleRegistry = moduleRegistry;
-        this.controller = new RTModuleController(this, moduleRegistry);
+        this.controller = new RTModuleController(this, moduleRegistry, mdaResourceProviderRegistry);
         
         setGModule(gModule);
         
@@ -360,20 +357,20 @@ class RTModule implements IRTModuleAccess {
 
     @objid ("5036a6b9-163d-40c7-80a8-f2af0dbd499a")
     @Override
-    public List<IRTModule> getRequiredDependencies() {
-        if (this.requiredModules == null) {
-            computeDependencies();
+    public List<IRTModule> getMandatoryRequiredModules() {
+        if (this.mandatoryRequiredModules == null) {
+            this.controller.initRequiredModules();
         }
-        return this.requiredModules;
+        return this.mandatoryRequiredModules;
     }
 
     @objid ("e2c7549c-3570-4c31-a36e-9e97ffc6b64c")
     @Override
-    public List<IRTModule> getOptionalDependencies() {
-        if (this.usedModules == null) {
-            computeDependencies();
+    public List<IRTModule> getOptionalRequiredModules() {
+        if (this.optionalRequiredModules == null) {
+            this.controller.initRequiredModules();
         }
-        return this.usedModules;
+        return this.optionalRequiredModules;
     }
 
     @objid ("fa8ca156-d95f-4103-a393-3a59a0a649dd")
@@ -477,60 +474,59 @@ class RTModule implements IRTModuleAccess {
     @objid ("aed31490-c7bb-493f-9de1-feeedd813aac")
     @Override
     public final void resetDependencies() {
-        this.requiredModules = null;
-        this.usedModules = null;
+        this.mandatoryRequiredModules = null;
+        this.optionalRequiredModules = null;
         
     }
 
     @objid ("3a545164-16ab-48cc-a666-420f7d1c2ff8")
     @Override
     public void resetModuleUsers() {
-        this.moduleUsers = null;
-        this.moduleOptionalUsers = null;
-        
-    }
-
-    @objid ("dc35235c-a2bf-4cb1-bd1b-2ca318c7ae5b")
-    private void initModuleUsers() {
-        ArrayList<IRTModule> newUsers = new ArrayList<>();
-        ArrayList<IRTModule> newOptionalUsers = new ArrayList<>();
-        
-        if (this.gmodule != null) {
-            for (IRTModule m : new ArrayList<>(this.moduleRegistry.getModules())) {
-                // Note: calling m.getRequiredDependencies() may result of this.resetModuleUsers() being called
-        
-                if (m.getRequiredDependencies().contains(this)) {
-                    newUsers.add(m);
-                }
-        
-                if (m.getOptionalDependencies().contains(this)) {
-                    newOptionalUsers.add(m);
-                }
-            }
-        }
-        
-        // Set fields last to avoid concurrent field reset by resetModuleUsers()
-        this.moduleUsers = newUsers;
-        this.moduleOptionalUsers = newOptionalUsers;
+        this.moduleMandatoryUses = null;
+        this.moduleOptionalUses = null;
         
     }
 
     @objid ("44c30332-0ec2-4d31-b365-555641ab7c4f")
     @Override
-    public List<IRTModule> getModuleUsers() {
-        if (this.moduleUsers == null) {
-            initModuleUsers();
+    public List<IRTModule> getModuleMandatoryUses() {
+        if (this.moduleMandatoryUses == null) {
+            this.controller.initModuleUses();
         }
-        return this.moduleUsers;
+        return this.moduleMandatoryUses;
     }
 
     @objid ("9d854358-bed7-4281-88f7-10c6ad326814")
     @Override
-    public List<IRTModule> getModuleOptionalUsers() {
-        if (this.moduleOptionalUsers == null) {
-            initModuleUsers();
+    public List<IRTModule> getModuleOptionalUses() {
+        if (this.moduleOptionalUses == null) {
+            this.controller.initModuleUses();
         }
-        return this.moduleOptionalUsers;
+        return this.moduleOptionalUses;
+    }
+
+    @objid ("f9e9ce20-50d1-436a-83d9-ff4ad96e48b2")
+    @Override
+    public void setModuleMandatoryUses(List<IRTModule> moduleMandatoryUses) {
+        this.moduleMandatoryUses = moduleMandatoryUses;
+    }
+
+    @objid ("738fd9f4-91e6-423d-8833-dd031ac913b9")
+    @Override
+    public void setModuleOptionalUses(List<IRTModule> moduleOptionalUses) {
+        this.moduleOptionalUses = moduleOptionalUses;
+    }
+
+    @objid ("9b314370-8ee1-47cb-99bf-cd347b3b555e")
+    @Override
+    public void setMandatoryRequiredModules(List<IRTModule> mandatoryRequiredModules) {
+        this.mandatoryRequiredModules = mandatoryRequiredModules;
+    }
+
+    @objid ("0d551d7a-7e78-4c0b-b7ef-ba15310e452a")
+    @Override
+    public void setOptionalRequiredModules(List<IRTModule> optionalRequiredModules) {
+        this.optionalRequiredModules = optionalRequiredModules;
     }
 
     @objid ("e7c8df63-4e2c-4cff-a3e2-871e27172add")
@@ -543,40 +539,6 @@ class RTModule implements IRTModuleAccess {
     @Override
     public void setPriority(int priority) {
         this.priority = priority;
-    }
-
-    /**
-     * Compute required & optional dependencies from the GModule underneath.
-     */
-    @objid ("9d505c0d-6149-48ad-8306-74cd00600290")
-    private void computeDependencies() {
-        if (this.gmodule != null) {
-            // Recompute required and used modules
-            List<GModule> requiredGModules = ModuleResolutionHelper.getRequiredGModules(this.gmodule, this.gmodule.getProject());
-            List<GModule> optionalGModules = ModuleResolutionHelper.getWeakDependenciesGModules(this.gmodule, this.gmodule.getProject());
-        
-            List<IRTModule> newRequired = new ArrayList<>(requiredGModules.size());
-            List<IRTModule> newOptional = new ArrayList<>(optionalGModules.size());
-        
-            for (GModule strongDependency : requiredGModules) {
-                IRTModule rtDep = this.moduleRegistry.loadRTModule(strongDependency);
-                newRequired.add(rtDep);
-                rtDep.resetModuleUsers();
-            }
-        
-            for (GModule weakDependency : optionalGModules) {
-                IRTModule rtDep = this.moduleRegistry.loadRTModule(weakDependency);
-                newOptional.add(rtDep);
-                rtDep.resetModuleUsers();
-            }
-        
-            this.requiredModules = newRequired;
-            this.usedModules = newOptional;
-        } else {
-            this.requiredModules = Collections.emptyList();
-            this.usedModules = Collections.emptyList();
-        }
-        
     }
 
 }

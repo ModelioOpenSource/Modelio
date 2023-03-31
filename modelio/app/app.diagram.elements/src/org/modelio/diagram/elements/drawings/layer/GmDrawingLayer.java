@@ -549,7 +549,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      * </p>
      * @return the metaclass this GmModel is in charge of relating.
      */
-    @objid ("28d03b11-86e9-48fd-ad22-dab43f8b096d")
+    @objid ("302e8323-98de-4092-8f95-4897277ba2e6")
     public final MClass getRelatedMClass() {
         MObject el = getRelatedElement();
         if (el != null) {

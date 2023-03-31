@@ -32,6 +32,11 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 
 /**
  * Region v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("0056e10e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Region extends UmlModelElement {
@@ -52,6 +57,7 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("6700f38a-923c-42be-9dd5-a7ac3294e462")
     State getParent();
@@ -61,6 +67,7 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("d3cd079c-2d76-45a2-966b-2b7618114700")
     void setParent(State value);
@@ -70,6 +77,7 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("b3be9e6e-c5f7-406e-955c-f432ad64f3b7")
     StateMachine getRepresented();
@@ -79,6 +87,7 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("d33a4bc9-8243-4f6b-b6f9-3557a9cba337")
     void setRepresented(StateMachine value);
@@ -88,6 +97,7 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("e4c6b140-ea08-415e-9d54-2bcb91538ecc")
     EList<StateVertex> getSub();
@@ -97,8 +107,9 @@ public interface Region extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("7731d6ab-0d89-4acd-9bea-8a5de357e918")
     <T extends StateVertex> List<T> getSub(java.lang.Class<T> filterClass);
-
 }
+

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1550]]
 
-[[r1550]]
+
+
 = R1550
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 If a _BindableInstance_ has a type and a represented feature, the type of the instance must be compatible with the type of this feature.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A part can represent an _Attribute_, an _AssociationEnd_ or a _Port_.
@@ -25,9 +25,9 @@ A part can represent an _Attribute_, an _AssociationEnd_ or a _Port_.
 * In the case of an _Attribute_ or a _Port_, the type of the _BindableInstance_ must be the same type as the _Attribute_ or the _Port_.
 * If it represents an _AssociationEnd_, it must be the same type as the owner of one of the _Associations's_ other _AssociationEnds_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Change the type of your instance, or change which model element it represents.

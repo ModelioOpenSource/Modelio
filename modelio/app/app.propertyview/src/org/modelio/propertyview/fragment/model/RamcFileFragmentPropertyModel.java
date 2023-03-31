@@ -22,15 +22,14 @@ package org.modelio.propertyview.fragment.model;
 import java.io.IOException;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.data.ramc.IModelComponentInfos;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
  * <i>RamcFileFragment</i> data model.
  * <p>
- * This class provides the list of properties for the <i>RamcFileFragment</i>
- * metaclass.
+ * This class provides the list of properties for the <i>RamcFileFragment</i> metaclass.
  */
 @objid ("4b13f642-8f70-498f-8bc5-7f4a3f71cf59")
 public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel {
@@ -42,9 +41,9 @@ public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel
      * @param fragment the fragment of which properties will be display
      */
     @objid ("785f6be6-0396-4df5-b759-c5e8601b4a28")
-    public  RamcFileFragmentPropertyModel(RamcFileFragment fragment) {
+    public  RamcFileFragmentPropertyModel(IGModelFragment fragment) {
         super(fragment);
-        IModelComponentInfos infos;
+        IFragmentInfos infos;
         try {
             infos = fragment.getInformations();
             this.name = infos.getName();
@@ -76,7 +75,7 @@ public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel
     @objid ("3f15bef9-e082-488d-9c10-fc27efb0809b")
     @Override
     public Map<String, String> getPropertyList() {
-        Map<String,String> map = super.getPropertyList();
+        Map<String, String> map = super.getPropertyList();
         map.put(PropertyViewPlugin.I18N.getString("fragment.type.label"), PropertyViewPlugin.I18N.getString("fragment.type.label.ramc"));
         map.put(PropertyViewPlugin.I18N.getString("fragment.version.label"), this.getVersion());
         return map;

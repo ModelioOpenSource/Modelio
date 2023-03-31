@@ -34,7 +34,7 @@ import org.modelio.diagram.elements.plugin.DiagramElements;
  */
 @objid ("c482e8c3-ab0b-4ba4-bbfd-2f699024fb13")
 public class ConnectionState {
-    @objid ("b9d2e7ab-9908-4702-82c0-897c8ea31f13")
+    @objid ("9d85ec04-44db-43b5-b231-93d1a077e4a8")
     private boolean mutable = true;
 
     @objid ("6444ae46-ddda-43cb-a443-8e242b8f8eb5")
@@ -76,13 +76,13 @@ public class ConnectionState {
         return this;
     }
 
-    @objid ("1c46a3be-1320-48ac-959c-3ae229913738")
+    @objid ("ec0d64a1-e9de-46ba-ad64-76889aa6f73c")
     public ConnectionState immutable() {
         this.mutable = false;
         return this;
     }
 
-    @objid ("bbee43bd-e35c-4818-98e2-aaef54e80b5e")
+    @objid ("f4cf42d8-b602-4a66-9907-c496293d5e4c")
     private void checkMutable() throws IllegalStateException {
         if (! this.mutable)
             throw new IllegalStateException(String.format("Immutable state: %s", this));
@@ -218,7 +218,7 @@ public class ConnectionState {
         return (List<MPoint>) getConstraint();
     }
 
-    @objid ("a581e5af-cc65-4256-8ed7-dd3a4ede1713")
+    @objid ("b71b2978-8b12-46cf-bb0f-bc9a581a8882")
     @Override
     public String toString() {
         return String.format(
@@ -228,6 +228,43 @@ public class ConnectionState {
                 this.sourceAnchor,
                 this.targetAnchor,
                 this.constraint);
+        
+    }
+
+    @objid ("41117f70-9d56-4b4b-9267-67edf1d99e72")
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.mutable, this.constraint, this.sourceAnchor, this.targetAnchor);
+    }
+
+    @objid ("74f11ac4-37fc-434a-a0cf-82cf503fe507")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        ConnectionState other = (ConnectionState) obj;
+        if (other.mutable != this.mutable)
+            return false;
+        return isSame(other);
+    }
+
+    /**
+     * Tells whether the given state has same anchors and constraint as this state.
+     * @param other a connectionState
+     * @return whether the passed state has same anchors and constraint as this state.
+     */
+    @objid ("4be217ad-173c-4d2b-81b1-2f891103062e")
+    public boolean isSame(ConnectionState other) {
+        return Objects.equals(this.constraint, other.constraint)
+                && Objects.equals(this.sourceAnchor, other.sourceAnchor)
+                && Objects.equals(this.targetAnchor, other.targetAnchor);
         
     }
 

@@ -39,7 +39,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * Base abstract class for link-related command handlers.
  */
-@objid ("863f79e1-e88a-467c-bc34-40a066208ceb")
+@objid ("483adf51-fb5d-4199-9e3c-04934a26d94c")
 public abstract class AbstractLinkHandler {
     /**
      * Makes sure the selection contains only non-nary editable links

@@ -15,9 +15,9 @@ image::images/Modeler-_modeler_interface_script_view_ScriptTab.png[image]
 3. The script input zone.
 4. The script output zone.
 
-[[Main-script-view-commands]]
 
-[[main-script-view-commands]]
+
+
 ===== Main script view commands
 
 * *Open Macros catalog* [image:images/Modeler-_modeler_interface_script_view_scriptcatalog.png[10]] : Opens the Macros catalog.

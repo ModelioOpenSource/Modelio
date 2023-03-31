@@ -35,5 +35,5 @@ public interface ICacheHandle {
 
     @objid ("0012d52c-e639-1f34-b94f-001ec947cd2a")
     void objUndeleted(final SmObjectImpl obj);
-
 }
+

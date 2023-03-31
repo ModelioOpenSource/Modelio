@@ -133,5 +133,5 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
      */
     @objid ("4022d480-076b-4758-8f33-276fcd65c729")
     void refresh();
-
 }
+

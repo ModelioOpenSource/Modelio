@@ -53,5 +53,5 @@ public interface IMetamodelI18nSupport {
      */
     @objid ("885ac799-098e-42ad-bf34-2ab6e0697e96")
     String getLabel(MAttribute mAtt);
-
 }
+

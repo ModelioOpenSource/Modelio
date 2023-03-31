@@ -45,25 +45,25 @@ public @interface SmaMetaClass {
      * Indicates that the meta class represents a CMS node.
      */
     @objid ("0009259a-f99c-1f1f-85a5-001ec947cd2a")
-    boolean cmsnode();
+    boolean cmsnode() default false;
 
     /**
      * Special behavior on import/export.
      */
     @objid ("00092770-f99c-1f1f-85a5-001ec947cd2a")
-    boolean eispecial();
+    boolean eispecial() default false;
 
     /**
      * All metaclass instances should be loaded.
      */
     @objid ("000928f6-f99c-1f1f-85a5-001ec947cd2a")
-    boolean loadallinstance();
+    boolean loadallinstance() default false;
 
     /**
      * No read only check.
      */
     @objid ("00093094-f99c-1f1f-85a5-001ec947cd2a")
-    boolean noreadonly();
+    boolean noreadonly() default false;
 
     /**
      * The interface implemented by all elements of this metaclass.

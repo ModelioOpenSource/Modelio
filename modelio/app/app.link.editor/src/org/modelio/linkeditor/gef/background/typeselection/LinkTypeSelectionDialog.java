@@ -39,7 +39,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.linkeditor.LinkTypeDescriptor;
 import org.modelio.linkeditor.plugin.LinkEditor;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 
@@ -93,7 +93,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
                     LinkTypeDescriptor descriptor = (LinkTypeDescriptor) element;
                     Stereotype stereotype = descriptor.getStereotype();
                     if (stereotype != null) {
-                        return ModuleI18NService.getPriority(stereotype.getModule());
+                        return MdaResources.getModulePriority(stereotype.getModule());
                     }
                 }
                 return Integer.MAX_VALUE;

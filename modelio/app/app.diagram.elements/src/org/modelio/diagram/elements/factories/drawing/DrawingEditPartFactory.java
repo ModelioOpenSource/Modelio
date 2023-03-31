@@ -25,10 +25,14 @@ import org.eclipse.gef.EditPartFactory;
 import org.modelio.diagram.elements.drawings.core.GmDrawing;
 import org.modelio.diagram.elements.drawings.ellipse.EllipseDrawingEditPart;
 import org.modelio.diagram.elements.drawings.ellipse.GmEllipseDrawing;
+import org.modelio.diagram.elements.drawings.image.GmImageDrawing;
+import org.modelio.diagram.elements.drawings.image.ImageDrawingEditPart;
 import org.modelio.diagram.elements.drawings.layer.DrawingLayerEditPart;
 import org.modelio.diagram.elements.drawings.layer.GmDrawingLayer;
 import org.modelio.diagram.elements.drawings.line.GmLineDrawing;
 import org.modelio.diagram.elements.drawings.line.LineDrawingEditPart;
+import org.modelio.diagram.elements.drawings.note.GmNoteDrawing;
+import org.modelio.diagram.elements.drawings.note.NoteDrawingEditPart;
 import org.modelio.diagram.elements.drawings.rectangle.GmRectangleDrawing;
 import org.modelio.diagram.elements.drawings.rectangle.RectangleDrawingEditPart;
 import org.modelio.diagram.elements.drawings.text.GmTextDrawing;
@@ -62,6 +66,18 @@ public class DrawingEditPartFactory implements EditPartFactory {
         
         if (model instanceof GmTextDrawing) {
             TextDrawingEditPart p = new TextDrawingEditPart();
+            p.setModel(model);
+            return p;
+        }
+        
+        if (model instanceof GmNoteDrawing) {
+            NoteDrawingEditPart p = new NoteDrawingEditPart();
+            p.setModel(model);
+            return p;
+        }
+        
+        if (model instanceof GmImageDrawing) {
+            ImageDrawingEditPart p = new ImageDrawingEditPart();
             p.setModel(model);
             return p;
         }

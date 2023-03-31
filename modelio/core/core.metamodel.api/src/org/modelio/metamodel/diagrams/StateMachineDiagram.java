@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>State Machine diagrams are a powerful dynamic formalization mechanism used to express several aspects of a class.</p><p>Created inside a class, they describe the reaction to events according to their current state. They can also describe the usage protocol of a class.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0070022e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StateMachineDiagram extends BehaviorDiagram {
@@ -46,5 +49,5 @@ public interface StateMachineDiagram extends BehaviorDiagram {
      */
     @objid ("fe9425aa-9741-40c3-a242-54df66b9a7f3")
     public static final String MQNAME = "Standard.StateMachineDiagram";
-
 }
+

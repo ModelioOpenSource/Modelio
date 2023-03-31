@@ -32,7 +32,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vbasic.files.FileUtils;
@@ -45,17 +45,17 @@ public class DeleteProjectHandler {
     @objid ("c37c7e30-4f8c-40e8-9c5a-2e35d07a5539")
     @Execute
     public void execute(final IProjectService projectService, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        List<ProjectDescriptor> projectDescriptors = SelectionHelper.toList(selection, ProjectDescriptor.class);
+        List<GProjectDescriptor> projectDescriptors = SelectionHelper.toList(selection, GProjectDescriptor.class);
         
         StringBuilder nameList = new StringBuilder();
-        for (ProjectDescriptor projectDescriptor : projectDescriptors) {
+        for (GProjectDescriptor projectDescriptor : projectDescriptors) {
             nameList.append(" - ");
             nameList.append(projectDescriptor.getName());
             nameList.append('\n');
         }
         if (MessageDialog.openConfirm(shell, AppProjectUiExt.I18N.getString("ConfirmProjectDeletion"),
                                         AppProjectUiExt.I18N.getMessage("ConfirmProjectDeletionMessage", nameList.toString()))) {
-            for (ProjectDescriptor projectDescriptor : projectDescriptors) {
+            for (GProjectDescriptor projectDescriptor : projectDescriptors) {
                 String projName = projectDescriptor.getName();
                 AppProjectUi.LOG.info("Deleting project '%s' ", projName);
                 
@@ -82,7 +82,7 @@ public class DeleteProjectHandler {
             return false;
         }
         
-        for (ProjectDescriptor descriptor : SelectionHelper.toList(selection, ProjectDescriptor.class)) {
+        for (GProjectDescriptor descriptor : SelectionHelper.toList(selection, GProjectDescriptor.class)) {
             // cannot delete currently opened project
             if (descriptor.getLockInfo() != null) {
                 return false;

@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * An entry point pseudostate is an entry point of a state machine or composite state. In each region of the state machine or composite state it has a single transition to a vertex within the same region.
+ * 
+ * 
  */
 @objid ("004f3f3a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface EntryPointPseudoState extends AbstractPseudoState {
@@ -54,6 +56,7 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("fd0d685f-8647-4fc5-a031-cfd51217871f")
     State getEntryOf();
@@ -63,6 +66,7 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("05d93fc3-ead4-420c-aca2-ac3753cb7778")
     void setEntryOf(State value);
@@ -72,6 +76,7 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("c167c1b7-9cdb-4017-98ca-df52d4166cf7")
     EList<ConnectionPointReference> getConnection();
@@ -81,6 +86,7 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("23e41fac-58c2-49c5-8193-c5f6aba6afda")
     <T extends ConnectionPointReference> List<T> getConnection(java.lang.Class<T> filterClass);
@@ -90,6 +96,7 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0ed5acc1-2d43-43cd-90cd-7856c5db3cbb")
     StateMachine getEntryOfMachine();
@@ -99,8 +106,9 @@ public interface EntryPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6411fe8b-376e-4eec-b4dc-6528ebc81a19")
     void setEntryOfMachine(StateMachine value);
-
 }
+

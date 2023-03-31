@@ -41,8 +41,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.ui.application.saveproject.SaveProjectHandler;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.progress.IModelioProgressService;
@@ -55,30 +55,30 @@ import org.modelio.platform.ui.progress.IModelioProgressService;
  */
 @objid ("f1dc6714-17d1-486d-b799-7f098cb48066")
 public class CloseProjectHandler {
-    @objid ("bcb6ca52-5772-4932-bdb4-8b3dfe193835")
+    @objid ("f6604157-43ba-4d9c-9741-1ad68d99a377")
     @Inject
     @Optional
     private IProjectService projectService;
 
-    @objid ("2f3d8922-d947-4864-8aaa-2a29618f4ffc")
+    @objid ("b77a8328-2572-4ee1-8cb3-001171a0b1c3")
     @Inject
     @Optional
     private MApplication window;
 
-    @objid ("f77f7a06-8b0d-440a-a507-e5e5e3fc1808")
+    @objid ("15cd2624-2a48-429c-9eb3-cd05e8647468")
     @Inject
     @Optional
     private IModelioProgressService progressService;
 
-    @objid ("685ae6f8-826d-4db1-9ae3-a8432b247031")
+    @objid ("a1daaf5f-0fc8-41d7-b0f1-1785cfbfb358")
     @Inject
     @Optional
     private StatusReporter statusReporter;
 
     @objid ("1f60e06e-f6eb-4536-8a65-a1d5ecac269c")
     @Execute
-    void execute(final IProjectService projectService, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell, IModelioProgressService progressService, StatusReporter statusReporter) {
-        GProject openedProject = projectService.getOpenedProject();
+    void execute(final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, IModelioProgressService progressService, StatusReporter statusReporter) {
+        IGProject openedProject = projectService.getOpenedProject();
         
         if (saveBeforeClose(shell, projectService, openedProject, progressService, statusReporter)) {
             if (openedProject != null) {
@@ -90,14 +90,18 @@ public class CloseProjectHandler {
 
     @objid ("f91de263-a0ce-4305-ace0-f6b418bec739")
     @CanExecute
-    boolean canExecute(final IProjectService projectService, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        GProject openedProject = projectService.getOpenedProject();
+    boolean canExecute(final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+        IGProject openedProject = projectService.getOpenedProject();
         if (openedProject == null) {
             return false;
         }
-        if (selection == null) return true;
-        List<ProjectDescriptor> projectDescriptors = getSelectedElements(selection);
-        if (projectDescriptors.size() == 0) return true;
+        if (selection == null) {
+            return true;
+        }
+        List<GProjectDescriptor> projectDescriptors = getSelectedElements(selection);
+        if (projectDescriptors.size() == 0) {
+            return true;
+        }
         if (projectDescriptors.size() == 1) {
             if (openedProject.getName().equals(projectDescriptors.get(0).getName())) {
                 return true;
@@ -109,14 +113,14 @@ public class CloseProjectHandler {
     /**
      * Asks the user whether he wants to save the project if it is dirty.
      * <p>
-     * If the project is not dirty, returns <code>true</code>.
-     * In the other case, if the user answers :<ul>
-     * <li> yes: the project is saved and returns <code>true</code> unless the save fails.
-     * <li> no : returns yes without saving the project
-     * <li> cancel : returns <code>false</code>.
+     * If the project is not dirty, returns <code>true</code>. In the other case, if the user answers :
+     * <ul>
+     * <li>yes: the project is saved and returns <code>true</code> unless the save fails.
+     * <li>no : returns yes without saving the project
+     * <li>cancel : returns <code>false</code>.
      */
     @objid ("539c746b-408d-43ce-9633-adc0e176428d")
-    public static boolean saveBeforeClose(Shell shell, IProjectService projectService, GProject openedProject, IModelioProgressService progressService, StatusReporter statusReporter) {
+    public static boolean saveBeforeClose(Shell shell, IProjectService projectService, IGProject openedProject, IModelioProgressService progressService, StatusReporter statusReporter) {
         if (openedProject != null) {
             AppProjectUi.LOG.info("Closing project '%s'", openedProject.getName());
         
@@ -146,28 +150,28 @@ public class CloseProjectHandler {
     }
 
     @objid ("671440ed-dbcd-4cff-9430-dc69fa9f74d3")
-    private List<ProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
-        List<ProjectDescriptor> selectedElements = new ArrayList<>();
+    private List<GProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
+        List<GProjectDescriptor> selectedElements = new ArrayList<>();
         if (selection.size() > 0) {
             Object[] elements = selection.toArray();
             for (Object element : elements) {
-                if (element instanceof ProjectDescriptor) {
-                    selectedElements.add((ProjectDescriptor) element);
+                if (element instanceof GProjectDescriptor) {
+                    selectedElements.add((GProjectDescriptor) element);
                 }
             }
         }
         return selectedElements;
     }
 
-    @objid ("4f1dd311-0d67-4c84-8aea-39466badcf39")
+    @objid ("34e0e519-02b8-444b-bfd5-4a0145c3589c")
     @Inject
     @Optional
     void onProjectOpened(@SuppressWarnings ("unused")
-    @UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell) {
+    @UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject project, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell) {
         IWindowCloseHandler handler = new IWindowCloseHandler() {
             @Override
             public boolean close(MWindow windoww) {
-                GProject openedProject = CloseProjectHandler.this.projectService.getOpenedProject();
+                IGProject openedProject = CloseProjectHandler.this.projectService.getOpenedProject();
                 if (CloseProjectHandler.saveBeforeClose(shell, CloseProjectHandler.this.projectService, openedProject, CloseProjectHandler.this.progressService, CloseProjectHandler.this.statusReporter)) {
                     if (openedProject != null) {
                         CloseProjectHandler.this.projectService.closeProject(openedProject, true);
@@ -186,7 +190,7 @@ public class CloseProjectHandler {
         
     }
 
-    @objid ("83836cfe-76eb-49cc-a267-adf94bf85c18")
+    @objid ("9120cd18-402f-4913-b2ad-6cf53d9fbbb9")
     private MWindow getApplicationShellWindow(final MApplication application) {
         final EModelService modelService = application.getContext().get(EModelService.class);
         final List<MWindow> windows = modelService.findElements(application, null, MWindow.class, null);

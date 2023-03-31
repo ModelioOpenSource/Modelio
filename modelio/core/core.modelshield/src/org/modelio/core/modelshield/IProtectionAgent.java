@@ -74,5 +74,5 @@ public interface IProtectionAgent {
      */
     @objid ("00114d7e-0abf-1f62-8473-001ec947cd2a")
     IModelShieldPlan getPlan();
-
 }
+

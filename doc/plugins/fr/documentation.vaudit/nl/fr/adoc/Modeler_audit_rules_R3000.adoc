@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3000]]
 
-[[r3000]]
+
+
 = R3000
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _Dependencies_ de type «+influence» et «-influence» doivent relier deux _Goals_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Dependency_ de type «+influence» illustre que l'accomplissement d'un _Goal_ contribue à l'accomplissement de l'autre.
 
 Une _Dependency_ de type «-influence» indique que l'accomplissement d'un _Goal_ empêche/nuit à l'accomplissement de l'autre _Goal_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une _Dependency_ de type influence reliant des éléments autres que des _Goals_, vous devriez la supprimer.

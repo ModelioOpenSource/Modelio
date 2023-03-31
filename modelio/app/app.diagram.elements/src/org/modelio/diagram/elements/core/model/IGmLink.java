@@ -111,5 +111,5 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
      */
     @objid ("fd738894-46af-4521-b5d9-49f159eb2f0f")
     Collection<IGmNode> getExtensions(String role);
-
 }
+

@@ -64,5 +64,5 @@ public interface IRichNoteEditorProvider {
      */
     @objid ("bf29bd6d-a368-4b5a-9f1f-3eef2159ad83")
     String getEditorId(final MObject target);
-
 }
+

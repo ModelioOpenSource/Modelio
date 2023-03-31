@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Graph diagrams are used to display connections between elements.</p><p>Each element can either be represented as a generic box or a generic link, independently from their usual representation in other diagrams.</p>
+ * 
+ * 
+ * 
  */
 @objid ("a75e6777-15c4-419b-9b10-43f796d1f22a")
 public interface GraphDiagram extends AbstractDiagram {
@@ -46,5 +49,5 @@ public interface GraphDiagram extends AbstractDiagram {
      */
     @objid ("2b0f34a4-8d4b-4058-a1ad-445b362af259")
     public static final String MQNAME = "Infrastructure.GraphDiagram";
-
 }
+

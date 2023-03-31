@@ -28,5 +28,5 @@ import org.modelio.patterns.exporter.PatternModelAnalysis;
 public interface IPatternModelAnalyser {
     @objid ("66d400d2-eb34-44f8-826a-bac5d10b220d")
     PatternModelAnalysis runAnalysis(Package modelPattern) throws IOException;
-
 }
+

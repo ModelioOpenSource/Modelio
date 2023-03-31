@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.statik.NaryLink;
  * A CommunicationChannel is a link between two CommunicationNodes.
  * 
  * A CommunicationChannel can represent a Link. It owns messages that follow the channel from its start to the end, and inverted messages that go from the end to the start.
+ * 
+ * 
  */
 @objid ("5451d474-f72f-46a9-b8b5-35997413d584")
 public interface CommunicationChannel extends UmlModelElement {
@@ -59,6 +61,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d089f797-963a-472b-9102-e08e9087b6cd")
     EList<CommunicationMessage> getStartToEndMessage();
@@ -68,6 +71,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("066dba33-47f2-4d51-911f-d869593b015d")
     <T extends CommunicationMessage> List<T> getStartToEndMessage(java.lang.Class<T> filterClass);
@@ -77,6 +81,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Link the communication channel represents.</i>
+     * 
      */
     @objid ("1bb2731c-131f-497d-9749-1f4f1e705acb")
     Link getChannel();
@@ -86,6 +91,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Link the communication channel represents.</i>
+     * 
      */
     @objid ("590a2bf3-2953-41dc-8b02-1f07ac23249c")
     void setChannel(Link value);
@@ -95,6 +101,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node starting the channel.</i>
+     * 
      */
     @objid ("afa7354b-88c4-40d5-b8dd-215055f8955c")
     CommunicationNode getStart();
@@ -104,6 +111,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node starting the channel.</i>
+     * 
      */
     @objid ("c3f1412d-ca73-479b-8bf7-561601b3f34c")
     void setStart(CommunicationNode value);
@@ -113,6 +121,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("42f8450d-1aca-4f83-a91e-9f7e7fc3c5c7")
     NaryLink getNaryChannel();
@@ -122,6 +131,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("92b2c0f0-fd35-4625-a34a-228b33b2cc4d")
     void setNaryChannel(NaryLink value);
@@ -131,6 +141,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("20dbaa0c-b05b-4a47-a12e-306a021a47aa")
     EList<CommunicationMessage> getEndToStartMessage();
@@ -140,6 +151,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1842961e-730c-46db-8ef2-47e5d4f8ba30")
     <T extends CommunicationMessage> List<T> getEndToStartMessage(java.lang.Class<T> filterClass);
@@ -149,6 +161,7 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node at the end of the channel.</i>
+     * 
      */
     @objid ("a401b5aa-a324-4104-b9f3-8aa6e8adc133")
     CommunicationNode getEnd();
@@ -158,8 +171,9 @@ public interface CommunicationChannel extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node at the end of the channel.</i>
+     * 
      */
     @objid ("cfed1cf5-bd4d-45f7-9acf-65e9e11fac88")
     void setEnd(CommunicationNode value);
-
 }
+

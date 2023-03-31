@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Browser
 Bundle-SymbolicName: org.modelio.app.model.browser.view.ext_org;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.model.browser.view.plugin.ModelBrowserExtOrg
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
@@ -32,5 +32,5 @@ Export-Package: org.modelio.model.browser.view.plugin,
  org.modelio.model.browser.view.panel
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 

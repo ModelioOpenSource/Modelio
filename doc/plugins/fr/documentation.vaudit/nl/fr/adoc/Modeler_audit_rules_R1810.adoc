@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1810]]
 
-[[r1810]]
+
+
 = R1810
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _Gate_ (réelle) sur un _InteractionUse_ doit référencer une _Gate_ (formelle) de l'_Interaction_ référencée.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _Messages_ menant à ou arrivant sur une _Gate_ réelle d'un _InteractionUse_ doivent correspondre aux _Messages_ menant à ou arrivant sur la _Gate_ formelle de l'_Interaction_ référencée par l'_InteractionUse_.
 
 Pour cela une _Gate_ réelle sur un _InteractionUse_ doit toujours référencer une _Gate_ formelle de _Interaction_ référencée.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une _Gate_ réelle sur un _InteractionUse_ qui ne référence aucune _Gate_ formelle de l'_Interaction_, supprimez-la ou bien référencez une _Gate_ formelle de l'_Interaction_.

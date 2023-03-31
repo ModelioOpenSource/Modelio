@@ -32,17 +32,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
-import org.modelio.gproject.fragment.AbstractFragment;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.exml.ExmlFragment;
-import org.modelio.gproject.fragment.ramcfile.MdaFragment;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.gproject.fragment.url.UrlFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.propertyview.fragment.model.AbstractFragmentPropertyModel;
 import org.modelio.propertyview.fragment.model.ExmlFragmentPropertyModel;
-import org.modelio.propertyview.fragment.model.MdaFragmentPropertyModel;
 import org.modelio.propertyview.fragment.model.RamcFileFragmentPropertyModel;
 import org.modelio.propertyview.fragment.model.SvnFragmentPropertyModel;
 import org.modelio.propertyview.fragment.model.UrlFragmentPropertyModel;
@@ -60,7 +54,7 @@ public class FragmentPropertiesPanel implements IPanelProvider {
     private Composite composite;
 
     @objid ("c6a2b5f2-6bc0-42a5-a3b2-a1cc7afb6980")
-    private IProjectFragment element;
+    private IGModelFragment element;
 
     @objid ("13061ea3-a573-4b7b-9379-ba4f8a501500")
     private TableViewer viewer;
@@ -69,9 +63,9 @@ public class FragmentPropertiesPanel implements IPanelProvider {
     @Override
     public boolean isRelevantFor(Object input) {
         if (input instanceof ISelection) {
-            return SelectionHelper.getFirst((ISelection) input, IProjectFragment.class) != null;
+            return SelectionHelper.getFirst((ISelection) input, IGModelFragment.class) != null;
         } else {
-            return input instanceof IProjectFragment;
+            return input instanceof IGModelFragment;
         }
         
     }
@@ -98,7 +92,7 @@ public class FragmentPropertiesPanel implements IPanelProvider {
             @Override
             public Object[] getElements(Object inputElement) {
                 List<FragmentProperty> fragmentProperties = new ArrayList<>();
-                for (Entry<String, String> property : ((AbstractFragmentPropertyModel)inputElement).getPropertyList().entrySet()) {
+                for (Entry<String, String> property : ((AbstractFragmentPropertyModel) inputElement).getPropertyList().entrySet()) {
                     fragmentProperties.add(new FragmentProperty(property.getKey(), property.getValue()));
                 }
                 return fragmentProperties.toArray();
@@ -155,11 +149,11 @@ public class FragmentPropertiesPanel implements IPanelProvider {
     @objid ("cb3ec5dd-3f41-4d76-92df-024571339916")
     @Override
     public void setInput(Object input) {
-        AbstractFragment fragment;
+        IGModelFragment fragment;
         if (input instanceof ISelection) {
-            fragment = SelectionHelper.getFirst((ISelection) input, AbstractFragment.class);
-        } else if (input instanceof IProjectFragment) {
-            fragment = (AbstractFragment) input;
+            fragment = SelectionHelper.getFirst((ISelection) input, IGModelFragment.class);
+        } else if (input instanceof IGModelFragment) {
+            fragment = (IGModelFragment) input;
         } else {
             fragment = null;
         }
@@ -176,23 +170,20 @@ public class FragmentPropertiesPanel implements IPanelProvider {
      * @param fragment the fragment to display
      */
     @objid ("5ce639d4-c2fa-4bf6-ab60-38ddd73539ba")
-    private void displayTableData(AbstractFragment fragment) {
+    private void displayTableData(IGModelFragment fragment) {
         AbstractFragmentPropertyModel dataModel = null;
         switch (fragment.getType()) {
-        case EXML:
-            dataModel = new ExmlFragmentPropertyModel((ExmlFragment)fragment);
+        case EXMLFRAGMENT:
+            dataModel = new ExmlFragmentPropertyModel(fragment);
             break;
-        case EXML_SVN:
+        case SVNFRAGMENT:
             dataModel = new SvnFragmentPropertyModel(fragment);
             break;
-        case EXML_URL:
-            dataModel = new UrlFragmentPropertyModel((UrlFragment)fragment);
-            break;
-        case MDA:
-            dataModel = new MdaFragmentPropertyModel((MdaFragment)fragment);
+        case HTTPFRAGMENT:
+            dataModel = new UrlFragmentPropertyModel(fragment);
             break;
         case RAMC:
-            dataModel = new RamcFileFragmentPropertyModel((RamcFileFragment)fragment);
+            dataModel = new RamcFileFragmentPropertyModel(fragment);
             break;
         default:
             dataModel = new AbstractFragmentPropertyModel(fragment);
@@ -211,9 +202,7 @@ public class FragmentPropertiesPanel implements IPanelProvider {
     }
 
     /**
-     * Class representing table elements
-     * First column is the property name
-     * Second column is the property value
+     * Class representing table elements First column is the property name Second column is the property value
      */
     @objid ("5a33c1fb-47e9-4589-8afc-7bd877091196")
     public class FragmentProperty {

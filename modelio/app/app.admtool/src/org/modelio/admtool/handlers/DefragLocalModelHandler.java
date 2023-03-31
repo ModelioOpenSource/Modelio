@@ -33,9 +33,10 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.modelio.admtool.plugin.AdmTool;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPartState.GPartStateEnum;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.platform.ui.progress.ModelioProgressAdapter;
 import org.modelio.vcore.session.api.repository.IRepositorySupport;
@@ -46,14 +47,14 @@ import org.modelio.vstore.jdbm.JdbmRepository;
 @SuppressWarnings("restriction")
 public class DefragLocalModelHandler implements IRunnableWithProgress {
     @objid ("621c812c-17e5-4110-b11c-a4c101318929")
-    private GProject project;
+    private IGProject project;
 
     @objid ("4676a59a-9772-4024-9897-957c67c17f44")
     @Execute
     void execute(@Optional
     @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection sel, IModelioProgressService progressSvc, StatusReporter reporter) {
-        IProjectFragment frag = (IProjectFragment) sel.iterator().next();
-        this.project = GProject.getProject(frag.getRoots().iterator().next());
+        IGModelFragment frag = (IGModelFragment) sel.iterator().next();
+        this.project = AbstractGProject.getProject(frag.getRoots().iterator().next());
         
         try {
             String title = AdmTool.I18N.getString("DefragLocalModelHandler.title");
@@ -84,11 +85,11 @@ public class DefragLocalModelHandler implements IRunnableWithProgress {
     @CanExecute
     boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) ITreeSelection sel) {
         for (Object o : sel.toList()) {
-            if (!(o instanceof IProjectFragment))
+            if (!(o instanceof IGModelFragment))
                 return false;
         
-            IProjectFragment fragment = (IProjectFragment) o;
-            if (!((fragment.getRepository() instanceof AbstractExmlRepository) && (fragment.getState() == FragmentState.UP_FULL)))
+            IGModelFragment fragment = (IGModelFragment) o;
+            if (!((fragment.getRepository() instanceof AbstractExmlRepository) && (fragment.getState().getValue() == GPartStateEnum.MOUNTED)))
                 return false;
         }
         return true;

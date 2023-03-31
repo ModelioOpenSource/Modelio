@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelio platform core services
 Bundle-SymbolicName: org.modelio.platform.core;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.platform.core.plugin.AppCore
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface,
  org.eclipse.e4.core.di,

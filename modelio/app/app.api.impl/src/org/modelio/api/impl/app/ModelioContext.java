@@ -23,7 +23,7 @@ import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.Platform;
 import org.modelio.api.modelio.IModelioContext;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vbasic.version.Version;
 import org.modelio.version.ModelioVersion;
@@ -68,9 +68,9 @@ public class ModelioContext implements IModelioContext {
     @Deprecated
     @Override
     public File getProjectSpacePath() {
-        GProject openedProject = this.projectService.getOpenedProject();
+        IGProject openedProject = this.projectService.getOpenedProject();
         if (openedProject != null) {
-            return openedProject.getProjectFileStructure().getProjectPath().toFile();
+            return openedProject.getPfs().getProjectPath().toFile();
         }
         return null;
     }

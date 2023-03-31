@@ -39,7 +39,7 @@ import org.eclipse.draw2d.geometry.Point;
  * 
  * @since 5.1.0
  */
-@objid ("bcfebe9e-b6b6-4c1e-a0c9-7e13c61b7f56")
+@objid ("3f3ae2f5-9ccd-41fd-a8ca-cc0845bb53f6")
 public interface ILinkRouteBuilder {
     /**
      * Request to anchor the connection source point at a given location.
@@ -49,7 +49,7 @@ public interface ILinkRouteBuilder {
      * @param sliding true to request a sliding anchor, false to request a fixed anchor.
      * @return the route builder to use for next steps.
      */
-    @objid ("20166f0f-e8b4-426c-b2a6-90bc147fd78d")
+    @objid ("d8c022f6-03c0-4056-84cf-25acbc1b24d9")
     Target setSourceAnchor(Point loc, boolean sliding);
 
     /**
@@ -60,7 +60,7 @@ public interface ILinkRouteBuilder {
      * @param sliding true to request a sliding anchor, false to request a fixed anchor.
      * @return the route builder to use for next steps.
      */
-    @objid ("4f89246e-3707-44a6-93ef-e3497e0c72b4")
+    @objid ("b82ce465-676a-4b4e-a078-2089596efa20")
     Target setSourceAnchor(LinkAnchorFace face, boolean sliding);
 
     /**
@@ -68,7 +68,7 @@ public interface ILinkRouteBuilder {
      * @param sliding true to request a sliding anchor, false to request a fixed anchor.
      * @return the route builder to use for next steps.
      */
-    @objid ("4e1df7ce-77c7-4224-8642-26dea8cf5089")
+    @objid ("f4beb015-e7fa-4cc7-b351-e27e6d3395fb")
     Target setSourceAnchorFaceTarget(boolean sliding);
 
     /**
@@ -83,15 +83,15 @@ public interface ILinkRouteBuilder {
      * @param sliding true to request a sliding anchor, false to request a fixed anchor.
      * @return the route builder to use for next steps.
      */
-    @objid ("81f84ef7-ce4c-4407-8ecc-ac596b69ad9f")
+    @objid ("591d79bd-c855-4c89-9f46-4310398c53cf")
     Target setSourceAnchor(LinkAnchorFace face, int numerator, int denominator, boolean sliding);
 
     /**
      * ILinkRouteBuilder usage example
      */
-    @objid ("bfd01853-7af3-4726-bd48-c94b13162013")
-    public static class Example {
-        @objid ("baf33c59-4441-4558-b7fb-e3c0c20a9f66")
+    @objid ("c507d05b-7bbb-4327-aa70-1196bd85aa63")
+    static class Example {
+        @objid ("534cb61f-36c3-45a3-beef-97c3560c3efe")
         void test(ILinkRouteBuilder ex) {
             ex.setSourceAnchorFaceTarget(true)
             .setTargetAnchor(LinkAnchorFace.WEST, true)
@@ -110,8 +110,8 @@ public interface ILinkRouteBuilder {
      * 
      * @since 5.1.0
      */
-    @objid ("15a5b6f1-7c4d-408a-9492-8970630a414d")
-    public interface Target {
+    @objid ("82ddead6-fd80-4d0b-96e9-7c4c3755910d")
+    interface Target {
         /**
          * Request to anchor the connection target point at a given location.
          * <p>
@@ -120,7 +120,7 @@ public interface ILinkRouteBuilder {
          * @param sliding true to request a sliding anchor, false to request a fixed anchor.
          * @return the route builder to use for next steps.
          */
-        @objid ("fe86f54a-b8dd-4ea2-a633-e99390d462aa")
+        @objid ("492227fd-8e6b-48f4-9556-90ef9b08685e")
         BendPoints setTargetAnchor(Point loc, boolean sliding);
 
         /**
@@ -131,7 +131,7 @@ public interface ILinkRouteBuilder {
          * @param sliding true to request a sliding anchor, false to request a fixed anchor.
          * @return the route builder to use for next steps.
          */
-        @objid ("fd9cd659-8fb9-421b-b743-0acc5393fe44")
+        @objid ("791b9ad8-be3b-4272-8cd4-b93f2ee8cde7")
         BendPoints setTargetAnchor(LinkAnchorFace face, boolean sliding);
 
         /**
@@ -139,7 +139,7 @@ public interface ILinkRouteBuilder {
          * @param sliding true to request a sliding anchor, false to request a fixed anchor.
          * @return the route builder to use for next steps.
          */
-        @objid ("dede60bc-6d1b-494e-9761-6243023e0e55")
+        @objid ("e47b71c4-1603-4568-a505-04ca53921957")
         BendPoints setTargetAnchorFaceSource(boolean sliding);
 
         /**
@@ -154,10 +154,10 @@ public interface ILinkRouteBuilder {
          * @param sliding true to request a sliding anchor, false to request a fixed anchor.
          * @return the route builder to use for next steps.
          */
-        @objid ("8583541d-feae-4be6-a502-c0632af5888d")
+        @objid ("82be7418-07a4-4eee-9768-1bbd740676a6")
         BendPoints setTargetAnchor(LinkAnchorFace face, int numerator, int denominator, boolean sliding);
-
-    }
+}
+    
 
     /**
      * {@link ILinkRouteBuilder} at bend points state.
@@ -168,8 +168,8 @@ public interface ILinkRouteBuilder {
      * 
      * @since 5.1.0
      */
-    @objid ("2422902a-fbad-408b-8ed2-3a5f857079b8")
-    public interface BendPoints {
+    @objid ("3c003dfc-a481-40c8-b132-fb7ab76fb956")
+    interface BendPoints {
         /**
          * Get a direct access to all points of the connection.
          * <p>
@@ -178,7 +178,7 @@ public interface ILinkRouteBuilder {
          * The path must be applied to the {@link IDiagramLink#setRoute(ILinkRoute)}.
          * @return the points in coordinates relative to the diagram.
          */
-        @objid ("3fccddeb-df34-4a2d-868e-10577918367e")
+        @objid ("89f0f506-a09e-4f4f-89cc-5acbc20dfe35")
         List<ILinkPoint> getAllPoints();
 
         /**
@@ -186,7 +186,7 @@ public interface ILinkRouteBuilder {
          * @param loc the point location
          * @return the route builder to use for next steps.
          */
-        @objid ("5f6f32bd-1f44-49b6-8823-59de2cbc17ba")
+        @objid ("22624724-4434-4964-b3e1-6d0c4aa4f372")
         BendPoints addBendPoint(Point loc);
 
         /**
@@ -194,7 +194,7 @@ public interface ILinkRouteBuilder {
          * @param loc the point location
          * @return the route builder to use for next steps.
          */
-        @objid ("b3b1ef65-0d37-42a8-9151-a179e30918f9")
+        @objid ("5aeb4c4f-2088-4d68-a20f-bbac98f2afd6")
         BendPoints addFixedPoint(Point loc);
 
         /**
@@ -203,7 +203,7 @@ public interface ILinkRouteBuilder {
          * @param fixed true to make the bend point is fixed.
          * @return this route instance
          */
-        @objid ("f7104a75-2fbb-4d43-9d10-46ad965fee25")
+        @objid ("7c16675d-68ff-4876-9d43-90a656bc39a2")
         BendPoints addHorizontalSegment(int nextBendPointX, boolean fixed);
 
         /**
@@ -212,7 +212,7 @@ public interface ILinkRouteBuilder {
          * @param fixed true to make the bend point is fixed.
          * @return this route instance
          */
-        @objid ("f2cd4e84-a588-4611-bdda-706610cd2323")
+        @objid ("395204f8-5ed3-47ed-95c8-8f1cd3c54062")
         BendPoints addVerticalSegment(int nextBendPointY, boolean fixed);
 
         /**
@@ -223,7 +223,7 @@ public interface ILinkRouteBuilder {
          * @param fixed true to make the bend point is fixed.
          * @return this route instance
          */
-        @objid ("5701c89c-addf-4968-a5c9-407564f4a906")
+        @objid ("d5400929-4f09-4a75-a989-4c81f84fdbec")
         BendPoints finishHorizontalThenVertical(boolean fixed);
 
         /**
@@ -234,13 +234,13 @@ public interface ILinkRouteBuilder {
          * @param fixed true to make the bend point is fixed.
          * @return this route instance
          */
-        @objid ("8130ad9a-4f95-4237-9f1b-f7ad0e65c604")
+        @objid ("d9766ca1-d023-402c-8f6c-1f0db91f606f")
         BendPoints finishVerticalThenHorizontal(boolean fixed);
 
         /**
          * Build the route and apply it to the connection it was created from.
          */
-        @objid ("63bb559e-3719-4918-9e59-b26070dcf575")
+        @objid ("8b084a43-661f-4be7-beb8-a7d52e6a6dad")
         void apply();
 
         /**
@@ -248,7 +248,7 @@ public interface ILinkRouteBuilder {
          * @param points the bend points locations.
          * @return this route instance
          */
-        @objid ("cc6acd8a-0e01-49b3-ac3e-ccf4780d5e95")
+        @objid ("ca60fcd0-5196-4bf7-8455-16479b2f8175")
         default BendPoints addBendPoints(Collection<Point> points) {
             for (Point p : points) {
                 addBendPoint(p);
@@ -261,14 +261,14 @@ public interface ILinkRouteBuilder {
          * @param points the bend points locations.
          * @return this route instance
          */
-        @objid ("25345fc8-eccc-4e43-b88d-370b56c1ed63")
+        @objid ("140bb61e-9bef-4b80-aa9a-4a6758fb2820")
         default BendPoints addFixedPoints(Collection<Point> points) {
             for (Point p : points) {
                 addFixedPoint(p);
             }
             return this;
         }
-
-    }
-
 }
+    
+}
+

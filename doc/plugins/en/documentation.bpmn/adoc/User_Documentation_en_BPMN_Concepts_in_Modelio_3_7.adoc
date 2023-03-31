@@ -8,7 +8,7 @@
 
 In this section, the semantic of several Modelio BPMN metaclasses are explained to in order to bring them back to concrete and practical considerations.
 
-[[HBPMNProcess]]
+
 ==  BPMN Process image:images/attachment/bpmn41/User_Documentation_en/BPMN_Concepts_in_Modelio_3.7/WebHome/bpmnprocess.png[bpmnprocess.png]
 
 A _BPMNProcess_ is the description of a particular workflow seen as the sequence of _BPMNTask_, _BPMNEvent_ and other similar elements that make it up.
@@ -21,12 +21,12 @@ A _BPMNProcess_ can be created under a _Package,_ a _GeneralClass_ or an _Operat
 
 The term *process* designates a _BPMNProcess_ seen from the user (although in practice the user will not even see instances of _BPMNProcess_ but rather instances of _BPMNParticipant_.)
 
-[[HBPMNCollaboration]]
+
 ==  BPMN Collaboration image:images/attachment/bpmn41/User_Documentation_en/BPMN_Concepts_in_Modelio_3.7/WebHome/bpmncollaboration.png[bpmncollaboration.png]
 
 A _BPMNCollaboration_ is the description of how several _BpmnProcess_ are collaborating through _BpmnMessageFlows_ exchanged between _BpmnParticipants_.
 
-[[HBPMNParticipant]]
+
 == BPMN Participant
 
 In the metamodel, the exact behavior of a "system" described in BPMN, is represented as a collaboration between several so-called participants. These participants are of kind _BPMNParticipant_.
@@ -35,7 +35,7 @@ At the metamodel level, a BPMNParticipant is the representative of a BPMNProcess
 
 Right now, let just say that describing a system in BPMN consists in creating (at least one) BPMN Collaboration in which several participants, representing several processes, collaborate to achieve the system's behavior.
 
-[[HParticipantclassification]]
+
 === Participant classification
 
 The initial key point is that a participant ( _BPMNParticipant_ ) is an object that represents a process ( _BPMNProcess_ ), being a kind of 'instance' of the process.
@@ -91,7 +91,7 @@ Workflow edition is possible directly from the participant representation.
 Edition is not allowed directly from the participant representation. The user willing to modify the process must 'navigate' to the corresponding BPMN Model.
 |==================================================================================================================================================================================================================================================================================================================================================================================================================================
 
-[[HBPMNMessageFlow]]
+
 == BPMN Message Flow
 
 Message flows _(BPMNMessageFlow)_ are used for exchanges between participants within a BPMN Collaboration. They carry messages _(BPMNMessage)_ containing information.

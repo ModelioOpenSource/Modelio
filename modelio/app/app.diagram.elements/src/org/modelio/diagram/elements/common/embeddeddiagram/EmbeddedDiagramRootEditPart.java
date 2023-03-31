@@ -347,7 +347,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         return layers;
     }
 
-    @objid ("d4ef4098-1f4d-4d5f-9ef4-b4ad1e46712c")
+    @objid ("b5c2b63d-b1f2-46ff-b6d4-f623ae61c470")
     protected void fitToContent() {
         if (isActive()) {
             EmbeddedZoomManager zm = getLocalZoomManager();

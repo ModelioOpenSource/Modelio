@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3260]]
 
-[[r3260]]
+
+
 = R3260
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The model should not contain missing elements.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Missing elements are elements which are referenced in the project without being physically accessible. A typical scenario is a distant model being unreachable because of a network problem. Another common situation is a broken or absent module whose extensions (stereotypes, tag types and so on) are used by model elements, these extensions appear as 'missing elements' because they are indeed currently missing.
 
 When the reason that caused the missing elements to appear is fixed (restored network, installation of the absent module) the references to the missing elements are repaired automatically. This is why there should be no missing elements in a properly configured and operational model (valid modules, network connections ok and so on.). The R3260 rule acts as an alarm to invite you to fix your project.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Check that a module, a work model or a library has not been removed from the project or is still accessible through the network. You can also use the NamespaceUse display in the link editor to track references on missing elements and replace them with existing elements.

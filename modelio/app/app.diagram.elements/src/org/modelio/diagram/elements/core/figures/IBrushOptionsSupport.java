@@ -75,5 +75,5 @@ public interface IBrushOptionsSupport {
      */
     @objid ("2315f1fa-1106-4272-995c-59835f1ce38d")
     int getFillAlpha();
-
 }
+

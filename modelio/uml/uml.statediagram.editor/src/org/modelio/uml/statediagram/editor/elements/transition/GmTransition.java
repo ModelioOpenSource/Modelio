@@ -41,6 +41,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5a89a9a-55b6-11e2-877f-002564c97630")
 public class GmTransition extends GmLink {
+    @objid ("f5aa213b-55b6-11e2-877f-002564c97630")
+    private Transition element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -55,9 +58,6 @@ public class GmTransition extends GmLink {
 
     @objid ("d1e76310-5c2a-4901-a52a-079972937a8a")
     public static final String ROLE_POSTCOND = "post_condition";
-
-    @objid ("f5aa213b-55b6-11e2-877f-002564c97630")
-    private Transition element;
 
     @objid ("fe7a7c21-5a5b-11e2-9e33-00137282c51b")
     private static final GmTransitionStyleKeys styleKeyProvider = new GmTransitionStyleKeys();

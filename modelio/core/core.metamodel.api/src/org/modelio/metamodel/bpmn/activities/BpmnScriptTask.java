@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A Script Task is executed by a business process engine. The modeler or implementer defines a script in a language that the engine can interpret. When the Task is ready to start, the engine will execute the script. When the script is completed, the Task will also be completed.
+ * 
+ * 
  */
 @objid ("0082028a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnScriptTask extends BpmnTask {
@@ -53,6 +55,7 @@ public interface BpmnScriptTask extends BpmnTask {
      * Metamodel description:
      * <i>Defines the script language. The script language MUST be provided if a
      * script is provided.</i>
+     * 
      */
     @objid ("390d420a-8989-4eea-9ca4-6baf8588114d")
     String getScriptLanguage();
@@ -63,6 +66,7 @@ public interface BpmnScriptTask extends BpmnTask {
      * Metamodel description:
      * <i>Defines the script language. The script language MUST be provided if a
      * script is provided.</i>
+     * 
      */
     @objid ("25a46978-9618-4430-a73d-bc26cec744c9")
     void setScriptLanguage(String value);
@@ -73,6 +77,7 @@ public interface BpmnScriptTask extends BpmnTask {
      * Metamodel description:
      * <i>The modeler MAY include a script that can be run when the Task is performed.
      * If a script is not included, then the Task will act as the equivalent of an Abstract Task</i>
+     * 
      */
     @objid ("f8b9a678-e65e-4758-8333-67356be8e0b7")
     String getScript();
@@ -83,8 +88,9 @@ public interface BpmnScriptTask extends BpmnTask {
      * Metamodel description:
      * <i>The modeler MAY include a script that can be run when the Task is performed.
      * If a script is not included, then the Task will act as the equivalent of an Abstract Task</i>
+     * 
      */
     @objid ("2078b130-132e-4450-a61c-09a6078f061b")
     void setScript(String value);
-
 }
+

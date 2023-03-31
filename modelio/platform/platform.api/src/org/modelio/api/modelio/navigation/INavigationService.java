@@ -59,5 +59,5 @@ public interface INavigationService {
      */
     @objid ("5923c631-4f5d-40de-b325-e2fe1958d76c")
     void fireNavigate(List<MObject> targets);
-
 }
+

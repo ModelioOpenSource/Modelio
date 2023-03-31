@@ -49,7 +49,7 @@ public interface IObModelChangeListener {
      * <p>
      * The default implementation deletes itself.
      */
-    @objid ("838148eb-8215-4cd0-a668-2729ab3482ea")
+    @objid ("2a18db6c-e141-47b1-a5ce-e7e58b8dc5d1")
     void obElementDeleted();
-
 }
+

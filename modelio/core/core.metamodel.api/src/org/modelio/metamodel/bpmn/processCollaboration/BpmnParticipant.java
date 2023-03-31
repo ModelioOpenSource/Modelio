@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * A Participant represents a specific PartnerEntity (e.g., a company) and/or a more general PartnerRole (e.g., a buyer, seller, or manufacturer) that are Participants in a Collaboration. A Participant is often responsible for the execution of the Process enclosed in a Pool; however, a Pool may be defined without a Process.
+ * 
+ * 
  */
 @objid ("007577d6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnParticipant extends BpmnBaseElement {
@@ -65,6 +67,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>When Participants represent more than 1 instance, min and max are specified (1 - 1 by default)</i>
+     * 
      */
     @objid ("a2a72968-d77b-41a0-ade7-5125601c3445")
     int getMultiplicityMin();
@@ -74,6 +77,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>When Participants represent more than 1 instance, min and max are specified (1 - 1 by default)</i>
+     * 
      */
     @objid ("a9582f70-d8bc-42ad-be8f-8b62781a707b")
     void setMultiplicityMin(int value);
@@ -83,6 +87,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>When Participants represent more than 1 instance, min and max are specified (1 - 1 by default)</i>
+     * 
      */
     @objid ("c11de0b7-fe27-4d24-82b9-2c3829f308b9")
     int getMultiplicityMax();
@@ -92,6 +97,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>When Participants represent more than 1 instance, min and max are specified (1 - 1 by default)</i>
+     * 
      */
     @objid ("a1199bc5-fb38-469b-b2bd-1a18d9882b9f")
     void setMultiplicityMax(int value);
@@ -101,6 +107,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("24cb54c9-f782-4802-bcf8-4c658aae7bf4")
     BpmnProcess getProcess();
@@ -110,6 +117,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8cecbae3-c780-4664-9743-e991c6651a9a")
     void setProcess(BpmnProcess value);
@@ -119,6 +127,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a07b9a00-f0b9-4c27-856c-15e215a7d3f7")
     BpmnCollaboration getContainer();
@@ -128,6 +137,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3aa867c8-3b9d-4aa7-b917-4b6f9d14db60")
     void setContainer(BpmnCollaboration value);
@@ -137,6 +147,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d7495e3d-2dd1-4280-b374-1b7483646efb")
     EList<BpmnEndPoint> getEndPointRefs();
@@ -146,6 +157,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("acba07d9-87e1-4944-8f77-7eaf83e2d496")
     <T extends BpmnEndPoint> List<T> getEndPointRefs(java.lang.Class<T> filterClass);
@@ -155,6 +167,7 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f58b83f0-2834-41bd-a14d-1dbc1d831baf")
     EList<BpmnInterface> getInterfaceRefs();
@@ -164,8 +177,9 @@ public interface BpmnParticipant extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("daa18ac9-b8da-488e-9540-d492000c68b7")
     <T extends BpmnInterface> List<T> getInterfaceRefs(java.lang.Class<T> filterClass);
-
 }
+

@@ -47,6 +47,7 @@ import org.modelio.diagram.elements.drawings.core.IGmDrawingLink;
 import org.modelio.diagram.elements.drawings.core.IGmNodeDrawing;
 import org.modelio.diagram.elements.drawings.ellipse.GmEllipseDrawing;
 import org.modelio.diagram.elements.drawings.line.GmLineDrawing;
+import org.modelio.diagram.elements.drawings.note.GmNoteDrawing;
 import org.modelio.diagram.elements.drawings.rectangle.GmRectangleDrawing;
 import org.modelio.diagram.elements.drawings.text.GmTextDrawing;
 import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
@@ -70,17 +71,17 @@ public class DGFactory implements IDGFactory {
      */
     @objid ("bf25d51a-8191-4f24-86a4-e187767bc013")
     private static final Comparator<? super IDGFactory> DEFAULT_FACTORY_COMPARATOR = new Comparator<IDGFactory>() {
-            @Override
-            public int compare(IDGFactory o1, IDGFactory o2) {
-                if (o1 instanceof InfrastructureDGFactory) {
-                    return Integer.MAX_VALUE;
-                } else if (o2 instanceof InfrastructureDGFactory) {
-                    return Integer.MIN_VALUE;
-                } else {
-                    return 0;
+                @Override
+                public int compare(IDGFactory o1, IDGFactory o2) {
+                    if (o1 instanceof InfrastructureDGFactory) {
+                        return Integer.MAX_VALUE;
+                    } else if (o2 instanceof InfrastructureDGFactory) {
+                        return Integer.MIN_VALUE;
+                    } else {
+                        return 0;
+                    }
                 }
-            }
-        };
+            };
 
     @objid ("dbe693bf-71c0-4df6-ad31-7324ef842dd5")
     private  DGFactory() {
@@ -136,8 +137,8 @@ public class DGFactory implements IDGFactory {
     }
 
     /* (non-Javadoc)
-         * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramLink(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.model.IGmLink)
-         */
+             * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramLink(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.model.IGmLink)
+             */
     @objid ("9ece0dd2-718f-486e-aa45-34e751fd9203")
     @Override
     public IDiagramLink getDiagramLink(IDiagramHandle diagramHandle, IGmLink gmLink) {
@@ -153,8 +154,8 @@ public class DGFactory implements IDGFactory {
     }
 
     /* (non-Javadoc)
-         * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramNode(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.node.GmNodeModel)
-         */
+             * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramNode(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.node.GmNodeModel)
+             */
     @objid ("0c99b06f-a207-4b03-b535-a1f176b81570")
     @Override
     public IDiagramNode getDiagramNode(IDiagramHandle diagramHandle, GmNodeModel gmNodeModel) {
@@ -214,6 +215,10 @@ public class DGFactory implements IDGFactory {
         }
         
         if (gmModel instanceof GmTextDrawing) {
+            return new DiagramDrawingNodeDG((DiagramHandle) diagramHandle, (IGmNodeDrawing) gmModel);
+        }
+        
+        if (gmModel instanceof GmNoteDrawing) {
             return new DiagramDrawingNodeDG((DiagramHandle) diagramHandle, (IGmNodeDrawing) gmModel);
         }
         

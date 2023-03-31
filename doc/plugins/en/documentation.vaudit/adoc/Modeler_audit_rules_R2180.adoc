@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2180]]
 
-[[r2180]]
+
+
 = R2180
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 No cycles can exist in a _NameSpace_ inheritance graph.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 If we have two _NameSpaces_ A and B, and if A inherits from B and B inherits from A, we have an inheritance cycle. Such a cycle is a design error and is strictly forbidden.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove one of the links or change its source or destination to break the cycle.

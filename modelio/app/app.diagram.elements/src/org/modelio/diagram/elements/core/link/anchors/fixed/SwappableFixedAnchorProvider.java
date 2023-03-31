@@ -23,46 +23,24 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
+import org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 
 /**
  * Factory of all possible FixedAnchors for a figure.
  */
 @objid ("62c8633d-74fa-47f4-bbd4-39654eec735b")
-public class SwappableFixedAnchorProvider extends FixedNodeAnchorProvider {
+@Deprecated
+class SwappableFixedAnchorProvider extends FixedConnectionAnchorFactory {
     @objid ("e1d86e9d-35df-469b-984e-3d3dda62d449")
-    public  SwappableFixedAnchorProvider(int nHorizontal, int nVertical) {
-        super( nHorizontal, nVertical);
+    public  SwappableFixedAnchorProvider(String algorithmId, int nHorizontal, int nVertical) {
+        super(algorithmId, nHorizontal, nVertical);
     }
 
-    @objid ("c8065bb5-c922-4c9a-b802-0853a0c3f66e")
+    @objid ("9c34e18b-31b1-471b-8292-4ca05b158f2e")
     @Override
-    public Point getLocation(FixedAnchor anchor, Point reference) {
-        final Rectangle rect = anchor.getOwner().getBounds().getCopy();
-        anchor.getOwner().translateToAbsolute(rect);
-        
-        double fraction =  (anchor.getRank() + 1.0) / (anchor.getTotalOnFace() + 1.0);
-        
-        switch (anchor.getFace()) {
-        case FACE_NORTH:
-        case FACE_SOUTH:
-            if (reference.y <= rect.y+rect.height / 2)
-                return rect.getTopLeft().translate(rect.width * fraction, 0);
-            else
-                return rect.getBottomLeft().translate(rect.width * fraction, 0);
-        case FACE_EAST:
-        case FACE_WEST:
-            if (reference.x <= rect.x+rect.width / 2)
-                return rect.getTopLeft().translate(0, rect.height * fraction);
-            else
-                return rect.getTopRight().translate(0, rect.height * fraction);
-        default:
-            throw new IllegalStateException("Unknow border:" + anchor.getFaceName());
-        
-        }
-        
+    protected IFixedAnchorLocator createAnchorLocator(String algoId, IFigure aNodeFigure) {
+        return new SwappableFixedAnchorLocator(algoId, this::onFigureMoved);
     }
 
     /**

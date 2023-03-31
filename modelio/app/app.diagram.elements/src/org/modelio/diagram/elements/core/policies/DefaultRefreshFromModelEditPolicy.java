@@ -27,7 +27,7 @@ import org.modelio.diagram.elements.core.model.IGmModelRelated;
 /**
  * @since 3.7, remade in 5.1.0 to handle connections layout
  */
-@objid ("2aba4659-ca35-4a26-8b15-82fc9905b487")
+@objid ("9c6f2892-4483-41bb-bffc-febe65bb8aae")
 public class DefaultRefreshFromModelEditPolicy extends AbstractRefreshFromModelEditPolicy {
     /**
      * Get a command to run to refresh the graphic model from the object model.
@@ -37,7 +37,7 @@ public class DefaultRefreshFromModelEditPolicy extends AbstractRefreshFromModelE
      * @param ev the property change event, in case it contains useful informations
      * @return a command or null.
      */
-    @objid ("1257957d-38df-4b71-9de5-60515ecec13e")
+    @objid ("e7786089-a34e-4af8-b6c6-1be03abf21b2")
     @Override
     protected Command getRefreshFromModelCommand(PropertyChangeEvent ev) {
         return null;

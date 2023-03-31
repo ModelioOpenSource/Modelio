@@ -34,7 +34,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.browser.plugin.DiagramBrowser;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -150,8 +150,8 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
             }
         } else if (object instanceof MObject) {
             return ElementImageService.getIcon(((MObject) object));
-        } else if (object instanceof IProjectFragment) {
-            IProjectFragment fragment = (IProjectFragment) object;
+        } else if (object instanceof IGModelFragment) {
+            IGModelFragment fragment = (IGModelFragment) object;
             return FragmentImageService.getImage(fragment);
         }
         return null;
@@ -197,16 +197,15 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
             } else {
                 return UIColor.NONMODIFIABLE_ELEMENT_FG;
             }
-        } else if (obj instanceof IProjectFragment) {
-            IProjectFragment fragment = (IProjectFragment) obj;
+        } else if (obj instanceof IGModelFragment) {
+            IGModelFragment fragment = (IGModelFragment) obj;
             switch (fragment.getType()) {
-            case EXML:
-            case EXML_SVN:
+            case EXMLFRAGMENT:
+            case SVNFRAGMENT:
                 return UIColor.BLACK;
             case RAMC:
-            case MDA:
                 return UIColor.RAMC_ELEMENT_FG;
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 return UIColor.NONMODIFIABLE_ELEMENT_FG;
             default:
                 DiagramBrowser.LOG.warning("No color found for fragment type: " + fragment.getType());
@@ -233,8 +232,8 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
             }
         } else if (object instanceof DiagramRef) {
             return LabelTextProvider.getLabel(((DiagramRef) object).getReferencedDiagram());
-        } else if (object instanceof IProjectFragment) {
-            return FragmentStyledLabelProvider.getStyledText((IProjectFragment) object);
+        } else if (object instanceof IGModelFragment) {
+            return FragmentStyledLabelProvider.getStyledText((IGModelFragment) object);
         }
         return new StyledString();
     }

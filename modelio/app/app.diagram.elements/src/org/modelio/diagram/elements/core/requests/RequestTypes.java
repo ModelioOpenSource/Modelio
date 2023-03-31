@@ -21,13 +21,20 @@ package org.modelio.diagram.elements.core.requests;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
-@objid ("967bb8f4-dacc-49ab-a6cb-7385e07c4db1")
+@objid ("be9672aa-be3a-4aed-a930-d2ed35af2f2a")
 public class RequestTypes {
     /**
      * Request type for {@link org.eclipse.gef.requests.CreateConnectionRequest CreateConnectionRequest} asking to add a
      * bend point.
      */
-    @objid ("e5145270-ab3f-4f5b-829d-d01a1e7d5e60")
+    @objid ("4e0dbca7-f3b8-4ae6-a4c2-6b0a73d7ab28")
     public static final String REQ_DELETING_CHILDREN = "Deleting children";
+
+    /**
+     * Request type for {@link org.modelio.diagram.elements.core.commands.DefaultSelectElementCommand} asking to
+     * select and unmask an existing element.
+     */
+    @objid ("8b4b977c-b452-44aa-8553-401c23a9c318")
+    public static final String UNMASK_OR_CREATE_CHILDREN = "Unmask or Create children";
 
 }

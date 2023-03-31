@@ -42,5 +42,5 @@ public interface IPersistentMigrator {
      */
     @objid ("cb7049ca-186f-11e2-92d2-001ec947c8cc")
     IPersistent migrate(final IPersistent instanceToMigrate);
-
 }
+

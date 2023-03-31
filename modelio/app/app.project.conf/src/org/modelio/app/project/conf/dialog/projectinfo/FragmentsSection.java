@@ -40,9 +40,8 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.exml.ExmlFragment;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.platform.ui.UIColor;
 
@@ -114,15 +113,15 @@ class FragmentsSection {
         nameColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                if (element instanceof IProjectFragment) {
-                    return ((IProjectFragment) element).getId();
+                if (element instanceof IGModelFragment) {
+                    return ((IGModelFragment) element).getId();
                 }
                 return ""; //$NON-NLS-1$
             }
         
             @Override
             public Image getImage(Object element) {
-                return FragmentImageService.getImage((IProjectFragment) element);
+                return FragmentImageService.getImage((IGModelFragment) element);
             }
         });
         
@@ -133,11 +132,11 @@ class FragmentsSection {
         statusColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                if (element instanceof IProjectFragment) {
-                    final IProjectFragment fragment = (IProjectFragment) element;
-                    String str = AppProjectConf.I18N.getString("$FragmentsSection." + fragment.getState().name());
-                    if (fragment.getDownError() != null) {
-                        str += ": " + fragment.getDownError().getLocalizedMessage();
+                if (element instanceof IGModelFragment) {
+                    final IGModelFragment fragment = (IGModelFragment) element;
+                    String str = AppProjectConf.I18N.getString("$FragmentsSection." + fragment.getState().getValue().name());
+                    if (fragment.getState().getDownError() != null) {
+                        str += ": " + fragment.getState().getDownError().getLocalizedMessage();
                     }
         
                     return str;
@@ -147,9 +146,9 @@ class FragmentsSection {
         
             @Override
             public Image getImage(Object element) {
-                if (element instanceof IProjectFragment) {
-                    final IProjectFragment fragment = (IProjectFragment) element;
-                    return FragmentImageService.getStateImage(fragment.getState());
+                if (element instanceof IGModelFragment) {
+                    final IGModelFragment fragment = (IGModelFragment) element;
+                    return FragmentImageService.getStateImage(fragment.getState().getValue());
                 }
                 return null;
             }
@@ -163,10 +162,11 @@ class FragmentsSection {
             @Override
             public String getText(Object element) {
                 URI uri = null;
-                if (element instanceof RamcFileFragment || element instanceof ExmlFragment) {
-                    // Ignore uri
-                } else if (element instanceof IProjectFragment) {
-                    uri = ((IProjectFragment) element).getUri();
+                if (element instanceof IGModelFragment) {
+                    IGModelFragment fragment = (IGModelFragment) element;
+                    if (fragment.getType() != GProjectPartType.EXMLFRAGMENT && fragment.getType() != GProjectPartType.RAMC) {
+                        uri = fragment.getDescriptor().getLocation();
+                    }
                 }
                 return uri != null ? uri.toString().replaceAll("%20", " ") : ""; //$NON-NLS-1$
             }

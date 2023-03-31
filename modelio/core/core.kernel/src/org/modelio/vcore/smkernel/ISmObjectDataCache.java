@@ -40,5 +40,5 @@ public interface ISmObjectDataCache {
      */
     @objid ("02128311-8585-11e1-bb11-001ec947ccaf")
     void putDataToCache(final ISmObjectData data);
-
 }
+

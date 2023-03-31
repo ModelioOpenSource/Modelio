@@ -46,6 +46,8 @@ import org.modelio.metamodel.uml.statik.Parameter;
  * Streaming parameters give action access to tokens passed from its invoker while the action is executing. Values for streaming parameters may arrive anytime during the execution of the action, not just at the beginning. 
  * 
  * The effect of a parameter is a declaration of the modeler's intent, and does not have execution semantics. The modeler must ensure that the owner of the parameter has the stated effect.
+ * 
+ * 
  */
 @objid ("004119be-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BehaviorParameter extends Parameter {
@@ -66,6 +68,7 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("27d6b791-4bd0-4f19-92f8-d997905cb682")
     EList<ObjectNode> getRepresentingObjectNode();
@@ -75,6 +78,7 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("718c84e7-e6b8-4c87-bcde-9ddf566a19db")
     <T extends ObjectNode> List<T> getRepresentingObjectNode(java.lang.Class<T> filterClass);
@@ -84,6 +88,7 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2f08bb7a-be9e-4f38-b6f6-18eeb493253a")
     Behavior getOwner();
@@ -93,6 +98,7 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("64028638-7572-40d4-a713-85b4ae67db0e")
     void setOwner(Behavior value);
@@ -102,6 +108,7 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bd695c7d-8c27-427d-b60e-1f11ac952cb0")
     Parameter getMapped();
@@ -111,8 +118,9 @@ public interface BehaviorParameter extends Parameter {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cbf143b1-6c28-4a1f-891c-8f90c9ce9482")
     void setMapped(Parameter value);
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1300]]
 
-[[r1300]]
+
+
 = R1300
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 _ObjectNodes_ connected by _ObjectFlows_ must have the same upper bounds.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _ObjectNodes_ connected by an _ObjectFlow_, with optionally intervening _ControlNodes_, must have the same upper boundaries.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1300 warning on an _ObjectFlow_, verify that all upstream and downstream _ObjectNodes_ of this flow have the same upper boundaries. The upper boundaries of an _ObjectNode_ can be changed through the "Element" view when the _ObjectNode_ in question is selected.

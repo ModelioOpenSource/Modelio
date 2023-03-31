@@ -130,5 +130,5 @@ public interface IModuleContext {
      */
     @objid ("eb320d46-f17f-4786-9356-23b819aa233a")
     void setModule(IModule iModule);
-
 }
+

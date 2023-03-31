@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.starrating.feature"
+      label="Nebula Opal Star Rating Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Checkboxgroup
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.starrating"
+         download-size="15"
+         install-size="23"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.starrating.source"
+         download-size="11"
+         install-size="24"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+</feature>

@@ -23,8 +23,8 @@ import java.io.IOException;
 import java.net.URI;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.gproject.GProjectAuthenticationException;
+import org.modelio.gproject.auth.GProjectAuthenticationException;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.vbasic.auth.IAuthData;
 
 /**
@@ -33,30 +33,16 @@ import org.modelio.vbasic.auth.IAuthData;
 @objid ("d5742991-7836-4806-a101-22aa9e9ca3b6")
 public interface IProjectOpener {
     /**
-     * Opens a project given its project descriptor.
+     * Open a project given its loaded descriptor {@link GProjectDescriptor}.
      * @param projectToOpen the project descriptor, never <i>null</i>.
      * @param authData the authentication data
-     * @param batchMode whether running in batch mode
      * @param monitor a progress monitor, may be <i>null</i>.
      * @throws GProjectAuthenticationException on authentication failure
      * @throws IOException on failure
      * @throws InterruptedException if interrupted or cancelled by the user.
      */
     @objid ("5a5bf0fa-4077-45e2-a004-5bb062545251")
-    void openProject(ProjectDescriptor projectToOpen, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException;
-
-    /**
-     * Opens a project given a designating URI.
-     * @param projectURI the project to open URI, never <i>null</i>. eg: <i>file://myworkspace/myprojectspace/project.conf</i>
-     * @param authData the authentication data
-     * @param batchMode whether running in batch mode
-     * @param monitor a progress monitor, may be <i>null</i>.
-     * @throws GProjectAuthenticationException on authentication failure
-     * @throws IOException on failure
-     * @throws InterruptedException if interrupted or cancelled by the user.
-     */
-    @objid ("cb93e17d-3ab5-49bc-874a-4c8277eca384")
-    void openProject(URI projectURI, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException;
+    void openProject(GProjectDescriptor projectToOpen, IAuthData authData, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException;
 
     /**
      * Initialize the service from required services
@@ -65,4 +51,16 @@ public interface IProjectOpener {
     @objid ("0b017211-5a49-42c2-ab4f-dd409ba224b3")
     void configure(IProjectServiceAccess service);
 
+    /**
+     * Open a project from an URI.
+     * @param projectURI where the project is.
+     * @param authData the authentication data
+     * @param monitor a progress monitor, may be <i>null</i>.
+     * @throws GProjectAuthenticationException on authentication failure
+     * @throws IOException on failure
+     * @throws InterruptedException if interrupted or cancelled by the user.
+     */
+    @objid ("5923395d-e5f9-43a2-a7ce-18b290da41a6")
+    void openProject(URI projectURI, IAuthData authData, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException;
 }
+

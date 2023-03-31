@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Copying-a-diagram-as-an-image]]
 
-[[copying-a-diagram-as-an-image]]
+
+
 = Copying a diagram as an image
 
 To copy the contents of a diagram to the clipboard, just click on the image:images/Modeler-_modeler_diagrams_copying_copy_image.png[2] icon in the diagram toolbar, and then paste the diagram contents into another document.

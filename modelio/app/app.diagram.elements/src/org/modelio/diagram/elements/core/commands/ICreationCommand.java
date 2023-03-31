@@ -39,5 +39,5 @@ public interface ICreationCommand<T extends IGmLinkable> {
      */
     @objid ("3dbaba78-e52e-450b-8b0f-b6dd15fb4b86")
     T getCreatedGraphicModel();
-
 }
+

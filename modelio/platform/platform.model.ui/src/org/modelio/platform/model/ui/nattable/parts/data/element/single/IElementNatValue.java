@@ -56,5 +56,5 @@ public interface IElementNatValue extends ISingleNatValue {
      */
     @objid ("3aa2bf4f-352d-4b41-9b11-010561ec3e2c")
     void setElementFilter(IMObjectFilter elementFilter);
-
 }
+

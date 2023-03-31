@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.equinox.executable"
+      label="%featureName"
+      version="3.8.1000.v20200915-1508"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.equinox.launcher"
+         download-size="52"
+         install-size="93"
+         version="1.6.0.v20200915-1508"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64"
+         os="macosx"
+         ws="cocoa"
+         arch="x86_64"
+         download-size="40"
+         install-size="88"
+         version="1.2.0.v20200915-1442"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.equinox.launcher.gtk.linux.ppc64le"
+         os="linux"
+         ws="gtk"
+         arch="ppc64le"
+         download-size="85"
+         install-size="263"
+         version="1.2.0.v20200915-1442"
+         fragment="true"/>
+         
+   <plugin
+         id="org.eclipse.equinox.launcher.gtk.linux.aarch64"
+         os="linux"
+         ws="gtk"
+         arch="aarch64"
+         download-size="82"
+         install-size="203"
+         version="1.2.0.v20200915-1442"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.equinox.launcher.gtk.linux.x86_64"
+         os="linux"
+         ws="gtk"
+         arch="x86_64"
+         download-size="70"
+         install-size="167"
+         version="1.2.0.v20200915-1442"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.equinox.launcher.win32.win32.x86_64"
+         os="win32"
+         ws="win32"
+         arch="x86_64"
+         download-size="82"
+         install-size="163"
+         version="1.2.0.v20200915-1442"
+         fragment="true"/>
+
+</feature>

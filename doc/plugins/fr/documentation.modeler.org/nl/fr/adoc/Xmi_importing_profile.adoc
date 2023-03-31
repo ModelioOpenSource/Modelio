@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Importer-un-profil-au-format-XMI]]
 
-[[importer-un-profil-au-format-xmi]]
+
+
 = Importer un profil au format XMI
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 L'opération d'import de profil de Modelio importe un profil UML2 dans Modelio à partir d'un fichier XMI.
@@ -25,9 +25,9 @@ image::images/Xmi_importing_profile_ImportProfileCommand.png[3]
 1. Cliquez droit sur un module pour ouvrir le menu contextuel.
 2. Lancez la commande "Import/Export \ Import \ Import de profil".
 
-[[La-fenêtre-dimport-de-profil-XMI]]
 
-[[la-fenêtre-dimport-de-profil-xmi]]
+
+
 ===== La fenêtre d'import de profil XMI
 
 .La fenêtre d'import de profil XMI

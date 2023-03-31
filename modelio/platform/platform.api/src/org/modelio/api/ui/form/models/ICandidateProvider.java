@@ -24,5 +24,5 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface ICandidateProvider {
     @objid ("9f1fee8e-9894-4e80-8278-89f8e97580d1")
     List<MObject> getElements(MObject e);
-
 }
+

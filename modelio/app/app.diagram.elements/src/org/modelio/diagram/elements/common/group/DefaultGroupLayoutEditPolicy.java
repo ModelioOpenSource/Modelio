@@ -33,6 +33,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.DefaultCloneElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
@@ -41,6 +42,7 @@ import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeNonResizableEditPolicy;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MExpert;
 
@@ -57,7 +59,7 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     @objid ("7e523641-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void eraseTargetFeedback(Request request) {
-        if (REQ_ADD.equals(request.getType()) || REQ_CREATE.equals(request.getType())) {
+        if (REQ_ADD.equals(request.getType()) || REQ_CREATE.equals(request.getType())   || RequestTypes.UNMASK_OR_CREATE_CHILDREN.equals(request.getType())) {
         
             if (this.highlight != null) {
                 removeFeedback(this.highlight);
@@ -207,8 +209,7 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             final GmCompositeNode gmGroup = (GmCompositeNode) getHost().getModel();
             final boolean returnCommand = expert.canCompose(gmGroup.getRelatedElement(), mc, null);
             if (returnCommand) {
-        
-                return new DefaultCreateElementCommand(gmGroup, ctx, Integer.valueOf(-1));
+                return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(gmGroup, ctx, Integer.valueOf(-1)),getHost().getRoot().getViewer().getEditPartRegistry());
             }
         }
         return null;

@@ -177,6 +177,7 @@ final class WinRegKey {
         System.arraycopy( buffer, 0, result, 0, (int)size[0] );
         return result;
     }
+
 static {        
             try {
                 ClassLoader cl = WinRegKey.class.getClassLoader();            

@@ -28,7 +28,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;

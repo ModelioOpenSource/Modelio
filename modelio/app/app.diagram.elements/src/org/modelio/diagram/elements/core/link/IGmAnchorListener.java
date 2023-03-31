@@ -32,5 +32,5 @@ public interface IGmAnchorListener {
      */
     @objid ("3747adba-574a-43a2-8ec6-8eeaa0e259b0")
     void fireAnchorMoved(GmAbstractLinkAnchor gmLinkAnchor);
-
 }
+

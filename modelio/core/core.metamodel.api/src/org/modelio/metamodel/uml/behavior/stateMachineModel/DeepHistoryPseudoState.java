@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * DeepHistoryPseudoState represents the most recent active configuration of the composite state that directly contains this pseudostate (e.g., the state configuration that was active when the composite state was last exited). A composite state can have at most one deep history vertex. At most one transition may originate from the history connector to the default deep history state. This transition is taken in case the composite state had never been active before. Entry actions of states entered on the path to the state represented by a deep history are performed.
+ * 
+ * 
  */
 @objid ("004ec28a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DeepHistoryPseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface DeepHistoryPseudoState extends AbstractPseudoState {
      */
     @objid ("f8314eef-fe51-4b1b-a99d-5558d658771b")
     public static final String MQNAME = "Standard.DeepHistoryPseudoState";
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2440]]
 
-[[r2440]]
+
+
 = R2440
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _Opération_ ne peut pas appartenir à une _Enumération_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Enumération_ ne peut contenir que des littéraux.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Supprimez l'opération ou déplacez-la dans une classe de service.

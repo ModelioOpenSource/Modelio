@@ -45,5 +45,5 @@ public interface IAuthDataUi {
      */
     @objid ("4fd34d3f-d044-4ddb-bd83-9ac57898f260")
     void collect(IAuthData data);
-
 }
+

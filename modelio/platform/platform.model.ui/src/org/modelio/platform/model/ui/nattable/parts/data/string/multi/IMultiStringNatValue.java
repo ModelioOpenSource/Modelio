@@ -32,5 +32,5 @@ public interface IMultiStringNatValue extends IMultiNatValue {
     @objid ("09107103-247e-4fe0-a1bd-7e2147164994")
     @Override
     List<String> getValue();
-
 }
+

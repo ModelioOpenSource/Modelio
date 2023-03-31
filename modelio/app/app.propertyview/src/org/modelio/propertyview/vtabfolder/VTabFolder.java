@@ -102,7 +102,7 @@ public class VTabFolder extends Composite {
     @objid ("7d5104d8-7788-46f6-873f-1c4b3e066a50")
     public int marginHeight = 0;
 
-    /* sizing, positioning */
+     // /* sizing, positioning */
     @objid ("ab7b3cc7-2979-4fc9-8f9d-56d805366946")
     private boolean onRight = false;
 
@@ -186,7 +186,7 @@ public class VTabFolder extends Composite {
     @objid ("06d16813-1ab9-4953-ae22-20c8c1e38f0d")
     boolean useDefaultRenderer;
 
-    /* Unselected item appearance */
+     // /* Unselected item appearance */
     @objid ("4ddbb8eb-6699-41d5-99c6-f3ff6d6b4656")
     boolean showUnselectedImage = true;
 
@@ -229,12 +229,14 @@ public class VTabFolder extends Composite {
     @objid ("8a080990-16a4-404e-bdc9-370718f3887e")
     static final int UPDATE_TAB_HEIGHT = 1 << 3;
 
-    // when disposing VTabFolder, don't try to layout the items or
-    // change the selection as each child is destroyed.
+    /*
+     * // when disposing VTabFolder, don't try to layout the items or
+     * // change the selection as each child is destroyed.
+     */
     @objid ("e382807b-6027-4c06-b9d4-495bf0bd7d9d")
     boolean inDispose = false;
 
-    // internal constants
+     // // internal constants
     @objid ("454651ea-0ca7-454c-9c62-4cec3108d2b9")
     static final int DEFAULT_WIDTH = 64;
 
@@ -253,7 +255,7 @@ public class VTabFolder extends Composite {
     @objid ("a8dceaed-c6ca-4889-964d-9b613d4b7b52")
     static final int BACKGROUND = SWT.COLOR_WIDGET_BACKGROUND;
 
-    // TODO: add setter for spacing?
+     // // TODO: add setter for spacing?
     @objid ("02f45d02-8303-441f-b0e3-6f1a1f897d22")
     static final int SPACING = 3;
 
@@ -4100,6 +4102,7 @@ public class VTabFolder extends Composite {
     public void setFirstIndex(int firstIndex) {
         this.firstIndex = firstIndex;
     }
+
 static {
             String platform = SWT.getPlatform();
             IS_GTK = "gtk".equals(platform);

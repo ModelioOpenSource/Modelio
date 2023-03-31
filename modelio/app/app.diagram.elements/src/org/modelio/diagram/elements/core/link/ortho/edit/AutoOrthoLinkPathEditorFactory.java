@@ -59,13 +59,13 @@ public class AutoOrthoLinkPathEditorFactory {
      */
     @objid ("1c44935c-c0d0-40af-ad33-20a6df2b91e3")
     private static class EditorChooser implements ILinkPathEditorFactory {
-        @objid ("accaa9fa-6c7d-4d1b-b9d2-40142d2b39fe")
+        @objid ("4623c261-21b5-4fba-8db3-4652515de688")
         @Override
         public ILinkPathEditor from(ConnectionEditPart connectionEditPart) {
             return AutoOrthoLinkPathEditor1.INSTANCE.from(connectionEditPart);
         }
 
-        @objid ("85e37283-db17-4cef-88c5-d495b24ae7d3")
+        @objid ("92990a03-0843-44d9-8ecd-00a4b6106360")
         @Override
         public ILinkPathEditor from(ConnectionEditPart connectionEditPart, ConnectionState backup) {
             return AutoOrthoLinkPathEditor1.INSTANCE.from(connectionEditPart, backup);

@@ -3,16 +3,16 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-link-type-elements-in-diagrams]]
 
-[[creating-link-type-elements-in-diagrams]]
+
+
 = Creating link-type elements in diagrams
 
 There are several ways to create link-type elements in a Modelio diagram.
 
-[[The-diagram-palette]]
 
-[[the-diagram-palette]]
+
+
 === The diagram palette
 
 All Modelio diagrams include the model expert feature, which provides real-time assistance when you are creating links in diagrams. If you try to create an authorized element (in this example, an association between 2 classes), the model expert highlights the concerned element in green, indicating that the creation operation you are attempting is allowed. If you try to create an unauthorized link (for example, an association between a package and a class), the model expert highlights the concerned element in red, indicating that the creation operation you are attempting is not allowed.
@@ -35,9 +35,9 @@ In Modelio diagrams, there are four different modes for drawing links:
 
 *Note:* If you want to draw a link in bendpoint mode, simply hold down the "Shift" key on your keyboard while you are drawing the link.
 
-[[The-Smart-links-tool]]
 
-[[the-smart-links-tool]]
+
+
 === The Smart links tool
 
 Modelio 3.6 introduces Smart Links, an easy-to-use powerful tool to create links in your diagrams. It can be used in two different ways.

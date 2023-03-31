@@ -128,11 +128,12 @@ public class SearchDialog extends ModelioDialog {
     public Control createContentArea(Composite parent) {
         final SashForm sash = new SashForm(parent, SWT.VERTICAL | SWT.SMOOTH);
         sash.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        sash.setSashWidth(12);
+        sash.setSashWidth(10);
         createCriteriaArea(sash);
         createResultsArea(sash);
         // Search controller: drives the whole search process
         this.controller = new SearchController(this.session, this);
+        sash.setWeights(40, 60);
         return sash;
     }
 
@@ -205,7 +206,7 @@ public class SearchDialog extends ModelioDialog {
     @objid ("5fc98cdb-d759-42de-8e60-663b9093fc72")
     @Override
     protected Point getInitialSize() {
-        return new Point(600, 600);
+        return new Point(800, 600);
     }
 
     @objid ("d124b33a-1766-4bec-ae94-29f779d42eea")

@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Items can be either physical items, such as the mechanical part of a vehicle, or information items such the catalog of the mechanical parts of a vehicle.
+ * 
+ * 
  */
 @objid ("006f680a-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnItemKind {
@@ -36,6 +38,7 @@ public enum BpmnItemKind {
     PHYSICAL(0, "physical", "physical"),
     @objid ("79f2a457-0702-45eb-bce7-5f1dc6b01bd6")
     INFORMATION(1, "information", "information");
+
 public static final int PHYSICAL_VALUE = 0;
     public static final int INFORMATION_VALUE = 1;
     private static final BpmnItemKind[] VALUES_ARRAY =

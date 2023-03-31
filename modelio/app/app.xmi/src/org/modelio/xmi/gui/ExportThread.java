@@ -50,8 +50,7 @@ public class ExportThread extends AbstractXMIThread implements IRunnableWithProg
         
         this.progressBar.setNumberElement(this.service
                 .countModelTrees(genProp.getRootElements()) * 2);
-        this.progressBar.setLabel(Xmi.I18N
-                .getString("progressBar.content.export.XMIFileInit"));
+        this.progressBar.setLabel(Xmi.I18N.getString("progressBar.content.export.XMIFileInit"));
         
         try {
         

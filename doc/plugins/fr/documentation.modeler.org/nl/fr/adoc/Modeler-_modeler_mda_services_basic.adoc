@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Le-niveau-basique-Création-dun-stéréotype]]
 
-[[le-niveau-basique-création-dun-stéréotype]]
+
+
 = Le niveau basique – Création d'un stéréotype
 
 .Création d'un nouveau stéréotype

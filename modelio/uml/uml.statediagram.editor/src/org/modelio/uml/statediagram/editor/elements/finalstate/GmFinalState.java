@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f526e788-55b6-11e2-877f-002564c97630")
 public class GmFinalState extends GmPortContainer {
+    @objid ("f526e78c-55b6-11e2-877f-002564c97630")
+    private FinalState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmFinalState extends GmPortContainer {
 
     @objid ("f526e798-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f526e78c-55b6-11e2-877f-002564c97630")
-    private FinalState element;
 
     @objid ("fd6ab013-5a5b-11e2-9e33-00137282c51b")
     static final GmFinalStateStructuredStyleKeys STRUCTURED_KEYS = new GmFinalStateStructuredStyleKeys();

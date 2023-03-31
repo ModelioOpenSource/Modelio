@@ -368,7 +368,7 @@ public class ModelWalker<A extends MObject> {
     public interface Transition<A, B> {
         @objid ("d461e2e4-ab59-4c49-afc2-2ec3f3a61f52")
         Collection<B> walk(A a);
-
-    }
+}
+    
 
 }

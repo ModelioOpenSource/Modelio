@@ -1914,11 +1914,9 @@ public class PartialCreationExportVisitor {
         @objid ("4816c727-cc0a-485d-aabd-7c0bc6c93e01")
         @Override
         public Object visitUseCaseDependency(UseCaseDependency objingElt) {
-            if (AbstractObjingModelNavigation.isStereotyped(objingElt, Xmi.I18N
-                    .getString("objing.java.stereotype.extend"))) {
+            if (AbstractObjingModelNavigation.isStereotyped(objingElt, Xmi.I18N.getString("objing.java.stereotype.extend"))) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExtend();
-            } else if (AbstractObjingModelNavigation.isStereotyped(objingElt, Xmi.I18N
-                    .getString("objing.java.stereotype.include"))) {
+            } else if (AbstractObjingModelNavigation.isStereotyped(objingElt, Xmi.I18N.getString("objing.java.stereotype.include"))) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createInclude();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = null;

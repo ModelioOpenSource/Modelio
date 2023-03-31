@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1350]]
 
-[[r1350]]
+
+
 = R1350
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _ObjectNode_ ordering property must be set in accordance with the presence of a selection behavior.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 If an _ObjectNode_ has a selection behaviour, then the ordering of that _ObjectNode_ is "ordered" and vice versa.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1350 warning on an _ObjectNode_, verify that the following:

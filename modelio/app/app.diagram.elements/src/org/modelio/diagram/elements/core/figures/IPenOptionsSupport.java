@@ -124,7 +124,7 @@ public interface IPenOptionsSupport {
      * @param <T> the figure class
      */
     @objid ("0b0304ff-d4d7-4c5c-b6e6-3e4753086974")
-    public static class FigureAdapter<T extends IFigure> implements IPenOptionsSupport {
+    static class FigureAdapter<T extends IFigure> implements IPenOptionsSupport {
         @objid ("2a839896-29c4-4041-b966-3d2727dda7d6")
         protected final T fig;
 
@@ -201,7 +201,7 @@ public interface IPenOptionsSupport {
      * @param <T> the figure class
      */
     @objid ("83b4cdeb-72d4-4b90-8867-82b44fcec2b2")
-    public static class ShapeAdapter<T extends Shape> extends FigureAdapter<T> {
+    static class ShapeAdapter<T extends Shape> extends FigureAdapter<T> {
         @objid ("a349c803-2f60-4083-bde5-a09b188652ac")
         public  ShapeAdapter(T fig) {
             super(fig);
@@ -232,5 +232,5 @@ public interface IPenOptionsSupport {
         }
 
     }
-
 }
+

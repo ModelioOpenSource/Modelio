@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Couverture-dUML2]]
 
-[[couverture-duml2]]
+
+
 = Couverture d'UML2
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Le service d'import / export XMI de Modelio a pour vocation de permettre l'import et l'export de la totalité des éléments de modèle.
@@ -19,9 +19,9 @@ A l'heure actuelle, seule une partie des éléments définis dans le métamodèl
 
 Par ailleurs, les imports / exports peuvent être incomplets à cause des différences qui existent entre les méta-modèles UML2 et Modelio.
 
-[[Eléments-des-diagrammes-statiques]]
 
-[[eléments-des-diagrammes-statiques]]
+
+
 ===== Eléments des diagrammes statiques
 
 *Diagrammes de classes*
@@ -48,9 +48,9 @@ Les éléments des diagrammes de packages sont traités en intégralité.
 
 Les éléments des diagrammes de structures composites sont traités en intégralité.
 
-[[Eléments-des-diagrammes-de-comportement]]
 
-[[eléments-des-diagrammes-de-comportement]]
+
+
 ===== Eléments des diagrammes de comportement
 
 *Diagrammes de cas d'utilisation*
@@ -65,9 +65,9 @@ Les éléments des diagrammes d'états sont traités en intégralité.
 
 Les éléments des diagrammes d'activités sont traités en intégralité.
 
-[[Eléments-des-diagrammes-dynamiques]]
 
-[[eléments-des-diagrammes-dynamiques]]
+
+
 ===== Eléments des diagrammes dynamiques
 
 *Diagrammes de séquence*
@@ -82,25 +82,25 @@ Les éléments des diagrammes de communication ne sont pas encore gérés.
 
 Les éléments des diagrammes de timing ne sont pas gérés par Modelio.
 
-[[Constructions-auxiliaires]]
 
-[[constructions-auxiliaires]]
+
+
 ===== Constructions auxiliaires
 
 Les éléments de type " Template " sont traités en intégralité.
 
-[[Profils]]
 
-[[profils]]
+
+
 ===== Profils
 
 Les profils peuvent être importés sous Modelio à condition d'être définis dans un module. Ainsi les profils UML doivent être importés sous un module via la commande XMI dédiée : "<<Xmi_importing_profile.adoc#,Import de profil>>".
 
 Les profils peuvent également être exportés via la commande XMI dédiée : "<<Xmi_exporting_profile.adoc#,Export de profil>>".
 
-[[Loption-de-compatibilité-Modelio]]
 
-[[loption-de-compatibilité-modelio]]
+
+
 ===== L'option de compatibilité Modelio
 
 En activant <<Xmi_config.adoc#,l'option "Ajout des annotations Modelio">>, il est possible d'exporter et de réimporter des notes avec leur type associé. Si cette option n'a pas été activée, le type des notes sera perdu (restriction UML2). Par défaut, les notes importées sont de type "comment".

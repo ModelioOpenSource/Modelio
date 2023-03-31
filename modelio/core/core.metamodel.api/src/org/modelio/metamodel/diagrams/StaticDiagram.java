@@ -30,6 +30,11 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 
 /**
  * StaticDiagram v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("00708da2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StaticDiagram extends AbstractDiagram {
@@ -44,5 +49,5 @@ public interface StaticDiagram extends AbstractDiagram {
      */
     @objid ("97e374ab-96a0-4139-a9c2-80193ff4d971")
     public static final String MQNAME = "Standard.StaticDiagram";
-
 }
+

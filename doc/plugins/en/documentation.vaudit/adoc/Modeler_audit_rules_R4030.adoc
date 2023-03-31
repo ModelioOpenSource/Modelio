@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+
+
+= R4030
+
+
+
+
+===== Summary
+
+
+The name of an ArchiMate element must not be empty or meaningless.
+
+
+
+===== Details
+
+
+The name of an ArchiMate element must be meaningful. Elements whose name is empty or still bearing the default name given when they were created must be renamed.
+

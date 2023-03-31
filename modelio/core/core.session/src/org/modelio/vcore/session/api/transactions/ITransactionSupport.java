@@ -185,5 +185,5 @@ public interface ITransactionSupport {
      */
     @objid ("960fd012-9aa4-4f55-b048-d3d51d133c42")
     void asyncExec(Runnable runnable);
-
 }
+

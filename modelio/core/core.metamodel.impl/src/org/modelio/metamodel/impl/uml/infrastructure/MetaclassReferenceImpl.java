@@ -22,7 +22,6 @@
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
-
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -37,12 +37,9 @@ import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
-import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
 import org.modelio.vcore.smkernel.SmList;
 import org.modelio.vcore.smkernel.SmObjectImpl;
-import org.modelio.vcore.smkernel.mapi.MClass;
-import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("0091bf72-c4be-1fd8-97fe-001ec947cd2a")
@@ -86,12 +83,11 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         }
         final List<T> results = new ArrayList<>();
         for (final NoteType element : getDefinedNoteType()) {
-        	if (filterClass.isInstance(element)) {
-        		results.add(filterClass.cast(element));
-        	}
+            if (filterClass.isInstance(element)) {
+                results.add(filterClass.cast(element));
+            }
         }
         return Collections.unmodifiableList(results);
-        
     }
 
     @objid ("cd66c002-f7cb-4cec-b0fc-2606752ac672")
@@ -108,12 +104,11 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         }
         final List<T> results = new ArrayList<>();
         for (final ResourceType element : getDefinedResourceType()) {
-        	if (filterClass.isInstance(element)) {
-        		results.add(filterClass.cast(element));
-        	}
+            if (filterClass.isInstance(element)) {
+                results.add(filterClass.cast(element));
+            }
         }
         return Collections.unmodifiableList(results);
-        
     }
 
     @objid ("fb8fb0b9-b776-4336-af80-d2518cfc98be")
@@ -143,12 +138,11 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         }
         final List<T> results = new ArrayList<>();
         for (final TagType element : getDefinedTagType()) {
-        	if (filterClass.isInstance(element)) {
-        		results.add(filterClass.cast(element));
-        	}
+            if (filterClass.isInstance(element)) {
+                results.add(filterClass.cast(element));
+            }
         }
         return Collections.unmodifiableList(results);
-        
     }
 
     @objid ("03ee575d-cac8-4f36-b274-413bcf675b47")
@@ -174,7 +168,6 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         dep = ((MetaclassReferenceSmClass)getClassOf()).getOwnerProfileDep();
         obj = (SmObjectImpl)this.getDepVal(dep);
         if (obj != null) return new SmDepVal(dep, obj);
-        
         return super.getCompositionRelation();
     }
 
@@ -182,6 +175,13 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitMetaclassReference(this);
+    }
+
+    @objid ("17472e01-6f13-4247-a155-21dce0e18ab0")
+    @Override
+    public ModuleComponent getModule() {
+        final Profile prof = getOwnerProfile();
+        return prof!=null ? prof.getOwnerModule() : null;
     }
 
 }

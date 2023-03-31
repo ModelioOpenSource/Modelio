@@ -40,5 +40,5 @@ interface IElementInitializer {
 
     @objid ("430e26d9-521f-4c04-b65d-8d329142c15e")
     void setDefaultValue(String key, Object value);
-
 }
+

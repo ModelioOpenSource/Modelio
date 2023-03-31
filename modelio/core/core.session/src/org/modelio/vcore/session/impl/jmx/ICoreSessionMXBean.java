@@ -58,5 +58,5 @@ public interface ICoreSessionMXBean {
      */
     @objid ("b2e0592b-49c5-11e2-91c9-001ec947ccaf")
     int getDeletedObjectsCount();
-
 }
+

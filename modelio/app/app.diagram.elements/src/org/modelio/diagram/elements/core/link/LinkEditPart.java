@@ -234,7 +234,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * @return the service used to produce connection anchors from ConnectionEditPart of Request.
      * @since 5.1.0
      */
-    @objid ("32f539be-e370-43d8-8249-75f44d0c5261")
+    @objid ("f9747bbb-0677-4cfd-b139-09c761ff7aa5")
     protected INodeAnchorProvider getNodeAnchorProvider() {
         return SimpleLinkNodeAnchorProvider.INSTANCE;
     }
@@ -272,7 +272,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * The request may be a {@link LocationRequest} with a mouse location or a simple {@link Request} .
      * @param req a {@link RequestConstants#REQ_DIRECT_EDIT} request
      */
-    @objid ("0118d8f7-2862-47f9-b133-d5183f67410b")
+    @objid ("c2efa05a-85e8-46b1-a294-ab87a76ee0e3")
     protected void performDirectEditRequest(final Request req) {
         if (req instanceof LocationRequest) {
             // Give the request to the child where the request is located

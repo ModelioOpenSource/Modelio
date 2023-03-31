@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1400]]
 
-[[r1400]]
+
+
 = R1400
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _ActivityParameterNode_ ne peut être contenu que par une _Activity_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _ActivityParameterNode_ ne peut pas être contenu par une _ActivityPartition_, un _StructuredActivityNode_ ou une _Clause_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une erreur R1400, déplacez le _ActivityParameterNode_ concernée dans une _Activity_.

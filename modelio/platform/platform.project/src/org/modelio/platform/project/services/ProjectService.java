@@ -36,15 +36,10 @@ import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.auth.GProjectAuthenticationException;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectFileStructure;
-import org.modelio.gproject.fragment.Fragments;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.FragmentConflictException;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.gproject.GProjectAuthenticationException;
-import org.modelio.gproject.gproject.GProjectConfigurer;
 import org.modelio.gproject.module.IModuleRTCache;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.events.ModelioEvent;
@@ -53,10 +48,10 @@ import org.modelio.platform.preferences.GProjectPreferenceNode;
 import org.modelio.platform.preferences.GProjectPreferenceStore;
 import org.modelio.platform.preferences.IGProjectPreferenceStore;
 import org.modelio.platform.project.creation.IProjectCreationData;
-import org.modelio.platform.project.creation.IProjectCreator;
+import org.modelio.platform.project.creation.IProjectCreatorDelegate;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.project.services.closeproject.IProjectCloser;
-import org.modelio.platform.project.services.createproject.IProjectCreator2;
+import org.modelio.platform.project.services.createproject.IProjectCreator;
 import org.modelio.platform.project.services.openproject.IProjectOpener;
 import org.modelio.platform.project.services.openproject.IProjectServiceAccess;
 import org.modelio.platform.project.services.workspace.IWorkspaceService;
@@ -88,13 +83,10 @@ public class ProjectService implements IProjectService, EventHandler {
     private boolean openingEventSent;
 
     @objid ("d77b76fe-232e-4e7a-9232-de403377c1f1")
-    private final IProjectCreator2 projectCreator2;
+    private final IProjectCreator projectCreator2;
 
     @objid ("fc48faca-a678-48a5-a2f8-cb40a8dc9fc8")
     private final IProjectOpener projectOpener;
-
-    @objid ("89878141-4556-4adf-9212-ee39a4c474dc")
-    private final GProjectConfigurer projectSynchronizer;
 
     @objid ("739a6657-2bf8-4419-8800-3f37f9310cc4")
     private final IWorkspaceService worskpaceService;
@@ -106,7 +98,7 @@ public class ProjectService implements IProjectService, EventHandler {
     private GProjectPreferenceStore prefsStore;
 
     @objid ("008017fe-acc2-103b-a520-001ec947cd2a")
-    private GProject project;
+    private IGProject project;
 
     @objid ("2ddd01d5-0476-4acd-aac8-b9e98c131935")
     private final IEclipseContext context;
@@ -122,17 +114,15 @@ public class ProjectService implements IProjectService, EventHandler {
      * @param context the Eclipse context.
      * @param projectCreator2 the project creation service
      * @param projectOpener the project openeing service
-     * @param projectSynchronizer the project synchronization service
      * @param projectCloser the project closing service
      * @param worskpaceService the workspace service
      * @param fragmentMigratorFactory the fragment migration service factory
      */
     @objid ("00802442-acc2-103b-a520-001ec947cd2a")
-    public  ProjectService(final IEclipseContext context, final IProjectCreator2 projectCreator2, final IProjectOpener projectOpener, final GProjectConfigurer projectSynchronizer, final IProjectCloser projectCloser, final IWorkspaceService worskpaceService, IFragmentMigratorFactory fragmentMigratorFactory) {
+    public  ProjectService(final IEclipseContext context, final IProjectCreator projectCreator2, final IProjectOpener projectOpener, final IProjectCloser projectCloser, final IWorkspaceService worskpaceService, IFragmentMigratorFactory fragmentMigratorFactory) {
         this.context = Objects.requireNonNull(context);
         this.projectCreator2 = Objects.requireNonNull(projectCreator2);
         this.projectOpener = Objects.requireNonNull(projectOpener);
-        this.projectSynchronizer = Objects.requireNonNull(projectSynchronizer);
         this.projectCloser = Objects.requireNonNull(projectCloser);
         this.worskpaceService = Objects.requireNonNull(worskpaceService);
         this.fragmentMigratorFactory = Objects.requireNonNull(fragmentMigratorFactory);
@@ -143,16 +133,6 @@ public class ProjectService implements IProjectService, EventHandler {
         
         final IEventBroker eventBroker = context.get(IEventBroker.class);
         eventBroker.subscribe("BATCH", this);
-        
-    }
-
-    @objid ("005385e0-bb2f-103c-a520-001ec947cd2a")
-    @Override
-    public void addFragment(final GProject openedProject, final FragmentDescriptor fragmentDescriptor, final IProgressMonitor monitor) throws FragmentConflictException {
-        final IProjectFragment newFragment = Fragments.getFactory(fragmentDescriptor).instantiate(fragmentDescriptor);
-        openedProject.registerFragment(newFragment, new ModelioProgressAdapter(monitor));
-        
-        this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, newFragment);
         
     }
 
@@ -168,14 +148,14 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("177f74d3-e774-49fd-85ed-cdc3e12f08e1")
     @Override
-    public void deleteProject(ProjectDescriptor projectToDelete) throws FileSystemException, IOException {
+    public void deleteProject(GProjectDescriptor projectToDelete) throws FileSystemException, IOException {
         this.worskpaceService.deleteProject(projectToDelete);
     }
 
     @objid ("707e1558-0776-4550-be66-21a514e0b74f")
     @Override
-    public void exportProject(ProjectDescriptor project, Path archivePath, IModelioProgress monitor) throws IOException {
-        this.worskpaceService.exportProject(project, archivePath, monitor);
+    public void exportProject(GProjectDescriptor toExport, Path archivePath, IModelioProgress monitor) throws IOException {
+        this.worskpaceService.exportProject(toExport, archivePath, monitor);
     }
 
     @objid ("00804076-acc2-103b-a520-001ec947cd2a")
@@ -186,7 +166,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("0080cffa-acc2-103b-a520-001ec947cd2a")
     @Override
-    public GProject getOpenedProject() {
+    public IGProject getOpenedProject() {
         return this.project;
     }
 
@@ -260,19 +240,25 @@ public class ProjectService implements IProjectService, EventHandler {
         
     }
 
+    @objid ("c4b025d4-9a20-4c37-8c63-d4958d46a291")
+    @Override
+    public boolean isBatchMode() {
+        return this.batchMode;
+    }
+
     @objid ("971ad6d9-026d-11e2-8189-001ec947ccaf")
     @Override
-    public void openProject(final ProjectDescriptor projectToOpen, final IAuthData authData, final IProgressMonitor monitor) throws IOException, GProjectAuthenticationException, InterruptedException {
+    public void openProject(final GProjectDescriptor projectToOpen, final IAuthData authData, final IProgressMonitor monitor) throws IOException, GProjectAuthenticationException, InterruptedException {
         if (this.project != null) {
             throw new IllegalStateException(String.format(
                     "A '%s' project in '%s' is already opened.",
                     this.project.getName(),
-                    this.project.getProjectFileStructure().getProjectPath()));
+                    this.project.getPfs().getProjectPath()));
         }
         
         Objects.requireNonNull(projectToOpen, "Cannot open 'null' project descriptor.");
         
-        this.projectOpener.openProject(projectToOpen, authData, this.batchMode, monitor);
+        this.projectOpener.openProject(projectToOpen, authData, monitor);
         
     }
 
@@ -283,12 +269,12 @@ public class ProjectService implements IProjectService, EventHandler {
             throw new IllegalStateException(String.format(
                     "A '%s' project in '%s' is already opened.",
                     this.project.getName(),
-                    this.project.getProjectFileStructure().getProjectPath()));
+                    this.project.getPfs().getProjectPath()));
         }
         
         Objects.requireNonNull(projectURI, "Cannot open 'null' project URI.");
         
-        this.projectOpener.openProject(projectURI, authData, this.batchMode, monitor);
+        this.projectOpener.openProject(projectURI, authData, monitor);
         
     }
 
@@ -299,7 +285,7 @@ public class ProjectService implements IProjectService, EventHandler {
             throw new IllegalStateException(String.format(
                     "A '%s' project in '%s' is already opened.",
                     this.project.getName(),
-                    this.project.getProjectFileStructure().getProjectPath()));
+                    this.project.getPfs().getProjectPath()));
         }
         
         Objects.requireNonNull(projectName, "Cannot open 'null' project.");
@@ -312,61 +298,15 @@ public class ProjectService implements IProjectService, EventHandler {
         
     }
 
-    @objid ("06b1cb72-cbd4-4798-9761-554f3afd144a")
-    @Override
-    public void openProject(ProjectDescriptor projectToOpen, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
-        this.projectOpener.openProject(projectToOpen, authData, batchMode, monitor);
-    }
-
-    @objid ("12ae51fc-b8d6-46c1-8ff1-49a538e9f4e1")
-    @Override
-    public void openProject(URI projectURI, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
-        this.projectOpener.openProject(projectURI, authData, batchMode, monitor);
-    }
-
     @objid ("8e938902-eeec-4181-8f9a-ea5d5d8326f0")
     @Override
     public void refreshWorkspace(String projectToSelect) {
         this.worskpaceService.refreshWorkspace(projectToSelect);
     }
 
-    @objid ("002e01f8-a4c3-1044-a30e-001ec947cd2a")
-    @Override
-    public void removeFragment(final GProject openedProject, final IProjectFragment fragmentToRemove) {
-        if (fragmentToRemove == null) {
-            throw new IllegalArgumentException("Fragment must not be null.");
-        }
-        
-        openedProject.unregisterFragment(fragmentToRemove);
-        
-        // Delete the fragment files.
-        try {
-            fragmentToRemove.delete();
-        } catch (final IOException e) {
-            AppProjectCore.LOG.warning(e);
-        }
-        
-        this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_REMOVED, fragmentToRemove);
-        
-    }
-
-    @objid ("b336181e-5102-4ca9-a4c5-2408111aca57")
-    @Override
-    public void renameFragment(final GProject openedProject, final IProjectFragment fragment, final String name) throws FileSystemException, IOException, FragmentConflictException {
-        if (fragment == null) {
-            throw new IllegalArgumentException("Fragment must not be null.");
-        }
-        
-        // Rename the fragment files.
-        fragment.rename(name, null);
-        
-        this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, fragment);
-        
-    }
-
     @objid ("17b2b85f-9ab0-429f-8a8f-6e0d5dc5b91e")
     @Override
-    public void renameProject(ProjectDescriptor projectDescriptor, String name) throws FileSystemException, IOException {
+    public void renameProject(GProjectDescriptor projectDescriptor, String name) throws FileSystemException, IOException {
         this.worskpaceService.renameProject(projectDescriptor, name);
     }
 
@@ -385,6 +325,7 @@ public class ProjectService implements IProjectService, EventHandler {
         this.project.save(new ModelioProgressAdapter(m.newChild(900)));
         this.prefsStore.resetDirty();
         
+        // Fire project saved event
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.PROJECT_SAVED, this.project);
         
     }
@@ -411,7 +352,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("e92ae6b5-2c62-44c7-8665-3a6bd7f76ee9")
     @Override
-    public void createProject(final IProjectCreator projectCreator, final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
+    public void createProject(final IProjectCreatorDelegate projectCreator, final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
         Objects.requireNonNull(data);
         this.projectCreator2.createProject(projectCreator, data, monitor);
         
@@ -437,7 +378,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("00809bf2-acc2-103b-a520-001ec947cd2a")
     @Override
-    public void closeProject(final GProject projectToClose, final boolean sendSyncEvents) throws IllegalStateException {
+    public void closeProject(final IGProject projectToClose, final boolean sendSyncEvents) throws IllegalStateException {
         checkProjectOpened();
         
         if (projectToClose == null || projectToClose != this.project) {
@@ -450,14 +391,14 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("4d01f465-9cf4-4e11-9a47-4e061e01c47e")
     @Override
-    public void closeProject(final GProject projectToClose) throws IllegalStateException {
+    public void closeProject(final IGProject projectToClose) throws IllegalStateException {
         closeProject(projectToClose, false);
     }
 
     @objid ("0ee23269-9ebc-4fbb-8a11-b04329eeacc3")
     @Override
-    public FragmentsMigrator getFragmentMigrator(IEclipseContext eclipseContext, GProject project, boolean withConfirmation) {
-        return this.fragmentMigratorFactory.getFragmentMigrator(eclipseContext, project, withConfirmation);
+    public FragmentsMigrator getFragmentMigrator(IEclipseContext eclipseContext, IGProject projectToMigrate, boolean withConfirmation) {
+        return this.fragmentMigratorFactory.getFragmentMigrator(eclipseContext, projectToMigrate, withConfirmation);
     }
 
     /**
@@ -502,7 +443,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
         @objid ("9aba6f60-b734-4739-a3c1-22cd674fb8ce")
         @Override
-        public void setOpenedProject(final GProject project) {
+        public void setOpenedProject(final IGProject project) {
             this.ps.project = project;
         }
 
@@ -526,7 +467,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
         @objid ("1c5993d0-dfaa-4fb4-a1cf-e9b01967624b")
         @Override
-        public void openAppStatePreferenceStore(GProject project) {
+        public void openAppStatePreferenceStore(IGProject project) {
             this.ps.appStateStore = new AppStatePreferenceStore(project);
         }
 

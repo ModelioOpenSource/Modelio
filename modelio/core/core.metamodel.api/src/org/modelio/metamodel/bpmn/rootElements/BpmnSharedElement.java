@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("03349104-b866-40e2-8265-dfd9e1482a0a")
 public interface BpmnSharedElement extends BpmnBaseElement {
@@ -52,6 +54,7 @@ public interface BpmnSharedElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6275c9aa-9617-4b6f-a0a5-8299530d06a8")
     BpmnSharedDefinitions getOwner();
@@ -61,8 +64,9 @@ public interface BpmnSharedElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("74195891-d0b9-4ed7-8358-72826bfc15f3")
     void setOwner(BpmnSharedDefinitions value);
-
 }
+

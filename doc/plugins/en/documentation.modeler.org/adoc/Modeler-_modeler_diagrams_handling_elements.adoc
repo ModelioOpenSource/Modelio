@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Handling-diagram-elements]]
 
-[[handling-diagram-elements]]
+
+
 = Handling diagram elements
 
-[[Selecting-an-element-in-a-diagram]]
 
-[[selecting-an-element-in-a-diagram]]
+
+
 ===== Selecting an element in a diagram
 
 To select an element in a diagram, simply click on it using the left mouse button.
@@ -20,9 +20,9 @@ When an element has been selected, it is surrounded by control points.
 .A class selected in a class diagram
 image::images/Modeler-_modeler_diagrams_handling_elements_SelectedElement.png[2]
 
-[[Selecting-several-elements-in-a-diagram]]
 
-[[selecting-several-elements-in-a-diagram]]
+
+
 ===== Selecting several elements in a diagram
 
 To select several elements in a diagram, you can either:
@@ -33,9 +33,9 @@ or:
 
 * click in the diagram, hold down the left mouse button and draw a rectangle around all the elements you want to select. When all the desired elements are surrounded, simply release the left mouse button. Each selected element then appears surrounded by control points.
 
-[[Selecting-a-diagram-element-in-the-ldquoModelrdquo-view]]
 
-[[selecting-a-diagram-element-in-the-model-view]]
+
+
 ===== Selecting a diagram element in the "Model" view
 
 When working in a diagram, you may want to be able to jump to a specific element in the "Model" view, without having to manually select it.
@@ -44,34 +44,34 @@ To do this, just right-click on the element in the diagram to open the context m
 
 *Note:* This function is only available on box elements.
 
-[[Moving-an-element-to-a-different-position-in-a-diagram]]
 
-[[moving-an-element-to-a-different-position-in-a-diagram]]
+
+
 ===== Moving an element to a different position in a diagram
 
 If you want to move an element to a different position, just select it, hold down the left mouse button and move it to the desired location. You can see the position of the object while it is being moved.
 
 If the element has any links (associations, generalizations, ...), these links graphically "follow" the element when it is moved.
 
-[[Moving-an-element-to-a-different-owner-element]]
 
-[[moving-an-element-to-a-different-owner-element]]
+
+
 ===== Moving an element to a different owner element
 
 Using the drag and drop feature, you can move an element from one parent element to another. For example, you can move a class from one package into another package.
 
 To do this, just select the element you want to move and drag it into the new parent element. When this type of operation is carried out, the "Model" view is automatically updated and model consistency maintained. If the new parent is an unauthorized element, it will be highlighted in red. If it is authorized, then it is highlighted in green.
 
-[[Changing-an-elementrsquos-name-in-a-diagram]]
 
-[[changing-an-elements-name-in-a-diagram]]
+
+
 ===== Changing an element's name in a diagram
 
 To change an element's name, simply select the element and press F2, or double-click on the element's name. The element's name is then highlighted and you can directly enter a new name.
 
-[[Deleting-an-element-from-a-diagram]]
 
-[[deleting-an-element-from-a-diagram]]
+
+
 ===== Deleting an element from a diagram
 
 To delete an element from a diagram, you can:

@@ -31,14 +31,15 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
+import org.eclipse.e4.core.di.annotations.Evaluate;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.gproject.fragment.FragmentMigrationNeededException;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.FragmentMigrationNeededException;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.model.browser.view.plugin.BrowserViewActivator;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.project.services.IProjectService;
@@ -54,8 +55,8 @@ public class MigrateFragmentHandler {
     void execute(IModelioProgressService progressService, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, final IProjectService projServ, @Named(IServiceConstants.ACTIVE_SHELL) final Shell parentShell, final IEclipseContext context) {
         CompletableFuture<IStatus> result = new CompletableFuture<>();
         
-        List<IProjectFragment> frags = SelectionHelper.toList(selection, IProjectFragment.class);
-        frags.removeIf(f -> ! ( f.getDownError() instanceof FragmentMigrationNeededException));
+        List<IGModelFragment> frags = SelectionHelper.toList(selection, IGModelFragment.class);
+        frags.removeIf(f -> ! ( f.getState().getDownError() instanceof FragmentMigrationNeededException));
         
         String resultTitle = BrowserViewActivator.I18N.getMessage("MigrateFragmentHandler.result.title", frags.size());
         
@@ -70,10 +71,10 @@ public class MigrateFragmentHandler {
                     null);
         
         
-            for (IProjectFragment f : frags) {
+            for (IGModelFragment f : frags) {
                 IStatus res = projServ
                         .getFragmentMigrator(context, projServ.getOpenedProject(), true)
-                        .migrateFragment(f, parentShell, parentMon, 10);
+                        .migrateFragment(f, parentShell, parentMon.newChild(10));
                 globRes.add(res);
         
                 if (monitor.isCanceled()) {
@@ -115,22 +116,20 @@ public class MigrateFragmentHandler {
 
     @objid ("1c0662e6-22a2-4505-a64a-86c446eacd2e")
     @CanExecute
-    boolean isVisible(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        if (selection == null || selection.isEmpty()) {
-            return false;
-        }
+    public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+        return SelectionHelper.containsOnly(selection, IGModelFragment.class)
+                && SelectionHelper.toStream(selection, IGModelFragment.class)
+                .allMatch(f -> (f.getState().getDownError() instanceof FragmentMigrationNeededException));
         
-        for (Object o : selection.toArray()) {
-            if (o instanceof IProjectFragment) {
-                IProjectFragment f = (IProjectFragment) o;
-                if( !(f.getDownError() instanceof FragmentMigrationNeededException)) {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-        return true;
+    }
+
+    @objid ("df663626-9c80-400b-b5ab-e57a88154a2b")
+    @Evaluate
+    public boolean isVisible(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+        return SelectionHelper.contains(selection, IGModelFragment.class)
+                && SelectionHelper.toStream(selection, IGModelFragment.class)
+                .anyMatch(f -> (f.getState().getDownError() instanceof FragmentMigrationNeededException));
+        
     }
 
 }

@@ -90,5 +90,5 @@ public interface IModelComponent {
      */
     @objid ("41a821ca-e0eb-4a97-bc00-28316c011c2a")
     String getProvider();
-
 }
+

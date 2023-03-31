@@ -40,7 +40,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.PredefinedTypes;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
@@ -321,7 +321,7 @@ class ProjectPreferencesPage extends PreferencePage {
     }
 
     @objid ("d98d8707-e819-43ce-8348-ef450f72250c")
-    private List<DataType> getPredefinedTypes(GProject openedProject) {
+    private List<DataType> getPredefinedTypes(IGProject openedProject) {
         IModel model = openedProject.getSession().getModel();
         DataType booleanDataType = model.findById(DataType.class, PredefinedTypes.BOOLEAN_UID);
         if (booleanDataType != null) {
@@ -336,7 +336,7 @@ class ProjectPreferencesPage extends PreferencePage {
     @objid ("1e1fcc4d-d6a8-4915-b0d8-add063bf705d")
     private void init(IProjectService projectService) {
         // use project store if a project is currently opened
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         if (openedProject == null) {
             // no currently opened project => no store, page not visible
             setPreferenceStore(null);
@@ -382,7 +382,7 @@ class ProjectPreferencesPage extends PreferencePage {
         
         // Load themes from the configuration directory
         List<String[]> themes = new ArrayList<>();
-        Path stylesDir = projectService.getOpenedProject().getProjectFileStructure().getProjectDataPath().resolve(ProjectPreferencesPage.PROJECT_STYLE_SUBDIR);
+        Path stylesDir = projectService.getOpenedProject().getPfs().getProjectDataPath().resolve(ProjectPreferencesPage.PROJECT_STYLE_SUBDIR);
         try (DirectoryStream<Path> styleFiles = Files.newDirectoryStream(stylesDir, "*" + ProjectPreferencesPage.THEME_FILE_EXTENSION)) {
             for (final Path f : styleFiles) {
                 try (InputStreamReader reader = new InputStreamReader(f.toUri().toURL().openStream())) {

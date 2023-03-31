@@ -24,6 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Named;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.e4.core.di.annotations.CanExecute;
+import org.eclipse.e4.core.di.annotations.Evaluate;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.gef.commands.Command;
@@ -43,13 +44,13 @@ import org.modelio.platform.model.ui.swt.SelectionHelper;
  * Applies the {@link AutoOrthogonalRouter} on all selected links, reseting automatic points.
  * </p>
  */
-@objid ("4d469da0-4fd1-4643-9591-1458899a225f")
+@objid ("c9b8ddb0-6072-4358-9c12-a0c81475f5f6")
 public class ResetLinkHandler extends AbstractLinkHandler {
     /**
      * Execute the command.
      * @param selection the current diagram selection.
      */
-    @objid ("26ec5cc8-e086-4d2d-87e6-0e7f7d552b26")
+    @objid ("5dd5ad59-51b1-477a-a312-09ccb152d883")
     @Execute
     public void execute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
         List<LinkEditPart> linkEditPaths = SelectionHelper.toList(selection, LinkEditPart.class);
@@ -62,7 +63,7 @@ public class ResetLinkHandler extends AbstractLinkHandler {
      * @param selection the current diagram selection.
      * @return <code>true</code> if the handler can be executed.
      */
-    @objid ("84ce3a81-f6f5-49c6-a4c4-6660fa298db7")
+    @objid ("7647b052-eef7-43a1-a02b-ae6451f00b90")
     @Override
     @CanExecute
     public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
@@ -82,17 +83,43 @@ public class ResetLinkHandler extends AbstractLinkHandler {
         return true;
     }
 
-    @objid ("c93c7256-c065-4065-9b89-c69151e9dcc2")
+    /**
+     * to be used as VisibleWhen expression in the E4 model.
+     * @param selection the Eclispe selection
+     * @return true if the command is visible
+     */
+    @objid ("bba834d5-6bd1-4566-af0b-4456d5acdb63")
+    @Evaluate
+    public boolean isVisible(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
+        // Call super
+        /*
+        if (!super.isVisible(selection)) {
+            return false;
+        }*/
+        
+        List<LinkEditPart> linkEditParts = SelectionHelper.toList(selection, LinkEditPart.class);
+        for (final LinkEditPart linkEditpart : linkEditParts) {
+            final GmLink link = linkEditpart.getModel();
+        
+            // Deactivate on non-orthogonal links
+            if (link.getPath().getRouterKind() == ConnectionRouterId.ORTHOGONAL) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @objid ("c6aa7e6e-31ff-4eb9-9718-481b55c96a69")
     private static class ResetLinkCommand extends Command {
-        @objid ("367d52fa-5a9a-4c6f-9995-f146fab03830")
+        @objid ("c219ea55-1e9a-4a59-88b0-9aded2b033b1")
         private List<LinkEditPart> linkEditPaths;
 
-        @objid ("d21f9c1f-fab3-4e88-a90a-404be1f91223")
+        @objid ("4a800875-415f-4b6f-9f25-706df3f902d3")
         public  ResetLinkCommand(List<LinkEditPart> linkEditPaths) {
             this.linkEditPaths = linkEditPaths;
         }
 
-        @objid ("69fb4ad5-5734-4b4e-8759-d6af6c0459f2")
+        @objid ("b4ce1f74-c4e5-4ad0-9af2-256207d6a684")
         @Override
         public void execute() {
             for (LinkEditPart linkEditPart : this.linkEditPaths) {
@@ -100,11 +127,14 @@ public class ResetLinkHandler extends AbstractLinkHandler {
             
                 AutoOrthogonalRouter router = new AutoOrthogonalRouter()
                         .setCleanupManualPoints(false)
-                        .setIgnoreAutomaticPoints(true);
+                        .setRerouteWrongSectionFromPreviousManualPoint(true);
             
                 // we need a new GmPath in all cases otherwise no property change is detected...
                 IGmPath path = new GmPath(gmLink.getPath());
-                List<MPoint> newConstraint = router.computeMPointRoute((Connection) linkEditPart.getFigure(), (List<MPoint>) path.getPathData());
+                @SuppressWarnings ("unchecked")
+                List<MPoint> pathData = (List<MPoint>) path.getPathData();
+                pathData.removeIf(p -> !p.isFixed());
+                List<MPoint> newConstraint = router.computeMPointRoute((Connection) linkEditPart.getFigure(), pathData);
             
                 // remove first and last points that are anchors
                 AutoOrthogonalRouter.routeToConstraint(newConstraint);
@@ -115,7 +145,7 @@ public class ResetLinkHandler extends AbstractLinkHandler {
             
         }
 
-        @objid ("b1d3a5f8-1244-469d-9590-a78db3f9cbdb")
+        @objid ("0db24463-6655-415d-b67f-53a2686c4859")
         @Override
         public boolean canExecute() {
             return !this.linkEditPaths.isEmpty();

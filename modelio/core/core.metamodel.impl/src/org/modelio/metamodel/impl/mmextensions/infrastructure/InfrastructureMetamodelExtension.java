@@ -34,7 +34,7 @@ import org.modelio.vcore.model.api.IRepositoryContentInitializer;
 import org.modelio.vcore.model.api.IRepositoryRootGetter;
 import org.modelio.vcore.model.spi.AbstractGMetamodelExtension;
 import org.modelio.vcore.model.spi.IModelFactoryProvider;
-import org.modelio.vcore.model.spi.mm.IMigrationProvider;
+import org.modelio.vcore.model.spi.mm.IMofRepositoryMigratorProvider;
 import org.modelio.vcore.session.api.ICoreSession;
 
 /**
@@ -98,7 +98,7 @@ public class InfrastructureMetamodelExtension extends AbstractGMetamodelExtensio
     @SuppressWarnings("unchecked")
     @Override
     public <T> T createExtension(Class<T> service, ICoreSession session) {
-        if (service == IMigrationProvider.class) {
+        if (service == IMofRepositoryMigratorProvider.class) {
             return (T) new InfrastructureMmMigrationProvider();
         } else {
             return super.createExtension(service, session);

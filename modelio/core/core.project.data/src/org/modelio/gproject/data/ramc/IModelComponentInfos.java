@@ -113,7 +113,7 @@ public interface IModelComponentInfos extends IFragmentInfos {
      * File exported by the RAMC
      */
     @objid ("4fbf6c11-c9b2-42b7-a1d2-3d04a0617b6b")
-    public static class ExportedFile {
+    static class ExportedFile {
         /**
          * The file name in the RAMC archive
          * @since 3.6
@@ -169,5 +169,5 @@ public interface IModelComponentInfos extends IFragmentInfos {
         }
 
     }
-
 }
+

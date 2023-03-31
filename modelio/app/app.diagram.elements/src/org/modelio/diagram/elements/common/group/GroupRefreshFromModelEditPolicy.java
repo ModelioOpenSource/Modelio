@@ -61,10 +61,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0f11e132-ba7a-4791-9c97-f508b55190ca")
 public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEditPolicy {
-    @objid ("148b2456-aede-4332-bfea-a00f8f4cd853")
+    @objid ("3ce46b43-00c4-4f73-8cf9-c28134229a46")
     private final boolean ordered;
 
-    @objid ("75d9afdb-d75e-4142-b8cc-143037e3ff62")
+    @objid ("a8d91b0b-9b7d-47bd-8b4e-d291d96c1588")
     private final Function<MObject, List<? extends MObject>> expectedChildren;
 
     /**
@@ -72,7 +72,7 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
      * @param expectedChildren a function that return the model elements that must be displayed, in order
      * @deprecated Use {@link #GroupRefreshFromModelEditPolicy(Function, boolean)}
      */
-    @objid ("13057b14-0a99-4bed-993f-d7f5fe722060")
+    @objid ("971583ea-5ebe-4581-aa91-5f8ecb013857")
     @Deprecated
     public  GroupRefreshFromModelEditPolicy(Function<MObject, List<? extends MObject>> expectedChildren) {
         this(expectedChildren, true);
@@ -82,7 +82,7 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
      * @param expectedChildren a function that return the model elements that must be displayed, in order
      * @param ordered whether the Gm order must be synchronized from the Ob model
      */
-    @objid ("9a2c8055-6cb8-4cee-8760-6839fbc02533")
+    @objid ("f8978e1f-e729-4aa6-931a-303190e57784")
     public  GroupRefreshFromModelEditPolicy(Function<MObject, List<? extends MObject>> expectedChildren, boolean ordered) {
         super();
         this.expectedChildren = expectedChildren;
@@ -102,7 +102,7 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
      * <p>
      * @author Inspired from {@link AbstractEditPart#refreshChildren()}
      */
-    @objid ("86517e8c-7fd9-452d-8184-bb24c4b3834f")
+    @objid ("1e3a37b4-f884-48eb-adda-1d76339fc4d2")
     protected final Command getRefreshCommand() {
         final GmGroup gmGroup = getModel();
         
@@ -170,15 +170,17 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
         if (command.size()==0)
             return null;
         
-        // Add layout links command
-        LayoutChildrenNodeConnectionsHelper.forRequest(null)
-        .addEditPart((GraphicalEditPart) getHost())
-        .removeEditParts(deletedEp)
-        .createCommands(command);
+        if (false) {
+            // Add layout links command
+            LayoutChildrenNodeConnectionsHelper.forRequest(null)
+            .addEditPart((GraphicalEditPart) getHost())
+            .removeEditParts(deletedEp)
+            .createCommands(command);
+        }
         return command.unwrap();
     }
 
-    @objid ("fbdeaa73-c0b9-44c8-a386-2a070cb7c55c")
+    @objid ("9d9db7a0-47eb-4e3c-b3f7-a5c1f7d85dd1")
     private Command getCreateChildCommand(MObject model, int index) {
         // Create unmask request
         CreateRequest req = new CreateRequest();
@@ -194,7 +196,7 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
         return cmd;
     }
 
-    @objid ("41d615dc-21e6-4d2a-ac6f-a0fcd759fa4f")
+    @objid ("e0207dc5-a262-4b35-9696-8034b0abbdf7")
     private Command getRemoveChildCommand(GmNodeModel gmChild, Map<Object, EditPart> editPartRegistry) {
         EditPart ep = editPartRegistry.get(gmChild);
         if (ep != null) {
@@ -212,23 +214,23 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
         
     }
 
-    @objid ("131b8474-1ef0-4d31-b0b3-f7c7359cf9cf")
+    @objid ("3b8d47c6-79b1-4722-b16e-ecc526305544")
     protected Command getReorderChildCommand(GmNodeModel gmChild, int i) {
         return new ReorderChildCommand(getModel(), gmChild, i);
     }
 
-    @objid ("a7641aee-bf57-4eec-a34c-bebbd4b5ce2c")
+    @objid ("f664306e-863f-4dde-b767-c52c1353def5")
     protected static class ReorderChildCommand extends Command {
-        @objid ("74b958ed-1eee-410d-9d93-db3bb134775f")
+        @objid ("832b248a-7781-44ec-a7ba-46325ff17d8a")
         protected final int i;
 
-        @objid ("286f466c-274a-407b-aea2-c8f23cfec947")
+        @objid ("100cb82c-7517-401a-8d4a-51bdf3867b22")
         protected final GmGroup group;
 
-        @objid ("5e6fc550-a837-4bda-b905-806dfdf79983")
+        @objid ("204ccd80-53ef-4a48-a128-e112d00325b8")
         protected final GmNodeModel gmChild;
 
-        @objid ("c5d674c5-0b53-467b-9aee-fa0efc354a2f")
+        @objid ("07c122f4-e745-436a-82ef-86ce762b1c1a")
         public  ReorderChildCommand(GmGroup group, GmNodeModel gmChild, int i) {
             this.group = group;
             this.gmChild = gmChild;
@@ -236,7 +238,7 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
             
         }
 
-        @objid ("e11351d3-4aac-4abc-aa3f-321013469566")
+        @objid ("a8b17323-53d2-4f20-a4f9-cd243ea5af5a")
         @Override
         public void execute() {
             this.group.moveChild(this.gmChild, this.i);

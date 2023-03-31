@@ -91,43 +91,57 @@ public class CreateBpmnDataObjectCommand extends Command {
         BpmnFlowNode source = this.parentElement.getSourceRef();
         BpmnFlowNode target = this.parentElement.getTargetRef();
         
+        // Assign same lane as source object
+        if ( !source.getLane().isEmpty())
+            newElement.getLane().addAll(source.getLane());
+        else if ( !target.getLane().isEmpty()) {
+            newElement.getLane().addAll(target.getLane());
+        }
+        
         // Set source data assoc
         final BpmnDataAssociation sourceAssociation = modelFactory.createBpmnDataAssociation();
-        if (source instanceof BpmnActivity) {
-            sourceAssociation.setStartingActivity((BpmnActivity) source);
-        } else if (source instanceof BpmnCatchEvent) {
-            sourceAssociation.setEndingEvent((BpmnCatchEvent) source);
-        } else if (source instanceof BpmnThrowEvent) {
-            // this case shouldn't be possible here, but the metamodel has mixed-up role names...
-            sourceAssociation.setStartingEvent((BpmnThrowEvent) source);
+        {
+            if (source instanceof BpmnActivity) {
+                sourceAssociation.setStartingActivity((BpmnActivity) source);
+            } else if (source instanceof BpmnCatchEvent) {
+                sourceAssociation.setEndingEvent((BpmnCatchEvent) source);
+            } else if (source instanceof BpmnThrowEvent) {
+                // this case shouldn't be possible here, but the metamodel has mixed-up role names...
+                sourceAssociation.setStartingEvent((BpmnThrowEvent) source);
+            }
+            sourceAssociation.setTargetRef(newElement);
+        
+            // Set default names
+            sourceAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(sourceAssociation));
         }
-        sourceAssociation.setTargetRef(newElement);
         
-        // Set default names
-        sourceAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(sourceAssociation));
-        
-        // Set target
+        // Set target data association
         final BpmnDataAssociation targetAssociation = modelFactory.createBpmnDataAssociation();
-        if (target instanceof BpmnActivity) {
-            targetAssociation.setEndingActivity((BpmnActivity) target);
-        } else if (target instanceof BpmnThrowEvent) {
-            targetAssociation.setStartingEvent((BpmnThrowEvent) target);
-        } else if (target instanceof BpmnCatchEvent) {
-            // this case shouldn't be possible here, but the metamodel has mixed-up role names...
-            targetAssociation.setEndingEvent((BpmnCatchEvent) target);
-        }
-        targetAssociation.getSourceRef().add(newElement);
+        {
+            if (target instanceof BpmnActivity) {
+                targetAssociation.setEndingActivity((BpmnActivity) target);
+            } else if (target instanceof BpmnThrowEvent) {
+                targetAssociation.setStartingEvent((BpmnThrowEvent) target);
+            } else if (target instanceof BpmnCatchEvent) {
+                // this case shouldn't be possible here, but the metamodel has mixed-up role names...
+                targetAssociation.setEndingEvent((BpmnCatchEvent) target);
+            }
+            targetAssociation.getSourceRef().add(newElement);
         
-        // Set default names
-        targetAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(targetAssociation));
+            // Set default names
+            targetAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(targetAssociation));
+        }
         
         BpmnSequenceFlowDataAssociation sequenceFlowAssociation = modelFactory.createBpmnSequenceFlowDataAssociation();
-        sequenceFlowAssociation.setConnected(this.parentElement);
-        sequenceFlowAssociation.getDataAssociation().add(sourceAssociation);
-        sequenceFlowAssociation.getDataAssociation().add(targetAssociation);
+        {
+            sequenceFlowAssociation.setConnected(this.parentElement);
+            sequenceFlowAssociation.getDataAssociation().add(sourceAssociation);
+            sequenceFlowAssociation.getDataAssociation().add(targetAssociation);
         
-        // Set default name
-        sequenceFlowAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(sequenceFlowAssociation));
+        
+            // Set default name
+            sequenceFlowAssociation.setName(modelManager.getModelServices().getElementNamer().getUniqueName(sequenceFlowAssociation));
+        }
         
         // Attach the stereotype if needed.
         if (this.context.getStereotype() != null) {

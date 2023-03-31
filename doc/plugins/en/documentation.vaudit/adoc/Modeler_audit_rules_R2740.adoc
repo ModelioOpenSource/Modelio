@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2740]]
 
-[[r2740]]
+
+
 = R2740
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 In a _TemplateBinding_, the _TemplateParameterSubstitution_ must reference a _TemplateParameter_ of the instanciated template element.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 When using a _TemplateBinding_, all the substitutions must refer to a_TemplateParameter_ of the target element.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * This error can be caused by a faulty macro or module. Ask the developer to fix the macro or module.

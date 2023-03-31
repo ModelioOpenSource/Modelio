@@ -45,5 +45,5 @@ public interface OfficeConnection extends XComponent {
      */
     @objid ("30e722e8-cdde-4fb0-b7f6-220b5ece55ab")
     XComponentContext getComponentContext();
-
 }
+

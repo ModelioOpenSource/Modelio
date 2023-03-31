@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Diagramme-dhéritage]]
 
-[[diagramme-dhéritage]]
+
+
 = Diagramme d'héritage
 
 L'intention de ce diagramme automatique est de montrer où se situe une classe au sein de son graphe d'héritage.
 
-[[Eléments-concernés]]
 
-[[eléments-concernés]]
+
+
 == Eléments concernés
 
 Les diagrammes d'héritage peuvent être créés sur n'importe quel Classifier.
 
-[[Contenu]]
 
-[[contenu]]
+
+
 == Contenu
 
 * La classe C elle-même.
@@ -27,9 +27,9 @@ Les diagrammes d'héritage peuvent être créés sur n'importe quel Classifier.
 * Les classes dérivées de C.
 * Les liens d'implémentation et d'héritage.
 
-[[Disposition]]
 
-[[disposition]]
+
+
 == Disposition
 
 * La classe C est placée au centre du diagramme.
@@ -44,9 +44,9 @@ Les diagrammes d'héritage peuvent être créés sur n'importe quel Classifier.
 
 *Note :* Tous les éléments présents dans ce diagramme ont un <<Styles_Diagrammes_Automatiques.adoc#,style>> spécifique associé.
 
-[[Exemple]]
 
-[[exemple]]
+
+
 == Exemple
 
 image::images/Inheritance_diagram_inheritance_diagram.png[1]

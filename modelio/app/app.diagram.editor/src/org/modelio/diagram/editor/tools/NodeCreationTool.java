@@ -26,6 +26,7 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.tools.CreationTool;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 
 /**
  * Modelio node creation tool .
@@ -58,7 +59,22 @@ public class NodeCreationTool extends CreationTool {
             reqSize.scale(2);
             Point newStart = getStartLocation().getTranslated(-reqSize.width / 2, -reqSize.height / 2);
             request.setLocation(newStart);
-            
+        
+        }
+        
+    }
+
+    /**
+     * Change Create Request Type if ControlKey is pressed. Initiate an "Unmask or Create children" request.
+     */
+    @objid ("9cc9b30e-2c4f-46b9-84fb-a8d43c7b9fcd")
+    @Override
+    protected void updateTargetRequest() {
+        super.updateTargetRequest();
+        if(getCurrentInput().isControlKeyDown()) {
+          getTargetRequest().setType(RequestTypes.UNMASK_OR_CREATE_CHILDREN);
+        }else {
+            getTargetRequest().setType(REQ_CREATE);
         }
         
     }
@@ -84,7 +100,7 @@ public class NodeCreationTool extends CreationTool {
             // The shift modifier is not reset when pressing shift ...
             e.stateMask &= ~e.keyCode;
             getCurrentInput().setInput(e);
-            
+        
             // Will recompute all
             handleMove();
         }

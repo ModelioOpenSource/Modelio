@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1390]]
 
-[[r1390]]
+
+
 = R1390
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 La valeur de la cardinalité maximum de l'_InputPin_ ne correspond pas à la valeur de la multiplicité maximum de l'_Attribut_ qu'il représente.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 _Contrainte UML_: Le type, le type d'ordonnancement et la multiplicité des _InputPin_ doivent correspondre aux _Attributs_ du _Signal_ qu'ils représentent.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1390, vérifiez que le _Pin_ et l'_Attribut_ incriminé possèdent la même valeur de cardinalité maximum et de multiplicité maximum.

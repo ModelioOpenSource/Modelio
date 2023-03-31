@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * All tokens offered on incoming edges are accepted. See children of final node for other semantics.
+ * 
+ * 
+ * 
  */
 @objid ("00325dde-c4bf-1fd8-97fe-001ec947cd2a")
 public interface FinalNode extends ControlNode {
@@ -46,5 +49,5 @@ public interface FinalNode extends ControlNode {
      */
     @objid ("580c898d-2064-4ea0-a909-395d477e6a66")
     public static final String MQNAME = "Standard.FinalNode";
-
 }
+

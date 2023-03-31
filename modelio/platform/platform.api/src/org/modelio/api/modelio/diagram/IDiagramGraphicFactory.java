@@ -72,6 +72,32 @@ public interface IDiagramGraphicFactory {
     IDiagramDrawingNode createDrawingText(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h);
 
     /**
+     * Creates a drawing note
+     * @param x2 the x coordinates of the second point.
+     * @param y2 the y coordinates of the second point.
+     * @param layer the layer to use
+     * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
+     * If <i>null</i>, an identifier will be automatically generated.
+     * @param x the x coordinates of the first point.
+     * @param y the y coordinates of the first point.
+     * @return the created line.
+     */
+    @objid ("0dd893b2-672c-40a8-9b98-d0aa7bbaac70")
+    IDiagramDrawingNode createDrawingNote(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h);
+
+    /**
+     * Creates a drawing image
+     * <p>
+     * The model element is unmasked at the given position.
+     * @param element the model element to unmask.
+     * @param x the x coordinates of the unmasking position.
+     * @param y the y coordinates of the unmasking position.
+     * @return a list of all the new diagram graphics. Might be empty, but not <code>null</code>.
+     */
+    @objid ("f53df09e-b8c1-4e30-98d6-84785dbb977b")
+    IDiagramDrawingNode createDrawingImage(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h);
+
+    /**
      * Creates a drawing line
      * @param layer the layer to use
      * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
@@ -96,5 +122,5 @@ public interface IDiagramGraphicFactory {
      */
     @objid ("642b7cbc-3602-4210-8ffd-e2af9f6099c4")
     List<IDiagramGraphic> unmask(MObject element, int x, int y);
-
 }
+

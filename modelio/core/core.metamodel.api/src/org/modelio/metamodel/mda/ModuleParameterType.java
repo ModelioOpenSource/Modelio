@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("002b11b4-91e1-1f74-804b-001ec947cd2a")
 public enum ModuleParameterType {
@@ -48,6 +50,7 @@ public enum ModuleParameterType {
     TYPE_PARAM_PASSWORD(6, "TYPE_PARAM_PASSWORD", "TYPE_PARAM_PASSWORD"),
     @objid ("517c8bbd-4ac4-4265-aadc-346aaa16949c")
     TYPE_PARAM_COLOR(7, "TYPE_PARAM_COLOR", "TYPE_PARAM_COLOR");
+
 public static final int TYPE_PARAM_BOOLEAN_VALUE = 0;
     public static final int TYPE_PARAM_STRING_VALUE = 1;
     public static final int TYPE_PARAM_ENUM_VALUE = 2;

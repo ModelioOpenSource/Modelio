@@ -43,5 +43,5 @@ public interface IPickingProvider {
      */
     @objid ("33b8aa4f-7585-11e0-8651-001ec947cd2a")
     void leavePickingMode(IPickingSession session);
-
 }
+

@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
@@ -33,7 +34,6 @@ import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.handles.HandleBounds;
-import org.modelio.diagram.elements.common.root.ScalableFreeformRootEditPart2;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
@@ -90,14 +90,14 @@ public class UnmaskManager {
             }
         
             // Layout all links in a line
-            Rectangle bounds = getBounds(viewer, gmModel);
-            Point initialPosition = new Point(bounds.x +
-                    (bounds.width / 2) -
-                    (UnmaskManager.HORIZONTAL_OFFSET * (toUnmask.size() - 1) / 2), bounds.y +
-                            bounds.height +
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
+            RelativePoint initialPosition = new RelativePoint(
+                    bounds.ref,
+                    bounds.bounds.x +
+                    (bounds.bounds.width / 2) -
+                    (UnmaskManager.HORIZONTAL_OFFSET * (toUnmask.size() - 1) / 2), bounds.bounds.y +
+                            bounds.bounds.height +
                             UnmaskManager.VERTICAL_OFFSET);
-            ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                    .translateToParent(initialPosition);
         
             layoutHorizontal(initialPosition, viewer, toUnmask);
         
@@ -124,10 +124,8 @@ public class UnmaskManager {
             }
         
             // Layout all constraints in column
-            Rectangle bounds = getBounds(viewer, gmModel);
-            Point initialPosition = new Point(bounds.x + bounds.width + UnmaskManager.HORIZONTAL_OFFSET / 2, bounds.y);
-            ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                    .translateToParent(initialPosition);
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
+            RelativePoint initialPosition = new RelativePoint(bounds.ref, bounds.bounds.x + bounds.bounds.width + UnmaskManager.HORIZONTAL_OFFSET / 2, bounds.bounds.y);
         
             layoutVertical(initialPosition, viewer, toUnmask);
         }
@@ -150,7 +148,7 @@ public class UnmaskManager {
         
             LinkPositionSet linkPositionSet = new LinkPositionSet(elt, false, unmaskedElements);
         
-            Rectangle bounds = getBounds(viewer, gmModel);
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
         
             unmaskLinkPositionSet(viewer, linkPositionSet, bounds);
         }
@@ -175,10 +173,8 @@ public class UnmaskManager {
             toUnmask.addAll(modelElement.getAttached(Document.class));
         
             // Layout all notes in column
-            Rectangle bounds = getBounds(viewer, gmModel);
-            Point initialPosition = new Point(bounds.x - UnmaskManager.HORIZONTAL_OFFSET, bounds.y);
-            ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                    .translateToParent(initialPosition);
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
+            RelativePoint initialPosition = new RelativePoint(bounds.ref, bounds.bounds.x - UnmaskManager.HORIZONTAL_OFFSET, bounds.bounds.y);
         
             layoutVertical(initialPosition, viewer, toUnmask);
         }
@@ -209,15 +205,13 @@ public class UnmaskManager {
             }
         
             // Layout all links in a line
-            Rectangle bounds = getBounds(viewer, gmModel);
-            Point initialPosition = new Point(bounds.x +
-                    (bounds.width / 2) -
-                    (UnmaskManager.HORIZONTAL_OFFSET * (toUnmask.size() - 1) / 2) -
-                    UnmaskManager.HORIZONTAL_OFFSET /
-                            2,
-                    bounds.y - UnmaskManager.VERTICAL_OFFSET * 2);
-            ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                    .translateToParent(initialPosition);
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
+            RelativePoint initialPosition = new RelativePoint(
+                    bounds.ref,
+                    bounds.bounds.x + (bounds.bounds.width / 2)
+                    - (UnmaskManager.HORIZONTAL_OFFSET * (toUnmask.size() - 1) / 2)
+                    - UnmaskManager.HORIZONTAL_OFFSET / 2,
+                    bounds.bounds.y - UnmaskManager.VERTICAL_OFFSET * 2);
         
             layoutHorizontal(initialPosition, viewer, toUnmask);
         }
@@ -240,7 +234,7 @@ public class UnmaskManager {
         
             LinkPositionSet linkPositionSet = new LinkPositionSet(elt, true, unmaskedElements);
         
-            Rectangle bounds = getBounds(viewer, gmModel);
+            RelativeRectangle bounds = getBounds(viewer, gmModel);
         
             unmaskLinkPositionSet(viewer, linkPositionSet, bounds);
         }
@@ -252,14 +246,17 @@ public class UnmaskManager {
      * @return the element bounds.
      */
     @objid ("665b5f45-33f7-11e2-95fe-001ec947c8cc")
-    private Rectangle getBounds(final EditPartViewer viewer, final GmModel gmModel) {
+    private RelativeRectangle getBounds(final EditPartViewer viewer, final GmModel gmModel) {
         GraphicalEditPart p = (GraphicalEditPart) viewer.getEditPartRegistry().get(gmModel);
-        if (p.getFigure() instanceof HandleBounds) {
-            return ((HandleBounds) p.getFigure()).getHandleBounds().getCopy();
-        } else {
-            return p.getFigure().getBounds().getCopy();
-        }
+        Rectangle bounds;
+        IFigure figure = p.getFigure();
         
+        if (figure instanceof HandleBounds) {
+            bounds = ((HandleBounds) figure).getHandleBounds().getCopy();
+        } else {
+            bounds = figure.getBounds().getCopy();
+        }
+        return new RelativeRectangle(bounds, figure);
     }
 
     /**
@@ -286,17 +283,19 @@ public class UnmaskManager {
      * @return the unmasked element line's bounds.
      */
     @objid ("665dc174-33f7-11e2-95fe-001ec947c8cc")
-    private Rectangle layoutHorizontal(final Point initialPosition, final EditPartViewer viewer, final Collection<MObject> toUnmask) {
-        Point unmaskPosition = new Point(initialPosition);
+    private RelativeRectangle layoutHorizontal(final RelativePoint initialPosition, final EditPartViewer viewer, final Collection<MObject> toUnmask) {
+        RelativePoint unmaskPosition = new RelativePoint(initialPosition);
         
         for (MObject link : toUnmask) {
-            unmask(viewer, link, unmaskPosition.x, unmaskPosition.y);
-            unmaskPosition.x += UnmaskManager.HORIZONTAL_OFFSET;
+            unmask(viewer, link, unmaskPosition);
+            unmaskPosition.point.x += UnmaskManager.HORIZONTAL_OFFSET;
         }
-        return new Rectangle(initialPosition.x,
-                        initialPosition.y,
+        return new RelativeRectangle(initialPosition.ref,
+                initialPosition.point.x,
+                        initialPosition.point.y,
                         UnmaskManager.HORIZONTAL_OFFSET * toUnmask.size(),
                         UnmaskManager.VERTICAL_OFFSET);
+        
     }
 
     /**
@@ -307,28 +306,34 @@ public class UnmaskManager {
      * @return the unmasked element column's bounds.
      */
     @objid ("665dc181-33f7-11e2-95fe-001ec947c8cc")
-    private Rectangle layoutVertical(final Point initialPosition, final EditPartViewer viewer, final Collection<MObject> toUnmask) {
-        Point unmaskPosition = new Point(initialPosition);
+    private RelativeRectangle layoutVertical(final RelativePoint initialPosition, final EditPartViewer viewer, final Collection<MObject> toUnmask) {
+        RelativePoint unmaskPosition = new RelativePoint(initialPosition);
         
         for (MObject link : toUnmask) {
-            unmask(viewer, link, unmaskPosition.x, unmaskPosition.y);
-            unmaskPosition.y += UnmaskManager.VERTICAL_OFFSET;
+            unmask(viewer, link, unmaskPosition);
+            unmaskPosition.point.y += UnmaskManager.VERTICAL_OFFSET;
         }
-        return new Rectangle(initialPosition.x, initialPosition.y, UnmaskManager.HORIZONTAL_OFFSET, UnmaskManager.VERTICAL_OFFSET *
-                        toUnmask.size());
+        return new RelativeRectangle(
+                initialPosition.ref,
+                initialPosition.point.x,
+                initialPosition.point.y,
+                UnmaskManager.HORIZONTAL_OFFSET,
+                UnmaskManager.VERTICAL_OFFSET * toUnmask.size());
+        
     }
 
     /**
      * Unmask an element in this viewer at the given coordinates.<br>
      * Uses a ModelElementDropRequest, to emulate a standard drag & drop of the element.
-     * @param viewer the viewer to unmask the element on.
-     * @param element the element to unmask.
      * @param x the x coordinate for the unmasking location.
      * @param y the y coordinate for the unmasking location.
+     * @param viewer the viewer to unmask the element on.
+     * @param element the element to unmask.
      */
     @objid ("665dc18e-33f7-11e2-95fe-001ec947c8cc")
-    private void unmask(final EditPartViewer viewer, final MObject element, final int x, final int y) {
-        Point dropLocation = new Point(x, y);
+    private void unmask(final EditPartViewer viewer, final MObject element, final RelativePoint pos) {
+        Point dropLocation = pos.point.getCopy();
+        pos.ref.translateToAbsolute(dropLocation);
         
         final ModelElementDropRequest req = new ModelElementDropRequest();
         req.setDroppedElements(new MObject[] { element });
@@ -355,47 +360,99 @@ public class UnmaskManager {
     }
 
     @objid ("665dc199-33f7-11e2-95fe-001ec947c8cc")
-    private void unmaskLinkPositionSet(final EditPartViewer viewer, final LinkPositionSet linkPositionSet, final Rectangle bounds) {
+    private void unmaskLinkPositionSet(final EditPartViewer viewer, final LinkPositionSet linkPositionSet, final RelativeRectangle relBounds) {
+        Rectangle bounds = relBounds.bounds;
+        
+        int baseHorizontaloffset = UnmaskManager.HORIZONTAL_OFFSET * (linkPositionSet.getBottomLinks().size() - 1) / 2;
+        
         // Layout top line
-        Point topInitialPosition = new Point(bounds.x +
-                (bounds.width / 2) -
-                (UnmaskManager.HORIZONTAL_OFFSET *
-                        (linkPositionSet.getBottomLinks().size() - 1) / 2)
-                -
-                UnmaskManager.HORIZONTAL_OFFSET /
-                        2,
+        RelativePoint topInitialPosition = new RelativePoint(
+                relBounds.ref,
+                bounds.x + (bounds.width / 2) - baseHorizontaloffset - UnmaskManager.HORIZONTAL_OFFSET / 2,
                 bounds.y + bounds.height - UnmaskManager.VERTICAL_OFFSET * 2);
-        ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                .translateToParent(topInitialPosition);
-        Rectangle topBounds = layoutHorizontal(topInitialPosition, viewer, linkPositionSet.getTopLinks());
+        
+        RelativeRectangle topBounds = layoutHorizontal(topInitialPosition, viewer, linkPositionSet.getTopLinks());
         
         // Layout bottom line
-        Point bottomInitialPosition = new Point(bounds.x +
-                (bounds.width / 2) -
-                (UnmaskManager.HORIZONTAL_OFFSET *
-                        (linkPositionSet.getBottomLinks().size() - 1) / 2),
+        RelativePoint bottomInitialPosition = new RelativePoint(
+                relBounds.ref,
+                bounds.x + (bounds.width / 2) - baseHorizontaloffset,
                 bounds.y + bounds.height + UnmaskManager.VERTICAL_OFFSET);
-        ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                .translateToParent(bottomInitialPosition);
-        Rectangle bottomBounds = layoutHorizontal(bottomInitialPosition,
+        
+        RelativeRectangle bottomBounds = layoutHorizontal(bottomInitialPosition,
                 viewer,
                 linkPositionSet.getBottomLinks());
         
         // Layout right column
-        Point rightInitialPosition = new Point(Math.max(topBounds.x + topBounds.width, bottomBounds.x +
-                bottomBounds.width),
+        RelativePoint rightInitialPosition = new RelativePoint(
+                relBounds.ref,
+                Math.max(topBounds.bounds.x + topBounds.bounds.width, bottomBounds.bounds.x + bottomBounds.bounds.width),
                 bounds.y);
-        ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                .translateToParent(rightInitialPosition);
         layoutVertical(rightInitialPosition, viewer, linkPositionSet.getRightLinks());
         
         // Layout left column
-        Point leftInitialPosition = new Point(Math.min(topBounds.x, bottomBounds.x) - UnmaskManager.HORIZONTAL_OFFSET,
+        RelativePoint leftInitialPosition = new RelativePoint(
+                relBounds.ref,
+                Math.min(topBounds.bounds.x, bottomBounds.bounds.x) - UnmaskManager.HORIZONTAL_OFFSET,
                 bounds.y);
-        ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
-                .translateToParent(leftInitialPosition);
         layoutVertical(leftInitialPosition, viewer, linkPositionSet.getLeftLinks());
         
+    }
+
+    /**
+     * Describe a Point and the figure its coordinate are relative to.
+     * @since 5.1
+     */
+    @objid ("c57d4060-e032-467b-8267-3e55e1db13b3")
+    private static class RelativePoint {
+        @objid ("cb7cca1c-4258-431a-9130-951c388140d0")
+        public final IFigure ref;
+
+        @objid ("8e63e7b1-44b1-47f5-95de-e87e2c329c52")
+        public final Point point;
+
+        @objid ("dee9f0f4-d7d6-4dc8-85a9-382ef5b40820")
+        public  RelativePoint(IFigure ref, int x, int y) {
+            this.point = new Point(x,y);
+            this.ref = ref;
+            
+        }
+
+        @objid ("e5ddd742-1987-4c60-996d-9cdbcf24542b")
+        public  RelativePoint(RelativePoint other) {
+            this.ref = other.ref;
+            this.point = other.point.getCopy();
+            
+        }
+
+    }
+
+    /**
+     * Describe a rectangle and the figure its coordinate are relative to.
+     * @since 5.1
+     */
+    @objid ("0783898c-cc61-42ea-964c-65b4f816b965")
+    private static class RelativeRectangle {
+        @objid ("c1744c6c-4936-48c3-a501-b525b587c064")
+        public final Rectangle bounds;
+
+        @objid ("953b54a8-20c7-44dd-a91b-dc6dba9f08c2")
+        public final IFigure ref;
+
+        @objid ("7b083d77-35e5-47c2-a8d2-c2641713a4e0")
+        public  RelativeRectangle(Rectangle bounds, IFigure ref) {
+            this.bounds = bounds.getCopy();
+            this.ref = ref;
+            
+        }
+
+        @objid ("3f261a3a-b628-492c-93fc-1f5a7112f8fa")
+        public  RelativeRectangle(IFigure ref, int x, int y, int w, int h) {
+            this.ref = ref;
+            this.bounds = new Rectangle(x, y, w, h);
+            
+        }
+
     }
 
 }

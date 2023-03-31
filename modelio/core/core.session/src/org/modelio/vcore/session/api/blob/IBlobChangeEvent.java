@@ -47,5 +47,5 @@ public interface IBlobChangeEvent {
      */
     @objid ("6b3ea614-e83c-4720-bf2c-4a143a86234a")
     Collection<IBlobInfo> getUpdatedBlobs();
-
 }
+

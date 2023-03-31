@@ -28,7 +28,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.TextLayout;
 import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
 import org.modelio.platform.model.ui.swt.images.spi.IMetamodelImageProvider;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.UIImages;
 import org.modelio.platform.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -210,7 +210,7 @@ public class MetamodelImageService {
         try {
             tl.setAlignment(SWT.CENTER);
             tl.setWidth(baseImage.getBounds().width);
-            tl.setFont(CoreFontRegistry.getModifiedFont(device.getSystemFont(), 0, 0.5f));
+            tl.setFont(UIFont.XXSMALL);
             tl.setText(label);
         
             GC gc = new GC(image);

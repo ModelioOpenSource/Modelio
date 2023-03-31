@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1250]]
 
-[[r1250]]
+
+
 = R1250
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 If a _ForkJoinNode_ has an _ObjectFlow_ in its incoming edges, it must have an _ObjectFlow_ in its outgoing edges and vice versa. The same applies for _ControlFlows_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _UML constraint_:
@@ -27,9 +27,9 @@ _UML constraint_:
 
 All information entering a _ForkJoinNode_ cannot be lost and all information going out of a ForkJoinNode cannot be created.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1250 warning on a _ForkJoinNode_, check the consistency of flows going in and out of the _ForkJoinNode_.

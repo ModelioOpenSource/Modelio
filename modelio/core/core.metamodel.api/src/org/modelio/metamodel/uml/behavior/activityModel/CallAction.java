@@ -29,6 +29,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * CallAction v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("002a65de-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CallAction extends ActivityAction {
@@ -49,6 +54,7 @@ public interface CallAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>If true, the call is synchronous and the caller waits for completion of the invoked behavior. If false, the call is asynchronous and the caller proceeds immediately and does not expect a return value.</i>
+     * 
      */
     @objid ("f9197851-7f6f-4064-a5cc-c8f2750f05cb")
     boolean isIsSynchronous();
@@ -58,8 +64,9 @@ public interface CallAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>If true, the call is synchronous and the caller waits for completion of the invoked behavior. If false, the call is asynchronous and the caller proceeds immediately and does not expect a return value.</i>
+     * 
      */
     @objid ("33e4f098-d520-4c57-b5bc-ec5f860c92ac")
     void setIsSynchronous(boolean value);
-
 }
+

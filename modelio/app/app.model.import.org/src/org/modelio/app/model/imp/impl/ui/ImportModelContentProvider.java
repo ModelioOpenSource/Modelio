@@ -24,9 +24,9 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.model.browser.view.BrowserView;
 import org.modelio.model.browser.view.panel.BrowserContentProvider;
 import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
@@ -53,8 +53,8 @@ class ImportModelContentProvider extends BrowserContentProvider {
     @Override
     public void inputChanged(Viewer currentViewer, Object oldInput, Object newInput) {
         // Register extensions
-        if (newInput != null && newInput instanceof GProject) {
-            GProject project = (GProject) newInput;
+        if (newInput != null && newInput instanceof IGProject) {
+            IGProject project = (IGProject) newInput;
             ICoreSession modelingSession = project.getSession();
             for (MMetamodelFragment fragment : modelingSession.getMetamodel().getFragments()) {
                 ITreeContentProvider subContentProvider = this.contentProviderExtensions.get(fragment);
@@ -71,8 +71,8 @@ class ImportModelContentProvider extends BrowserContentProvider {
     @objid ("24a2ad74-b9c4-4858-bf38-b3b9cdfa7706")
     @Override
     public Object[] getElements(Object parent) {
-        if (parent instanceof GProject) {
-            GProject project = (GProject) parent;
+        if (parent instanceof IGProject) {
+            IGProject project = (IGProject) parent;
         
             return getFragments(project).toArray();
         }
@@ -83,11 +83,11 @@ class ImportModelContentProvider extends BrowserContentProvider {
      * Ignore RAMC, MDA and HTTP fragments.
      */
     @objid ("23145f42-c48c-4c16-a184-bb2c1d2af8b4")
-    private List<IProjectFragment> getFragments(GProject project) {
-        List<IProjectFragment> fragments = new ArrayList<>();
-        for (IProjectFragment iProjectFragment : project.getFragments()) {
-            // Ignore MDA and RAMC fragments
-            if (iProjectFragment.getType() == FragmentType.MDA || iProjectFragment.getType() == FragmentType.RAMC || iProjectFragment.getType() == FragmentType.EXML_URL) {
+    private List<IGModelFragment> getFragments(IGProject project) {
+        List<IGModelFragment> fragments = new ArrayList<>();
+        for (IGModelFragment iProjectFragment : project.getParts(IGModelFragment.class)) {
+            // Ignore RAMC and HTTP fragments
+            if (iProjectFragment.getType() == GProjectPartType.RAMC || iProjectFragment.getType() == GProjectPartType.HTTPFRAGMENT) {
                 continue;
             } else {
                 fragments.add(iProjectFragment);

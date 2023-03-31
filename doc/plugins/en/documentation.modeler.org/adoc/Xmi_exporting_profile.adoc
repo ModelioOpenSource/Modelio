@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Exporting-a-profile-in-XMI-format]]
 
-[[exporting-a-profile-in-xmi-format]]
+
+
 = Exporting a profile in XMI format
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The Modelio export profile operation is used to generate XMI files from profiles built in Modelio.
@@ -19,9 +19,9 @@ The "Profile export" command can only be run from a profile.
 
 image::images/Xmi_exporting_profile_ExportProfileCommand.png[image]
 
-[[The-XMI-Export-profile-command]]
 
-[[the-xmi-export-profile-command]]
+
+
 The XMI Export profile command
 
 *Keys:*
@@ -29,16 +29,16 @@ The XMI Export profile command
 1. Right-click on a profile to open the context menu.
 1. Run the "Import/Export \ Import \Profile export" command.
 
-[[The-ldquoXMI-profile-exportrdquo-window]]
 
-[[the-xmi-profile-export-window]]
+
+
 ===== The "XMI profile export" window
 
 image::images/Xmi_exporting_profile_ExportProfileWindow.png[image]
 
-[[The-XMI-profile-export-window]]
 
-[[the-xmi-profile-export-window-1]]
+
+
 The XMI profile export window
 
 *Keys:*

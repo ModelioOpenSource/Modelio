@@ -23,6 +23,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.diagram.elements.core.figures.anchors.DelegateAnchor;
+import org.modelio.diagram.elements.core.figures.anchors.FacesConstants;
 import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
 
 /**
@@ -31,18 +32,18 @@ import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
  * @deprecated not used, to be deleted if still not used after 5.0.2 release.
  * @since 5.0.2
  */
-@objid ("dba527b5-b9c6-4aaf-bccd-e372a1a69695")
+@objid ("1ee843f3-42e5-407f-bbc0-84469be0d8af")
 @Deprecated
 class TolerantFixedAnchor extends DelegateAnchor {
-    @objid ("1c5e3ddd-7979-40cb-9e4f-1a2667b79889")
+    @objid ("2fc33ad6-7752-45a7-a74c-a5c8958a310b")
     private static final int TOLERANCE = 2;
 
-    @objid ("e07eccfe-f791-4be6-b434-1f02c5d5cb3f")
+    @objid ("e7a70856-2b49-4d10-8c03-769ecbbda437")
     public  TolerantFixedAnchor(FixedAnchor wrapped) {
-        setDelegate(wrapped);
+        super(wrapped);
     }
 
-    @objid ("9d2567c6-68ef-4cee-859f-1d1d575288c2")
+    @objid ("0c557816-b780-4854-8d46-7e192e8cd677")
     @Override
     public Point getLocation(Point reference) {
         Point location = getDelegate().getLocation(reference);
@@ -53,15 +54,15 @@ class TolerantFixedAnchor extends DelegateAnchor {
         // snap anchor location to the given reference point if within tolerance.
         int d;
         switch (((FixedAnchor) getDelegate()).getFace()) {
-        case FixedNodeAnchorProvider.FACE_EAST:
-        case FixedNodeAnchorProvider.FACE_WEST:
+        case FacesConstants.FACE_EAST:
+        case FacesConstants.FACE_WEST:
             d = Math.abs(reference.y() - location.y());
             if (d > 0 && d <= tolerance.height()) {
                 return new Point(location).setY(reference.y());
             }
             break;
-        case FixedNodeAnchorProvider.FACE_NORTH:
-        case FixedNodeAnchorProvider.FACE_SOUTH:
+        case FacesConstants.FACE_NORTH:
+        case FacesConstants.FACE_SOUTH:
             d = Math.abs(reference.x() - location.x());
             if (d > 0 && d <= tolerance.width()) {
                 return new Point(location).setX(reference.x());
@@ -74,7 +75,7 @@ class TolerantFixedAnchor extends DelegateAnchor {
         return location;
     }
 
-    @objid ("baf7d54f-94f0-4a5a-ba49-771469555b4a")
+    @objid ("5d98743f-ebb2-44d8-a63c-9ff66a77568b")
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -83,7 +84,7 @@ class TolerantFixedAnchor extends DelegateAnchor {
         return result;
     }
 
-    @objid ("fe060551-ab2a-4a8e-8ffa-1f6959116108")
+    @objid ("533721d9-10f7-4907-81aa-157931b2b085")
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

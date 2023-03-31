@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configuring-project-information]]
 
-[[configuring-project-information]]
+
+
 = Configuring project information
 
 Each project can be customized in order to be more easily identifiable in the workspace view. +

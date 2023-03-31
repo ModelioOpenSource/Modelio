@@ -78,6 +78,11 @@ public class FitToContentCommand extends Command {
      */
     @objid ("7f40a183-1dec-11e2-8cad-001ec947c8cc")
     private Command getResizeCommand() {
+        // Sanity check in case the edit part was deleted between command 
+        // instantiation and execution.                                   
+        if (this.editPart.getParent() == null)                            
+            return null;                                                  
+                                                                          
         final IFigure fig = this.editPart.getFigure();
         
         //fig.getUpdateManager().performValidation();

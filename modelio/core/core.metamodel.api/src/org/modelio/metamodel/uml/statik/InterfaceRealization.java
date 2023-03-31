@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  *  In Modelio, a Realization belongs to its Classifier.
+ * 
+ * 
  */
 @objid ("000ee2e6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InterfaceRealization extends UmlModelElement {
@@ -53,6 +55,7 @@ public interface InterfaceRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>End of the implementation link toward an Interface.</i>
+     * 
      */
     @objid ("c6c2dd64-dbd1-4a3c-84c9-ba5af2751e6b")
     Interface getImplemented();
@@ -62,6 +65,7 @@ public interface InterfaceRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>End of the implementation link toward an Interface.</i>
+     * 
      */
     @objid ("cbdc55d4-daf4-4261-9fe7-2fcc1cd02fdc")
     void setImplemented(Interface value);
@@ -71,6 +75,7 @@ public interface InterfaceRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("91b7cd0d-576c-42dc-b2ec-f3fb730930fc")
     NameSpace getImplementer();
@@ -80,8 +85,9 @@ public interface InterfaceRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0cdda125-ef26-4068-98c6-13f31d9bc772")
     void setImplementer(NameSpace value);
-
 }
+

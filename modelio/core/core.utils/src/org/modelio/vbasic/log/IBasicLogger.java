@@ -112,5 +112,5 @@ public interface IBasicLogger {
      */
     @objid ("e72d8ed3-1dc5-4240-928e-fdda390dbc80")
     void setLevel(int level);
-
 }
+

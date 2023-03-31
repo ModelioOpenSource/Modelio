@@ -41,8 +41,8 @@ class InfoPopup extends PopupDialog {
     private static final String EMPTY = "";
 
     /*
-         * The description text displayed in the popup.
-         */
+     * The description text displayed in the popup.
+     */
     @objid ("6c0c6e1f-389e-4724-9940-e0100dba4de6")
     private String contents = EMPTY;
 

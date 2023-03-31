@@ -206,7 +206,7 @@ public class ImpactModelPropertyModel extends AbstractPropertyModel<ImpactModel>
     @objid ("1a05ad85-7ed1-4bbf-9199-de2fd94a9343")
     @Override
     protected String getPropertyI18n(String key) {
-        return ModelProperty.I18N.getString("Impact." + key);
+        return ModelProperty.I18N.getString("$Impact." + key);
     }
 
 }

@@ -112,7 +112,7 @@ public class SequenceDiagramEditPart extends AbstractDiagramEditPart {
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("acb84eaa-6a8a-4cf4-8787-1fa934cd9cbe")
+    @objid ("b841cf90-7827-4603-9c21-81acd6b84e49")
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return layoutPolicy;
     }

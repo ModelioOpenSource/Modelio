@@ -42,5 +42,5 @@ public interface MAttribute {
      */
     @objid ("0033ce44-2ef8-1ffc-8433-001ec947cd2a")
     Class<?> getType();
-
 }
+

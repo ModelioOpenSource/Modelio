@@ -125,15 +125,5 @@ public interface IModuleHandle {
     default ClassLoader getProvidedClassLoader() {
         return null;
     }
-
-    /**
-     * Tells whether this module must be present in all projects.
-     * @return true if this module must be present in all projects.
-     * @since 3.8
-     */
-    @objid ("843b07a4-e7d3-44e0-9ccb-92be35c75ba1")
-    default boolean isMandatory() {
-        return false;
-    }
-
 }
+

@@ -23,15 +23,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.gproject.data.project.auth.AuthDescriptor;
 import org.modelio.vbasic.auth.IAuthData;
 
 /**
- * Authentication configuration for GProject, IProjectFragment and GModule.
+ * Authentication configuration for an IGPart.
  * <p>
- * Contains authentication data and a definition scope.
- * The authentication data may be null, meaning the authentication is missing and should be asked to the user.
+ * Contains authentication data and a definition scope. The authentication data may be <code>null</code>, meaning the authentication is missing and should be asked to the user.
  */
 @objid ("9240828a-516f-4eb6-b2e3-65f14e407ec7")
+@Deprecated
 public class GAuthConf {
     @objid ("5db54cf0-36db-4b6a-81ee-bd9ee313340a")
     private DefinitionScope scope;
@@ -131,8 +132,8 @@ public class GAuthConf {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((this.authData == null) ? 0 : this.authData.hashCode());
-        result = prime * result + ((this.scope == null) ? 0 : this.scope.hashCode());
+        result = prime * result + (this.authData == null ? 0 : this.authData.hashCode());
+        result = prime * result + (this.scope == null ? 0 : this.scope.hashCode());
         return result;
     }
 
@@ -192,19 +193,16 @@ public class GAuthConf {
     @objid ("9c8534a2-36be-445f-8f7f-d79e7153960e")
     @Override
     public String toString() {
-        return "auth: ("+this.authData+" scope:"+this.scope+")";
+        return "auth: (" + this.authData + " scope:" + this.scope + ")";
     }
 
     /**
      * Compare 2 authentication data.
      * <p>
-     * Returns <code>false</code> if the second authentication should replace the first one.
-     * Compares the schemes, then test whether all the first authentication properties
-     * are contained in the second one.
+     * Returns <code>false</code> if the second authentication should replace the first one. Compares the schemes, then test whether all the first authentication properties are contained in the second one.
      * @param old an current authentication data
      * @param newData the new authentication data.
-     * @return <code>true</code> if the 2 authentications represents the same login,
-     * <code>false</code> if the second authentication should replace the first one.
+     * @return <code>true</code> if the 2 authentications represents the same login, <code>false</code> if the second authentication should replace the first one.
      */
     @objid ("68312348-712e-4dae-a48d-b37131835557")
     private static boolean isToReplace(IAuthData old, IAuthData newData) {
@@ -217,12 +215,12 @@ public class GAuthConf {
         }
         
         Map<String, String> oldProp = old.getData();
-        if (! old.getSchemeId().equals(newData.getSchemeId())) {
+        if (!old.getSchemeId().equals(newData.getSchemeId())) {
             return true;
         }
         
         for (Entry<String, String> prop : newData.getData().entrySet()) {
-            if (! Objects.equals(oldProp.get(prop.getKey()), prop.getValue())) {
+            if (!Objects.equals(oldProp.get(prop.getKey()), prop.getValue())) {
                 return true;
             }
         }

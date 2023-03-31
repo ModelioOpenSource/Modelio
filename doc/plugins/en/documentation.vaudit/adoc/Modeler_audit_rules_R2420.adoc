@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2420]]
 
-[[r2420]]
+
+
 = R2420
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _Operation_ must have the same signature as the _Operation_ it redefines.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 By definition, an operation redefinition overwrites another _Operation_ with the same signature, so you cannot redefine an operation with a different signature than the operation which is doing the redefinition.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Revise your operations' signatures or remove the redefinition.

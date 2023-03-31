@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1470]]
 
-[[r1470]]
+
+
 = R1470
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un Attribut doit être typé par un type primitif.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un attribut devrait toujours être typé par un type primitif.
@@ -28,9 +28,9 @@ Les types primitifs sont :
 * Les _Enumerations_
 * Les _Classes_ et les _DataTypes_ du moment qu'ils sont marqués comme 'primitifs'
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vérifiez le type de votre attribut et choisissez suivant le cas :

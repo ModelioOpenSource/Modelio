@@ -1,0 +1,16 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+= R4040
+
+===== Résumé
+
+L'élément ArchiMate n'apparait dans aucune vue.
+
+===== Détails
+
+En ArchiMate, les vues sont au centre de l'organisation du modèle.
+Un élément n'apparaissant dans aucune vue a probablement été oublié et doit donc être démasqué dans une vue, ou alors il est obsolète et destiné à être supprimé.

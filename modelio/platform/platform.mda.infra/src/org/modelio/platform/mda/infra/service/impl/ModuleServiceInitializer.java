@@ -28,13 +28,15 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
+import org.modelio.gproject.catalog.FileModuleStore;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleRTCache;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.gproject.module.catalog.FileModuleStore;
-import org.modelio.gproject.module.rtcache.ModuleRTCache;
+import org.modelio.gproject.rtcache.ModuleRTCache;
 import org.modelio.platform.core.ModelioEnv;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.IMdaResourceProvider;
+import org.modelio.platform.mda.infra.IMdaResourceProviderRegistry;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IModuleService;
@@ -60,8 +62,11 @@ public class ModuleServiceInitializer {
         context.set(IModuleService.class, moduleService);
         
         ModuleServiceInitializer.initModuleCache(context);
+        // MdaResources.init(moduleService);
         
-        ModuleI18NService.init(moduleService);
+        MdaResources.initialize(moduleService, moduleService.getMdaResourceProvider());
+        context.set(IMdaResourceProvider.class, moduleService.getMdaResourceProvider());
+        context.set(IMdaResourceProviderRegistry.class, (IMdaResourceProviderRegistry) moduleService.getMdaResourceProvider());
         
     }
 

@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Notes correspond to the UML notes appearing in diagrams on ModelElements. They can include implementation code, documentation and every possible kind of textual information. Notes are related to NoteTypes, which declare the Notes permitted in a model. In Modelio, Notes belong to their annotated ModelElement. Notes correspond to the UML 2.0 Comment metaclass. The Note name defines the purpose of the Note, and has to conform to the NoteType name, where this is defined.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0089d1ea-c4be-1fd8-97fe-001ec947cd2a")
 public interface Note extends ModelElement {
@@ -52,6 +55,7 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>Textual content of the Note. This text can be a description or any syntax used for a target language.</i>
+     * 
      */
     @objid ("93eecfcd-8bb8-4535-8dd3-bfdf3881133d")
     String getContent();
@@ -61,6 +65,7 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>Textual content of the Note. This text can be a description or any syntax used for a target language.</i>
+     * 
      */
     @objid ("53a1b7f9-c5a8-4b92-8670-aef349f4cb76")
     void setContent(String value);
@@ -74,6 +79,7 @@ public interface Note extends ModelElement {
      * If no value is set (null or empty string), the mime type for the Note is taken from the NoteType.
      * 
      * </i>
+     * 
      */
     @objid ("73e906b5-6435-40b7-91d2-61e60760e9aa")
     String getMimeType();
@@ -87,6 +93,7 @@ public interface Note extends ModelElement {
      * If no value is set (null or empty string), the mime type for the Note is taken from the NoteType.
      * 
      * </i>
+     * 
      */
     @objid ("a6cb13a2-78c0-43fe-a8a1-fcd41a8e1107")
     void setMimeType(String value);
@@ -96,6 +103,7 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>The NoteType defines the different kinds of Notes that are allowed in a particular context (in specific MDACs, for example).</i>
+     * 
      */
     @objid ("97e80c8a-cb48-4575-9266-eac03ce9cd29")
     NoteType getModel();
@@ -105,6 +113,7 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>The NoteType defines the different kinds of Notes that are allowed in a particular context (in specific MDACs, for example).</i>
+     * 
      */
     @objid ("a3ca27ef-aea0-4f3f-a5f9-df53ecad39cd")
     void setModel(NoteType value);
@@ -114,6 +123,7 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>The annotated element owning this note.</i>
+     * 
      */
     @objid ("d000b894-274e-4ee5-b1d4-a9e3d90b84be")
     ModelElement getSubject();
@@ -123,8 +133,9 @@ public interface Note extends ModelElement {
      * 
      * Metamodel description:
      * <i>The annotated element owning this note.</i>
+     * 
      */
     @objid ("579cb331-1396-4f87-b508-0d15f0c5a412")
     void setSubject(ModelElement value);
-
 }
+

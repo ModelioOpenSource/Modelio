@@ -56,5 +56,5 @@ public interface IInputPartService {
      */
     @objid ("db6223fd-e739-45fb-8feb-07841843e0e1")
     void hideInputPart(MPart part, boolean forceVisible);
-
 }
+

@@ -67,5 +67,5 @@ public interface INatValue extends Cloneable {
         }
         
     }
-
 }
+

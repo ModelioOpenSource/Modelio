@@ -42,7 +42,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.module.catalog.catalog.ModuleCatalogPanel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.platform.ui.dialog.ModelioDialog;
@@ -67,7 +67,7 @@ public class ModuleSelectDialog extends ModelioDialog {
      * @param progressService a progress service.
      */
     @objid ("11c6cddf-7d46-4702-acd4-ea8995a668a2")
-    public  ModuleSelectDialog(Shell parentShell, IModuleStore catalog, GProject gProject, IModelioProgressService progressService) {
+    public  ModuleSelectDialog(Shell parentShell, IModuleStore catalog, IGProject gProject, IModelioProgressService progressService) {
         super(parentShell);
         this.controller = new Controller(this);
         this.panel = new ModuleCatalogPanel(catalog);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_7xetQJaAEe20_6q5nak9-A">
+  <imports xsi:type="menu:PopupMenu" xmi:id="_g8GJwJaBEe20_6q5nak9-A" elementId="org.modelio.model.browser.view.popupmenu"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_8lwC0JaAEe20_6q5nak9-A" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu" positionInList="after:org.modelio.model.browser.view.popupmenu.interop">
+    <elements xsi:type="menu:DirectMenuItem" xmi:id="_2GmfAJaJEe20_6q5nak9-A" elementId="app.model.merge.browser.addition.mergeelements" label="%ModelMerge.label" iconURI="platform:/plugin/org.modelio.app.model.merge/icons/merge.png" tooltip="%ModelMerge.tooltip" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler">
+      <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_9KMdkJaJEe20_6q5nak9-A" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fSZ9MJaDEe20_6q5nak9-A" featurename="menuContributions" parentElementId="xpath:/" positionInList="">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_pnqg0JaDEe20_6q5nak9-A" elementId="app.model.merge.menucontribution.diagram" parentId="org.modelio.diagram.editor.popup">
+      <children xsi:type="menu:DirectMenuItem" xmi:id="_2FMN8JaCEe20_6q5nak9-A" elementId="app.model.merge.diagram.merge" label="%ModelMerge.label" iconURI="platform:/plugin/org.modelio.app.model.merge/icons/merge.png" tooltip="%ModelMerge.tooltip" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler">
+        <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_7ZIMwJaCEe20_6q5nak9-A" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler"/>
+      </children>
+    </elements>
+    <elements xsi:type="menu:MenuContribution" xmi:id="_0OEe0JaDEe20_6q5nak9-A" elementId="app.model.merge.menucontribution.browser" toBeRendered="false" visible="false" positionInParent="before=org.modelio.model.browser.view.popupmenu.interop" parentId="org.modelio.model.browser.view.popupmenu">
+      <children xsi:type="menu:DirectMenuItem" xmi:id="_puHjkJaCEe20_6q5nak9-A" elementId="app.model.merge.browser.contribution.mergeelements" label="%ModelMerge.label" iconURI="platform:/plugin/org.modelio.app.model.merge/icons/merge.png" tooltip="%ModelMerge.tooltip" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler">
+        <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_umdLgJaCEe20_6q5nak9-A" contributionURI="bundleclass://org.modelio.app.model.merge/org.modelio.app.model.merge.commands.MergeElementsHandler"/>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

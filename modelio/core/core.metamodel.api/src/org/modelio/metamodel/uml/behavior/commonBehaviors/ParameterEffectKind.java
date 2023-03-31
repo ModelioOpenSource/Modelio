@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Describe the usage made of an operation parameter
+ * 
+ * 
  */
 @objid ("0086ba28-91e0-1f74-804b-001ec947cd2a")
 public enum ParameterEffectKind {
@@ -40,6 +42,7 @@ public enum ParameterEffectKind {
     UPDATEEFFECT(2, "UpdateEffect", "UpdateEffect"),
     @objid ("d6757f2c-3b60-40f3-9888-24cfda94b1ac")
     DELETEEFFECT(3, "DeleteEffect", "DeleteEffect");
+
 public static final int CREATEEFFECT_VALUE = 0;
     public static final int READEFFECT_VALUE = 1;
     public static final int UPDATEEFFECT_VALUE = 2;

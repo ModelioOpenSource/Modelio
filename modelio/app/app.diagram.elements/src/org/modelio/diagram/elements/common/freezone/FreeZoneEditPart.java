@@ -108,10 +108,14 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("9339d255-f515-48ff-a848-c89a5dc90fdc")
+    @objid ("43598734-289f-4062-a5a8-67f8acf517ac")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        if (false)
         return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy);
+        else
+            return layoutPolicy;
+        
     }
 
     @objid ("7e3f237b-1dec-11e2-8cad-001ec947c8cc")

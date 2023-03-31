@@ -34,5 +34,5 @@ public interface IStyleHandle {
      */
     @objid ("e97cd671-861c-11e0-b2a1-002564c97630")
     String getName();
-
 }
+

@@ -22,8 +22,8 @@ package org.modelio.platform.mda.infra.service;
 import java.util.Collection;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.ModuleId;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.vbasic.version.VersionedItem;
 
@@ -95,5 +95,5 @@ public interface IModuleRegistry {
      */
     @objid ("1e6375df-edc3-11e1-88ee-001ec947c8cc")
     List<IRTModule> getStartedModules();
-
 }
+

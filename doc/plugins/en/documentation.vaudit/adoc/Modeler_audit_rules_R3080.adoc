@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3080]]
 
-[[r3080]]
+
+
 = R3080
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A BPMN process should start with a StartEvent and finish with an EndEvent.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A BPMN process is represented by a sequence of FlowNodes. A sequence must always start with a StartEvent and end with a EndEvent.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Verify that all FlowNodes are part of a sequence, meaning they have a StartEvent beginning all upstream paths and a EndEvent ending all downstream paths.

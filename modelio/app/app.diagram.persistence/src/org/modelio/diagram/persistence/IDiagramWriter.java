@@ -224,5 +224,5 @@ public interface IDiagramWriter {
      */
     @objid ("cb6de798-186f-11e2-92d2-001ec947c8cc")
     void writeProperty(String attName, Dimension value) throws PersistenceException;
-
 }
+

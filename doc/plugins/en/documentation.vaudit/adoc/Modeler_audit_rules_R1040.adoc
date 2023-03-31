@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1040]]
 
-[[r1040]]
+
+
 = R1040
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An ActivityParameterNode must represent a BehaviorParameter from the same containing Activity.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 image::images/Modeler_audit_rules_R1040_modeler_fig_1040.gif[image]
 
 In this example, the "nbRecruter" ActivityParameterNode is invalid because it represents a BehaviorParameter from another activity.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1040 error, you can either:

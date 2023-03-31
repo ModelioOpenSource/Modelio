@@ -62,5 +62,5 @@ public interface IAccessHandle {
      */
     @objid ("8cb387a0-283b-4a98-b2eb-f7783e65b469")
     void checkAccessFor(SmObjectImpl obj, SmAttribute att, SmObjectImpl val) throws AccessDeniedException;
-
 }
+

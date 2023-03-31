@@ -143,7 +143,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
         
     }
 
-    @objid ("cc9039b6-1182-4e4b-a390-d3a540fceda5")
+    @objid ("04fbaff2-5a65-4725-b810-33c91d87fd8c")
     @Override
     public void refreshFromObModel() {
         // TODO : move this in parent class
@@ -182,7 +182,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
         return childEl == null || !childEl.isDeleted() && canUnmask(childEl);
     }
 
-    @objid ("58c79c1c-c5d7-40e8-860c-2cd6d64ccb0c")
+    @objid ("7e73a161-da95-4811-91b0-11e5a0e993b6")
     @Override
     protected void obChildDeleted(GmModel child) {
         // Fire the refresh property

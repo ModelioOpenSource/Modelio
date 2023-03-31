@@ -51,13 +51,13 @@ public class LinkAnchor extends AbstractConnectionAnchor {
         return ret;
     }
 
-    @objid ("ff0f4f93-118f-477a-8eae-5ca5db248fd4")
+    @objid ("ed84a42d-88cb-4ed6-9bda-d7e5bb79748d")
     @Override
     public int hashCode() {
         return Objects.hash(getOwner(), this.locator);
     }
 
-    @objid ("731193a5-a53a-4ffe-90b6-2a3aac4a1457")
+    @objid ("2a0d11a6-32d7-4499-911f-63082e6db8af")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

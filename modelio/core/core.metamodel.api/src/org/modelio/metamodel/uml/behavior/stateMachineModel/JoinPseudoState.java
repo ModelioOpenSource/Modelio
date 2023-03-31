@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Join vertices serve to merge several transitions emanating from source vertices in different orthogonal regions. The transitions entering a join vertex cannot have guards or triggers.
+ * 
+ * 
  */
 @objid ("0051d7ea-c4bf-1fd8-97fe-001ec947cd2a")
 public interface JoinPseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface JoinPseudoState extends AbstractPseudoState {
      */
     @objid ("5a0ec27c-0cba-4b6c-ac4a-65c1a22b2f8f")
     public static final String MQNAME = "Standard.JoinPseudoState";
-
 }
+

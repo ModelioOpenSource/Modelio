@@ -48,5 +48,5 @@ public interface IActionManager {
      */
     @objid ("f1cc6452-b8f8-4681-8ddb-d7acb530d90c")
     boolean hasCurrentTransaction();
-
 }
+

@@ -44,5 +44,5 @@ public interface IModelContainer<T> {
 
     @objid ("c561fed5-8677-4479-a27c-de0840e0064d")
     List<T> getContents();
-
 }
+

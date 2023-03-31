@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Umasking-elements-in-diagrams-using-the-drag-and-drop]]
 
-[[umasking-elements-in-diagrams-using-the-drag-and-drop]]
+
+
 = Umasking elements in diagrams using the drag and drop
 
 The drag and drop feature enables you to quickly unmask elements in Modelio diagrams by just dragging them from the "Model" view into a diagram, as shown in the example below.

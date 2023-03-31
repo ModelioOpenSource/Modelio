@@ -37,6 +37,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A ConnectorEnd is an endpoint of a Connector, which attaches the Connector to a connectable element. 
  * 
  * In Modelio, a ConnectorEnd is a LinkEnd and can be bound to another element.
+ * 
+ * 
+ * 
  */
 @objid ("00068bc8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ConnectorEnd extends LinkEnd {
@@ -57,6 +60,7 @@ public interface ConnectorEnd extends LinkEnd {
      * 
      * Metamodel description:
      * <i>Binding between ConnectorsEnds, used in CollaborationUse.</i>
+     * 
      */
     @objid ("9505c110-4403-45f7-8686-b44827ce2218")
     EList<Binding> getRepresentation();
@@ -66,6 +70,7 @@ public interface ConnectorEnd extends LinkEnd {
      * 
      * Metamodel description:
      * <i>Binding between ConnectorsEnds, used in CollaborationUse.</i>
+     * 
      */
     @objid ("d1833a68-497b-4ebd-924f-197a9713c37d")
     <T extends Binding> List<T> getRepresentation(java.lang.Class<T> filterClass);
@@ -75,6 +80,7 @@ public interface ConnectorEnd extends LinkEnd {
      * 
      * Metamodel description:
      * <i>Expresses that the ConnectorEnd represents an element in a more accurate context (such as within an instance or a class internal structure). </i>
+     * 
      */
     @objid ("69ffc38a-33e8-4c95-88a7-0fd66f962f0c")
     UmlModelElement getRepresentedFeature();
@@ -84,8 +90,9 @@ public interface ConnectorEnd extends LinkEnd {
      * 
      * Metamodel description:
      * <i>Expresses that the ConnectorEnd represents an element in a more accurate context (such as within an instance or a class internal structure). </i>
+     * 
      */
     @objid ("7aa65888-d369-467d-b533-64c28b7c8c8a")
     void setRepresentedFeature(UmlModelElement value);
-
 }
+

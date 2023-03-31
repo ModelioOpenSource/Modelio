@@ -34,6 +34,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
  * 
  * A diverging Exclusive Gateway (Decision) is used to create alternative paths within a Process flow. This is basically the ?diversion point in the road? for a Process. For a given instance of the Process, only one of the paths can be taken.
  * A Decision can be thought of as a question that is asked at a particular point in the Process. The question has a defined set of alternative answers. Each question is associated with a condition Expression that is associated with a Gateway?s outgoing Sequence Flow.
+ * 
+ * 
  */
 @objid ("000002bc-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnExclusiveGateway extends BpmnGateway {
@@ -54,6 +56,7 @@ public interface BpmnExclusiveGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1c3f9ff2-7329-4684-8521-44b88611175b")
     BpmnSequenceFlow getDefaultFlow();
@@ -63,8 +66,9 @@ public interface BpmnExclusiveGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5ce4e8d1-3ebb-451e-8457-67b3ed6198b5")
     void setDefaultFlow(BpmnSequenceFlow value);
-
 }
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.ecf.core.feature"
+      label="ECF Core Feature"
+      version="1.5.701.v20201027-0550"
+      provider-name="Eclipse.org - ECF">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the ECF core (org.eclipse.ecf) and ECF identity (org.eclipse.ecf.identity) bundles.  These two bundles are required for all other parts of ECF.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.equinox.common" version="3.6" match="compatible"/>
+      <import plugin="org.eclipse.equinox.registry" version="3.5" match="compatible"/>
+      <import plugin="org.eclipse.equinox.concurrent" version="1.0" match="compatible"/>
+      <import plugin="org.eclipse.core.jobs" version="3.5" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf"
+         download-size="121"
+         install-size="240"
+         version="3.9.101.v20201027-0547"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.identity"
+         download-size="63"
+         install-size="123"
+         version="3.9.401.v20201027-0550"
+         unpack="false"/>
+
+</feature>

@@ -43,5 +43,5 @@ public interface IExtReferenceResolver {
      */
     @objid ("cb6de7a5-186f-11e2-92d2-001ec947c8cc")
     IPersistent resolveReference(String type, String dbId, String extId) throws PersistenceException;
-
 }
+

@@ -23,13 +23,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.mda.Project;
+import org.modelio.model.browser.view.content.IModelioTreeContentProvider;
 import org.modelio.platform.model.ui.swt.labelprovider.IModelContainer;
 import org.modelio.platform.model.ui.swt.labelprovider.LinkContainer;
 import org.modelio.uml.ui.plugin.UmlUi;
@@ -41,7 +41,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * This provider is only usable as an extension to the browser model content provider, NOT as a STANDALONE ITreeContentProvider implementation.
  */
 @objid ("8719ea2a-06a8-42ad-bbd6-0e8536e76a0e")
-public class UmlContentProvider implements ITreeContentProvider {
+public class UmlContentProvider implements IModelioTreeContentProvider {
     @objid ("42904045-ebc4-47dc-a17d-ea825cca6821")
     private static final StandardModelProviderVisitor visitor = new StandardModelProviderVisitor();
 
@@ -55,8 +55,8 @@ public class UmlContentProvider implements ITreeContentProvider {
     @Override
     public Object[] getChildren(final Object parent) {
         // Special case: children of a fragment => the typed project(s)
-        if (parent instanceof IProjectFragment) {
-            return getFragmentRoots((IProjectFragment) parent).toArray();
+        if (parent instanceof IGModelFragment) {
+            return getFragmentRoots((IGModelFragment) parent).toArray();
         }
         
         // General case: MObject
@@ -91,8 +91,8 @@ public class UmlContentProvider implements ITreeContentProvider {
     @objid ("f233effb-f72e-4088-af6f-fa17a5ae4eeb")
     @Override
     public boolean hasChildren(final Object parent) {
-        if (parent instanceof IProjectFragment) {
-            return hasChildren((IProjectFragment) parent);
+        if (parent instanceof IGModelFragment) {
+            return hasChildren((IGModelFragment) parent);
         }
         
         // General case: MObject
@@ -187,18 +187,18 @@ public class UmlContentProvider implements ITreeContentProvider {
     }
 
     /**
-     * Has children? for a IProjectFragment
+     * Has children? for a IGModelFragment
      */
     @objid ("f6859913-4102-422b-bef4-19fa5d789809")
-    private boolean hasChildren(IProjectFragment fragment) {
+    private boolean hasChildren(IGModelFragment fragment) {
         return !getFragmentRoots(fragment).isEmpty();
     }
 
     /**
-     * Get children for a IProjectFragment
+     * Get children for a IGModelFragment
      */
     @objid ("bd28830d-de7d-41f0-b597-33bf28f9a0da")
-    private List<Object> getFragmentRoots(IProjectFragment fragment) {
+    private List<Object> getFragmentRoots(IGModelFragment fragment) {
         List<Object> ret = new ArrayList<>();
         
         IRepository repository = fragment.getRepository();

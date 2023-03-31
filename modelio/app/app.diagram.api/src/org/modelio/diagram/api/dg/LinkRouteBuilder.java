@@ -57,18 +57,18 @@ import org.modelio.diagram.elements.core.model.IGmPath;
  * 
  * @since 5.1.0
  */
-@objid ("61014094-4821-42ea-a208-2deb5594987b")
+@objid ("f6cb4af9-b977-4887-a8d8-760721ece08c")
 public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints, org.modelio.api.modelio.diagram.ILinkRouteBuilder.Target {
-    @objid ("d430a54a-be87-41c2-8abb-93c06400bafc")
+    @objid ("548ba471-9f25-4cf9-a384-e507c40d2667")
     private static final MPoint TMP = new MPoint();
 
-    @objid ("04ee86ac-788f-4bc5-abfb-915c9bf0e941")
+    @objid ("12128602-4caa-43a7-ba43-13ec2b180919")
     private final ConnectionEditor editor;
 
     /**
      * @param ep the connection edit part
      */
-    @objid ("53bd04fb-03ca-4641-9d3f-a1c67071d582")
+    @objid ("004ddcd1-9183-4cc1-8d6a-df05e2cf676e")
     public  LinkRouteBuilder(ConnectionEditPart ep) {
         this.editor = new ConnectionEditor().init(ep);
         // reset the constraint
@@ -76,21 +76,21 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         
     }
 
-    @objid ("8341fea4-cb33-4d4f-83d7-527aa9b2cfda")
+    @objid ("9a324c7a-799b-40d7-a7ba-2edc8b7cf28e")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints addBendPoint(Point loc) {
         MPoint mp = new MPoint(loc, false);
         return addMPoint(mp);
     }
 
-    @objid ("9706fbdb-d3b3-4a35-b40a-8974d0a18837")
+    @objid ("49ad2e3d-19f8-4279-8304-d5329d23a0d2")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints addFixedPoint(Point loc) {
         MPoint mp = new MPoint(loc, true);
         return addMPoint(mp);
     }
 
-    @objid ("d81a905b-9f98-4344-910b-6c7669de7b9f")
+    @objid ("155b53a9-d175-41bb-a7b2-e416270c5364")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints addHorizontalSegment(int nextBendPointX, boolean fixed) {
         ConnectionView view = this.editor.getView();
@@ -100,7 +100,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("73a9f732-45a8-410b-b785-922aa41b922f")
+    @objid ("fb53d733-ec1d-4cd5-8d55-d3ec52bab268")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints finishHorizontalThenVertical(boolean fixed) {
         ConnectionView view = this.editor.getView();
@@ -114,7 +114,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("a61e871b-ab1d-40dc-ad33-d2235f69bb81")
+    @objid ("2694fade-e413-42bf-9374-10ab1d60f699")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints addVerticalSegment(int nextBendPointY, boolean fixed) {
         ConnectionView view = this.editor.getView();
@@ -124,7 +124,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("4736b31a-1b7d-4019-9e1d-3511788a38d4")
+    @objid ("e145f138-25c6-4081-bead-02d46241f388")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints finishVerticalThenHorizontal(boolean fixed) {
         ConnectionView view = this.editor.getView();
@@ -144,7 +144,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
      * @throws InvalidPointsPathException if the target anchor is missing
      * @throws InvalidDestinationPointException ?
      */
-    @objid ("3276ac7c-3db4-4997-aa03-601dee3dae39")
+    @objid ("23badf89-0b45-4b43-a44e-d8a5267d0df8")
     @Override
     public void apply() throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
         ConnectionView view = this.editor.getView();
@@ -189,7 +189,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
      * Modifying the returned list and elements will have no effect on this builder.
      * @return the current points.
      */
-    @objid ("76cb615b-4eb3-4ac9-b3a8-d4308b2c6f71")
+    @objid ("ff51c6ca-9613-4e68-aedd-36632c336fbc")
     @Override
     public List<ILinkPoint> getAllPoints() {
         int cardPoints = this.editor.getView().cardPoints();
@@ -204,7 +204,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return ret;
     }
 
-    @objid ("7ccee7b4-6774-49f1-b8a9-4e42451e20ed")
+    @objid ("1d4624e2-fbb0-4acf-8029-06887242fa02")
     private org.modelio.diagram.api.dg.LinkRoute.LinkPointData createBendPointData(int i) {
         this.editor.getView().getPoint(TMP, i, true);
         LinkPointKind kind = TMP.isFixed() ? LinkPointKind.BENDPOINT_FIXED : LinkPointKind.BENDPOINT;
@@ -218,7 +218,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
      * Modifying the returned list and elements will have no effect on this builder.
      * @return the current bend points.
      */
-    @objid ("5b6666a8-3994-4c83-a9db-c3bff51cff30")
+    @objid ("7a6c57b0-cfa1-4624-8f44-4bcdbb6aac84")
     @Deprecated
     public List<ILinkPoint> getBendPoints() {
         final int cardPoints = this.editor.getView().cardPoints();
@@ -230,14 +230,14 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return ret;
     }
 
-    @objid ("79cfa423-450a-4ef7-85df-eb192cc4e2d6")
+    @objid ("cd469a67-19ab-41e8-818f-dc300ced1535")
     private ILinkPoint createSourceAnchorLinkPoint() {
         ConnectionView view = this.editor.getView();
         LinkPointKind kind = getKind(view.getState().getSourceAnchor());
         return new LinkRoute.LinkPointData(kind, view.getSourceLocation(TMP, true));
     }
 
-    @objid ("88c3037d-d3d9-485d-941e-a672c658a70d")
+    @objid ("e7d6c231-9380-4196-a44b-ccb0a8cfc167")
     private static LinkPointKind getKind(ConnectionAnchor a) {
         if (a instanceof FixedAnchor) {
             return LinkPointKind.ANCHOR_DISCRETE;
@@ -247,14 +247,14 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         
     }
 
-    @objid ("04909db7-53cc-4412-994a-2e3efd46205c")
+    @objid ("2d1d3aac-0bcd-4967-956e-d9b6ef982994")
     private ILinkPoint createTargetAnchorLinkPoint() {
         ConnectionView view = this.editor.getView();
         LinkPointKind kind = getKind(view.getState().getSourceAnchor());
         return new LinkRoute.LinkPointData(kind, view.getTargetLocation(TMP, true));
     }
 
-    @objid ("af0a496d-8c40-44a5-8acc-a44c2bf350d2")
+    @objid ("4001e072-9ac7-4b7e-a059-787d5661a629")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.Target setSourceAnchor(Point loc, boolean sliding) {
         ConnectionAnchor a = this.editor.requestSourceAnchor()
@@ -265,7 +265,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("4c95f305-1162-4701-9354-299fb4c49ef1")
+    @objid ("fdee0cce-7052-43c1-93f6-2c1b734c00f7")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.Target setSourceAnchor(LinkAnchorFace face, boolean sliding) {
         GraphicalEditPart nodeEp = (GraphicalEditPart) this.editor.getConnectionEditPart().getSource();
@@ -277,7 +277,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("494aba74-f387-49e7-8760-25e10e5a2dd9")
+    @objid ("04be3538-6d9e-4134-a98a-c07284394dba")
     @Override
     public Target setSourceAnchorFaceTarget(boolean sliding) {
         // Use the target node center as reference point
@@ -293,7 +293,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("bb0858cd-d9eb-4e32-ae3a-0ba660d8905f")
+    @objid ("402b8d73-6fb4-428e-9181-a75813db1d58")
     @Override
     public BendPoints setTargetAnchorFaceSource(boolean sliding) {
         // Use the source node center as reference point
@@ -309,7 +309,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("99aba1f6-e340-493a-83f9-fdfa70010a87")
+    @objid ("f96271ee-2a29-41a0-ad68-0bcad6cc8ad3")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.Target setSourceAnchor(LinkAnchorFace face, int numerator, int denominator, boolean sliding) {
         GraphicalEditPart nodeEp = (GraphicalEditPart) this.editor.getConnectionEditPart().getSource();
@@ -321,7 +321,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("8788337b-8d7b-478c-bd35-0d09473faf48")
+    @objid ("edc7681d-fc25-4c8a-a5be-84fdd7fef8eb")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints setTargetAnchor(Point loc, boolean sliding) {
         ConnectionAnchor a = this.editor.requestTargetAnchor()
@@ -332,7 +332,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("fbf5d484-1fc3-4acf-b2f9-ad7a714e1d6e")
+    @objid ("f8172d8f-2f2d-46d3-9f8f-52bc59fc4f83")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints setTargetAnchor(LinkAnchorFace face, boolean sliding) {
         GraphicalEditPart nodeEp = (GraphicalEditPart) this.editor.getConnectionEditPart().getTarget();
@@ -344,7 +344,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("78b2cae3-16ac-45f9-82d9-ec5e66b56f21")
+    @objid ("08c11b85-393a-4de6-8407-56b55434c322")
     @Override
     public org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints setTargetAnchor(LinkAnchorFace face, int numerator, int denominator, boolean sliding) {
         GraphicalEditPart nodeEp = (GraphicalEditPart) this.editor.getConnectionEditPart().getTarget();
@@ -361,7 +361,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
      * @param mp a MPoint in absolute coordinates
      * @return this instance
      */
-    @objid ("1fa85cbd-9f46-4738-9544-81d69b36b56e")
+    @objid ("8617e02c-fd31-4785-b755-23cc62d40a70")
     protected org.modelio.api.modelio.diagram.ILinkRouteBuilder.BendPoints addMPoint(MPoint mp) {
         MPoint newMP = mp.getCopy();
         ConnectionView view = this.editor.getView();
@@ -370,7 +370,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return this;
     }
 
-    @objid ("7583b32d-ef73-4937-bd51-6a8941bb0208")
+    @objid ("f114dd92-8374-47bb-bc42-08bc61152754")
     protected static Point getLocationFromFace(GraphicalEditPart node, LinkAnchorFace face) {
         IFigure figure = node.getFigure();
         Rectangle bounds = figure.getBounds();
@@ -379,7 +379,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return ref;
     }
 
-    @objid ("c5609c35-3acd-40e7-a275-ce59df6bbeeb")
+    @objid ("d5204be7-8a24-4d29-8dea-cb67ce3364c3")
     protected static Point getLocationFromFace(GraphicalEditPart node, LinkAnchorFace face, int numerator, int denominator) {
         IFigure figure = node.getFigure();
         Rectangle bounds = figure.getBounds();
@@ -388,7 +388,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return ref;
     }
 
-    @objid ("f748ebc7-b36d-4ee6-b4ea-a44769abea00")
+    @objid ("1cc07ef2-b9fa-451d-9304-a4c66e81f129")
     private RawPathData createRawPathData() {
         final ConnectionEditPart editPart = this.editor.getConnectionEditPart();
         final IGmLink gmLink = (IGmLink) editPart.getModel();
@@ -411,7 +411,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         return rawPath;
     }
 
-    @objid ("1c4d662c-b333-4aef-bef1-e01d591161ee")
+    @objid ("8618d94a-2672-4cde-a411-5090d293be1f")
     private static Point getRelLocationFromFace(Rectangle bounds, LinkAnchorFace face) {
         switch (face) {
         case EAST:
@@ -428,7 +428,7 @@ public class LinkRouteBuilder implements ILinkRouteBuilder, org.modelio.api.mode
         
     }
 
-    @objid ("bf8daa03-4660-4447-baa9-7db99e18a469")
+    @objid ("419dd389-06cd-4182-ac90-8b8b0f5053f5")
     private static Point getRelLocationFromFace(Rectangle bounds, LinkAnchorFace face, int numerator, int denominator) {
         double fraction = (double) numerator / denominator;
         switch (face) {

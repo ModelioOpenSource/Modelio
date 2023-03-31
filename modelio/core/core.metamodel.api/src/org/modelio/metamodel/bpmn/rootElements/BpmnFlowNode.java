@@ -39,6 +39,10 @@ import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
  * 
  * Ownership
  * FlowNodes belong to a FlowElementContainer or a sub process
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("0079b594-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnFlowNode extends BpmnFlowElement {
@@ -59,6 +63,7 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9601277c-d16e-472d-b59c-7ee2e5b310c1")
     EList<BpmnSequenceFlow> getOutgoing();
@@ -68,6 +73,7 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a1f01496-98f1-4512-aa9c-d6133a0a430a")
     <T extends BpmnSequenceFlow> List<T> getOutgoing(java.lang.Class<T> filterClass);
@@ -77,6 +83,7 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0d7cef71-154a-4431-9a8a-960562a2a1cd")
     EList<BpmnResourceRole> getResource();
@@ -86,6 +93,7 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08427f0a-54d9-4d3e-a321-24dd9346fad5")
     <T extends BpmnResourceRole> List<T> getResource(java.lang.Class<T> filterClass);
@@ -95,6 +103,7 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d3d8361c-48bc-437b-9e1e-753b73e3beeb")
     EList<BpmnSequenceFlow> getIncoming();
@@ -104,8 +113,9 @@ public interface BpmnFlowNode extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a98b38b7-0716-40c1-86a8-3bdb28bccfaa")
     <T extends BpmnSequenceFlow> List<T> getIncoming(java.lang.Class<T> filterClass);
-
 }
+

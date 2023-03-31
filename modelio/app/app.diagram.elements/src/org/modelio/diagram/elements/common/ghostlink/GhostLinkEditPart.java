@@ -121,7 +121,6 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
         
         installEditPolicy(RakeRefreshEditPolicy.ROLE, new RakeRefreshEditPolicy());
         
-        
         if (getRoutingMode().routingStyle != null) {
             updateRouterDependentEditPolicies(getRoutingMode());
         }

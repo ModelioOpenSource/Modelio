@@ -35,6 +35,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * An EnumerationLiteral is a possible value of an enumeration. The Name of the EnumerationLiteral represents its symbolic value. 
  * 
  * An EnumerationLiteral belongs to its Enumeration.
+ * 
+ * 
+ * 
  */
 @objid ("000a43ee-c4bf-1fd8-97fe-001ec947cd2a")
 public interface EnumerationLiteral extends UmlModelElement {
@@ -55,6 +58,7 @@ public interface EnumerationLiteral extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fb9a4e36-980a-4054-aa49-5aae66c45a5f")
     Enumeration getValuated();
@@ -64,8 +68,9 @@ public interface EnumerationLiteral extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("74eb1d98-ee5c-4f08-9dd6-d815d32137e9")
     void setValuated(Enumeration value);
-
 }
+

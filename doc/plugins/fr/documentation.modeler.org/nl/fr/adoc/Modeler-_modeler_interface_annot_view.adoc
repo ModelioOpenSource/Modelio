@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoNotes-et-contraintesrdquo]]
 
-[[la-vue-notes-et-contraintes]]
+
+
 = La vue "Notes et contraintes"
 
 .La vue "Notes & contraintes"
@@ -20,9 +20,9 @@ image::images/Modeler-_modeler_interface_annot_view_NotesAndConstraints.png[imag
 5. Une contrainte.
 6. La zone d'édition des notes & contraintes.
 
-[[Principales-commandes-disponibles-dans-la-vue-ldquoNotes-amp-contraintesrdquo]]
 
-[[principales-commandes-disponibles-dans-la-vue-notes-contraintes]]
+
+
 ===== Principales commandes disponibles dans la vue "Notes & contraintes"
 
 *Depuis le menu contextuel dans la vue "Notes & contraintes" :*

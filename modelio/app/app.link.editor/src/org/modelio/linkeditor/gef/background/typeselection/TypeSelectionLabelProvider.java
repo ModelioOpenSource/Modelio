@@ -35,7 +35,7 @@ import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.linkeditor.LinkTypeDescriptor;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.ui.UIColor;
 
@@ -66,7 +66,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
         
         // If it is valid, get the module image
         if (moduleComponent.isValid()) {
-            icon = ModuleI18NService.getModuleImage(moduleComponent);
+            icon = MdaResources.getModuleImage(moduleComponent);
         }
         return icon;
     }
@@ -77,7 +77,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
         
         // If it is valid, get the stereotype image
         if (stereotype.isValid()) {
-            image = ModuleI18NService.getIcon(stereotype);
+            image = MdaResources.getIcon(stereotype);
         }
         return image;
     }
@@ -125,7 +125,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
         if (type.getStereotype() != null) {
             result.append("\u00AB ");
         
-            String label = ModuleI18NService.getLabel(type.getStereotype());
+            String label = MdaResources.getLabel(type.getStereotype());
             if (label == null || label.isEmpty()) {
                 label = type.getStereotype().getName();
             }
@@ -147,7 +147,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
         
         // If it is valid, get the module image
         if (moduleComponent.isValid()) {
-            result.append(ModuleI18NService.getLabel(moduleComponent));
+            result.append(MdaResources.getLabel(moduleComponent));
         }
         return result;
     }

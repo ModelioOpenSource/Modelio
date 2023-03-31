@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * An input pin is a pin that holds input values to be consumed by an action.
  * 
  * An action cannot start execution if an input pin has fewer values than the lower multiplicity. The upper multiplicity determines how many values are consumed by a single execution of the action.
+ * 
+ * 
  */
 @objid ("003503ea-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InputPin extends Pin {
@@ -56,6 +58,7 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>Modelio extension: expresses that the pin represents the target object on which the action is executed.</i>
+     * 
      */
     @objid ("0deb7104-cd11-4714-9c97-b58d88f880ac")
     boolean isIsSelf();
@@ -65,6 +68,7 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>Modelio extension: expresses that the pin represents the target object on which the action is executed.</i>
+     * 
      */
     @objid ("7ce4e7bd-0cf8-4fa1-ac5f-6ff4d86d0efb")
     void setIsSelf(boolean value);
@@ -74,6 +78,7 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e447dfab-667f-45a5-a6d0-0443b2deca2e")
     EList<ExceptionHandler> getHandler();
@@ -83,6 +88,7 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("21f3ff45-2fc0-4b61-b366-59dab1a05320")
     <T extends ExceptionHandler> List<T> getHandler(java.lang.Class<T> filterClass);
@@ -92,6 +98,7 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bae910eb-643c-4670-9c79-ba0ca947f44f")
     ActivityAction getInputing();
@@ -101,8 +108,9 @@ public interface InputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("07c700d5-d3d5-4026-98c4-cb326fd331ca")
     void setInputing(ActivityAction value);
-
 }
+

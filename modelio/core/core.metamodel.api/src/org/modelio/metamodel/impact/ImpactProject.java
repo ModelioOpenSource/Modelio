@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.AbstractProject;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("8093c6ad-6795-4b1f-aac0-9573aa279431")
 public interface ImpactProject extends AbstractProject {
@@ -55,6 +57,7 @@ public interface ImpactProject extends AbstractProject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d33a0047-ef4f-4278-b528-43b2bccd8c68")
     EList<ImpactModel> getModel();
@@ -64,8 +67,9 @@ public interface ImpactProject extends AbstractProject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("597244dd-fbef-40ff-af0a-17085f198026")
     <T extends ImpactModel> List<T> getModel(java.lang.Class<T> filterClass);
-
 }
+

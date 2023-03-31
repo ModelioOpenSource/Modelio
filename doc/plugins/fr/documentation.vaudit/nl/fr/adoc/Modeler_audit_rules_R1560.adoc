@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1560]]
 
-[[r1560]]
+
+
 = R1560
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les sous-classes d'une classe active doivent être actives elles aussi.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une classe active peut être vue comme une classe représentant un thread ou un processus. Toutes les classes qui héritent de cette classe doivent elles aussi avoir cette propriété.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des sous-classes non actives d'une classe active, vous devez soit :

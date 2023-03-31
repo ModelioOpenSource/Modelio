@@ -131,5 +131,5 @@ public interface IModuleStore {
      */
     @objid ("d3548e16-28cd-4014-9f89-3ebefb142706")
     List<IModuleHandle> findModule(String moduleName, IModelioProgress monitor) throws FileSystemException, IOException;
-
 }
+

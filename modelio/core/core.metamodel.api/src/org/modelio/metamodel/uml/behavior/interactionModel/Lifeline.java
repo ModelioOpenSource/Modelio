@@ -36,6 +36,9 @@ import org.modelio.metamodel.uml.statik.Instance;
  * 
  * 
  * <p>A lifeline represents an individual participant in the Interaction. While Parts and StructuralFeatures may have multiplicity greater than 1, Lifelines represent only one interacting entity.</p><p>If the referenced Instance is multivalued (i.e, has a multiplicity &gt; 1), then the Lifeline may have an expression (the &quot;selector&quot;) that specifies which particular part is represented by this Lifeline. If the selector is omitted, this means that an arbitrary representative of the multivalued ConnectableElement is chosen.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0048b5b6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Lifeline extends UmlModelElement {
@@ -56,6 +59,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>If the referenced ConnectableElement is multivalued, then this specifies the specific individual part within that set.</i>
+     * 
      */
     @objid ("beedd7c8-d90e-46f9-88e2-679e9b9ab0f8")
     String getSelector();
@@ -65,6 +69,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>If the referenced ConnectableElement is multivalued, then this specifies the specific individual part within that set.</i>
+     * 
      */
     @objid ("d4a05ddc-7fc8-402c-8397-783b623353c5")
     void setSelector(String value);
@@ -74,6 +79,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9872850e-636b-448e-8926-63ba87479134")
     EList<InteractionFragment> getCoveredBy();
@@ -83,6 +89,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08851ea2-9ce6-4c85-b9bf-404daf53882d")
     <T extends InteractionFragment> List<T> getCoveredBy(java.lang.Class<T> filterClass);
@@ -92,6 +99,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Interaction that represents the decomposition.</i>
+     * 
      */
     @objid ("7788c93c-4243-451a-ad0c-84590a24e77d")
     PartDecomposition getDecomposedAs();
@@ -101,6 +109,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Interaction that represents the decomposition.</i>
+     * 
      */
     @objid ("fff1c171-1e8f-46c7-9b21-9e7c83fe7482")
     void setDecomposedAs(PartDecomposition value);
@@ -110,6 +119,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f4fd6419-0fb7-426f-81de-e1e57f024b87")
     Interaction getOwner();
@@ -119,6 +129,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ecbd5ef9-8803-476c-ba36-5e6473605181")
     void setOwner(Interaction value);
@@ -128,6 +139,7 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Instance the Lifeline represents.</i>
+     * 
      */
     @objid ("5bca8154-72a4-4584-a0bc-c4d33b58adc4")
     Instance getRepresented();
@@ -137,8 +149,9 @@ public interface Lifeline extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Instance the Lifeline represents.</i>
+     * 
      */
     @objid ("c91e5871-9ff8-4f79-9150-624787c0b81d")
     void setRepresented(Instance value);
-
 }
+

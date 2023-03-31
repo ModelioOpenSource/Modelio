@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2140]]
 
-[[r2140]]
+
+
 = R2140
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 In a _PropertyContainer_, the name of each _PropertyType_ must be unique.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Having duplicate names can be confusing.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Rename any element with a duplicated name.

@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f51ab27b-55b6-11e2-877f-002564c97630")
 public class GmExitPoint extends GmPortContainer {
+    @objid ("f51ab27f-55b6-11e2-877f-002564c97630")
+    private ExitPointPseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmExitPoint extends GmPortContainer {
 
     @objid ("f51ab28b-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f51ab27f-55b6-11e2-877f-002564c97630")
-    private ExitPointPseudoState element;
 
     @objid ("f51ab282-55b6-11e2-877f-002564c97630")
     static final GmExitStructuredStyleKeys STRUCTURED_KEYS = new GmExitStructuredStyleKeys();

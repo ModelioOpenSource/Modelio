@@ -31,5 +31,5 @@ public interface ITextIconNatValue extends ISingleNatValue {
     @objid ("78f81ad0-580c-45e3-b46d-0f88b4e78c8e")
     @Override
     TextIcon getValue();
-
 }
+

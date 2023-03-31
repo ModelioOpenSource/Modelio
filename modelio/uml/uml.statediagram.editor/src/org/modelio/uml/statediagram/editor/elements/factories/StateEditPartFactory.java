@@ -102,13 +102,13 @@ public class StateEditPartFactory implements EditPartFactory {
     /**
      * the default factory to use when image mode is requested.
      */
-    @objid ("6ba3b634-07a2-42aa-907c-0c01154a20b9")
+    @objid ("69db6e23-3a61-4d3c-9b15-6e174ddf4a63")
     private final EditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
 
     /**
      * the default factory to use when user image mode is requested.
      */
-    @objid ("bfee634b-d3f0-4fca-980e-5034970495b2")
+    @objid ("3399cc7c-2c8a-48c0-9fe9-126545434cac")
     private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("f594c47a-55b6-11e2-877f-002564c97630")
@@ -529,9 +529,9 @@ public class StateEditPartFactory implements EditPartFactory {
     /**
      * EditPart factory for node models in stereotype image mode.
      */
-    @objid ("4ae2fe14-968e-470e-a655-b24b1ceec4ba")
+    @objid ("1325ec93-2511-45f6-8785-8428554752c5")
     private static final class ImageModeEditPartFactory implements EditPartFactory {
-        @objid ("d5043e58-28e3-4bf2-8ed8-9a6ac0e4e6a1")
+        @objid ("e75e8232-4bd8-419a-b604-43d33d5a9cbe")
         @Override
         public EditPart createEditPart(EditPart context, Object model) {
             EditPart editPart = null;

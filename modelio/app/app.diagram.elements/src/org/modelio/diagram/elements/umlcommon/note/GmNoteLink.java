@@ -19,9 +19,11 @@
  */
 package org.modelio.diagram.elements.umlcommon.note;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.link.GmLink;
+import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
@@ -31,6 +33,7 @@ import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -53,12 +56,25 @@ public class GmNoteLink extends GmLink {
     @objid ("8188c197-1dec-11e2-8cad-001ec947c8cc")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("1f684f30-2eb4-4265-8734-471f9d69befc")
+    private static final GmPath NOTE_LINK_LAYOUT_DATA = new GmPath(ConnectionRouterId.DIRECT, new ArrayList<>());
+
     /**
      * Constructor that must be used for deserialization only.
      */
     @objid ("8188c199-1dec-11e2-8cad-001ec947c8cc")
     public  GmNoteLink() {
         // Nothing to do.
+    }
+
+    /**
+     * This ensures that whatever the way the note has been created, its link will be a DIRECT link from center to center.
+     * Currently unmasked note and created note had a different route configuration leading to inconsistent UI behavior.
+     */
+    @objid ("cf415823-9af5-4095-9e4b-f55cf89f50e3")
+    @Override
+    public Object getLayoutData() {
+        return NOTE_LINK_LAYOUT_DATA;
     }
 
     /**

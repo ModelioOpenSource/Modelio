@@ -75,5 +75,5 @@ public interface IAuthTool {
 
     @objid ("f1865eb0-2984-11e2-8460-002564c97630")
     boolean canRemoveFrom(MObject child, MObject parent);
-
 }
+

@@ -31,7 +31,6 @@ import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -49,13 +48,15 @@ import org.modelio.editors.richnote.gui.creation.mimetype.MimeTypeContentProvide
 import org.modelio.editors.richnote.gui.creation.mimetype.MimeTypeLabelProvider;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.UIImages;
 
 @objid ("b71563b1-0173-48c1-b937-b65bbd6c5c7e")
 class FilePanelUI {
+    @objid ("67dc9faf-f9ad-438b-afb9-abe83dae20f8")
+    private TableComboViewer importMimeTypeViewer;
+
     @objid ("a9dbcdd5-79e8-401e-8def-87efb0c070b9")
     private static final Point DEFAULT_INDENT = new Point(25, 0);
 
@@ -79,9 +80,6 @@ class FilePanelUI {
 
     @objid ("03533f25-0720-484f-a542-77b42e646e3b")
     private Group importGroup;
-
-    @objid ("80fe582c-0276-41eb-a9d9-566f7e6a7917")
-    private TableComboViewer importMimeTypeViewer;
 
     @objid ("88205c22-e504-4548-8b4b-5bc8177a841c")
     private Button isEmbeddedButton;
@@ -294,7 +292,7 @@ class FilePanelUI {
             @Override
             public void keyReleased(KeyEvent e) {
                 FilePanelUI.this.controller.onContentChanged(t.getText(), false);
-                
+        
             }
         });
         return t;
@@ -326,7 +324,7 @@ class FilePanelUI {
     void setErrorIndication(String errorText) {
         if (errorText != null) {
             this.errorLabel.setText(errorText);
-            
+        
         } else {
             // no error
             this.errorLabel.setText("");
@@ -336,8 +334,6 @@ class FilePanelUI {
 
     @objid ("019a10a9-cc1f-485a-a0a1-41f5fd3f8a14")
     private Group createChoiceGroup(Composite parent) {
-        Font tipFont = CoreFontRegistry.getModifiedFont(parent.getFont(), SWT.ITALIC, UIFont.SMALL_SIZE);
-        
         Group userChoiceGroup = new Group(parent, SWT.NONE);
         userChoiceGroup.setLayout(new GridLayout());
         
@@ -353,7 +349,7 @@ class FilePanelUI {
         Label isEmbeddedLabel = new Label(userChoiceGroup, SWT.WRAP);
         isEmbeddedLabel.setText(EditorsRichNote.I18N.getString("FileWizardPage.Embedded.tooltip"));
         isEmbeddedLabel.setForeground(UIColor.LABEL_TIP_FG);
-        isEmbeddedLabel.setFont(tipFont);
+        isEmbeddedLabel.setFont(UIFont.SMALLI);
         isEmbeddedLabel.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).indent(FilePanelUI.DEFAULT_INDENT).span(3, 1).create());
         
         // Import
@@ -367,7 +363,7 @@ class FilePanelUI {
         Label isImportLabel = new Label(userChoiceGroup, SWT.WRAP);
         isImportLabel.setText(EditorsRichNote.I18N.getString("FileWizardPage.Import.tooltip"));
         isImportLabel.setForeground(UIColor.LABEL_TIP_FG);
-        isImportLabel.setFont(tipFont);
+        isImportLabel.setFont(UIFont.SMALLI);
         isImportLabel.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).indent(FilePanelUI.DEFAULT_INDENT).span(3, 1).create());
         
         // External
@@ -381,7 +377,7 @@ class FilePanelUI {
         Label isExternalLabel = new Label(userChoiceGroup, SWT.WRAP);
         isExternalLabel.setText(EditorsRichNote.I18N.getString("FileWizardPage.External.tooltip"));
         isExternalLabel.setForeground(UIColor.LABEL_TIP_FG);
-        isExternalLabel.setFont(tipFont);
+        isExternalLabel.setFont(UIFont.SMALLI);
         isExternalLabel.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).indent(FilePanelUI.DEFAULT_INDENT).span(3, 1).create());
         return userChoiceGroup;
     }

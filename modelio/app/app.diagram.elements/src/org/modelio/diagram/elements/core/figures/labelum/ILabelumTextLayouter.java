@@ -39,5 +39,5 @@ public interface ILabelumTextLayouter {
      */
     @objid ("d4dc5874-6ec5-411f-ae0b-af26e2759cde")
     String formatText(LabelumFigure labelumFigure, String origText, Dimension maxSize);
-
 }
+

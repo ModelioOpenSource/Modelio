@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Introduction-aux-composants-de-modèle]]
 
-[[introduction-aux-composants-de-modèle]]
+
+
 = Introduction aux composants de modèle
 
-[[Quest-ce-quun-composant-de-modèle-]]
 
-[[quest-ce-quun-composant-de-modèle]]
+
+
 ===== Qu'est-ce qu'un composant de modèle ?
 
 Un composant de modèle est une partie de modèle indépendante, identifiée et cohérente, issue d'un modèle plus important et packagée en un fichier unique.
@@ -27,9 +27,9 @@ Les composants de modèle ont un <<Modeler-_modeler_local_libraries_model_compon
 
 Comme il est impossible d'isoler totalement une partie d'un projet de développement de toutes les autres parties, un composant de modèle peut dépendre d'autres composants de modèle. Pour plus d'informations concernant les dépendances entre les composants de modèle, voir "<<Modeler-_modeler_local_libraries_model_components_lifecycle.adoc#,Le cycle de vie d'un composant de modèle>>".
 
-[[Quels-avantages-présente-lutilisation-des-composants-de-modèle-]]
 
-[[quels-avantages-présente-lutilisation-des-composants-de-modèle]]
+
+
 ===== Quels avantages présente l'utilisation des composants de modèle ?
 
 Dans un projet multi-utilisateur à grande échelle, avec plusieurs personnes travaillant en même temps dans un même espace de travail, il peut s'avérer difficile de gérer efficacement toutes les interactions qui entrent en compte.

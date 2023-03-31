@@ -29,6 +29,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * BpmnTerminateEventDefinition v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("00930166-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnTerminateEventDefinition extends BpmnEventDefinition {
@@ -43,5 +48,5 @@ public interface BpmnTerminateEventDefinition extends BpmnEventDefinition {
      */
     @objid ("775ebf44-6c11-4776-a016-8059ff539470")
     public static final String MQNAME = "Standard.BpmnTerminateEventDefinition";
-
 }
+

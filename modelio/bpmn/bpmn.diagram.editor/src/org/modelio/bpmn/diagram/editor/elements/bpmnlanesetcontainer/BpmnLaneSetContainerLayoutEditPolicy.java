@@ -55,6 +55,7 @@ import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.DeleteInDiagramCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.commands.PostLayoutCommand;
 import org.modelio.diagram.elements.core.figures.ChainedLayout;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -509,7 +510,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
         return new DefaultNodeResizableEditPolicy();
     }
 
-    @objid ("92beff4f-848a-42e7-9292-e4042195f4be")
+    @objid ("7df5a858-9304-4aff-8dba-a34051c1a760")
     protected Command getDeleteChildrenCommand(GroupRequest request) {
         List<GraphicalEditPart> editParts = request.getEditParts();
         CompoundCommand command = new CompoundCommand();
@@ -520,7 +521,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
         return command.unwrap();
     }
 
-    @objid ("9c532b95-07b4-4a1e-8c31-579c03da585d")
+    @objid ("ccc9a7ad-6aad-48f1-91ab-adc620b2b289")
     protected Command createDeleteChildCommand(GroupRequest request, GraphicalEditPart child) {
         DeleteInDiagramCommand command = new DeleteInDiagramCommand();
         command.setNodetoDelete((IGmObject) child.getModel());
@@ -546,8 +547,9 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
         
             int childIndex = getHost().getChildren().indexOf(child);
             boolean isToBeMoved = childIndex != refIndex - 1;
-            boolean isLast = childIndex == getHost().getChildren().size() - 1;
-            if (isToBeMoved && !isLast) {
+            //boolean isLast = childIndex == getHost().getChildren().size() - 1;
+            if (isToBeMoved/*&& !isLast*/) {
+                System.out.println(insertionReference);
                 // create a move command if child is nor at the correct place, nor last
                 command.add(createMoveChildCommand(child, insertionReference));
             }
@@ -670,39 +672,55 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
         resizeContainerReq.setEditParts(getHost());
         RequestHelper.addSharedEditParts(resizeContainerReq, request);
         
-        Dimension maxChildrenSize = new Dimension();
+        // This is the maximum size of all children.
+        // It is used as the minimum size of the container
+        Dimension maxRelChildrenSize = new Dimension();
         
+        // Handle resizes perpendicular to lane orientation
         for (GraphicalEditPart child : (List<GraphicalEditPart>) getHost().getChildren()) {
             IFigure childFigure = child.getFigure();
-            if (request.getEditParts().contains(child)) {
-                Dimension newChildSize = getBoundsFor(request, child).getSize();
-                maxChildrenSize.union(newChildSize);
+          if (request.getEditParts().contains(child)) {
+                Dimension newRelChildSize = getBoundsFor(request, child).getSize();
+                maxRelChildrenSize.union(newRelChildSize);
         
-                newConstraints.put((GmNodeModel) child.getModel(), horizontalLanes ? newChildSize.height : newChildSize.width);
+                newConstraints.put((GmNodeModel) child.getModel(), horizontalLanes ? newRelChildSize.height : newRelChildSize.width);
         
-                Dimension childSizeDelta = newChildSize.getShrinked(childFigure.getSize());
-                childFigure.translateToAbsolute(childSizeDelta);
+                Dimension childAbsSizeDelta = newRelChildSize.getShrinked(childFigure.getSize());
+                childFigure.translateToAbsolute(childAbsSizeDelta);
         
-                resizeContainerReq.getSizeDelta().expand(childSizeDelta);
+                resizeContainerReq.getSizeDelta().expand(childAbsSizeDelta);
                 resizeContainerReq.getMoveDelta().translate(
-                        moveDirX * Math.abs(childSizeDelta.width),
-                        moveDirY * Math.abs(childSizeDelta.height));
+                        moveDirX * Math.abs(childAbsSizeDelta.width),
+                        moveDirY * Math.abs(childAbsSizeDelta.height));
         
             } else {
-                maxChildrenSize.union(childFigure.getMinimumSize());
+                request.getEditParts().add(child);
+                maxRelChildrenSize.union(childFigure.getMinimumSize());
             }
         }
         
+        // Handle resizes parallel to lane orientation
+        Dimension containerAbsSizeDelta = new Dimension();
         if (horizontalLanes) {
-            int maxWidth = Math.max(containerFig.getPreferredSize().width(), maxChildrenSize.width());
-            int widthDelta = maxWidth - containerFig.getSize().width();
-            resizeContainerReq.getSizeDelta().setWidth(widthDelta);
-            resizeContainerReq.getMoveDelta().setX(moveDirX * widthDelta);
+            // Override move and resize width
+            int maxRelWidth = Math.max(containerFig.getPreferredSize().width(), maxRelChildrenSize.width());
+            int widthRelDelta = maxRelWidth - containerFig.getSize().width();
+        
+            containerAbsSizeDelta.setWidth(widthRelDelta);
+            containerFig.translateToAbsolute(containerAbsSizeDelta);
+        
+            resizeContainerReq.getSizeDelta().setWidth(containerAbsSizeDelta.width());
+            resizeContainerReq.getMoveDelta().setX(moveDirX * containerAbsSizeDelta.width());
         } else {
-            int maxHeight = Math.max(containerFig.getPreferredSize().height(), maxChildrenSize.height());
+            // Override move and resize height
+            int maxHeight = Math.max(containerFig.getPreferredSize().height(), maxRelChildrenSize.height());
             int heightDelta = maxHeight - containerFig.getSize().height();
-            resizeContainerReq.getSizeDelta().setHeight(heightDelta);
-            resizeContainerReq.getMoveDelta().setY(moveDirY * heightDelta);
+        
+            containerAbsSizeDelta.setHeight(heightDelta);
+            containerFig.translateToAbsolute(containerAbsSizeDelta);
+        
+            resizeContainerReq.getSizeDelta().setHeight(containerAbsSizeDelta.height());
+            resizeContainerReq.getMoveDelta().setY(moveDirY * containerAbsSizeDelta.height());
         }
         
         Command parentCommand = getHost().getCommand(resizeContainerReq);
@@ -710,11 +728,14 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
         
         ResizePartitionsCommand command = new ResizePartitionsCommand((GmBpmnLaneSetContainer) getHost().getModel());
         command.setNewConstraints(newConstraints);
-        compound.add(command);
+        
+        PostLayoutCommand post = new PostLayoutCommand(command, request);
+        
+        compound.add(post);
         return compound.unwrap();
     }
 
-    @objid ("bf97ed8d-0a11-4add-9df2-4a618254a5ca")
+    @objid ("87c59ac0-43c5-44c4-97c8-ea14f0b47963")
     @Override
     public GraphicalEditPart getHost() {
         return (GraphicalEditPart) super.getHost();

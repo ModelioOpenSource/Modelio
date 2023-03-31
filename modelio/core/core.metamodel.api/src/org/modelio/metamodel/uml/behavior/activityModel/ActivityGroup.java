@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Nodes and edges can belong to more than one group. They have no inherent semantics and can be used for various purposes. Subclasses of ActivityGroup may add semantics.
  * 
  * ActivityGroups belong to an activity or (exclusively) to another ActivityGroup.
+ * 
+ * 
  */
 @objid ("002813ba-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityGroup extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface ActivityGroup extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("11d33b42-9430-4e8e-bba6-f2797081a54e")
     Activity getInActivity();
@@ -64,8 +67,9 @@ public interface ActivityGroup extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fa0ac401-998f-400e-b787-3afd3f472190")
     void setInActivity(Activity value);
-
 }
+

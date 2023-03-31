@@ -39,8 +39,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.admtool.plugin.AdmTool;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.ProjectType;
-import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.project.services.IProjectService;
@@ -72,7 +72,7 @@ public class DeployArchiveHandler {
             paths.add(new File(parentPath, m).toString());
         }
         
-        final GProject openedProject = projectservice.getOpenedProject();
+        final IGProject openedProject = projectservice.getOpenedProject();
         
         DeployModule runnable = new DeployModule(paths, catalog, moduleSvc, openedProject);
         
@@ -98,7 +98,7 @@ public class DeployArchiveHandler {
     @objid ("ad3ae4d3-5f2b-4c2f-bd57-c909c41769ad")
     @CanExecute
     boolean canExecute(IProjectService projectservice) {
-        GProject openedProject = projectservice.getOpenedProject();
+        IGProject openedProject = projectservice.getOpenedProject();
         
         // Forbid this command for server projects.
         return openedProject != null && openedProject.getType() == ProjectType.LOCAL;
@@ -119,13 +119,13 @@ public class DeployArchiveHandler {
         IModuleManagementService moduleSvc;
 
         @objid ("38cb5ba8-70d7-4780-ab1c-75c9f2fdb479")
-        GProject project;
+        IGProject project;
 
         @objid ("1917ce35-b4c0-47c9-b864-fe035509a140")
         private StringBuilder report = new StringBuilder();
 
         @objid ("0d33a12f-affa-44c3-b873-d746e8aa3828")
-         DeployModule(List<String> paths, IModuleStore catalog, IModuleManagementService moduleSvc, GProject project) {
+         DeployModule(List<String> paths, IModuleStore catalog, IModuleManagementService moduleSvc, IGProject project) {
             this.modules = paths;
             this.catalog = catalog;
             this.moduleSvc = moduleSvc;

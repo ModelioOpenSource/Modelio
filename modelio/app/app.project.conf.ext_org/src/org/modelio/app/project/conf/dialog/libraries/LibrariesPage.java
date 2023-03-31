@@ -36,14 +36,14 @@ import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 
 @objid ("a739683a-33f6-11e2-a514-002564c97630")
 public class LibrariesPage implements IProjectConfPage {
+    @objid ("ffd63726-11b9-4b65-a6c0-f25147ed70ac")
+    private ScrolledForm form;
+
     @objid ("a739683b-33f6-11e2-a514-002564c97630")
     protected LocalLibrariesSection mcLibSection;
 
     @objid ("a739683c-33f6-11e2-a514-002564c97630")
     protected DistantLibrariesSection distantLibSection;
-
-    @objid ("b1b0c64d-f757-42c1-b1e0-ebd1aaec7899")
-    private ScrolledForm form;
 
     @objid ("a739683e-33f6-11e2-a514-002564c97630")
     @Override
@@ -76,7 +76,6 @@ public class LibrariesPage implements IProjectConfPage {
     @objid ("1c4b48bd-75e0-443c-9577-7acfab5fdd08")
     @Override
     public Control getControl() {
-        // TODO Auto-generated method stub
         return this.form;
     }
 

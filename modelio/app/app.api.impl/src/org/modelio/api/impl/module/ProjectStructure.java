@@ -26,10 +26,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.context.project.IFragmentStructure;
 import org.modelio.api.module.context.project.IModuleStructure;
 import org.modelio.api.module.context.project.IProjectStructure;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.ProjectFileStructure;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.vbasic.version.Version;
 
 @objid ("bae92554-643b-447e-a194-1dc208fa24b9")
@@ -53,23 +53,23 @@ public class ProjectStructure implements IProjectStructure {
     private List<IFragmentStructure> fragments = new ArrayList<>();
 
     @objid ("8320d3e3-eab6-4349-ba2a-36cf6b0b272e")
-     ProjectStructure(GProject project) {
+     ProjectStructure(IGProject project) {
         if (project != null) {
             this.name = project.getName();
             this.type = project.getType().toString();
-            this.pfs = project.getProjectFileStructure();
+            this.pfs = project.getPfs();
             this.remoteLocation = project.getRemoteLocation();
         
             // Modules
-            for (GModule gm : project.getModules()) {
+            for (GModule gm : project.getParts(GModule.class)) {
                 this.modules.add(new ModuleDescriptorImpl(
                         gm.getName(),
                         gm.getVersion(),
-                        String.valueOf(gm.getOriginalArchiveUri())));
+                        String.valueOf(gm.getDescriptor().getLocation())));
             }
         
             // Fragments
-            for (IProjectFragment f : project.getFragments()) {
+            for (IGModelFragment f : project.getParts(IGModelFragment.class)) {
                 this.fragments.add(new FragmentStructure(f));
             }
         }

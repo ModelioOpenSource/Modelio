@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1250]]
 
-[[r1250]]
+
+
 = R1250
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si un _ForkJoinNode_ a un _ObjectFlow_ dans ses flow d'entrée, il doit avoir un _ObjectFlow_ dans ses flow de sortie et vice versa. Cela s'applique aussi aux _ControlFlow_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 _Contraintes UML_:
@@ -27,9 +27,9 @@ _Contraintes UML_:
 
 Tous les types d'information qui rentrent dans un _ForkJoinNode_ ne doivent pas se perdre. De la même manière, toutes les informations sortantes d'un _ForkJoinNode_ ne doivent pas se créer.
 
-[[Astuces]]
 
-[[astuces]]
+
+
 ===== Astuces
 
 Si vous avez un avertissement concernant la règle R1250, vérifiez la cohérence des flux entrants et sortants du _ForkJoinNode_.

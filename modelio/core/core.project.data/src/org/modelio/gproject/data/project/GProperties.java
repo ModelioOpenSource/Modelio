@@ -37,7 +37,7 @@ public class GProperties implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @objid ("6387595e-3004-11e2-8f81-001ec947ccaf")
-    private Map<String, Entry> table = new HashMap<>();
+    private final Map<String, Entry> table = new HashMap<>();
 
     /**
      * Initialize an empty table.
@@ -60,15 +60,9 @@ public class GProperties implements Serializable {
      * Get a view of the table content.
      * <p>
      * 
-     * The view is backed by the <tt>GProperties</tt>, so changes to the <tt>GProperties</tt> are reflected in the view, and vice-versa.
-     * If the <tt>GProperties</tt> is modified while an iteration over the collection is in progress
-     * (except through the iterator's own <tt>remove</tt> operation),
-     * the results of the iteration are undefined.  The collection
-     * supports element removal, which removes the corresponding
-     * mapping from the <tt>GProperties</tt>, via the <tt>Iterator.remove</tt>,
-     * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
-     * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
-     * support the <tt>add</tt> or <tt>addAll</tt> operations.
+     * The view is backed by the <tt>GProperties</tt>, so changes to the <tt>GProperties</tt> are reflected in the view, and vice-versa. If the <tt>GProperties</tt> is modified while an iteration over the collection is in progress (except through the
+     * iterator's own <tt>remove</tt> operation), the results of the iteration are undefined. The collection supports element removal, which removes the corresponding mapping from the <tt>GProperties</tt>, via the <tt>Iterator.remove</tt>,
+     * <tt>Collection.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> operations. It does not support the <tt>add</tt> or <tt>addAll</tt> operations.
      * @return the table content.
      */
     @objid ("6387597a-3004-11e2-8f81-001ec947ccaf")
@@ -104,6 +98,24 @@ public class GProperties implements Serializable {
     }
 
     /**
+     * Get a boolean property value.
+     * <p>
+     * Return the given <i>defaultValue</i> if no value is defined.
+     * @param name a property name.
+     * @param defaultValue the value to return if not defined
+     * @return its value or the <i>defaultValue</i>
+     */
+    @objid ("69f258e6-a145-4333-976b-a86a94b134fc")
+    public boolean getBooleanValue(String name, boolean defaultValue) {
+        Entry p = this.table.get(name);
+        if (p == null)
+            return defaultValue;
+        else
+            return Boolean.parseBoolean(p.getValue());
+        
+    }
+
+    /**
      * Get a property value.
      * <p>
      * Return the given <i>defaultValue</i> if no value is defined.
@@ -119,6 +131,32 @@ public class GProperties implements Serializable {
         else
             return p.getValue();
         
+    }
+
+    /**
+     * Get a property scope.
+     * @param name the property name.
+     * @return the property scope or <code>defaultValue</code> if property if not defined in the table.
+     */
+    @objid ("e5e2f78f-88da-4ab1-81f3-ab7f4ccde2a2")
+    public DefinitionScope getPropertyScope(String name, DefinitionScope defaultValue) {
+        Entry p = this.table.get(name);
+        if (p == null)
+            return defaultValue;
+        else
+            return p.getScope();
+        
+    }
+
+    /**
+     * Set a boolean property value
+     * @param name the property name.
+     * @param b the boolean value.
+     * @param scope the property scope
+     */
+    @objid ("e1ddaef7-4d18-4eec-b1de-c0288c0bc7f7")
+    public void setBooleanProperty(String name, boolean b, DefinitionScope scope) {
+        setProperty(name, Boolean.toString(b), scope);
     }
 
     /**
@@ -151,9 +189,8 @@ public class GProperties implements Serializable {
     @objid ("63875974-3004-11e2-8f81-001ec947ccaf")
     public void setProperty(String name, String value, DefinitionScope scope) {
         Entry p = this.table.get(name);
-        if (p != null) {
-            p.setValue(value);
-            p.setScope(scope);
+        if (p != null && p.getValue().equals(value) && p.getScope() == scope) {
+            return;
         } else {
             p = new Entry(name, value, scope);
             this.table.put(name, p);
@@ -183,8 +220,17 @@ public class GProperties implements Serializable {
         if (this.table == null) {
             if (other.table != null)
                 return false;
-        } else if (!this.table.equals(other.table))
+        } else if (!this.table.equals(other.table)) {
+            if (false) {
+                HashMap<String, Entry> tmp = new HashMap<>(this.table);
+                HashMap<String, Entry> tmp2 = new HashMap<>(other.table);
+                other.table.keySet().forEach(k -> tmp.remove(k));
+                this.table.keySet().forEach(k -> tmp2.remove(k));
+                System.out.println("more in this:"+tmp);
+                System.out.println("more in other:"+tmp2);
+            }
             return false;
+        }
         return true;
     }
 
@@ -200,7 +246,7 @@ public class GProperties implements Serializable {
                 first = false;
             else
                 s.append(", ");
-            
+        
             s.append(prop.getKey());
             s.append(" = '");
             Entry val = prop.getValue();
@@ -227,18 +273,21 @@ public class GProperties implements Serializable {
     }
 
     /**
-     * A property.
+     * A property with its value and the scope.
+     * 
+     * <h2>History</h2>
+     * Since 5.3.1 this class is immutable.
      */
     @objid ("6384f70f-3004-11e2-8f81-001ec947ccaf")
     public static final class Entry {
         @objid ("061e9499-3019-11e2-8f81-001ec947ccaf")
-        private DefinitionScope scope;
+        private final DefinitionScope scope;
 
         @objid ("061e9491-3019-11e2-8f81-001ec947ccaf")
-        private String name;
+        private final String name;
 
         @objid ("061e9496-3019-11e2-8f81-001ec947ccaf")
-        private String value;
+        private final String value;
 
         /**
          * Initialize the property.
@@ -271,29 +320,11 @@ public class GProperties implements Serializable {
         }
 
         /**
-         * Set the value.
-         * @param value the value.
-         */
-        @objid ("63875951-3004-11e2-8f81-001ec947ccaf")
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
          * @return the definition scope.
          */
         @objid ("63875955-3004-11e2-8f81-001ec947ccaf")
         public DefinitionScope getScope() {
             return this.scope;
-        }
-
-        /**
-         * Set the definition scope.
-         * @param scope the definition scope.
-         */
-        @objid ("6387595a-3004-11e2-8f81-001ec947ccaf")
-        public void setScope(DefinitionScope scope) {
-            this.scope = scope;
         }
 
         @objid ("ca985469-c003-41bd-8e07-83d2109807e3")

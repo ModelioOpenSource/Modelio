@@ -61,7 +61,7 @@ public abstract class AbstractLinkPathEditor implements ILinkPathEditor {
     /**
      * @return the edited {@link ConnectionEditPart} .
      */
-    @objid ("aa2b1d25-956b-4088-b1e6-466e59d9c206")
+    @objid ("71db8270-156e-450c-a80a-ed301679f00d")
     protected abstract ConnectionEditPart getConnectionEditPart();
 
     @objid ("5c8b2264-82b9-4a94-bf04-c6fbeec475f6")
@@ -86,27 +86,27 @@ public abstract class AbstractLinkPathEditor implements ILinkPathEditor {
         
     }
 
-    @objid ("c3ca2c68-9e6a-4b60-8650-f1c3d6d2ed9b")
+    @objid ("1590797d-eaa0-423f-90c6-7150507fee48")
     @Override
     public ILinkPathEditor applyChangeBoundsRequest(ChangeBoundsRequest request, boolean isSimulation) {
         return this;
     }
 
-    @objid ("b86f248b-f22b-4298-8946-405137cf12c8")
+    @objid ("027a2fce-8343-47f0-b927-d65cabb89f8d")
     private static class DummyLinkPathEditor extends AbstractLinkPathEditor implements ILinkPathEditorFactory {
-        @objid ("7cf0c775-837a-4b94-b5b0-19a08715b180")
+        @objid ("7b67da9e-7d7c-493c-a776-3f4d1afaaf60")
         private ConnectionEditPart ep;
 
-        @objid ("18a51789-481e-4b9d-af96-ed38fd995b5c")
+        @objid ("e25b6e83-dafc-4508-ab00-2610fa44e3a9")
         private ConnectionState state;
 
-        @objid ("284bb5a7-f787-4e36-a573-71492024034d")
+        @objid ("e8019df9-b15e-46d9-a6f8-a0119c6bc139")
         @Override
         public ConnectionState getState() {
             return this.state;
         }
 
-        @objid ("e1ee8446-4dbb-49a8-b993-726feb8bee24")
+        @objid ("206ecb77-629e-486b-82c3-f65b84210714")
         @Override
         public ILinkPathEditor from(ConnectionEditPart connectionEditPart) {
             this.ep  = connectionEditPart;
@@ -114,7 +114,7 @@ public abstract class AbstractLinkPathEditor implements ILinkPathEditor {
             return this;
         }
 
-        @objid ("f068a106-87e5-45b8-9239-2c66281e778a")
+        @objid ("47b68f01-9418-4e7c-9b0e-40972751af3f")
         @Override
         public ILinkPathEditor from(ConnectionEditPart connectionEditPart, ConnectionState state) {
             this.ep  = connectionEditPart;
@@ -122,7 +122,7 @@ public abstract class AbstractLinkPathEditor implements ILinkPathEditor {
             return this;
         }
 
-        @objid ("1b9d37f1-c7bd-4059-aedd-aa98efe4e3e6")
+        @objid ("159f1289-9059-42cb-94e0-a3a4ec5475cf")
         @Override
         protected ConnectionEditPart getConnectionEditPart() {
             return this.ep;
@@ -131,7 +131,7 @@ public abstract class AbstractLinkPathEditor implements ILinkPathEditor {
         /**
          * Make no copy, return itself.
          */
-        @objid ("c494ee3f-103f-46e3-bf19-506d43ff199a")
+        @objid ("f9cbc2ca-5f7a-4f2e-8dfa-9660a429077e")
         @Override
         public ILinkPathEditor createFrozenStateCopy() {
             DiagramElements.LOG.warning(new UnsupportedOperationException());

@@ -50,5 +50,5 @@ public interface IAuditConfigurationPlan {
 
     @objid ("1a30836c-5edf-4cc7-95db-5dd3b0bca846")
     Image getImage(AuditCategory category);
-
 }
+

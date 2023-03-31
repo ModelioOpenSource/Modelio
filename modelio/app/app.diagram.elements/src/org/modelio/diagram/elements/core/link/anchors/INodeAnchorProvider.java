@@ -87,5 +87,5 @@ public interface INodeAnchorProvider {
      */
     @objid ("cd0dcfe6-ac4c-4c4d-9cc8-b3194492e578")
     ConnectionAnchor getTargetConnectionAnchor(final GraphicalEditPart nodeEditPart, final Request request);
-
 }
+

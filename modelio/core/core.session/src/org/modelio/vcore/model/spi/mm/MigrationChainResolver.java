@@ -35,7 +35,7 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 @objid ("9f698862-3647-481d-b2a2-24214e504dba")
 public class MigrationChainResolver {
     @objid ("d5f1cc53-184c-4224-9785-7728404fe340")
-    private Collection<IMigrationProvider> initCandidates;
+    private Collection<IMofRepositoryMigratorProvider> initCandidates;
 
     @objid ("bbb3bce8-340b-4456-b5e9-e693ed104087")
     private Deque<IMofRepositoryMigrator> chain;
@@ -52,7 +52,7 @@ public class MigrationChainResolver {
      * @param candidates migration candidates
      */
     @objid ("717ef400-ef95-4f68-9480-dec549059849")
-    public  MigrationChainResolver(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMigrationProvider> candidates) {
+    public  MigrationChainResolver(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMofRepositoryMigratorProvider> candidates) {
         this.from = from.unmodifiable();
         this.to = to;
         this.initCandidates = new ArrayList<>(candidates);
@@ -75,7 +75,7 @@ public class MigrationChainResolver {
     }
 
     @objid ("5ff1d67d-2f93-4aaa-8dfd-e5d0b1622039")
-    private boolean step(MetamodelVersionDescriptor stateMm, Collection<IMigrationProvider> candidates) {
+    private boolean step(MetamodelVersionDescriptor stateMm, Collection<IMofRepositoryMigratorProvider> candidates) {
         if (this.chain.size() > 20) {
             String msg = this.chain.stream()
                     .map(IMofRepositoryMigrator::toString)
@@ -83,16 +83,16 @@ public class MigrationChainResolver {
             throw new RuntimeException(msg);
         }
         
-        for (IMigrationProvider candidate : candidates) {
+        for (IMofRepositoryMigratorProvider candidate : candidates) {
             IMofRepositoryMigrator stepMigrator = candidate.getMigrator(stateMm, this.to);
             if (stepMigrator != null) {
                 MetamodelVersionDescriptor stepResultMm = stepMigrator.getTargetMetamodel();
-                
+        
                 if (MmVersionComparator.withSource(stepResultMm).withTarget(this.to).withMissingRemoved().isTargetCompatible(false)) {
                     // reached target metamodel, finished
                     this.chain.addLast(stepMigrator);
                     return true;
-                } 
+                }
                 if (! stepResultMm.equals(stateMm)) {
                     // progressed toward target metamodel
                     this.chain.addLast(stepMigrator);
@@ -107,7 +107,7 @@ public class MigrationChainResolver {
                     }
                 }
             }
-            
+        
         }
         
         if (this.chain.isEmpty()) {
@@ -132,7 +132,7 @@ public class MigrationChainResolver {
      * @return a potentially empty chain of migration tools , never <i>null</i>.
      */
     @objid ("78eb048f-5154-4c59-9fa3-52b95cf72541")
-    public static MigrationChain resolve(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMigrationProvider> candidates) {
+    public static MigrationChain resolve(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMofRepositoryMigratorProvider> candidates) {
         return new MigrationChainResolver(from, to, candidates).run();
     }
 

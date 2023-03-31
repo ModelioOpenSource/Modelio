@@ -101,5 +101,5 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
      */
     @objid ("00a4b62c-7079-4079-8410-339983a833b0")
     Collection<IGmObject> getVisibleExtensions();
-
 }
+

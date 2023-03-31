@@ -42,15 +42,15 @@ import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
  * @author cma
  * @since 5.1.0
  */
-@objid ("b6be20a2-f5b4-4c46-968e-545bbf021666")
+@objid ("0742c6c6-db3b-469d-80de-62311c5d868f")
 public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
     /**
      * The role to use for this edit policy
      */
-    @objid ("a65e7f0a-6ba6-4336-a129-9eaf488a5381")
+    @objid ("a520c6c5-8846-44c8-8dcb-2f461af8dba3")
     public static final Object ROLE = LayoutConnectionConnectionsEditPolicy.class.getSimpleName();
 
-    @objid ("f0c0f514-39ae-42cb-932b-bfbfd489a46a")
+    @objid ("2f033ba4-d6ce-49c7-9720-a788ef2ea31d")
     private static final Object[] DEPENDENT_POLICIES = new Object[] {EditPolicy.PRIMARY_DRAG_ROLE, EditPolicy.CONNECTION_BENDPOINTS_ROLE, EditPolicy.CONNECTION_ENDPOINTS_ROLE};
 
     /**
@@ -59,7 +59,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
      * Reserve slots for drag policies that must be installed before this one.
      * @param editpart the edit part destined to have this policy.
      */
-    @objid ("d32bf02c-23de-4ec1-8aab-81ae0cc6e1dc")
+    @objid ("97dd5cd8-4345-47a4-8986-982f02a428b1")
     public  LayoutConnectionConnectionsEditPolicy(EditPart editpart) {
         super();
         
@@ -68,7 +68,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("571a4f5d-cf46-4845-a260-d8c9d1b7280b")
+    @objid ("36d47020-8cbd-43e2-ad4e-9210d52ca6c0")
     @Override
     public void eraseSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -80,7 +80,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("f52bb2a7-6eb9-4566-9d9f-15bbbb042eec")
+    @objid ("1e3f337a-a7f1-42d3-b7d6-4d8a88fcc449")
     @Override
     public Command getCommand(Request request) {
         if (! isHandled(request))
@@ -101,7 +101,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
     /**
      * Show the source drag feedback for the drag occurring within the viewer.
      */
-    @objid ("d3fed259-1313-46dd-ab1e-334127a6c3a7")
+    @objid ("cd934492-746c-4f62-8291-6b5836077003")
     @Override
     public void showSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -113,7 +113,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("df22c4fd-794f-4fef-ac1f-296faf5063dd")
+    @objid ("57ae6448-f630-456d-9ee3-39fad423265c")
     protected final void forEachConnection(Consumer<EditPart> action) {
         GraphicalEditPart node = (GraphicalEditPart) getHost();
         
@@ -124,7 +124,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("f45353ba-7b6a-4c8e-9348-a4e17f60059e")
+    @objid ("27ba7e17-0374-4f10-87fb-7da3761ac929")
     protected Request getAdaptedRequest(Request parentRequest) {
         ChangeBoundsRequest req = new ChangeBoundsRequest(REQ_RESIZE);
         req.setEditParts(getHost());
@@ -132,7 +132,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
         return req;
     }
 
-    @objid ("34a501cd-65fc-4cf5-bc99-c4295a9877ac")
+    @objid ("641c7a19-3be1-41de-a58c-db33a7ff6d43")
     private boolean isHandled(Request req) {
         Object type = req.getType();
         return REQ_CREATE_BENDPOINT.equals(type)
@@ -150,7 +150,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
      * @param request a request
      * @return true if the request is to move host end point.
      */
-    @objid ("741ac2d3-90ec-4a84-883c-397eb8fcac34")
+    @objid ("4576594f-653a-4545-a48e-1c4c92166daa")
     private boolean isMoveEndPointRequest(Request request) {
         Object type = request.getType();
         
@@ -167,7 +167,7 @@ public class LayoutConnectionConnectionsEditPolicy extends GraphicalEditPolicy {
      * Reserve slots for drag policies that must be installed before this one, needed by LayoutConnectionConnectionsEditPolicy.
      * @param editpart the edit part destined to have this policy.
      */
-    @objid ("e549fee4-ae69-43d1-8782-71ef8a10b8cd")
+    @objid ("14bea299-1390-4add-8a24-d59609b72cfe")
     private void reserveNeededSlots(EditPart editpart) {
         for (Object role : DEPENDENT_POLICIES) {
             if (editpart.getEditPolicy(role) == null) {

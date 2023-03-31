@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configuring-project-modules]]
 
-[[configuring-project-modules]]
+
+
 = Configuring project modules
 
-[[What-are-Modelio-modules]]
 
-[[what-are-modelio-modules]]
+
+
 ===== What are Modelio modules?
 
 Modelio modules are complementary components, each of which provides specific services tailored to a particular modeling need.
@@ -21,9 +21,9 @@ When a module is installed, it provides specific menus, icons and specialized an
 
 *Note:* To open the "Modules" tab of the Project Configurator, just run the "image:images/Modeler-_modeler_managing_projects_configuring_project_modules_module.png[9] Modules..." command from the "Configuration" menu.
 
-[[Installing-modules-in-a-project]]
 
-[[installing-modules-in-a-project]]
+
+
 ===== Installing modules in a project
 
 image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_1.png[2]
@@ -40,9 +40,9 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_modules_con
 3. Click on the "Deploy in the project" button to validate your choice +
 4. Click on the "Close" button to quit the 'Project configuration' window
 
-[[ActivatingDeactivating-modules]]
 
-[[activatingdeactivating-modules]]
+
+
 ===== Activating/Deactivating modules
 
 Modelio provides a module activation/deactivation feature that enables you to activate or deactivate any and all of the modules installed in your project at any time.
@@ -60,9 +60,9 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_modules_con
 
 1. Check/uncheck the tick box of the module you want to activate/deactivate
 
-[[Removing-modules-from-a-project]]
 
-[[removing-modules-from-a-project]]
+
+
 ===== Removing modules from a project
 
 Removing a module will delete all its annotations and disable all its commands and functionalities. This cannot be undone, meaning that even reinstallation of the module will not restore the annotations.
@@ -75,9 +75,9 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_modules_con
 1. Select the module you want to remove. 
 2. Click on the "Remove..." button to remove the module from the project.
 
-[[Setting-module-parameters]]
 
-[[setting-module-parameters]]
+
+
 ===== Setting module parameters
 
 Each module installed in your project provides a set of parameters used to define various specific options, typically generation directories, edition tools and default selections.

@@ -38,8 +38,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.progress.IModelioProgressService;
@@ -51,14 +51,14 @@ public class ExportProjectHandler {
     @objid ("1cbf7c45-b351-4b81-97ab-812e65e8be14")
     @Execute
     public void execute(@Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, IModelioProgressService progressService) {
-        final ProjectDescriptor projectToExport = SelectionHelper.getFirst(selection, ProjectDescriptor.class);
+        final GProjectDescriptor projectToExport = SelectionHelper.getFirst(selection, GProjectDescriptor.class);
         if (projectToExport == null) {
             return;
         }
         
         AppProjectUi.LOG.info("Exporting project " + projectToExport.getName());
         
-        final GProject openedProject = projectService.getOpenedProject();
+        final IGProject openedProject = projectService.getOpenedProject();
         
         // check that the project to export is not the currently opened one.
         // Opened project cannot be exported as the exported project file would
@@ -108,17 +108,17 @@ public class ExportProjectHandler {
     @CanExecute
     public boolean canExecute(final IProjectService projectService, @Optional
     @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        List<ProjectDescriptor> projectDescriptors = SelectionHelper.toList(selection, ProjectDescriptor.class);
+        List<GProjectDescriptor> projectDescriptors = SelectionHelper.toList(selection, GProjectDescriptor.class);
         if (projectDescriptors.size() != 1) {
             return false;
         }
         
-        final ProjectDescriptor desc = projectDescriptors.get(0);
+        final GProjectDescriptor desc = projectDescriptors.get(0);
         if (desc.getLockInfo() != null) {
             return false;
         }
         
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         if (openedProject != null) {
             // cannot export currently opened project
             if (openedProject.getName().equals(desc.getName())) {

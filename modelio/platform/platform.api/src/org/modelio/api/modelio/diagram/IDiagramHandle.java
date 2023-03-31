@@ -176,5 +176,5 @@ public interface IDiagramHandle extends AutoCloseable {
      */
     @objid ("25f4c6d0-7a5a-4497-a34e-90e8ee52bc0f")
     void refreshDynamicDecoration();
-
 }
+

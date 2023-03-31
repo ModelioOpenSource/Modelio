@@ -113,5 +113,5 @@ public interface IGmPath extends IPersistent {
      */
     @objid ("8084e156-1dec-11e2-8cad-001ec947c8cc")
     void setTargetRake(final IGmLinkRake value);
-
 }
+

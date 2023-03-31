@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-des-éléments-dans-un-diagramme]]
 
-[[créer-des-éléments-dans-un-diagramme]]
+
+
 = Créer des éléments dans un diagramme
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Les diagrammes Modelio se construisent autour de deux types d'éléments :
@@ -20,9 +20,9 @@ Les diagrammes Modelio se construisent autour de deux types d'éléments :
 
 Lors de la création d'un élément dans un diagramme, la vue "Modèle" est automatiquement mis à jour. De même, si un élément est modifié ou supprimé d'un diagramme, il l'est également dans la vue "Modèle". La cohérence du modèle est ainsi maintenue en permanence dans toutes les vues.
 
-[[Créer-des-éléments-dans-les-diagrammes-via-la-palette-dx27icônes]]
 
-[[créer-des-éléments-dans-les-diagrammes-via-la-palette-dicônes]]
+
+
 ===== Créer des éléments dans les diagrammes via la palette d'icônes
 
 Dans les diagrammes Modelio, vous pouvez créer des éléments (les boîtes et les liens) en vous servant des icônes dans la palette à gauche du diagramme.
@@ -40,16 +40,16 @@ image::images/Modeler-_modeler_diagrams_creating_elements_DiagCreateClass.png[3]
 2. Cliquez sur l'icône *"Classe"* dans la palette du diagramme.
 3. Cliquez dans le fond du diagramme à l'endroit où vous souhaitez créer la classe.
 
-[[Redimensionner-un-nouvel-élément-lors-de-sa-création]]
 
-[[redimensionner-un-nouvel-élément-lors-de-sa-création]]
+
+
 ===== Redimensionner un nouvel élément lors de sa création
 
 Si vous voulez redimensionner votre nouvel élément lors de sa création, il suffit de maintenir enfoncé le bouton gauche de la souris lorsque vous cliquez dans le diagramme, et de glisser le curseur jusqu'à ce que le nouvel élément ait la taille souhaitée.
 
-[[Démasquer-des-éléments-par-glisser-déposer]]
 
-[[démasquer-des-éléments-par-glisser-déposer]]
+
+
 ===== Démasquer des éléments par glisser-déposer
 
 Le service "Glisser-Déposer" vous permet de démasquer rapidement des éléments dans les diagrammes Modelio. En effet, il suffit de sélectionner un élément dans la vue "Modèle", puis de le glisser-déposer dans un diagramme, comme le montre l'exemple ci-dessous.
@@ -60,9 +60,9 @@ Vous pouvez sélectionner plusieurs éléments à la fois dans la vue "Modèle" 
 image::images/Modeler-_modeler_diagrams_creating_elements_DiagDragDrop.png[4]
 
 
-[[Créer-plusieurs-éléments-du-même-type]]
 
-[[créer-plusieurs-éléments-du-même-type]]
+
+
 ===== Créer plusieurs éléments du même type
 
 Très souvent, vous avez besoin de créer plusieurs éléments du même type, et pour ce faire, Modelio vous offre le mode "création d'éléments frères". Pour utiliser ce service, créez un premier élément dans le diagramme, puis cliquez sur cet élément tout en maintenant enfoncée la touche *"Ctrl"*, et glissez-le à l'endroit où vous voulez créer un deuxième élément du même type, avant de relâcher le bouton gauche de la souris. Ce service fonctionne également lorsque plusieurs éléments sont sélectionnés en même temps.

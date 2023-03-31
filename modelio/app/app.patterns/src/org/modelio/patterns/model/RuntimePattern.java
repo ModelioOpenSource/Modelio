@@ -45,7 +45,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.pattern.IPatternService.PatternException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -79,6 +80,9 @@ import org.xml.sax.InputSource;
  */
 @objid ("5bc73ac7-2e97-4395-9d6b-45298e04060f")
 public class RuntimePattern implements Comparable<RuntimePattern> {
+    @objid ("38681516-345e-4f1b-aedf-57c26dabca03")
+    private Path patternPath;
+
     /**
      * Pattern metadatas, loaded with Jaxb.
      */
@@ -87,9 +91,6 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     @objid ("5d49af65-0408-4695-99bc-cc75f0345d08")
     private Package modelPattern;
-
-    @objid ("0ea67edc-16a0-4454-a945-2056b1dbc76a")
-    private Path patternPath;
 
     /**
      * Build a new PatternData instance from a model element.
@@ -100,7 +101,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         this.modelPattern = modelPattern;
         this.jaxbPattern = createJaxbModelFromUmlModel(modelPattern);
         
-        GProject openedProject = GProject.getProject(modelPattern);
+        IGProject openedProject = AbstractGProject.getProject(modelPattern);
         this.patternPath = Patterns.getProjectPatternsDirectory(openedProject)
                 .resolve(this.jaxbPattern.getName() + "_" + this.jaxbPattern.getVersion() + ".umlt");
         
@@ -117,7 +118,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         
         try (FileSystem fs = FileSystems.newFileSystem(this.patternPath, this.getClass().getClassLoader())) {
             Path manifest = fs.getPath("Manifest.xml");
-            JAXBContext jc = JAXBContext.newInstance("org.modelio.patterns.model.information");
+            JAXBContext jc = JAXBContext.newInstance("org.modelio.patterns.model.information",RuntimePattern.class.getClassLoader());
             Unmarshaller um = jc.createUnmarshaller();
         
             InputSource is = new InputSource(Files.newInputStream(manifest));
@@ -406,8 +407,8 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Load the executable part of a pattern.
-     * @return a {@link IPattern} ready to use.
      * @throws IOException when pattern loading fails.
+     * @return a {@link IPattern} ready to use.
      */
     @objid ("6b7c4853-8523-4efa-9787-d1f3305680cf")
     private IPattern getExecutablePattern() throws IOException {

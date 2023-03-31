@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3200]]
 
-[[r3200]]
+
+
 = R3200
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _LinkThrowEvent_ doit avoir le même nom que le _LinkCatchEvent_ auquel il est relié.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 L'association d'un _LinkThrowEvent_ et d'un _LinkCatchEvent_ est une technique de modélisation dans BPMN qui aide à simplifier les diagrammes lorqu'ils sont complexes et denses et à augmenter la lisibilité.
@@ -28,9 +28,9 @@ Le gain de lisibilité attendu est conditionné par l'utilisation d'un nommage u
 
 La règle R3200 veille précisément à ce que les noms des _LinkThrowEvent/LinkCatchEvent_ associés soient les mêmes.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 La résolution de la règle R3200 est simple, il suffit de renommer l'un des événements _throw_ ou _catch_ afin que son nom corresponde à celui de son événement associé.

@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * The ElementOwnerShip association provides a hierarchy of ModelElements that can be managed by the model explorer or by the teamwork facility. 
  * 
  * This metaclass is not part of the UML standard. NameSpace is a typical subclass, which takes advantage of the containment facility provided by ModelTree.
+ * 
+ * 
  */
 @objid ("00891e1c-c4be-1fd8-97fe-001ec947cd2a")
 public interface ModelTree extends UmlModelElement {
@@ -56,6 +58,7 @@ public interface ModelTree extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("9f71dd66-4735-444f-9e20-4d16dee62492")
     ModelTree getOwner();
@@ -65,6 +68,7 @@ public interface ModelTree extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("49056ebd-3ddf-4932-ad50-731bd4e1ef9f")
     void setOwner(ModelTree value);
@@ -74,6 +78,7 @@ public interface ModelTree extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("55fe510b-0fcb-4f77-af97-515275b5bda5")
     EList<ModelTree> getOwnedElement();
@@ -83,8 +88,9 @@ public interface ModelTree extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("940c3fde-644e-483c-b9fd-43bb3e3cd4aa")
     <T extends ModelTree> List<T> getOwnedElement(java.lang.Class<T> filterClass);
-
 }
+

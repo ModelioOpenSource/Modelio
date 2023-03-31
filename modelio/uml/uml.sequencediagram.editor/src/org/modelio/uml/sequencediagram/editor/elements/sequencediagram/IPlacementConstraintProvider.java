@@ -43,5 +43,5 @@ public interface IPlacementConstraintProvider {
      */
     @objid ("d979071a-55b6-11e2-877f-002564c97630")
     PlacementConstraint createPlacementConstraint(final GmModel model, final int x, final int y, final int width, final int height);
-
 }
+

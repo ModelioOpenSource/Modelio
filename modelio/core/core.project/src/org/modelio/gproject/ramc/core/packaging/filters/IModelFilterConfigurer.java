@@ -39,5 +39,5 @@ public interface IModelFilterConfigurer {
      */
     @objid ("6b0a427a-b9c9-4473-8d5a-140e6f7095ff")
     void setFilter(final Class<? extends MObject> mmClass, final IObjectFilter objectFilter);
-
 }
+

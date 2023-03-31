@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Aligner-des-éléments]]
 
-[[aligner-des-éléments]]
+
+
 = Aligner des éléments
 
 Les diagrammes Modelio vous proposent plusieurs options d'alignement.
 
-[[Loption-daide-au-placement]]
 
-[[loption-daide-au-placement]]
+
+
 ===== L'option d'aide au placement
 
 Dans les vues <<Modeler-_modeler_interface_properties_view.adoc#,Propriétés>> ou <<Modeler-_modeler_interface_symbol_view.adoc#,Symbole>> du diagramme il est possible d'activer/désactiver l'option "Aide au placement". Cette fonctionnalité permet de placer l'élément en fonction de la position des autres éléments présents dans le diagramme.
 
-[[La-barre-doutils-du-diagramme]]
 
-[[la-barre-doutils-du-diagramme]]
+
+
 ===== La barre d'outils du diagramme
 
 Pour aligner des éléments dans un diagramme, sélectionnez les éléments en question puis cliquez sur l'icône qui correspond à votre choix d'alignement dans la barre d'outils du diagramme.

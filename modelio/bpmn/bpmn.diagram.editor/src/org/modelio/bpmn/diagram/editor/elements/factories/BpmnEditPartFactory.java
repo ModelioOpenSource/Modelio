@@ -188,7 +188,7 @@ public class BpmnEditPartFactory implements EditPartFactory {
     @objid ("2c6f2e97-d3c7-4f2c-8106-0e5cd3ee991c")
     private static final ImageModeEditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
 
-    @objid ("b50d3089-37d3-4c9b-aad7-890a08d498ce")
+    @objid ("96b9e550-76c1-4ebb-b1cd-1dc08ddd0ac4")
     private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("60da6d50-55b6-11e2-877f-002564c97630")

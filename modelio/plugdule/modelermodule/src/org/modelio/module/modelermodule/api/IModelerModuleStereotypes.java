@@ -571,5 +571,5 @@ public interface IModelerModuleStereotypes {
 
     @objid ("96835c47-3fb1-4268-b760-753b3eca85f0")
     public static final String plusINFLUENCE = "+influence";
-
 }
+

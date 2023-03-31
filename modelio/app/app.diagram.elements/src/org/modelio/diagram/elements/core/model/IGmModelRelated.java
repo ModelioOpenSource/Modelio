@@ -50,7 +50,7 @@ public interface IGmModelRelated extends IGmObject {
      * 
      * @since 3.7
      */
-    @objid ("0bc42475-6845-4e38-88bb-4da4260b40d9")
+    @objid ("cb026d6d-1461-4361-bf04-bcef53ffef48")
     public static final String PROP_OBMODEL_DELETED = "OBMODEL_DELETED";
 
     /**
@@ -86,7 +86,7 @@ public interface IGmModelRelated extends IGmObject {
      * <strong>Note:</strong> This method never return <code>null</code> .
      * @return the metaclass this GmModel is in charge of relating, never null.
      */
-    @objid ("f0d9a840-d054-4d0c-b0a3-fbc737600c8b")
+    @objid ("ef12e327-80d4-44f7-bd2d-06472a677f45")
     MClass getRelatedMClass();
 
     /**
@@ -118,5 +118,5 @@ public interface IGmModelRelated extends IGmObject {
      */
     @objid ("80827ece-1dec-11e2-8cad-001ec947c8cc")
     MRef getRepresentedRef();
-
 }
+

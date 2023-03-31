@@ -92,5 +92,5 @@ public interface IModuleLifeCycleHandler {
      */
     @objid ("1045313d-af20-4d38-9ef6-e0b8e2256956")
     void configurationChanged(String pName, String oldValue, String newValue);
-
 }
+

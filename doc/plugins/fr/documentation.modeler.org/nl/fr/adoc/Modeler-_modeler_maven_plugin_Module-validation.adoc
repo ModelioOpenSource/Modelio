@@ -17,9 +17,9 @@ Valide le contenu d'un fichier de définition de module, le fichier module.xml, 
 
 Lié par défaut à la phase : validate.
 
-[[Paramètres-optionnels]]
 
-[[paramètres-optionnels]]
+
+
 == Paramètres optionnels
 
 [cols=",,,",options="header",]

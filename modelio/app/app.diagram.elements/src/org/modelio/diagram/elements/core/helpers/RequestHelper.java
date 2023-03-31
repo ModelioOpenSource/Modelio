@@ -199,7 +199,7 @@ public class RequestHelper {
      * @param req a Request.
      * @return a bunch of edit parts.
      */
-    @objid ("e67244fa-8f24-4628-be37-a71800d4067f")
+    @objid ("a6df0f3d-17cb-4124-98cb-4ea9ee207056")
     public static Collection<GraphicalEditPart> getSharedEditParts(GroupRequest req) {
         return (Collection<GraphicalEditPart>) req.getExtendedData().getOrDefault(SHARED_EDIT_PARTS, Collections.emptyList());
     }
@@ -209,7 +209,7 @@ public class RequestHelper {
      * @param req a Request.
      * @param parentRequest req's parent request.
      */
-    @objid ("ac381a53-1ad2-4140-9417-c6928e804576")
+    @objid ("b5f66a38-a6f9-47ec-9ad1-0b5f39f63a38")
     public static void addSharedEditParts(GroupRequest req, GroupRequest parentRequest) {
         List<GraphicalEditPart> editParts = parentRequest.getEditParts();
         

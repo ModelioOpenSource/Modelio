@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Appartient à une Instance, est associé à un Link et représente une AssociationEnd.
  * 
  * Une NaryLinkEnd est reliée à une Instance uniquement.
+ * 
+ * 
  */
 @objid ("00749ece-17e8-10a1-88a0-001ec947cd2a")
 public interface NaryLinkEnd extends UmlModelElement {
@@ -57,6 +59,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("dd7d909d-4160-412f-8538-caf775660782")
     boolean isIsOrdered();
@@ -66,6 +69,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1cbde774-9c6b-4d6f-81d4-39f217f3e154")
     void setIsOrdered(boolean value);
@@ -75,6 +79,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("da6b1fad-604c-4030-876a-cd8eab233edf")
     boolean isIsUnique();
@@ -84,6 +89,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c63c9441-07d0-48d2-85b2-5bef3fe48de0")
     void setIsUnique(boolean value);
@@ -93,6 +99,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("480ea666-3d24-4ccd-bf67-31b0b27320a8")
     String getMultiplicityMax();
@@ -102,6 +109,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90d3be70-dd94-441a-b859-4ed6bdd366cc")
     void setMultiplicityMax(String value);
@@ -111,6 +119,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("02194651-90c5-4b48-9b4e-e57f0ae8e21d")
     String getMultiplicityMin();
@@ -120,6 +129,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c411cc96-af03-463f-85dc-7ec59cedd4bc")
     void setMultiplicityMin(String value);
@@ -129,6 +139,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("89337cd5-17ba-4493-bbe4-eee4e4c23591")
     Instance getSource();
@@ -138,6 +149,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e9f4b093-d757-4875-b4cf-22ddd5c14f4b")
     void setSource(Instance value);
@@ -147,6 +159,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f0fa8be4-9ef2-49cb-b18b-776c7302de36")
     NaryLink getNaryLink();
@@ -156,6 +169,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d3bca77c-158c-4a40-8684-abdc4a729427")
     void setNaryLink(NaryLink value);
@@ -165,6 +179,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a27c0259-cd31-40ed-9f22-4db165e1c096")
     RequiredInterface getConsumer();
@@ -174,6 +189,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90c3acbc-9f3a-4832-8e01-9f0ab78471c9")
     void setConsumer(RequiredInterface value);
@@ -183,6 +199,7 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("289cd56d-bb06-41ba-ab26-11d16916593d")
     ProvidedInterface getProvider();
@@ -192,8 +209,9 @@ public interface NaryLinkEnd extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8f8f24ed-0fa5-45e3-89cc-21738321380c")
     void setProvider(ProvidedInterface value);
-
 }
+

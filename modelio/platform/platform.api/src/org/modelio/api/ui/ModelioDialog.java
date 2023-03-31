@@ -83,6 +83,8 @@ import org.eclipse.swt.widgets.Shell;
  * }
  * </pre>
  * </p>
+ * 
+ * @Deprecated Use org.modelio.platform.ui.dialog.ModelioDialog.
  */
 @objid ("7c12d54a-704b-11dd-933a-001ec947cd2a")
 public abstract class ModelioDialog extends org.modelio.platform.ui.dialog.ModelioDialog {

@@ -38,7 +38,8 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  * to be called by {@link EditPart#getAdapter(Class) EditPart.getAdapter(AccessibleAnchorProvider.class)} .
  */
 @objid ("51375c3a-3200-4ddc-9235-be55e4103a68")
-public interface IFixedConnectionAnchorFactory {
+@Deprecated
+interface IFixedConnectionAnchorFactory {
     /**
      * Anchor feedback figures radius.
      */
@@ -120,4 +121,13 @@ public interface IFixedConnectionAnchorFactory {
         return nearest;
     }
 
+    /**
+     * Get the unique identifier of the algorithm that uses this factory to generate anchors.
+     * <p>
+     * Will be serialized in graphic model in order to regenerate the same anchors.
+     * @return the identifier of the algorithm.
+     */
+    @objid ("a7961408-54ca-48ea-a51c-89654d6f8c59")
+    String getAlgorithmId();
 }
+

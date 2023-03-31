@@ -34,209 +34,244 @@ public class UIImages {
     /**
      * Generic 24x24 icon used to indicate an "Accept" or "Ok" action.
      */
-    @objid ("d87237c7-8013-4ea3-83c1-147eae74b8e8")
+    @objid ("5ac18b02-76a4-4717-a46f-822be247fc62")
     public static final Image ACCEPT = UIImages.getImage("icons/accept.png");
 
     /**
      * Generic 24x24 icon used to indicate an "Add" action. The dialog/button context must be relevant enough for the user to guess what will be added...
      */
-    @objid ("2eebc711-794f-4e9e-9131-d7a4bdcbb674")
+    @objid ("e070240b-fb5f-4e83-8b86-b4a1413b9500")
     public static final Image ADD = UIImages.getImage("icons/add.png");
+
+    /**
+     * Generic 24x24 icon used to indicate a "Remove" action.
+     */
+    @objid ("985cebdb-4425-4118-b609-96f2889b60e4")
+    public static final Image REMOVE = UIImages.getImage("icons/remove.png");
 
     /**
      * A generic 24x24 icon used to indicate that a field supports assistance.
      */
-    @objid ("b48a778f-2733-4a78-9651-22fd364a6a25")
+    @objid ("6697d3cd-73d4-48b7-aeb5-2c4b049a0895")
     public static final Image ASSIST = UIImages.getImage("icons/assist.png");
 
     /**
      * Generic 24x24 icon used to indicate an "Cancel" or "Refuse" action.
      */
-    @objid ("82715696-f062-488f-b752-8069dfdf0ca0")
+    @objid ("354bd2f2-8c5c-4245-bf07-4385581d45e0")
     public static final Image CANCEL = UIImages.getImage("icons/cancel.png");
 
     /**
      * Generic 24x24 icon used to indicate that on operation (create/add/edit) will occur in a separated dialog a "Delete" or "Remove" action. The dialog/button context must be relevant enough for the user to guess what will happen ...
      */
-    @objid ("c893ee98-71e5-4d18-8e3e-da9ad611b397")
+    @objid ("89f6bced-1aa9-4792-ac70-fc691d44d05c")
     public static final Image CHOOSER = UIImages.getImage("icons/chooser.png");
+
+    @objid ("84c803ad-2768-45b8-9cdc-5a09423bd44b")
+    public static final Image CONFIG = UIImages.getImage("icons/config.png");
 
     /**
      * Generic 24x24 icon used to indicate a standard copy operation.
      */
-    @objid ("2c2357db-e426-4ab7-930c-9361565c0e07")
+    @objid ("4b096796-cb7a-4b8d-805a-569cc532df78")
     public static final Image COPY = UIImages.getImage("icons/copy.png");
 
     /**
      * Generic 24x24 icon used to indicate a standard cut operation.
      */
-    @objid ("0316a77f-c741-4139-b716-8b7ca5fdccec")
+    @objid ("4a56bbe7-a003-44a4-9347-bcf998e35def")
     public static final Image CUT = UIImages.getImage("icons/cut.png");
+
+    /**
+     * Generic 24x24 icon used to indicate a standard paste operation.
+     */
+    @objid ("12fae199-113c-4116-8900-fdc404a0d36d")
+    public static final Image PASTE = UIImages.getImage("icons/paste.png");
 
     /**
      * Generic 24x24 icon used to indicate a "Delete" action.
      */
-    @objid ("1d65c7e9-4b73-4851-b6cf-dfdbbd325377")
+    @objid ("7ee6e3ab-f0a5-4853-aa68-17a228c88e64")
     public static final Image DELETE = UIImages.getImage("icons/delete.png");
 
     /**
      * Generic 24x24 icon used to indicate an element without icon.
      */
-    @objid ("4c647ad2-c1a3-4d84-9e8f-d5122b3178b6")
+    @objid ("6f544e3b-c2f4-49b6-a83a-e6d190009429")
     public static final Image DOT = UIImages.getImage("icons/dot.png");
-
-    /**
-     * Generic 24x24 icon used to indicate a "down" move or slide operation
-     */
-    @objid ("6cbdde20-c139-4cda-bbb7-4fd8a5968fbd")
-    public static final Image DOWNARROW = UIImages.getImage("icons/downarrow.png");
 
     /**
      * A generic 24x24 icon used to indicate that a field supports D&D.
      */
-    @objid ("453dac12-c66b-416c-b031-b3d527bc6f1b")
+    @objid ("659c2f13-ff09-43eb-84b5-75d76a37f48b")
     public static final Image DROPAREA = UIImages.getImage("icons/droparea.png");
 
     /**
      * Generic 24x24 icon used to indicate an "Edit" action. The dialog/button context must be relevant enough for the user to guess what will be edited...
      */
-    @objid ("58e31faa-7156-4d79-bbb0-ea4528e723ee")
+    @objid ("d8c69394-e680-4817-96a8-2e63a07bf832")
     public static final Image EDIT = UIImages.getImage("icons/edit.png");
 
     /**
      * Generic 24x24 icon used to indicate a "filechooser" action
      */
-    @objid ("e5a50ff1-454f-4e96-8f48-767d683e81f0")
+    @objid ("50c2a7aa-067e-4d97-83e2-2eca06e5b818")
     public static final Image FILECHOOSE = UIImages.getImage("icons/filechooser.png");
 
     /**
      * Generic 24x24 icon used to indicate a 'filter' operation.
      */
-    @objid ("af6eb24c-0ee0-4f77-a3a4-35d520e485b8")
+    @objid ("afdaa07a-a420-4dd6-9485-08919958c04c")
     public static final Image FILTER = UIImages.getImage("icons/filter.png");
 
     /**
      * A generic 24x24 icon used for help buttons.
      */
-    @objid ("487001e0-9c1e-4e41-be4c-961409880ef3")
+    @objid ("9fa1049a-4b58-49ef-829e-dfe4a384ce99")
     public static final Image HELP = UIImages.getImage("icons/help.png");
 
     /**
      * A generic icon used to indicate that a field supports picking service.
      */
-    @objid ("e66a400b-00d3-41c5-bb2c-addebb6c11bd")
+    @objid ("0ba309d6-76f2-4550-a5c1-704349f19b94")
     public static final Image INDICATOR = UIImages.getImage("icons/indicator.png");
-
-    /**
-     * Generic 24x24 icon used to indicate a "left" move or slide operation
-     */
-    @objid ("df08f4a0-c3e8-4020-99a7-367a5f84e91b")
-    public static final Image LEFTARROW = UIImages.getImage("icons/leftarrow.png");
 
     /**
      * Generic 24x24 icon used to indicate a "maximize" operation
      */
-    @objid ("06481452-42f1-45c5-8125-6c5051c649bf")
+    @objid ("c69cf93c-1faa-4eae-822f-b4ded4157b49")
     public static final Image MAXIMIZE = UIImages.getImage("icons/maximize.png");
 
     /**
      * Generic 24x24 icon used to indicate a "minimize" operation
      */
-    @objid ("8a30ccb3-dd2b-493c-b646-31ff8068cda9")
+    @objid ("d44bc7f7-c00c-458a-8309-95649c9cc35a")
     public static final Image MINIMIZE = UIImages.getImage("icons/minimize.png");
 
     /**
-     * Generic 24x24 icon used to indicate a standard paste operation.
+     * Generic 24x24 icon used to indicate an "Open properties" action.
+     * @since 5.2
      */
-    @objid ("f27a925a-18f6-48e3-be72-fda6b51d3b58")
-    public static final Image PASTE = UIImages.getImage("icons/paste.png");
+    @objid ("71bb3e89-9ced-4a9d-a484-9b049e8098fb")
+    public static final Image OPENPROPERTIES = UIImages.getImage("icons/openproperties.png");
 
     /**
      * Generic 24x24 icon used to indicate an icon place holder
      */
-    @objid ("981cad54-28a8-4433-8dbf-bfc4f6f48aba")
+    @objid ("9256f0ab-5bd6-40b6-8040-fef336dc1310")
     public static final Image PLACEHOLDER = UIImages.getImage("icons/placeholder.png");
 
     /**
      * Generic 48x48 image used to indicate an image place holder
      */
-    @objid ("2306e6d0-e9ec-4510-a330-0803350548b3")
+    @objid ("a85e068a-3e51-42a2-9f0b-df55a5606ca6")
     public static final Image PLACEHOLDER_48 = UIImages.getImage("images/placeholder48x48.png");
 
     /**
      * Generic 64x64 image used to indicate an image place holder
      */
-    @objid ("ca86b443-9383-4195-8e48-218026d2be60")
+    @objid ("485d6cc1-8bb8-44fd-af3f-3341f942fb68")
     public static final Image PLACEHOLDER_64 = UIImages.getImage("images/placeholder64x64.png");
 
     /**
-     * Generic 24x24 icon used to indicate a "Remove" action.
+     * Generic 24x24 icon used to indicate an icon place holder
+     * Empty 24x24 icon used to indicate an icon place holder
      */
-    @objid ("69a7366b-30f4-46dc-853c-9bf0117f1fa6")
-    public static final Image REMOVE = UIImages.getImage("icons/remove.png");
+    @objid ("f81c7ece-faca-40b7-9284-050c9e03a047")
+    public static final Image EMPTY = UIImages.getImage("icons/empty.png");
 
     /**
-     * Generic 24x24 icon used to indicate a "right" move or slide operation
+     * Generic 48x48 image used to indicate an image place holder
+     * Empty 48x48 image used to indicate an image place holder
      */
-    @objid ("e24428b3-31a9-4313-9f9e-54b9003882df")
-    public static final Image RIGHTARROW = UIImages.getImage("icons/rightarrow.png");
+    @objid ("ac2594b3-66d0-4bc5-a763-fa150338010e")
+    public static final Image EMPTY_48 = UIImages.getImage("images/empty48x48.png");
+
+    /**
+     * Generic 64x64 image used to indicate an image place holder
+     * Empty 64x64 image used to indicate an image place holder
+     */
+    @objid ("ea874b1d-50f8-4004-813a-ffd9d3a5d368")
+    public static final Image EMPTY_64 = UIImages.getImage("images/empty64x64.png");
 
     /**
      * Generic 24x24 icon used to indicate a 'search' operation.
      */
-    @objid ("5e2e40c0-6737-46ee-9770-0fe2fdd5f43f")
+    @objid ("a38a3189-b40b-4956-a77a-70552c07cfdb")
     public static final Image SEARCH = UIImages.getImage("icons/search.png");
 
     /**
      * Generic 24x24 icon used to indicate a select in explorer operation
      */
-    @objid ("4b5a299c-a6b7-4722-8e37-67078cc9e9c3")
+    @objid ("3328022d-efd1-4eb2-b85e-8577b4948d36")
     public static final Image SELECTINBROWSER = UIImages.getImage("icons/selectinbrowser.png");
 
     /**
      * Generic 24x24 icon used to indicate a "up" move or slide operation
      */
-    @objid ("e83658ab-6262-43d1-a97a-f7440be8369b")
+    @objid ("8f5d216f-29a4-4090-a6a2-2f5ed5d6cf8e")
     public static final Image UPARROW = UIImages.getImage("icons/uparrow.png");
+
+    /**
+     * Generic 24x24 icon used to indicate a "down" move or slide operation
+     */
+    @objid ("f2d022c1-43f6-42c7-9c2a-0e3acf715d05")
+    public static final Image DOWNARROW = UIImages.getImage("icons/downarrow.png");
+
+    /**
+     * Generic 24x24 icon used to indicate a "left" move or slide operation
+     */
+    @objid ("fa63a9d5-66ec-47a0-829b-0c193ca24aa1")
+    public static final Image LEFTARROW = UIImages.getImage("icons/leftarrow.png");
+
+    /**
+     * Generic 24x24 icon used to indicate a "right" move or slide operation
+     */
+    @objid ("02b3e9b3-b6ab-4274-a181-254293417600")
+    public static final Image RIGHTARROW = UIImages.getImage("icons/rightarrow.png");
 
     /**
      * Generic 24x24 icon used to represent a "checked" box.
      */
-    @objid ("746e498d-b54b-44b8-9c45-c5d852196f5a")
+    @objid ("64c5f34c-c4d0-4a0a-80ae-85f4a3d14dd2")
     public static final Image CHECKED = UIImages.getImage("icons/checked.png");
 
     /**
      * Generic 24x24 icon used to represent an "unchecked" box.
      */
-    @objid ("bcde037f-281b-42fb-917f-9f6456fc4a5f")
+    @objid ("06467501-d75f-4a5d-a9aa-0fd9cc45f418")
     public static final Image UNCHECKED = UIImages.getImage("icons/unchecked.png");
 
     /**
      * Generic 24x24 icon used to represent the concept or ERROR
      */
-    @objid ("cdd40126-062c-4adf-877d-416ca962442d")
+    @objid ("bd235c62-24f3-4a2a-aaee-219fb455ce35")
     public static final Image ERROR = UIImages.getImage("icons/error.png");
 
     /**
      * Generic 24x24 icon used to represent the concept of WARNING
      */
-    @objid ("25c6d036-9e70-4c95-8a36-f0e711710d62")
+    @objid ("9ffc07ce-59a8-4003-83c9-3dd44b213ccc")
     public static final Image WARNING = UIImages.getImage("icons/warning.png");
 
     /**
      * Generic 24x24 icon used to represent the concept of TIP.
      */
-    @objid ("9b21a4f4-f0a4-4edc-87f1-6227d22b9d50")
+    @objid ("d266480d-95b4-4398-9570-7012586e009c")
     public static final Image TIP = UIImages.getImage("icons/tip.png");
-
-    @objid ("01174469-5237-43b3-b9c2-6bc49edeeb84")
-    public static final Image CONFIG = UIImages.getImage("icons/config.png");
 
     /**
      * Generic 24x24 icon used to represent the concept of INFO.
      */
-    @objid ("354423b1-a8a4-41ac-bad8-5f587136ea7c")
+    @objid ("fef2d77b-6128-4b37-8831-f0b5358e8a45")
     public static final Image INFO = UIImages.getImage("icons/info.png");
+
+    /**
+     * Generic 24x24 icon used for Modelio itself.
+     * @since 5.2
+     */
+    @objid ("e3a6b6a1-bff0-4e34-866e-d5dcb89f8dbd")
+    public static final Image MODELIO = UIImages.getImage("icons/modelio.png");
 
     @objid ("e507fdf4-3f36-4f39-8351-82a02b963917")
     private  UIImages() {

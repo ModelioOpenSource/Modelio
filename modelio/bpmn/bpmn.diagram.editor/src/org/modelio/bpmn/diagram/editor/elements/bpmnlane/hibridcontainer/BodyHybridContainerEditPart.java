@@ -33,6 +33,7 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.BpmnLaneSet
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.freezone.FreeZoneEditPart;
 import org.modelio.diagram.elements.common.freezone.FreeZoneLayout;
+import org.modelio.diagram.elements.common.freezone.TranslateChildrenOnResizeEditPolicy;
 import org.modelio.diagram.elements.core.policies.ProgrammaticOnlyDragPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 
@@ -54,6 +55,9 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         super.createEditPolicies();
         // Now just override the layout policy with our own.
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new BodyHybridContainerLayoutEditPolicy());
+        
+        installEditPolicy(TranslateChildrenOnResizeEditPolicy.class, new TranslateChildrenOnResizeEditPolicy());
+        
         // Now just override the drop policy with our own.
         installEditPolicy(ModelElementDropRequest.TYPE, new BodyHybridContainerDropEditPolicy());
         
@@ -64,7 +68,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
     /**
      * Disable layout policy decoration : {@link BodyHybridContainerLayoutEditPolicy} does it itself.
      */
-    @objid ("a725efe1-e1fb-4e1b-8424-69c196a87641")
+    @objid ("24fd9303-7e77-43e8-8829-26c5d7ed4c1e")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return layoutPolicy;

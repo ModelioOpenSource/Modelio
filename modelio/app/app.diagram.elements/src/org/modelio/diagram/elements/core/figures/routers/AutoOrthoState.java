@@ -32,42 +32,42 @@ import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.link.MPoint;
 import org.modelio.diagram.elements.core.link.MPrecisionPoint;
 
-@objid ("6f8e0b62-ea89-454e-890d-62abeffe0ae2")
+@objid ("bd2f49cc-f7a0-482c-95f9-5b68c4967de0")
 class AutoOrthoState {
-    @objid ("aa577217-7fe3-44fa-a974-a20e4c890c11")
+    @objid ("6ad9f034-9c0c-46a2-a42a-602934fd97a6")
     Direction sourceAnchorDir = Direction.NONE;
 
-    @objid ("3451bb0d-0114-4c26-bfd8-63b98680a49d")
+    @objid ("6fa631a9-0485-4018-beb7-eb85267a91f6")
     Direction targetAnchorDir = Direction.NONE;
 
-    @objid ("272ec7c2-3732-4a8b-8502-03ddc97c7e69")
+    @objid ("bf1579a5-7997-4899-8650-d038b6db0eac")
     ConnectionAnchor sourceAnchor;
 
-    @objid ("f2cd96dc-5b87-4ecd-bd9c-ed08c80fd8f6")
+    @objid ("0a59b7ca-ef46-40b2-97a9-fa0df6e4a2b3")
     ConnectionAnchor targetAnchor;
 
-    @objid ("0b5138aa-d5dc-47a2-bc07-b5a998a62c8a")
+    @objid ("9b4224c6-deaa-4afc-a9da-2ba72487d5d1")
     Connection connection;
 
-    @objid ("fe797235-85e7-4355-91a9-2d00f3d90f76")
+    @objid ("11a7b396-20d5-40a5-8110-67eb8d703d28")
     final AnchorBounds anchorBounds = new AnchorBounds();
 
-    @objid ("8e0c7302-0640-4c15-85e0-aedeab4abbe4")
+    @objid ("b71ec802-34eb-4bc5-a3a4-d7ba3c53d97a")
     List<MPoint> allPoints;
 
-    @objid ("da62829c-fb6f-43be-98e7-ea42149b88fb")
+    @objid ("0835b5e4-811f-4e34-8c5d-efdbba752b11")
     private static final org.modelio.diagram.elements.core.figures.geometry.Direction.Pair curDirs = new Direction.Pair();
 
-    @objid ("33ab09fb-5ea8-411f-a033-541f24906f82")
+    @objid ("6512f337-f634-431a-8dd3-2f9a20a685ca")
     private static final org.modelio.diagram.elements.core.figures.geometry.Direction.Pair nextDirs = new Direction.Pair();
 
     /**
      * Temporary point used to avoid Point allocations.
      */
-    @objid ("bd9bf616-9c39-4859-a6b5-db68ac740fbf")
+    @objid ("28729f71-55e2-40ad-a948-8b3f47a2c093")
     private static final MPrecisionPoint A_POINT = new MPrecisionPoint();
 
-    @objid ("23c0b3c6-9037-4068-920c-d09663bac2d8")
+    @objid ("8b05d574-f2ac-46f4-905c-878c6cb939bf")
     public AutoOrthoState init(Connection aconnection) {
         return init (aconnection ,
                 (List<MPoint>) aconnection.getRoutingConstraint(),
@@ -76,7 +76,7 @@ class AutoOrthoState {
         
     }
 
-    @objid ("136ed585-1169-4707-a8a6-db2dbf8f5353")
+    @objid ("621a45af-ee7c-4ff6-8256-4e442a518455")
     public AutoOrthoState init(Connection aconnection, List<MPoint> initialConstraint, final ConnectionAnchor asourceAnchor, final ConnectionAnchor atargetAnchor) {
         this.connection = aconnection;
         this.sourceAnchor = asourceAnchor;
@@ -89,7 +89,7 @@ class AutoOrthoState {
         return this;
     }
 
-    @objid ("952dad94-b7cc-4fdb-9340-90340f1a6379")
+    @objid ("18329e5e-1e00-4c89-8091-11ade0c7e7a5")
     public AutoOrthoState refreshAnchorBounds() {
         if (this.allPoints== null)
             return refreshAnchorBoundsSimple();
@@ -98,7 +98,7 @@ class AutoOrthoState {
         
     }
 
-    @objid ("3f6b9b1b-01e6-4850-9129-a334dff0fe59")
+    @objid ("74d7b4ab-ac9d-486d-b5b2-fac691fe58a8")
     public AutoOrthoState refreshAnchorBoundsSimple() {
         this.anchorBounds.fromAnchors(this.sourceAnchor, this.targetAnchor)
                 .expand(1)
@@ -106,7 +106,7 @@ class AutoOrthoState {
         return this;
     }
 
-    @objid ("7540f710-8669-43cc-a29c-4f9a4d05559c")
+    @objid ("8c3e764d-7f33-49b0-a2af-736f66b88dc6")
     public AutoOrthoState refreshAnchorBoundsComplex() {
         int lastIndex = this.allPoints.size() - 1;
         Point srcRefPoint;
@@ -129,7 +129,7 @@ class AutoOrthoState {
         return this;
     }
 
-    @objid ("bc72377c-fbf5-466a-bec4-385eb3608d5d")
+    @objid ("43c40fc4-262e-4674-937c-cd12534a00d9")
     public List<MPoint> computeInitialRoute(List<MPoint> origBendpoints) {
         if (origBendpoints == null) {
             origBendpoints = Collections.emptyList();
@@ -156,8 +156,8 @@ class AutoOrthoState {
         
         // Compute source and target anchor reference points the same way as BendPointConnectionRouter.
         int lastIndex = this.allPoints.size() - 1;
-        Point srcRefPoint = new Point();
-        Point targetRefPoint = new Point();
+        PrecisionPoint srcRefPoint = new PrecisionPoint();
+        PrecisionPoint targetRefPoint = new PrecisionPoint();
         
         if (lastIndex == 1) {
             // No bend point : use opposite anchor reference point
@@ -184,7 +184,7 @@ class AutoOrthoState {
         return this.allPoints;
     }
 
-    @objid ("e5c62770-74ab-4d84-b41c-e1233155c328")
+    @objid ("b782432e-8b44-43a7-9d4a-77f88cb73af8")
     public void refreshAnchorDirections() {
         this.sourceAnchorDir = IOrientedAnchor.getAnchorDirection(this.sourceAnchor, this.allPoints.get(0), this.anchorBounds.source);
         this.targetAnchorDir = IOrientedAnchor.getAnchorDirection(this.targetAnchor, this.allPoints.get(this.allPoints.size() - 1), this.anchorBounds.target);
@@ -202,7 +202,7 @@ class AutoOrthoState {
      * @param index the point index. Must be >=1 .
      * @return the best direction
      */
-    @objid ("b96c1ac1-b07b-46c4-9fef-17ce85e3baae")
+    @objid ("bdb05a7a-b1eb-4f50-86c5-d36608410369")
     public Direction guessBestDirectionFromPreviousSegments(int index) {
         return guessBestDirectionFromPreviousSegments(this.sourceAnchorDir, index);
     }
@@ -213,7 +213,7 @@ class AutoOrthoState {
      * @param index the point index. Must be >=1 .
      * @return the best direction
      */
-    @objid ("cb33506b-6035-40c4-823a-349bfa672921")
+    @objid ("51193d7a-f6c4-4b3d-a807-4b18fd422afa")
     public Direction guessBestDirectionFromPreviousSegments(Direction sourceAnchorDirection, int index) {
         Point curLocation = this.allPoints.get(index);
         Point prevLocation = this.allPoints.get(index - 1);
@@ -285,7 +285,7 @@ class AutoOrthoState {
      * Try to simplify the connection by asking the target anchor whether it can align to the before last bend point
      * @param stopIndex the smallest index where to stop simplification
      */
-    @objid ("9ffd21e6-8098-4fce-8664-225baf1129db")
+    @objid ("b909d487-334c-4790-8431-6ea914ae57b3")
     public void simplifyEndBendPoints(int stopIndex) {
         int size = this.allPoints.size();
         PrecisionPoint piAbs = new PrecisionPoint();
@@ -328,7 +328,7 @@ class AutoOrthoState {
      * Try to simplify the connection by asking the source anchor whether it can align to the second bend point
      * @param aLastIndex the last index to simplify
      */
-    @objid ("381b5c7d-9296-4081-8597-1be015115e25")
+    @objid ("b4d5cf81-36fd-4056-b5b0-49db4068ce4f")
     public void simplifyStartBendPoints(int aLastIndex) {
         PrecisionPoint piAbs = new PrecisionPoint();
         PrecisionPoint newSourceLoc = new PrecisionPoint();

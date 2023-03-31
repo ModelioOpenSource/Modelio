@@ -97,5 +97,5 @@ public interface MMetamodel {
      */
     @objid ("3b433f37-279b-4726-b211-2a05def7236b")
     List<? extends MMetamodelFragment> getSortedFragments() throws IllegalStateException;
-
 }
+

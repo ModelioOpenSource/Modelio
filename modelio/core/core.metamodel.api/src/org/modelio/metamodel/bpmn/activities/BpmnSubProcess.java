@@ -39,6 +39,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
  * A Sub-Process is an Activity whose internal details have been modeled using Activities, Gateways, Events, and Sequence Flow. A Sub-Process is a graphical object within a Process, but it also can be ?opened up? to show a lower-level Process. Sub-Processes define a contextual scope that can be used for attribute visibility, transactional scope, for the handling of exceptions, of Events, or for compensation. 
  * 
  * An Event Sub-Process may or may not occur while the parent Process is active, but it is possible that it will occur many times. Unlike a standard  Sub-Process, which uses the flow of the parent Process as a trigger, an Event Sub- Process has a Start Event with a trigger. Each time the Start Event is triggered while the parent Process is active, then the Event Sub-Process will start.
+ * 
+ * 
  */
 @objid ("00843028-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnSubProcess extends BpmnActivity {
@@ -59,6 +61,7 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("719d62b7-d652-4f7c-98db-75a93239b897")
     EList<BpmnArtifact> getArtifact();
@@ -68,6 +71,7 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ad84b2d7-9dc6-4f35-a248-2b4b6a25c28e")
     <T extends BpmnArtifact> List<T> getArtifact(java.lang.Class<T> filterClass);
@@ -77,6 +81,7 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("87ae5f36-1803-42cd-9b9a-136de891bf16")
     EList<BpmnFlowElement> getFlowElement();
@@ -86,6 +91,7 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("72e15384-326e-46fa-9865-6e6fe9a3d3b1")
     <T extends BpmnFlowElement> List<T> getFlowElement(java.lang.Class<T> filterClass);
@@ -95,6 +101,7 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>laneset of the process. The process is represented in this cas by a pool which is decomposed by lansets and lanes.</i>
+     * 
      */
     @objid ("bc8378ea-6af6-46bd-a897-a256461ae9be")
     BpmnLaneSet getLaneSet();
@@ -104,8 +111,9 @@ public interface BpmnSubProcess extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>laneset of the process. The process is represented in this cas by a pool which is decomposed by lansets and lanes.</i>
+     * 
      */
     @objid ("aef8dd72-8c14-4228-b512-17136c1d01b8")
     void setLaneSet(BpmnLaneSet value);
-
 }
+

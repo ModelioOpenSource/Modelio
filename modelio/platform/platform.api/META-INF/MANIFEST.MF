@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
 Bundle-SymbolicName: org.modelio.platform.api;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.modelio.core.kernel,
  org.modelio.core.utils,
  org.modelio.core.metamodel.api,
@@ -69,7 +69,7 @@ Export-Package: org.modelio.api.astyle,
  org.modelio.api.ui.viewtemplate,
  org.modelio.metamodel
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ClassPath: res/,
  .,
  images/

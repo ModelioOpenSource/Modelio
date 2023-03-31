@@ -29,5 +29,5 @@ public interface IWorkflowProvider {
 
     @objid ("43abf95f-42b6-486e-ae95-2639c8ad031c")
     IGmDiagram getDiagram();
-
 }
+

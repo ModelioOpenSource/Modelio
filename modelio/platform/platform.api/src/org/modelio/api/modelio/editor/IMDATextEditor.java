@@ -95,5 +95,5 @@ public interface IMDATextEditor {
      */
     @objid ("d4172b78-8618-4854-9917-463151cb2140")
     void setCharsetName(String charsetName);
-
 }
+

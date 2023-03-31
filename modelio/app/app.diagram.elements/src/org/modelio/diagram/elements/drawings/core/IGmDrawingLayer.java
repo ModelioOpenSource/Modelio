@@ -57,5 +57,5 @@ public interface IGmDrawingLayer extends IGmDrawingLinkable, IGmModelRelated {
      */
     @objid ("68d296fc-a6f3-4a18-9ad8-6537e8774cc7")
     void removeChild(IGmNodeDrawing child);
-
 }
+

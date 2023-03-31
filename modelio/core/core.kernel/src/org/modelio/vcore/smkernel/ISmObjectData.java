@@ -153,5 +153,5 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      */
     @objid ("1e7fb059-238f-449b-a2e6-6af37c11bc7e")
     StatusState hasAnyStatus(long flags);
-
 }
+

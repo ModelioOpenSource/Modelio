@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3150]]
 
-[[r3150]]
+
+
 = R3150
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _MessageFlow_ ne peut pas lier deux éléments du même _Process_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _MessageFlows_ sont des moyens de communication entre deux processus indépendants, ils ne doivent pas servir à communiquer au sein d'un même processus.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des _MessageFlows_ qui ont leur source et leur cible dans le même _Process_, vous devriez les supprimer et utiliser des _SequenceFlows_ pour exprimer votre besoin.

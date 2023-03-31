@@ -39,6 +39,7 @@ public class SemanticBrowser extends AbstractUIPlugin {
      */
     @objid ("b015db44-359c-4b38-a0ca-3653b7b7cb8c")
     public static final String PLUGIN_ID = "org.modelio.app.semantic.browser"; // $NON-NLS-1$
+    
 
     @objid ("d3ff6416-148d-4347-9161-976344815356")
     public static BundledMessages I18N;

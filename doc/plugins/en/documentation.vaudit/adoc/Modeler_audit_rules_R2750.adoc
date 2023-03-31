@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2750]]
 
-[[r2750]]
+
+
 = R2750
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A transition from a fork or join pseudo state should not have guards or triggers.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Fork or Join nodes are decision nodes, therefore transitions leaving from them should not have conditional (such as guard and trigger) properties specified.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove any triggers or guards from your transition.

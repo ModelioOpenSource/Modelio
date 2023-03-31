@@ -25,6 +25,7 @@
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 
 /**
@@ -154,4 +155,7 @@ public interface PropertyDefinition extends ModelElement {
     @objid ("ba7e86fd-d887-4038-aa44-38eafcb176bb")
     String computeLabel(String value);
 
+    @objid ("f8b75391-f4ac-4dd6-9e85-797b2ea71aee")
+    ModuleComponent getModule();
 }
+

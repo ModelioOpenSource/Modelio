@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * State diagams can also define usage protocol for Classes.  
  * 
  * In Modelio, a StateMachine belongs to a Package, an Operation, a UseCase or a Class. Its natural position is to belong to a Class.
+ * 
+ * 
  */
 @objid ("005404fc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StateMachine extends Behavior {
@@ -57,6 +59,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>A state machine can be a dynamic state machine, as usually defined in UML (Harel state diagrams), or a protocol state machine. Protocol state machines represent the usage protocol of the Class' Operations. It defines in which order and for which condition and state an Operation can be invoked.</i>
+     * 
      */
     @objid ("1b5d64db-77ae-49c1-b65b-79ac52e4ecf8")
     KindOfStateMachine getKind();
@@ -66,6 +69,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>A state machine can be a dynamic state machine, as usually defined in UML (Harel state diagrams), or a protocol state machine. Protocol state machines represent the usage protocol of the Class' Operations. It defines in which order and for which condition and state an Operation can be invoked.</i>
+     * 
      */
     @objid ("d71d61ee-4dc1-424b-acb1-2585f25ea25f")
     void setKind(KindOfStateMachine value);
@@ -75,6 +79,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>Defines the root state for the current StateMachine. All other states will be substates of the TopState.</i>
+     * 
      */
     @objid ("766b6f7c-3fd0-4930-9664-22c947acdf3c")
     Region getTop();
@@ -84,6 +89,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>Defines the root state for the current StateMachine. All other states will be substates of the TopState.</i>
+     * 
      */
     @objid ("7e28844a-8e2d-4e19-b01f-0212c1d9d7e4")
     void setTop(Region value);
@@ -93,6 +99,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("2d5c711c-7836-4925-a705-a6d0a6e537c3")
     EList<State> getSubmachineState();
@@ -102,6 +109,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("12c11f53-3254-412f-bd73-2a06ce25beae")
     <T extends State> List<T> getSubmachineState(java.lang.Class<T> filterClass);
@@ -111,6 +119,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ac712475-ea1c-4911-8eb4-b644256ef65d")
     EList<EntryPointPseudoState> getEntryPoint();
@@ -120,6 +129,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("410951dc-f04a-4ca3-b157-d45427d9ce8e")
     <T extends EntryPointPseudoState> List<T> getEntryPoint(java.lang.Class<T> filterClass);
@@ -129,6 +139,7 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a3e180a6-c8b3-4ed3-b265-558bf82d2d00")
     EList<ExitPointPseudoState> getExitPoint();
@@ -138,8 +149,9 @@ public interface StateMachine extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c4f064e1-a807-4c90-b8b1-3d2c6096a66b")
     <T extends ExitPointPseudoState> List<T> getExitPoint(java.lang.Class<T> filterClass);
-
 }
+

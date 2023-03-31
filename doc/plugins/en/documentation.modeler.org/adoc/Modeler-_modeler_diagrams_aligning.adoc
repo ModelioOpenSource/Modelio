@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Aligning-elements]]
 
-[[aligning-elements]]
+
+
 = Aligning elements
 
 Modelio diagrams provide several different alignment possibilities.
 
-[[Using-the-ldquoSnap-to-geometryrdquo-option]]
 
-[[using-the-snap-to-geometry-option]]
+
+
 ===== Using the "Snap to geometry" option
 
 In the diagram's <<Modeler-_modeler_interface_properties_view.adoc#,Properties>> or <<Modeler-_modeler_interface_symbol_view.adoc#,Symbol>> view it is possible to activate/deactivate the 'Snap to geometry' option. This feature allows to snap elements to other figures centers and edges when creating or moving them.
 
-[[Using-the-diagram-toolbar]]
 
-[[using-the-diagram-toolbar]]
+
+
 ===== Using the diagram toolbar
 
 To align elements in a diagram, just select the elements you want to align and click on the desired icon in the diagram toolbar:

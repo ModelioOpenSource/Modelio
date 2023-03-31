@@ -41,5 +41,5 @@ public interface FormFieldPage {
      */
     @objid ("fefb8561-41b0-4b23-95ea-87d2ee5fbdba")
     String getLabel();
-
 }
+

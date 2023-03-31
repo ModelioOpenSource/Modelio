@@ -36,6 +36,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * Defines the type of contained triggers expected for an Event
+ * 
+ * 
  */
 @objid ("008d3f9c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnEventDefinition extends BpmnBaseElement {
@@ -56,6 +58,7 @@ public interface BpmnEventDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5d6425af-9445-4ca3-b8ba-67abccad58e6")
     BpmnEvent getDefined();
@@ -65,6 +68,7 @@ public interface BpmnEventDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("884edc2f-e7f7-4e37-876f-4de30db7b25d")
     void setDefined(BpmnEvent value);
@@ -74,6 +78,7 @@ public interface BpmnEventDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("292d798d-8a48-409b-a703-8096c4215d45")
     EList<BpmnMultiInstanceLoopCharacteristics> getLoopRef();
@@ -83,8 +88,9 @@ public interface BpmnEventDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9ef5da23-0870-472b-8d34-98d22f8ae1db")
     <T extends BpmnMultiInstanceLoopCharacteristics> List<T> getLoopRef(java.lang.Class<T> filterClass);
-
 }
+

@@ -38,5 +38,5 @@ public interface IRepositoryRootGetter {
      */
     @objid ("59ace55c-3017-4671-8a0b-4079e9be6c2a")
     Collection<MObject> getRootElements(IRepository repository);
-
 }
+

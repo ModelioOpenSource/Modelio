@@ -89,5 +89,5 @@ public interface ILogService {
      */
     @objid ("3a433391-6bfd-11e0-a371-001ec947cd2a")
     void warning(final String msg);
-
 }
+

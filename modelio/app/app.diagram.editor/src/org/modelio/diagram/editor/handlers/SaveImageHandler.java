@@ -43,6 +43,7 @@ public class SaveImageHandler {
 
     @objid ("65c52b32-33f7-11e2-95fe-001ec947c8cc")
     static int initialFilterIndex = 0; // PNG
+    
 
     @objid ("c2ce5a68-3896-11e2-95fe-001ec947c8cc")
     private static final String[] filterExtensions = { "*.png", "*.bmp", "*.jpg", "*.gif" };

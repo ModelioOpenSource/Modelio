@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.UnresolvedReferenceException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.xmi.api.FormatExport;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
@@ -262,7 +262,7 @@ public class XMIFileUtils {
                     Xmi.LOG.error(Xmi.PLUGIN_ID, e);
                 }
         
-        //                tempFile.delete();
+                // tempFile.delete();
             } catch (IOException e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
@@ -271,8 +271,7 @@ public class XMIFileUtils {
     }
 
     /**
-     * Apply the XSL Transformation (located in XSLTFile file) to the file located in oldFilePath.
-     * The result is stored in newFilePath location.
+     * Apply the XSL Transformation (located in XSLTFile file) to the file located in oldFilePath. The result is stored in newFilePath location.
      * @param oldFilePath The file location on which the XSL will be applied
      * @param newFilePath The result location
      * @param XSLTFile The file containing the XSL Transformation
@@ -327,7 +326,7 @@ public class XMIFileUtils {
             replace(filePath, filePathTemp, oldPatterns, newPatterns);
         
             File fileTemp = new File(filePathTemp);
-        //            file.delete();
+            // file.delete();
         
             fileTemp.renameTo(file);
             return true;
@@ -342,15 +341,9 @@ public class XMIFileUtils {
     private static List<String> getAppliedProfiles(final String filePath) {
         List<String> result = new ArrayList<>();
         String line = "";
-        FileInputStream fis = null;
-        BufferedReader reader = null;
-        
         if (new File(filePath).exists()) {
-            try {
-        
-                fis = new FileInputStream(filePath);
-                reader = new BufferedReader(new InputStreamReader(fis));
-        
+            try (FileInputStream fis = new FileInputStream(filePath);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(fis))) {
                 while ((line = reader.readLine()) != null) {
         
                     if (line.contains("appliedProfile") && line.contains(" href=\"")
@@ -361,7 +354,6 @@ public class XMIFileUtils {
                 }
         
                 reader.close();
-        
             } catch (IOException e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
@@ -373,8 +365,7 @@ public class XMIFileUtils {
      * Test if the file contains at least one of the patterns.
      * @param file The file to test
      * @param patterns The list of patterns
-     * @return
-     * true if the file contains at least one of the patterns.
+     * @return true if the file contains at least one of the patterns.
      */
     @objid ("8e1f2627-23ee-41c0-8bed-df98effdf93a")
     public static boolean containsPatterns(final File file, final List<String> patterns) {
@@ -453,8 +444,7 @@ public class XMIFileUtils {
     /**
      * This service returns the list of applied profiles present
      * @param filePath The location of the file
-     * @return
-     * The list of applied profile
+     * @return The list of applied profile
      */
     @objid ("4f2257e1-fa6b-4d12-9f4f-eeee010b814e")
     public static List<String> getAllAppliedProfiles(final String filePath) {
@@ -509,7 +499,7 @@ public class XMIFileUtils {
 
     @objid ("91cecbc1-1ac2-4666-84b7-9e916f19a706")
     private static File getTempFolder() {
-        Path projectPath = GProject.getProject(GenerationProperties.getInstance().getRootElements().get(0)).getProjectFileStructure().getProjectPath();
+        Path projectPath = AbstractGProject.getProject(GenerationProperties.getInstance().getRootElements().get(0)).getPfs().getProjectPath();
         File tempFolder = projectPath.resolve("XMI").resolve("temp").toFile();
         
         if (!tempFolder.exists()) {
@@ -634,8 +624,7 @@ public class XMIFileUtils {
     /**
      * Create an Ecore Resource in the resourcePath location
      * @param resourcePath The desired location of the Ecore Resource
-     * @return
-     * The Ecore Resource located in resourcePath
+     * @return The Ecore Resource located in resourcePath
      */
     @objid ("4f9c9e10-a5ea-4ecd-9db7-1e55b7518dd0")
     public static Resource createResource(final String resourcePath) {

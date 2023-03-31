@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A change event is raised implicitly and is not the result of an explicit action. 
  * 
  * Each time the value of the change expression changes from false to true, the change event action is triggered.
+ * 
+ * 
  */
 @objid ("00249514-c4bf-1fd8-97fe-001ec947cd2a")
 public interface AcceptChangeEventAction extends ActivityAction {
@@ -56,6 +58,7 @@ public interface AcceptChangeEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("84036d92-3561-4096-a70f-77b9776616bf")
     String getChangeExpresion();
@@ -65,8 +68,9 @@ public interface AcceptChangeEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("723e6815-1a33-4296-92cc-bb23678370cf")
     void setChangeExpresion(String value);
-
 }
+

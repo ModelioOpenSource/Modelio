@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Diagrammes-automatiques]]
 
-[[diagrammes-automatiques]]
+
+
 = Diagrammes automatiques
 
-[[Concept]]
 
-[[concept]]
+
+
 == Concept
 
 La génération automatique de diagrammes est une fonctionnalité très utile notamment dans les use case de reverse massif de code, dans lesquels un code existant est transformé en un modèle à des fins d'analyse de son design ou de production de sa documentation.
@@ -19,9 +19,9 @@ Le problème général de la génération automatique de diagrammes est "quels �
 
 Les diagrammes automatiques proposés par Modelio se placent ainsi dans le cadre de l'utilisation de Modelio pour des tâches de développement, avec des diagrammes automatiques s'intéressant aux packages et aux classes.
 
-[[Diagrammes-automatiques-proposés]]
 
-[[diagrammes-automatiques-proposés]]
+
+
 == Diagrammes automatiques proposés
 
 Modelio produit actuellement les diagrammes automatiques suivants :

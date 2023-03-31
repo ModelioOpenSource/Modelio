@@ -44,5 +44,5 @@ public interface IStyleChangeListener {
      */
     @objid ("8555e8f3-1926-11e2-92d2-001ec947c8cc")
     void styleChanged(IStyle changedStyle);
-
 }
+

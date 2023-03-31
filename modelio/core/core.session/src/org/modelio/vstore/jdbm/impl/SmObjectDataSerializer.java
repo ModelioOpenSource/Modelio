@@ -385,7 +385,7 @@ public class SmObjectDataSerializer {
          */
         @objid ("c7bc2dcf-87fb-4a2a-a955-d233ce1614d6")
         void accept(String depName, MRef ref) throws IOException;
-
-    }
+}
+    
 
 }

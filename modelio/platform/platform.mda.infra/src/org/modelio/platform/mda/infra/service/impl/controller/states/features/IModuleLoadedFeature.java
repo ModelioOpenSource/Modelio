@@ -30,6 +30,7 @@ import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModuleListener;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
+import org.modelio.platform.mda.infra.service.impl.common.FakeIModule;
 import org.modelio.platform.mda.infra.service.impl.controller.load.ModuleLoader;
 
 /**
@@ -146,7 +147,7 @@ public class IModuleLoadedFeature extends AbstractFeature {
         ClassLoader classLoader = this.module.getClassLoader();
         if (classLoader instanceof URLClassLoader) {
             try {
-                ((URLClassLoader)classLoader).close();
+                ((URLClassLoader) classLoader).close();
             } catch (IOException e) {
                 MdaInfra.LOG.warning(e);
             }
@@ -174,9 +175,9 @@ public class IModuleLoadedFeature extends AbstractFeature {
 
     @objid ("0d736b60-9bdc-4958-aca4-58ceccdf0ea6")
     private void checkDependencies() throws ModuleException {
-        for (IRTModule dep : this.module.getRequiredDependencies()) {
+        for (IRTModule dep : this.module.getMandatoryRequiredModules()) {
             if (dep.getState() != ModuleRuntimeState.Loaded
-                     && dep.getState() != ModuleRuntimeState.Started) {
+                    && dep.getState() != ModuleRuntimeState.Started) {
                 throw new ModuleException(MdaInfra.I18N.getMessage("IModuleLoadedFeature.missingDep",
                         dep.getLabel(), dep.getVersion()));
             }
@@ -188,11 +189,11 @@ public class IModuleLoadedFeature extends AbstractFeature {
     @objid ("2ad79fe5-2d4e-4c0c-ab89-907aa63fe000")
     private void registerListeners() {
         // register listeners
-        for (IRTModule reqModule : this.module.getRequiredDependencies()) {
+        for (IRTModule reqModule : this.module.getMandatoryRequiredModules()) {
             reqModule.getListeners().add(this.requiredListener);
         }
         
-        for (IRTModule reqModule : this.module.getOptionalDependencies()) {
+        for (IRTModule reqModule : this.module.getOptionalRequiredModules()) {
             reqModule.getListeners().add(this.optionalListener);
         }
         
@@ -200,27 +201,29 @@ public class IModuleLoadedFeature extends AbstractFeature {
 
     @objid ("d59afd89-3085-439c-b45a-cefcd09b5b0e")
     private void removeListeners() {
-        for (IRTModule reqModule : this.module.getRequiredDependencies()) {
+        for (IRTModule reqModule : this.module.getMandatoryRequiredModules()) {
             reqModule.getListeners().remove(this.requiredListener);
-            //reqModule.getListeners().remove(this.restartListener);
+            // reqModule.getListeners().remove(this.restartListener);
         }
         
-        for (IRTModule reqModule : this.module.getOptionalDependencies()) {
+        for (IRTModule reqModule : this.module.getOptionalRequiredModules()) {
             reqModule.getListeners().remove(this.optionalListener);
         }
         
     }
 
     /**
-     * FIXME design should be modified to make the module itself a listener,
-     * forwarding all events to its active features.
+     * FIXME design should be modified to make the module itself a listener, forwarding all events to its active features.
      */
     @objid ("9da701f0-7802-40eb-a0bf-405680683603")
     private void restartWeakDependentModules() {
-        for (IRTModule aModule : this.module.getModuleOptionalUsers()) {
+        for (IRTModule aModule : this.module.getModuleOptionalUses()) {
             aModule.resetDependencies();
         
             ModuleRuntimeState currentState = aModule.getState();
+        
+            if (aModule.getIModule() instanceof FakeIModule)
+                continue;
         
             try {
                 MdaInfra.LOG.debug(" reloading '%s' v%s because optional '%s' v%s is loaded.", aModule.getName(), aModule.getVersion(), this.module.getName(), this.module.getVersion());
@@ -248,10 +251,10 @@ public class IModuleLoadedFeature extends AbstractFeature {
     @objid ("82dd199d-ee41-49c5-91f7-8af2ab849bb1")
     private void fireModuleUnloading(IRTModule amodule) {
         // First recurse on dependent modules
-        for (IRTModule m : amodule.getModuleOptionalUsers()) {
+        for (IRTModule m : amodule.getModuleOptionalUses()) {
             fireModuleUnloading(m);
         }
-        for (IRTModule m : amodule.getModuleUsers()) {
+        for (IRTModule m : amodule.getModuleMandatoryUses()) {
             fireModuleUnloading(m);
         }
         
@@ -272,10 +275,10 @@ public class IModuleLoadedFeature extends AbstractFeature {
     @objid ("e77b9bd4-3154-416c-8f3c-bd750fbd8183")
     private void fireModuleUnloaded(IRTModule amodule) {
         // First recurse on dependent modules
-        for (IRTModule m : amodule.getModuleOptionalUsers()) {
+        for (IRTModule m : amodule.getModuleOptionalUses()) {
             fireModuleUnloaded(m);
         }
-        for (IRTModule m : amodule.getModuleUsers()) {
+        for (IRTModule m : amodule.getModuleMandatoryUses()) {
             fireModuleUnloaded(m);
         }
         

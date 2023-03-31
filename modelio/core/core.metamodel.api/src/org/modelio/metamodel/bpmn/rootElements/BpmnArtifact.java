@@ -36,6 +36,8 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
  * 
  * BPMN provides modelers with the capability of showing additional information about a Process that is not directly related to the Sequence Flow or Message Flow of the Process.
  * At this point, BPMN provides three (3) standard Artifacts: Associations, Groups, and Text Annotations
+ * 
+ * 
  */
 @objid ("00787d78-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnArtifact extends BpmnBaseElement {
@@ -56,6 +58,7 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8a76ff1f-802e-485a-87f5-2c946efac6f6")
     BpmnSubProcess getSubProcess();
@@ -65,6 +68,7 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f6dd448d-08b0-4eb8-9bab-fe9a1cac779e")
     void setSubProcess(BpmnSubProcess value);
@@ -74,6 +78,7 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c52668c1-c695-4b5a-8238-14e99a64beab")
     BpmnCollaboration getCollaboration();
@@ -83,6 +88,7 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bf45ebc1-bb85-498a-8287-a95de66105e1")
     void setCollaboration(BpmnCollaboration value);
@@ -92,6 +98,7 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("621be8c0-59b3-4806-835f-03dae6e6e780")
     BpmnProcess getProcess();
@@ -101,8 +108,9 @@ public interface BpmnArtifact extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("546c8dd1-f4f5-4dd2-8711-4b6c6db62a46")
     void setProcess(BpmnProcess value);
-
 }
+

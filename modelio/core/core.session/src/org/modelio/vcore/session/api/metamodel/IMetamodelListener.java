@@ -33,5 +33,5 @@ public interface IMetamodelListener {
 
     @objid ("e0b04a1d-8f58-493c-be3e-17afb5f07a16")
     void removingMetamodelFragment(MMetamodel metamodel, MMetamodelFragment fragment);
-
 }
+

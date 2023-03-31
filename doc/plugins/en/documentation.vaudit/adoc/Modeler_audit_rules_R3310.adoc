@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3310]]
 
-[[r3310]]
+
+
 = R3310
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Establishing dependency links between elements in an Analyst Model should follow some rules about link orientation.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Dependencies should only go from "outside Analyst model" to "Analyst model" or from "Analyst model" to "Analyst model". They should never go from "Analyst model" to "outside Analyst model".
 
 Example, a «trace» link can be drawn from a 'Use Case' to a Requirement or a Goal, but not from a 'Requirement' to a Use Case where it would not make sense.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Dependency models usually trace elements from 'B' to 'A' meaning 'B' depends on 'A'

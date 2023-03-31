@@ -33,6 +33,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * Valuates the value of a resource parameter for a value occurence.
+ * 
+ * 
  */
 @objid ("000b28b8-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnResourceParameterBinding extends BpmnBaseElement {
@@ -53,6 +55,7 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>expression of the value of the parameter</i>
+     * 
      */
     @objid ("37eefc51-92c2-4067-830c-2612c0c534e1")
     String getExpression();
@@ -62,6 +65,7 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>expression of the value of the parameter</i>
+     * 
      */
     @objid ("769dfbb6-1000-45be-b077-943d099710a8")
     void setExpression(String value);
@@ -71,6 +75,7 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4eccd614-128d-4793-8297-78078285e317")
     BpmnResourceRole getResourceRole();
@@ -80,6 +85,7 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d431c78c-7d9c-4f40-8bf0-6704fa3ca2e3")
     void setResourceRole(BpmnResourceRole value);
@@ -89,6 +95,7 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3be02b5c-d363-48cc-bbd7-3376e070af04")
     BpmnResourceParameter getParameterRef();
@@ -98,8 +105,9 @@ public interface BpmnResourceParameterBinding extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("17478665-8ed7-4d3e-83eb-f96a3a3381e8")
     void setParameterRef(BpmnResourceParameter value);
-
 }
+

@@ -20,16 +20,13 @@
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Feature;
 import org.modelio.metamodel.uml.statik.Interface;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.vcore.smkernel.DeadObjectException;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -37,12 +34,6 @@ import org.modelio.vcore.smkernel.mapi.MStatus;
 
 @objid ("955488d4-175a-4616-826b-7673dd2315b3")
 public class StandardModelStyleProvider {
-    @objid ("be65f290-f867-4e6f-a6c3-24df7b5c7190")
-    private static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
-
-    @objid ("b3757650-605f-46a0-a54f-20caf3f5afe5")
-    private static final Font italicFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.ITALIC, 1.0f);
-
     @objid ("d5e6e4a0-4fa2-476f-ae94-ce8f1db04123")
     public static StyleRange[] getStyleRanges(Object obj, String label) {
         if (obj == null) {
@@ -53,7 +44,7 @@ public class StandardModelStyleProvider {
         final StyleRange style = new StyleRange(0, label.length(), getForeground(obj), getBackground(obj));
         style.underline = isUnderlined(obj);
         style.underlineColor = style.foreground;
-        style.font = isItalic(obj) ? italicFont : null;
+        style.font = isItalic(obj) ? UIFont.NORMALI : null;
         styles[0] = style;
         return styles;
     }

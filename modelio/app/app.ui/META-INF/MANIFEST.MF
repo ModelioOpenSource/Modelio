@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: org.modelio.app.ui;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier
 Bundle-ClassPath: .,
  res/,
  css/
@@ -14,7 +14,8 @@ Export-Package: org.modelio.app.ui,
  org.modelio.app.ui.login,
  org.modelio.app.ui.persp,
  org.modelio.app.ui.plugin,
- org.modelio.app.ui.progress
+ org.modelio.app.ui.progress,
+ org.modelio.app.ui.statusbar
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface,
  org.eclipse.e4.ui.services,
@@ -37,8 +38,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.project,
  org.modelio.platform.model.ui,
  org.eclipse.e4.core.contexts,
- org.modelio.core.utils
+ org.modelio.core.utils,
+ org.eclipse.e4.ui.di,
+ org.modelio.platform.rcp,
+ org.eclipse.swt,
+ org.modelio.core.kernel
 Import-Package: javax.annotation;version="1.1.0",
- javax.inject;version="1.0.0"
+ javax.inject;version="1.0.0",
+ org.modelio.gproject.data.project
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11

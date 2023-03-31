@@ -95,5 +95,5 @@ public interface MDependency {
      */
     @objid ("9ac80a00-7577-4334-8564-8ecd5d145372")
     boolean isSharedComposition();
-
 }
+

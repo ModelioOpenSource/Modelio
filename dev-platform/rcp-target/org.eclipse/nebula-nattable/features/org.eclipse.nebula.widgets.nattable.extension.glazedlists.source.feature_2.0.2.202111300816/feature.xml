@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.nattable.extension.glazedlists.source.feature"
+      label="%featureName"
+      version="2.0.2.202111300816"
+      provider-name="%providerName">
+
+   <description url="https://projects.eclipse.org/projects/technology.nebula.nattable">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.nattable.extension.glazedlists.source"
+         download-size="109"
+         install-size="386"
+         version="2.0.2.202111300816"
+         unpack="false"/>
+
+   <plugin
+         id="ca.odell.glazedlists.source"
+         download-size="920"
+         install-size="3108"
+         version="1.11.0.v20190926-1838"
+         unpack="false"/>
+
+</feature>

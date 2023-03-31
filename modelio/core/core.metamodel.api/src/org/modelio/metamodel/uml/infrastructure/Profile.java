@@ -33,6 +33,11 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyType;
 
 /**
  * Profile v3.6.00
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("008c74a4-c4be-1fd8-97fe-001ec947cd2a")
 public interface Profile extends ModelElement {
@@ -53,6 +58,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("9e91d3c5-2925-4fe8-9716-155cfb8c37ba")
     EList<Stereotype> getDefinedStereotype();
@@ -62,6 +68,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("9724e26c-1d2d-4cc8-8544-cca65b413fdb")
     <T extends Stereotype> List<T> getDefinedStereotype(java.lang.Class<T> filterClass);
@@ -71,6 +78,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("46ed1e26-1889-4db1-afc0-44569a788348")
     EList<MetaclassReference> getOwnedReference();
@@ -80,6 +88,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("57dc8cb3-7252-4989-b1f6-d45f9af62b60")
     <T extends MetaclassReference> List<T> getOwnedReference(java.lang.Class<T> filterClass);
@@ -89,6 +98,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("75611bcb-1779-4a3d-b270-27b99396e231")
     ModuleComponent getOwnerModule();
@@ -98,6 +108,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7bd651e5-f2c6-476f-959d-8e14e52d384c")
     void setOwnerModule(ModuleComponent value);
@@ -107,6 +118,7 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("7ff8622a-5471-4b36-8a91-7cba16ea0b6a")
     EList<PropertyType> getDefinedType();
@@ -116,8 +128,9 @@ public interface Profile extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("a430cc91-d487-42f6-9d24-26388723d79d")
     <T extends PropertyType> List<T> getDefinedType(java.lang.Class<T> filterClass);
-
 }
+

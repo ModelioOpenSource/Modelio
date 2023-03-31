@@ -38,12 +38,12 @@ import org.eclipse.draw2d.geometry.Point;
  * 
  * @since 5.1
  */
-@objid ("ea481bde-4696-446b-9b0c-0684ff0847f1")
+@objid ("704aee0b-737e-412e-aa84-ae04e69d15b3")
 public interface ILinkPoint {
     /**
      * @return true if the point is manual, false if it is automatic.
      */
-    @objid ("8ec78c3f-5730-49c9-91a0-85b375146493")
+    @objid ("788ecbc8-606b-408d-80c1-94e8243cd967")
     LinkPointKind getKind();
 
     /**
@@ -51,7 +51,7 @@ public interface ILinkPoint {
      * connection. The returned value is a copy that may be freely modified.
      * @return the location of the point relative to the Connection
      */
-    @objid ("38a09e50-e7a9-465b-b316-af0c1504f6c9")
+    @objid ("c0cc18b9-b538-454d-b987-35924a71d745")
     default Point getLocation() {
         return getLocation(new Point());
     }
@@ -64,7 +64,7 @@ public interface ILinkPoint {
      * @param out The point to fill with the location
      * @return out, containing the location of the point relative to the Connection
      */
-    @objid ("775aa7d2-4e28-4787-ba09-6c8e22acbb25")
+    @objid ("a47f2d03-8af8-433f-8828-b89b72d391b3")
     <P extends Point> P getLocation(P out);
 
     /**
@@ -76,7 +76,7 @@ public interface ILinkPoint {
      * @param val The point to fill with the location
      * @return out, containing the location of the point relative to the Connection
      */
-    @objid ("5219fad8-6de5-4c9f-86b0-397723d9221f")
+    @objid ("8f3bc6e7-d1d6-4cd0-b2a2-d01d65d478d7")
     ILinkPoint setLocation(Point val);
 
     /**
@@ -88,19 +88,19 @@ public interface ILinkPoint {
      * @return out, containing the location of the point relative to the Connection
      * @throws IllegalArgumentException when the given kind is not valid for this link point.
      */
-    @objid ("c9bff135-6eb6-4ea7-aacd-20e980c4b13d")
+    @objid ("96611825-1593-4983-8104-1a51feef5a00")
     ILinkPoint setKind(LinkPointKind val) throws IllegalArgumentException;
 
     /**
      * @return the location x coordinate.
      */
-    @objid ("149f6464-aa73-4e85-8518-dc43d16b5d25")
+    @objid ("881e52c7-b293-4cce-876c-51a5926b895f")
     int x();
 
     /**
      * @return the location y coordinate.
      */
-    @objid ("f89a0624-f908-4788-a3fc-bd737d5a16f5")
+    @objid ("fe56825a-dce1-40ee-aa0b-1dfe9fbc86b2")
     int y();
-
 }
+

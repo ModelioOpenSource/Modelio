@@ -47,6 +47,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f58d2379-55b6-11e2-877f-002564c97630")
 public class GmStateDiagram extends GmAbstractDiagram {
+    @objid ("f58d237e-55b6-11e2-877f-002564c97630")
+    private StateMachineDiagram obDiagram;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -55,9 +58,6 @@ public class GmStateDiagram extends GmAbstractDiagram {
 
     @objid ("f58d2384-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f58d237e-55b6-11e2-877f-002564c97630")
-    private StateMachineDiagram obDiagram;
 
     @objid ("fe4f91ce-5a5b-11e2-9e33-00137282c51b")
     private static GmStateDiagramStyleKeys STYLEKEYS = new GmStateDiagramStyleKeys();

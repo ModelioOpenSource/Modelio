@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Développer-et-produire-un-composant-de-modèle]]
 
-[[développer-et-produire-un-composant-de-modèle]]
+
+
 = Développer et produire un composant de modèle
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Le développement d'un composant de modèle est la première phase du cycle de vie du composant de modèle, durant laquelle, le composant de modèle est préparé par le développeur en vue de son packaging.
@@ -22,9 +22,9 @@ Le développement d'un composant de modèle inclut les opérations suivantes :
 
 Cette section décrit la création et la définition d'un composant de modèle.
 
-[[Créer-un-composant-de-modèle]]
 
-[[créer-un-composant-de-modèle]]
+
+
 ===== Créer un composant de modèle
 
 La première étape dans le développement d'un composant de modèle est sa création dans un modèle UML.
@@ -42,23 +42,23 @@ image::images/Model_components_development_CreateLocalLibrary2.png[4]
 4.  Depuis l'explorateur UML, glissez-déposez les composants de modèle sur lesquels dépendra votre composant de modèle.
 5.  Cochez la case des modules qui contribuent à votre composant de modèle.
 
-[[Définition-des-parties-de-modèle-à-inclure-dans-le-composant-de-modèle]]
 
-[[définition-des-parties-de-modèle-à-inclure-dans-le-composant-de-modèle]]
+
+
 ===== Définition des parties de modèle à inclure dans le composant de modèle
 
 Les éléments de modèle à inclure dans un composant de modèle sont référencés à l'aide de liens de manifestation. Ces éléments seront disponibles et prêts à être utilisés dans les projets sur lesquels sera déployé le composant de modèle. Seuls les packages de haut niveau (situés directement sous la racine du projet) peuvent être référencés par un composant de modèle à l'aide d'un lien de manifestation. Cependant, tous les éléments qu'ils contiennent seront également packagés dans le composant de modèle.
 
-[[Modélisation-des-dépendances-entre-composants-de-modèle]]
 
-[[modélisation-des-dépendances-entre-composants-de-modèle]]
+
+
 ===== Modélisation des dépendances entre composants de modèle
 
 Si votre composant de modèle dépend d'un autre composant de modèle, cette dépendance doit être modélisé sous la forme d'un lien d'utilisation.
 
-[[Définition-des-fichiers-externes-à-inclure-dans-le-composant-de-modèle]]
 
-[[définition-des-fichiers-externes-à-inclure-dans-le-composant-de-modèle]]
+
+
 ===== Définition des fichiers externes à inclure dans le composant de modèle
 
 Il est également possible d'inclure des fichiers externes dans un composant de modèle. Ceci est particulièrement utile lorsque vous voulez que composant de modèle installe des fichiers spécifiques tels que des bibliothèques, des fichiers .jar ou des fichiers de ressources lors de son déploiement.

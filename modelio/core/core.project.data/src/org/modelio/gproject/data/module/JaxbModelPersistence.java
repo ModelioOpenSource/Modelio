@@ -49,9 +49,9 @@ import org.modelio.gproject.data.module.migration.Migrator;
 public class JaxbModelPersistence {
     /**
      * Load a JAXB model from a jmdac file.
+     * @throws IOException in case of failure.
      * @param modulePath the .jmdac file path
      * @return the JAXB module
-     * @throws IOException in case of failure.
      */
     @objid ("53e607c5-6c08-4c07-94f1-4d3fc8b580d3")
     public static Jxbv2Module loadJaxbModelFromJmdac(Path modulePath) throws IOException {
@@ -76,9 +76,9 @@ public class JaxbModelPersistence {
 
     /**
      * Load a JAXB model
+     * @throws IOException in case of failure.
      * @param moduleXmlFile the module.xml file path
      * @return the JAXB module
-     * @throws IOException in case of failure.
      */
     @objid ("b38b2cc5-f27f-11e1-8543-001ec947ccaf")
     public static Jxbv2Module loadJaxbModel(final Path moduleXmlFile) throws IOException {
@@ -94,17 +94,32 @@ public class JaxbModelPersistence {
         
     }
 
+    @objid ("387c245a-4ad3-426e-880e-5f29c661cc91")
+    public static Jxbv2Module loadJaxbModel(final InputStream moduleXmlInput) throws IOException {
+        try {
+            return loadJaxbModelV2(moduleXmlInput);
+        } catch (JAXBException e) {
+            try {
+                return loadJaxbModelV1(moduleXmlInput);
+            } catch (JAXBException e1) {
+                throw new IOException(e);
+            }
+        }
+        
+    }
+
     /**
      * Save the JAXB model to a file.
+     * @throws IOException in case of failure.
      * @param module the JAXB module model to save.
      * @param moduleXmlFile the module.xml file path
-     * @throws IOException in case of failure.
      */
     @objid ("82033481-f366-11e1-85f6-002564c97630")
     public static void saveJaxbModel(final JxbModule module, final Path moduleXmlFile) throws IOException {
         try (OutputStream outputStream = Files.newOutputStream(moduleXmlFile)) {
             String packageName = JxbModule.class.getPackage().getName();
-            JAXBContext jaxbContext = JAXBContext.newInstance(packageName);
+            JAXBContext jaxbContext = JAXBContext.newInstance(packageName, JxbModule.class.getClassLoader());
+        
             Marshaller marshaller = jaxbContext.createMarshaller();
         
             marshaller.marshal(module, outputStream);
@@ -133,7 +148,7 @@ public class JaxbModelPersistence {
     public static void saveJaxbModel(final Jxbv2Module module, final Path moduleXmlFile) throws IOException {
         try (OutputStream outputStream = Files.newOutputStream(moduleXmlFile)) {
             String packageName = Jxbv2Module.class.getPackage().getName();
-            JAXBContext jaxbContext = JAXBContext.newInstance(packageName);
+            JAXBContext jaxbContext = JAXBContext.newInstance(packageName, JxbModule.class.getClassLoader());
             Marshaller marshaller = jaxbContext.createMarshaller();
         
             marshaller.marshal(module, outputStream);
@@ -145,7 +160,6 @@ public class JaxbModelPersistence {
 
     /**
      * Test arg[1] is the module xml file to process
-     * @param args
      */
     @objid ("6b8e1cd1-7963-423b-8055-80dde3b8f6cf")
     public static void main(String[] args) {
@@ -164,25 +178,35 @@ public class JaxbModelPersistence {
     @objid ("0ec60d78-3c53-46fa-b761-3dbc16f619db")
     private static Jxbv2Module loadJaxbModelV1(final Path moduleXmlFile) throws JAXBException, IOException {
         try (InputStream inputStream = Files.newInputStream(moduleXmlFile)) {
-            String packageName = JxbModule.class.getPackage().getName();
-            JAXBContext jaxbContext = JAXBContext.newInstance(packageName);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            JxbModule moduleV1 = (JxbModule) unmarshaller.unmarshal(inputStream);
-            return new Migrator().migrate(moduleV1);
+            return loadJaxbModelV1(inputStream);
         }
         
+    }
+
+    @objid ("2eef80d4-b006-402c-9b78-d06729907e70")
+    private static Jxbv2Module loadJaxbModelV1(final InputStream moduleXmlInput) throws JAXBException, IOException {
+        String packageName = JxbModule.class.getPackage().getName();
+        JAXBContext jaxbContext = JAXBContext.newInstance(packageName, JxbModule.class.getClassLoader());
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        JxbModule moduleV1 = (JxbModule) unmarshaller.unmarshal(moduleXmlInput);
+        return new Migrator().migrate(moduleV1);
     }
 
     @objid ("1142fe68-5304-4cf9-a636-d8e4522c6020")
     private static Jxbv2Module loadJaxbModelV2(final Path moduleXmlFile) throws JAXBException, IOException {
         try (InputStream inputStream = Files.newInputStream(moduleXmlFile)) {
-            String packageName = Jxbv2Module.class.getPackage().getName();
-            JAXBContext jaxbContext = JAXBContext.newInstance(packageName);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            Jxbv2Module module = (Jxbv2Module) unmarshaller.unmarshal(inputStream);
-            return module;
+            return loadJaxbModelV2(inputStream);
         }
         
+    }
+
+    @objid ("2696dcc3-4c10-4bc9-be80-e4a8451ef20a")
+    private static Jxbv2Module loadJaxbModelV2(final InputStream moduleXmlInput) throws JAXBException, IOException {
+        String packageName = Jxbv2Module.class.getPackage().getName();
+        JAXBContext jaxbContext = JAXBContext.newInstance(packageName, JxbModule.class.getClassLoader());
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        Jxbv2Module module = (Jxbv2Module) unmarshaller.unmarshal(moduleXmlInput);
+        return module;
     }
 
 }

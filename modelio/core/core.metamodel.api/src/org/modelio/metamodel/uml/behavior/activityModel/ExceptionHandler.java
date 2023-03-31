@@ -36,6 +36,8 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00307956-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExceptionHandler extends UmlModelElement {
@@ -56,6 +58,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bfadd88c-4a66-4834-a1c7-ef7460e247a6")
     String getGuard();
@@ -65,6 +68,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("eb11c270-6c03-41ed-ae99-f13b3b6dd7e0")
     void setGuard(String value);
@@ -74,6 +78,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("99348e15-1557-4298-8597-a91f17db0d00")
     String getWeight();
@@ -83,6 +88,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8565fde7-ca51-43d4-b3a9-ee88678b0101")
     void setWeight(String value);
@@ -92,6 +98,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bd7e1bd0-fc5a-4c5f-a521-d7799b9f487f")
     ActivityAction getProtectedNode();
@@ -101,6 +108,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("adf993e1-e157-4fda-bbbe-e4131e55c1f6")
     void setProtectedNode(ActivityAction value);
@@ -110,6 +118,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("502863e6-47f4-41b3-8d5d-ba9d41ab40db")
     InputPin getExceptionInput();
@@ -119,6 +128,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0e368cae-b68f-41cb-be47-6aed62a0ea88")
     void setExceptionInput(InputPin value);
@@ -128,6 +138,7 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("09bd6b9a-4f95-48a6-8fb3-4ced4e0fcb18")
     EList<GeneralClass> getExceptionType();
@@ -137,8 +148,9 @@ public interface ExceptionHandler extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6a21c859-e35e-4841-b814-2300b85f596c")
     <T extends GeneralClass> List<T> getExceptionType(java.lang.Class<T> filterClass);
-
 }
+

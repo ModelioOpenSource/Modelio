@@ -38,7 +38,7 @@ import org.modelio.platform.model.ui.panels.search.ISearchPanel;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.modelio.platform.search.engine.ISearchCriteria;
 import org.modelio.platform.search.engine.searchers.note.NoteSearchCriteria;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.vcore.session.api.ICoreSession;
 
 /**
@@ -78,7 +78,7 @@ public class NoteSearchPanel implements ISearchPanel {
     public void initialize(Composite parent, ICoreSession session, ISearchController searchController) {
         this.topGroup = new Group(parent, SWT.NONE);
         this.topGroup.setText(CoreUi.I18N.getString("NoteSearch.CriteriaGroup.label")); //$NON-NLS-1$
-        this.topGroup.setFont(CoreFontRegistry.getModifiedFont(topGroup.getFont(), SWT.BOLD, 1.0f));
+        this.topGroup.setFont(UIFont.NORMALB);
         
         final GridLayout gridLayout = new GridLayout();
         GridData gridData = null;

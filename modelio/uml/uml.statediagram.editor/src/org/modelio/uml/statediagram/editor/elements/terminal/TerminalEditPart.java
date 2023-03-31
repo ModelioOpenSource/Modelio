@@ -23,19 +23,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.gef.AccessibleAnchorProvider;
-import org.eclipse.gef.EditPolicy;
-import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
-import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
-import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
-import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
-import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
-import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
-import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.styles.core.IStyle;
+import org.modelio.uml.statediagram.editor.elements.common.state.AbstractStateEditPart;
 
 /**
  * EditPart for an Terminal Node.
@@ -43,12 +34,9 @@ import org.modelio.diagram.styles.core.IStyle;
  * @author fpoyer
  */
 @objid ("f5a71407-55b6-11e2-877f-002564c97630")
-public class TerminalEditPart extends AbstractNodeEditPart {
+public class TerminalEditPart extends AbstractStateEditPart {
     @objid ("da473432-b11e-4186-9d1e-dcde71537b67")
     Label labelFigure;
-
-    @objid ("c83f9d59-3ac6-4c25-a772-be4e9066e917")
-    private AbstractFixedNodeAnchorProvider nodeAnchorProvider;
 
     @objid ("f5a7140c-55b6-11e2-877f-002564c97630")
     @Override
@@ -65,18 +53,6 @@ public class TerminalEditPart extends AbstractNodeEditPart {
         
         // return the figure
         return fig;
-    }
-
-    @objid ("f5a71411-55b6-11e2-877f-002564c97630")
-    @Override
-    protected void createEditPolicies() {
-        super.createEditPolicies();
-        installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
-        installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
-                new LinkedNodeStartCreationEditPolicy());
-        installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
-        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
-        
     }
 
     @objid ("f5a71414-55b6-11e2-877f-002564c97630")
@@ -106,45 +82,10 @@ public class TerminalEditPart extends AbstractNodeEditPart {
         
     }
 
-    @objid ("6202a5a8-0983-41fa-9fbe-19e3273719cd")
+    @objid ("cfa9ca81-0650-4070-b814-a5372b8be599")
     @Override
-    protected AbstractFixedNodeAnchorProvider getNodeAnchorProvider() {
-        if (this.nodeAnchorProvider == null) {
-            this.nodeAnchorProvider = createAnchorProvider(this.figure);
-        }
-        return this.nodeAnchorProvider;
-    }
-
-    @objid ("91e11496-a917-46d7-89d2-c5f16d0c3ffd")
-    @Override
-    protected void setFigure(IFigure figure) {
-        super.setFigure(figure);
-        getNodeAnchorProvider().onFigureMoved(figure);
-        
-    }
-
-    /**
-     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
-     * @param figure the edit part figure.
-     * @return the created anchor provider.
-     */
-    @objid ("0104b7d8-e05f-433d-a3bf-e5aa8ce24fe1")
-    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
-        return new VariableFixedAnchorProvider();
-    }
-
-    /**
-     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
-     */
-    @objid ("dc57f02e-4a28-4f0b-a542-c0f6672a4f84")
-    @Override
-    public Object getAdapter(Class adapter) {
-        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
-        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider;
-        }
-        return super.getAdapter(adapter);
+    protected IFixedNodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.defaultFor(this);
     }
 
 }

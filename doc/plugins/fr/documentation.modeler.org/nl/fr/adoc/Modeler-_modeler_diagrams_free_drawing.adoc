@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Dessin-libre]]
 
-[[dessin-libre]]
+
+
 = Dessin libre
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Modelio propose une nouvelle fonctionnalité de dessin libre pour ajouter à vos diagrammes des informations purement graphiques.
@@ -18,9 +18,9 @@ Modelio propose une nouvelle fonctionnalité de dessin libre pour ajouter à vos
 .Diagramme de UseCase mettant en valeur différentes zones à l'aide de rectangles de couleur.
 image::images/Modeler-_modeler_diagrams_free_drawing_freedrawing_001.png[2]
 
-[[Faire-du-dessin-libre-dans-un-diagramme-Modelio]]
 
-[[faire-du-dessin-libre-dans-un-diagramme-modelio]]
+
+
 ===== Faire du dessin libre dans un diagramme Modelio
 
 Utilisez la palette dédiée pour ajouter à votre diagramme des éléments de dessin libre :
@@ -46,16 +46,16 @@ Sélectionnez "Texte" dans la palette, puis cliquez dans le fond du diagramme po
 
 Sélectionnez "Ligne" dans la palette, puis cliquez dans le fond du diagramme à l'endroit où vous souhaitez créer la source de votre ligne, puis cliquez une deuxième fois à l'endroit où vous souhaitez créer la cible de la ligne. Vous pouvez dessiner des lignes simples, des flèches à sens unique, et des flèches à double-sens.
 
-[[Personnalisation]]
 
-[[personnalisation]]
+
+
 ===== Personnalisation
 
 Tous les éléments de dessin libre peuvent être personnalisés dans la vue Symbole (couleur, épaisseur de ligne, police, cible de flèche, etc.)
 
-[[Commandes]]
 
-[[commandes]]
+
+
 ===== Commandes
 
 Les éléments de dessin libre peuvent être passés à l'arrière-plan ou au premier plan :

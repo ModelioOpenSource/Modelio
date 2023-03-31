@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3220]]
 
-[[r3220]]
+
+
 = R3220
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _SequenceFlow_ from an _EventBasedGateway_ must target an _IntermediaryCatchEvent_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _Sequenceflows_ from _EventBasedGateways_ are considered as event flows, and can only be caught by an IntermediaryCatchEvent.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have sequence flows leaving from an _EventBasedGateway_ that do not target an _IntermediaryCatchEvent_, you should remove these flows.

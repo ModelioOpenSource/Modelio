@@ -22,7 +22,7 @@ package org.modelio.propertyview.fragment.model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.fragment.AbstractFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
@@ -41,7 +41,7 @@ public class AbstractFragmentPropertyModel {
      * @param fragment the fragment of which properties will be display
      */
     @objid ("67aaeadf-fd9f-49c1-9e8f-53a559525cbe")
-    public  AbstractFragmentPropertyModel(AbstractFragment fragment) {
+    public  AbstractFragmentPropertyModel(IGModelFragment fragment) {
         this.type = fragment.getClass().getSimpleName();
     }
 

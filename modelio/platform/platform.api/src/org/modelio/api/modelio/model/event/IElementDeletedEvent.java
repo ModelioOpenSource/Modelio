@@ -44,5 +44,5 @@ public interface IElementDeletedEvent {
      */
     @objid ("a42b8b20-0ecc-11e2-96c4-002564c97630")
     MObject getOldParent();
-
 }
+

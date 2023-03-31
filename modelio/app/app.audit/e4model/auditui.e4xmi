@@ -2,7 +2,7 @@
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_dGp5YIkdEeWbO4MnNK7ogg">
   <imports xsi:type="menu:Menu" xmi:id="_J9EtoH9EEeK-XvSICEmsLA" elementId="org.modelio.app.ui.menu.views"/>
   <imports xsi:type="commands:Command" xmi:id="_efEyEH9EEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview"/>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Tpx50IkeEeWbO4MnNK7ogg" featurename="handlers" parentElementId="org.modelio.app.application">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Tpx50IkeEeWbO4MnNK7ogg" featurename="handlers" parentElementId="org.modelio.app.application" positionInList="">
     <elements xsi:type="commands:Handler" xmi:id="_ebT2cEN6EeK0D9nRHZj9jw" elementId="org.modelio.audit.handler.CheckElementId" contributionURI="bundleclass://org.modelio.app.audit/org.modelio.audit.checker.CheckElementHandler" command="_7WVbUEN6EeK0D9nRHZj9jw"/>
     <elements xsi:type="commands:Handler" xmi:id="_zB9DAEUqEeK0D9nRHZj9jw" elementId="org.modelio.audit.handler.ShowDetailsId" contributionURI="bundleclass://org.modelio.app.audit/org.modelio.audit.view.handlers.ShowDetailsHandler" command="_-Z6ZwEUqEeK0D9nRHZj9jw"/>
     <elements xsi:type="commands:Handler" xmi:id="_KHIj8EUtEeK0D9nRHZj9jw" elementId="org.modelio.audit.handler.ResumeAuditId" contributionURI="bundleclass://org.modelio.app.audit/org.modelio.audit.view.handlers.ResumeAuditHandler" command="_cPs9wEUrEeK0D9nRHZj9jw"/>
@@ -60,7 +60,7 @@
       <parameters xmi:id="_2CLQAH9EEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview.viewid" name="org.modelio.app.ui.command.showview.viewid" value="org.modelio.audit.AuditViewID"/>
     </elements>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_R4bfgN_MEeKYSOCeOIScJg" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_c4KjgN_MEeKYSOCeOIScJg" elementId="audit.placeholder.0" ref="_GYYnIIkcEeWbO4MnNK7ogg"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pa19sBIQEeyzRcA1nfBOfQ" featurename="children" parentElementId="org.modelio.app.bottom.parts">
+    <elements xsi:type="advanced:Placeholder" xmi:id="_swfD0BIQEeyzRcA1nfBOfQ" elementId="audit.placeholder.0" ref="_GYYnIIkcEeWbO4MnNK7ogg" closeable="true"/>
   </fragments>
 </fragment:ModelFragments>

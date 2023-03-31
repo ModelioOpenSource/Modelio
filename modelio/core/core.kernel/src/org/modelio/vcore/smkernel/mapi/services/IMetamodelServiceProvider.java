@@ -54,5 +54,5 @@ public interface IMetamodelServiceProvider<S> {
      */
     @objid ("7bc89dd0-d70d-41dd-8daf-da81fa66b393")
     S findService(MClass cls);
-
 }
+

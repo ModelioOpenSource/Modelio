@@ -106,6 +106,23 @@ public class FigureUtilities2 extends FigureUtilities {
         return s;
     }
 
+    @objid ("0651cbb6-549d-405f-a46a-1baf799903a1")
+    private static void updatePenOptions(final IPenOptionsSupport highlightFigure, Color color) {
+        highlightFigure.setLineColor(color);
+        highlightFigure.setLineWidth(2);
+        
+    }
+
+    @objid ("362f7db9-1db0-4c3b-ba70-c79056ba7cfd")
+    private static void updateBrushOptions(final IFigure highlightFigure, Color color, int alpha) {
+        if (highlightFigure instanceof IBrushOptionsSupport) {
+            IBrushOptionsSupport b = (IBrushOptionsSupport) highlightFigure;
+            b.setFillAlpha(alpha);
+            b.setFillColor(color);
+        }
+        
+    }
+
     @objid ("7f7c3c1b-1dec-11e2-8cad-001ec947c8cc")
     public static void updateHighlightType(final IFigure highlightFigure, final HighlightType type) {
         if (highlightFigure instanceof RectangleFigure) {
@@ -149,6 +166,26 @@ public class FigureUtilities2 extends FigureUtilities {
                 break;
             }
         
+        } else if (highlightFigure instanceof IPenOptionsSupport) {
+            IPenOptionsSupport f = (IPenOptionsSupport)highlightFigure;
+            switch (type) {
+            case SUCCESS:
+                updatePenOptions(f, ColorConstants.lightGreen);
+                updateBrushOptions(highlightFigure, ColorConstants.lightGreen,50);
+                break;
+            case ERROR:
+                updatePenOptions(f, ColorConstants.red);
+                updateBrushOptions(highlightFigure, ColorConstants.red, 20);
+                break;
+            case WARNING:
+                updatePenOptions(f, ColorConstants.orange);
+                updateBrushOptions(highlightFigure, ColorConstants.orange, 120);
+                break;
+            case INFO:
+                updatePenOptions(f, ColorConstants.blue);
+                updateBrushOptions(highlightFigure, ColorConstants.lightBlue, 50);
+                break;
+            }
         } else {
             DiagramElements.LOG.warning("updateHighlightType() ignoring unsupported highlight figure type " +
                     highlightFigure.getClass().getSimpleName());

@@ -39,7 +39,7 @@ import org.modelio.api.module.context.i18n.I18nSupport;
 import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.context.project.IProjectStructure;
 import org.modelio.api.module.lifecycle.IModuleLifeCycleHandler;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;

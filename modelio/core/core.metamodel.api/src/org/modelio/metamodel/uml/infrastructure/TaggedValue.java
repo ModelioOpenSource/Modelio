@@ -36,6 +36,9 @@ import org.eclipse.emf.common.util.EList;
  * In Modelio, TaggedValues can have parameters, and must comply with TagTypes that define which kind of TaggedValues may exist. 
  * 
  * TaggedValues belong to their annotated ModelElement, or to their annotated Note.
+ * 
+ * 
+ * 
  */
 @objid ("0090006a-c4be-1fd8-97fe-001ec947cd2a")
 public interface TaggedValue extends ModelElement {
@@ -56,6 +59,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Parameters of the TaggedValue.</i>
+     * 
      */
     @objid ("7e43f945-d3f3-4af7-81a1-70a6e1b84642")
     EList<TagParameter> getActual();
@@ -65,6 +69,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Parameters of the TaggedValue.</i>
+     * 
      */
     @objid ("93bebbeb-973d-4ad5-8755-d3edc4b70236")
     <T extends TagParameter> List<T> getActual(java.lang.Class<T> filterClass);
@@ -74,6 +79,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Current Qualifier of the TaggedValue. A qualifier is a parameter that is placed in first place Tag:Qualifier (Parameters).</i>
+     * 
      */
     @objid ("b4bfa642-b1d6-49c4-b00f-dc656fbb8e36")
     TagParameter getQualifier();
@@ -83,6 +89,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Current Qualifier of the TaggedValue. A qualifier is a parameter that is placed in first place Tag:Qualifier (Parameters).</i>
+     * 
      */
     @objid ("dd41680c-59bb-459c-badc-49239d8758d5")
     void setQualifier(TagParameter value);
@@ -92,6 +99,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines the TagType that is the model of the current TaggedValue.</i>
+     * 
      */
     @objid ("3c732532-7e95-48cf-995e-2fd0204f5798")
     TagType getDefinition();
@@ -101,6 +109,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines the TagType that is the model of the current TaggedValue.</i>
+     * 
      */
     @objid ("08bc124d-338f-47a7-a5fb-dacca29a9683")
     void setDefinition(TagType value);
@@ -110,6 +119,7 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("60890134-3506-40b9-96b0-bf696675eb11")
     ModelElement getAnnoted();
@@ -119,8 +129,9 @@ public interface TaggedValue extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f8620d67-19ad-4e50-b148-3b9c86a5c0da")
     void setAnnoted(ModelElement value);
-
 }
+

@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Le-niveau-avancé-ndash-Travailler-dans-le-modèle-MDA]]
 
-[[le-niveau-avancé-travailler-dans-le-modèle-mda]]
+
+
 = Le niveau avancé – Travailler dans le modèle MDA
 
-[[Afficher-le-modèle-MDA]]
 
-[[afficher-le-modèle-mda]]
+
+
 ===== Afficher le modèle MDA
 
 .Affichage du modèle MDA
@@ -23,9 +23,9 @@
 2. Sélectionnez l'option "Afficher le modèle MDA".
 3. Tous les modules déployés apparaissent ici, de même que "LocalModule" dans lequel vous pouvez créer de nouveaux éléments MDA.
 
-[[Créer-un-élément-MDA]]
 
-[[créer-un-élément-mda]]
+
+
 ===== Créer un élément MDA
 
 Dans le modèle MDA, vous pouvez créer les éléments MDA suivants :

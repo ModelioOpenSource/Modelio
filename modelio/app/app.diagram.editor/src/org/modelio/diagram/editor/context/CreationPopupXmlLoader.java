@@ -51,7 +51,7 @@ class CreationPopupXmlLoader {
     public Map<String, List<CreationPopupEntryDescriptor>> parseCreationPopupEntries(final URL url) {
         this.popupEntries = new HashMap<>();
         
-        try (InputStream xmlStream = url.openStream()) {
+        try (InputStream inputStream = url.openStream()) {
             // Create a DocumentBuilderFactory
             final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             dbf.setNamespaceAware(true);
@@ -64,11 +64,11 @@ class CreationPopupXmlLoader {
         
             // Parse
             // db.setErrorHandler(parserAPIUsage);
-            final Document xmlDoc = db.parse(xmlStream);
+            final Document xmlDoc = db.parse(inputStream);
             final Element rootElement = xmlDoc.getDocumentElement();
             parseMenus(rootElement);
-            xmlStream.close();
         } catch (final ParserConfigurationException | SAXException | IOException e) {
+            DiagramEditor.LOG.error("Failed parsing '%s' : %s", url, e);
             DiagramEditor.LOG.debug(e);
         }
         return this.popupEntries;

@@ -102,5 +102,5 @@ public interface IIndexDb {
 
     @objid ("e538ee9b-2a35-41bb-87e3-6b60aafcf424")
     void checkIndexFormat() throws IndexOutdatedException, IndexException;
-
 }
+

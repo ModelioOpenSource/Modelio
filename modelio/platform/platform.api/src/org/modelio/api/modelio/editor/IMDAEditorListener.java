@@ -46,5 +46,5 @@ public interface IMDAEditorListener {
      */
     @objid ("a41d32e2-0ecc-11e2-96c4-002564c97630")
     void documentSaved(IMDATextEditor editor, ModelElement modelElement, File file);
-
 }
+

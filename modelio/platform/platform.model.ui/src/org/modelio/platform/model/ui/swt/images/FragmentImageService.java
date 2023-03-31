@@ -30,10 +30,10 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.swt.graphics.Image;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPartState.GPartStateEnum;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.osgi.framework.Bundle;
 
@@ -46,10 +46,10 @@ public class FragmentImageService {
     private static final String IMAGES_PATH = "icons/";
 
     @objid ("5338ecba-7339-4eb3-8584-b36ea545c269")
-    private static final HashMap<FragmentType, Image> upImages = new HashMap<>();
+    private static final HashMap<GProjectPartType, Image> upImages = new HashMap<>();
 
     @objid ("1652cf73-fb39-4bf7-97b1-e9a619892f8f")
-    private static final HashMap<FragmentType, Image> downImages = new HashMap<>();
+    private static final HashMap<GProjectPartType, Image> downImages = new HashMap<>();
 
     @objid ("58e3b2c8-4d9e-4f23-822f-e77b3f382dee")
     private static final Bundle bundle = Platform.getBundle(CoreUi.PLUGIN_ID);
@@ -73,25 +73,25 @@ public class FragmentImageService {
     private static final Image FRAG_STATE_UP_LIGHT;
 
     /**
-     * Get the image for a model fragment, taking its {@link FragmentState} into account.
+     * Get the image for a model fragment, taking its {@link GPartStateEnum} into account.
      * @param fragment a model fragment.
      * @return an image or <code>null</code> for a <code>null</code> fragment.
      */
     @objid ("3fb5d705-6662-42b8-8f8a-01a6e9e32217")
-    public static Image getImage(IProjectFragment fragment) {
+    public static Image getImage(IGModelFragment fragment) {
         // null object special case
         if (fragment == null) {
             return null;
         } else {
             Image image = null;
-            if (fragment.getState() == FragmentState.DOWN) {
+            if (fragment.getState().getValue() == GPartStateEnum.DOWN) {
                 image = FragmentImageService.downImages.get(fragment.getType());
             } else {
                 image = FragmentImageService.upImages.get(fragment.getType());
             }
             if (image == null) {
                 CoreUi.LOG.warning("No image found for fragment type: " + fragment.getType());
-                if (fragment.getState() == FragmentState.DOWN) {
+                if (fragment.getState().getValue() == GPartStateEnum.DOWN) {
                     image = FragmentImageService.UNDEFINED_FRAGMENT_IMAGE;
                 } else {
                     image = FragmentImageService.UNDEFINED_FRAGMENT_DOWN_IMAGE;
@@ -124,26 +124,24 @@ public class FragmentImageService {
     }
 
     /**
-     * Get the image for {@link FragmentState}.
+     * Get the image for {@link GPartStateEnum}.
      * @param fragmentState a fragment state.
      * @return an image or <code>null</code> for a <code>null</code> state.
      */
     @objid ("8acb7ee0-8813-43d3-afe1-35bb72db6dd3")
-    public static Image getStateImage(FragmentState fragmentState) {
+    public static Image getStateImage(GPartStateEnum fragmentState) {
         if (fragmentState == null) {
             return null;
         }
         
         switch (fragmentState) {
         case DOWN:
-        case INITIAL:
+        case INSTANTIATED:
             return FragmentImageService.FRAG_STATE_DOWN;
         case MOUNTING:
             return FragmentImageService.FRAG_STATE_MOUNTING;
-        case UP_FULL:
+        case MOUNTED:
             return FragmentImageService.FRAG_STATE_UP;
-        case UP_LIGHT:
-            return FragmentImageService.FRAG_STATE_UP_LIGHT;
         default:
             return null;
         }
@@ -156,7 +154,7 @@ public class FragmentImageService {
      * @return an image or <code>null</code> for a <code>null</code> descriptor.
      */
     @objid ("6bbbd64d-3ec5-46a6-b1b7-d86cdd90d1b7")
-    public static Image getImage(FragmentDescriptor fragment) {
+    public static Image getImage(GProjectPartDescriptor fragment) {
         // null object special case
         if (fragment == null) {
             return null;
@@ -172,7 +170,7 @@ public class FragmentImageService {
      * @return an image.
      */
     @objid ("240c3a63-d851-4229-883e-13e5d5380a50")
-    public static Image getImage(FragmentType type) {
+    public static Image getImage(GProjectPartType type) {
         Image image = FragmentImageService.upImages.get(type);
         if (image == null) {
             CoreUi.LOG.warning("No image found for fragment type: " + type);
@@ -180,44 +178,45 @@ public class FragmentImageService {
         }
         return image;
     }
+
 static {
-            UNDEFINED_FRAGMENT_IMAGE = loadImage("undefinedfragment.png");
+                        UNDEFINED_FRAGMENT_IMAGE = loadImage("undefinedfragment.png");
     
-            FragmentImageService.upImages.put(FragmentType.EXML, loadImage("exmlfragment.png"));
-            FragmentImageService.upImages.put(FragmentType.RAMC, loadImage("ramcfragment.png"));
-            FragmentImageService.upImages.put(FragmentType.MDA, loadImage("mdafragment.png"));
-            FragmentImageService.upImages.put(FragmentType.EXML_URL, loadImage("httpfragment.png"));
-            FragmentImageService.upImages.put(FragmentType.EXML_SVN, loadImage("svnfragment.png"));
+                        FragmentImageService.upImages.put(GProjectPartType.EXMLFRAGMENT, loadImage("exmlfragment.png"));
+                        FragmentImageService.upImages.put(GProjectPartType.RAMC, loadImage("ramcfragment.png"));
+                        FragmentImageService.upImages.put(GProjectPartType.MODULE, loadImage("mdafragment.png"));
+                        FragmentImageService.upImages.put(GProjectPartType.HTTPFRAGMENT, loadImage("httpfragment.png"));
+                        FragmentImageService.upImages.put(GProjectPartType.SVNFRAGMENT, loadImage("svnfragment.png"));
     
-            final IPath downOverlayPath = new Path(FragmentImageService.IMAGES_PATH + "down_indicator.png");
-            final URL downOverlayUrl = FileLocator.find(FragmentImageService.bundle, downOverlayPath, null);
-            assert (downOverlayUrl != null) : "missing file icons/down_indicator.png";
+                        final IPath downOverlayPath = new Path(FragmentImageService.IMAGES_PATH + "down_indicator.png");
+                        final URL downOverlayUrl = FileLocator.find(FragmentImageService.bundle, downOverlayPath, null);
+                        assert (downOverlayUrl != null) : "missing file icons/down_indicator.png";
     
-            final ImageDescriptor downOverlay = ImageDescriptor.createFromURL(downOverlayUrl);
+                        final ImageDescriptor downOverlay = ImageDescriptor.createFromURL(downOverlayUrl);
     
-            UNDEFINED_FRAGMENT_DOWN_IMAGE = (new DecorationOverlayIcon(FragmentImageService.UNDEFINED_FRAGMENT_IMAGE, downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage();
+                        UNDEFINED_FRAGMENT_DOWN_IMAGE = (new DecorationOverlayIcon(FragmentImageService.UNDEFINED_FRAGMENT_IMAGE, downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage();
     
-            FragmentImageService.downImages.put(FragmentType.EXML, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML), downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage());
+                        FragmentImageService.downImages.put(GProjectPartType.EXMLFRAGMENT, (new DecorationOverlayIcon(FragmentImageService.upImages.get(GProjectPartType.EXMLFRAGMENT), downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage());
     
-            FragmentImageService.downImages.put(FragmentType.RAMC, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.RAMC), downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage());
+                        FragmentImageService.downImages.put(GProjectPartType.RAMC, (new DecorationOverlayIcon(FragmentImageService.upImages.get(GProjectPartType.RAMC), downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage());
     
-            FragmentImageService.downImages.put(FragmentType.MDA, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.MDA), downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage());
+                        FragmentImageService.downImages.put(GProjectPartType.MODULE, (new DecorationOverlayIcon(FragmentImageService.upImages.get(GProjectPartType.MODULE), downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage());
     
-            FragmentImageService.downImages.put(FragmentType.EXML_URL, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_URL), downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage());
+                        FragmentImageService.downImages.put(GProjectPartType.HTTPFRAGMENT, (new DecorationOverlayIcon(FragmentImageService.upImages.get(GProjectPartType.HTTPFRAGMENT), downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage());
     
-            FragmentImageService.downImages.put(FragmentType.EXML_SVN, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_SVN), downOverlay,
-                    IDecoration.BOTTOM_RIGHT)).createImage());
+                        FragmentImageService.downImages.put(GProjectPartType.SVNFRAGMENT, (new DecorationOverlayIcon(FragmentImageService.upImages.get(GProjectPartType.SVNFRAGMENT), downOverlay,
+                                IDecoration.BOTTOM_RIGHT)).createImage());
     
-            // fragment state images
-            FRAG_STATE_DOWN = loadImage("fragment_state_down.png");
-            FRAG_STATE_MOUNTING = loadImage("fragment_state_mounting.png");
-            FRAG_STATE_UP = loadImage("fragment_state_up.png");
-            FRAG_STATE_UP_LIGHT = loadImage("fragment_state_up_light.png");
-        }
+                        // fragment state images
+                        FRAG_STATE_DOWN = loadImage("fragment_state_down.png");
+                        FRAG_STATE_MOUNTING = loadImage("fragment_state_mounting.png");
+                        FRAG_STATE_UP = loadImage("fragment_state_up.png");
+                        FRAG_STATE_UP_LIGHT = loadImage("fragment_state_up_light.png");
+                    }
     
 }

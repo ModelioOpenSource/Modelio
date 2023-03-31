@@ -35,5 +35,5 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public interface ILinkAndNodeCreationSupport {
     @objid ("fb3a3c8e-fbdc-4f4f-8d4a-a2631788e251")
     GmNodeModel getMainLinkable();
-
 }
+

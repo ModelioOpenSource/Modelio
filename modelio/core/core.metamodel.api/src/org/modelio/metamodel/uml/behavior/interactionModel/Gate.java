@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * Gates are connected through Messages. A Gate is actually a representative of an OccurrenceSpecification that is not in the same scope as the Gate.
  * 
  * Gates play different roles: we have formal gates on Interactions, and actual gates on InteractionUses.
+ * 
+ * 
  */
 @objid ("004545ca-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Gate extends MessageEnd {
@@ -56,6 +58,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("aa9013f4-815e-44b9-9df6-7a06354010b6")
     InteractionUse getOwnerUse();
@@ -65,6 +68,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d2d30bfc-e735-4e30-a1a8-e0cce1384e17")
     void setOwnerUse(InteractionUse value);
@@ -74,6 +78,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b18592a8-383d-4d3f-a689-afa8994362a0")
     EList<Gate> getActual();
@@ -83,6 +88,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c8060897-fc7f-48ab-98de-8452413d04b2")
     <T extends Gate> List<T> getActual(java.lang.Class<T> filterClass);
@@ -92,6 +98,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c694328f-3d6a-42d2-941a-fd3c033e3ce9")
     Interaction getOwnerInteraction();
@@ -101,6 +108,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("951b43f7-e059-4675-896f-cf2f0fd73046")
     void setOwnerInteraction(Interaction value);
@@ -110,6 +118,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("24582264-759d-4c63-80c5-81e8c7213e47")
     CombinedFragment getOwnerFragment();
@@ -119,6 +128,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("edb34dac-948f-40bb-971f-a75fb0776ea0")
     void setOwnerFragment(CombinedFragment value);
@@ -128,6 +138,7 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>If the gate belongs to an InteractionUse, then it is connected to a formal gate belonging to the referred interaction.</i>
+     * 
      */
     @objid ("0a314064-bf37-41b7-967c-6ae7c50cfb72")
     Gate getFormal();
@@ -137,8 +148,9 @@ public interface Gate extends MessageEnd {
      * 
      * Metamodel description:
      * <i>If the gate belongs to an InteractionUse, then it is connected to a formal gate belonging to the referred interaction.</i>
+     * 
      */
     @objid ("b4398a4e-fec4-41b8-9e95-3f8cda97a053")
     void setFormal(Gate value);
-
 }
+

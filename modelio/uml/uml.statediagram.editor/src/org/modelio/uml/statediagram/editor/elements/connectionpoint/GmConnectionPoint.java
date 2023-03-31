@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f4faa789-55b6-11e2-877f-002564c97630")
 public class GmConnectionPoint extends GmPortContainer {
+    @objid ("f4faa790-55b6-11e2-877f-002564c97630")
+    ConnectionPointReference element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmConnectionPoint extends GmPortContainer {
 
     @objid ("f4faa796-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f4faa790-55b6-11e2-877f-002564c97630")
-    ConnectionPointReference element;
 
     @objid ("fcff663a-5a5b-11e2-9e33-00137282c51b")
     private static GmConnectionPointImageStyleKeys IMAGE_KEYS = new GmConnectionPointImageStyleKeys();

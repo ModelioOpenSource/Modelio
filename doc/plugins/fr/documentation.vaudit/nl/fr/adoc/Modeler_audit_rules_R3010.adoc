@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3010]]
 
-[[r3010]]
+
+
 = R3010
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _Dependency_ de type «refers» doit relier une _BusinessRule_ et un _Term_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Dependency_ de type «refers» indique que la sémantique d'une _BusinessRule_ se réfère au _Term_ lié.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une _Dependency_ de type «refers» reliant autre chose qu'une _BusinessRule_ et un Term, vous devriez la supprimer.

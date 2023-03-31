@@ -35,5 +35,5 @@ public interface IObjectFilter {
      */
     @objid ("ac6c25ce-a419-11e1-aa98-001ec947ccaf")
     boolean accept(final MObject obj);
-
 }
+

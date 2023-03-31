@@ -22,9 +22,9 @@ package org.modelio.diagram.editor.handlers.align;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.geometry.PrecisionPoint;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.CompoundCommand;
@@ -37,7 +37,7 @@ public class VCenterAlignHandler extends AbstractAlignHandler {
     @Override
     protected void align(GraphicalEditPart primarySelection, List<GraphicalEditPart> otherSelections) {
         IFigure primaryFigure = primarySelection.getFigure();
-        Rectangle primaryBounds = getEffectiveBounds(primaryFigure);
+        PrecisionRectangle primaryBounds = getEffectiveBounds(primaryFigure);
         primaryFigure.translateToAbsolute(primaryBounds);
         
         ChangeBoundsRequest parentRequest = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
@@ -46,15 +46,17 @@ public class VCenterAlignHandler extends AbstractAlignHandler {
         CompoundCommand compound = new CompoundCommand("Align vertical center");
         for (GraphicalEditPart editPart : otherSelections) {
             IFigure figure = editPart.getFigure();
-            Rectangle bounds = getEffectiveBounds(figure);
+            PrecisionRectangle bounds = getEffectiveBounds(figure);
             figure.translateToAbsolute(bounds);
         
-            Point moveDelta = new Point(0, primaryBounds.y + primaryBounds.height / 2 - (bounds.y + bounds.height / 2));
+            Point moveDelta = new PrecisionPoint(0,
+                    primaryBounds.preciseY() +
+                    primaryBounds.preciseHeight() / 2 -
+                    (bounds.preciseY() + bounds.preciseHeight() / 2));
         
             ChangeBoundsRequest req = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
             req.setEditParts(editPart);
             req.setMoveDelta(moveDelta);
-            req.setSizeDelta(new Dimension(0, 0));
             RequestHelper.addSharedEditParts(req, parentRequest);
         
             compound.add(editPart.getCommand(req));

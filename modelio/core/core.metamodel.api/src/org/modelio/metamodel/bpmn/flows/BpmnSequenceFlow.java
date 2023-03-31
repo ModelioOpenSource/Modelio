@@ -49,6 +49,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
  * 
  * Ownership
  * A Sequence flow belongs to a flow element container or a sub process.
+ * 
+ * 
  */
 @objid ("007cd986-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnSequenceFlow extends BpmnFlowElement {
@@ -74,6 +76,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * ? For a public Processes and Choreographies no value has the same semantics as if the value were false.
      * ? For an executable and non-executable (internal) Processes no value has the same semantics as if the value were true.
      * ? For executable Processes, the attribute MUST NOT be false.</i>
+     * 
      */
     @objid ("ee5b2fa5-cac6-4b39-a468-99b88cd42efc")
     boolean isIsImmediate();
@@ -88,6 +91,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * ? For a public Processes and Choreographies no value has the same semantics as if the value were false.
      * ? For an executable and non-executable (internal) Processes no value has the same semantics as if the value were true.
      * ? For executable Processes, the attribute MUST NOT be false.</i>
+     * 
      */
     @objid ("6b0c784a-cc1e-49bc-b125-5769d9594b78")
     void setIsImmediate(boolean value);
@@ -97,6 +101,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2a4c132c-41dc-4fae-9e8b-c341577717ed")
     String getConditionExpression();
@@ -106,6 +111,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c031518d-e583-4377-88bb-202daf2886e0")
     void setConditionExpression(String value);
@@ -115,6 +121,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("59635031-9ed1-4c87-a95d-4e1d46a31b7c")
     BpmnFlowNode getSourceRef();
@@ -124,6 +131,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("850e20ee-5276-4cf7-893e-d98affbcfaf5")
     void setSourceRef(BpmnFlowNode value);
@@ -133,6 +141,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a6733d87-0514-46fb-8a64-cb8a8a608786")
     BpmnFlowNode getTargetRef();
@@ -142,6 +151,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ab7d76d3-0950-4873-bd9e-6cec6cc31a64")
     void setTargetRef(BpmnFlowNode value);
@@ -151,6 +161,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e819a900-ff36-4764-ba77-ec852bd7feb8")
     BpmnInclusiveGateway getDefaultOfInclusive();
@@ -160,6 +171,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a9246186-05f1-40e9-b35b-a1b8265435aa")
     void setDefaultOfInclusive(BpmnInclusiveGateway value);
@@ -169,6 +181,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c429188b-0557-4131-b85a-79768bed9c8b")
     BpmnActivity getDefaultFrom();
@@ -178,6 +191,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ed7dab99-3273-4e8d-8ea6-4f09377d9688")
     void setDefaultFrom(BpmnActivity value);
@@ -187,6 +201,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0b9ef63b-2348-4a4c-bdc4-3be1cc5c9020")
     BpmnExclusiveGateway getDefaultOfExclusive();
@@ -196,6 +211,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("998a7cca-48a4-4a48-aa94-72b473f3f59b")
     void setDefaultOfExclusive(BpmnExclusiveGateway value);
@@ -205,6 +221,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1cf68921-140f-4e0b-9315-06ed803d29ca")
     EList<BpmnSequenceFlowDataAssociation> getConnector();
@@ -214,6 +231,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d0492f33-9f8b-4f6b-8ee9-120164bfb01e")
     <T extends BpmnSequenceFlowDataAssociation> List<T> getConnector(java.lang.Class<T> filterClass);
@@ -223,6 +241,7 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b3783c17-b4c7-44ff-a6e2-bd60dccf9e98")
     BpmnComplexGateway getDefaultOfComplex();
@@ -232,8 +251,9 @@ public interface BpmnSequenceFlow extends BpmnFlowElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("53bbd498-e0b8-4d6e-a436-e11341887120")
     void setDefaultOfComplex(BpmnComplexGateway value);
-
 }
+

@@ -35,6 +35,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * - Complex: the complexBehaviorDefinitions are consulted to determine if and which Events to throw.
  * 
  * For the behaviors of none and one, a default SignalEventDefinition will be thrown which automatically carries the current runtime attributes of the MI Activity.
+ * 
+ * 
  */
 @objid ("00556e64-91e1-1f74-804b-001ec947cd2a")
 public enum MultiInstanceBehavior {
@@ -46,6 +48,7 @@ public enum MultiInstanceBehavior {
     ALLBEHAVIOR(2, "AllBehavior", "AllBehavior"),
     @objid ("548defe1-732f-44b8-aef0-c261e5b6e50a")
     COMPLEXBEHAVIOR(3, "ComplexBehavior", "ComplexBehavior");
+
 public static final int NONEBEHAVIOR_VALUE = 0;
     public static final int ONEBEHAVIOR_VALUE = 1;
     public static final int ALLBEHAVIOR_VALUE = 2;

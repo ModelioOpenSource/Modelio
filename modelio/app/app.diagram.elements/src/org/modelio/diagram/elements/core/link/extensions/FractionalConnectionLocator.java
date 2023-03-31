@@ -256,6 +256,44 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     }
 
     /**
+     * Compute the bounds the figure would have if {@link #relocate(IFigure)} was called.
+     * @param target a figure
+     * @return the bounds the figure should have
+     */
+    @objid ("02cbc4cf-c549-4f86-9469-4dd8c4e61a97")
+    public Rectangle computeBounds(IFigure target) {
+        final Connection conn = getConnection();
+        
+        final Point referencePoint = new Point(); // The reference point on the connection for positioning the label
+        final Point orientationPoint = new Point(); // In association with referencePoint above, defines the label orientation
+        
+        getReferenceSegment(conn.getPoints(), referencePoint, orientationPoint);
+        
+        final Dimension t = getUvTranslation();
+        
+        referencePoint.translate(t);
+        orientationPoint.translate(t);
+        
+        conn.translateToAbsolute(referencePoint);
+        target.translateToRelative(referencePoint);
+        
+        if (target instanceof RotatableDecoration) {
+            final RotatableDecoration rot = (RotatableDecoration) target;
+        
+            Rectangle ret = rot.getBounds().getCopy();
+            ret.setLocation(referencePoint);
+            ret.translate(-ret.width() / 2, -ret.height() /2 );
+            return ret;
+        
+        } else {
+            final Dimension prefSize = computeFigureSize(target);
+        
+            return computeNewBounds(prefSize, referencePoint);
+        }
+        
+    }
+
+    /**
      * Distance from the reference point towards the target
      * @param uDistance The distance from the reference point towards the target
      */

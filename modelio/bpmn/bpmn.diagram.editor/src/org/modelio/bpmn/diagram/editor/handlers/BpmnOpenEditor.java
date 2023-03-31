@@ -21,11 +21,13 @@ package org.modelio.bpmn.diagram.editor.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.handlers.OpenEditor;
+import org.modelio.metamodel.bpmn.activities.BpmnCallActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
+import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 
 /**
@@ -44,6 +46,8 @@ public class BpmnOpenEditor extends OpenEditor {
         } else if (elt instanceof BpmnProcess) {
             return true;
         } else if (elt instanceof BpmnSubProcess) {
+            return true;
+        } else if (elt instanceof BpmnCallActivity && ((BpmnCallActivity)elt).getContainer() != null) {
             return true;
         } else {
             return super.isHandled(elt);
@@ -65,6 +69,17 @@ public class BpmnOpenEditor extends OpenEditor {
         } else if (elt instanceof BpmnSubProcess) {
             for (BpmnSubProcessDiagram diag : ((BpmnSubProcess) elt).getProduct(BpmnSubProcessDiagram.class)) {
                 return diag;
+            }
+            return null;
+        } else if (elt instanceof BpmnCallActivity) {
+        
+            for(Dependency dp  : ((BpmnCallActivity)elt).getDependsOnDependency()) {
+                if(dp.getDependsOn() instanceof BpmnProcess) {
+                    BpmnProcess process =  (BpmnProcess)dp.getDependsOn();
+                    for (BpmnProcessDesignDiagram diag : process.getProduct(BpmnProcessDesignDiagram.class)) {
+                        return diag;
+                    }
+                }
             }
             return null;
         } else {

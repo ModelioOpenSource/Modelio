@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2350]]
 
-[[r2350]]
+
+
 = R2350
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A private _Operation_ cannot be redefined.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Only visible inherited _Operations_ can be redefined. Visible _Operations_ are public and protected _Operations_ from implemented _Interfaces_ and parent _Classifiers_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Remove the redefinition status if it was not intended.

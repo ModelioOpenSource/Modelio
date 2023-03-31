@@ -152,7 +152,6 @@ public class HtmlComposer {
     public  HtmlComposer(final Composite parent, final int style) {
         this.browser = new Browser(parent, style);
         this.browser.setMenu(new Menu(this.browser));
-        debugLog(this.browser, "C'Tor HtmlComposer.HtmlComposer()");
         
         registerBrowserFunctions();
         
@@ -167,15 +166,9 @@ public class HtmlComposer {
         this.browser.addProgressListener(new ProgressAdapter() {
             @Override
             public void completed(ProgressEvent event) {
-                debugLog(HtmlComposer.this.browser, "loading 'rte/js/base.html' completed.");
                 // Warning: 'integration' might not be defined yet, we have to check it first
-                //HtmlComposer.this.browser.evaluate("integration.setEclipseRunning();"); //TODO here
                 HtmlComposer.this.browser.removeProgressListener(this);
             }
-        });
-        
-        this.browser.addDisposeListener(ev -> {
-            debugLog(this.browser, "Browser disposed");
         });
         
         this.browser.setUrl(baseUrl.toString());
@@ -226,11 +219,9 @@ public class HtmlComposer {
     @objid ("280ed00e-3361-472f-adbd-e314392efea5")
     public void addModifyListener(ModifyListener listener) {
         if (this.initialized) {
-            debugLog(this.browser, "addModifyListener(%s) executed immediately", listener.getClass());
             this.modifyListenerList.add(listener);
         } else {
             // Defer until CKEditor is initialized
-            debugLog(this.browser, "addModifyListener(%s) queued", listener.getClass());
             this.pendingActions.add(() -> addModifyListener(listener));
         }
         
@@ -341,11 +332,8 @@ public class HtmlComposer {
     @objid ("6480584c-dfe5-46a0-94d0-7784f4c265f9")
     public void execute(Command command) {
         if (this.initialized) {
-            debugLog(this.browser, "execute(%s) " , command.getName());
-        
             executeNow(command.getScript());
         } else {
-            debugLog(this.browser, ".execute(%s) deferred: not yet initialized " , command.getName() );
             this.pendingActions.add(() -> execute(command));
         }
         
@@ -884,11 +872,9 @@ public class HtmlComposer {
     public void removeModifyListener(ModifyListener listener) {
         // Remove immediately in all cases
         boolean removed = this.modifyListenerList.remove(listener);
-        debugLog(this.browser, "removeModifyListener(%s) executed = %s", listener.getClass(), removed);
         
         if (!this.initialized) {
             // also queue removal
-            debugLog(this.browser, "removeModifyListener(%s) also queued", listener.getClass());
             this.pendingActions.add(() -> removeModifyListener(listener));
         }
         
@@ -1265,8 +1251,6 @@ public class HtmlComposer {
      */
     @objid ("0e9471eb-cdf5-4182-89ce-14a4c891211b")
     void onCkEditorInitialized() {
-        debugLog(this.browser, ".onCkEditorInitialized()");
-        
         /*
          * Workaround for FocusLost. The event was not always sent
          * which is apparently an Eclipse bug ( https://bugs.eclipse.org/bugs/show_bug.cgi?id=84532)
@@ -1309,51 +1293,15 @@ public class HtmlComposer {
             public Object function(Object[] arguments) {
                 if (arguments.length > 0 )
                     arguments[0] = "JS log:"+String.valueOf(arguments[0]);
-                debugLog(getBrowser(), arguments);
                 return null;
             }
         };
         new BrowserFunction(this.browser, "_eclipse_running") {
             @Override
             public Object function(Object[] arguments) {
-                debugLog(getBrowser(),this.getName()+" called");
                 return Boolean.TRUE;
             }
         };
-        
-    }
-
-    @objid ("4ae5fe81-e088-4dbf-90d3-1d898dc36437")
-    static void _debugLog(Object... arguments) {
-        if (arguments.length == 0) {
-            return;
-        }
-        else if (arguments.length == 1) {
-            UI.LOG.debug("HtmlComposer:"+String.valueOf(arguments[0]));
-        } else {
-            String format = "HtmlComposer:"+String.valueOf(arguments[0]);
-            Object[] fargs = new Object[arguments.length - 1];
-            System.arraycopy(arguments, 1, fargs, 0, arguments.length - 1);
-            UI.LOG.debug(format, fargs);
-        }
-        
-    }
-
-    @objid ("90db6387-4906-44a5-af81-5e40ee708e2b")
-    static void debugLog(Browser browser, Object... arguments) {
-        if (arguments.length == 0 || ! UI.LOG.isDebugEnabled()) {
-            return;
-        }
-        
-        int browserId = browser.hashCode() % 200;
-        if (arguments.length == 1) {
-            UI.LOG.debug("HtmlComposer{%d}:%s",browserId,arguments[0]);
-        } else {
-            String format = "HtmlComposer{"+browserId+"}:"+String.valueOf(arguments[0]);
-            Object[] fargs = new Object[arguments.length - 1];
-            System.arraycopy(arguments, 1, fargs, 0, arguments.length - 1);
-            UI.LOG.debug(format, fargs);
-        }
         
     }
 
@@ -1393,12 +1341,10 @@ public class HtmlComposer {
             // Async exec to avoid reentrant Javascript calls
             getBrowser().getDisplay().asyncExec(()-> {
                 try {
-                    debugLog(getBrowser(), "FocusLostFunction : fire listeners: %s", HtmlComposer.this.focusListeners);
                     for (final FocusListener l : HtmlComposer.this.focusListeners) {
                         l.focusLost(null);
                     }
                 } catch (RuntimeException e) {
-                    debugLog(getBrowser(), "FocusLostFunction : %s caught", e);
                     UI.LOG.debug(e);
                 }
             });
@@ -1422,7 +1368,6 @@ public class HtmlComposer {
         @objid ("a313f984-860c-48f6-a58a-0153d37fc814")
         @Override
         public Object function(Object[] arguments) {
-            debugLog(getBrowser(),".InitFunction => SWT schedule onCkEditorInitialized() ");
             // Async exec to avoid reentrant Javascript calls
             getDisplay().asyncExec(() -> onCkEditorInitialized());
             return null;
@@ -1450,7 +1395,6 @@ public class HtmlComposer {
         @Override
         public Object function(Object[] arguments) {
             final List<ModifyListener> listeners = HtmlComposer.this.modifyListenerList;
-            // debugLog(getBrowser(), "ModifiedFunction(%s) : schedule fire listeners: %s", Arrays.asList(arguments), listeners);
             if (! listeners.isEmpty()) {
                 // Async exec to avoid reentrant Javascript calls
                 getBrowser().getDisplay().asyncExec(()-> {

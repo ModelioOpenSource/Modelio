@@ -45,7 +45,7 @@ import org.modelio.app.ramcs.edition.EditRamcDialog;
 import org.modelio.app.ramcs.edition.RamcModel;
 import org.modelio.app.ramcs.edition.ViewRamcDialog;
 import org.modelio.app.ramcs.plugin.AppRamcs;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor;
 import org.modelio.gproject.ramc.core.packaging.RamcPackager;
 import org.modelio.metamodel.uml.statik.Artifact;
@@ -76,7 +76,7 @@ public class PackageRamcHandler {
                 return;
             }
         
-            RamcModel model = new RamcModel(projectService.getOpenedProject().getProjectFileStructure().getProjectPath(), ramc);
+            RamcModel model = new RamcModel(projectService.getOpenedProject().getPfs().getProjectPath(), ramc);
             List<IModule> contributorCandidates = new ArrayList<>();
             for (IRTModule m : moduleService.getStartedModules()) {
                 if (m.getIModule() != null && m.getIModule().getModelComponentContributor(model) != null) {
@@ -125,7 +125,7 @@ public class PackageRamcHandler {
     }
 
     @objid ("28c6061b-073e-4337-86d8-178f3550b2d7")
-    private void doPackageRamc(final GProject gproject, final RamcModel model, Shell shell, final List<IModelComponentContributor> contributors, IProgressService progressService) {
+    private void doPackageRamc(final IGProject gproject, final RamcModel model, Shell shell, final List<IModelComponentContributor> contributors, IProgressService progressService) {
         final Path archivePath = promptUser(gproject, model, shell);
         
         if (archivePath == null) {
@@ -168,11 +168,11 @@ public class PackageRamcHandler {
     }
 
     @objid ("743247fa-e5b3-4f8f-9313-38d437306982")
-    private Path promptUser(final GProject gproject, final RamcModel model, Shell shell) {
+    private Path promptUser(final IGProject gproject, final RamcModel model, Shell shell) {
         // Create and configure the file chooser dialog
         String defaultName = makeDefaultName(model);
         final FileDialog fileChooser = new FileDialog(shell, SWT.SAVE | SWT.SINGLE);
-        fileChooser.setFilterPath(gproject.getProjectFileStructure().getProjectPath().toString());
+        fileChooser.setFilterPath(gproject.getPfs().getProjectPath().toString());
         fileChooser.setFileName(defaultName);
         
         while (true) {

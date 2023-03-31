@@ -61,8 +61,10 @@ public class GmBpmnLane extends GmCompositeNode {
      * The represented lane.
      */
     @objid ("6118fd19-55b6-11e2-877f-002564c97630")
-    private BpmnLane element; /* // BpmnLane or BpmnParticipant
+    private BpmnLane element;/*
+     * // BpmnLane or BpmnParticipant
      */
+    
 
     @objid ("c471472d-59a6-11e2-ae45-002564c97630")
     private static GmBpmnLaneStructuredStyleKeys STRUCTKEYS = new GmBpmnLaneStructuredStyleKeys();

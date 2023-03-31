@@ -41,6 +41,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * In Modelio, Collaborations have the same meaning. Modelio extends them, by allowing them to directly bind Parts and Connectors to other ModelElements. This means that a bound Collaboration can be directly entered.   
  * 
  * In Modelio, a Collaboration belongs to a UseCase, a Class, a Package, a Collaboration or an Operation.
+ * 
+ * 
  */
 @objid ("0003f692-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Collaboration extends NameSpace {
@@ -61,6 +63,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>Expresses if the Collaboration between objects is concurrent or sequential.</i>
+     * 
      */
     @objid ("59962e3b-fd12-4a48-ab97-97788649c37e")
     boolean isIsConcurrent();
@@ -70,6 +73,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>Expresses if the Collaboration between objects is concurrent or sequential.</i>
+     * 
      */
     @objid ("3d000d9f-37fb-4bda-ad56-b3318339ae12")
     void setIsConcurrent(boolean value);
@@ -79,6 +83,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b9c1fd19-b9f4-4a92-9c21-78a355731814")
     Operation getORepresented();
@@ -88,6 +93,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("734ff3a3-098c-4b50-a247-50604daf91d2")
     void setORepresented(Operation value);
@@ -97,6 +103,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("68e625f8-08bd-4674-8f38-2455a53f34b0")
     Behavior getBRepresented();
@@ -106,6 +113,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e5b14bf1-9d5e-4e28-bfdf-3d77b2dd338f")
     void setBRepresented(Behavior value);
@@ -115,6 +123,7 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8fa4d315-a94b-432b-95e1-5c314e908f44")
     EList<CollaborationUse> getOccurrence();
@@ -124,8 +133,9 @@ public interface Collaboration extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e6d47857-2427-4f9e-b4d9-054b234d1859")
     <T extends CollaborationUse> List<T> getOccurrence(java.lang.Class<T> filterClass);
-
 }
+

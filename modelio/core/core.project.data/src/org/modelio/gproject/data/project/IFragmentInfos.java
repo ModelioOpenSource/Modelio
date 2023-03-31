@@ -25,31 +25,31 @@ import org.modelio.vbasic.version.Version;
 /**
  * Fragment information interface.
  */
-@objid ("051d3728-c30f-49bb-b5e1-29ea16cb4316")
+@objid ("ddbed45c-b674-4c81-b327-60e5330973c8")
 public interface IFragmentInfos {
     /**
      * @return the description.
      */
-    @objid ("9c4a3893-4661-43de-b7c0-b36c77a9bddf")
+    @objid ("813ee2a8-78d8-4d72-945c-72471339ca02")
     String getDescription();
 
     /**
      * Get the version of Modelio used to create this fragment.
      * @return the Modelio version.
      */
-    @objid ("b48eb12b-a728-4154-b5ed-d3a23f137151")
+    @objid ("682bbec2-dd6f-470a-90b3-9b6977393d15")
     Version getModelioVersion();
 
     /**
      * @return this fragment name.
      */
-    @objid ("9068c018-ecd4-4644-9ed5-7eb963c61c1f")
+    @objid ("701732de-e3c8-4f72-b2c7-fa8830b5559b")
     String getName();
 
     /**
      * @return this model component version.
      */
-    @objid ("3b04693c-21a6-401c-b65f-cba51d2f9cfd")
+    @objid ("da940d73-adfa-42cd-964c-96e960cc8751")
     Version getVersion();
-
 }
+

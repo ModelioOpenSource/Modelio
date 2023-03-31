@@ -85,6 +85,7 @@ class AStyleInterface {
     public void ErrorHandler(final int id, final String str) {
         Api.LOG.error(str);
     }
+
 static {
             /**
              * This code is in charge of loading the native libraries required by hades.mda. The chosen loading mechanism is

@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -59,7 +59,7 @@ public final class PropertyViewProcessor {
     @objid ("044fab38-5512-4b54-94e6-c899c135872d")
     @Inject
     @Optional
-    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
+    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject closedProject) {
         if (closedProject != null) {
             final ICoreSession session = closedProject.getSession();
             if (session != null) {
@@ -71,6 +71,21 @@ public final class PropertyViewProcessor {
         }
         
         this.blobProvider = null;
+        
+    }
+
+    /**
+     * Called when a project is being opened.
+     * <p>
+     * Register the blob provider, for local stereotype images.
+     */
+    @objid ("11679a46-965c-480e-afc0-96f8f7cc1625")
+    @Inject
+    @Optional
+    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject aProject) {
+        // Register the blob provider, for local stereotype images.
+        this.blobProvider = new StereotypeIconsBlobProvider();
+        aProject.getSession().getBlobSupport().addBlobProvider(this.blobProvider);
         
     }
 

@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoSymbolerdquo]]
 
-[[la-vue-symbole]]
+
+
 = La vue "Symbole"
 
 .La vue "Symbole"

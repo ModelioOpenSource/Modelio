@@ -244,7 +244,7 @@ public class NodeEditPart extends AbstractGraphicalEditPart implements org.eclip
          */
         @objid ("9957d4a1-feaa-411b-9d96-a57b91a9ceda")
         void colorize(GraphNode model, Figure rect, Label label, boolean focus);
-
-    }
+}
+    
 
 }

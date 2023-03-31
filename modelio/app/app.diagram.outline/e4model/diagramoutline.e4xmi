@@ -12,6 +12,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Ho1CgN_NEeKYSOCeOIScJg" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_JQb5gN_NEeKYSOCeOIScJg" elementId="diagram.outline.placeholder.0" ref="_Pd-8oKEeEeK4WrLkee8q9w"/>
+    <elements xsi:type="advanced:Placeholder" xmi:id="_JQb5gN_NEeKYSOCeOIScJg" elementId="diagram.outline.placeholder.0" ref="_Pd-8oKEeEeK4WrLkee8q9w" closeable="true"/>
   </fragments>
 </fragment:ModelFragments>

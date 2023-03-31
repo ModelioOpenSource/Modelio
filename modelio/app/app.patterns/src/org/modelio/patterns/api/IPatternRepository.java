@@ -116,5 +116,5 @@ public interface IPatternRepository {
      */
     @objid ("cff7163c-cb39-4c89-9a1a-419f84fda785")
     void removePattern(RuntimePattern pattern);
-
 }
+

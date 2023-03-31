@@ -30,7 +30,7 @@ import org.modelio.gproject.data.project.GProperties;
  * This class is an adapter between a GProperties (from a project or a project
  * descriptor) and a list of URLs
  * 
- * The url of a GProject/ProjectDescriptor are defined in the project properties
+ * The url of a IGProject/GProjectDescriptor are defined in the project properties
  * using special
  * property keys in the form of "info.page.nnn" where nnn is an integer from 0
  * to the number of defined urls (minus one). The <i>ProjectUrlAdapter</i>

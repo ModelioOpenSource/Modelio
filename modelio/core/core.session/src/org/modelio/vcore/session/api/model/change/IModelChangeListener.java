@@ -30,5 +30,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModelChangeListener {
     @objid ("001dfd1c-c252-1f3b-aafd-001ec947cd2a")
     void modelChanged(final IModelChangeEvent event);
-
 }
+

@@ -31,5 +31,5 @@ public interface IUnsignedNatValue extends IIntegerNatValue {
     @objid ("109112c4-9c7b-4684-94af-a953100a6e30")
     @Override
     Integer getValue();
-
 }
+

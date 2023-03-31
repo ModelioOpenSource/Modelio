@@ -41,9 +41,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.model.search.dialog.SearchDialog;
 import org.modelio.model.search.plugin.ModelSearch;
 import org.modelio.platform.core.events.ModelioEventTopics;
@@ -57,6 +56,7 @@ import org.modelio.platform.ui.UIImages;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.model.IModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.smkernel.meta.SmClass;
 
 /**
  * Provide a custom toolbar field (based on a combo) to provide the quick search service (search a name space from name pattern)
@@ -83,7 +83,7 @@ public class QuickSearchCombo extends TrimBarComponent {
     protected IModelioNavigationService navigationService;
 
     @objid ("00393dfc-a34e-10ac-8258-001ec947cd2a")
-    protected GProject project;
+    protected IGProject project;
 
     @objid ("000fdd22-c59e-10ab-8258-001ec947cd2a")
     protected Combo searchCombo;
@@ -99,7 +99,7 @@ public class QuickSearchCombo extends TrimBarComponent {
     @objid ("00110512-c59e-10ab-8258-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
+    void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject closedProject) {
         if (!QuickSearchCombo.this.searchCombo.isDisposed()) {
             QuickSearchCombo.this.searchCombo.setEnabled(false);
             QuickSearchCombo.this.searchCombo.removeAll();
@@ -113,7 +113,7 @@ public class QuickSearchCombo extends TrimBarComponent {
     @objid ("0010cade-c59e-10ab-8258-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, IProjectService projectService) {
+    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, IProjectService projectService) {
         QuickSearchCombo.this.searchCombo.setEnabled(true);
         QuickSearchCombo.this.searchCombo.removeAll();
         QuickSearchCombo.this.project = openedProject;
@@ -201,15 +201,21 @@ public class QuickSearchCombo extends TrimBarComponent {
         final ModelSearchEngine searchEngine = new ModelSearchEngine();
         final ModelSearchCriteria searchCriteria = new ModelSearchCriteria();
         searchCriteria.setExpression(expression);
-        searchCriteria.addMetaclass(NameSpace.class);
         searchCriteria.setIncludeRamc(true);
         searchCriteria.setStereotype("");
+        
+        for (String smcName : ModelSearchPanel.DEFAULT_SEARCH_METACLASSES) {
+            SmClass mc = this.project.getSession().getMetamodel().getMClass(smcName);
+            if (mc!=null)
+                searchCriteria.addMetaclass(mc);
+        }
+        
         
         final List<Element> found = searchEngine.search(session, searchCriteria);
         switch (found.size()) {
         case 0:
             // No element found
-            runExtendedSearch(expression);
+            runExtendedSearch(expression, searchCriteria);
             break;
         case 1:
             // One matching element found => navigate
@@ -226,13 +232,20 @@ public class QuickSearchCombo extends TrimBarComponent {
         
     }
 
+    /**
+     * Called when a quick search returned no results.
+     * @param quickSearchCriteria the quick search used criteria
+     */
     @objid ("0010400a-c59e-10ab-8258-001ec947cd2a")
-    private void runExtendedSearch(String expression) {
+    private void runExtendedSearch(String expression, ModelSearchCriteria quickSearchCriteria) {
         final ICoreSession session = this.project.getSession();
         final ModelSearchEngine searchEngine = new ModelSearchEngine();
         final ModelSearchCriteria searchCriteria = new ModelSearchCriteria();
         
-        searchCriteria.addMetaclass(NameSpace.class);
+        for ( Class<? extends MObject> mc : quickSearchCriteria.getMetaclasses()) {
+            searchCriteria.addMetaclass(mc);
+        }
+        
         searchCriteria.setIncludeRamc(true);
         searchCriteria.setStereotype("");
         
@@ -275,7 +288,7 @@ public class QuickSearchCombo extends TrimBarComponent {
     @objid ("00164fd5-f534-498f-8cb3-886c0a4ce24e")
     @Inject
     @Optional
-    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project, IProjectService projectService) {
+    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject project, IProjectService projectService) {
         // Save search history
         IPreferenceStore statePrefs = projectService.getStatePreferences();
         StatePersistenceHelper.saveState(statePrefs, this);

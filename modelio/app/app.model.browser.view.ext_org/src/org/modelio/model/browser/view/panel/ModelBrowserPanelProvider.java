@@ -62,7 +62,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.modelio.api.ui.dnd.ModelElementTransfer;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.AttributeLink;
@@ -75,6 +75,7 @@ import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
 import org.modelio.platform.core.picking.IPickingSession;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
+import org.modelio.platform.model.ui.swt.cell.ElementNameCellModifier;
 import org.modelio.platform.model.ui.swt.dnd.MObjectViewerDragProvider;
 import org.modelio.platform.model.ui.swt.dnd.MObjectViewerDropListener;
 import org.modelio.platform.model.ui.swt.edition.EditorActivationStrategy;
@@ -112,8 +113,8 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
     @objid ("1fc49985-1de3-11e2-bcbe-002564c97630")
     private ICoreSession modelingSession;
 
-    @objid ("1fc49984-1de3-11e2-bcbe-002564c97630")
-    private ElementNameModifier nameModifier;
+    @objid ("5cd1f2a3-7fdc-4a10-acf1-4f511275c23e")
+    private ElementNameCellModifier nameModifier;
 
     @objid ("345ab100-bede-11e1-b430-001ec947c8cc")
     private TreeViewer treeViewer;
@@ -179,7 +180,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         }
         
         if (this.treeViewer != null) {
-            this.nameModifier = new ElementNameModifier(this.modelingSession);
+            this.nameModifier = new ElementNameCellModifier();
             this.treeViewer.setCellModifier(this.nameModifier);
         
             if (this.dragListener == null) {
@@ -274,8 +275,8 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         this.treeViewer.setInput(input);
         if (input == null) {
             this.contentProvider.setLocalRoots(Collections.emptyList());
-        } else if (input instanceof GProject) {
-            activateEdition(((GProject) input).getSession());
+        } else if (input instanceof IGProject) {
+            activateEdition(((IGProject) input).getSession());
         }
         
     }

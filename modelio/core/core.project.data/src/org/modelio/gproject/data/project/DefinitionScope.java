@@ -22,10 +22,15 @@ package org.modelio.gproject.data.project;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
- * Scope of a fragment, module or parameter.
+ * Scope of an IGPart (model fragment, module, parameter and so on.) definition.
  * <p>
- * A fragment, module or parameter may be local to the machine or shared by a server.
- * Shared elements are not modifiable or removeable except on the server.
+ * When declared in a GProject configuration, an IGPart definition may be either LOCAL or SHARED:
+ * <ul>
+ * <li>a LOCAL definition is a definition that can modified locally by the end user. For example, a LOCAL module definition means that the end used can remove the module from the project</li>
+ * <li>a SHARED defintion is a definition that is set on the server side and that cannot be modified locally. A SHARED module for example cannot be removed or disabled locally by the end user</li>
+ * </ul>
+ * Note that this definition scope concept applies to others configuration elements such as module parameter values for example. Fixing a module parameter value definition as SHARED is typically really usefull when a given methodology or particular configuration has to be
+ * guaranteed in a project for all its members.
  */
 @objid ("59b03ab2-2ff2-11e2-8f81-001ec947ccaf")
 public enum DefinitionScope {

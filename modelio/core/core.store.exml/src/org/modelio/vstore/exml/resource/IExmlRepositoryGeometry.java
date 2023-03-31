@@ -167,5 +167,5 @@ public interface IExmlRepositoryGeometry {
      */
     @objid ("d717c499-1ceb-11e2-8eb9-001ec947ccaf")
     boolean isModelPath(String relativePath);
-
 }
+

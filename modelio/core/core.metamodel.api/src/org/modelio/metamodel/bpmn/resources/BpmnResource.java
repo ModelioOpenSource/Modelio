@@ -35,6 +35,9 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
  * 
  * 
  * <p>The Resource class is used to specify resources that can be referenced by Activities or processes or other BPMN elements such as datastores. These Resources can be Human Resources as well as any other resource assigned to Activities during Process execution time.</p><p>The definition of a Resource is &quot;abstract&quot;,&nbsp;because it only defines the Resource, without detailing how e.g., actual user IDs are associated at runtime. Multiple Activities can utilize the same Resource.</p><p>Every Resource can define a set of ResourceParameters. These parameters can be used at runtime to define query e.g., into an Organizational Directory. Every Activity referencing a parameterized Resource can bind values available in the scope of the Activity to these parameters.</p><p>&nbsp;</p>
+ * 
+ * 
+ * 
  */
 @objid ("00093d64-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnResource extends BpmnSharedElement {
@@ -55,6 +58,7 @@ public interface BpmnResource extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f9cab9fb-2901-4948-b775-fa88de1db184")
     EList<BpmnResourceRole> getResourceroleRefs();
@@ -64,6 +68,7 @@ public interface BpmnResource extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d093cc32-18f9-42b5-ba90-d6ade665da19")
     <T extends BpmnResourceRole> List<T> getResourceroleRefs(java.lang.Class<T> filterClass);
@@ -73,6 +78,7 @@ public interface BpmnResource extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7ce7b95e-806f-4f38-a78e-2ffe3ebe9d7e")
     EList<BpmnResourceParameter> getParameter();
@@ -82,8 +88,9 @@ public interface BpmnResource extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c8465658-e7c3-4c6e-9242-2937a691a30d")
     <T extends BpmnResourceParameter> List<T> getParameter(java.lang.Class<T> filterClass);
-
 }
+

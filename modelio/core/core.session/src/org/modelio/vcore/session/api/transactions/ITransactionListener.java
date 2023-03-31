@@ -40,5 +40,5 @@ public interface ITransactionListener {
 
     @objid ("001917ac-5b91-1f4e-bf23-001ec947cd2a")
     void onRedoTransaction(final Transaction theTransaction);
-
 }
+

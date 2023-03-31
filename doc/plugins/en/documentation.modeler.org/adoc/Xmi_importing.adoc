@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Importing-a-model-in-XMI-format]]
 
-[[importing-a-model-in-xmi-format]]
+
+
 = Importing a model in XMI format
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The Modelio XMI import operation is used to import a UML2 model into Modelio from an XMI file.
@@ -25,9 +25,9 @@ image::images/Xmi_importing_xmiimport.png[3]
 1. Right-click on a package to open the context menu.
 2. Run the "Import/Export \ Import \ XMI Import" command.
 
-[[The-ldquoXMI-Importrdquo-window]]
 
-[[the-xmi-import-window]]
+
+
 ===== The "XMI Import" window
 
 .The XMI import window

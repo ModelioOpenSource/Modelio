@@ -41,16 +41,13 @@ import org.modelio.vcore.model.api.MTools;
  */
 @objid ("80316eee-1dec-11e2-8cad-001ec947c8cc")
 public class ChangeLinkRoutingConstraintCommand extends Command {
-    @objid ("c1724591-c96c-4072-8d17-2f9fd68bd4ca")
+    @objid ("efdc32b6-fca1-4792-b270-0a85f4b15e2a")
     private boolean isForced;
 
     @objid ("e1ca5238-941b-4c2f-92d7-ab0cbc0fdf5a")
     protected final Connection connection;
 
-    @objid ("83483ee1-48da-4f71-b292-1f3e39d9e1f4")
-    private ConnectionEditPart connectionEP;
-
-    @objid ("eca3a130-475a-497f-b99b-d741981b6aa0")
+    @objid ("26751bbb-f131-4357-b679-4ec130d96b4a")
     protected final IGmPath initialPath;
 
     @objid ("80316efa-1dec-11e2-8cad-001ec947c8cc")
@@ -58,6 +55,9 @@ public class ChangeLinkRoutingConstraintCommand extends Command {
 
     @objid ("ce9f496b-fd7f-4eb9-b0db-3b37a90a5ef1")
     protected final ConnectionState connectionState;
+
+    @objid ("9816f321-3e59-4de9-bd6d-a145a2d4ce3b")
+    private ConnectionEditPart connectionEP;
 
     /**
      * Creates a command that changes the routing constraint of the given connection.
@@ -81,7 +81,7 @@ public class ChangeLinkRoutingConstraintCommand extends Command {
      * @param connectionEP the edit part of the connection to modify.
      * @param connectionState the connection state to save in the model
      */
-    @objid ("08969000-5310-433a-884a-77080fdff261")
+    @objid ("d9d465e4-5964-4d94-8885-a33294b251a7")
     public  ChangeLinkRoutingConstraintCommand(final ConnectionEditPart connectionEP, ConnectionState connectionState) {
         this(connectionEP, connectionState, false);
     }
@@ -90,7 +90,7 @@ public class ChangeLinkRoutingConstraintCommand extends Command {
      * Creates a command that synchronize the routing constraint of the model from the Connection figure routing constraint.
      * @param connectionEP the edit part of the connection to modify.
      */
-    @objid ("447ec4b1-84c8-4186-95c6-6efa59b9aeb2")
+    @objid ("4bc36366-1ca1-4c1f-834c-b57b2086fb83")
     public  ChangeLinkRoutingConstraintCommand(final ConnectionEditPart connectionEP) {
         this(connectionEP, new ConnectionState().init((Connection) connectionEP.getFigure()));
     }

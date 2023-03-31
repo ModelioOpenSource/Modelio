@@ -32,6 +32,11 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 
 /**
  * ProvidedInterface v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("00198dea-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ProvidedInterface extends UmlModelElement {
@@ -52,6 +57,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Interface provided by the Port.</i>
+     * 
      */
     @objid ("116dd96e-ba72-48a6-a449-fc1f3a562af0")
     EList<Interface> getProvidedElement();
@@ -61,6 +67,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Interface provided by the Port.</i>
+     * 
      */
     @objid ("0d8c0603-fbb1-490a-a084-b44031cdccb7")
     <T extends Interface> List<T> getProvidedElement(java.lang.Class<T> filterClass);
@@ -70,6 +77,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4e345139-0138-4820-81ce-a96960305d8c")
     Port getProviding();
@@ -79,6 +87,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("46bae6fb-f5df-4307-8ba4-9bf58b9d811b")
     void setProviding(Port value);
@@ -88,6 +97,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b2559747-82fd-4cfc-8715-86a10f5c2310")
     EList<LinkEnd> getConsumer();
@@ -97,6 +107,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4a1a0d66-0079-48e2-a8f0-394061249868")
     <T extends LinkEnd> List<T> getConsumer(java.lang.Class<T> filterClass);
@@ -106,6 +117,7 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8b3449a9-d69d-4a77-b8f2-ae878ef3bf82")
     EList<NaryLinkEnd> getNaryConsumer();
@@ -115,8 +127,9 @@ public interface ProvidedInterface extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f5f6aaf3-6867-46a5-8aae-669f63a6fb5d")
     <T extends NaryLinkEnd> List<T> getNaryConsumer(java.lang.Class<T> filterClass);
-
 }
+

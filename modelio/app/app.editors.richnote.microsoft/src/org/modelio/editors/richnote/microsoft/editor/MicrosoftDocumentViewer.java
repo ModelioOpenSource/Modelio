@@ -732,8 +732,8 @@ class MicrosoftDocumentViewer {
 
         @objid ("16ab6e82-1371-4e96-b031-b19d123e4b22")
         public static final int wdSaveChanges = -1;
-
-    }
+}
+    
 
     /**
      * {@link AutoCloseable} that make a backup of a file

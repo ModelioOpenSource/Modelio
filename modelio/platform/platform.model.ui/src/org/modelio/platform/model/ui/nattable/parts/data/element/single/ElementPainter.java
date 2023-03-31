@@ -47,7 +47,7 @@ import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
 import org.modelio.platform.model.ui.nattable.parts.data.NatValueWrappingLabelProvider;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
@@ -260,17 +260,17 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
             String name = this.labelProvider.getText(data);
             String description;
             if (data instanceof NoteType) {
-                description = ModuleI18NService.getDescription((NoteType) data);
+                description = MdaResources.getDescription((NoteType) data);
             } else if (data instanceof Profile) {
-                description = ModuleI18NService.getDescription((Profile) data);
+                description = MdaResources.getDescription((Profile) data);
             } else if (data instanceof PropertyDefinition) {
-                description = ModuleI18NService.getDescription((PropertyDefinition) data);
+                description = MdaResources.getDescription((PropertyDefinition) data);
             } else if (data instanceof ResourceType) {
-                description = ModuleI18NService.getDescription((ResourceType) data);
+                description = MdaResources.getDescription((ResourceType) data);
             } else if (data instanceof Stereotype) {
-                description = ModuleI18NService.getDescription((Stereotype) data);
+                description = MdaResources.getDescription((Stereotype) data);
             } else if (data instanceof TagType) {
-                description = ModuleI18NService.getDescription((TagType) data);
+                description = MdaResources.getDescription((TagType) data);
             } else if (data instanceof ModelElement) {
                 description = ((ModelElement) data).getNoteContent("ModelerModule", ModelElement.MQNAME, "description");
             } else {

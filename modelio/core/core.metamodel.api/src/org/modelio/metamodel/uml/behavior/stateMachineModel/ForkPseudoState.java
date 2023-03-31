@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * ForkPseudoState vertices serve to split an incoming transition into two or more transitions terminating on orthogonal target vertices (i.e., vertices in different regions of a composite state). The segments outgoing from a fork vertex must not have guards or triggers.
+ * 
+ * 
  */
 @objid ("00504830-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ForkPseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface ForkPseudoState extends AbstractPseudoState {
      */
     @objid ("91333213-9d8c-4fd7-901b-5e3895ccee69")
     public static final String MQNAME = "Standard.ForkPseudoState";
-
 }
+

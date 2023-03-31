@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IExportConfiguration {
     @objid ("6f255588-5270-4f36-b921-d57fa0efdf6b")
     public static final String COMPATIBILITY_MODE = "export.compatibility_mode";
-
 }
+

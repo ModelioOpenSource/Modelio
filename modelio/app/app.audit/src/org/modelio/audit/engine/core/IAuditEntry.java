@@ -49,5 +49,5 @@ public interface IAuditEntry {
 
     @objid ("86e00265-a7a6-4161-b89c-320cbe9ffb15")
     void setSeverity(AuditSeverity severity);
-
 }
+

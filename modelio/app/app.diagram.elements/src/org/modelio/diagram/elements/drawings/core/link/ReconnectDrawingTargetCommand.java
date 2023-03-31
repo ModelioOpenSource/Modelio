@@ -67,9 +67,9 @@ public class ReconnectDrawingTargetCommand extends Command {
         updateLinkTarget();
         
         if (this.anchorModel != null) {
-            GmPath newPath = new GmPath(this.gmLink.getPath());
-            newPath.setTargetAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(newPath);
+        	GmPath newPath = new GmPath(this.gmLink.getPath());
+        	newPath.setTargetAnchor(this.anchorModel);
+        	this.gmLink.setLayoutData(newPath);
         }
         
     }

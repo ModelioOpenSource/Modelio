@@ -36,6 +36,9 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
  * 
  * 
  * <p>An Interface defines a set of operations that are implemented by Services.</p><p>The Interface inherits the attributes and model associations of BaseElement through its relationship&nbsp;to RootElement.--</p>
+ * 
+ * 
+ * 
  */
 @objid ("000de92c-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnInterface extends BpmnSharedElement {
@@ -56,6 +59,7 @@ public interface BpmnInterface extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bdeb9cbd-4e2a-46bc-84c5-a9d11907b6d2")
     EList<BpmnOperation> getOperation();
@@ -65,6 +69,7 @@ public interface BpmnInterface extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("51579b7a-6edf-4a91-8063-705f8ade6e00")
     <T extends BpmnOperation> List<T> getOperation(java.lang.Class<T> filterClass);
@@ -74,6 +79,7 @@ public interface BpmnInterface extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c34a139a-89fc-4889-8399-9db37cee09c6")
     EList<BpmnParticipant> getParticipantRef();
@@ -83,8 +89,9 @@ public interface BpmnInterface extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("aa724bd1-6103-4201-b3e9-83f0c86206b2")
     <T extends BpmnParticipant> List<T> getParticipantRef(java.lang.Class<T> filterClass);
-
 }
+

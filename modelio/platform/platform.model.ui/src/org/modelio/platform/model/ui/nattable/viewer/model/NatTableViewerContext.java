@@ -26,7 +26,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.modelio.api.modelio.model.scope.ElementScope;
 import org.modelio.api.module.mda.IMdaExpert;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.core.activation.IActivationService;
@@ -174,7 +174,7 @@ public class NatTableViewerContext implements INatTableViewerContext {
 
         @objid ("4e01ffea-284b-4e3a-aa02-5b4d1d4d207b")
         @Override
-        public GProject getOpenedProject() {
+        public IGProject getOpenedProject() {
             return null;
         }
 

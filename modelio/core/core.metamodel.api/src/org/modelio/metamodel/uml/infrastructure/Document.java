@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Represents a rich note stored outside the database.</p><p>The rich note has a specified MIME type that allows choosing an adequate editor to modify it. It may have or not a path telling where it is stored. It may also have an abstract containing a resume, statistics or other informations telling what the document contains without having to open it.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00924014-c4be-1fd8-97fe-001ec947cd2a")
 public interface Document extends AbstractResource {
@@ -53,6 +56,7 @@ public interface Document extends AbstractResource {
      * Metamodel description:
      * <i>An Abstract/Resume of the rich note.
      * Tells what the rich note contains without having to open it.</i>
+     * 
      */
     @objid ("6bed717c-6cff-4a1a-a8d5-4a38a8f9bc84")
     String getAbstract();
@@ -63,8 +67,9 @@ public interface Document extends AbstractResource {
      * Metamodel description:
      * <i>An Abstract/Resume of the rich note.
      * Tells what the rich note contains without having to open it.</i>
+     * 
      */
     @objid ("7b810d4f-6dfa-441b-971f-e446b26bbfea")
     void setAbstract(String value);
-
 }
+

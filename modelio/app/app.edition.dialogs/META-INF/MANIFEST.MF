@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Edition Dialogs
 Bundle-SymbolicName: org.modelio.app.edition.dialogs;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Localization: plugin
 Bundle-Activator: org.modelio.edition.dialogs.plugin.EditionDialogs
 Bundle-Vendor: modelio.org
@@ -28,7 +28,7 @@ Require-Bundle: org.eclipse.ui,
  org.modelio.platform.mda.infra,
  org.modelio.app.module.propertytab,
  org.modelio.platform.rcp
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ClassPath: res/,
  .
 Bundle-ActivationPolicy: lazy 

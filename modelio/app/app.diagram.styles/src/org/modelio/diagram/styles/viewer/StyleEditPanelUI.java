@@ -59,6 +59,21 @@ class StyleEditPanelUI implements IStyleChangeListener {
     @objid ("7ffaf729-42c5-416f-abff-16fdce06c09a")
     private final boolean tableMode;
 
+    @objid ("cd6371f6-a906-4443-9713-bfe1df0c9eff")
+    ColumnViewer viewer;
+
+    @objid ("8c8157a6-f509-4df7-b03e-c2f6e4ed4145")
+    private Label descriptionText;
+
+    @objid ("830d01bc-3427-42c4-9d0c-6b4d6c7361cb")
+    private SashForm sash;
+
+    @objid ("55306629-9575-49dd-a916-6b2c07f093bd")
+    private MenuManager contextualMenu;
+
+    @objid ("6411cd61-28f7-47ac-a3d4-ce1870690ea7")
+    private ViewerColumn col1;
+
     @objid ("d347a428-9f58-4fa7-8513-9aa5ecc71353")
     private StyleEditPanelUIData model = new StyleEditPanelUIData();
 
@@ -68,23 +83,8 @@ class StyleEditPanelUI implements IStyleChangeListener {
     @objid ("a69d5e8b-ec5e-4418-8bd7-5227a347afd6")
     private StyleEditPanelController controller;
 
-    @objid ("3cad4e57-92e0-416c-943e-2fb1ef193139")
-    ColumnViewer viewer;
-
-    @objid ("8e84fea0-7733-4b8b-ba40-653caa127ae8")
-    private Label descriptionText;
-
-    @objid ("2e2affc0-fd90-4bf6-be91-78b58586496d")
-    private SashForm sash;
-
-    @objid ("acf41017-3387-4442-b74e-ea4ab8249f1f")
-    private MenuManager contextualMenu;
-
     @objid ("69fdb0da-adfe-4ca2-8794-b8ab8d37ffc3")
     private StyleEditPanelSelection selectionComputations;
-
-    @objid ("01b7e78d-2b0e-4144-8cec-e3bd296e96b4")
-    private ViewerColumn col1;
 
     /**
      * @return the Modelio picking service
@@ -125,7 +125,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
     private ViewerColumn createTreeViewerColumn(StyleEditPanelUI ui, String title, int bound) {
         if (this.tableMode) {
             final TableViewerColumn column = new TableViewerColumn((TableViewer) ui.viewer, SWT.NONE);
-            column.getColumn().setText(title);
+            //column.getColumn().setText(title);
             column.getColumn().setWidth(bound);
             column.getColumn().setResizable(true);
             column.getColumn().setMoveable(true);
@@ -161,9 +161,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
         final int[] columnInitialWidths = { 150, 150 };
         
         // First column is for the style key name
-        this.col1 = createTreeViewerColumn(ui,
-                columnTitles[0],
-                columnInitialWidths[0]);
+        this.col1 = createTreeViewerColumn(ui, columnTitles[0], columnInitialWidths[0]);
         
         if (this.tableMode) {
             this.col1.setLabelProvider(new KeyTableLabelProvider(
@@ -205,7 +203,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
                             | SWT.H_SCROLL | SWT.V_SCROLL
                             | SWT.FULL_SELECTION);
             this.viewer = tableViewer;
-            tableViewer.getTable().setHeaderVisible(true);
+            //tableViewer.getTable().setHeaderVisible(true);
             tableViewer.getTable().setLinesVisible(true);
             this.viewer.setContentProvider(new StyleDataTableContentProvider(this.model));
         } else {

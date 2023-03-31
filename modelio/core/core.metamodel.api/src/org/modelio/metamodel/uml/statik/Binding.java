@@ -52,6 +52,10 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * This Binding is generally independent of the Model or the Base of the occurrence (that is, it is not necessary to express the type of a role if it is bound to typed elements).
  *          
  * In Modelio, a Binding belongs to a CollaborationUse.
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("00015824-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Binding extends UmlModelElement {
@@ -72,6 +76,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5290c644-1d27-4d53-ae23-a250154dcec5")
     ConnectorEnd getConnectorEndRole();
@@ -81,6 +86,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0d6fe701-2c49-4af9-a0bb-9ddcc0419d64")
     void setConnectorEndRole(ConnectorEnd value);
@@ -90,6 +96,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("39a172fe-cdb8-4614-9ec7-f133dbf796a0")
     NaryConnector getConnectorRole();
@@ -99,6 +106,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a03dce65-2abf-4b43-9076-ad64d90230b8")
     void setConnectorRole(NaryConnector value);
@@ -108,6 +116,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("092c42f0-dbd8-4342-b31f-28edb402f5b3")
     BindableInstance getRole();
@@ -117,6 +126,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1e78861a-1278-4fc2-ab5b-71aef2b4bda3")
     void setRole(BindableInstance value);
@@ -126,6 +136,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("844b1aec-4046-4530-ac75-43002ba9a75c")
     UmlModelElement getRepresentedFeature();
@@ -135,6 +146,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("808b1817-9e82-4c08-babb-c0a41bd89417")
     void setRepresentedFeature(UmlModelElement value);
@@ -144,6 +156,7 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8c9f9096-673e-4c30-8a19-22f345697eea")
     CollaborationUse getOwner();
@@ -153,8 +166,9 @@ public interface Binding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f2a84aa5-3faf-4e8a-bfde-983c42a136ce")
     void setOwner(CollaborationUse value);
-
 }
+

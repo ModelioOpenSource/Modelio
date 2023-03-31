@@ -27,7 +27,7 @@ import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Profile;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -46,6 +46,7 @@ import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class handles the properties needed during an XMI import
+ * 
  * @author ebrosse
  */
 @objid ("d7222852-f092-473a-84f5-4de3008d8426")
@@ -71,20 +72,22 @@ public class ReverseProperties extends XMIProperties {
     @objid ("3f62e1b0-788c-411b-9a60-7de9cae8d3f2")
     private int currentLineNumber = 40;
 
+    @objid ("6e8c2e75-c3cd-4e9b-bbb9-d538605e08df")
+    private static final String LOCAL_PROFILE = "LocalProfile";
+
     @objid ("689a7ae9-45cc-4d24-8879-5dc950befeda")
     private Set<org.eclipse.uml2.uml.Package> ecoreModel = null;
 
     @objid ("e25a4737-d716-4a21-ad57-659ae3d46858")
     private Profile ecoreProfile = null;
 
-    @objid ("6e8c2e75-c3cd-4e9b-bbb9-d538605e08df")
-    private static final String LOCAL_PROFILE = "LocalProfile";
-
     @objid ("b0414071-545a-428c-9f43-d1f9bba8ee7d")
     private ModuleComponent profileRoot = null;
 
-    //    @objid ("596c91ec-0d01-4f19-8f05-aba90e28c48b")
-    //    private Package umlRoot = null;
+    /*
+     * //    @objid ("596c91ec-0d01-4f19-8f05-aba90e28c48b")
+     * //    private Package umlRoot = null;
+     */
     @objid ("de7bebaf-7b1e-4ee4-827e-b3ee0495f144")
     private ICoreSession session = null;
 
@@ -125,8 +128,9 @@ public class ReverseProperties extends XMIProperties {
      */
     @objid ("afc8eee0-d9cf-4e10-abd0-3b4de48f584c")
     public static ReverseProperties getInstance() {
-        if (INSTANCE == null)
+        if (INSTANCE == null) {
             INSTANCE = new ReverseProperties();
+        }
         return INSTANCE;
     }
 
@@ -191,19 +195,19 @@ public class ReverseProperties extends XMIProperties {
     public void initialize(final IMModelServices mmService, final MMetamodel metamodel, final IModelioNavigationService navigationService) {
         super.initialize(mmService, metamodel, navigationService);
         
-        //Clear Import maps
+        // Clear Import maps
         TotalImportMap.getInstance().clear();
         PartialImportMap.getInstance().clear();
         
-        //Set primitive type correspondance
+        // Set primitive type correspondance
         this.ecoreUMLTypes = new EcoreUMLTypes();
         
-        //Initialize data
+        // Initialize data
         this.appliedProfiles = new ArrayList<>();
         this.externalPackage = null;
         this.partialCreationImportVisitor = new PartialCreationImportVisitor();
         
-        if (this.ecoreModel != null){
+        if (this.ecoreModel != null) {
             this.ecoreModel.clear();
         }
         
@@ -220,7 +224,7 @@ public class ReverseProperties extends XMIProperties {
      */
     @objid ("e645384e-973b-4223-8301-f609e1d87d6d")
     public void addEcoreModel(org.eclipse.uml2.uml.Package model) {
-        if (this.ecoreModel == null){
+        if (this.ecoreModel == null) {
             this.ecoreModel = new HashSet<>();
         }
         
@@ -249,8 +253,9 @@ public class ReverseProperties extends XMIProperties {
         
         Object mappedElement = totalCreationMap.get(ecoreElt);
         
-        if (mappedElement == null)
+        if (mappedElement == null) {
             mappedElement = partialCreationMap.get(ecoreElt);
+        }
         
         if (mappedElement == null) {
             mappedElement = this.partialCreationImportVisitor
@@ -266,12 +271,13 @@ public class ReverseProperties extends XMIProperties {
      */
     @objid ("3a770e32-6569-420c-ba3e-fccbf7a17d15")
     public boolean isMappedElement(org.eclipse.uml2.uml.Element ecoreElt) {
-        if (TotalImportMap.getInstance().get(ecoreElt) != null)
+        if (TotalImportMap.getInstance().get(ecoreElt) != null) {
             return true;
-        else if (PartialImportMap.getInstance().get(ecoreElt) != null)
+        } else if (PartialImportMap.getInstance().get(ecoreElt) != null) {
             return true;
-        else
+        } else {
             return false;
+        }
         
     }
 
@@ -335,7 +341,7 @@ public class ReverseProperties extends XMIProperties {
     @objid ("60b2a3eb-2232-4e7c-89a6-8d5c2b44ea98")
     public void clean() {
         this.ecoreModel.clear();
-        if ((this.externalPackage != null) && (this.externalPackage.getOwnedElement().size() == 0)) {
+        if (this.externalPackage != null && this.externalPackage.getOwnedElement().size() == 0) {
             this.externalPackage.delete();
         }
         this.externalPackage = null;
@@ -350,8 +356,9 @@ public class ReverseProperties extends XMIProperties {
      */
     @objid ("b2d63ec7-36a7-4150-95d3-aab6da3aafc9")
     public void addAppliedProfile(final String appliedProfile) {
-        if (!this.appliedProfiles.contains(appliedProfile))
+        if (!this.appliedProfiles.contains(appliedProfile)) {
             this.appliedProfiles.add(appliedProfile);
+        }
         
     }
 
@@ -361,11 +368,11 @@ public class ReverseProperties extends XMIProperties {
      */
     @objid ("eb3df0ab-642c-495f-893e-0d8d67582555")
     public Package getExternalPackage() {
-        if (this.externalPackage == null){
+        if (this.externalPackage == null) {
             this.externalPackage = this.mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createPackage();
             this.externalPackage.setName(Xmi.I18N.getString("Ui.ExternalPackage.Name"));
             ModelElement root = this.rootElements.get(0);
-            for (MObject modelRoot : GProject.getProject(root).getFragment(root).getRoots()){
+            for (MObject modelRoot : AbstractGProject.getProject(root).getFragment(root).getRoots()) {
                 if (modelRoot instanceof Project) {
                     EList<Package> model = ((Project) modelRoot).getModel();
                     if (model.size() > 0) {
@@ -398,168 +405,787 @@ public class ReverseProperties extends XMIProperties {
 
     @objid ("4236fdb5-440e-42c8-94c2-a965990cc4a6")
     @Override
-    @SuppressWarnings("serial")
+    @SuppressWarnings ("serial")
     protected void initUMLClassTabConvertion() {
         this.umlClassTabConvertion = new HashMap<>();
-        this.umlClassTabConvertion.put("AcceptCallEventAction",  new ArrayList<String>(){{add("AcceptCallEventAction");}});
-        this.umlClassTabConvertion.put("AcceptEventAction",  new ArrayList<String>(){{add("AcceptCallEventAction");
-        add("AcceptSignalAction"); add("AcceptChangeEventAction");add("AcceptTimeEventAction");}});
-        this.umlClassTabConvertion.put("Action",  new ArrayList<String>(){{add("ActivityAction");}});
-        this.umlClassTabConvertion.put("ActionInputPin",  new ArrayList<String>(){{add("InputPin");}});
-        this.umlClassTabConvertion.put("Activity",  new ArrayList<String>(){{add("Activity");}});
-        this.umlClassTabConvertion.put("ActivityEdge",  new ArrayList<String>(){{add("ActivityEdge");}});
-        this.umlClassTabConvertion.put("ActivityFinalNode",  new ArrayList<String>(){{add("ActivityFinalNode");}});
-        this.umlClassTabConvertion.put("ActivityParameterNode",  new ArrayList<String>(){{add("ActivityParameterNode");}});
-        this.umlClassTabConvertion.put("ActivityPartition",  new ArrayList<String>(){{add("ActivityPartition");}});
-        this.umlClassTabConvertion.put("Actor",  new ArrayList<String>(){{add("Actor");}});
-        this.umlClassTabConvertion.put("AddStructuralFeature",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("AddVariableValueAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("AnyReceiveEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("Artifact",  new ArrayList<String>(){{add("Artifact");}});
-        this.umlClassTabConvertion.put("Association",  new ArrayList<String>(){{add("Association");}});
-        this.umlClassTabConvertion.put("AssociationClass",  new ArrayList<String>(){{add("Class");}});
-        this.umlClassTabConvertion.put("Behavior",  new ArrayList<String>(){{add("Behavior");}});
-        this.umlClassTabConvertion.put("BehaviorFeature",  new ArrayList<String>(){{add("Operation");}});
-        this.umlClassTabConvertion.put("BroadcastSignalAction",  new ArrayList<String>(){{add("SendSignalAction");}});
-        this.umlClassTabConvertion.put("CallBehaviorAction",  new ArrayList<String>(){{add("CallBehaviorAction");}});
-        this.umlClassTabConvertion.put("CallEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("CallOperationAction",  new ArrayList<String>(){{add("CallOperationAction");}});
-        this.umlClassTabConvertion.put("CentralBufferNode",  new ArrayList<String>(){{add("CentralBufferNode");}});
-        this.umlClassTabConvertion.put("ChangeEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("Class",  new ArrayList<String>(){{add("Class");}});
-        this.umlClassTabConvertion.put("Classifier",  new ArrayList<String>(){{add("Classifier");
-        add("Association"); add("Collaboration");}});
-        this.umlClassTabConvertion.put("ClassifierTemplateParameter",  new ArrayList<String>(){{add("TemplateParameter");}});
-        this.umlClassTabConvertion.put("Clause",  new ArrayList<String>(){{add("Clause");}});
-        this.umlClassTabConvertion.put("ClearAssociationAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ClearStructuralFeatureAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ClearVariableAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("Collaboration",  new ArrayList<String>(){{add("Collaboration");}});
-        this.umlClassTabConvertion.put("CollaborationUse",  new ArrayList<String>(){{add("CollaborationUse");}});
-        this.umlClassTabConvertion.put("Comment",  new ArrayList<String>(){{add("Note");}});
-        this.umlClassTabConvertion.put("CommunicationPath",  new ArrayList<String>(){{add("Association");}});
-        this.umlClassTabConvertion.put("Component",  new ArrayList<String>(){{add("Component");}});
-        this.umlClassTabConvertion.put("ConditionalNode",  new ArrayList<String>(){{add("ConditionalNode");}});
-        this.umlClassTabConvertion.put("ConnectableElement",  new ArrayList<String>(){{add("Parameter");
-        add("BehaviorParameter"); add("AssociationEnd"); add("BindableInstance"); add("Attribute");}});
-        this.umlClassTabConvertion.put("Connector",  new ArrayList<String>(){{add("Connector");}});
-        this.umlClassTabConvertion.put("ConnectorEnd",  new ArrayList<String>(){{add("ConnectorEnd");}});
-        this.umlClassTabConvertion.put("Constraint",  new ArrayList<String>(){{add("Class");}});
-        this.umlClassTabConvertion.put("ControlFlow",  new ArrayList<String>(){{add("ControlFlow");}});
-        this.umlClassTabConvertion.put("CreateLinkAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("CreateLinkObject",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("CreateObjectAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("CreationEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("DataStoreNode",  new ArrayList<String>(){{add("DataStoreNode");}});
-        this.umlClassTabConvertion.put("DataType",  new ArrayList<String>(){{add("DataType");}});
-        this.umlClassTabConvertion.put("DecisionNode",  new ArrayList<String>(){{add("DecisionMergeNode");}});
-        this.umlClassTabConvertion.put("DeploymentSpecification",  new ArrayList<String>(){{add("Artifact");}});
-        this.umlClassTabConvertion.put("DestroyLinkAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("DestroyObjectAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("DestructionEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("Device",  new ArrayList<String>(){{add("Node");}});
-        this.umlClassTabConvertion.put("ElementImport",  new ArrayList<String>(){{add("ElementImport");}});
-        this.umlClassTabConvertion.put("Enumeration",  new ArrayList<String>(){{add("Enumeration");}});
-        this.umlClassTabConvertion.put("EnumerationLiteral",  new ArrayList<String>(){{add("EnumerationLiteral");}});
-        this.umlClassTabConvertion.put("Event",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("ExceptionHandler",  new ArrayList<String>(){{add("ObjectFlow");}});
-        this.umlClassTabConvertion.put("ExecutionEnvironment",  new ArrayList<String>(){{add("Node");}});
-        this.umlClassTabConvertion.put("ExecutionEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("ExpansionNode",  new ArrayList<String>(){{add("Pin");}});
-        this.umlClassTabConvertion.put("ExpansionRegion",  new ArrayList<String>(){{add("StructuredActivityNode");}});
-        this.umlClassTabConvertion.put("ExtensionPoint",  new ArrayList<String>(){{add("ExtensionPoint");}});
-        this.umlClassTabConvertion.put("Feature",  new ArrayList<String>(){{add("Feature");}});
-        this.umlClassTabConvertion.put("FinalState",  new ArrayList<String>(){{add("FinalState");}});
-        this.umlClassTabConvertion.put("FlowFinalNode",  new ArrayList<String>(){{add("FlowFinalNode");}});
-        this.umlClassTabConvertion.put("ForkNode",  new ArrayList<String>(){{add("ForkJoinNode");}});
-        this.umlClassTabConvertion.put("Gate",  new ArrayList<String>(){{add("Gate");}});
-        this.umlClassTabConvertion.put("Generalization",  new ArrayList<String>(){{add("Generalization");}});
-        this.umlClassTabConvertion.put("InformationFlow",  new ArrayList<String>(){{add("InformationFlow");}});
-        this.umlClassTabConvertion.put("InformationItem",  new ArrayList<String>(){{add("InformationItem");}});
-        this.umlClassTabConvertion.put("InitialNode",  new ArrayList<String>(){{add("InitialNode");}});
-        this.umlClassTabConvertion.put("InputPin",  new ArrayList<String>(){{add("InputPin");}});
-        this.umlClassTabConvertion.put("InstanceSpecification",  new ArrayList<String>(){{add("Link");
-        add("Instance");add("EnumerationLiteral");}});
-        this.umlClassTabConvertion.put("Interaction",  new ArrayList<String>(){{add("Interaction");}});
-        this.umlClassTabConvertion.put("Interface",  new ArrayList<String>(){{add("Interface");}});
-        this.umlClassTabConvertion.put("InterfaceRealization",  new ArrayList<String>(){{add("InterfaceRealization");}});
-        this.umlClassTabConvertion.put("InterruptibleActivityRegion",  new ArrayList<String>(){{add("InterruptibleActivityRegion");}});
-        this.umlClassTabConvertion.put("InvocationAction",  new ArrayList<String>(){{add("CallAction");
-        add("SendSignalAction"); add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("JoinNode",  new ArrayList<String>(){{add("ForkJoinNode");}});
-        this.umlClassTabConvertion.put("Lifeline",  new ArrayList<String>(){{add("Lifeline");}});
-        this.umlClassTabConvertion.put("LoopNode",  new ArrayList<String>(){{add("LoopNode");}});
-        this.umlClassTabConvertion.put("Manifestation",  new ArrayList<String>(){{add("Manifestation");}});
-        this.umlClassTabConvertion.put("MergeNode",  new ArrayList<String>(){{add("DecisionMergeNode");}});
-        this.umlClassTabConvertion.put("Message",  new ArrayList<String>(){{add("Message");}});
-        this.umlClassTabConvertion.put("MessageOccurrenceSpecification",  new ArrayList<String>(){{add("MessageOccurrenceSpecification");}});
-        this.umlClassTabConvertion.put("Model",  new ArrayList<String>(){{add("Package");}});
-        this.umlClassTabConvertion.put("Node",  new ArrayList<String>(){{add("Node");}});
-        this.umlClassTabConvertion.put("ObjectFlow",  new ArrayList<String>(){{add("ObjectFlow");}});
-        this.umlClassTabConvertion.put("ObjectNode",  new ArrayList<String>(){{add("ObjectNode");}});
-        this.umlClassTabConvertion.put("OccurenceSpecification",  new ArrayList<String>(){{add("OccurenceSpecification");}});
-        this.umlClassTabConvertion.put("OpaqueAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("OpaqueBehavior",  new ArrayList<String>(){{add("Signal");}});
-        this.umlClassTabConvertion.put("Operation",  new ArrayList<String>(){{add("Operation");}});
-        this.umlClassTabConvertion.put("OperationTemplateParameter",  new ArrayList<String>(){{add("Parameter");}});
-        this.umlClassTabConvertion.put("OutputPin",  new ArrayList<String>(){{add("OutputPin");}});
-        this.umlClassTabConvertion.put("Package",  new ArrayList<String>(){{add("Package");}});
-        this.umlClassTabConvertion.put("PackageImport",  new ArrayList<String>(){{add("PackageImport");}});
-        this.umlClassTabConvertion.put("PackageMerge",  new ArrayList<String>(){{add("PackageMerge");}});
-        this.umlClassTabConvertion.put("Parameter",  new ArrayList<String>(){{add("Parameter");}});
-        this.umlClassTabConvertion.put("Pin",  new ArrayList<String>(){{add("Pin");}});
-        this.umlClassTabConvertion.put("Port",  new ArrayList<String>(){{add("Port");}});
-        this.umlClassTabConvertion.put("PrimitiveType",  new ArrayList<String>(){{add("DataType");}});
-        this.umlClassTabConvertion.put("Profile",  new ArrayList<String>(){{add("Profile");}});
-        this.umlClassTabConvertion.put("Property",  new ArrayList<String>(){{add("AssociationEnd");
-        add("BindableInstance"); add("Attribute");}});
-        this.umlClassTabConvertion.put("ProtocolStateMachine",  new ArrayList<String>(){{add("StateMachine");}});
-        this.umlClassTabConvertion.put("ProtocolTransition",  new ArrayList<String>(){{add("Transition");add("InternalTransition");}});
-        this.umlClassTabConvertion.put("PseudoState",  new ArrayList<String>(){{add("PseudoState");}});
-        this.umlClassTabConvertion.put("RaiseExceptionAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadExtentAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadIsClassifierAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadLinkAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadLinkObjectEndAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadLinkObjectEndQualifierAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadSelfAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadStructuralFeatureAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReadVariableAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("Realization",  new ArrayList<String>(){{add("Realization");}});
-        this.umlClassTabConvertion.put("Reception",  new ArrayList<String>(){{add("Operation");}});
-        this.umlClassTabConvertion.put("ReclassifyObjectAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("RedefinableTemplateSignature",  new ArrayList<String>(){{add("Operation");}});
-        this.umlClassTabConvertion.put("ReduceAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("Region",  new ArrayList<String>(){{add("Region");}});
-        this.umlClassTabConvertion.put("RemoveStructuralFeatureValueAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("RemoveVariableValueAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("ReplyAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("SendObjectAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("SendSignalAction",  new ArrayList<String>(){{add("SendSignalAction");}});
-        this.umlClassTabConvertion.put("SequenceNode",  new ArrayList<String>(){{add("StructuredActivityNode");}});
-        this.umlClassTabConvertion.put("Signal",  new ArrayList<String>(){{add("Signal");}});
-        this.umlClassTabConvertion.put("Slot",  new ArrayList<String>(){{add("Port");
-        add("BindableInstance");add("ConnectorEnd");add("LinkEnd");}});
-        this.umlClassTabConvertion.put("StartClassifierBehaviorAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("State",  new ArrayList<String>(){{add("State");}});
-        this.umlClassTabConvertion.put("StateInvariant",  new ArrayList<String>(){{add("StateInvariant");}});
-        this.umlClassTabConvertion.put("StateMachine",  new ArrayList<String>(){{add("StateMachine");}});
-        this.umlClassTabConvertion.put("StructuredActivityNode",  new ArrayList<String>(){{add("StructuredActivityNode");}});
-        this.umlClassTabConvertion.put("StructuredClassifier",  new ArrayList<String>(){{add("Collaboration");
-        add("Class");add("Behavior");add("Node");}});
-        this.umlClassTabConvertion.put("Substitution",  new ArrayList<String>(){{add("Substitution");}});
-        this.umlClassTabConvertion.put("TemplateBinding",  new ArrayList<String>(){{add("TemplateBinding");}});
-        this.umlClassTabConvertion.put("TemplateParameter",  new ArrayList<String>(){{add("TemplateParameter");}});
-        this.umlClassTabConvertion.put("TemplateParameterSubstitution",  new ArrayList<String>(){{add("TemplateParameterSubstitution");}});
-        this.umlClassTabConvertion.put("TemplateSignature",  new ArrayList<String>(){{add("Operation");}});
-        this.umlClassTabConvertion.put("TestIdentityAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("TimeEvent",  new ArrayList<String>(){{add("Event");}});
-        this.umlClassTabConvertion.put("Transition",  new ArrayList<String>(){{add("Transition");add("InternalTransition");}});
-        this.umlClassTabConvertion.put("UnmarshallAction",  new ArrayList<String>(){{add("OpaqueAction");}});
-        this.umlClassTabConvertion.put("Usage",  new ArrayList<String>(){{add("Usage");}});
-        this.umlClassTabConvertion.put("UseCase",  new ArrayList<String>(){{add("UseCase");}});
-        this.umlClassTabConvertion.put("ValuePin",  new ArrayList<String>(){{add("InputPin");}});
-        this.umlClassTabConvertion.put("ValueSpecificationAction",  new ArrayList<String>(){{add("OpaqueAction");}});
+        this.umlClassTabConvertion.put("AcceptCallEventAction", new ArrayList<String>() {
+            {
+                add("AcceptCallEventAction");
+            }
+        });
+        this.umlClassTabConvertion.put("AcceptEventAction", new ArrayList<String>() {
+            {
+                add("AcceptCallEventAction");
+                add("AcceptSignalAction");
+                add("AcceptChangeEventAction");
+                add("AcceptTimeEventAction");
+            }
+        });
+        this.umlClassTabConvertion.put("Action", new ArrayList<String>() {
+            {
+                add("ActivityAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ActionInputPin", new ArrayList<String>() {
+            {
+                add("InputPin");
+            }
+        });
+        this.umlClassTabConvertion.put("Activity", new ArrayList<String>() {
+            {
+                add("Activity");
+            }
+        });
+        this.umlClassTabConvertion.put("ActivityEdge", new ArrayList<String>() {
+            {
+                add("ActivityEdge");
+            }
+        });
+        this.umlClassTabConvertion.put("ActivityFinalNode", new ArrayList<String>() {
+            {
+                add("ActivityFinalNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ActivityParameterNode", new ArrayList<String>() {
+            {
+                add("ActivityParameterNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ActivityPartition", new ArrayList<String>() {
+            {
+                add("ActivityPartition");
+            }
+        });
+        this.umlClassTabConvertion.put("Actor", new ArrayList<String>() {
+            {
+                add("Actor");
+            }
+        });
+        this.umlClassTabConvertion.put("AddStructuralFeature", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("AddVariableValueAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("AnyReceiveEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("Artifact", new ArrayList<String>() {
+            {
+                add("Artifact");
+            }
+        });
+        this.umlClassTabConvertion.put("Association", new ArrayList<String>() {
+            {
+                add("Association");
+            }
+        });
+        this.umlClassTabConvertion.put("AssociationClass", new ArrayList<String>() {
+            {
+                add("Class");
+            }
+        });
+        this.umlClassTabConvertion.put("Behavior", new ArrayList<String>() {
+            {
+                add("Behavior");
+            }
+        });
+        this.umlClassTabConvertion.put("BehaviorFeature", new ArrayList<String>() {
+            {
+                add("Operation");
+            }
+        });
+        this.umlClassTabConvertion.put("BroadcastSignalAction", new ArrayList<String>() {
+            {
+                add("SendSignalAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CallBehaviorAction", new ArrayList<String>() {
+            {
+                add("CallBehaviorAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CallEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("CallOperationAction", new ArrayList<String>() {
+            {
+                add("CallOperationAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CentralBufferNode", new ArrayList<String>() {
+            {
+                add("CentralBufferNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ChangeEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("Class", new ArrayList<String>() {
+            {
+                add("Class");
+            }
+        });
+        this.umlClassTabConvertion.put("Classifier", new ArrayList<String>() {
+            {
+                add("Classifier");
+                add("Association");
+                add("Collaboration");
+            }
+        });
+        this.umlClassTabConvertion.put("ClassifierTemplateParameter", new ArrayList<String>() {
+            {
+                add("TemplateParameter");
+            }
+        });
+        this.umlClassTabConvertion.put("Clause", new ArrayList<String>() {
+            {
+                add("Clause");
+            }
+        });
+        this.umlClassTabConvertion.put("ClearAssociationAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ClearStructuralFeatureAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ClearVariableAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("Collaboration", new ArrayList<String>() {
+            {
+                add("Collaboration");
+            }
+        });
+        this.umlClassTabConvertion.put("CollaborationUse", new ArrayList<String>() {
+            {
+                add("CollaborationUse");
+            }
+        });
+        this.umlClassTabConvertion.put("Comment", new ArrayList<String>() {
+            {
+                add("Note");
+            }
+        });
+        this.umlClassTabConvertion.put("CommunicationPath", new ArrayList<String>() {
+            {
+                add("Association");
+            }
+        });
+        this.umlClassTabConvertion.put("Component", new ArrayList<String>() {
+            {
+                add("Component");
+            }
+        });
+        this.umlClassTabConvertion.put("ConditionalNode", new ArrayList<String>() {
+            {
+                add("ConditionalNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ConnectableElement", new ArrayList<String>() {
+            {
+                add("Parameter");
+                add("BehaviorParameter");
+                add("AssociationEnd");
+                add("BindableInstance");
+                add("Attribute");
+            }
+        });
+        this.umlClassTabConvertion.put("Connector", new ArrayList<String>() {
+            {
+                add("Connector");
+            }
+        });
+        this.umlClassTabConvertion.put("ConnectorEnd", new ArrayList<String>() {
+            {
+                add("ConnectorEnd");
+            }
+        });
+        this.umlClassTabConvertion.put("Constraint", new ArrayList<String>() {
+            {
+                add("Class");
+            }
+        });
+        this.umlClassTabConvertion.put("ControlFlow", new ArrayList<String>() {
+            {
+                add("ControlFlow");
+            }
+        });
+        this.umlClassTabConvertion.put("CreateLinkAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CreateLinkObject", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CreateObjectAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("CreationEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("DataStoreNode", new ArrayList<String>() {
+            {
+                add("DataStoreNode");
+            }
+        });
+        this.umlClassTabConvertion.put("DataType", new ArrayList<String>() {
+            {
+                add("DataType");
+            }
+        });
+        this.umlClassTabConvertion.put("DecisionNode", new ArrayList<String>() {
+            {
+                add("DecisionMergeNode");
+            }
+        });
+        this.umlClassTabConvertion.put("DeploymentSpecification", new ArrayList<String>() {
+            {
+                add("Artifact");
+            }
+        });
+        this.umlClassTabConvertion.put("DestroyLinkAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("DestroyObjectAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("DestructionEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("Device", new ArrayList<String>() {
+            {
+                add("Node");
+            }
+        });
+        this.umlClassTabConvertion.put("ElementImport", new ArrayList<String>() {
+            {
+                add("ElementImport");
+            }
+        });
+        this.umlClassTabConvertion.put("Enumeration", new ArrayList<String>() {
+            {
+                add("Enumeration");
+            }
+        });
+        this.umlClassTabConvertion.put("EnumerationLiteral", new ArrayList<String>() {
+            {
+                add("EnumerationLiteral");
+            }
+        });
+        this.umlClassTabConvertion.put("Event", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("ExceptionHandler", new ArrayList<String>() {
+            {
+                add("ObjectFlow");
+            }
+        });
+        this.umlClassTabConvertion.put("ExecutionEnvironment", new ArrayList<String>() {
+            {
+                add("Node");
+            }
+        });
+        this.umlClassTabConvertion.put("ExecutionEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("ExpansionNode", new ArrayList<String>() {
+            {
+                add("Pin");
+            }
+        });
+        this.umlClassTabConvertion.put("ExpansionRegion", new ArrayList<String>() {
+            {
+                add("StructuredActivityNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ExtensionPoint", new ArrayList<String>() {
+            {
+                add("ExtensionPoint");
+            }
+        });
+        this.umlClassTabConvertion.put("Feature", new ArrayList<String>() {
+            {
+                add("Feature");
+            }
+        });
+        this.umlClassTabConvertion.put("FinalState", new ArrayList<String>() {
+            {
+                add("FinalState");
+            }
+        });
+        this.umlClassTabConvertion.put("FlowFinalNode", new ArrayList<String>() {
+            {
+                add("FlowFinalNode");
+            }
+        });
+        this.umlClassTabConvertion.put("ForkNode", new ArrayList<String>() {
+            {
+                add("ForkJoinNode");
+            }
+        });
+        this.umlClassTabConvertion.put("Gate", new ArrayList<String>() {
+            {
+                add("Gate");
+            }
+        });
+        this.umlClassTabConvertion.put("Generalization", new ArrayList<String>() {
+            {
+                add("Generalization");
+            }
+        });
+        this.umlClassTabConvertion.put("InformationFlow", new ArrayList<String>() {
+            {
+                add("InformationFlow");
+            }
+        });
+        this.umlClassTabConvertion.put("InformationItem", new ArrayList<String>() {
+            {
+                add("InformationItem");
+            }
+        });
+        this.umlClassTabConvertion.put("InitialNode", new ArrayList<String>() {
+            {
+                add("InitialNode");
+            }
+        });
+        this.umlClassTabConvertion.put("InputPin", new ArrayList<String>() {
+            {
+                add("InputPin");
+            }
+        });
+        this.umlClassTabConvertion.put("InstanceSpecification", new ArrayList<String>() {
+            {
+                add("Link");
+                add("Instance");
+                add("EnumerationLiteral");
+            }
+        });
+        this.umlClassTabConvertion.put("Interaction", new ArrayList<String>() {
+            {
+                add("Interaction");
+            }
+        });
+        this.umlClassTabConvertion.put("Interface", new ArrayList<String>() {
+            {
+                add("Interface");
+            }
+        });
+        this.umlClassTabConvertion.put("InterfaceRealization", new ArrayList<String>() {
+            {
+                add("InterfaceRealization");
+            }
+        });
+        this.umlClassTabConvertion.put("InterruptibleActivityRegion", new ArrayList<String>() {
+            {
+                add("InterruptibleActivityRegion");
+            }
+        });
+        this.umlClassTabConvertion.put("InvocationAction", new ArrayList<String>() {
+            {
+                add("CallAction");
+                add("SendSignalAction");
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("JoinNode", new ArrayList<String>() {
+            {
+                add("ForkJoinNode");
+            }
+        });
+        this.umlClassTabConvertion.put("Lifeline", new ArrayList<String>() {
+            {
+                add("Lifeline");
+            }
+        });
+        this.umlClassTabConvertion.put("LoopNode", new ArrayList<String>() {
+            {
+                add("LoopNode");
+            }
+        });
+        this.umlClassTabConvertion.put("Manifestation", new ArrayList<String>() {
+            {
+                add("Manifestation");
+            }
+        });
+        this.umlClassTabConvertion.put("MergeNode", new ArrayList<String>() {
+            {
+                add("DecisionMergeNode");
+            }
+        });
+        this.umlClassTabConvertion.put("Message", new ArrayList<String>() {
+            {
+                add("Message");
+            }
+        });
+        this.umlClassTabConvertion.put("MessageOccurrenceSpecification", new ArrayList<String>() {
+            {
+                add("MessageOccurrenceSpecification");
+            }
+        });
+        this.umlClassTabConvertion.put("Model", new ArrayList<String>() {
+            {
+                add("Package");
+            }
+        });
+        this.umlClassTabConvertion.put("Node", new ArrayList<String>() {
+            {
+                add("Node");
+            }
+        });
+        this.umlClassTabConvertion.put("ObjectFlow", new ArrayList<String>() {
+            {
+                add("ObjectFlow");
+            }
+        });
+        this.umlClassTabConvertion.put("ObjectNode", new ArrayList<String>() {
+            {
+                add("ObjectNode");
+            }
+        });
+        this.umlClassTabConvertion.put("OccurenceSpecification", new ArrayList<String>() {
+            {
+                add("OccurenceSpecification");
+            }
+        });
+        this.umlClassTabConvertion.put("OpaqueAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("OpaqueBehavior", new ArrayList<String>() {
+            {
+                add("Signal");
+            }
+        });
+        this.umlClassTabConvertion.put("Operation", new ArrayList<String>() {
+            {
+                add("Operation");
+            }
+        });
+        this.umlClassTabConvertion.put("OperationTemplateParameter", new ArrayList<String>() {
+            {
+                add("Parameter");
+            }
+        });
+        this.umlClassTabConvertion.put("OutputPin", new ArrayList<String>() {
+            {
+                add("OutputPin");
+            }
+        });
+        this.umlClassTabConvertion.put("Package", new ArrayList<String>() {
+            {
+                add("Package");
+            }
+        });
+        this.umlClassTabConvertion.put("PackageImport", new ArrayList<String>() {
+            {
+                add("PackageImport");
+            }
+        });
+        this.umlClassTabConvertion.put("PackageMerge", new ArrayList<String>() {
+            {
+                add("PackageMerge");
+            }
+        });
+        this.umlClassTabConvertion.put("Parameter", new ArrayList<String>() {
+            {
+                add("Parameter");
+            }
+        });
+        this.umlClassTabConvertion.put("Pin", new ArrayList<String>() {
+            {
+                add("Pin");
+            }
+        });
+        this.umlClassTabConvertion.put("Port", new ArrayList<String>() {
+            {
+                add("Port");
+            }
+        });
+        this.umlClassTabConvertion.put("PrimitiveType", new ArrayList<String>() {
+            {
+                add("DataType");
+            }
+        });
+        this.umlClassTabConvertion.put("Profile", new ArrayList<String>() {
+            {
+                add("Profile");
+            }
+        });
+        this.umlClassTabConvertion.put("Property", new ArrayList<String>() {
+            {
+                add("AssociationEnd");
+                add("BindableInstance");
+                add("Attribute");
+            }
+        });
+        this.umlClassTabConvertion.put("ProtocolStateMachine", new ArrayList<String>() {
+            {
+                add("StateMachine");
+            }
+        });
+        this.umlClassTabConvertion.put("ProtocolTransition", new ArrayList<String>() {
+            {
+                add("Transition");
+                add("InternalTransition");
+            }
+        });
+        this.umlClassTabConvertion.put("PseudoState", new ArrayList<String>() {
+            {
+                add("PseudoState");
+            }
+        });
+        this.umlClassTabConvertion.put("RaiseExceptionAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadExtentAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadIsClassifierAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadLinkAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadLinkObjectEndAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadLinkObjectEndQualifierAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadSelfAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadStructuralFeatureAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReadVariableAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("Realization", new ArrayList<String>() {
+            {
+                add("Realization");
+            }
+        });
+        this.umlClassTabConvertion.put("Reception", new ArrayList<String>() {
+            {
+                add("Operation");
+            }
+        });
+        this.umlClassTabConvertion.put("ReclassifyObjectAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("RedefinableTemplateSignature", new ArrayList<String>() {
+            {
+                add("Operation");
+            }
+        });
+        this.umlClassTabConvertion.put("ReduceAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("Region", new ArrayList<String>() {
+            {
+                add("Region");
+            }
+        });
+        this.umlClassTabConvertion.put("RemoveStructuralFeatureValueAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("RemoveVariableValueAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("ReplyAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("SendObjectAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("SendSignalAction", new ArrayList<String>() {
+            {
+                add("SendSignalAction");
+            }
+        });
+        this.umlClassTabConvertion.put("SequenceNode", new ArrayList<String>() {
+            {
+                add("StructuredActivityNode");
+            }
+        });
+        this.umlClassTabConvertion.put("Signal", new ArrayList<String>() {
+            {
+                add("Signal");
+            }
+        });
+        this.umlClassTabConvertion.put("Slot", new ArrayList<String>() {
+            {
+                add("Port");
+                add("BindableInstance");
+                add("ConnectorEnd");
+                add("LinkEnd");
+            }
+        });
+        this.umlClassTabConvertion.put("StartClassifierBehaviorAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("State", new ArrayList<String>() {
+            {
+                add("State");
+            }
+        });
+        this.umlClassTabConvertion.put("StateInvariant", new ArrayList<String>() {
+            {
+                add("StateInvariant");
+            }
+        });
+        this.umlClassTabConvertion.put("StateMachine", new ArrayList<String>() {
+            {
+                add("StateMachine");
+            }
+        });
+        this.umlClassTabConvertion.put("StructuredActivityNode", new ArrayList<String>() {
+            {
+                add("StructuredActivityNode");
+            }
+        });
+        this.umlClassTabConvertion.put("StructuredClassifier", new ArrayList<String>() {
+            {
+                add("Collaboration");
+                add("Class");
+                add("Behavior");
+                add("Node");
+            }
+        });
+        this.umlClassTabConvertion.put("Substitution", new ArrayList<String>() {
+            {
+                add("Substitution");
+            }
+        });
+        this.umlClassTabConvertion.put("TemplateBinding", new ArrayList<String>() {
+            {
+                add("TemplateBinding");
+            }
+        });
+        this.umlClassTabConvertion.put("TemplateParameter", new ArrayList<String>() {
+            {
+                add("TemplateParameter");
+            }
+        });
+        this.umlClassTabConvertion.put("TemplateParameterSubstitution", new ArrayList<String>() {
+            {
+                add("TemplateParameterSubstitution");
+            }
+        });
+        this.umlClassTabConvertion.put("TemplateSignature", new ArrayList<String>() {
+            {
+                add("Operation");
+            }
+        });
+        this.umlClassTabConvertion.put("TestIdentityAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("TimeEvent", new ArrayList<String>() {
+            {
+                add("Event");
+            }
+        });
+        this.umlClassTabConvertion.put("Transition", new ArrayList<String>() {
+            {
+                add("Transition");
+                add("InternalTransition");
+            }
+        });
+        this.umlClassTabConvertion.put("UnmarshallAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
+        this.umlClassTabConvertion.put("Usage", new ArrayList<String>() {
+            {
+                add("Usage");
+            }
+        });
+        this.umlClassTabConvertion.put("UseCase", new ArrayList<String>() {
+            {
+                add("UseCase");
+            }
+        });
+        this.umlClassTabConvertion.put("ValuePin", new ArrayList<String>() {
+            {
+                add("InputPin");
+            }
+        });
+        this.umlClassTabConvertion.put("ValueSpecificationAction", new ArrayList<String>() {
+            {
+                add("OpaqueAction");
+            }
+        });
         
     }
 
@@ -573,14 +1199,14 @@ public class ReverseProperties extends XMIProperties {
     public List<String> getClassNames(final String className) {
         List<String> result = new ArrayList<>();
         
-        //get Standard names
+        // get Standard names
         if (this.umlClassTabConvertion.containsKey(className)) {
             for (String modelioClassName : this.umlClassTabConvertion.get(className)) {
                 result.add("Standard." + modelioClassName);
             }
         }
         
-        //get Infrastructure names
+        // get Infrastructure names
         if (this.infraClassTabConvertion.containsKey(className)) {
             for (String modelioClassName : this.infraClassTabConvertion.get(className)) {
                 result.add("Infrastructure." + modelioClassName);
@@ -596,7 +1222,7 @@ public class ReverseProperties extends XMIProperties {
 
     @objid ("2e549b88-5117-4489-80a2-6f43f071571d")
     public int getCurrentLineNumber() {
-        this.currentLineNumber += marging ;
+        this.currentLineNumber += marging;
         return this.currentLineNumber;
     }
 
@@ -612,23 +1238,23 @@ public class ReverseProperties extends XMIProperties {
 
     @objid ("23d99dd6-b9cf-4530-af53-d7388613fefa")
     public org.modelio.metamodel.uml.infrastructure.Profile getLocalProfile() {
-        if (this.localProfile == null){
+        if (this.localProfile == null) {
             ModelElement root = this.rootElements.get(0);
-            for (MObject module :  GProject.getProject(root).getFragment(root).getRoots()){
-                if ((module instanceof ModuleComponent) && (module.getName().equals("LocalModule"))){
+            for (MObject module : AbstractGProject.getProject(root).getFragment(root).getRoots()) {
+                if (module instanceof ModuleComponent && module.getName().equals("LocalModule")) {
         
-                    //LocalProfile exists
-                    for(org.modelio.metamodel.uml.infrastructure.Profile profile : ((ModuleComponent) module).getOwnedProfile()){
-                        if (profile.getName().equals(LOCAL_PROFILE)){
+                    // LocalProfile exists
+                    for (org.modelio.metamodel.uml.infrastructure.Profile profile : ((ModuleComponent) module).getOwnedProfile()) {
+                        if (profile.getName().equals(LOCAL_PROFILE)) {
                             this.localProfile = profile;
                             return profile;
                         }
                     }
         
-                    //LocalProfile does not exist
+                    // LocalProfile does not exist
                     this.localProfile = this.mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createProfile();
                     this.localProfile.setName(LOCAL_PROFILE);
-                    this.localProfile.setOwnerModule((ModuleComponent) module); 
+                    this.localProfile.setOwnerModule((ModuleComponent) module);
                 }
             }
         
@@ -638,9 +1264,9 @@ public class ReverseProperties extends XMIProperties {
 
     @objid ("11626ef9-9c10-4092-9f30-72a9a2b0994c")
     public DataType getUnlimitedNatural() {
-        if (this.unlimitedNatural == null){
+        if (this.unlimitedNatural == null) {
             this.unlimitedNatural = this.mmServices.getModelFactory().getFactory(IStandardModelFactory.class)
-                    .createDataType(this.unlimitedNaturalName, getExternalPackage()); 
+                    .createDataType(this.unlimitedNaturalName, getExternalPackage());
         }
         return this.unlimitedNatural;
     }
@@ -650,15 +1276,51 @@ public class ReverseProperties extends XMIProperties {
     @SuppressWarnings ("serial")
     protected void initInfraClassTabConvertion() {
         this.infraClassTabConvertion = new HashMap<>();
-        this.infraClassTabConvertion.put("NamedElement",  new ArrayList<String>(){{add("ModelElement");}});  
-        this.infraClassTabConvertion.put("Abstraction",  new ArrayList<String>(){{add("Abstraction");}});
-        this.infraClassTabConvertion.put("Dependency",  new ArrayList<String>(){{add("Dependency");}});
-        this.infraClassTabConvertion.put("Deployment",  new ArrayList<String>(){{add("Dependency");}});
-        this.infraClassTabConvertion.put("Element",  new ArrayList<String>(){{add("Element");}});
-        this.infraClassTabConvertion.put("Extend",  new ArrayList<String>(){{add("Dependency");}});
-        this.infraClassTabConvertion.put("Include",  new ArrayList<String>(){{add("Dependency");}});
-        this.infraClassTabConvertion.put("ProtocolConformance",  new ArrayList<String>(){{add("Dependency");}});
-        this.infraClassTabConvertion.put("Stereotype",  new ArrayList<String>(){{add("Stereotype");}});
+        this.infraClassTabConvertion.put("NamedElement", new ArrayList<String>() {
+            {
+                add("ModelElement");
+            }
+        });
+        this.infraClassTabConvertion.put("Abstraction", new ArrayList<String>() {
+            {
+                add("Abstraction");
+            }
+        });
+        this.infraClassTabConvertion.put("Dependency", new ArrayList<String>() {
+            {
+                add("Dependency");
+            }
+        });
+        this.infraClassTabConvertion.put("Deployment", new ArrayList<String>() {
+            {
+                add("Dependency");
+            }
+        });
+        this.infraClassTabConvertion.put("Element", new ArrayList<String>() {
+            {
+                add("Element");
+            }
+        });
+        this.infraClassTabConvertion.put("Extend", new ArrayList<String>() {
+            {
+                add("Dependency");
+            }
+        });
+        this.infraClassTabConvertion.put("Include", new ArrayList<String>() {
+            {
+                add("Dependency");
+            }
+        });
+        this.infraClassTabConvertion.put("ProtocolConformance", new ArrayList<String>() {
+            {
+                add("Dependency");
+            }
+        });
+        this.infraClassTabConvertion.put("Stereotype", new ArrayList<String>() {
+            {
+                add("Stereotype");
+            }
+        });
         
     }
 

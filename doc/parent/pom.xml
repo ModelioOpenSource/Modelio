@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Modelio parent POM
+ -->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>doc-parent</artifactId>
+	<version>5.3.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<modelio.version>[5.3.1,5.4.0)</modelio.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+		<tycho-version>2.2.0</tycho-version>
+
+		<!-- to convert Asciidoc to html files-->
+		<html.directory>html</html.directory>
+		<adoc.directory>adoc</adoc.directory>
+		<nlfr.directory>nl/fr</nlfr.directory>
+		<css.path>../../modeliosoft.css</css.path>
+		<asciidoctor.version>1.5.7.1</asciidoctor.version>
+		<phase.generate-documentation>package</phase.generate-documentation>
+
+	</properties>
+
+	<repositories>
+	</repositories>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<resolver>p2</resolver>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<strictVersions>false</strictVersions>
+					<strictBinIncludes>true</strictBinIncludes>
+					<archive>
+						<!-- don't create the maven directory (descriptor files) in META-INF -->
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+</project>

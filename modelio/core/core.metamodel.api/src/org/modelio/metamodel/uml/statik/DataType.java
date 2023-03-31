@@ -36,6 +36,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * DataTypes are passed by value and are immutable entities. DataTypes can be used as primitive classes. 
  * 
  * In Modelio, DataTypes belong to a NameSpace.
+ * 
+ * 
+ * 
  */
 @objid ("00074856-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DataType extends GeneralClass {
@@ -50,5 +53,5 @@ public interface DataType extends GeneralClass {
      */
     @objid ("6ad6c46a-7035-4ab9-8f6d-95f777052b0b")
     public static final String MQNAME = "Standard.DataType";
-
 }
+

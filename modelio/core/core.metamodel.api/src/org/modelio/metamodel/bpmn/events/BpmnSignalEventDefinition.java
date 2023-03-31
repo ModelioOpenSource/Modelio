@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Event attached to the receip or sending of a signal.
+ * 
+ * 
  */
 @objid ("009183d6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnSignalEventDefinition extends BpmnEventDefinition {
@@ -46,5 +48,5 @@ public interface BpmnSignalEventDefinition extends BpmnEventDefinition {
      */
     @objid ("acf4989e-cf2e-4b6b-8af9-4105f3a1ea5a")
     public static final String MQNAME = "Standard.BpmnSignalEventDefinition";
-
 }
+

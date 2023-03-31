@@ -23,7 +23,6 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystemAlreadyExistsException;
 import java.nio.file.FileSystemException;
@@ -45,8 +44,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.modelio.gproject.data.plugin.GProjectData;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.vbasic.files.FileUtils;
@@ -84,11 +83,9 @@ public class ModelComponentArchive {
     private ModelComponentInfos manifest;
 
     /**
-     * Initialize the RAMC from a path that may represent a .ramc archive or an extracted
-     * RAMC directory.
+     * Initialize the RAMC from a path that may represent a .ramc archive or an extracted RAMC directory.
      * @param path a file system path
-     * @param isArchive <code>true</code> if the path is a .ramc file, <code>false</code> if the
-     * path is a directory.
+     * @param isArchive <code>true</code> if the path is a .ramc file, <code>false</code> if the path is a directory.
      */
     @objid ("6ac583a6-47e2-4b4c-a723-1c5c871a22f7")
     public  ModelComponentArchive(Path path, boolean isArchive) {
@@ -106,19 +103,13 @@ public class ModelComponentArchive {
      * @throws IOException in case of I/O error
      */
     @objid ("0c209457-80d5-4514-8f81-d0758e15372c")
-    public FragmentDescriptor getFragmentDescriptor() throws IOException {
+    public GProjectPartDescriptor getFragmentDescriptor() throws IOException {
         IModelComponentInfos infos = getInfos();
         
-        FragmentDescriptor fragmentDescriptor = new FragmentDescriptor();
+        String id = this.manifest.getName() + " " + this.manifest.getVersion().toString("V.R.C");
+        GProjectPartDescriptor fragmentDescriptor = new GProjectPartDescriptor(GProjectPartType.RAMC, id, this.manifest.getVersion(), DefinitionScope.LOCAL);
+        fragmentDescriptor.setLocation(this.archive.toUri());
         
-        fragmentDescriptor.setId(this.manifest.getName() + " " + this.manifest.getVersion().toString("V.R.C"));
-        fragmentDescriptor.setScope(DefinitionScope.LOCAL);
-        fragmentDescriptor.setType(FragmentType.RAMC);
-        
-        File file = this.archive.toFile();
-        URI uri = file.toURI();
-        
-        fragmentDescriptor.setUri(uri);
         final GProperties properties = new GProperties();
         properties.setProperty("FragmentVersion", infos.getVersion().toString("V.R.C"), DefinitionScope.LOCAL);
         properties.setProperty("FragmentDescription", infos.getDescription(), DefinitionScope.LOCAL);
@@ -300,9 +291,9 @@ public class ModelComponentArchive {
             
                 return xmlDoc.getDocumentElement();
             } catch (ParserConfigurationException e) {
-                throw new IOException("Cannot initialize XML parser:"+e.getLocalizedMessage(), e); //$NON-NLS-1$
+                throw new IOException("Cannot initialize XML parser:" + e.getLocalizedMessage(), e); //$NON-NLS-1$
             } catch (SAXException e) {
-                throw new IOException("SAX parsing exception: "+e.getMessage(), e); //$NON-NLS-1$
+                throw new IOException("SAX parsing exception: " + e.getMessage(), e); //$NON-NLS-1$
             } catch (IOException e) {
                 throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e)), e); //$NON-NLS-1$
             }
@@ -333,7 +324,7 @@ public class ModelComponentArchive {
                             Files.setLastModifiedTime(destinationFile, FileTime.from(date, TimeUnit.SECONDS));
                         } catch (IOException e) {
                             String msg = GProjectData.I18N.getMessage("MC.Archive.install.IOException", currentFile, destinationFile, FileUtils.getLocalizedMessage(e));
-                            //String msg = MessageFormat.format("Cannot extract ''{0}'' to ''{1}'': {2}", currentFile, destinationFile, FileUtils.getLocalizedMessage(e) );
+                            // String msg = MessageFormat.format("Cannot extract ''{0}'' to ''{1}'': {2}", currentFile, destinationFile, FileUtils.getLocalizedMessage(e) );
                             throw new IOException(msg, e);
                         }
                     }
@@ -369,8 +360,7 @@ public class ModelComponentArchive {
     @objid ("0821054e-cc30-11e1-87f1-001ec947ccaf")
     private static class ManifestReader {
         /**
-         * The Standard Modelio metamodel name. Must be modified if the
-         * default Modelio metamodel name changes.
+         * The Standard Modelio metamodel name. Must be modified if the default Modelio metamodel name changes.
          */
         @objid ("ab6a3cc1-818e-414a-867e-ec6b0e1fc7fa")
         private static final String STD_METAMODEL = "Standard";
@@ -425,7 +415,6 @@ public class ModelComponentArchive {
                     int version = ManifestReader.parseInt(ramcElement, "version");
                     int release = ManifestReader.parseInt(ramcElement, "release");
                     int clevel = ManifestReader.parseInt(ramcElement, "clevel");
-            
             
                     ManifestReader.updateRequiredModelioMmVersion(ramcElement, modelComponentInfos);
             
@@ -489,7 +478,7 @@ public class ModelComponentArchive {
             
             try {
                 Version version = new Version(manifestVersion);
-                return (version.getMajorVersion() <= 3);
+                return version.getMajorVersion() <= 3;
             } catch (NumberFormatException e) {
                 return false;
             }

@@ -87,7 +87,7 @@ public class ResizableGroupEditPart extends AbstractNodeEditPart {
         return fig;
     }
 
-    @objid ("13eb3269-fdbb-40d1-98c4-2aed17d4d6ed")
+    @objid ("b8c62880-5685-47a9-94f7-ea1e5c3b0556")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return new LayoutConnectionsOrderedLayoutEditPolicyDecorator((OrderedLayoutEditPolicy) layoutPolicy);

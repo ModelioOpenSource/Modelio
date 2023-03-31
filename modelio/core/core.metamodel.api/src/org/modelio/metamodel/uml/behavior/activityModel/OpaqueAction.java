@@ -36,6 +36,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Modelio specific:
  * The action may be filled in one language only.
  * Code generation MDA components may allow specific note types in order to allow the user to fill code in their generated language.
+ * 
+ * 
+ * 
  */
 @objid ("0039f63e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface OpaqueAction extends ActivityAction {
@@ -56,6 +59,7 @@ public interface OpaqueAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>Specifies the action in one language.</i>
+     * 
      */
     @objid ("a8e34dac-3f36-49e5-bd01-63a6e9194e74")
     String getBody();
@@ -65,8 +69,9 @@ public interface OpaqueAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>Specifies the action in one language.</i>
+     * 
      */
     @objid ("6fe0187f-8139-49ad-8fb7-089ff73856f8")
     void setBody(String value);
-
 }
+

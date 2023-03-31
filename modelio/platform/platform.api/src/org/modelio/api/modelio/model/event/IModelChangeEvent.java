@@ -69,5 +69,5 @@ public interface IModelChangeEvent {
      */
     @objid ("a3dad102-0ecc-11e2-96c4-002564c97630")
     Set<MObject> getUpdateEvents();
-
 }
+

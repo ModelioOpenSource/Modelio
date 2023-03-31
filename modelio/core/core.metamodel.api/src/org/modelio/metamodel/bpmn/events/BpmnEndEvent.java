@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * the End Event indicates where a Process will end. In terms of Sequence Flow, the End Event
  * ends the flow of the Process, and thus, will not have any outgoing Sequence Flow
+ * 
+ * 
  */
 @objid ("008a8f9a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnEndEvent extends BpmnThrowEvent {
@@ -47,5 +49,5 @@ public interface BpmnEndEvent extends BpmnThrowEvent {
      */
     @objid ("5fb2ab99-c42e-4ef9-9a92-a18524ff7b9c")
     public static final String MQNAME = "Standard.BpmnEndEvent";
-
 }
+

@@ -26,5 +26,5 @@ import javax.script.ScriptEngine;
 public interface IScriptService {
     @objid ("7564e02f-7b13-11e0-bb5d-001ec947cd2a")
     ScriptEngine getScriptEngine(final ClassLoader loader);
-
 }
+

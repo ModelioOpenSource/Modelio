@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.timeline.feature"
+      label="%featureName"
+      version="0.1.0.202112040935"
+      provider-name="%provider">
+
+   <description url="%featureDescriptionURL">
+      %featureDescriptionText
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.timeline"
+         download-size="138"
+         install-size="293"
+         version="0.1.0.202112040935"
+         unpack="false"/>
+
+</feature>

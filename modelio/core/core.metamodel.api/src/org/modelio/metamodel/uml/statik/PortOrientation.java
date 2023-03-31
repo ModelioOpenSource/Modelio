@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00741616-7948-1fe9-b4b9-001ec947cd2a")
 public enum PortOrientation {
@@ -40,6 +42,7 @@ public enum PortOrientation {
     OUT(2, "Out", "Out"),
     @objid ("199b3424-6342-41aa-90d1-cfd4dcb4bc9a")
     INOUT(3, "Inout", "Inout");
+
 public static final int NONE_VALUE = 0;
     public static final int IN_VALUE = 1;
     public static final int OUT_VALUE = 2;

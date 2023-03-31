@@ -28,6 +28,8 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
+import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.DeferringCreateNodePolicy;
@@ -62,6 +64,12 @@ public class UseCaseEditPart extends AbstractNodeEditPart {
             super.refreshFromStyle(aFigure, style);
         }
         
+    }
+
+    @objid ("09970b1c-5f47-4ed0-b661-90ee07e5d57c")
+    @Override
+    protected INodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.ellipseFor(this);
     }
 
     @objid ("5e6bc1bf-55b7-11e2-877f-002564c97630")

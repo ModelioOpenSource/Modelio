@@ -33,8 +33,9 @@ import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.InjectionException;
+import org.modelio.api.modelio.Modelio;
 import org.modelio.api.modelio.model.IModelingSession;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.script.engine.core.engine.IScriptRunner;
 import org.modelio.platform.script.engine.core.engine.ScriptRunnerFactory;
@@ -49,7 +50,7 @@ import org.modelio.platform.script.engine.core.engine.ScriptRunnerFactory;
  * <p>
  * The following classes are injected:<ul>
  * <li> {@link Modelio}
- * <li> {@link GProject}
+ * <li> {@link IGProject}
  * <li> {@link IModelingSession}
  * </ul>
  */
@@ -61,7 +62,7 @@ class JarRunner {
     }
 
     @objid ("a261e70a-9150-4f6a-a877-94f5963fb82e")
-    public void runJarFile(GProject openedProject, File scriptFile, Map<String, String> params) {
+    public void runJarFile(IGProject openedProject, File scriptFile, Map<String, String> params) {
         String mainClassName ;
         try (JarFile j = new JarFile(scriptFile);){
             mainClassName = j.getManifest().getMainAttributes().getValue("Main-Class");
@@ -70,7 +71,7 @@ class JarRunner {
             System.exit(-1);
             return; // just to tell compiler mainClassName is never null.
         }
-            
+        
         try {
             // Instantiate a ScriptRunner only to get its configured class loader
             final IScriptRunner scriptRunner = ScriptRunnerFactory.getInstance().getScriptRunner("jython");
@@ -84,8 +85,8 @@ class JarRunner {
             // Configure Eclipse 4 contexts
             IEclipseContext context = EclipseContextFactory.create(mainClassName);
             IEclipseContext staticContext = EclipseContextFactory.create(mainClassName+" static context");
-            
-            staticContext.set(GProject.class, openedProject);
+        
+            staticContext.set(IGProject.class, openedProject);
             staticContext.set("parameters", params);
             for (Entry<String, String> p : params.entrySet())
                 staticContext.set(p.getKey(), p.getValue());
@@ -93,7 +94,7 @@ class JarRunner {
             // Load class, inject contexts
             Class<?> clazz = cl.loadClass(mainClassName);
             Object object = ContextInjectionFactory.make(clazz, context, staticContext);
-            
+        
             // invoke @PreDestroy if any
             ContextInjectionFactory.invoke(object, PreDestroy.class, staticContext, staticContext);
             context.dispose();

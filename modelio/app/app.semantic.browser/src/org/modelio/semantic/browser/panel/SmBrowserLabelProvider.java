@@ -22,15 +22,13 @@ package org.modelio.semantic.browser.panel;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider2;
 import org.modelio.platform.ui.CoreColorRegistry;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.semantic.browser.plugin.SemanticBrowser;
 import org.modelio.vcore.smkernel.SmObjectImpl;
 import org.modelio.vcore.smkernel.SmStatus;
@@ -59,9 +57,6 @@ public class SmBrowserLabelProvider extends UniversalLabelProvider2 {
     @objid ("e16473a5-35ee-48b8-88ba-436779289d8c")
     private static final Image MCOMPOSITION = SemanticBrowser.getImageDescriptor("icons/meta/metacomp.png").createImage();
 
-    @objid ("8e8d76df-5122-4393-b398-fb2e05355ad9")
-    private static final Font italicFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.ITALIC, 1.0f);
-
     /**
      * Default c'tor.
      */
@@ -73,7 +68,7 @@ public class SmBrowserLabelProvider extends UniversalLabelProvider2 {
             @Override
             public void applyStyles(TextStyle textStyle) {
                 textStyle.foreground = SmBrowserLabelProvider.this.METACOLOR;
-                textStyle.font = SmBrowserLabelProvider.italicFont;
+                textStyle.font = UIFont.NORMALI;
             }
         };
         

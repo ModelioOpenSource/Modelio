@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='logback/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1639573534379'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='2'>
+    <unit id='ch.qos.logback.classic' version='1.2.7' singleton='false' generation='2'>
+      <update id='ch.qos.logback.classic' range='[0.0.0,1.2.7)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Logback Classic Module'/>
+        <property name='org.eclipse.equinox.p2.description' value='logback-classic module'/>
+        <property name='org.eclipse.equinox.p2.provider' value='QOS.ch'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://www.qos.ch'/>
+      </properties>
+      <provides size='32'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='ch.qos.logback.classic' version='1.2.7'/>
+        <provided namespace='osgi.bundle' name='ch.qos.logback.classic' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.boolex' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.db' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.db.names' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.db.script' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.encoder' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.filter' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.gaffer' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.helpers' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.html' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.jmx' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.joran' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.joran.action' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.jul' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.layout' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.log4j' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.net' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.net.server' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.pattern' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.pattern.color' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.selector' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.selector.servlet' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.servlet' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.sift' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.spi' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.turbo' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.classic.util' version='1.2.7'/>
+        <provided namespace='java.package' name='org.slf4j.impl' version='1.7.32'/>
+        <provided namespace='osgi.identity' name='ch.qos.logback.classic' version='1.2.7'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='50'>
+        <required namespace='java.package' name='sun.reflect' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.management' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.naming' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.net' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.net.ssl' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.servlet' range='[3.1.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.servlet.http' range='[3.1.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.slf4j' range='0.0.0'/>
+        <required namespace='java.package' name='org.slf4j.event' range='[1.7.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.util' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='org.codehaus.groovy.control' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.control.customizers' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.reflection' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.runtime' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.runtime.callsite' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.runtime.typehandling' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.runtime.wrappers' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.groovy.transform' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='groovy.lang' range='[2.4.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='ch.qos.logback.core' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.boolex' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.db' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.encoder' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.filter' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.helpers' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.html' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.action' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.conditional' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.event' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.spi' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.util' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.joran.util.beans' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.net' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.net.server' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.net.ssl' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.pattern' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.pattern.color' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.pattern.parser' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.sift' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.spi' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.status' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='org.slf4j.helpers' range='[1.7.0,2.0.0)'/>
+        <required namespace='java.package' name='org.slf4j.spi' range='[1.7.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.rolling' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.rolling.helper' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='ch.qos.logback.core.read' range='[1.2.0,2.0.0)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+          <description>
+            ch.qos.logback.classic
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+          <description>
+            ch.qos.logback.classic
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='ch.qos.logback.classic' version='1.2.7'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: ch.qos.logback.classic&#xA;Bundle-Version: 1.2.7&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='ch.qos.logback.core' version='1.2.7' singleton='false' generation='2'>
+      <update id='ch.qos.logback.core' range='[0.0.0,1.2.7)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Logback Core Module'/>
+        <property name='org.eclipse.equinox.p2.description' value='logback-core module'/>
+        <property name='org.eclipse.equinox.p2.provider' value='QOS.ch'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://www.qos.ch'/>
+      </properties>
+      <provides size='40'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='ch.qos.logback.core' version='1.2.7'/>
+        <provided namespace='osgi.bundle' name='ch.qos.logback.core' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.boolex' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.db' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.db.dialect' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.encoder' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.filter' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.helpers' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.hook' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.html' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.action' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.conditional' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.event' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.event.stax' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.node' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.spi' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.util' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.joran.util.beans' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.layout' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.net' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.net.server' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.net.ssl' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.pattern' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.pattern.color' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.pattern.parser' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.pattern.util' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.property' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.read' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.recovery' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.rolling' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.rolling.helper' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.sift' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.spi' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.status' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.subst' version='1.2.7'/>
+        <provided namespace='java.package' name='ch.qos.logback.core.util' version='1.2.7'/>
+        <provided namespace='osgi.identity' name='ch.qos.logback.core' version='1.2.7'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='19'>
+        <required namespace='java.package' name='javax.mail' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.mail.internet' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.naming' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.net' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.net.ssl' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.servlet' range='[3.1.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.servlet.http' range='[3.1.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.sql' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.stream' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.stream.events' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.janino' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.codehaus.commons.compiler' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.fusesource.jansi' range='[1.9.0,2.0.0)' optional='true' greedy='false'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+          <description>
+            ch.qos.logback.core
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'>
+          <description>
+            ch.qos.logback.core
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='ch.qos.logback.core' version='1.2.7'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: ch.qos.logback.core&#xA;Bundle-Version: 1.2.7&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

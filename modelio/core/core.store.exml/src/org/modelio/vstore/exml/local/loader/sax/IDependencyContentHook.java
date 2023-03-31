@@ -53,7 +53,7 @@ public interface IDependencyContentHook {
      * Content for a dependency on a model object
      */
     @objid ("e62bc1c1-d6d6-4994-88b2-898ef9ae0ed1")
-    public interface Content {
+    interface Content {
         /**
          * @return the refered dependency
          */
@@ -65,7 +65,7 @@ public interface IDependencyContentHook {
          */
         @objid ("11d91fe5-4bb8-4cc6-a6dd-fef6ee08116e")
         List<SmObjectImpl> getContent();
-
-    }
-
 }
+    
+}
+

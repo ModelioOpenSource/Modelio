@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
+   <extension-point id="statusbar"
+   name="Status Bar contributions" schema="schema/org.modelio.app.ui.statusbar.exsd"/>
    <extension id="modelio-themes" point="org.eclipse.e4.ui.css.swt.theme">
       <theme id="org.modelio.app.theme.default"
              basestylesheeturi="css/default.gtk.css"
@@ -34,12 +36,22 @@
    </extension>
 
   <extension id="modelio"  point="org.eclipse.core.runtime.products">
-    <product application="org.eclipse.e4.ui.workbench.swt.E4Application" name="Modelio 4">
-       <property name="appName"                 value="Modelio 4" />
+    <product application="org.eclipse.e4.ui.workbench.swt.E4Application" name="Modelio">
+       <property name="appName"                 value="Modelio" />
        <property name="lifeCycleURI"            value="bundleclass://org.modelio.app.ui/org.modelio.app.ui.lifecycle.OsLifeCycleManager"/>
        <property name="applicationXMI"          value="org.modelio.app.ui/e4model/modelio.e4xmi"/>
        <property name="applicationCSSResources" value="platform:/plugin/org.modelio.app.ui/css" />
        <property name="cssTheme"                value="org.modelio.app.theme.default" />
     </product>
   </extension>
+  <extension
+        id="org.modelio.app.ui.selectionStatus"
+        point="org.modelio.app.ui.statusbar">
+     <group id="group1" area='left' priority="0">
+        <item class="org.modelio.app.ui.statusbar.StatusBarSelectionContributor"
+        	  widthHint='150'
+        	  tooltip='tooltip for selection item'/>
+     </group>
+  </extension>
+
 </plugin>

@@ -52,7 +52,7 @@ public class GmBpmnUserTaskSimpleStyleKeys extends BpmnAbstractStyleKeyProvider 
 
     @objid ("726319da-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLOPERATION_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("7264a069-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("CALLOPERATION_SHOWTAGS", MetaKey.SHOWTAGS);

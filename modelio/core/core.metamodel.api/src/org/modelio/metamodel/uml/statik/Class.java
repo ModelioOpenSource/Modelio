@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * The Class is the main concept used in object-oriented modeling. It specifies which Instances can exist in an application. 
  * 
  * In Modelio, a Class is owned by a NameSpace (ModelTree) that can be a Package or a Class.
+ * 
+ * 
  */
 @objid ("0002155c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Class extends GeneralClass {
@@ -54,6 +56,7 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Specifies whether an Object of the Class maintains its own thread of control. If true, then an Object has its own thread of control and runs concurrently with other active Objects. If false, then Operations run in the address space and under the control of the active Object that controls the caller.</i>
+     * 
      */
     @objid ("4bed515e-da1a-49e6-afa2-bec8dc824311")
     boolean isIsActive();
@@ -63,6 +66,7 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Specifies whether an Object of the Class maintains its own thread of control. If true, then an Object has its own thread of control and runs concurrently with other active Objects. If false, then Operations run in the address space and under the control of the active Object that controls the caller.</i>
+     * 
      */
     @objid ("e77f32dc-ed3f-487d-93f5-a6f25bb01b87")
     void setIsActive(boolean value);
@@ -72,6 +76,7 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>A main Class is a Class whose unique instance represents the application.</i>
+     * 
      */
     @objid ("8084b1a2-8907-4ab5-9560-8fdbd0921d23")
     boolean isIsMain();
@@ -81,6 +86,7 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>A main Class is a Class whose unique instance represents the application.</i>
+     * 
      */
     @objid ("16227634-ddf4-4497-bd97-39dc61c7740c")
     void setIsMain(boolean value);
@@ -90,6 +96,7 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c153e16a-2141-487c-927b-48f1d8f76975")
     ClassAssociation getLinkToAssociation();
@@ -99,8 +106,9 @@ public interface Class extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ebb095d4-031f-4742-9ef8-7ee32a320aea")
     void setLinkToAssociation(ClassAssociation value);
-
 }
+

@@ -50,5 +50,5 @@ public interface IElementChooserDriver {
 
     @objid ("26ce1965-186f-11e2-bc4e-002564c97630")
     String getMessage();
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2770]]
 
-[[r2770]]
+
+
 = R2770
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les transitions entrantes d'un _JoinPseudoState_ ne peuvent venir que de _States_, pas de _PseudoStates_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _JoinPseudoState_ est un nœud de contrôle qui regroupe plusieurs flux venant d'états concurrents en un seul flux.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Les transitions menant à un _JoinPseudoState_ et qui ont des pseudo-états comme source doivent être supprimées.

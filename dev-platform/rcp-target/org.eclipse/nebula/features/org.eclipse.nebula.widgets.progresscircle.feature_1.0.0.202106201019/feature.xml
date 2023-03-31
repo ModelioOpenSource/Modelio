@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.progresscircle.feature"
+      label="Nebula Progress Circle Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      ProgressCircle
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.progresscircle"
+         download-size="14"
+         install-size="22"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.progresscircle.source"
+         download-size="11"
+         install-size="27"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+</feature>

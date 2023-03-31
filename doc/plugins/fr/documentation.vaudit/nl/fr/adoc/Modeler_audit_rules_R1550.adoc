@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1550]]
 
-[[r1550]]
+
+
 = R1550
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si une _BindableInstance_ a un type et qu'elle représente une _Feature_, alors le type de l'instance doit être compatible avec le type de la Feature représentée.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une Part peut représenter un _Attribute_, une _AssociationEnd_, ou un _Port_.
@@ -25,9 +25,9 @@ Une Part peut représenter un _Attribute_, une _AssociationEnd_, ou un _Port_.
 * Dans le cas d'un _Attribute_ ou d'un _Port_, le type de la Part doit être le même que le type de l'attribut ou du port.
 * Dans le cas d'un _AssociationEnd_, le type de la part doit correspondre au type du parent de l'un des autres _AssociationEnd_ de l'_Association_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vous pouvez changer le type de votre Part ou bien représenter un élément compatible.

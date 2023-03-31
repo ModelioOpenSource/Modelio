@@ -40,7 +40,7 @@ public class GmConnectionPointImageStyleKeys extends StateAbstractStyleKeyProvid
 
     @objid ("814fca52-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CONNECTIONPOINT_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("814fca54-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("CONNECTIONPOINT_SHOWTAGS", MetaKey.SHOWTAGS);

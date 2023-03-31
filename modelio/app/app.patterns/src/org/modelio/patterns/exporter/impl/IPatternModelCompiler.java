@@ -27,5 +27,5 @@ import org.modelio.patterns.model.RuntimePattern;
 public interface IPatternModelCompiler {
     @objid ("273ebdb9-98ed-4aad-b3ee-382ef2a4d0f4")
     void exportPattern(RuntimePattern pattern) throws PatternException;
-
 }
+

@@ -26,5 +26,5 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetaclassSelectorListener {
     @objid ("0698884a-e82d-402f-b300-0102e550693a")
     void selectMetaclass(MClass mClass);
-
 }
+

@@ -182,7 +182,7 @@ public class GmMessage extends GmLink {
         
     }
 
-    @objid ("e71e90d8-4bae-466d-8070-b7b57ed4aed3")
+    @objid ("5d6f0ac3-720b-441b-97d0-a0b40e981922")
     @Override
     public ISymbolViewModel getSymbolViewModel() {
         return GmMessageSymbolViewModel.create(getPersistedStyle(), this);

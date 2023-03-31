@@ -54,5 +54,5 @@ interface IObjectDataModel {
      */
     @objid ("c2a12bb8-5846-4141-9de5-fcf7b7e7082b")
     void finishDependenciesLoading();
-
 }
+

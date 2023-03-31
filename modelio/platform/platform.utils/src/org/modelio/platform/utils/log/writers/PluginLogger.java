@@ -28,7 +28,7 @@ import org.osgi.service.log.LogLevel;
 /**
  * Logging utility class for plugins.
  * 
- * The PluginLogger forwards log information to both the OSGI log service and the Modelio log file.
+ * The PluginLogger forwards log information to the Modelio log file.
  * <p>
  * Application rules:
  * <ul>
@@ -41,9 +41,6 @@ import org.osgi.service.log.LogLevel;
  */
 @objid ("005988a0-404e-1fe3-9845-001ec947cd2a")
 public class PluginLogger {
-    @objid ("00851a42-4307-1fe3-9845-001ec947cd2a")
-    private final org.eclipse.equinox.log.Logger osgiLogger;
-
     /**
      * The Modelio log level as defined by Admin tool in the preferences.
      * <p>
@@ -67,16 +64,20 @@ public class PluginLogger {
     /**
      * C'tor a combined OSGI/Modelio logger for a plugin.
      * @param osgiLogger the OSGI logger provider by the caller plugin
+     * @deprecated use PluginLogger(string pluginId) instead
      */
     @objid ("008a1d9e-4307-1fe3-9845-001ec947cd2a")
+    @Deprecated
     public  PluginLogger(final Logger osgiLogger) {
-        // The osgi logger is provided by the caller
-        this.osgiLogger = osgiLogger;
-        
         // The slf4J logger is obtained from Slf4j logger factory.
         // Reuse the osgi logger name to name the slf4j logger
-        this.slf4jLogger = org.slf4j.LoggerFactory.getLogger(osgiLogger.getName());
+        this.slf4jLogger = org.slf4j.LoggerFactory.getLogger(osgiLogger.getName().replace("LogService.", ""));
         
+    }
+
+    @objid ("0b2064d8-5f7a-4ac2-8981-83aba2cbc8ff")
+    public  PluginLogger(String pluginId) {
+        this.slf4jLogger = org.slf4j.LoggerFactory.getLogger(pluginId);
     }
 
     /**
@@ -86,7 +87,6 @@ public class PluginLogger {
     @objid ("008ae936-4307-1fe3-9845-001ec947cd2a")
     public void error(final String msg) {
         if (PluginLogger.logLevel.implies(LogLevel.ERROR)) {
-            this.osgiLogger.log(LogLevel.ERROR.ordinal(), msg);
             this.slf4jLogger.error(msg);
         }
         
@@ -101,7 +101,6 @@ public class PluginLogger {
     public void error(final String format, final Object... args) {
         if (PluginLogger.logLevel.implies(LogLevel.ERROR)) {
             String msg = String.format(format, args);
-            this.osgiLogger.log(LogLevel.ERROR.ordinal(), msg);
             this.slf4jLogger.error(msg);
         }
         
@@ -114,7 +113,6 @@ public class PluginLogger {
     @objid ("008b3d32-4307-1fe3-9845-001ec947cd2a")
     public void error(final Throwable e) {
         if (PluginLogger.logLevel.implies(LogLevel.ERROR)) {
-            this.osgiLogger.log(LogLevel.ERROR.ordinal(), e.getMessage(), e);
             this.slf4jLogger.error(e.getMessage(), e);
         }
         
@@ -127,7 +125,6 @@ public class PluginLogger {
     @objid ("008b5c5e-4307-1fe3-9845-001ec947cd2a")
     public void warning(final String msg) {
         if (PluginLogger.logLevel.implies(LogLevel.WARN)) {
-            this.osgiLogger.log(LogLevel.WARN.ordinal(), msg);
             this.slf4jLogger.warn(msg);
         }
         
@@ -142,7 +139,6 @@ public class PluginLogger {
     public void warning(final String format, final Object... args) {
         if (PluginLogger.logLevel.implies(LogLevel.WARN)) {
             String msg = String.format(format, args);
-            this.osgiLogger.log(LogLevel.WARN.ordinal(), msg);
             this.slf4jLogger.warn(msg);
         }
         
@@ -155,7 +151,6 @@ public class PluginLogger {
     @objid ("008bb0f0-4307-1fe3-9845-001ec947cd2a")
     public void warning(final Throwable e) {
         if (PluginLogger.logLevel.implies(LogLevel.WARN)) {
-            this.osgiLogger.log(LogLevel.WARN.ordinal(), e.getMessage(), e);
             this.slf4jLogger.warn(e.getMessage(), e);
         }
         
@@ -168,7 +163,6 @@ public class PluginLogger {
     @objid ("008bcf04-4307-1fe3-9845-001ec947cd2a")
     public void info(final String msg) {
         if (PluginLogger.logLevel.implies(LogLevel.INFO)) {
-            this.osgiLogger.log(LogLevel.INFO.ordinal(), msg);
             this.slf4jLogger.info(msg);
         }
         
@@ -183,7 +177,6 @@ public class PluginLogger {
     public void info(final String format, final Object... args) {
         if (PluginLogger.logLevel.implies(LogLevel.INFO)) {
             String msg = String.format(format, args);
-            this.osgiLogger.log(LogLevel.INFO.ordinal(), msg);
             this.slf4jLogger.info(msg);
         }
         
@@ -196,7 +189,6 @@ public class PluginLogger {
     @objid ("008c2544-4307-1fe3-9845-001ec947cd2a")
     public void info(final Throwable e) {
         if (PluginLogger.logLevel.implies(LogLevel.INFO)) {
-            this.osgiLogger.log(LogLevel.INFO.ordinal(), e.getMessage(), e);
             this.slf4jLogger.info(e.getMessage(), e);
         }
         
@@ -209,7 +201,6 @@ public class PluginLogger {
     @objid ("008c43e4-4307-1fe3-9845-001ec947cd2a")
     public void debug(final String msg) {
         if (isDebugEnabled()) {
-            this.osgiLogger.log(LogLevel.DEBUG.ordinal(), msg);
             this.slf4jLogger.debug(msg);
         }
         
@@ -224,7 +215,6 @@ public class PluginLogger {
     public void debug(final String format, final Object... args) {
         if (isDebugEnabled()) {
             String msg = String.format(format, args);
-            this.osgiLogger.log(LogLevel.DEBUG.ordinal(), msg);
             this.slf4jLogger.debug(msg);
         }
         
@@ -237,7 +227,6 @@ public class PluginLogger {
     @objid ("008c9ee8-4307-1fe3-9845-001ec947cd2a")
     public void debug(final Throwable e) {
         if (isDebugEnabled()) {
-            this.osgiLogger.log(LogLevel.DEBUG.ordinal(), e.getMessage(), e);
             this.slf4jLogger.debug(e.getMessage(), e);
         }
         
@@ -248,9 +237,7 @@ public class PluginLogger {
      */
     @objid ("004d691c-ca76-1fea-8789-001ec947cd2a")
     public boolean isDebugEnabled() {
-        return (PluginLogger.logLevel.implies(LogLevel.DEBUG)) &&
-                (this.osgiLogger.isLoggable(LogLevel.DEBUG.ordinal()) || this.slf4jLogger.isDebugEnabled());
-        
+        return PluginLogger.logLevel.implies(LogLevel.DEBUG)  && this.slf4jLogger.isDebugEnabled();
     }
 
     /**
@@ -291,9 +278,6 @@ public class PluginLogger {
         // Log logging level change
         org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(PluginLogger.class);
         logger.info("Changing log level from {} to {}", previous, value);
-        if (previous.implies(LogLevel.DEBUG) && ! value.implies(LogLevel.DEBUG)) {
-            logger.debug("Leaving DEBUG log level", new Throwable("Log level change stack trace"));
-        }
         
         // Change the logging level
         logLevel = value;

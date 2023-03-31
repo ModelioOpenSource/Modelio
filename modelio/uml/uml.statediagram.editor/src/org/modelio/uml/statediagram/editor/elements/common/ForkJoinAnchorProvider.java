@@ -19,123 +19,78 @@
  */
 package org.modelio.uml.statediagram.editor.elements.common;
 
-import java.util.Objects;
+import java.util.Collection;
 import java.util.function.Supplier;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
+import org.modelio.diagram.elements.core.figures.anchors.FacesConstants;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.adefault.DefaultAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.FixedNodeAnchorProvider2;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.uml.statediagram.editor.elements.ForkJoinOrientation;
 
 /**
  * Anchor provider for <b>Fork</b> and <b>Join</b> nodes, displaying anchors:
  * <ul>
- * <li>closer than the default {@link VariableFixedAnchorProvider}.</li>
+ * <li>closer than the default {@link IFixedNodeAnchorProvider}.</li>
  * <li>only vertically or horizontally, according to the node's orientation.</li>
  * </ul>
  */
-@objid ("83431d78-522e-49d9-9210-1de1b7b42273")
-public class ForkJoinAnchorProvider extends VariableFixedAnchorProvider {
-    @objid ("9a28566b-21f2-42a5-80a7-0bdf609a72e3")
+@objid ("8bbdb991-da14-4c80-9b8f-02a43bfb11a5")
+public class ForkJoinAnchorProvider extends FixedNodeAnchorProvider2 {
+    @objid ("3fe9f601-b78f-40fd-83ce-125344107b7b")
     private static final int DIST_BETWEEN_ANCHORS = 15;
 
-    @objid ("0b6d6a60-944b-45cd-a433-1065380e88e9")
+    @objid ("811f7724-09c3-4098-aab3-c601b5adc0ba")
     private Supplier<ForkJoinOrientation> orientation;
-
-    @objid ("90a51d4e-f7d7-44bb-828f-74ae1f5e6aa4")
-    private ForkJoinMarginDependentComputedState state;
 
     /**
      * C'tor setting a default minimum distance of {@value #DIST_BETWEEN_ANCHORS} between anchors.
      */
-    @objid ("fe2e9e4e-5df3-4630-b69c-077fbed96e7b")
+    @objid ("ba27e0db-63af-4cd7-9854-e9fcee20aff0")
     public  ForkJoinAnchorProvider(Supplier<ForkJoinOrientation> orientation) {
-        super(DIST_BETWEEN_ANCHORS);
+        super(new ForkJoinAnchorFactory(DIST_BETWEEN_ANCHORS, orientation));
         this.orientation = orientation;
         
     }
 
-    @objid ("58674d56-613d-4f41-afd9-02fd7a5a129f")
-    @Override
-    public void onFigureMoved(IFigure figure) {
-        super.onFigureMoved(figure);
-    }
-
-    @objid ("356c8889-f5b3-4804-aeea-79a213735c97")
-    @Override
-    protected ComputedState createComputedState(IFigure aNodeFigure) {
-        if (this.state == null) {
-            this.state = new ForkJoinMarginDependentComputedState(this.margin, this.orientation);
-        }
-        return this.state;
-    }
-
-    /**
-     * Refresh the provided anchors after the node orientation's changed.
-     * @param aNodeFigure the figure providing anchors.
-     */
-    @objid ("81b59c88-201d-4286-8479-5b2fd92e4ef0")
-    public void refresh(IFigure aNodeFigure) {
-        if (this.state != null) {
-            this.state.update(aNodeFigure);
-        }
-        
-    }
-
-    @objid ("3d30f142-09ba-444a-bf90-c16646a67e18")
-    protected static class ForkJoinMarginDependentComputedState extends MarginDependentComputedState {
-        @objid ("b404f579-a334-4f97-a3ac-e4ee0b1228c5")
+    @objid ("a9da6f06-adff-480c-8cd0-58c5a056e0be")
+    protected static class ForkJoinAnchorFactory extends DefaultAnchorFactory {
+        @objid ("e4b04767-dcc1-4139-a72e-3158cd627674")
         private final Supplier<ForkJoinOrientation> orientationSupplier;
 
-        @objid ("2448bc05-8750-4116-8a10-3e38cc47d679")
-        public  ForkJoinMarginDependentComputedState(int margin, Supplier<ForkJoinOrientation> orientationSupplier) {
-            super(margin);
+        @objid ("7d42acd3-b0d3-447c-a08b-88cf5ca18d4e")
+        public  ForkJoinAnchorFactory(int margin, Supplier<ForkJoinOrientation> orientationSupplier) {
+            super();
             this.orientationSupplier = orientationSupplier;
             
         }
 
-        @objid ("6476979e-63a4-4eeb-b1bb-5c24858a1d56")
-        public void reset() {
-            super.invalidate();
-            this.previousFigSize = new Dimension();
+        @objid ("4936bb6b-f518-4a62-b195-a1a73c03922a")
+        @Override
+        protected void createAllAnchors(Integer faceFilter, Dimension anchorsCount, Collection<ConnectionAnchor> anchors) {
+            if (this.orientationSupplier.get() == ForkJoinOrientation.HORIZONTAL) {
+                createFaceAnchors(anchors, FacesConstants.FACE_NORTH, faceFilter, anchorsCount.width);
+                createFaceAnchors(anchors, FacesConstants.FACE_SOUTH, faceFilter, anchorsCount.width);
+            } else {
+                createFaceAnchors(anchors, FacesConstants.FACE_EAST, faceFilter, anchorsCount.height);
+                createFaceAnchors(anchors, FacesConstants.FACE_WEST, faceFilter, anchorsCount.height);
+            }
             
         }
 
-        @objid ("43c56c62-390b-4d88-96b3-35a46b73921b")
+        @objid ("4b74d0c6-497b-4408-8960-e82377e876a9")
         @Override
-        protected boolean update(IFigure aNodeFig) {
-            Dimension figSize = aNodeFig.getSize();
+        protected void updateGridAnchorCount(Dimension out, Dimension gridSize) {
+            super.updateGridAnchorCount(out, gridSize);
             
-            boolean sizeChanged = !Objects.equals(this.previousFigSize, figSize);
-            
-            if (sizeChanged) {
-                // compute how many time the label fit on horizontal and vertical faces
-                int nHorizontal = Math.max(1, figSize.width / this.margin - 0);
-                int nVertical = Math.max(1, figSize.height / this.margin - 0);
-            
-                if (this.orientationSupplier.get() == ForkJoinOrientation.HORIZONTAL) {
-                    nVertical = 0;
-            
-                    // ensure count is odd
-                    if (nHorizontal % 2 == 0) {
-                        nHorizontal--;
-                    }
-                } else {
-                    nHorizontal = 0;
-            
-                    // ensure count is odd
-                    if (nVertical % 2 == 0) {
-                        nVertical--;
-                    }
-                }
-            
-                this.anchorsCount.setSize(nHorizontal, nVertical);
-                this.previousFigSize = figSize;
+            if (this.orientationSupplier.get() == ForkJoinOrientation.HORIZONTAL) {
+                out.height = 0;
+            } else {
+                out.width = 0;
             }
             
-            // Call inherited behavior
-            boolean ret = super.update(aNodeFig);
-            return ret && !figSize.isEmpty();
         }
 
     }

@@ -1,267 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
-	Modelio parent POM
- -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+This pom executes a maven target on ALL the (eclipse) features that compose the different Modelio distribution.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.modelio</groupId>
 	<artifactId>modelio-parent</artifactId>
-	<version>5.1.0-SNAPSHOT</version>
+	<version>5.3.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<modelio.ws.path>${project.basedir}/${project.parent.relativePath}</modelio.ws.path>
-		
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-
+		<tycho-version>2.2.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
-		<tycho-version>1.7.0</tycho-version>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<javadesigner.annotation.version>2.2.0</javadesigner.annotation.version>
 
-		<modelio.rootFolder>Modelio 5.1</modelio.rootFolder>
-		<modelio.version>5.1.0-SNAPSHOT</modelio.version>
-		<newVersion>5.1.0</newVersion>
-
-		<sonar.host.url>${env.SONAR_URL}</sonar.host.url>
-		<sonar.login>${env.SONAR_TOKEN}</sonar.login>
-		<sonar.java.source>1.8</sonar.java.source>
+		<modelio.rootFolder>Modelio 5.3.1</modelio.rootFolder>
+		<modelio.version>5.3.1-SNAPSHOT</modelio.version>
+		<newVersion>5.3.1</newVersion>
+		<modelio.ws.path>${project.basedir}/${project.parent.relativePath}</modelio.ws.path>
 	</properties>
 	
-	
-	<modules>
-		<module>dev-platform/rcp-target</module>
-		<module>doc</module>
-		<module>features/opensource/org.modelio.application.core</module>
-		<module>features/opensource/org.modelio.application.perspective</module>
-		<module>features/opensource/org.modelio.application.plugdule</module>
-		<module>features/opensource/org.modelio.application.preferences</module>
-		<module>features/opensource/org.modelio.application.project</module>
-		<module>features/opensource/org.modelio.application.services</module>
-		<module>features/opensource/org.modelio.application.ui</module>
-		<module>features/opensource/org.modelio.application.welcome</module>
-		<module>features/opensource/org.modelio.diagrams.auto</module>
-		<module>features/opensource/org.modelio.diagrams.core</module>
-		<module>features/opensource/org.modelio.documentation.modeler</module>
-		<module>features/opensource/org.modelio.formalism.bpmn</module>
-		<module>features/opensource/org.modelio.formalism.uml</module>
-		<module>features/opensource/org.modelio.functions.admintool</module>
-		<module>features/opensource/org.modelio.functions.audit</module>
-		<module>features/opensource/org.modelio.functions.bundlefiles</module>
-		<module>features/opensource/org.modelio.functions.editors</module>
-		<module>features/opensource/org.modelio.functions.elementedition</module>
-		<module>features/opensource/org.modelio.functions.fle</module>
-		<module>features/opensource/org.modelio.functions.modelbrowser</module>
-		<module>features/opensource/org.modelio.functions.modelimport</module>
-		<module>features/opensource/org.modelio.functions.modelviewtemplate</module>
-		<module>features/opensource/org.modelio.functions.modules</module>
-		<module>features/opensource/org.modelio.functions.patterns</module>
-		<module>features/opensource/org.modelio.functions.script</module>
-		<module>features/opensource/org.modelio.functions.search</module>
-		<module>features/opensource/org.modelio.functions.update</module>
-		<module>features/opensource/org.modelio.functions.xmi</module>
-		<module>features/opensource/org.modelio.platform.feature</module>
-		<module>features/opensource/org.modelio.platform.libraries</module>
-		<module>modelio/app/app.admtool.ext_org</module>
-		<module>modelio/app/app.admtool</module>
-		<module>modelio/app/app.api.impl</module>
-		<module>modelio/app/app.audit.ext_org</module>
-		<module>modelio/app/app.audit</module>
-		<module>modelio/app/app.creation.wizard.ext_org</module>
-		<module>modelio/app/app.creation.wizard</module>
-		<module>modelio/app/app.diagram.api</module>
-		<module>modelio/app/app.diagram.browser</module>
-		<module>modelio/app/app.diagram.diagramauto</module>
-		<module>modelio/app/app.diagram.editor</module>
-		<module>modelio/app/app.diagram.elements</module>
-		<module>modelio/app/app.diagram.outline</module>
-		<module>modelio/app/app.diagram.persistence</module>
-		<module>modelio/app/app.diagram.styles.ext_org</module>
-		<module>modelio/app/app.diagram.styles</module>
-		<module>modelio/app/app.diagram.symbol</module>
-		<module>modelio/app/app.edition.dialogs</module>
-		<module>modelio/app/app.edition.notes</module>
-		<module>modelio/app/app.editors.richnote.libreoffice</module>
-		<module>modelio/app/app.editors.richnote.microsoft</module>
-		<module>modelio/app/app.editors.richnote</module>
-		<module>modelio/app/app.editors.texteditors</module>
-		<module>modelio/app/app.link.editor.ext_org</module>
-		<module>modelio/app/app.link.editor</module>
-		<module>modelio/app/app.model.browser.view.ext_org</module>
-		<module>modelio/app/app.model.browser.view</module>
-		<module>modelio/app/app.model.import.org</module>
-		<module>modelio/app/app.model.property</module>
-		<module>modelio/app/app.model.search.ui</module>
-		<module>modelio/app/app.module.catalog</module>
-		<module>modelio/app/app.module.propertytab</module>
-		<module>modelio/app/app.patterns</module>
-		<module>modelio/app/app.project.conf.ext_org</module>
-		<module>modelio/app/app.project.conf</module>
-		<module>modelio/app/app.project.ui.ext_org</module>
-		<module>modelio/app/app.project.ui</module>
-		<module>modelio/app/app.propertyview</module>
-		<module>modelio/app/app.ramcs</module>
-		<module>modelio/app/app.script.ui</module>
-		<module>modelio/app/app.semantic.browser</module>
-		<module>modelio/app/app.ui.ext_org</module>
-		<module>modelio/app/app.ui</module>
-		<module>modelio/app/app.ui.perspective.org</module>
-		<module>modelio/app/app.ui.welcome</module>
-		<module>modelio/app/app.update.ext_org</module>
-		<module>modelio/app/app.update</module>
-		<module>modelio/app/app.xmi</module>
-		<module>modelio/bpmn/bpmn.diagram.editor</module>
-		<module>modelio/bpmn/bpmn.metamodel.api</module>
-		<module>modelio/bpmn/bpmn.metamodel.contribution</module>
-		<module>modelio/bpmn/bpmn.metamodel.implementation</module>
-		<module>modelio/bpmn/bpmn.ui</module>
-		<module>modelio/bpmn/bpmn.xml</module>
-		<module>modelio/core/core.kernel</module>
-		<module>modelio/core/core.metamodel.api</module>
-		<module>modelio/core/core.metamodel.impl</module>
-		<module>modelio/core/core.modelshield</module>
-		<module>modelio/core/core.project.data</module>
-		<module>modelio/core/core.project</module>
-		<module>modelio/core/core.session</module>
-		<module>modelio/core/core.store.exml</module>
-		<module>modelio/core/core.utils</module>
-		<module>modelio/core/version</module>
-		<module>modelio/platform/platform.api</module>
-		<module>modelio/platform/platform.core</module>
-		<module>modelio/platform/platform.mda.infra</module>
-		<module>modelio/platform/platform.metamodel.extensions</module>
-		<module>modelio/platform/platform.model.ui</module>
-		<module>modelio/platform/platform.model.view.template</module>
-		<module>modelio/platform/platform.module.browser.commands</module>
-		<module>modelio/platform/platform.module.commands</module>
-		<module>modelio/platform/platform.preferences</module>
-		<module>modelio/platform/platform.project.ext_org</module>
-		<module>modelio/platform/platform.project</module>
-		<module>modelio/platform/platform.rcp</module>
-		<module>modelio/platform/platform.script.engine</module>
-		<module>modelio/platform/platform.search.engine</module>
-		<module>modelio/platform/platform.ui</module>
-		<module>modelio/platform/platform.update.repo</module>
-		<module>modelio/platform/platform.utils</module>
-		<module>modelio/plugdule/modelermodule</module>
-		<module>modelio/uml/uml.activitydiagram.editor</module>
-		<module>modelio/uml/uml.communicationdiagram.editor</module>
-		<module>modelio/uml/uml.compositediagram.editor</module>
-		<module>modelio/uml/uml.deploymentdiagram.editor</module>
-		<module>modelio/uml/uml.metamodel.api</module>
-		<module>modelio/uml/uml.metamodel.contribution</module>
-		<module>modelio/uml/uml.metamodel.implementation</module>
-		<module>modelio/uml/uml.objectdiagram.editor</module>
-		<module>modelio/uml/uml.sequencediagram.editor</module>
-		<module>modelio/uml/uml.statediagram.editor</module>
-		<module>modelio/uml/uml.statikdiagram.editor</module>
-		<module>modelio/uml/uml.ui.ext_org</module>
-		<module>modelio/uml/uml.ui</module>
-		<module>modelio/uml/uml.usecasediagram.editor</module>
-		<module>products</module>
-		
-		
-	</modules>
 
 	<repositories>
-		<repository>
-			<id>modelio-repository-maven</id>
-			<layout>default</layout>
-			<url>http://repository.modelio.org</url>
-		</repository>
-		<!-- Eclipse RCP platform -->
-		<repository>
-			<id>rcp-Eclipse</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/rcp-eclipse/eclipse</url>
-		</repository>
-		<repository>
-			<id>rcp-Eclipse-fr</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/rcp-eclipse/eclipse-fr</url>
-		</repository>
-
-		<!-- Third-party Libraries re-packaged by Modeliosoft or Modeliosoft libraries -->
-		<repository>
-			<id>astyle</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/org.astyle/astyle</url>
-		</repository>
+				<!-- Eclipse RCP platform -->
+						<repository>
+							<id>modelio-repository-maven</id>
+							<layout>default</layout>
+							<url>http://repository.modelio.org/</url>
+						</repository>
+				<repository>
+					<id>rcp-Eclipse</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/rcp-eclipse/eclipse</url>
+				</repository>
+				<repository>
+					<id>rcp-Eclipse-fr</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/rcp-eclipse/eclipse-fr</url>
+				</repository>
+				<repository>
+					<id>SWT</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/rcp-eclipse/swt</url>
+				</repository>
 		
-		<repository>
-			<id>praticalxml</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/sf-practicalxml/praticalxml</url>
-		</repository>
-		<repository>
-			<id>jdbm</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/org.jdbm/jdbm</url>
-		</repository>
+				<!-- Third-party Libraries re-packaged by Modeliosoft or Modeliosoft libraries -->
+				<repository>
+					<id>jaxb</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/javax/jaxb</url>
+				</repository>
+				<repository>
+					<id>astyle</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/org.astyle/astyle</url>
+				</repository>
+				<repository>
+					<id>tika</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/apache/tika</url>
+				</repository>
+				<repository>
+					<id>jena</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/apache/jena</url>
+				</repository>
+				<repository>
+					<id>xerces</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/apache/xerces</url>
+				</repository>
+				<repository>
+					<id>oauth</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/oauth/oauth</url>
+				</repository>
+				<repository>
+					<id>praticalxml</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/sf-practicalxml/praticalxml</url>
+				</repository>
+				<repository>
+					<id>jdbm</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/org.jdbm/jdbm</url>
+				</repository>
 		
-		
-
-		<!-- Third-party libraries  -->
+				<!-- Third-party libraries  -->
+				<repository>
+					<id>log4j</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/log4j</url>
+				</repository>
+				<repository>
+					<id>logback</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/ch.qos/logback</url>
+				</repository>
+				<repository>
+					<id>commons-compress</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/commons-compress</url>
+				</repository>
+				<repository>
+					<id>commons-lang</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/commons-lang</url>
+				</repository>
+				<repository>
+					<id>freemarker</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/freemarker</url>
+				</repository>
+				<repository>
+					<id>nebula-nattable</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula-nattable</url>
+				</repository>
+				<repository>
+					<id>nebula-incubator</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula-incubator</url>
+				</repository>
+				<repository>
+					<id>nebula</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula</url>
+				</repository>
+				<repository>
+					<id>gef-draw2d</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/gef-draw2d</url>
+				</repository>
+				<repository>
+					<id>uml2</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/uml2</url>
+				</repository>
+				<repository>
+					<id>emf</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/emf</url>
+				
+				</repository>		
+				<repository>
+					<id>slf4j</id>
+					<layout>p2</layout>
+					<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.slf4j/slf4j</url>
+				</repository>
 		<repository>
-			<id>log4j</id>
+			<id>openjdk-jre11</id>
 			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/log4j</url>
+			<url>file://${modelio.ws.path}/dev-platform/pack-resources/openjdk-jre11</url>
 		</repository>
-		<repository>
-			<id>commons-compress</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/commons-compress</url>
-		</repository>
-		<repository>
-			<id>commons-lang</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/apache/commons-lang</url>
-		</repository>
-		<repository>
-			<id>nebula-nattable</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula-nattable</url>
-		</repository>
-		<repository>
-			<id>nebula-incubator</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula-incubator</url>
-		</repository>
-		<repository>
-			<id>nebula</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/nebula</url>
-		</repository>
-		<repository>
-			<id>gef-draw2d</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/gef-draw2d</url>
-		</repository>
-		<repository>
-			<id>uml2</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/uml2</url>
-		</repository>
-		<repository>
-			<id>emf</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/emf</url>
-		</repository>
-		
-		<repository>
-			<id>slf4j</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.slf4j/slf4j</url>
-		</repository>
-
-		
-
 	</repositories>
-	
-	
-	
 
-	<build>
+<build>
 		<plugins>
 
 			<plugin>
@@ -273,7 +172,52 @@
 					<resolver>p2</resolver>
 				</configuration>
 			</plugin>
-			
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useProjectSettings>true</useProjectSettings>
+					<extraClasspathElements>
+						<extraClasspathElement>
+							<groupId>org.modelio</groupId>
+							<artifactId>javadesigner</artifactId>
+							<version>${javadesigner.annotation.version}</version>
+						</extraClasspathElement>
+					</extraClasspathElements>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.modelio</groupId>
+							<artifactId>rcp</artifactId>
+							<version>5.3.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
@@ -288,80 +232,6 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>${tycho-groupid}</groupId>
-				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<extraClasspathElements>
-						<extraClasspathElement>
-							<groupId>org.modelio</groupId>
-							<artifactId>javadesigner</artifactId>
-							<version>2.2.0</version>
-						</extraClasspathElement>
-					
-						<extraClasspathElement>
-							<groupId>org.modelio.libreoffice</groupId>
-							<artifactId>com.sun.star.juh</artifactId>
-							<version>3.6.0</version>
-						</extraClasspathElement>
-
-						<extraClasspathElement>
-							<groupId>org.modelio.libreoffice</groupId>
-							<artifactId>com.sun.star.jurt</artifactId>
-							<version>3.6.0</version>
-						</extraClasspathElement>
-
-						<extraClasspathElement>
-							<groupId>org.modelio.libreoffice</groupId>
-							<artifactId>com.sun.star.ridl</artifactId>
-							<version>3.6.0</version>
-						</extraClasspathElement>
-
-						<extraClasspathElement>
-							<groupId>org.modelio.libreoffice</groupId>
-							<artifactId>com.sun.star.unoil</artifactId>
-							<version>3.6.0</version>
-						</extraClasspathElement>
-					
-						<extraClasspathElement>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>org.eclipse.swt.win32.win32.x86</artifactId>
-							<version>3.102.0</version>
-						</extraClasspathElement>
-					
-					</extraClasspathElements>					
-				</configuration>
-			</plugin>
-
-			
-
-			<plugin>
-				<groupId>${tycho-groupid}</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<environments>
-						<environment>
-							<os>linux</os> <ws>gtk</ws> <arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os> <ws>win32</ws> <arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os> <ws>cocoa</ws> <arch>x86_64</arch>
-						</environment>
-					</environments>
-					<target>
-						<artifact>
-							<groupId>org.modelio</groupId>
-							<artifactId>rcp</artifactId>
-							<version>5.1.0-SNAPSHOT</version>
-						</artifact>
-					</target>
-				</configuration>
-			</plugin>
-
 		</plugins>
 
 		<pluginManagement>
@@ -371,11 +241,40 @@
 					<artifactId>tycho-compiler-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
+						<useProjectSettings>true</useProjectSettings>
 						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>${tycho-groupid}</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<executions>
+						<execution>
+							<id>attach-source</id>
+							<phase>process-classes</phase>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>target-platform-validation-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<checkProvisioning>true</checkProvisioning>
+						<checkDependencies>true</checkDependencies>
+						<targetFiles>
+							<targetFile>rcp.target</targetFile>
+						</targetFiles>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 
 	</build>
+
 </project>
+

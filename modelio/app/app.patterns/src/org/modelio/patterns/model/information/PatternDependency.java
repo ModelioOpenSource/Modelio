@@ -50,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
 @objid ("2bc450f3-e6d3-441c-9545-92c9f7cce91c")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PatternDependency")
-public class PatternDependency extends ExternalDependency {// Empty
+public class PatternDependency extends ExternalDependency {
+// Empty
     
 }

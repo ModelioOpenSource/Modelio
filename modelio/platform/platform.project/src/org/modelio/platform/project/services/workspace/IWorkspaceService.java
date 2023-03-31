@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.nio.file.FileSystemException;
 import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.project.services.openproject.IProjectServiceAccess;
 import org.modelio.vbasic.progress.IModelioProgress;
 
@@ -46,7 +46,7 @@ public interface IWorkspaceService {
      * @Throws IllegalStateException If <code>project</code> is currently opened.
      */
     @objid ("008838ee-8c65-103c-a520-001ec947cd2a")
-    void deleteProject(ProjectDescriptor projectToDelete) throws IOException, FileSystemException;
+    void deleteProject(GProjectDescriptor projectToDelete) throws IOException, FileSystemException;
 
     /**
      * Exports the whole contents of a project into a single archive file.
@@ -56,7 +56,7 @@ public interface IWorkspaceService {
      * @throws IOException in case of I/O failure.
      */
     @objid ("0088453c-8c65-103c-a520-001ec947cd2a")
-    void exportProject(ProjectDescriptor project, Path archivePath, IModelioProgress monitor) throws IOException;
+    void exportProject(GProjectDescriptor project, Path archivePath, IModelioProgress monitor) throws IOException;
 
     /**
      * Fires a refresh of the workspace contents. The workspace directory will be re-scanned for new/removed projects and the workspace internal data structures updated accordingly. The project named 'projectToSelect' (if not null) is selected in workspace
@@ -72,12 +72,12 @@ public interface IWorkspaceService {
      * @throws FileSystemException in case of file system error.
      */
     @objid ("0c049288-0008-4133-a8ae-527b5c3a01de")
-    void renameProject(ProjectDescriptor projectDescriptor, String name) throws IOException, FileSystemException;
+    void renameProject(GProjectDescriptor projectDescriptor, String name) throws IOException, FileSystemException;
 
     @objid ("06d76150-2225-468b-bbb2-38a8323cc1a6")
     Path getWorkspace();
 
     @objid ("cc81759e-92a1-44cc-9edd-17099ad3ca7e")
     void configure(IProjectServiceAccess service);
-
 }
+

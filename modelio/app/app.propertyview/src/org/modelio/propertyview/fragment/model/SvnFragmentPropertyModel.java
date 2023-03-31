@@ -22,15 +22,14 @@ package org.modelio.propertyview.fragment.model;
 import java.lang.reflect.Method;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.data.project.IFragmentInfos;
-import org.modelio.gproject.fragment.AbstractFragment;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
  * <i>SvnFragment</i> data model.
  * <p>
- * This class provides the list of properties for the <i>SvnFragment</i>
- * metaclass.
+ * This class provides the list of properties for the <i>SvnFragment</i> metaclass.
  */
 @objid ("f15c5bba-e4dd-4f61-8aed-7b03bfad82e7")
 public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
@@ -42,7 +41,7 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
      * @param fragment the fragment of which properties will be display
      */
     @objid ("bd2d0b6c-a562-424f-88d4-36da6aa07cbf")
-    public  SvnFragmentPropertyModel(AbstractFragment fragment) {
+    public  SvnFragmentPropertyModel(IGModelFragment fragment) {
         super(fragment);
         IFragmentInfos infos;
         try {
@@ -50,7 +49,7 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
             this.name = infos.getName();
         
             Method method = infos.getClass().getMethod("getRevision");
-            this.revision = Long.toString((long)method.invoke(infos));
+            this.revision = Long.toString((long) method.invoke(infos));
         } catch (Exception e) {
             PropertyViewPlugin.LOG.error(e);
         }
@@ -78,7 +77,7 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
     @objid ("6af324eb-4cdc-4899-b0ea-0dc38e79d78c")
     @Override
     public Map<String, String> getPropertyList() {
-        Map<String,String> map = super.getPropertyList();
+        Map<String, String> map = super.getPropertyList();
         map.put(PropertyViewPlugin.I18N.getString("fragment.type.label"), PropertyViewPlugin.I18N.getString("fragment.type.label.svn"));
         map.put(PropertyViewPlugin.I18N.getString("fragment.revision.label"), this.getRevision());
         return map;

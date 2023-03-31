@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00653808-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnEventBasedGatewayType {
@@ -36,6 +38,7 @@ public enum BpmnEventBasedGatewayType {
     PARALLELGATEWAY(0, "ParallelGateway", "ParallelGateway"),
     @objid ("6f8c7b29-162c-4227-a71f-7072cab5fd08")
     EXCLUSIVEGATEWAY(1, "ExclusiveGateway", "ExclusiveGateway");
+
 public static final int PARALLELGATEWAY_VALUE = 0;
     public static final int EXCLUSIVEGATEWAY_VALUE = 1;
     private static final BpmnEventBasedGatewayType[] VALUES_ARRAY =

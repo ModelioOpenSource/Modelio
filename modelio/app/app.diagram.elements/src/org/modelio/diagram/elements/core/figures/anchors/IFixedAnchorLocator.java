@@ -21,6 +21,7 @@ package org.modelio.diagram.elements.core.figures.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.ChopboxAnchor;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.diagram.elements.core.figures.geometry.Direction;
@@ -30,7 +31,7 @@ import org.modelio.diagram.elements.core.figures.geometry.Direction;
  * @since 5.0.2
  */
 @objid ("a4f04b9c-ac2b-4436-b653-c2f3dff3ed4a")
-public interface IFixedAnchorLocator {
+public interface IFixedAnchorLocator extends IAnchorHandleProvider {
     /**
      * Returns the location where the Connection should be anchored in absolute
      * coordinates. The anchor may use the given reference Point to calculate
@@ -81,9 +82,22 @@ public interface IFixedAnchorLocator {
      * @param anchor a fixed anchor
      * @return the orthogonal direction from the anchor to outside the node .
      */
-    @objid ("c676591f-b5e9-477c-95d7-2b0c5962137b")
+    @objid ("67fa7ca6-f172-48eb-a52e-d1f3ddf57759")
     default Direction getDirection(FixedAnchor anchor) {
         return Direction.NONE;
     }
 
+    /**
+     * Get the locator implementation identifier, used for serialization.
+     * @return the locator implementation identifier.
+     */
+    @objid ("edd9b4fe-dc79-40f4-bd3c-ba2853991a93")
+    String getAlgorithm();
+
+    @objid ("fd4e00d3-4b92-447f-8323-d1883795f79c")
+    @Override
+    default IFigure createAnchorHandleFigure(ConnectionAnchor anchor) {
+        return AnchorFigureFactory.createDefaultHandleFigure(anchor.getOwner());
+    }
 }
+

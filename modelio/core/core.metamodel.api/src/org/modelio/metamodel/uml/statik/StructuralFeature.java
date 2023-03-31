@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.informationFlow.InformationFlow;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("001ee9c0-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StructuralFeature extends Feature {
@@ -55,6 +57,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a726e297-2fc8-42b8-a27d-dba5eb61dc2a")
     KindOfAccess getChangeable();
@@ -64,6 +67,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("812dfc97-7935-486f-a65d-dfa6a428e64f")
     void setChangeable(KindOfAccess value);
@@ -73,6 +77,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8e4b939b-c77c-4e56-a25f-4534db668762")
     boolean isIsDerived();
@@ -82,6 +87,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("32440476-f2ae-44bf-b4fe-821af9336046")
     void setIsDerived(boolean value);
@@ -91,6 +97,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("da9f05c8-b0be-4dd7-94dc-95febdcf0d54")
     boolean isIsOrdered();
@@ -100,6 +107,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("aada7f9b-f41f-458d-941d-0bfaa38cbe19")
     void setIsOrdered(boolean value);
@@ -109,6 +117,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3aaf31d6-488b-4ea0-aeab-7c3a65ec3b8b")
     boolean isIsUnique();
@@ -118,6 +127,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4846687d-2c3d-4969-9aa4-c016835eaa5b")
     void setIsUnique(boolean value);
@@ -127,6 +137,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ec530ef9-3651-487e-b5bc-3e0d14d93021")
     String getMultiplicityMin();
@@ -136,6 +147,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("970057f6-8c4c-4052-8cbc-092ccc64b38c")
     void setMultiplicityMin(String value);
@@ -145,6 +157,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08220db8-5a99-493e-9944-a63dcea69079")
     String getMultiplicityMax();
@@ -154,6 +167,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("69e5b29f-4672-421a-afb2-94d19430e7ac")
     void setMultiplicityMax(String value);
@@ -163,6 +177,7 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1150de20-0868-44b4-be9a-0b40937e0745")
     EList<InformationFlow> getRealizedInformationFlow();
@@ -172,8 +187,9 @@ public interface StructuralFeature extends Feature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6968ef6b-5e91-4c13-b2e4-674f48803edc")
     <T extends InformationFlow> List<T> getRealizedInformationFlow(java.lang.Class<T> filterClass);
-
 }
+

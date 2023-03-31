@@ -49,13 +49,13 @@ public class GmBpmnCallActivityStructuredStyleKeys extends BpmnAbstractStyleKeyP
 
     @objid ("713680b7-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("SUBPROCESS_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("713680b9-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("SUBPROCESS_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("713680bb-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWREPRESENTED = createStyleKey("CALLACTIVITY_SHOWREPRESENTED",
-                Boolean.class);
+                    Boolean.class);
 
 }

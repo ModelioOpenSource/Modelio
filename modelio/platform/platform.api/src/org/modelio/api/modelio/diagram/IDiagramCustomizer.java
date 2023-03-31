@@ -73,5 +73,5 @@ public interface IDiagramCustomizer {
     default IDGDynamicDecorator getDynamicDecorator() {
         return null;
     }
-
 }
+

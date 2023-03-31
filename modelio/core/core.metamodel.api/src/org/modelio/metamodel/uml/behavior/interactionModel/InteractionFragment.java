@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * InteractionFragments sequencing information is handled by an internal feature that is not directly accessible.
  * 
  * The Joni Java API provides methods to access the ordering of InteractionFragments.
+ * 
+ * 
  */
 @objid ("004713c8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InteractionFragment extends UmlModelElement {
@@ -59,6 +61,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("785ab63a-8119-46b2-b24d-b72996bbbab7")
     int getLineNumber();
@@ -68,6 +71,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("79e5f773-538e-484d-893d-c2cd71334d6f")
     void setLineNumber(int value);
@@ -77,6 +81,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2c33766d-8689-4256-9d91-02858dcdb0d4")
     InteractionOperand getEnclosingOperand();
@@ -86,6 +91,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fd15672a-191d-40e7-9f90-8a3bd5c46366")
     void setEnclosingOperand(InteractionOperand value);
@@ -95,6 +101,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5a7e55be-9866-4ccc-af0d-4180ed2c79a9")
     Interaction getEnclosingInteraction();
@@ -104,6 +111,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("84c9c7dc-499d-4093-8343-250e418e2ed6")
     void setEnclosingInteraction(Interaction value);
@@ -113,6 +121,7 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Lifelines that the InteractionFragment involves.</i>
+     * 
      */
     @objid ("a7f9069c-123d-4c41-b746-8553a4fc9095")
     EList<Lifeline> getCovered();
@@ -122,8 +131,9 @@ public interface InteractionFragment extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Lifelines that the InteractionFragment involves.</i>
+     * 
      */
     @objid ("7a103eee-52cc-45f2-a6d5-3bba19b9e02e")
     <T extends Lifeline> List<T> getCovered(java.lang.Class<T> filterClass);
-
 }
+

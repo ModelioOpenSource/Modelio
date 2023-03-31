@@ -36,6 +36,9 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
  * 
  * 
  * <p>Events that throw a Result. All End Events and some Intermediate Events are throwing Events that may eventually be caught by another Event.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00956d84-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnThrowEvent extends BpmnEvent {
@@ -56,6 +59,7 @@ public interface BpmnThrowEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9650ab25-bbc5-4efd-b1fe-99d14eb8ec12")
     EList<BpmnDataAssociation> getDataInputAssociation();
@@ -65,6 +69,7 @@ public interface BpmnThrowEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("05f85754-5895-4c96-b6b2-4c8e0097390f")
     <T extends BpmnDataAssociation> List<T> getDataInputAssociation(java.lang.Class<T> filterClass);
@@ -74,6 +79,7 @@ public interface BpmnThrowEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d3422f19-dfe7-462c-8d96-44373a07e151")
     BpmnDataInput getDataInput();
@@ -83,8 +89,9 @@ public interface BpmnThrowEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("84da87fc-93ce-489a-bd83-66e59d539dcd")
     void setDataInput(BpmnDataInput value);
-
 }
+

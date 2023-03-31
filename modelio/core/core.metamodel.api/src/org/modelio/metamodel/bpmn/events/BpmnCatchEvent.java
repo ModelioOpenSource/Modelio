@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
  * 
  * Events catching some sort of signal or condition (message, condition, timer, etc.).
  * Initial events are always catch events. Intermediate events may catch events.
+ * 
+ * 
  */
 @objid ("00889ec4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnCatchEvent extends BpmnEvent {
@@ -57,6 +59,7 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>This means that there are multiple triggers required before the events triggers outcoming sequence flows. All of the types of triggers that are listed in the catcht Event MUST be triggered before the processing continues.  </i>
+     * 
      */
     @objid ("5c27ebdf-7c6b-484d-b90f-f4f062d25e1b")
     boolean isParallelMultiple();
@@ -66,6 +69,7 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>This means that there are multiple triggers required before the events triggers outcoming sequence flows. All of the types of triggers that are listed in the catcht Event MUST be triggered before the processing continues.  </i>
+     * 
      */
     @objid ("f9ba2a79-18a4-4beb-920e-8d72fbd64fe0")
     void setParallelMultiple(boolean value);
@@ -75,6 +79,7 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("169e46a6-16a0-44e8-9617-281d498a255a")
     EList<BpmnDataAssociation> getDataOutputAssociation();
@@ -84,6 +89,7 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0a40eedb-0520-4fe9-98d0-1d093116dd31")
     <T extends BpmnDataAssociation> List<T> getDataOutputAssociation(java.lang.Class<T> filterClass);
@@ -93,6 +99,7 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("dd4e6c10-1f85-46a5-9c1a-7ac77ef0e50d")
     BpmnDataOutput getDataOutput();
@@ -102,8 +109,9 @@ public interface BpmnCatchEvent extends BpmnEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8d1db025-5c08-4096-90ba-bf5095a78c00")
     void setDataOutput(BpmnDataOutput value);
-
 }
+

@@ -8,7 +8,7 @@
 
 Les diagrammes de processus BPMN sont dédiés à la modélisation des processus, ils sont attachés aux processus.
 
-[[HExemple22PizzaVendor22]]
+
 === Exemple "Pizza Vendor"
 
 .Diagramme de processus "Pizza Vendor"

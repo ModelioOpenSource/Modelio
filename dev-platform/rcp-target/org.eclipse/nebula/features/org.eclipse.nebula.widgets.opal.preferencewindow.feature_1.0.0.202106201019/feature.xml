@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.preferencewindow.feature"
+      label="Nebula Opal Preference Window Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Checkboxgroup
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+      <import feature="org.eclipse.nebula.widgets.opal.titledseparator.feature"/>
+      <import feature="org.eclipse.nebula.widgets.opal.dialog.feature"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.preferencewindow"
+         download-size="70"
+         install-size="136"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.preferencewindow.source"
+         download-size="55"
+         install-size="135"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

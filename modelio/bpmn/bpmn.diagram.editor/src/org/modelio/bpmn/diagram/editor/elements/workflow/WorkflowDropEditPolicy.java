@@ -264,7 +264,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
         return new CreateServiceTaskCommand(dropLocation, toUnmask, getHost(), owner);
     }
 
-    @objid ("ae146514-27da-4071-8e1f-18ac2b8cb1d3")
+    @objid ("213b093b-7550-4271-b56c-7ed4e2a612fd")
     @Override
     protected UnmaskLinkCommand createUnmaskCommandForLink(Point dropLocation, GmLink link) {
         // TODO Auto-generated method stub

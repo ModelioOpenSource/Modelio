@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1450]]
 
-[[r1450]]
+
+
 = R1450
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si une association est une composition, alors la multiplicité max de l'autre
 
 extrémité doit être de 1.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une composition est une association forte impliquant qu'un élément (le composite) est responsable du cycle de vie d'un autre élément (le part). C'est pour cette raison qu'une instance de l'élément part ne peut être associée à plus d'une instance de l'élément composite.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une composition avec une multiplicité différente de 1, vous devriez reconsidérer votre association et :

@@ -36,7 +36,6 @@ import org.eclipse.nebula.widgets.nattable.data.convert.DefaultIntegerDisplayCon
 import org.eclipse.nebula.widgets.nattable.data.validate.DataValidator;
 import org.eclipse.nebula.widgets.nattable.data.validate.ValidationFailedException;
 import org.eclipse.nebula.widgets.nattable.edit.EditConfigAttributes;
-import org.eclipse.nebula.widgets.nattable.edit.action.CellEditDragMode;
 import org.eclipse.nebula.widgets.nattable.edit.action.KeyEditAction;
 import org.eclipse.nebula.widgets.nattable.edit.action.MouseEditAction;
 import org.eclipse.nebula.widgets.nattable.edit.editor.CheckBoxCellEditor;
@@ -47,13 +46,14 @@ import org.eclipse.nebula.widgets.nattable.edit.gui.ICellEditDialog;
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.painter.cell.CheckBoxPainter;
 import org.eclipse.nebula.widgets.nattable.painter.cell.ComboBoxPainter;
+import org.eclipse.nebula.widgets.nattable.selection.action.CellSelectionDragMode;
 import org.eclipse.nebula.widgets.nattable.style.CellStyleAttributes;
 import org.eclipse.nebula.widgets.nattable.style.DisplayMode;
 import org.eclipse.nebula.widgets.nattable.style.HorizontalAlignmentEnum;
 import org.eclipse.nebula.widgets.nattable.style.Style;
 import org.eclipse.nebula.widgets.nattable.style.VerticalAlignmentEnum;
 import org.eclipse.nebula.widgets.nattable.ui.binding.UiBindingRegistry;
-import org.eclipse.nebula.widgets.nattable.ui.matcher.BodyCellEditorMouseEventMatcher;
+import org.eclipse.nebula.widgets.nattable.ui.matcher.CellEditorMouseEventMatcher;
 import org.eclipse.nebula.widgets.nattable.ui.matcher.CellPainterMouseEventMatcher;
 import org.eclipse.nebula.widgets.nattable.ui.matcher.KeyEventMatcher;
 import org.eclipse.nebula.widgets.nattable.ui.matcher.LetterOrDigitKeyEventMatcher;
@@ -213,24 +213,22 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         uiBindingRegistry.registerKeyBinding(new LetterOrDigitKeyEventMatcher(SWT.SHIFT), new KeyEditAction());
         
         // Single click in a TextCellEditor editor enters edition
-        uiBindingRegistry.registerSingleClickBinding(new BodyCellEditorMouseEventMatcher(TextCellEditor.class),
-                new MouseEditAction());
-        
         // Single click in a DateValueEditor editor enters edition
-        uiBindingRegistry.registerSingleClickBinding(new BodyCellEditorMouseEventMatcher(DateValueEditor.class),
-                new MouseEditAction());
-        
         // Single click in a ElementValueEditor editor enters edition
-        uiBindingRegistry.registerSingleClickBinding(new BodyCellEditorMouseEventMatcher(ElementNatValueEditor.class),
+        uiBindingRegistry.registerSingleClickBinding(new CellEditorMouseEventMatcher(GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON),
                 new MouseEditAction());
         
         uiBindingRegistry.registerFirstSingleClickBinding(
                 new CellPainterMouseEventMatcher(GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, CheckBoxPainter.class),
                 new MouseEditAction());
         
+        /*
+         * rom nebual 2.1 uiBindingRegistry.registerFirstMouseDragMode( new CellPainterMouseEventMatcher(GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, CheckBoxPainter.class), new CellEditDragMode());
+         */
+        // Adapted for nebula 2.5
         uiBindingRegistry.registerFirstMouseDragMode(
                 new CellPainterMouseEventMatcher(GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, CheckBoxPainter.class),
-                new CellEditDragMode());
+                new CellSelectionDragMode());
         
         // CTRL ALT left click = select in explorer
         uiBindingRegistry.registerFirstSingleClickBinding(

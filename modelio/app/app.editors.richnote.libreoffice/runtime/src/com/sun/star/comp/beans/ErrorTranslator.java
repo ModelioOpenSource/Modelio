@@ -579,7 +579,7 @@ public class ErrorTranslator {
     @objid ("dfcbc2a6-3657-4f52-a6a7-b231d361a2df")
     private static Map<Long, String> errCodeTable;
 
-    // ------------- ERRCODE_SFX_ : http://cgit.freedesktop.org/libreoffice/core/tree/svtools/inc/svtools/sfxecode.hxx
+     // // ------------- ERRCODE_SFX_ : http://cgit.freedesktop.org/libreoffice/core/tree/svtools/inc/svtools/sfxecode.hxx
     @objid ("1a1a4274-5b78-445a-a46b-8e8834e4606f")
     static final long ERRCODE_SFX_NOSTDTEMPLATE = (ErrorTranslator.ERRCODE_AREA_SFX | ErrorTranslator.ERRCODE_CLASS_PATH | 1);
 
@@ -742,7 +742,7 @@ public class ErrorTranslator {
     @objid ("abf02c73-ed66-4e16-b602-92b628b66c78")
     static final long ERRCODE_SFX_DOCUMENT_MACRO_DISABLED_MAC = (ErrorTranslator.ERRCODE_WARNING_MASK | ErrorTranslator.ERRCODE_AREA_SFX | ErrorTranslator.ERRCODE_CLASS_NONE | 56);
 
-    // -----------
+     // // -----------
     @objid ("81479bae-d796-48ef-8050-858b97ffa4d7")
     static final long SO_ERR = (ErrorTranslator.ERRCODE_AREA_SO | ErrorTranslator.ERRCODE_CLASS_SO);
 

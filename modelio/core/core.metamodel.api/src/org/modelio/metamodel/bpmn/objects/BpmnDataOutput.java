@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
  * Activities and Processes often required data in order to execute. In addition they may produce data during or as a result of execution. Data that is produced is captured using Data Outputs
  * 
  * A DataOutput belong either to a process or to an activity.
+ * 
+ * 
  */
 @objid ("0005b81a-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnDataOutput extends BpmnItemAwareElement {
@@ -57,6 +59,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("66f38417-2ce9-44a0-983f-60dab30e86d0")
     boolean isIsCollection();
@@ -66,6 +69,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d4232db7-2263-4ea9-99f4-7c84362f794a")
     void setIsCollection(boolean value);
@@ -75,6 +79,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7fd15da4-5d9b-4e66-b1c4-4f9385d2c43b")
     BpmnActivity getOwnerActivity();
@@ -84,6 +89,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d28dd805-59e4-4826-961d-9008da5bce14")
     void setOwnerActivity(BpmnActivity value);
@@ -93,6 +99,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5cef40b7-d01e-4e27-ae6c-cfe82663d16f")
     BpmnCatchEvent getCatched();
@@ -102,6 +109,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a485b34a-eae6-4461-afe9-37a6d826dae0")
     void setCatched(BpmnCatchEvent value);
@@ -111,6 +119,7 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9af6d1d8-3249-4686-917e-60020b5a663f")
     BpmnMultiInstanceLoopCharacteristics getOwnerLoopCharacteristics();
@@ -120,8 +129,9 @@ public interface BpmnDataOutput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ed178778-72fa-42b1-9ac0-35e3cae5629d")
     void setOwnerLoopCharacteristics(BpmnMultiInstanceLoopCharacteristics value);
-
 }
+

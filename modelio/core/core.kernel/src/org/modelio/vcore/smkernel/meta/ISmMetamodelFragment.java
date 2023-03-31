@@ -89,5 +89,5 @@ public interface ISmMetamodelFragment extends MMetamodelFragment {
     @objid ("e20e1709-9e0b-4c6a-bf6c-3f3e7b57cdfe")
     @Override
     boolean isExtension();
-
 }
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+ <g stroke="#4f5d73" stroke-linecap="round" stroke-width="1.5">
+  <g fill="#fff" fill-rule="evenodd">
+   <rect x="2" y="1" width="7" height="7" style="paint-order:normal"/>
+   <rect x="16" y="9" width="7" height="7" style="paint-order:normal"/>
+   <rect x="2" y="15" width="7" height="7" style="paint-order:normal"/>
+  </g>
+  <path d="m11 1 L11 23 L15 12z" stroke-width="0" fill="#4f5d73" stroke-miterlimit="10" style="paint-order:normal"/>
+ </g>
+</svg>

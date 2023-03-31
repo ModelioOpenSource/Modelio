@@ -69,5 +69,5 @@ public interface IPeerModule {
      */
     @objid ("01f40414-0000-32f9-0000-000000000000")
     IModuleAPIConfiguration getConfiguration();
-
 }
+

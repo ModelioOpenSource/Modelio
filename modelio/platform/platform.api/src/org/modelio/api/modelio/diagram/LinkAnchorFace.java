@@ -18,15 +18,15 @@ package org.modelio.api.modelio.diagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
-@objid ("ad335e22-e0ec-415e-ac4c-350626e4e30f")
+@objid ("c84401d2-cf4f-40e6-82ce-09e69e96d184")
 public enum LinkAnchorFace {
-    @objid ("5227d6ea-087f-47ed-a644-3364156dd53b")
+    @objid ("07954821-92e8-4759-9d80-91876769ab46")
     NORTH,
-    @objid ("953deadc-51dc-41fe-81ee-5c6a5fadc27d")
+    @objid ("e7612431-2bf4-4ca7-b90c-40ceb0167c84")
     SOUTH,
-    @objid ("fd6b9a7a-6549-45b4-8b3a-357765d1f770")
+    @objid ("05a18cdb-cf80-4293-9227-96c2ff1c1798")
     EAST,
-    @objid ("17875efb-fc8e-4a84-b439-73461d869e95")
+    @objid ("6df7fe4a-3327-4c55-a8af-2e6546cdd87f")
     WEST;
 
 }

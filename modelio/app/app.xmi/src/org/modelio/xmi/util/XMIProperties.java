@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl;
 import org.eclipse.uml2.uml.resource.UMLResource;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -156,7 +156,6 @@ public abstract class XMIProperties {
 
     /**
      * Create ecore resoureSet with UML resource Factory
-     * @return resoureSet
      */
     @objid ("f59a1ad2-cc9f-4eda-9b95-b76f407f1d3c")
     public ResourceSet createResourceSet() {
@@ -264,7 +263,7 @@ public abstract class XMIProperties {
 
     @objid ("df711a3b-c239-42d4-bbcb-e537e55fade2")
     public String getProjectRoot() {
-        return GProject.getProject(this.rootElements.get(0)).getProjectFileStructure().getProjectPath().toAbsolutePath().toString();
+        return AbstractGProject.getProject(this.rootElements.get(0)).getPfs().getProjectPath().toAbsolutePath().toString();
     }
 
     @objid ("9ebc3fe2-123f-46e5-9814-870d2644e68b")

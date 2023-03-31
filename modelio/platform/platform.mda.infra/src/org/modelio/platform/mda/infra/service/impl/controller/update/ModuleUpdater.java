@@ -21,15 +21,22 @@ package org.modelio.platform.mda.infra.service.impl.controller.update;
 
 import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.DefinitionScope;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.project.GProperties.Entry;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IRTModuleController;
 import org.modelio.platform.mda.infra.service.impl.IModuleRegistryAccess;
@@ -46,7 +53,7 @@ import org.modelio.vbasic.version.Version;
 @objid ("eabbc60d-01a1-11e2-9fca-001ec947c8cc")
 public class ModuleUpdater {
     @objid ("e153cfd1-9766-48a9-8940-bf89249e797b")
-    private GProject gProject;
+    private IGProject gProject;
 
     @objid ("a15ad58d-1916-4181-8c60-c59466bc7a43")
     private IModuleRegistryAccess moduleRegistry;
@@ -56,7 +63,7 @@ public class ModuleUpdater {
      * @param moduleRegistry the module registry
      */
     @objid ("a9653cb9-9432-43db-b7b3-5c63afda0241")
-    public  ModuleUpdater(GProject gProject, IModuleRegistryAccess moduleRegistry) {
+    public  ModuleUpdater(IGProject gProject, IModuleRegistryAccess moduleRegistry) {
         this.gProject = gProject;
         this.moduleRegistry = moduleRegistry;
         
@@ -87,16 +94,20 @@ public class ModuleUpdater {
         
             // Get the previous values of the module parameters
             Map<String, String> oldParameters = new HashMap<>();
-            for (Entry entry : oldGModule.getParameters().entries()) {
+            for (Entry entry : oldGModule.getProperties().entries()) {
                 oldParameters.put(entry.getName(), entry.getValue());
             }
         
             // Remove the old GModule first
-            this.gProject.removeModule(oldGModule);
+            try {
+                this.gProject.removeGPart(oldGModule);
+            } catch (GPartException e1) {
+                throw new ModuleException(oldGModule.getName() + " module could not be removed: " + e1.toString(), e1);
+            }
             this.moduleRegistry.removeModule(rtModuleToUpdate);
         
             // Install the new module
-            IModelioProgress monitor = new NullProgress(); //TODO use a progress monitor
+            IModelioProgress monitor = new NullProgress(); // TODO use a progress monitor
             GModule updatedGModule = installInGProject(rtModuleHandle, moduleUri, monitor);
         
             // Set the current GModule
@@ -126,13 +137,14 @@ public class ModuleUpdater {
             } catch (RuntimeException | LinkageError e) {
                 MdaInfra.LOG.error(e);
                 // Note as deactivated.
-                //this.moduleService.deactivateModule(iModule);
+                // this.moduleService.deactivateModule(iModule);
                 ModuleException e2 = new ModuleException(
                         MdaInfra.I18N.getMessage("ModuleInstaller.upgradeFailed",
                                 oldGModule.getName(),
                                 oldVersion,
                                 updatedGModule.getVersion(),
-                                e.toString()), e);
+                                e.toString()),
+                        e);
         
                 rtModuleToUpdate.getController().broken(e2);
         
@@ -147,9 +159,28 @@ public class ModuleUpdater {
     @objid ("3c84a21f-4a94-4717-97a5-debd8bbfd170")
     private GModule installInGProject(IModuleHandle rtModuleHandle, URI moduleUri, IModelioProgress monitor) throws ModuleException {
         try {
-            return this.gProject.installModule(rtModuleHandle, moduleUri, monitor);
+            Path localArchiveDir = this.gProject.getPfs().getModuleBackupDir(rtModuleHandle.getName());
+            Path localArchivePath = this.gProject.getPfs().getModuleBackupArchivePath(rtModuleHandle.getName(), rtModuleHandle.getVersion());
+        
+            // Clean the module data directory
+            FileUtils.delete(localArchiveDir);
+            Files.createDirectories(localArchiveDir);
+        
+            // Copy archive in data directory
+            if (rtModuleHandle.getArchive() != null) {
+                Files.copy(rtModuleHandle.getArchive(), localArchivePath, StandardCopyOption.REPLACE_EXISTING);
+            }
+        
+            // Instantiate module
+            final GProjectPartDescriptor fragmentDescriptor = new GProjectPartDescriptor(GProjectPartType.MODULE, rtModuleHandle.getName(), rtModuleHandle.getVersion(), DefinitionScope.LOCAL);
+            fragmentDescriptor.setLocation(moduleUri);
+            GModule module = new GModule(fragmentDescriptor);
+            this.gProject.addGPart(module, true);
+            return module;
         } catch (IOException e) {
             throw new ModuleException(FileUtils.getLocalizedMessage(e), e);
+        } catch (GPartException e) {
+            throw new ModuleException(e.getLocalizedMessage(), e);
         }
         
     }
@@ -173,7 +204,7 @@ public class ModuleUpdater {
         try {
             // Get the previous values of the module parameters
             Map<String, String> oldParameters = new HashMap<>();
-            for (Entry entry : rtModule.getGModule().getParameters().entries()) {
+            for (Entry entry : rtModule.getGModule().getProperties().entries()) {
                 oldParameters.put(entry.getName(), entry.getValue());
             }
         
@@ -192,13 +223,14 @@ public class ModuleUpdater {
         } catch (RuntimeException | LinkageError e) {
             MdaInfra.LOG.error(e);
             // Note as deactivated.
-            //this.moduleService.deactivateModule(iModule);
+            // this.moduleService.deactivateModule(iModule);
             ModuleException e2 = new ModuleException(
                     MdaInfra.I18N.getMessage("ModuleInstaller.upgradeFailed",
                             rtModule.getName(),
                             oldVersion,
                             rtModule.getVersion(),
-                            e.toString()), e);
+                            e.toString()),
+                    e);
         
             controller.broken(e2);
         

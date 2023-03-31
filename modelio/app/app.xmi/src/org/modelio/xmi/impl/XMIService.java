@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.module.IModule;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.statik.Package;
@@ -50,6 +50,7 @@ import org.modelio.xmi.util.XMIFileUtils;
 
 /**
  * This class implements the services provided by XMI
+ * 
  * @author ebrosse
  */
 @objid ("f00a8a73-a896-45bb-8fd1-659d9d7ffd45")
@@ -62,7 +63,7 @@ public class XMIService implements IXMIService {
 
     @objid ("d6992648-03fe-45e2-8516-e6ac2ac98026")
     private void cancelProcess(Shell shell) {
-        if ((shell != null) && (!System.getProperty("os.name").equals("Linux"))) {
+        if (shell != null && !System.getProperty("os.name").equals("Linux")) {
             shell.dispose();
         }
         
@@ -73,7 +74,7 @@ public class XMIService implements IXMIService {
     @objid ("c172d488-4dab-4ea0-b7db-e65a4ef210c1")
     private void exportModel(final ExportConfiguration configuration) {
         Shell shell = null;
-        String xmiFilePath = configuration.getXmiFile().getAbsolutePath() ;
+        String xmiFilePath = configuration.getXmiFile().getAbsolutePath();
         
         GenerationProperties genProp = GenerationProperties.getInstance();
         genProp.setReportModel(ReportManager.getNewReport());
@@ -87,8 +88,9 @@ public class XMIService implements IXMIService {
         
             this.exportService.createEcoreModel(null);
         
-            if (!configuration.getVersionExport().equals(FormatExport.EMF300))
+            if (!configuration.getVersionExport().equals(FormatExport.EMF300)) {
                 XMIFileUtils.changeToUML(xmiFilePath);
+            }
         
             Xmi.LOG.error(Xmi.I18N.getString("info.export.result_done"));
         
@@ -99,8 +101,9 @@ public class XMIService implements IXMIService {
             Xmi.LOG.error(e);
         } finally {
             ReportModel reportModel = genProp.getReportModel();
-            if (!reportModel.isEmpty())
+            if (!reportModel.isEmpty()) {
                 ReportManager.writeReport(reportModel, genProp.getLogFilePath());
+            }
         }
         
     }
@@ -112,7 +115,7 @@ public class XMIService implements IXMIService {
             Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("error.nullGivenParameter"));
         } else {
             if (configuration.getXmiFile() != null) {
-                initExportService(mmService, metamodel, mns);             
+                initExportService(mmService, metamodel, mns);
                 exportModel(configuration);
             } else {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("error.invalidFilePath"));
@@ -124,14 +127,14 @@ public class XMIService implements IXMIService {
     @objid ("708692ba-0a7b-4ac7-8376-015c89fa18b9")
     private void importModel(File xmiFile, MObject owner) {
         Shell shell = Display.getDefault().getActiveShell();
-        ReverseProperties revProp = ReverseProperties.getInstance();            
+        ReverseProperties revProp = ReverseProperties.getInstance();
         revProp.setReportModel(ReportManager.getNewReport());
         
-        try(ITransaction t = GProject.getProject(owner).getSession().getTransactionSupport().createTransaction("Import") ) {
+        try (ITransaction t = AbstractGProject.getProject(owner).getSession().getTransactionSupport().createTransaction("Import")) {
         
             Resource resource = this.importService.getResource(xmiFile);
         
-            if ((resource != null)) {
+            if (resource != null) {
                 this.importService.importEcoreModel(resource, null, shell);
             }
             t.commit();
@@ -143,8 +146,9 @@ public class XMIService implements IXMIService {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
         } finally {
             ReportModel reportModel = revProp.getReportModel();
-            if (!reportModel.isEmpty())
+            if (!reportModel.isEmpty()) {
                 ReportManager.writeReport(reportModel, revProp.getLogFilePath());
+            }
         }
         
     }
@@ -154,27 +158,29 @@ public class XMIService implements IXMIService {
         GenerationProperties genProp = GenerationProperties.getInstance();
         genProp.initialize(mmService, metamodel, mns);
         
-        if (this.exportService == null)
+        if (this.exportService == null) {
             this.exportService = new ExportServices(null);
+        }
         
     }
 
     @objid ("20b6436b-bd18-4bb7-bfea-c3e94724baa9")
     private void initImportService(IMModelServices mmService, MMetamodel metamodel, IModelioNavigationService mns) {
         ReverseProperties.getInstance().initialize(mmService, metamodel, mns);
-        if (this.importService == null)
+        if (this.importService == null) {
             this.importService = new ImportServices();
+        }
         
     }
 
     @objid ("2aee3059-41b4-4fb3-b908-cb359d33485d")
     @Override
     public void importXMIModel(final ImportConfiguration configuration, IProgressMonitor monitor, IMModelServices mmService, MMetamodel metamodel, IModelioNavigationService mns) {
-        if ((configuration.getXmiFile() != null)
-                && (configuration.getXmiFile().isFile())) {
+        if (configuration.getXmiFile() != null
+                && configuration.getXmiFile().isFile()) {
             initImportService(mmService, metamodel, mns);
             ReverseProperties.getInstance().setFilePath(configuration.getXmiFile());
-            ReverseProperties.getInstance().setRootElement((Package)configuration.getOwner());
+            ReverseProperties.getInstance().setRootElement((Package) configuration.getOwner());
             importModel(configuration.getXmiFile(), configuration.getOwner());
         } else {
             Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("error.invalidFilePath"));
@@ -185,15 +191,15 @@ public class XMIService implements IXMIService {
     @objid ("b3a3e446-0248-4c94-a593-9ca97b3ec5a4")
     @Override
     public void importXMIProfile(final ImportConfiguration configuration, IProgressMonitor monitor, IMModelServices mmService, MMetamodel metamodel, IModelioNavigationService mns) {
-        if(configuration.getOwner() != null && configuration.getOwner() instanceof IModule){
+        if (configuration.getOwner() != null && configuration.getOwner() instanceof IModule) {
             if (configuration.getXmiFile() != null && configuration.getXmiFile().isFile()) {
-                initImportService(mmService,metamodel, mns);
+                initImportService(mmService, metamodel, mns);
                 ReverseProperties.getInstance().setFilePath(configuration.getXmiFile());
-                importProfile(configuration.getXmiFile(), configuration.getOwner() );
+                importProfile(configuration.getXmiFile(), configuration.getOwner());
             } else {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("error.invalidFilePath"));
             }
-        }else{
+        } else {
             Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("error.invalidOwner"));
         
         }
@@ -219,7 +225,7 @@ public class XMIService implements IXMIService {
     @objid ("bb172e86-1bb7-4d28-8da3-0ee4eb8b0169")
     private void exportProfile(final ExportConfiguration configuration) {
         Shell shell = null;
-        String xmiFilePath = configuration.getXmiFile().getAbsolutePath() ;
+        String xmiFilePath = configuration.getXmiFile().getAbsolutePath();
         
         GenerationProperties genProp = GenerationProperties.getInstance();
         genProp.setReportModel(ReportManager.getNewReport());
@@ -234,8 +240,9 @@ public class XMIService implements IXMIService {
         
             this.exportService.createEcoreProfile(null);
         
-            if (!configuration.getVersionExport().equals(FormatExport.EMF300))
+            if (!configuration.getVersionExport().equals(FormatExport.EMF300)) {
                 XMIFileUtils.changeToUML(xmiFilePath);
+            }
         
             Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.export.result_done"));
         
@@ -246,8 +253,9 @@ public class XMIService implements IXMIService {
             Xmi.LOG.error(e);
         } finally {
             ReportModel reportModel = genProp.getReportModel();
-            if (!reportModel.isEmpty())
+            if (!reportModel.isEmpty()) {
                 ReportManager.writeReport(reportModel, genProp.getLogFilePath());
+            }
         }
         
     }
@@ -258,14 +266,14 @@ public class XMIService implements IXMIService {
         
         Shell shell = Display.getDefault().getActiveShell();
         
-        ReverseProperties revProp = ReverseProperties.getInstance();            
+        ReverseProperties revProp = ReverseProperties.getInstance();
         revProp.setReportModel(ReportManager.getNewReport());
         
-        try(ITransaction t = GProject.getProject(module).getSession().getTransactionSupport().createTransaction("Import") ) {
+        try (ITransaction t = AbstractGProject.getProject(module).getSession().getTransactionSupport().createTransaction("Import")) {
         
             Resource resource = this.importService.getResource(xmiFile);
         
-            if ((resource != null)) {
+            if (resource != null) {
                 error = this.importService.importEcoreProfile(resource, null, shell);
             }
             t.commit();
@@ -277,8 +285,9 @@ public class XMIService implements IXMIService {
             Xmi.LOG.error(e);
         } finally {
             ReportModel reportModel = revProp.getReportModel();
-            if (!reportModel.isEmpty())
+            if (!reportModel.isEmpty()) {
                 ReportManager.writeReport(reportModel, revProp.getLogFilePath());
+            }
         }
         return error;
     }

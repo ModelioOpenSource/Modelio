@@ -18,6 +18,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_0373AG98EeasPdRypKx2oQ" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_4gQokG98EeasPdRypKx2oQ" elementId="org.modelio.propertyview.placeholder" ref="_O7tXYG98EeasPdRypKx2oQ"/>
+    <elements xsi:type="advanced:Placeholder" xmi:id="_4gQokG98EeasPdRypKx2oQ" elementId="org.modelio.propertyview.placeholder" ref="_O7tXYG98EeasPdRypKx2oQ" closeable="true"/>
   </fragments>
 </fragment:ModelFragments>

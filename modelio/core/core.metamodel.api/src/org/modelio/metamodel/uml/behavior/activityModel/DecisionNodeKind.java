@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007ee2a8-91e0-1f74-804b-001ec947cd2a")
 public enum DecisionNodeKind {
@@ -40,6 +42,7 @@ public enum DecisionNodeKind {
     INCLUSIVEDECISION(2, "InclusiveDecision", "InclusiveDecision"),
     @objid ("276aabc4-d5ce-4350-aea1-718d936678ec")
     EVENTBASEDDECISION(3, "EventBasedDecision", "EventBasedDecision");
+
 public static final int COMPLEXDECISION_VALUE = 0;
     public static final int EXCLUSIVEDECISION_VALUE = 1;
     public static final int INCLUSIVEDECISION_VALUE = 2;

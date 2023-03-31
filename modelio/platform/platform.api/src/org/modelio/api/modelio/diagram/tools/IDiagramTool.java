@@ -67,5 +67,5 @@ public interface IDiagramTool {
 
     @objid ("fb32166c-6c4b-4348-9f97-f68567a46151")
     IModule getModule();
-
 }
+

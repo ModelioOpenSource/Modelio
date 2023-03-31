@@ -3094,5 +3094,5 @@ public interface IUmlModel {
 
     @objid ("25e432ff-90d7-4b69-bb39-2781cbea6575")
     MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, String moduleName, String stereotypeName) throws ExtensionNotFoundException;
-
 }
+

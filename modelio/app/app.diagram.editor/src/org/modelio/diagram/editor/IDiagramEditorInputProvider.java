@@ -48,7 +48,7 @@ public interface IDiagramEditorInputProvider {
     GmDiagramCreator getDiagramCreator();
 
     @objid ("34471e22-62b6-49bd-8d2c-61e6c7b80209")
-    public interface GmDiagramCreator {
+    interface GmDiagramCreator {
         /**
          * Create a {@link GmAbstractDiagram} from an AbstractDiagram.
          * <p>
@@ -67,7 +67,7 @@ public interface IDiagramEditorInputProvider {
          */
         @objid ("45da17df-8623-40e6-b236-f85548a0da28")
         GmAbstractDiagram createDiagram(IModelManager modelManager, AbstractDiagram diagram);
-
-    }
-
 }
+    
+}
+

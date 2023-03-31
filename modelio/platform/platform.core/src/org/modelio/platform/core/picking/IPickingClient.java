@@ -32,5 +32,5 @@ public interface IPickingClient {
 
     @objid ("007e3e7a-e423-1076-aae0-001ec947cd2a")
     void abort();
-
 }
+

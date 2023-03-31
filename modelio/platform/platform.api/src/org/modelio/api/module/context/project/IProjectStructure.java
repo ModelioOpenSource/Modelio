@@ -81,5 +81,5 @@ public interface IProjectStructure {
      */
     @objid ("31f17644-a9a3-41cd-85c7-3106358e992a")
     List<IModuleStructure> getModules();
-
 }
+

@@ -34,7 +34,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.tools.ResizeTracker;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.requests.ChangeBoundsFeedbackMap;
 
@@ -55,7 +55,7 @@ public class DefaultNodeResizableEditPolicy extends ResizableEditPolicy {
     @objid ("993cc54d-e1c4-42c7-9bfe-596396c2d165")
     private DisplayAnchorFeedbackHelper anchorFbHelper;
 
-    @objid ("9e7733c9-12a4-443a-9a74-5946801ae9f8")
+    @objid ("2e678c94-b9c6-49b1-8e02-c19819f8e9b6")
     @Override
     public void activate() {
         super.activate();
@@ -158,18 +158,22 @@ public class DefaultNodeResizableEditPolicy extends ResizableEditPolicy {
     protected void showChangeBoundsFeedback(ChangeBoundsRequest request) {
         super.showChangeBoundsFeedback(request);
         
-        // record the feedback figure in the request
-        IFigure feedbackFigure = getDragSourceFeedbackFigure();
-        ChangeBoundsFeedbackMap.getOrCreate(request).put(getHost(), feedbackFigure);
+        if( false) {
+            // Disabled since 5.3.1 : show anchors during move
         
-        if (this.anchorFbHelper == null) {
-            IFixedConnectionAnchorFactory anchorFactory = getMainNodeEditPart().getAdapter(IFixedConnectionAnchorFactory.class);
-            if (anchorFactory != null) {
-                this.anchorFbHelper = new DisplayAnchorFeedbackHelper(getHost(), feedbackFigure, anchorFactory, getFeedbackLayer());
+            // record the feedback figure in the request
+            IFigure feedbackFigure = getDragSourceFeedbackFigure();
+            ChangeBoundsFeedbackMap.getOrCreate(request).put(getHost(), feedbackFigure);
+        
+            if (this.anchorFbHelper == null) {
+                IFixedNodeAnchorProvider anchorFactory = getMainNodeEditPart().getAdapter(IFixedNodeAnchorProvider.class);
+                if (anchorFactory != null) {
+                    this.anchorFbHelper = new DisplayAnchorFeedbackHelper(getHost(), feedbackFigure, anchorFactory, getFeedbackLayer());
+                }
             }
-        }
-        if (this.anchorFbHelper != null) {
-            this.anchorFbHelper.showTargetFeedback(request);
+            if (this.anchorFbHelper != null) {
+                this.anchorFbHelper.showTargetFeedback(request);
+            }
         }
         
     }

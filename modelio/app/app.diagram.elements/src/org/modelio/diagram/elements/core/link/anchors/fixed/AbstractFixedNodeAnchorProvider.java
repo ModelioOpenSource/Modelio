@@ -29,10 +29,7 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.XYAnchor;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.PrecisionDimension;
-import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.ConnectionEditPart;
@@ -43,9 +40,7 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.figures.anchors.DelegateAnchor;
 import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
-import org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator;
 import org.modelio.diagram.elements.core.figures.anchors.SatelliteAnchor;
-import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmAbstractLinkAnchor;
 import org.modelio.diagram.elements.core.link.RoutingModeGetter;
@@ -84,7 +79,18 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  * @since 5.0.2
  */
 @objid ("b70ed3a6-0ed3-4c72-b0eb-4ecfb11cc6bd")
-public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchorProvider implements IFixedConnectionAnchorFactory, IFixedAnchorLocator {
+@Deprecated
+class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchorProvider implements IFixedConnectionAnchorFactory {
+    @objid ("fe8d0882-8019-4b72-9f1b-461b77bc788a")
+    private IFixedConnectionAnchorFactory factory;
+
+    @objid ("71830cc5-bcbd-400f-b5b5-130d31e24769")
+    public  AbstractFixedNodeAnchorProvider(IFixedConnectionAnchorFactory factory) {
+        super();
+        this.factory = factory;
+        
+    }
+
     /**
      * Create a serializable anchor model from the given anchor.
      * @param anchor a figure anchor
@@ -99,7 +105,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             return null;
         } else if (anchor instanceof FixedAnchor) {
             FixedAnchor fa = (FixedAnchor) anchor;
-            return new GmFixedAnchor(fa.getFace(), fa.getRank(), fa.getTotalOnFace());
+            return new GmFixedAnchor(fa.getLocator().getAlgorithm(), fa.getFace(), fa.getRank(), fa.getTotalOnFace());
         } else if (anchor instanceof XYAnchor) {
             XYAnchor xy = (XYAnchor) anchor;
             return new GmXYAnchor(xy.getReferencePoint());
@@ -126,7 +132,6 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
      * @return an implementation of {@link AccessibleAnchorProvider}
      */
     @objid ("1dcc11db-e367-4e01-bd14-b53d147abf5e")
-    @Override
     public AccessibleAnchorProvider getAccessibleAnchorProvider(IFigure nodeFig) {
         return new AccessibleAnchorProvider() {
             @objid ("6ec0672d-aeaf-4655-987d-4150507d600b")
@@ -138,7 +143,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             @objid ("1bd01c33-3d6d-4108-ae55-84b7242c9220")
             @Override
             public List getTargetAnchorLocations() {
-                Collection<ConnectionAnchor> allAnchors = getAllAnchors(nodeFig, ConnectionRouterId.ORTHOGONAL, null);
+                Collection<ConnectionAnchor> allAnchors = AbstractFixedNodeAnchorProvider.this.factory.getAllAnchors(nodeFig, ConnectionRouterId.ORTHOGONAL, null);
                 List<Point> ret = new ArrayList<>(allAnchors.size());
         
                 for (ConnectionAnchor a : allAnchors) {
@@ -221,7 +226,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             if (srcPoint == null) {
                 srcPoint = figureBounds.getRight();
             }
-            return getNearest(figure, srcPoint, req.getData().getRoutingMode(), null, isSourceAnchor);
+            return this.factory.getNearest(figure, srcPoint, req.getData().getRoutingMode(), null, isSourceAnchor);
         } else {
             // Flag put by CreateRakeLinkEditPolicy.createPathModel(...)
             // this.raked = request.getExtendedData().get("rake") == Boolean.TRUE;
@@ -235,12 +240,12 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             if (targetPoint == null) {
                 targetPoint = figureBounds.getLeft();
             }
-            return getNearest(figure, targetPoint, req.getData().getRoutingMode(), null, isSourceAnchor);
+            return this.factory.getNearest(figure, targetPoint, req.getData().getRoutingMode(), null, isSourceAnchor);
         }
         
     }
 
-    @objid ("3e53fa20-f4f1-4c7c-ac97-02937531a5f0")
+    @objid ("456f9d3a-43d8-4ddc-b59c-807b7756d05f")
     private static Point findGoodAnchorRef(Point candidate1, List<Point> candidates2, boolean first, Point candidate3, Point candidate4, Point forbidden) {
         if (AnchorRefHelper.isGoodAnchorRef(candidate1, forbidden))
             return candidate1;
@@ -268,10 +273,10 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
     @Override
     protected ConnectionAnchor getAnchorForCreateRequest(final GraphicalEditPart nodeEditPart, final CreateRequest request, final boolean source) throws IllegalArgumentException {
         final Point p = request.getLocation();
-        return getNearest(nodeEditPart.getFigure(), p, ConnectionRouterId.ORTHOGONAL, null, source);
+        return this.factory.getNearest(nodeEditPart.getFigure(), p, ConnectionRouterId.ORTHOGONAL, null, source);
     }
 
-    @objid ("e4a9950b-deb6-496b-b57b-99b9b90dcb01")
+    @objid ("607f7d73-2e10-44ac-abd6-5695664f6b83")
     @Override
     public ConnectionAnchor getSourceConnectionAnchor(GraphicalEditPart nodeEditPart, Request request) {
         Boolean needSlidableAnchor = (Boolean) request.getExtendedData().get(CreateLinkConstants.PROP_NEED_SLIDABLE_ANCHOR);
@@ -284,7 +289,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
         
     }
 
-    @objid ("1996f25e-f5af-480d-9789-84bfeb9cc5e2")
+    @objid ("07da4008-90df-44f9-b412-333c9b8cde35")
     @Override
     public ConnectionAnchor getTargetConnectionAnchor(GraphicalEditPart nodeEditPart, Request request) {
         Boolean needSlidableAnchor = (Boolean) request.getExtendedData().get(CreateLinkConstants.PROP_NEED_SLIDABLE_ANCHOR);
@@ -342,9 +347,9 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
         
             Integer face = refAnchor instanceof FixedAnchor ? ((FixedAnchor) refAnchor).getFace() : null;
         
-            ConnectionAnchor nearest = getNearest(nodeFigure, requestLocation, state.getFigureRoutingMode(), face, source);
+            ConnectionAnchor nearest = this.factory.getNearest(nodeFigure, requestLocation, state.getFigureRoutingMode(), face, source);
             if (nearest == null) {
-                nearest = getNearest(nodeFigure, requestLocation, state.getFigureRoutingMode(), null, source);
+                nearest = this.factory.getNearest(nodeFigure, requestLocation, state.getFigureRoutingMode(), null, source);
             }
         
             if (nearest == null) {
@@ -357,7 +362,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             }
         } else {
             ConnectionRouterId routerId = state.getFigureRoutingMode();
-            return getNearest(nodeFigure, requestLocation, routerId, null, source);
+            return this.factory.getNearest(nodeFigure, requestLocation, routerId, null, source);
         }
         
     }
@@ -389,7 +394,7 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             }
         } else if (gmLinkAnchor instanceof GmFixedAnchor) {
             GmFixedAnchor a = (GmFixedAnchor) gmLinkAnchor;
-            return createFromModel(nodeFigure, a);
+            return this.factory.createFromModel(nodeFigure, a);
         } else if (gmLinkAnchor instanceof GmXYAnchor) {
             final GmXYAnchor pa = (GmXYAnchor) gmLinkAnchor;
             final Point p = pa.getReferencePoint();
@@ -410,16 +415,39 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
             GmAbstractLinkAnchor a = (GmAbstractLinkAnchor) gmLinkAnchor;
             Point pos = nodeFigure.getBounds().getTopLeft().translate(a.getLocation());
             nodeFigure.translateToAbsolute(pos);
-            return getNearest(nodeEditPart.getFigure(), pos, state.getFigureRoutingMode(), null, isSourceAnchor);
+            return this.factory.getNearest(nodeEditPart.getFigure(), pos, state.getFigureRoutingMode(), null, isSourceAnchor);
         } else {
             // should not happen, ask for anchor to node center
             DiagramElements.LOG.debug(new IllegalArgumentException(String.format("Unknown anchor <%s> - on %s - for %s connection", gmLinkAnchor, nodeEditPart, state.connectionEditPart)));
             Point pos = nodeFigure.getBounds().getCenter();
             nodeFigure.translateToAbsolute(pos);
-            return getNearest(nodeEditPart.getFigure(), pos, state.getFigureRoutingMode(), null, isSourceAnchor);
+            return this.factory.getNearest(nodeEditPart.getFigure(), pos, state.getFigureRoutingMode(), null, isSourceAnchor);
         
         }
         
+    }
+
+    @objid ("6d8eec70-c343-4066-8e55-f01ec0ad7923")
+    @Override
+    public ConnectionAnchor createFromModel(IFigure nodeFig, GmFixedAnchor gmLinkAnchor) {
+        return this.factory.createFromModel(nodeFig, gmLinkAnchor);
+    }
+
+    @objid ("65554aa1-917f-4a7f-b33e-af4f290efc3a")
+    @Override
+    public Collection<ConnectionAnchor> getAllAnchors(IFigure nodeFig, ConnectionRouterId routerId, Integer face) {
+        return this.factory.getAllAnchors(nodeFig, routerId, face);
+    }
+
+    @objid ("5f19f994-2d76-48bd-93f0-4f105f75dbd9")
+    @Override
+    public String getAlgorithmId() {
+        throw new UnsupportedOperationException();
+    }
+
+    @objid ("a17d401c-9e94-4ddb-a8c5-2d1d2540a33e")
+    public void onFigureMoved(IFigure figure) {
+        // TODO Auto-generated method stub
     }
 
     /**
@@ -463,83 +491,6 @@ public abstract class AbstractFixedNodeAnchorProvider extends AbstractNodeAnchor
         @objid ("b027ee31-ca5a-4291-ad6d-692c897bd6c5")
         public ConnectionRouterId getFigureRoutingMode() {
             return RoutingModeGetter.fromEditPart(this.connectionEditPart);
-        }
-
-    }
-
-    /**
-     * {@link #getLocation(FixedAnchor, Point)} snaps anchor location to the given reference point if within tolerance.
-     */
-    @objid ("4a1bc576-4359-4a02-b9a4-2c3174d3a55c")
-    protected static class TolerantLocator implements IFixedAnchorLocator {
-        @objid ("2cc7555f-bfb1-4d4f-86a2-f3609c36a774")
-        private final int tolerance;
-
-        @objid ("19e9897f-83f7-48cc-8ebe-5c58062eb307")
-        private IFixedAnchorLocator delegate;
-
-        @objid ("d1870459-15d9-46f7-b2d4-e73240404a06")
-        public  TolerantLocator(IFixedAnchorLocator delegate, int tolerance) {
-            super();
-            this.delegate = delegate;
-            this.tolerance = tolerance;
-            
-        }
-
-        @objid ("5aefc791-ea8b-447e-ae6a-29ed26472dc9")
-        @Override
-        public Point getReferencePoint(FixedAnchor anchor) {
-            return this.delegate.getReferencePoint(anchor);
-        }
-
-        @objid ("149f8c34-c98d-49c0-a2d1-1f7e46b90fcb")
-        @Override
-        public String getFaceName(FixedAnchor fixedAnchor) {
-            return this.delegate.getFaceName(fixedAnchor);
-        }
-
-        @objid ("37ea2b54-3ca3-4749-a3d2-a6ffe2e8d56c")
-        @Override
-        public void onFigureMoved(IFigure figure) {
-            this.delegate.onFigureMoved(figure);
-        }
-
-        @objid ("e30b8b52-1991-4d3c-bf4e-fbaa4be01c08")
-        @Override
-        public Direction getDirection(FixedAnchor anchor) {
-            return this.delegate.getDirection(anchor);
-        }
-
-        @objid ("2352c14a-b002-458c-b5c2-8af4668ca05b")
-        @Override
-        public Point getLocation(FixedAnchor anchor, Point reference) {
-            Point location = this.delegate.getLocation(anchor, reference);
-            
-            // snap anchor location to the given reference point if within tolerance.
-            Dimension tolerance2d = new PrecisionDimension(this.tolerance, this.tolerance);
-            anchor.getOwner().translateToAbsolute(tolerance2d);
-            
-            double d;
-            switch (anchor.getFace()) {
-            case FixedNodeAnchorProvider.FACE_EAST:
-            case FixedNodeAnchorProvider.FACE_WEST:
-                d = reference.preciseY() - location.preciseY();
-                if (d > 0 && d > -tolerance2d.preciseHeight() && d <= tolerance2d.preciseHeight()) {
-                    return new PrecisionPoint(location.preciseX(), reference.preciseY());
-                }
-                break;
-            case FixedNodeAnchorProvider.FACE_NORTH:
-            case FixedNodeAnchorProvider.FACE_SOUTH:
-                d = reference.preciseX() - location.preciseX();
-                if (d > 0 && d > -tolerance2d.preciseWidth() && d <= tolerance2d.preciseWidth()) {
-                    return new PrecisionPoint(reference.preciseX(), location.preciseY());
-                }
-                break;
-            default:
-            }
-            
-            // Return anchor location by default
-            return location;
         }
 
     }

@@ -52,7 +52,7 @@ public interface CreateLinkConstants {
      * <p>
      * Used for feedback display when the feedback figure is not the main figure.
      */
-    @objid ("c7edf5fe-35fb-4c10-ba77-5dcb6b0c9ff3")
+    @objid ("11010844-3f4d-48aa-81fd-72e71fafa1c1")
     public static final String PROP_RECONNECT_ON_FIGURE = "reconnect on given figure";
 
     /**
@@ -60,7 +60,7 @@ public interface CreateLinkConstants {
      * <p>
      * The value is expected to be a boolean.
      */
-    @objid ("5c743a72-312c-4b9a-ad40-91ea579b95ba")
+    @objid ("d9fb47b6-c450-43c9-af50-e34d9f426441")
     public static final String PROP_NEED_SLIDABLE_ANCHOR = "need slidable anchor";
 
     /**
@@ -95,7 +95,7 @@ public interface CreateLinkConstants {
      * Emitted by ConnectionSegmentTracker.
      * Implemented by connection bend point edit policies .
      */
-    @objid ("65a26ec8-3e99-4081-ae74-19b47c543e09")
+    @objid ("c0676f9a-1fe4-4b9c-8518-427ac75f9e89")
     public static final String REQ_CONNECTION_MOVE_SEGMENT = "move connection segment";
-
 }
+

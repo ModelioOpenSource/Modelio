@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1130]]
 
-[[r1130]]
+
+
 = R1130
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The type or the maximum multiplicity of a pin belonging to a CallOperationAction does not match its matched parameter.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _UML constraint_: The type, ordering, and multiplicity of an argument or result pin are derived from the corresponding owned parameter of the operation.
@@ -28,9 +28,9 @@ image::images/Modeler_audit_rules_R1130_modeler_fig_1130.gif[image]
 
 The Project CallOperationAction is invalid because the type of its projectId pin does not match the parameter type it is matched with.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1130 error, you can resolve it by doing one of the following:

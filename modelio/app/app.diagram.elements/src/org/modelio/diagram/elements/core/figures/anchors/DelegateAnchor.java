@@ -46,6 +46,11 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
         
     }
 
+    @objid ("cbb6aeea-3eef-4666-86ec-c9cf3e08d764")
+    public  DelegateAnchor(ConnectionAnchor delegate) {
+        this.delegate = delegate;
+    }
+
     /**
      * Get the real anchor that does the work.
      * @return the real anchor.

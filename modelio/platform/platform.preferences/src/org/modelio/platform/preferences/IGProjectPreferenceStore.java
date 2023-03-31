@@ -21,7 +21,7 @@ package org.modelio.platform.preferences;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 /**
  * An IGProjectPreferenceStore is a preference store that is backed to the project.conf file of a GProject.
@@ -31,6 +31,6 @@ import org.modelio.gproject.gproject.GProject;
 @objid ("0cd5fed3-f0ed-4d45-ad3c-f753efb3bba3")
 public interface IGProjectPreferenceStore extends IPersistentPreferenceStore {
     @objid ("b7e0a35d-e455-44c6-b70c-d68196a41b18")
-    GProject getProject();
-
+    IGProject getProject();
 }
+

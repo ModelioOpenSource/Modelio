@@ -23,7 +23,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MStatus;
@@ -52,9 +52,9 @@ public class CommandVisiblePropertyTester extends PropertyTester {
         switch (property) {
             case "modelimport":
                 List<MObject> selObjs = SelectionHelper.toList(selection, MObject.class);
-                List<IProjectFragment> selFrags = SelectionHelper.toList(selection, IProjectFragment.class);
-                
-                for (IProjectFragment object : selFrags) {
+                List<IGModelFragment> selFrags = SelectionHelper.toList(selection, IGModelFragment.class);
+        
+                for (IGModelFragment object : selFrags) {
                     for (MObject r : object.getRoots()) {
                         MStatus status = r.getStatus();
                         if (! (status.isModifiable() || status.isCmsManaged())) {
@@ -62,14 +62,14 @@ public class CommandVisiblePropertyTester extends PropertyTester {
                         }
                     }
                 }
-                
+        
                 for (MObject r : selObjs) {
                     MStatus status = r.getStatus();
                     if (! (status.isModifiable() || status.isCmsManaged())) {
                         return false;
                     }
                 }
-                
+        
                 return !selObjs.isEmpty() || ! selFrags.isEmpty();
             default:
                 throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());

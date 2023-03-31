@@ -19,7 +19,7 @@ image:images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/Collaboration
 
 image:images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/Collaboration_diagram/WebHome/externalparticipant.png[externalparticipant.png] External Process/Participant: this kind of Participant doesn't reference any Process and is then "external" to the model. It has therefore no content that can be edited.
 
-[[HPizzaCollaborationexample]]
+
 === Pizza Collaboration example
 
 .The "Pizza Collaboration" diagram
@@ -33,7 +33,7 @@ In this Collaboration diagram, the 3 kinds of Participants are represented :
 
 - "Bank" is an external participant, it references no process.
 
-[[HMessageFlows]]
+
 == Message Flows
 
 Collaboration diagrams main goal is to model interactions between processes. To do so Messages Flow must be used.
@@ -42,7 +42,7 @@ Messages Flows can be drawn between Tasks, Sub-Processes, Events, that belongs t
 
 N.B: Deleting elements linked by Message Flows will pop-up a confirmation wizard.
 
-[[HMessageFlowscreationwizard]]
+
 === Message Flows creation wizard
 
 The MessageFlow creation GUI interaction has to match the representation modes and the nature (external or not) of the source and target participants.

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1140]]
 
-[[r1140]]
+
+
 = R1140
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _Pin_ d'une _CallOperationAction_ doivent correspondre aux _Parameter_ de l'_Operation_ appelée.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 _Contraintes UML_:
@@ -31,9 +31,9 @@ image::images/Modeler_audit_rules_R1140_image001.png[image]
 
 La _CallOperationAction_ "*createProject*" est invalide car le _Parameter_ "*projectPriority*" de l'_Operation_ "*createProject*" appelée ne correspond pas à un de ses _Pins_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Les _Parameter_ dont la valeur est donnée par une constante peuvent être représentés par un _ValuePin_ plutôt qu'un simple _InputPin_.

@@ -43,7 +43,7 @@ public class GmBpmnBoundaryEventStructuredStyleKeys extends BpmnAbstractStyleKey
 
     @objid ("712346ca-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("BOUNDARYEVENT_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("712346cc-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("BOUNDARYEVENT_SHOWTAGS", MetaKey.SHOWTAGS);

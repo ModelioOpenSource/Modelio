@@ -38,6 +38,8 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * 
  * 
  * BaseElement is the abstract super class for most BPMN elements. 
+ * 
+ * 
  */
 @objid ("0077d2a6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnBaseElement extends ModelElement {
@@ -65,6 +67,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9ca660c0-a724-41dc-aa68-6b398924c141")
     EList<BpmnAssociation> getOutgoingAssoc();
@@ -74,6 +77,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("70d13409-dc17-4ee7-9d71-459545d20dd3")
     <T extends BpmnAssociation> List<T> getOutgoingAssoc(java.lang.Class<T> filterClass);
@@ -83,6 +87,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("71dbddcb-a105-46a2-8636-4334e719fb92")
     EList<BpmnAssociation> getIncomingAssoc();
@@ -92,6 +97,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8a8a8339-0757-437d-a52d-0a3b01f2c05d")
     <T extends BpmnAssociation> List<T> getIncomingAssoc(java.lang.Class<T> filterClass);
@@ -101,6 +107,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1f8a4482-b77a-437b-a87f-b6564ed776ae")
     EList<BpmnMessageFlow> getIncomingFlow();
@@ -110,6 +117,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b7fdfc9d-b90f-478b-ba5a-8d1b26c653f0")
     <T extends BpmnMessageFlow> List<T> getIncomingFlow(java.lang.Class<T> filterClass);
@@ -119,6 +127,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("283201cc-02e9-4baa-ac93-d1faa4921e82")
     EList<BpmnMessageFlow> getOutgoingFlow();
@@ -128,6 +137,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2d3da1a9-1332-4e74-8ecc-080ee919d0a7")
     <T extends BpmnMessageFlow> List<T> getOutgoingFlow(java.lang.Class<T> filterClass);
@@ -137,6 +147,7 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6d3495bf-6710-421f-a834-3259b629aa5b")
     EList<BpmnLane> getPartitionedLaneRefs();
@@ -146,8 +157,9 @@ public interface BpmnBaseElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fdd28441-700c-469c-bf0f-14c8f801891e")
     <T extends BpmnLane> List<T> getPartitionedLaneRefs(java.lang.Class<T> filterClass);
-
 }
+

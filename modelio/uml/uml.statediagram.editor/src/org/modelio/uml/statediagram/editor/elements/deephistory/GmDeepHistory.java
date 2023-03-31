@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f503cf3f-55b6-11e2-877f-002564c97630")
 public class GmDeepHistory extends GmPortContainer {
+    @objid ("f503cf43-55b6-11e2-877f-002564c97630")
+    private DeepHistoryPseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmDeepHistory extends GmPortContainer {
 
     @objid ("f50555bf-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f503cf43-55b6-11e2-877f-002564c97630")
-    private DeepHistoryPseudoState element;
 
     @objid ("f503cf48-55b6-11e2-877f-002564c97630")
     private static final GmDeepHistorySimpleStyleKeys SIMPLE_KEYS = new GmDeepHistorySimpleStyleKeys();

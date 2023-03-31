@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * A control flow is an edge that starts an activity node after the previous one is finished.
  * Objects and data cannot pass along a control flow edge. 
+ * 
+ * 
  */
 @objid ("002de952-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ControlFlow extends ActivityEdge {
@@ -47,5 +49,5 @@ public interface ControlFlow extends ActivityEdge {
      */
     @objid ("2a15f88b-94b1-43d8-aa1a-3fe05cc017fc")
     public static final String MQNAME = "Standard.ControlFlow";
-
 }
+

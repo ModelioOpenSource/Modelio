@@ -67,5 +67,5 @@ public interface SmDependencyTypeChecker {
      */
     @objid ("001e7288-9103-1fa7-95d2-001ec947cd2a")
     boolean checkType(final SmObjectImpl obj, final Object value);
-
 }
+

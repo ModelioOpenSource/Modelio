@@ -21,9 +21,9 @@ package org.modelio.platform.project.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.migration.MigrationFailedException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.MigrationFailedException;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vcore.model.spi.mm.IMigrationReporter;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
@@ -40,7 +40,7 @@ public interface IFragmentMigrationContributor {
      * Called after model objects have been migrated.
      * <p>
      * The fragment is mount, and you need to open a transaction if you need to modify the model.
-     * the project is accessible with IProjectFragment#get
+     * the project is accessible with IGModelFragment#get
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
@@ -52,6 +52,6 @@ public interface IFragmentMigrationContributor {
      * @throws MigrationFailedException to cancel the migration.
      */
     @objid ("b55f9044-6832-48c5-bb0b-d12f55af6e48")
-    void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, GProject gproject, IProjectFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException;
-
+    void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, IGProject gproject, IGModelFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException;
 }
+

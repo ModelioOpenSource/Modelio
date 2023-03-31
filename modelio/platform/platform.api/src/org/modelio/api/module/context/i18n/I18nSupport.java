@@ -148,5 +148,5 @@ public interface I18nSupport {
      */
     @objid ("4c400bb4-c79c-40be-a98b-604a10df70f5")
     String getString(String key);
-
 }
+

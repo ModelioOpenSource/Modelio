@@ -64,6 +64,7 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 /**
  * This interface is an implementation of {@link IInfrastructureVisitor} whose default strategy consists in transmitting the visit() call to the super class visit method.
  * <p>On root metaclasses, the visitor tries to delegate the parent metaclass metamodel visitor if available.If not available, <code>null</code> is returned.
+ * 
  */
 @objid ("51e835a7-3e86-422c-8f90-e7323e4702b9")
 public interface IDefaultInfrastructureVisitor extends IInfrastructureVisitor {
@@ -345,5 +346,5 @@ public interface IDefaultInfrastructureVisitor extends IInfrastructureVisitor {
         return visitPropertyTable(obj);
         
     }
-
 }
+

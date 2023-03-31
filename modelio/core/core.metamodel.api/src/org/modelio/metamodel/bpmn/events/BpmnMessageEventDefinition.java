@@ -36,6 +36,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessage;
  * 
  * 
  * Specifies the receive or sending of a message.
+ * 
+ * 
  */
 @objid ("0090c6e4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnMessageEventDefinition extends BpmnEventDefinition {
@@ -56,6 +58,7 @@ public interface BpmnMessageEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f6e53f06-5170-479a-b138-1dccd20574f2")
     BpmnMessage getMessageRef();
@@ -65,6 +68,7 @@ public interface BpmnMessageEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ce3b626c-faa5-4119-a0e8-bc09fd2e4f72")
     void setMessageRef(BpmnMessage value);
@@ -74,6 +78,7 @@ public interface BpmnMessageEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1620806f-ca90-4384-b748-0778d11ddd33")
     EList<BpmnOperation> getOperationRef();
@@ -83,8 +88,9 @@ public interface BpmnMessageEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b250dc09-bba1-4ba8-8d50-36492a1b8d6a")
     <T extends BpmnOperation> List<T> getOperationRef(java.lang.Class<T> filterClass);
-
 }
+

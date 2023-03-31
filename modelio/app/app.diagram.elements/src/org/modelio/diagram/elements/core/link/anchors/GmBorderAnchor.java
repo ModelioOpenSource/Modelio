@@ -104,7 +104,7 @@ public class GmBorderAnchor implements IPersistent {
         return MAJOR_VERSION;
     }
 
-    @objid ("68c83379-f157-4f98-9203-054e3fe84d18")
+    @objid ("639df528-82f9-4d13-b9e1-c543ffa6e1b8")
     @Override
     public String toString() {
         return String.format("%s [border=%s, offset=%s]",
@@ -114,7 +114,7 @@ public class GmBorderAnchor implements IPersistent {
         
     }
 
-    @objid ("f9e03d6f-a641-4889-9134-65fab99c9ef5")
+    @objid ("763d75b8-0e1b-4a92-9aeb-56f6560b82e6")
     @Override
     public boolean equals(Object obj) {
         // Automatically generated method.Please delete this comment before entering specific code.
@@ -126,10 +126,9 @@ public class GmBorderAnchor implements IPersistent {
         if (this.border != other.border) return false;
         if (this.offset != other.offset) return false;
         return true;
-        
     }
 
-    @objid ("10861650-33ba-429a-8a8d-3c89008dad98")
+    @objid ("686d93f7-f945-4ece-9343-732ce510da2b")
     @Override
     public int hashCode() {
         // Automatically generated method.Please delete this comment before entering specific code.

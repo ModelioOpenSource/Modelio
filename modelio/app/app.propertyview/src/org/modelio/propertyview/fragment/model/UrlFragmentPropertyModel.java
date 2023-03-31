@@ -22,15 +22,14 @@ package org.modelio.propertyview.fragment.model;
 import java.io.IOException;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.fragment.url.UrlFragment;
-import org.modelio.gproject.fragment.url.UrlFragment.UrlFragmentInfos;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.parts.fragment.GHttpFragment.UrlFragmentInfos;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
  * <i>UrlFragment</i> data model.
  * <p>
- * This class provides the list of properties for the <i>UrlFragment</i>
- * metaclass.
+ * This class provides the list of properties for the <i>UrlFragment</i> metaclass.
  */
 @objid ("ed703138-2002-4c29-86ab-9b0d4e26928d")
 public class UrlFragmentPropertyModel extends AbstractFragmentPropertyModel {
@@ -45,11 +44,11 @@ public class UrlFragmentPropertyModel extends AbstractFragmentPropertyModel {
      * @param fragment the fragment of which properties will be display
      */
     @objid ("67b929ad-d68e-470b-8f43-b4cf87783625")
-    public  UrlFragmentPropertyModel(UrlFragment fragment) {
+    public  UrlFragmentPropertyModel(IGModelFragment fragment) {
         super(fragment);
         UrlFragmentInfos infos;
         try {
-            infos = fragment.getInformations();
+            infos = (UrlFragmentInfos) fragment.getInformations();
             this.name = infos.getName();
             this.provider = infos.getProvider();
             this.date = infos.getDate();

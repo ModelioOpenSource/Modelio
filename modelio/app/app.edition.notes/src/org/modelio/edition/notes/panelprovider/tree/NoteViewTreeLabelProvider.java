@@ -28,8 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.edition.notes.plugin.EditionNotes;
@@ -41,10 +39,9 @@ import org.modelio.metamodel.uml.infrastructure.IResourceHandle;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.ElementStyler;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider2;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.UIFont;
 
@@ -119,7 +116,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
             final Stereotype stereotype = NoteViewTreeLabelProvider.getFirstSelected(stereotypes);
         
             if (stereotype != null) {
-                return new StyledString(ModuleI18NService.getLabel(stereotype), ElementStyler.getStyler(constraint));
+                return new StyledString(MdaResources.getLabel(stereotype), ElementStyler.getStyler(constraint));
             }
         }
         
@@ -136,7 +133,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
     @objid ("199c2308-0b7d-4045-8572-2b97195dfe2c")
     private StyledString getTextForNote(Note note) {
         String name = note.getName();
-        String type = (note.getModel() != null) ? ModuleI18NService.getLabel(note.getModel()) : EditionNotes.I18N.getString("Note");
+        String type = (note.getModel() != null) ? MdaResources.getLabel(note.getModel()) : EditionNotes.I18N.getString("Note");
         String mime = checkNoteMimeType(note, "html") ? " [html]" : checkNoteMimeType(note, "jython") ? " [py]" : "";
         
         StyledString result = new StyledString();
@@ -172,12 +169,10 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
 
     @objid ("cd7477b7-1752-462b-95a6-8b260e091f56")
     public  NoteViewTreeLabelProvider(Viewer viewer) {
-        Font mimeFont = CoreFontRegistry.getModifiedFont(viewer.getControl().getFont(), SWT.ITALIC, UIFont.NORMAL_SIZE);
-        
         this.mimeStyler = new Styler() {
             @Override
             public void applyStyles(TextStyle textStyle) {
-                textStyle.font = mimeFont;
+                textStyle.font = UIFont.NORMALI;
                 textStyle.foreground = UIColor.LABEL_TIP_FG;
             }
         };
@@ -185,7 +180,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
         this.missingResourceStyler = new Styler() {
             @Override
             public void applyStyles(TextStyle textStyle) {
-                textStyle.font = UniversalLabelProvider2.italicFont;
+                textStyle.font = UIFont.NORMALI;
                 textStyle.foreground = UIColor.SHELL_ELEMENT_FG;
             }
         };
@@ -215,7 +210,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
         
         final ResourceType resourceType = document.getType();
         if (resourceType != null) {
-            final String type = !ModuleI18NService.getLabel(resourceType).isEmpty() ? ModuleI18NService.getLabel(resourceType) : resourceType.getName();
+            final String type = !MdaResources.getLabel(resourceType).isEmpty() ? MdaResources.getLabel(resourceType) : resourceType.getName();
         
             Styler typeStyler = ElementStyler.getStyler(resourceType);
             result.append(" [", typeStyler);

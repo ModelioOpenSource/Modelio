@@ -112,13 +112,13 @@ public class BorderAnchor extends AbstractConnectionAnchor {
         return this.offset;
     }
 
-    @objid ("3da43b43-0c2d-45e0-8e08-16e7dc395498")
+    @objid ("c8fc2759-a4ec-4ed6-9435-ead64a64a6f5")
     @Override
     public int hashCode() {
         return Objects.hash(getOwner(), this.border, this.offset);
     }
 
-    @objid ("cd766a8d-2bae-4ceb-a544-9e1cbeede4f4")
+    @objid ("2612f68f-1355-4285-8c6f-b10badef5b90")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -134,7 +134,7 @@ public class BorderAnchor extends AbstractConnectionAnchor {
         return this.border == other.border && this.offset == other.offset && getOwner()==other.getOwner();
     }
 
-    @objid ("4d3b68cd-0ecb-41a3-ad3c-8b1db44b9511")
+    @objid ("058085d5-0349-4156-a573-9ffa0aaf1260")
     @Override
     public String toString() {
         return String.format("%s [border=%d (%s), offset=%d, ref point=%s]",

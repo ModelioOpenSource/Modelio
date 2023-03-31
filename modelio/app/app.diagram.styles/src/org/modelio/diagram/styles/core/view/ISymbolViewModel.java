@@ -74,7 +74,7 @@ public interface ISymbolViewModel {
     List<? extends ISymbolViewItem> getVisibleChildren(ISymbolViewItem entry);
 
     @objid ("ef95bee9-eb4b-40da-8ef1-82cb9b0ca6db")
-    public static class Empty implements ISymbolViewModel {
+    static class Empty implements ISymbolViewModel {
         @objid ("41b88af3-b1dc-48ce-b7bb-8e606663082b")
         @Override
         public List<? extends ISymbolViewItem> getElements() {
@@ -106,5 +106,5 @@ public interface ISymbolViewModel {
         }
 
     }
-
 }
+

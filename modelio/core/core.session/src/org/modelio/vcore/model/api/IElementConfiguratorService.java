@@ -38,5 +38,5 @@ public interface IElementConfiguratorService extends IElementConfigurator {
      */
     @objid ("564eac89-c172-46c9-9a6c-7f13df106278")
     MetamodelExtensionPoint<IElementConfigurator> getMetamodelExtensionPoint();
-
 }
+

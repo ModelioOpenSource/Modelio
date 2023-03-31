@@ -26,7 +26,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.modelio.diagram.elements.core.link.MPoint;
 
-@objid ("c2833d84-bd2b-4614-941e-5287e4b96252")
+@objid ("2d56c051-8714-44ff-9cec-f6345081be83")
 class AutoOrthoUtils {
     /**
      * Convert a route to a constraint.
@@ -47,7 +47,7 @@ class AutoOrthoUtils {
         return route;
     }
 
-    @objid ("873657cf-9623-49ca-8f27-acdfeff58d05")
+    @objid ("9221c2a1-005f-4b3d-b501-db527b537080")
     public static PointList toPointList(final List<MPoint> allPoints) {
         final PointList newPointList = new PointList(allPoints.size());
         for (int i = 0; i < allPoints.size(); i++) {
@@ -63,7 +63,7 @@ class AutoOrthoUtils {
      * @param l2 a PointList
      * @return true only if both lists containe the same points in order.
      */
-    @objid ("ca018d26-b7b3-4557-994e-911c1098e8d6")
+    @objid ("89962724-65d0-4744-af2c-a00c197fe677")
     public static boolean areSame(final List<? extends Point> l1, PointList l2) {
         if (l1.size() != l2.size())
             return false;

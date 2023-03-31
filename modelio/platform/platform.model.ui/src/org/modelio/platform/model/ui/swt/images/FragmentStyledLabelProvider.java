@@ -24,13 +24,13 @@ import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.TextStyle;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPartState.GPartStateEnum;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.modelio.platform.ui.UIColor;
 
 /**
- * Styled label provider for {@link IProjectFragment}.
+ * Styled label provider for {@link IGModelFragment}.
  */
 @objid ("3022cc50-1ae7-4263-a6c4-55bc862fd794")
 public class FragmentStyledLabelProvider {
@@ -39,17 +39,17 @@ public class FragmentStyledLabelProvider {
      * @return its styled text.
      */
     @objid ("eb258ac6-3161-4cfe-a96e-2e33a1e53543")
-    public static StyledString getStyledText(IProjectFragment fragment) {
+    public static StyledString getStyledText(IGModelFragment fragment) {
         return new StyledString(fragment.getId(), FragmentStyler.getStyler(fragment));
     }
 
     @objid ("321f33e1-ba8c-4ebf-b29f-b41d7898b329")
     private static class FragmentStyler extends Styler {
         @objid ("2d7ef825-c638-4096-83f8-dfa1d94b97e6")
-        private final IProjectFragment fragment;
+        private final IGModelFragment fragment;
 
         @objid ("e461e956-70dd-4472-a699-7d17aae165ff")
-        public static Styler getStyler(IProjectFragment fragment) {
+        public static Styler getStyler(IGModelFragment fragment) {
             return new FragmentStyler(fragment);
         }
 
@@ -75,22 +75,22 @@ public class FragmentStyledLabelProvider {
          * @return a Color.
          */
         @objid ("8d26a3b5-12e7-4d5b-92a5-0ab3dd8dbcd4")
-        private static Color getForeground(IProjectFragment aFragment) {
-            if (aFragment.getState() == FragmentState.DOWN) {
+        private static Color getForeground(IGModelFragment aFragment) {
+            if (aFragment.getState().getValue() == GPartStateEnum.DOWN) {
                 return UIColor.RED;
             }
             
             switch (aFragment.getType()) {
-            case EXML:
-            case EXML_SVN:
-                if (Boolean.parseBoolean(aFragment.getProperties().getValue(IProjectFragment.PROP_READ_ONLY)))
+            case EXMLFRAGMENT:
+            case SVNFRAGMENT:
+                if (Boolean.parseBoolean(aFragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY)))
                     return UIColor.NONMODIFIABLE_ELEMENT_FG;
                 else
                     return UIColor.BLACK;
             case RAMC:
-            case MDA:
+            case MODULE:
                 return UIColor.RAMC_ELEMENT_FG;
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 return UIColor.NONMODIFIABLE_ELEMENT_FG;
             default:
                 CoreUi.LOG.warning("No color found for fragment type: " + aFragment.getType());
@@ -105,12 +105,12 @@ public class FragmentStyledLabelProvider {
          * @return its background color
          */
         @objid ("39127849-3761-4310-89fe-a02b49aafb00")
-        private static Color getBackground(IProjectFragment aFragment) {
+        private static Color getBackground(IGModelFragment aFragment) {
             return null;
         }
 
         @objid ("a2ae9eff-bb4f-47db-8ac6-02e8b076d66a")
-        public  FragmentStyler(IProjectFragment fragment) {
+        public  FragmentStyler(IGModelFragment fragment) {
             this.fragment = fragment;
         }
 

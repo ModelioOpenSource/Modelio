@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2450]]
 
-[[r2450]]
+
+
 = R2450
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Package_ ne peut pas avoir de lien d'héritage.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _Packages_ ne peuvent pas avoir de lien d'héritage.
 
 Ils peuvent uniquement avoir des liens d'import et des liens de fusion de package (_PackageMerge_).
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Supprimez tout simplement les liens d'héritage.

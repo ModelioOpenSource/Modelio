@@ -419,7 +419,7 @@ public abstract class GmModel extends GmAbstractObject implements IObModelChange
      * @param child the gm being deleted.
      * @since 5.1.0
      */
-    @objid ("09ada002-8ed9-4084-b1cb-86ac988e7c1e")
+    @objid ("df8e7d49-4aa1-4c71-a8a2-2d32da2c893f")
     protected void obChildDeleted(GmModel child) {
         child.delete();
     }

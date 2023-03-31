@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configurer-laudit-du-projet]]
 
-[[configurer-laudit-du-projet]]
+
+
 = Configurer l'audit du projet
 
 Modelio vous apporte un ensemble de règles d'audit pré-définies qui vous aideront à développer des modèles corrects et cohérents. +

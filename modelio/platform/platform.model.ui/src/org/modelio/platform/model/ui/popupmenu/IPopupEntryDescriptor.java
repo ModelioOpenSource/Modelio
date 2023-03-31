@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * This interface defines a descriptor representing an entry in a contextual menu.
  */
 @objid ("fdeb549c-2004-41ba-bae3-8cd0e830fe9e")
-interface IPopupEntryDescriptor {
-}
+interface IPopupEntryDescriptor {}
+

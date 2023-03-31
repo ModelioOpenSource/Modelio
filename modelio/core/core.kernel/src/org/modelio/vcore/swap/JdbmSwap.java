@@ -109,12 +109,17 @@ public class JdbmSwap implements ISwap {
             }
         
             SmObjectData ret = entry.data;
-            ret.setRepositoryObject(this.storeIndex.getObject(entry.storeHandleId));
-            ret.setMetaOf(this.metaObjectIndex.getObject(entry.metaId));
-        
+            IRepositoryObject storageHandle = this.storeIndex.getObject(entry.storeHandleId);
+            IMetaOf metaObject = this.metaObjectIndex.getObject(entry.metaId);
+            if (storageHandle == null || metaObject == null) {
+                // needed handles were garbage collected ==> cannot restore
+                ret = null;
+            } else {
+                ret.setRepositoryObject(storageHandle);
+                ret.setMetaOf(metaObject);
+            }
         
             this.db.delete(recid);
-        
             //            Log.trace("Swap restoring: "+ret.getClassOf().getName()+ " "+ret.getUuid());
         
             commitSometimes();
@@ -174,7 +179,6 @@ public class JdbmSwap implements ISwap {
         close();
         
         super.finalize();
-        
         
     }
 
@@ -276,7 +280,6 @@ public class JdbmSwap implements ISwap {
             WeakReference<T> ref = this.idToObjectMap.get(Integer.valueOf(index));
             
             assert (ref != null) : (index+" object not in map.");
-            assert (ref.get() != null) : (index+" object no more in memory.");
             return ref.get();
         }
 

@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * A MessageEnd is an abstract NamedElement that represents what can occur at the end of a Message.
  * Subclasses of MessageEnd define the specific semantics appropriate to the concept they represent.
+ * 
+ * 
  */
 @objid ("0049cc1c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface MessageEnd extends OccurrenceSpecification {
@@ -53,6 +55,7 @@ public interface MessageEnd extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4aa78118-b98f-42ad-a06a-20f1df002763")
     Message getReceivedMessage();
@@ -62,6 +65,7 @@ public interface MessageEnd extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d913cd9c-4a21-4bcf-aa46-ae147f0c50b9")
     void setReceivedMessage(Message value);
@@ -71,6 +75,7 @@ public interface MessageEnd extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>Message sent.</i>
+     * 
      */
     @objid ("6ecb5fc9-684c-406c-9633-1c8480ad78b0")
     Message getSentMessage();
@@ -80,8 +85,9 @@ public interface MessageEnd extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>Message sent.</i>
+     * 
      */
     @objid ("f05f6d25-83c8-4a07-84a2-bca5891850e7")
     void setSentMessage(Message value);
-
 }
+

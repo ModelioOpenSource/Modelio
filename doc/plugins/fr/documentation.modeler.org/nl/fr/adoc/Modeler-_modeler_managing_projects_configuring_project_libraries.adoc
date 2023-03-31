@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configurer-les-bibliothèques-du-projet]]
 
-[[configurer-les-bibliothèques-du-projet]]
+
+
 = Configurer les bibliothèques du projet
 
 Une *bibliothèque de modèle* dans un projet Modelio est un ensemble d'éléments de modèle non-modifiables nécessaires au développement de votre projet, packagés dans un seul et unique artéfact.
@@ -30,18 +30,18 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_libraries_C
 2.  Vous pouvez ajouter de nouvelles bibliothèques locales à votre projet, depuis un fichier local ou depuis le site de mise à jour, consulter ou supprimer des bibliothèques locales existantes.
 3.  Vous pouvez ajouter de nouvelles bibliothèques distantes, ou bien rafraîchir, consulter ou supprimer des bibliothèques distantes existantes.
 
-[[Ajouter-des-composants-de-modèle]]
 
-[[ajouter-des-composants-de-modèle]]
+
+
 === Ajouter des composants de modèle
 
 Les composants de modèle sont déployés par les utilisateurs qui souhaitent les utiliser dans leurs propres projets. Lorsqu'un composant de modèle a été déployé dans un projet, lui et les éléments de modèle qu'il contient sont affichés en bleu dans la vue "Modèle" et sont en mode lecture seule.
 
 Pour déployer un composant de modèle, il y a plusieurs moyens à votre disposition :
 
-[[Depuis-un-fichier-local]]
 
-[[depuis-un-fichier-local]]
+
+
 ===== Depuis un fichier local
 
 .Déploiement d'un composant de modèle depuis un fichier local
@@ -54,9 +54,9 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_libraries_A
 3.  Une <<Modeler-_modeler_local_libraries_model_components_lifecycle.adoc#,dépendance>> entre le composant de modèle que vous souhaitez déployer et un autre composant de modèle qui doit être déployé d'abord n'est pas respectée. Les composants de modèle manquants sont signalés en rouge.Pour résoudre ce problème, il suffit de déployer dans sa version exacte l'autre composant de modèle (indiqué dans le champ "Dépendances") dans votre projet. Vous pouvez alors relancer l'opération de déploiement du composant de modèle que vous souhaitez déployer.
 4.  Cliquez sur 'Ajouter au projet'.
 
-[[Depuis-le-site-de-mise-à-jour]]
 
-[[depuis-le-site-de-mise-à-jour]]
+
+
 ===== Depuis le site de mise à jour
 
 .Déploiement de composants de modèle depuis le site de mise à jour
@@ -71,9 +71,9 @@ image::images/Modeler-_modeler_managing_projects_configuring_project_libraries_A
 
 Pour plus d'informations sur les bibliothèques locales (composants de modèle), voir "<<Modeler-_modeler_local_libraries_model_components_presentation.adoc#,Introduction aux composants de modèle>>".
 
-[[Ajouter-des-bibliothèques-distantes]]
 
-[[ajouter-des-bibliothèques-distantes]]
+
+
 === Ajouter des bibliothèques distantes
 
 Les bibliothèques distantes sont déployées par les utilisateurs qui souhaitent les utiliser dans leurs propres projets. Lorsqu'une bibliothèque distante a été déployée dans un projet, elle et les éléments de modèle qu'elle contient sont affichés en bleu dans la vue "Modèle" et sont en mode lecture seule.

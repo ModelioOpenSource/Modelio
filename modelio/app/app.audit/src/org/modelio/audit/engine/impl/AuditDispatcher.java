@@ -27,6 +27,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.IAuditExecutionPlan;
 import org.modelio.audit.engine.core.IAuditExecutionPlan.AuditTrigger;
 import org.modelio.audit.engine.core.IRule;
+import org.modelio.audit.engine.core.IRuleControlPoster;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.vcore.model.CompositionGetter;
@@ -82,9 +83,11 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
             allCreated = event.getCreationEvents();
         }
         
+        IRuleControlPoster poster = (control, element) -> this.controlProgram.postControl(control, element, AuditDispatcher.MODELCHANGE_JOB);
+        
         for (MObject createdElement : allCreated) {
             for (IRule rule : getRules(createdElement, AuditTrigger.CREATE)) {
-                this.controlProgram.postControl(rule.getCreationControl(createdElement), createdElement, AuditDispatcher.MODELCHANGE_JOB);
+                rule.postCreateControls(poster, createdElement);
             }
         }
         
@@ -94,39 +97,33 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
             MObject oldParent = deletedEvent.getOldParent();
             if (oldParent.isValid()) {
                 for (IRule rule : getRules(oldParent, AuditTrigger.UPDATE)) {
-                    this.controlProgram.postControl(
-                            rule.getUpdateControl(oldParent), oldParent, AuditDispatcher.MODELCHANGE_JOB);
+                    rule.postChildRemovedFromControls(poster, deletedEvent.getDeletedElement(), oldParent);
                 }
-                for (IRule rule : getRules(deletedEvent.getDeletedElement(),
-                        AuditTrigger.DELETE)) {
-                    this.controlProgram.postControl(
-                            rule.getDeleteControl(oldParent), oldParent, AuditDispatcher.MODELCHANGE_JOB);
+        
+                MObject deletedElement = deletedEvent.getDeletedElement();
+                for (IRule rule : getRules(deletedElement, AuditTrigger.DELETE)) {
+                    rule.postDeleteControls(poster, deletedElement, oldParent);
                 }
             }
         }
         
         for (MObject updatedElement : event.getUpdateEvents()) {
             for (IRule rule : getRules(updatedElement, AuditTrigger.UPDATE)) {
-                this.controlProgram.postControl(
-                        rule.getUpdateControl(updatedElement), updatedElement, AuditDispatcher.MODELCHANGE_JOB);
+                rule.postUpdateControls(poster, updatedElement);
             }
         }
         
         for (IElementMovedEvent moveEvent : event.getMoveEvents()) {
             // process a MOVE on the moved element
-            for (IRule rule : getRules(moveEvent.getMovedElement(),
-                    AuditTrigger.MOVE)) {
-                this.controlProgram.postControl(rule.getMoveControl(moveEvent),
-                        moveEvent.getMovedElement(), AuditDispatcher.MODELCHANGE_JOB);
+            for (IRule rule : getRules(moveEvent.getMovedElement(), AuditTrigger.MOVE)) {
+                rule.postMoveControls(poster, moveEvent);
             }
+        
             // simulate an UPDATE on the 'old' parent of the moved element
             // the 'new' parent is not considered here as it remains accessible
             // via the moved element
-            for (IRule rule : getRules(moveEvent.getOldParent(),
-                    AuditTrigger.UPDATE)) {
-                this.controlProgram.postControl(
-                        rule.getUpdateControl(moveEvent.getOldParent()),
-                        moveEvent.getOldParent(), AuditDispatcher.MODELCHANGE_JOB);
+            for (IRule rule : getRules(moveEvent.getOldParent(), AuditTrigger.UPDATE)) {
+                rule.postChildRemovedFromControls(poster, moveEvent.getMovedElement(), moveEvent.getOldParent());
             }
         }
         
@@ -164,18 +161,20 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
             return;
         }
         
+        IRuleControlPoster poster = (control, element) -> this.controlProgram.postControl(control, element, jobId);
+        
         // submit an element is simulated as both a creation + an update
         if (elementToCheck.isValid()) {
             for (IRule rule : getRules(elementToCheck, AuditTrigger.CREATE)) {
-                this.controlProgram.postControl(rule.getCreationControl(elementToCheck), elementToCheck, jobId);
+                rule.postCreateControls(poster, elementToCheck);
             }
         
             for (IRule rule : getRules(elementToCheck, AuditTrigger.UPDATE)) {
-                this.controlProgram.postControl(rule.getUpdateControl(elementToCheck), elementToCheck, jobId);
+                rule.postUpdateControls(poster, elementToCheck);
             }
         } else if (elementToCheck.isShell()) {
             IRule rule = this.plan.getRuleById("R3260");
-            this.controlProgram.postControl(rule.getUpdateControl(elementToCheck), elementToCheck, jobId);
+            rule.postUpdateControls(poster, elementToCheck);
         }
         
     }
@@ -224,18 +223,29 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
         
     }
 
+    /**
+     * Remove all scheduled checks.
+     */
     @objid ("25ce9e58-934d-465a-86b4-333fa704d781")
     public void clearCheck() {
-        this.controlProgram.clearCleck();
+        this.controlProgram.clearChecks();
     }
 
+    /**
+     * Report shell elements in the audit.
+     */
     @objid ("e7704819-1918-4dbc-a7b3-05222cd69c7a")
     @Override
     public void statusChanged(IStatusChangeEvent event) {
         Collection<SmObjectImpl> elements = event.getShellStateChanged();
+        if (elements.isEmpty())
+            return;
+        
+        IRuleControlPoster poster = (control, element) -> this.controlProgram.postControl(control, element, AuditDispatcher.MODELCHANGE_JOB);
+        
         for (SmObjectImpl element : elements) {
             IRule rule = this.plan.getRuleById("R3260");
-            this.controlProgram.postControl(rule.getUpdateControl(element), element, AuditDispatcher.MODELCHANGE_JOB);
+            rule.postUpdateControls(poster, element);
         }
         
     }

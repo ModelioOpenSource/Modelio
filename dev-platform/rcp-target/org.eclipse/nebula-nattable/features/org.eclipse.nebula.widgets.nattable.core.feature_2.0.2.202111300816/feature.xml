@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.nattable.core.feature"
+      label="%featureName"
+      version="2.0.2.202111300816"
+      provider-name="%providerName">
+
+   <description url="https://projects.eclipse.org/projects/technology.nebula.nattable">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.slf4j.api"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.nattable.core"
+         download-size="2797"
+         install-size="5300"
+         version="2.0.2.202111300816"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.collections"
+         download-size="11360"
+         install-size="37349"
+         version="10.4.0.v20200820-2049"
+         unpack="false"/>
+
+</feature>

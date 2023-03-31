@@ -64,5 +64,5 @@ public interface IDiagramRefresher extends IModelChangeListener, IPersistentView
         }
         
     }
-
 }
+

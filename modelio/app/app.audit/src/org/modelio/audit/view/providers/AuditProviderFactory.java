@@ -178,7 +178,7 @@ public class AuditProviderFactory {
         @objid ("8a6e1144-3d02-4048-b4d8-c259ee5f5e51")
         public IContentProvider contentProvider;
 
-        @objid ("21e8db77-a8b9-4913-857e-fcbb2670fb0d")
+        @objid ("ffa3fb14-77f9-4248-a5df-d7889d99e58a")
         public CellLabelProvider[] labelsProviders;
 
     }

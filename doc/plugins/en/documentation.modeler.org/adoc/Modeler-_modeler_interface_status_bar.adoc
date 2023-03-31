@@ -1,0 +1,48 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+= The status bar
+
+The status bar displays a quick summary of various aspects of the application.
+
+image::images/Modeler-_modeler_interface_status_bar.png[status bar]
+
+===== Element status
+
+image:images/Modeler-_modeler_interface_status_bar_element_status.png[element part of the status bar]
+
+. Main icon of the selected element
+. Name of the selected element
+. Editability of the selected element:
+* image:images/Modeler-_modeler_interface_status_bar_rw-element.png[rw] The element can be edited freely.
+* image:images/Modeler-_modeler_interface_status_bar_ro-element.png[ro] The element cannot be modified.
+
+===== SVN status
+
+image:images/Modeler-_modeler_interface_status_bar_svn_status.png[SVN part of the status bar]
+
+. Lock status in the repository:
+* image:images/Modeler-_modeler_interface_status_bar_nolock-element.png[no lock] The element is currently not locked.
+* image:images/Modeler-_modeler_interface_status_bar_locked-element.png[locked by me] The element is locked by the logged user.
+* image:images/Modeler-_modeler_interface_status_bar_locked-other-element.png[locked by other] The element is currently locked by another user.
+* image:images/Modeler-_modeler_interface_status_bar_local-element.png[local] The element is not versionned.
+. Status of the element relatively to the repository:
+* image:images/Modeler-_modeler_interface_status_bar_notmodified-element.png[not modified] The element is still unchanged.
+* image:images/Modeler-_modeler_interface_status_bar_modified-element.png[modified] The element has been locally modified.
+* image:images/Modeler-_modeler_interface_status_bar_added-element.png[added] The element is soon to be added to the repository.
+* image:images/Modeler-_modeler_interface_status_bar_removed-element.png[removed] The element is soon to be removed from the repository.
+* image:images/Modeler-_modeler_interface_status_bar_need-update-element.png[need update] The element has been modified in the repository, a model update is potentially needed.
+* image:images/Modeler-_modeler_interface_status_bar_conflict-element.png[conflict] The element is in conflict mode: it has been modified locally and on the repository. Use the SVN conflict resolution to fix it.
+. Revision number in the repository
+
+===== Audit status
+
+image:images/Modeler-_modeler_interface_status_bar_audit.png[audit part of the status bar]
+
+Summary of the audit status in the project.
+
+. This indicates how many error, warning and advice have been reported in the project. Open the <<Modeler-_modeler_interface_audit_view.adoc#,audit view>> to see them.
+. Number of tests remaining to be processed, after the model has changed.
+. Whether or not the audit is running

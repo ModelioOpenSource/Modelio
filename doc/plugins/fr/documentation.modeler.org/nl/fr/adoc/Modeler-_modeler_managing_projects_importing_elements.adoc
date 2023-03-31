@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Importer-des-éléments-depuis-des-projets-existants]]
 
-[[importer-des-éléments-depuis-des-projets-existants]]
+
+
 = Importer des éléments depuis des projets existants
 
-[[Présentation-de-limport-déléments]]
 
-[[présentation-de-limport-déléments]]
+
+
 ===== Présentation de l'import d'éléments
 
 La fonctionnalité d'import d'éléments permet d'importer des éléments depuis un projet existant vers votre projet courant.
 
-[[Importer-des-éléments-depuis-un-autre-projet]]
 
-[[importer-des-éléments-depuis-un-autre-projet]]
+
+
 ===== Importer des éléments depuis un autre projet
 
 image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_1.png[image]
@@ -32,9 +32,9 @@ image::images/Modeler-_modeler_managing_projects_importing_elements_importing_el
 4.  Sélectionnez les éléments que vous souhaitez importer
 5.  Démarrez l'import
 
-[[Eléments-importés]]
 
-[[eléments-importés]]
+
+
 ===== Eléments importés
 
 Les éléments qui peuvent être importés dans votre projet sont classés dans l'ordre hiérarchique classique (les packages qui contiennent les classes). Pour visualiser les classes contenues dans un package, cliquez sur le symbole "+" situé à gauche du nom du package.

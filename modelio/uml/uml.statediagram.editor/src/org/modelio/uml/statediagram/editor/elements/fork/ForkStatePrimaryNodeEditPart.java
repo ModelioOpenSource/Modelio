@@ -26,7 +26,6 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.draw2d.geometry.Transposer;
-import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
@@ -35,8 +34,7 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.RectangularFigure;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
-import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
@@ -55,9 +53,6 @@ import org.modelio.uml.statediagram.editor.elements.common.ForkJoinAnchorProvide
 public class ForkStatePrimaryNodeEditPart extends AbstractNodeEditPart {
     @objid ("f6e81f7a-55b6-11e2-877f-002564c97630")
     private ForkJoinOrientation currentOrientation = null;
-
-    @objid ("6b46349f-c8f7-46d3-952f-eecea43b0862")
-    private ForkJoinAnchorProvider nodeAnchorProvider;
 
     @objid ("f5300f3f-55b6-11e2-877f-002564c97630")
     @Override
@@ -84,7 +79,7 @@ public class ForkStatePrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
-        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
+        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(getNodeAnchorProvider()));
         
     }
 
@@ -143,7 +138,6 @@ public class ForkStatePrimaryNodeEditPart extends AbstractNodeEditPart {
             // rotate the fork join node according to the orientation
             doRotationFigure(aFigure);
         
-            this.nodeAnchorProvider.refresh(this.figure);
         }
         
     }
@@ -170,45 +164,14 @@ public class ForkStatePrimaryNodeEditPart extends AbstractNodeEditPart {
         
     }
 
-    @objid ("066b119c-31af-44e1-bd53-f06559d652e0")
-    @Override
-    protected ForkJoinAnchorProvider getNodeAnchorProvider() {
-        if (this.nodeAnchorProvider == null) {
-            this.nodeAnchorProvider = createAnchorProvider(this.figure);
-        }
-        return this.nodeAnchorProvider;
-    }
-
-    @objid ("faabe72a-04ad-419d-a609-8af3623f0cbb")
-    @Override
-    protected void setFigure(IFigure figure) {
-        super.setFigure(figure);
-        getNodeAnchorProvider().onFigureMoved(figure);
-        
-    }
-
     /**
-     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
-     * @param figure the edit part figure.
+     * Create the {@link IFixedNodeAnchorProvider} for this edit part.
      * @return the created anchor provider.
      */
-    @objid ("53347b4f-4d0c-4a64-8b00-fbdeb6a84c6a")
-    protected ForkJoinAnchorProvider createAnchorProvider(IFigure figure) {
-        return new ForkJoinAnchorProvider(() -> this.currentOrientation);
-    }
-
-    /**
-     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
-     */
-    @objid ("564550ae-2933-4a08-9790-c08670213253")
+    @objid ("e5519264-7bf3-441a-8b59-d383a6fd3102")
     @Override
-    public Object getAdapter(Class adapter) {
-        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
-        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider;
-        }
-        return super.getAdapter(adapter);
+    protected ForkJoinAnchorProvider createAnchorProvider() {
+        return new ForkJoinAnchorProvider(() -> this.currentOrientation);
     }
 
 }

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1320]]
 
-[[r1320]]
+
+
 = R1320
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 ObjectFlows cannot be multi-receive and multi-cast at the same time.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _UML Specification_: Multi-casting and multi-receiving are used in conjunction with partitions to model flows between behaviours that are the responsibility of objects determined by a publish and subscribe facility.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1320 warning on an ObjectFlow, verify that the multi-receive and multi-cast properties are not both set to true.

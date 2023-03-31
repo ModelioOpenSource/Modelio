@@ -44,5 +44,5 @@ public interface XmiPreferencesKeys {
      */
     @objid ("96a0fab2-86ac-4a0a-9791-514f90b410d8")
     public static final String XMIANNOTATION_PREFKEY = "Xmi.Annotation";
-
 }
+

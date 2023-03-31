@@ -104,7 +104,7 @@ public class InteractionUseEditPart extends PortContainerEditPart implements IPl
         
     }
 
-    @objid ("448b3ccd-a010-4508-ad10-c3801e30099e")
+    @objid ("9b988ead-615c-4943-aacf-80514f16c9dd")
     @Override
     public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
         return new AutoSizeEditPolicy2() {
@@ -119,7 +119,7 @@ public class InteractionUseEditPart extends PortContainerEditPart implements IPl
         
     }
 
-    @objid ("1cd3ebf2-3c49-43de-a6fd-2b3cece9df29")
+    @objid ("d01454df-8798-4d4d-8588-8d51e5698088")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);

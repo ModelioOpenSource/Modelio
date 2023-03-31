@@ -226,5 +226,5 @@ public interface MClass {
     default boolean isInstance(MObject obj) {
         return obj != null && obj.getMClass().hasBase(this);
     }
-
 }
+

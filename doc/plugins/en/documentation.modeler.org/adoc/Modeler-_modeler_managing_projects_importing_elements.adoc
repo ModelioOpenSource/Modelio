@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Importing-elements-from-existing-projects]]
 
-[[importing-elements-from-existing-projects]]
+
+
 = Importing elements from existing projects
 
-[[Overview-of-element-import]]
 
-[[overview-of-element-import]]
+
+
 ===== Overview of element import
 
 The element import feature is used to import elements from other projects into your current project.
 
-[[Importing-elements-from-another-project]]
 
-[[importing-elements-from-another-project]]
+
+
 ===== Importing elements from another project
 
 image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_1.png[image]
@@ -32,9 +32,9 @@ image::images/Modeler-_modeler_managing_projects_importing_elements_importing_el
 4. Select the elements you wish to import.
 5. Launch the Import.
 
-[[Imported-elements]]
 
-[[imported-elements]]
+
+
 ===== Imported elements
 
 Elements that can be imported into your project are presented in a standard hierarchy (packages containing classes). To view the classes contained in an importable package, simply click on the "+" on the left of the package name.

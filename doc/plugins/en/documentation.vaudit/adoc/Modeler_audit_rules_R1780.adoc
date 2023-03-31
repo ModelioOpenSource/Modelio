@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1780]]
 
-[[r1780]]
+
+
 = R1780
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The name of an _Instance_ must be unique in its _NameSpace_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _Instances_ are unique in their _NameSpace_ and therefore their name must also be unique.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Rename each _Instance_ so that they each have a unique name.

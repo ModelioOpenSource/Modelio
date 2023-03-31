@@ -19,22 +19,29 @@
  */
 package org.modelio.platform.project.services.openproject;
 
-import java.nio.file.FileSystemException;
+import java.io.IOException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.gproject.GProjectEvent;
-import org.modelio.gproject.gproject.GProjectEventType;
-import org.modelio.gproject.gproject.IProjectMonitor;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPartState.GPartStateEnum;
+import org.modelio.gproject.monitor.GProjectEvent;
+import org.modelio.gproject.monitor.GProjectEventType;
+import org.modelio.gproject.monitor.IProjectMonitor;
 import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
- * ProjectService project monitor
+ * An IProjectMonitor implementation provided and used by the ProjectService to monitor project configuration events.
  * <p>
+ * This implementation does the following (may vary depending on the GProjectEvent type):
+ * <ul>
+ * <li>log the event in the Modelio Log</li>
+ * <li>call StatusReporter report() method</li>
+ * <li>fires Modelio E4 project events {@link ModelioEvent}</li>
+ * </ul>
  */
 @objid ("6bc806dc-37b3-11e2-82ed-001ec947ccaf")
 final class ProjectMonitor implements IProjectMonitor {
@@ -55,36 +62,52 @@ final class ProjectMonitor implements IProjectMonitor {
     @Override
     public void handleProjectEvent(GProjectEvent ev) {
         switch (ev.type) {
-        case FRAGMENT_DOWN:
-        
-            AppProjectCore.LOG.error("'%s' fragment falled DOWN: %s", ev.fragment.getId(), ev.message);
+        case PART_DOWN: {
+            IGModelFragment fragment = (IGModelFragment) ev.subject;
+            AppProjectCore.LOG.error("'%s' fragment falled DOWN: %s", fragment.getId(), ev.message);
             AppProjectCore.LOG.error(ev.throwable);
         
             // display problem to user
             reportAsStatus(ev);
         
             // post as E4 event
-            this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_DOWN, ev.fragment);
-        
+            this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_DOWN, (ev.subject));
             break;
-        case WARNING:
+        }
+        case WARNING: {
             if (ev.throwable != null) {
                 AppProjectCore.LOG.warning(ev.throwable);
             } else if (ev.message != null) {
-                if (ev.fragment != null) {
-                    AppProjectCore.LOG.warning("%s : %s", ev.fragment.getId(), ev.message);
+                IGModelFragment fragment = ev.subject instanceof IGModelFragment ? (IGModelFragment) ev.subject : null;
+                if (fragment != null) {
+                    AppProjectCore.LOG.warning("%s : %s", fragment.getId(), ev.message);
                 } else {
                     AppProjectCore.LOG.warning(ev.message);
                 }
             }
+            // display problem to user
+            reportAsStatus(ev);
             break;
-        case FRAGMENT_STATE_CHANGED:
-            AppProjectCore.LOG.debug("'%s' fragment state changed to '%s'.", ev.fragment.getId(), ev.fragment.getState().toString());
-            if ((ev.fragment.getState() == FragmentState.UP_FULL) || (ev.fragment.getState() == FragmentState.UP_LIGHT)) {
-                this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_UP, ev.fragment);
+        }
+        case PART_INSTALLED:
+        case PART_STATE_CHANGED: {
+            GPartStateEnum state = ev.subject instanceof IGModelFragment ? ((IGModelFragment) ev.subject).getState().getValue() : null;
+            if ((state == GPartStateEnum.MOUNTED)) {
+                this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_UP, ev.subject);
             }
             break;
-        default:
+        }
+        case PART_ADDED: {
+            // Fire added fragment event
+            this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_ADDED, ev.subject);
+            break;
+        }
+        case PART_REMOVED: {
+            // Fire removed fragment event
+            this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_REMOVED, ev.subject);
+            break;
+        }
+        default: {
             if (ev.message != null) {
                 AppProjectCore.LOG.info(ev.message);
             }
@@ -92,7 +115,7 @@ final class ProjectMonitor implements IProjectMonitor {
                 AppProjectCore.LOG.info(ev.throwable);
             }
             break;
-        
+        }
         }
         
     }
@@ -103,11 +126,11 @@ final class ProjectMonitor implements IProjectMonitor {
             return ev.message;
         } else if (ev.throwable == null) {
             return AppProjectCore.I18N.getMessage("ProjectService.noEventMessage");
-        } else if (ev.throwable instanceof FileSystemException) {
-            return FileUtils.getLocalizedMessage((FileSystemException) ev.throwable);
+        } else if (ev.throwable instanceof IOException) {
+            return FileUtils.getLocalizedMessage((IOException) ev.throwable);
         } else if (ev.throwable instanceof RuntimeException) {
             return ev.throwable.toString(); // some runtime exceptions have
-                                            // no message at all
+            // no message at all
         } else {
             return ev.throwable.getLocalizedMessage();
         }
@@ -121,8 +144,8 @@ final class ProjectMonitor implements IProjectMonitor {
         if (statusReporter != null) {
             Display.getDefault().asyncExec(() -> {
                 IStatus s1;
-                if (ev.type == GProjectEventType.FRAGMENT_DOWN) {
-                    String message = AppProjectCore.I18N.getMessage("ProjectService.fragmentDown", ev.fragment.getId());
+                if (ev.type == GProjectEventType.PART_DOWN) {
+                    String message = AppProjectCore.I18N.getMessage("ProjectService.fragmentDown", ((IGModelFragment) ev.subject).getId());
                     s1 = statusReporter.newStatus(StatusReporter.WARNING, message, ev.throwable);
                 } else {
                     s1 = statusReporter.newStatus(StatusReporter.WARNING, getMessage(ev), ev.throwable);

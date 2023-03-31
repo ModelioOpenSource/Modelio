@@ -55,5 +55,5 @@ public interface IUiToolkit {
      */
     @objid ("13788c00-806c-4030-84bc-ea80d5b5cfeb")
     ColumnViewerEditorActivationStrategy createDefaultEditionStrategy(ColumnViewer viewer, boolean withTimeDelta);
-
 }
+

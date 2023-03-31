@@ -59,19 +59,21 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.modelio.api.ui.swt.SelectionHelper;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ColumnHelper;
 import org.modelio.app.project.conf.dialog.libraries.local.property.RamcPropertyDialog;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.app.update.checker.dialog.UpdatePanelDataModel;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPart;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.data.ramc.ModelComponentArchive;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.gproject.gproject.FragmentConflictException;
-import org.modelio.platform.project.services.IProjectService;
+import org.modelio.gproject.parts.GPartFactory;
 import org.modelio.platform.update.repo.UpdateChecker;
 import org.modelio.platform.update.repo.UpdateDescriptor;
 import org.modelio.vbasic.net.UriPathAccess;
@@ -128,7 +130,7 @@ public class LocalLibrariesSection {
         this.projectAdapter = selectedProject;
         
         if (selectedProject != null) {
-            final List<IProjectFragment> sel = getSelectedFragments();
+            final List<IGModelFragment> sel = getSelectedFragments();
             final boolean isFragmentSelected = !sel.isEmpty();
             final boolean areLocal = isFragmentSelected && areAllLocalFragments(sel);
             final boolean isLocalProject = this.projectAdapter.isLocalProject();
@@ -255,16 +257,20 @@ public class LocalLibrariesSection {
         setInput(this.projectAdapter);
     }
 
+    /**
+     * Get the fragment viewer selection as a list of fragments.
+     * @return the selection as a list of fragments.
+     */
     @objid ("c1941d10-88f4-41a4-98a2-ae2d4e665f1c")
-    public List<IProjectFragment> getSelectedFragments() {
+    public List<IGModelFragment> getSelectedFragments() {
         final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
-        return selection.toList();
+        return SelectionHelper.toList(selection, IGModelFragment.class);
     }
 
     @objid ("4744039c-1850-4f27-af83-34728d315819")
-    private boolean areAllLocalFragments(final List<IProjectFragment> sel) {
-        for (final IProjectFragment f : sel) {
-            if (f.getScope() == DefinitionScope.SHARED) {
+    private boolean areAllLocalFragments(final List<IGModelFragment> sel) {
+        for (final IGModelFragment f : sel) {
+            if (f.getDefinitionScope() == DefinitionScope.SHARED) {
                 return false;
             }
         }
@@ -298,8 +304,8 @@ public class LocalLibrariesSection {
     }
 
     @objid ("6072cf04-eb91-4635-8b00-3580e9cd9edd")
-    void removeExportedFilesOfFragment(final IProjectFragment fragment) throws IOException {
-        try (UriPathAccess acc = new UriPathAccess(fragment.getUri(), fragment.getAuthConfiguration().getAuthData())) {
+    void removeExportedFilesOfFragment(final IGModelFragment fragment) throws IOException {
+        try (UriPathAccess acc = new UriPathAccess(fragment.getDescriptor().getLocation(), fragment.getAuth().getData())) {
             final Path archivePath = acc.getPath();
         
             final ModelComponentArchive modelComponentArchive = new ModelComponentArchive(archivePath, true);
@@ -310,13 +316,13 @@ public class LocalLibrariesSection {
     }
 
     @objid ("09a13e4a-5f2f-4b09-8dc2-e1495c981193")
-    private List<UpdateDescriptor> getRamcsUpdate(final List<RamcFileFragment> fragments, final boolean strict) {
+    private List<UpdateDescriptor> getRamcsUpdate(final List<IGModelFragment> fragments, final boolean strict) {
         try {
             final Map<String, Version> ramcs = new HashMap<>();
         
-            for (final RamcFileFragment fragment : fragments) {
+            for (final IGModelFragment fragment : fragments) {
                 // Parse the fragment to get its version
-                final IModelComponentInfos informations = fragment.getInformations();
+                final IModelComponentInfos informations = (IModelComponentInfos) fragment.getInformations();
                 final String fragmentName = informations.getName().replace(" ", "_");
                 final Version fragmentVersion = informations.getVersion();
                 ramcs.put(fragmentName, fragmentVersion);
@@ -340,8 +346,8 @@ public class LocalLibrariesSection {
         needUpdateColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(final Object element) {
-                if (element instanceof RamcFileFragment) {
-                    final RamcFileFragment fragment = (RamcFileFragment) element;
+                if (element instanceof IGModelFragment) {
+                    final IGModelFragment fragment = (IGModelFragment) element;
                     final List<UpdateDescriptor> ramcsUpdates = getRamcsUpdate(Arrays.asList(fragment), true);
                     if (!ramcsUpdates.isEmpty()) {
                         return AppProjectConfExt.I18N.getMessage("LocalLibrariesSection.needUpdateColumn.text", new Version(ramcsUpdates.get(0).getNewVersion()).toString());
@@ -360,16 +366,16 @@ public class LocalLibrariesSection {
     }
 
     @objid ("92d14c61-db3e-4307-a9cf-934868ae2d22")
-    protected void updateFragment(final IProjectFragment existingFragment, final ModelComponentArchive newArchive, final FragmentDescriptor fragmentDescriptor) {
+    protected void updateFragment(final IGModelFragment existingFragment, final ModelComponentArchive newArchive, final GProjectPartDescriptor fragmentDescriptor) {
         // UPDATE: remove the old one, then add the new one
         // 1. remove the fragment selected to update
-        final IProjectService projectService = LocalLibrariesSection.this.applicationContext.get(IProjectService.class);
+        IGProject openedProject = getProjectAdapter().getOpenedProject();
         if (existingFragment != null) {
             try {
                 removeExportedFilesOfFragment(existingFragment);
-                projectService.removeFragment(getProjectAdapter().getOpenedProject(), existingFragment);
+                openedProject.removeGPart(existingFragment);
                 refresh();
-            } catch (final IOException error) {
+            } catch (final IOException | GPartException error) {
                 AppProjectConfExt.LOG.error(error);
             }
         }
@@ -380,8 +386,12 @@ public class LocalLibrariesSection {
                 @Override
                 public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     try {
-                        projectService.addFragment(getProjectAdapter().getOpenedProject(), fragmentDescriptor, monitor);
-                    } catch (final FragmentConflictException ex) {
+                        // Instantiate the part
+                        final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+        
+                        // Add new fragment to project, permanent mount
+                        openedProject.addGPart(newFragment, true);
+                    } catch (final GPartException ex) {
                         throw new InvocationTargetException(ex, ex.getLocalizedMessage());
                     }
                 }
@@ -407,9 +417,9 @@ public class LocalLibrariesSection {
         providerColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(final Object element) {
-                if (element instanceof RamcFileFragment) {
+                if (element instanceof IGModelFragment) {
                     try {
-                        return ((RamcFileFragment) element).getInformations().getProvider();
+                        return ((IModelComponentInfos) ((IGModelFragment) element).getInformations()).getProvider();
                     } catch (final IOException e) {
                         return "";
                     }
@@ -437,10 +447,10 @@ public class LocalLibrariesSection {
             dlg.open();
             
             final ModelComponentArchive newArchive = dlg.getModelComponentArchive();
-            final FragmentDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
+            final GProjectPartDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
             if (fragmentDescriptor != null) {
-                RamcFileFragment existingFragment = null;
-                for (final RamcFileFragment fragment : getProjectAdapter().getLocalLibraryFragments()) {
+                IGModelFragment existingFragment = null;
+                for (final IGModelFragment fragment : getProjectAdapter().getLocalLibraryFragments()) {
                     try {
                         if (fragment.getInformations().getName().equals(newArchive.getInfos().getName())) {
                             existingFragment = fragment;
@@ -468,21 +478,26 @@ public class LocalLibrariesSection {
         @objid ("7d55b94e-3adc-11e2-916e-002564c97630")
         @Override
         public void widgetSelected(final SelectionEvent e) {
-            final IProjectService projectService = LocalLibrariesSection.this.applicationContext.get(IProjectService.class);
-            
             if (getViewer().getSelection().isEmpty()) {
                 return;
             }
             
             final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
             for (final Object obj : selection.toList()) {
-                final IProjectFragment fragment = (IProjectFragment) obj;
+                final IGModelFragment fragment = (IGModelFragment) obj;
                 try {
                     removeExportedFilesOfFragment(fragment);
                 } catch (final IOException error) {
                     AppProjectConfExt.LOG.error(error);
                 }
-                projectService.removeFragment(getProjectAdapter().getOpenedProject(), fragment);
+                IGProject openedProject = getProjectAdapter().getOpenedProject();
+                try {
+                    openedProject.removeGPart(fragment);
+                } catch (GPartException ex) {
+                    AppProjectConfExt.LOG.error(ex);
+                    Shell shell = getViewer().getControl().getShell();
+                    MessageDialog.openError(shell, AppProjectConfExt.I18N.getString("Error"), ex.getLocalizedMessage());
+                }
                 refresh();
             }
             
@@ -510,10 +525,10 @@ public class LocalLibrariesSection {
             }
             
             final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
-            final RamcFileFragment fragment = (RamcFileFragment) selection.getFirstElement();
+            final IGModelFragment fragment = (IGModelFragment) selection.getFirstElement();
             
             try {
-                final IModelComponentInfos fragmentInfos = fragment.getInformations();
+                final IModelComponentInfos fragmentInfos = (IModelComponentInfos) fragment.getInformations();
                 final Shell shell = getViewer().getControl().getShell();
             
                 if (fragmentInfos != null) {
@@ -535,7 +550,7 @@ public class LocalLibrariesSection {
         public void widgetSelected(final SelectionEvent e) {
             final Shell parentShell = getViewer().getControl().getShell();
             
-            final List<RamcFileFragment> fragments = getProjectAdapter().getLocalLibraryFragments();
+            final List<IGModelFragment> fragments = getProjectAdapter().getLocalLibraryFragments();
             final List<UpdateDescriptor> possibleUpdates = getRamcsUpdate(fragments, false);
             
             // New modules found: open the update dialog
@@ -551,10 +566,10 @@ public class LocalLibrariesSection {
                             final Path path = pathAccess.getPath();
             
                             final ModelComponentArchive newArchive = new ModelComponentArchive(path, true);
-                            final FragmentDescriptor fragmentDescriptor = newArchive.getFragmentDescriptor();
+                            final GProjectPartDescriptor fragmentDescriptor = newArchive.getFragmentDescriptor();
             
-                            RamcFileFragment existingFragment = null;
-                            for (final RamcFileFragment fragment : fragments) {
+                            IGModelFragment existingFragment = null;
+                            for (final IGModelFragment fragment : fragments) {
                                 try {
                                     if (fragment.getInformations().getName().equals(newArchive.getInfos().getName())) {
                                         existingFragment = fragment;

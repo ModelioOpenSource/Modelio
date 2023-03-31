@@ -19,6 +19,7 @@
  */
 package org.modelio.platform.mda.infra.service.impl;
 
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramCustomizer;
 import org.modelio.api.modelio.diagram.tools.IDiagramTool;
@@ -26,7 +27,7 @@ import org.modelio.api.module.IModule;
 import org.modelio.api.module.command.ActionLocation;
 import org.modelio.api.module.command.IModuleAction;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -53,7 +54,6 @@ public interface IRTModuleAccess extends IRTModule {
 
     /**
      * Register a new palette Tool.<br>
-     * @see IDiagramTool
      * @param id the tool id
      * @param diagramCommand The tool behavior.
      * @since 3.3.0
@@ -101,9 +101,20 @@ public interface IRTModuleAccess extends IRTModule {
     /**
      * Internal use only: set the cause why the module is (still) in this state.
      * @internal
-     * @param moduleException
      */
     @objid ("78675b74-5c08-4231-a416-9316ec47bc35")
     void setDownError(ModuleException moduleException);
 
+    @objid ("8a0464df-e559-4649-b31e-8c1cfd9736c9")
+    void setModuleMandatoryUses(List<IRTModule> moduleMandatoryUses);
+
+    @objid ("23900e59-6047-4014-93d7-e334d58b4bbc")
+    void setModuleOptionalUses(List<IRTModule> moduleOptionalUses);
+
+    @objid ("85f17c5c-43db-4e0d-a83a-1404263506bf")
+    void setMandatoryRequiredModules(List<IRTModule> mandatoryRequiredModules);
+
+    @objid ("3d336a7d-d60e-42fe-a832-b5ad6b9bc843")
+    void setOptionalRequiredModules(List<IRTModule> optionalRequiredModules);
 }
+

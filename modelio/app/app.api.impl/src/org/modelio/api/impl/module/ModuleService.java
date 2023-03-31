@@ -26,8 +26,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.module.IModuleService;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IModuleRegistry;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -79,7 +79,7 @@ public class ModuleService implements IModuleService {
     }
 
     @objid ("b282ed7c-7847-4d94-bb1e-e8e983680779")
-    public void installModule(GProject gProject, Path moduleFilePath) throws ModuleException {
+    public void installModule(IGProject gProject, Path moduleFilePath) throws ModuleException {
         this.coreModuleService.installModule(null, gProject, moduleFilePath);
     }
 

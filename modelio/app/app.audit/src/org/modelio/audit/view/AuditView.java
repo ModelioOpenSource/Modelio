@@ -28,6 +28,7 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
@@ -37,7 +38,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.modelio.audit.engine.core.IAuditDiagnostic;
 import org.modelio.audit.service.IAuditService;
 import org.modelio.audit.view.providers.AuditProviderFactory.AuditViewMode;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
@@ -76,6 +77,8 @@ public class AuditView {
     private IMModelServices modelService;
 
     @objid ("7c708898-4bdb-4975-af07-42e1438717f9")
+    @Inject
+    @Optional
     private IAuditService auditService;
 
     @objid ("c93f0a8b-09a2-4f15-9d91-f28b12f18e94")
@@ -85,18 +88,20 @@ public class AuditView {
      * Called by the framework to create the view and initialize it.
      * @param projectService the project service.
      * @param mmService the model service.
-     * @param auditService the audit service
      * @param navigationService the navigation service
      * @param application the E4 application model
      * @param emService the E4 model service
      * @param menuService the E4 menu service
      * @param parent the composite the view must add its content into.
+     * @param part the e4 part
      */
     @objid ("efb0aecd-1227-401c-9ee4-802f7ecf6188")
     @PostConstruct
-    public void createControls(final IProjectService projectService, @Optional final IMModelServices mmService, final IAuditService auditService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService, final Composite parent) {
+    public void createControls(final IProjectService projectService, @Optional final IMModelServices mmService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService, final Composite parent, final MPart part) {
         this.parentComposite = parent;
-        this.auditService = auditService;
+        
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        part.getToolbar().setVisible(true);
         
         if (projectService.getOpenedProject() != null) {
             onProjectOpened(projectService.getOpenedProject(), mmService, auditService, navigationService, application, emService, menuService);
@@ -110,7 +115,7 @@ public class AuditView {
     @objid ("6cb8ea67-11e7-4e5e-85f0-d8adcbba433f")
     @Optional
     @Inject
-    public void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional final IMModelServices mmService, final IAuditService auditService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService) {
+    public void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, @Optional final IMModelServices mmService, final IAuditService auditService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService) {
         this.modelService = mmService;
         
         // Sometimes, the view is instantiated only after the project is opened
@@ -139,7 +144,7 @@ public class AuditView {
     @objid ("8825a5b5-5b52-4679-96e7-05de3ba2f3e7")
     @Inject
     @Optional
-    public void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
+    public void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject closedProject) {
         if (closedProject != null) {
             this.modelService = null;
             this.auditResultsPanel.dispose();

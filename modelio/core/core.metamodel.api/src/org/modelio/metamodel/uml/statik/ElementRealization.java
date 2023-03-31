@@ -33,6 +33,9 @@ import org.modelio.metamodel.uml.infrastructure.Abstraction;
  * 
  * 
  * <p>An ElementRealization is a specialized Abstraction between two ModelElements. One of the related ModelElements represents a specification (the supplier) and the other an implementation of the client. An ElementRealization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, and so on.</p><p>An ElementRealization signifies that the client set of elements is an implementation of the supplier set, which serves as the specification. The meaning of implementation is not strictly defined, but rather implies a more refined or elaborate form with respect to a certain modeling context. It is possible to specify mapping between the specification and implementation elements, although it is not necessarily computable.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0008c258-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ElementRealization extends Abstraction {
@@ -47,5 +50,5 @@ public interface ElementRealization extends Abstraction {
      */
     @objid ("a4b951b7-04a9-4727-a083-91c3d2434bcb")
     public static final String MQNAME = "Standard.ElementRealization";
-
 }
+

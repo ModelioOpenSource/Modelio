@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3250]]
 
-[[r3250]]
+
+
 = R3250
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 _Processes_ and _SubProcesses_ should have at least one _StartEvent_ and one _EndEvent_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _Processes_ and _SubProcesses_ represent an independent process, and a process is represented with a single sequence, starting with a _StartEvent_, and ending with an _EndEvent_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a sequence that does not start with a _StartEvent_ and end with an _EndEvent_, you should add them to your sequence to make it right.

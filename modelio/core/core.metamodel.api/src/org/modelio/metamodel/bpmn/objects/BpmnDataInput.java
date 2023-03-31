@@ -40,6 +40,8 @@ import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
  * 
  * Ownership:
  * A DtaInput is owned by a process, or by an activity.
+ * 
+ * 
  */
 @objid ("00065874-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnDataInput extends BpmnItemAwareElement {
@@ -60,6 +62,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3aa9704b-487d-41e5-b933-31586f14afdb")
     boolean isIsCollection();
@@ -69,6 +72,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("79e10b7a-9438-45b7-9fba-e90464bd814c")
     void setIsCollection(boolean value);
@@ -78,6 +82,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e5491d6d-3e33-4870-9117-c26d5a807cf3")
     BpmnMultiInstanceLoopCharacteristics getOwnerLoopCharacteristics();
@@ -87,6 +92,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("24113f9c-5685-4fed-8828-ea3aef9b6eab")
     void setOwnerLoopCharacteristics(BpmnMultiInstanceLoopCharacteristics value);
@@ -96,6 +102,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fedeb17b-481a-479a-b6aa-ff7e6e898bda")
     BpmnActivity getOwnerActivity();
@@ -105,6 +112,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7fba89a7-a81b-484b-94f3-4ab7403b1b9e")
     void setOwnerActivity(BpmnActivity value);
@@ -114,6 +122,7 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e8023505-8ad7-4506-9f58-4f87429b965d")
     BpmnThrowEvent getOwnerThrowEvent();
@@ -123,8 +132,9 @@ public interface BpmnDataInput extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("54fea6a7-2bf8-41b0-9e2b-66e5b3e54ccd")
     void setOwnerThrowEvent(BpmnThrowEvent value);
-
 }
+

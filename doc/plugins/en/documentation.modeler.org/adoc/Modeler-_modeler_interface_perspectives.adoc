@@ -36,7 +36,7 @@ image::images/Modeler-_modeler_interface_perspectives_PerspectiveDiagram.png[5]
 
 This perspective focuses on the diagram edition zone, in order to facilitate diagram creation and edition. Use the diagram or model browsers to find the diagrams you want, and then switch to the outline view to quickly see their content. The symbol view also plays a big part in this perspective, mainly to edit graphical properties of your diagram elements.
 
-[[TracePerspective]]
+
 === Trace Perspective
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveTrace.png[6]

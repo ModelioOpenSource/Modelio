@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * <p>Marker interface that indicates the inheriting interfaces and implementations are related to a metamodel&nbsp;fragment.</p><p>It is encouraged (but not mandatory) to mark&nbsp;all interfaces queried with MMetamodelRegistry#getService() so that they are easily identifiable.</p>
  */
 @objid ("e848550b-08b5-4c70-87b1-8a5705757255")
-public interface IMetamodelDependentService {
-}
+public interface IMetamodelDependentService {}
+

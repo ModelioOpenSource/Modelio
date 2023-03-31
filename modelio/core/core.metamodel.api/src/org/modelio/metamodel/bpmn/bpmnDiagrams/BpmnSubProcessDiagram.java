@@ -35,6 +35,8 @@ import org.modelio.metamodel.diagrams.BehaviorDiagram;
  * Diagram dedicated to subprocesses. A sub process can be collapsed, in that case, a separated SubProcessDiagram is created. If it is expanded, then the elements are drawn within the subprocess inside the process-collaboration diagram. 
  * 
  * SubProcess Diagrams contain a subset of the elements that supports a collaboration-process diagram: in particular, elements specific to collaboration, such as message flow, participants, pools and lanes are not presented in SubProcessDiagrams.
+ * 
+ * 
  */
 @objid ("000c897e-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnSubProcessDiagram extends BehaviorDiagram {
@@ -49,5 +51,5 @@ public interface BpmnSubProcessDiagram extends BehaviorDiagram {
      */
     @objid ("afcf6df6-43a1-4fb8-a38b-6fec5eff8bad")
     public static final String MQNAME = "Standard.BpmnSubProcessDiagram";
-
 }
+

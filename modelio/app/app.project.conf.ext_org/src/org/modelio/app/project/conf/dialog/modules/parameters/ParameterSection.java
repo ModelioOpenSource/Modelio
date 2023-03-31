@@ -33,7 +33,7 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.api.module.IModule;
 import org.modelio.app.project.conf.dialog.modules.parameters.standard.DefaultParameterPanelProvider;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;

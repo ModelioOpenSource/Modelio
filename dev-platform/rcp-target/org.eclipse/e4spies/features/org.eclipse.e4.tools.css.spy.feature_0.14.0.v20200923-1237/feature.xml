@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.e4.tools.css.spy.feature"
+      label="%featureName"
+      version="0.14.0.v20200923-1237"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.e4.ui.css.core" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.swt" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.w3c.css.sac"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.e4.tools.css.spy"
+         download-size="47"
+         install-size="83"
+         version="0.18.0.v20200923-1237"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools.spy"
+         download-size="20"
+         install-size="42"
+         version="0.18.0.v20200923-1237"
+         unpack="false"/>
+
+</feature>

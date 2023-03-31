@@ -31,5 +31,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface OutputStreamSupplier {
     @objid ("d4e390b2-96f1-463d-8f13-2a05c08eac47")
     OutputStream get() throws IOException;
-
 }
+

@@ -22,7 +22,7 @@ package org.modelio.platform.project.services.openproject;
 import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.platform.preferences.GProjectPreferenceStore;
 import org.modelio.platform.project.services.IProjectService;
@@ -45,7 +45,7 @@ public interface IProjectServiceAccess {
     IProjectService getProjectService();
 
     @objid ("6e8f265a-6a0d-4497-8643-693792c89d1c")
-    void setOpenedProject(GProject project);
+    void setOpenedProject(IGProject project);
 
     @objid ("bd0f7774-c894-4aae-9bc4-77ffa59d98ca")
     void postSyncEvent(final ModelioEvent topic, final Object data);
@@ -60,12 +60,12 @@ public interface IProjectServiceAccess {
     void closeAppStatePreferenceStore();
 
     @objid ("12e5146d-ee31-410c-abb7-05b27ac53933")
-    void openAppStatePreferenceStore(GProject project);
+    void openAppStatePreferenceStore(IGProject project);
 
     @objid ("3b528df6-cfb0-4878-b972-eb83660b3d85")
     boolean isOpeningEventSent();
 
     @objid ("e07718cf-61a3-4eae-9170-b0befd94f93d")
     Path getWorkspace();
-
 }
+

@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Les-options-de-la-ligne-de-commande]]
 
-[[les-options-de-la-ligne-de-commande]]
+
+
 = Les options de la ligne de commande
 
-[[Modelio-en-ligne-de-commande]]
 
-[[modelio-en-ligne-de-commande]]
+
+
 === Modelio en ligne de commande
 
 Pour exécuter Modelio en ligne de commande, vous devez lancer :
@@ -24,9 +24,9 @@ L'exécutable `modelio` qui se trouve dans le sous-répertoire `Contents/MacOS` 
 
 Plus loin, nous appellerons $\{MODELIO_EXE}, l'exécutable de Modelio avec tout son chemin (par exemple : `C:\Program Files\Modelio Open Source 4.1\modelio.exe`)
 
-[[Liste-des-options]]
 
-[[liste-des-options]]
+
+
 === Liste des options
 
 Modelio peut être lancé avec les options suivantes :

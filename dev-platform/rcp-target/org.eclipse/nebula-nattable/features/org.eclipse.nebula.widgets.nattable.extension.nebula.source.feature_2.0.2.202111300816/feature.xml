@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.nattable.extension.nebula.source.feature"
+      label="%featureName"
+      version="2.0.2.202111300816"
+      provider-name="%providerName">
+
+   <description url="https://projects.eclipse.org/projects/technology.nebula.nattable">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.nattable.extension.nebula.source"
+         download-size="23"
+         install-size="59"
+         version="2.0.2.202111300816"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.richtext.source"
+         download-size="1562"
+         install-size="4277"
+         version="1.4.0.202011020719"
+         unpack="false"/>
+
+</feature>

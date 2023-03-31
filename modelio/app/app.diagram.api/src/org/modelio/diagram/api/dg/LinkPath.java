@@ -50,7 +50,7 @@ public class LinkPath implements ILinkPath {
      * Convert a Connection points to a list of {@link ILinkPoint}.
      * @param connection a connection figure
      */
-    @objid ("fa40a652-07b5-404e-b7f3-bf2db3752fc0")
+    @objid ("209a3132-bfc6-419a-9d81-d6f1c41df961")
     public  LinkPath(Connection connection) {
         this.points = computeLinkPoints(connection);
     }
@@ -73,7 +73,7 @@ public class LinkPath implements ILinkPath {
      * @param connection a connection figure
      * @return its points as a list of ILinkPoint.
      */
-    @objid ("0dec89fb-abc7-41e7-b7ed-604fe5b1a456")
+    @objid ("3463c00c-bcc2-4909-9f83-3db4f7a4a660")
     protected static List<Point> computeLinkPoints(Connection connection) {
         final PointList connPoints = connection.getPoints();
         ArrayList<Point> ret;

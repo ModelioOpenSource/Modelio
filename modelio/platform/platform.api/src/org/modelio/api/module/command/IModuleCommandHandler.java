@@ -100,5 +100,5 @@ public interface IModuleCommandHandler {
 
     @objid ("8e36ad2d-b24a-42c6-ae75-679adb818adf")
     List<ElementScope> getScopes();
-
 }
+

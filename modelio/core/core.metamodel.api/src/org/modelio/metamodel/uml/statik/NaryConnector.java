@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0005d2fa-c4bf-1fd8-97fe-001ec947cd2a")
 public interface NaryConnector extends NaryLink {
@@ -55,6 +57,7 @@ public interface NaryConnector extends NaryLink {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("198fe771-a3d2-430c-89ad-2b8b0114b473")
     EList<Binding> getRepresentation();
@@ -64,6 +67,7 @@ public interface NaryConnector extends NaryLink {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fd1fef58-12ed-4ed8-8a9e-7400a66f492e")
     <T extends Binding> List<T> getRepresentation(java.lang.Class<T> filterClass);
@@ -73,6 +77,7 @@ public interface NaryConnector extends NaryLink {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("556886d8-34f3-413a-bdce-ce12fb15977c")
     UmlModelElement getRepresentedFeature();
@@ -82,8 +87,9 @@ public interface NaryConnector extends NaryLink {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e5e20cf3-1560-43cd-84cd-279de0014c41")
     void setRepresentedFeature(UmlModelElement value);
-
 }
+

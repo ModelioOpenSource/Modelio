@@ -40,6 +40,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * Modelio specific : 
  * In order to make the selection and transformation sections easier to fill, these are string expressions in Modelio, instead of Behaviors in the OMG UML specification.
+ * 
+ * 
  */
 @objid ("00388c90-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ObjectFlow extends ActivityEdge {
@@ -60,6 +62,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Expression that changes or replaces data tokens flowing along edge.</i>
+     * 
      */
     @objid ("6f9fc3c9-8772-4994-9afc-0db279e5cab2")
     String getTransformationBehavior();
@@ -69,6 +72,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Expression that changes or replaces data tokens flowing along edge.</i>
+     * 
      */
     @objid ("df883675-77a4-4b56-b7be-6eb878a0b2e4")
     void setTransformationBehavior(String value);
@@ -78,6 +82,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Selects tokens from a source object node.</i>
+     * 
      */
     @objid ("a4c59cf4-4ed4-4e43-82b5-727c94baa4d2")
     String getSelectionBehavior();
@@ -87,6 +92,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Selects tokens from a source object node.</i>
+     * 
      */
     @objid ("3c95b54f-e3e3-485b-8e55-a326e64e3aa2")
     void setSelectionBehavior(String value);
@@ -96,6 +102,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Indicates whether the objects in the flow are passed by multicasting.</i>
+     * 
      */
     @objid ("f3d804c7-8b96-48b1-b536-379d402e5d09")
     boolean isIsMultiCast();
@@ -105,6 +112,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Indicates whether the objects in the flow are passed by multicasting.</i>
+     * 
      */
     @objid ("a39ad545-4529-4faa-8ac4-eddb257d1555")
     void setIsMultiCast(boolean value);
@@ -114,6 +122,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Indicates whether the objects in the flow are gathered from respondents to multicasting.</i>
+     * 
      */
     @objid ("302e0f96-8ba8-44dd-bfbe-7f6cfb81faca")
     boolean isIsMultiReceive();
@@ -123,6 +132,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Indicates whether the objects in the flow are gathered from respondents to multicasting.</i>
+     * 
      */
     @objid ("4e8aa1d4-c82b-43f4-9e2d-6f853a420e50")
     void setIsMultiReceive(boolean value);
@@ -132,6 +142,7 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Specifies the effect that the owner of the object flow has on values that it represents.</i>
+     * 
      */
     @objid ("685d416f-410c-4db2-960b-1160153d9e5e")
     ObjectFlowEffectKind getEffect();
@@ -141,8 +152,9 @@ public interface ObjectFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>Specifies the effect that the owner of the object flow has on values that it represents.</i>
+     * 
      */
     @objid ("a01fc2e7-8f8f-4557-8562-0c1aefb8e392")
     void setEffect(ObjectFlowEffectKind value);
-
 }
+

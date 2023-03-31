@@ -221,5 +221,5 @@ public interface IWizardContributor {
      */
     @objid ("29ea9b9b-b198-4678-a1b0-c4608e60c618")
     ImageDescriptor getIconDescriptor();
-
 }
+

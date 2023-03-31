@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='jena/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541774017557'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='1'>
+    <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.jena' version='3.0.1'>
+      <properties size='5'>
+        <property name='artifact.size' value='6622394'/>
+        <property name='download.size' value='6622394'/>
+        <property name='download.md5' value='27119c30c7a62734ed2137ea5ce9b773'/>
+        <property name='download.checksum.md5' value='27119c30c7a62734ed2137ea5ce9b773'/>
+        <property name='download.checksum.sha-256' value='2f0983bc23d12dfde15d4e62fd86e225c0331262f5dc5870f8b8299026541470'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

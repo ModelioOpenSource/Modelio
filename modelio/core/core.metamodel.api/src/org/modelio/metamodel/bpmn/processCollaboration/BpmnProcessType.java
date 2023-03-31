@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("003a17f4-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnProcessType {
@@ -38,6 +40,7 @@ public enum BpmnProcessType {
     PUBLICPROCESS(1, "PublicProcess", "PublicProcess"),
     @objid ("e4da0601-caa7-4b7d-aad2-37d70aa36061")
     PRIVATEPROCESS(2, "PrivateProcess", "PrivateProcess");
+
 public static final int NONEPROCESS_VALUE = 0;
     public static final int PUBLICPROCESS_VALUE = 1;
     public static final int PRIVATEPROCESS_VALUE = 2;

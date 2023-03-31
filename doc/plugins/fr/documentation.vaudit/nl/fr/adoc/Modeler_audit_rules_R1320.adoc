@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1320]]
 
-[[r1320]]
+
+
 = R1320
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _ObjectFlow_ ne peut pas être à la fois multireceive et multicast.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les propriétés multicast et multireceive sont utilisées avec des _ActivityPartitions_ pour modéliser des flux entre comportements qui sont la responsabilité d'objets déterminés par un mécanisme de type publication/souscription.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1320, vérifiez que l'_ObjectFlow_ n'ait pas ses propriétés multicast et multireceive activées toutes les deux. Ces propriétés peuvent être modifiées par le biais de la vue " Element " lorsque l'_ObjectFlow_ est sélectionné.

@@ -111,5 +111,5 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
     default boolean doesModifyRepository() {
         return true;
     }
-
 }
+

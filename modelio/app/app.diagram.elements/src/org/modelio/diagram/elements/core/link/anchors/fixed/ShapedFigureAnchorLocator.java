@@ -29,9 +29,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.graphics.PathData;
 import org.modelio.diagram.elements.core.figures.ShapedFigure;
+import org.modelio.diagram.elements.core.figures.anchors.FacesConstants;
 import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
 import org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator;
-import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.figures.geometry.LineSeg;
 
 /**
@@ -44,39 +44,37 @@ import org.modelio.diagram.elements.core.figures.geometry.LineSeg;
  * @since 5.1.0
  * @deprecated beta, Nearly works but still experimental. Needs connection editors to be aware of {@link org.modelio.diagram.elements.core.figures.anchors.IOrientedAnchor IOrientedAnchor}
  */
-@objid ("92b2c41d-1823-47d2-9825-2e1b70862fec")
+@objid ("eb9e22fd-ec57-44f8-b100-d275044c920f")
 @Deprecated
-public class ShapedFigureAnchorLocator implements IFixedAnchorLocator {
-    @objid ("53166620-b6d0-4868-94b2-aeefba9b9afc")
-    private final IFixedAnchorLocator delegate;
-
-    @objid ("facdd3df-9ec1-427c-b70a-d69a4a948e6c")
+class ShapedFigureAnchorLocator extends WrappedFixedAnchorLocator {
+    /**
+     * The node figure shape flattened to a point list.
+     */
+    @objid ("dd453f1d-d3bc-4654-abd5-b419507da273")
     private PointList flattened;
 
-    @objid ("be374b9d-be77-4e9b-8e0d-a501a9d9542a")
+    @objid ("48542ecb-3f50-4202-b20a-7f10e761fed5")
     private final Rectangle prevBounds = new Rectangle();
 
-    @objid ("e80666d0-5d4c-4278-ab83-38caf62c12ca")
+    @objid ("d3f7957c-a543-4657-933c-c2004af9dd4e")
     private static final Point P1 = new PrecisionPoint();
 
-    @objid ("00ac5026-6059-42e9-9cc1-3a34a761ca4d")
+    @objid ("c02a48d6-2c96-4d04-bd3a-823ce378eee2")
     private static final Point P2 = new PrecisionPoint();
 
-    @objid ("d78a3915-4844-4ab2-bc03-7176786197d0")
+    @objid ("288ccb4c-c779-4667-94de-2052cf315549")
     private static final Point P3 = new PrecisionPoint();
 
-    @objid ("a3e45bb2-0467-4914-9095-837a4576b9e1")
+    @objid ("e8eec474-8634-42aa-b753-ad0a9d9074e0")
     private static final Point P4 = new PrecisionPoint();
 
-    @objid ("3e503729-7043-4aee-8d76-cfe763442566")
+    @objid ("8aee557f-b22f-4192-9f56-9b638ec42338")
     public  ShapedFigureAnchorLocator(IFixedAnchorLocator delegate) {
-        super();
-        this.delegate = delegate;
-        
+        super(delegate);
     }
 
-    @objid ("e4fde07a-8c65-4251-b4a0-8d7af1abbad3")
-    protected PointList getFlattened(ShapedFigure shapedFigure) {
+    @objid ("b3babe9c-584b-4265-99ae-ea55c5e319a5")
+    protected final PointList getFlattened(ShapedFigure shapedFigure) {
         if (this.flattened == null || !this.prevBounds.equals(shapedFigure.getBounds())) {
             this.prevBounds.setBounds(shapedFigure.getBounds());
             this.flattened = computeFlattened(shapedFigure);
@@ -84,15 +82,18 @@ public class ShapedFigureAnchorLocator implements IFixedAnchorLocator {
         return this.flattened;
     }
 
-    @objid ("021d2be8-7806-48e7-910e-eb80c72ad3dc")
+    @objid ("857526e8-f3af-4d2b-828f-4f0a8dd7c80f")
     protected PointList computeFlattened(ShapedFigure shapedFigure) {
+        // Get the figure path
         Path orig = computeFigurePath(shapedFigure);
         
+        // Make a flattened copy, copy it in a PathData and dispose the copy.
         Path flattenedPath = new Path(orig.getDevice(), orig, 5);
         PathData data = flattenedPath.getPathData();
         flattenedPath.dispose();
         orig.dispose();
         
+        // Convert the flattened PathData to a PointList
         byte[] types = data.types;
         float[] points = data.points;
         PointList ret = new PointList(types.length);
@@ -134,57 +135,45 @@ public class ShapedFigureAnchorLocator implements IFixedAnchorLocator {
         return ret;
     }
 
-    @objid ("3dd100c5-c365-4948-b4d2-107351fcbf02")
+    @objid ("c1117790-2239-444a-9ebb-e7237bc5f22d")
     private ShapedFigure getShapedFigure(FixedAnchor anchor) {
         return (ShapedFigure) anchor.getOwner();
     }
 
-    @objid ("df6872e6-dd7d-4c7e-9c62-701a5b321a2e")
+    @objid ("33b08675-9d0c-4e34-b4e7-4067785d279f")
     protected Path computeFigurePath(ShapedFigure fig) {
         Rectangle bounds = fig.getBounds().getCopy();
         return fig.getShaper().createShapePath(bounds);
     }
 
-    @objid ("a4270deb-a9ca-417b-8578-b12c529c5c6c")
+    @objid ("960c7dfb-a754-43dc-a5cb-616daa284ec5")
     @Override
     public void onFigureMoved(IFigure figure) {
         this.flattened = null;
-        this.delegate.onFigureMoved(figure);
+        super.onFigureMoved(figure);
         
     }
 
-    @objid ("33b37d1a-15c3-4c42-aa3a-953f955e6a73")
-    @Override
-    public Direction getDirection(FixedAnchor anchor) {
-        return this.delegate.getDirection(anchor);
-    }
-
-    @objid ("054625c3-dd44-4579-b601-09ba255fa861")
-    @Override
-    public String getFaceName(FixedAnchor fixedAnchor) {
-        return this.delegate.getFaceName(fixedAnchor);
-    }
-
-    @objid ("607ffa1e-de40-45c7-976c-dfba2144f6e4")
+    @objid ("f0b6b911-b3de-4b4e-9e96-3a39f010fa50")
     @Override
     public Point getReferencePoint(FixedAnchor anchor) {
-        Point referencePoint = this.delegate.getReferencePoint(anchor);
+        Point referencePoint = super.getReferencePoint(anchor);
         Point p1 = P1.setLocation(referencePoint);
         anchor.getOwner().translateToRelative(p1);
         Point p2 = P2.setLocation(p1);
         
         // put p2 farther from node
         switch (anchor.getFace()) {
-        case FixedNodeAnchorProvider.FACE_NORTH:
+        case FacesConstants.FACE_NORTH:
             p2.translate(0, -10);
             break;
-        case FixedNodeAnchorProvider.FACE_EAST:
+        case FacesConstants.FACE_EAST:
             p2.translate(10, 0);
             break;
-        case FixedNodeAnchorProvider.FACE_SOUTH:
+        case FacesConstants.FACE_SOUTH:
             p2.translate(0, 10);
             break;
-        case FixedNodeAnchorProvider.FACE_WEST:
+        case FacesConstants.FACE_WEST:
         default:
             p2.translate(-10, 0);
             break;

@@ -46,21 +46,21 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  * @author cma
  * @since 5.1.0
  */
-@objid ("6d888a06-8be6-414d-b89f-00d62b673557")
+@objid ("b21a91df-18e1-4a4e-a5da-0ad22d7d8926")
 public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements PropertyChangeListener {
     /**
      * The role to install this policy with.
      */
-    @objid ("88a8a44c-8bd1-4bca-b197-f03db284bd76")
+    @objid ("53e21ed4-323d-4777-9611-49adccc192e5")
     public static final String ROLE = "Refresh rake from model";
 
-    @objid ("e3e83fb4-cf25-4e4d-bd65-024e32f46b5d")
+    @objid ("91879619-ef99-4cc4-875f-f3bcf1519d0e")
     private IGmLinkRake currentTargetRake;
 
-    @objid ("6bf04c34-2432-47a4-b912-9d93b4ec8b27")
+    @objid ("8899b045-3523-4378-9acf-badba9b692e6")
     private IGmLinkRake currentSourceRake;
 
-    @objid ("bbce46f9-4197-4594-8670-2641734c549f")
+    @objid ("13d65b84-0046-40d5-b207-28adbda5d2a6")
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         final String propName = evt.getPropertyName();
@@ -87,7 +87,7 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("f6edaed6-5f60-4d09-98b2-e8c176a9658e")
+    @objid ("36c9e87c-bacd-48d9-af3f-51732e8ce378")
     private void refreshVisuals() {
         PropertyChangeEvent evt = new PropertyChangeEvent(getModel(), IGmObject.PROPERTY_LAYOUTDATA, null, getModel().getLayoutData());
         PropertyChangeListener l = (PropertyChangeListener) getHost();
@@ -95,7 +95,7 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("fc77a678-d58c-4f61-95c1-b233f4e55a90")
+    @objid ("da577758-9a08-4095-ab19-6e6adfad0409")
     @Override
     public void activate() {
         super.activate();
@@ -105,7 +105,7 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("ad71161a-3ef0-4f9e-add6-e03a30448a56")
+    @objid ("ed419069-bf1b-417b-b012-1410d0202052")
     @Override
     public void deactivate() {
         getModel().removePropertyChangeListener(this);
@@ -115,7 +115,7 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("f294e5c7-5016-4313-8799-242594766569")
+    @objid ("0d47401d-3d85-47e7-b2a9-deff105c3567")
     private boolean refreshAnchorsFromRakes() {
         final IGmLinkObject gmLink = getModel();
         final IGmPath gmPath = gmLink.getPath();
@@ -139,12 +139,12 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         return changed;
     }
 
-    @objid ("431f19fa-7bad-4423-bf40-ade4b1eabbea")
+    @objid ("e2b280f3-3f4e-4f2c-9689-03042d1bab7c")
     private IGmLinkObject getModel() {
         return (IGmLinkObject) this.getHost().getModel();
     }
 
-    @objid ("da6b0e88-73e8-4cad-b492-910d7d56b945")
+    @objid ("3a86bb35-9d8d-4d5f-b58e-c01f649b72f2")
     private void removeRakeFromPath(final IGmPath gmPath) {
         OrthoConnectionHelper connectionPath = new OrthoConnectionHelper(getConnectionFigure(), (ConnectionEditPart) getHost());
         Object pathData = connectionPath.getModelPathData();
@@ -156,12 +156,12 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("471072f6-6b45-4d1c-a36e-c80b2e9e67b6")
+    @objid ("e80dad98-0a66-4283-8bba-9e082260f235")
     private Connection getConnectionFigure() {
         return (Connection) this.getHostFigure();
     }
 
-    @objid ("b3dbbd5b-bf14-4fce-9551-a8508dec55f8")
+    @objid ("bfbcf7f4-5b20-41a1-8a2f-620f0a282460")
     private void removeRakeListeners() {
         if (this.currentSourceRake != null)
             this.currentSourceRake.removeListener(this);
@@ -170,7 +170,7 @@ public class RakeRefreshEditPolicy extends GraphicalEditPolicy implements Proper
         
     }
 
-    @objid ("aa024670-8ca4-4598-ac5d-00a7aeb6235f")
+    @objid ("7c3bcc4d-e0cd-4dcc-accb-f1cfbaff1ea2")
     private boolean refreshRakes() {
         final IGmLinkObject gmLink = getModel();
         final IGmPath gmPath = gmLink.getPath();

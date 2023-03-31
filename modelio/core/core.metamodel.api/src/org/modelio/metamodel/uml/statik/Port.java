@@ -40,6 +40,9 @@ import org.eclipse.emf.common.util.EList;
  * In Modelio, Ports are declared on Classes (UML 2.0 structured Classifiers) by creating them in the Class's internal structure. These Ports can then be shown on Instances of the Class, by creating Port instances in the Class instances, and by binding these Port instances to the Ports defined at Class level.  
  * 
  * In Modelio, a Port always belongs to a Class, a Component or a Signal.
+ * 
+ * 
+ * 
  */
 @objid ("0018a768-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Port extends BindableInstance {
@@ -64,6 +67,7 @@ public interface Port extends BindableInstance {
      * Any invocation of a behavioral feature targeted at a behavior Port will be handled by the instance of the owning Classifier itself, rather than by any instances that this Classifier may contain. 
      * 
      * The default value is false.</i>
+     * 
      */
     @objid ("a754c41c-50d5-4586-8141-1e7a5f3931e9")
     boolean isIsBehavior();
@@ -77,6 +81,7 @@ public interface Port extends BindableInstance {
      * Any invocation of a behavioral feature targeted at a behavior Port will be handled by the instance of the owning Classifier itself, rather than by any instances that this Classifier may contain. 
      * 
      * The default value is false.</i>
+     * 
      */
     @objid ("342dc5ab-1d99-42fd-b924-5825bd460768")
     void setIsBehavior(boolean value);
@@ -88,6 +93,7 @@ public interface Port extends BindableInstance {
      * <i>If true, indicates that this Port is used to provide the published functionality of a Classifier. If false, this Port is used to implement the Classifier but is not part of the essential externally-visible functionality of the Classifier and can, therefore, be altered or deleted along with the internal implementation of the Classifier and other properties that are considered part of its implementation. 
      * 
      * The default value for this attribute is true.</i>
+     * 
      */
     @objid ("27af4e22-e239-4b75-b3f2-f8aae6535fec")
     boolean isIsService();
@@ -99,6 +105,7 @@ public interface Port extends BindableInstance {
      * <i>If true, indicates that this Port is used to provide the published functionality of a Classifier. If false, this Port is used to implement the Classifier but is not part of the essential externally-visible functionality of the Classifier and can, therefore, be altered or deleted along with the internal implementation of the Classifier and other properties that are considered part of its implementation. 
      * 
      * The default value for this attribute is true.</i>
+     * 
      */
     @objid ("d14d6511-6338-46d5-9964-8478e1057d8a")
     void setIsService(boolean value);
@@ -108,6 +115,7 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>Specifies the way that the provided and required interfaces are derived from the Port's Type.  The default value is false.</i>
+     * 
      */
     @objid ("8e64c927-68d6-43fa-a751-5c6544a42f45")
     boolean isIsConjugated();
@@ -117,6 +125,7 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>Specifies the way that the provided and required interfaces are derived from the Port's Type.  The default value is false.</i>
+     * 
      */
     @objid ("0dc58d56-b27d-451a-8e21-5f1506e1a643")
     void setIsConjugated(boolean value);
@@ -127,6 +136,7 @@ public interface Port extends BindableInstance {
      * Metamodel description:
      * <i><p>Specifies the way that the data&nbsp;flows through&nbsp;the Port.</p>
      * </i>
+     * 
      */
     @objid ("cfa83652-c56d-42c4-a863-aee54939006e")
     PortOrientation getDirection();
@@ -137,6 +147,7 @@ public interface Port extends BindableInstance {
      * Metamodel description:
      * <i><p>Specifies the way that the data&nbsp;flows through&nbsp;the Port.</p>
      * </i>
+     * 
      */
     @objid ("51ca9dda-d02c-460e-bd10-3ab86bacc54f")
     void setDirection(PortOrientation value);
@@ -146,6 +157,7 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>References the Interfaces specifying the set of operations and receptions which the Classifier provides to its environment, and which it will handle either directly or by forwarding it to a part of its internal structure.</i>
+     * 
      */
     @objid ("ca049f8d-2638-4670-8aaa-32edafdaa25f")
     EList<ProvidedInterface> getProvided();
@@ -155,6 +167,7 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>References the Interfaces specifying the set of operations and receptions which the Classifier provides to its environment, and which it will handle either directly or by forwarding it to a part of its internal structure.</i>
+     * 
      */
     @objid ("d8d99489-447f-4e5c-8d2e-ae5a1cec8e73")
     <T extends ProvidedInterface> List<T> getProvided(java.lang.Class<T> filterClass);
@@ -164,6 +177,7 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>References the Interfaces specifying the set of operations and receptions which the Classifier expects its environment to handle.</i>
+     * 
      */
     @objid ("0e3daeeb-1108-4be6-90f8-7ffdfbbe98e7")
     EList<RequiredInterface> getRequired();
@@ -173,8 +187,9 @@ public interface Port extends BindableInstance {
      * 
      * Metamodel description:
      * <i>References the Interfaces specifying the set of operations and receptions which the Classifier expects its environment to handle.</i>
+     * 
      */
     @objid ("85c4f483-0acd-4909-8f97-d9b56fce6b99")
     <T extends RequiredInterface> List<T> getRequired(java.lang.Class<T> filterClass);
-
 }
+

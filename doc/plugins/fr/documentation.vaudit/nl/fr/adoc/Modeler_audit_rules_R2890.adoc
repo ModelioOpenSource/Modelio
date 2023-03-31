@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2890]]
 
-[[r2890]]
+
+
 = R2890
 
-[[Résume]]
 
-[[résume]]
+
+
 ===== Résume
 
 Un _lien de communication_ ne peut pas relier un _Acteur_ ou un _Use Case_ à lui-même.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _lien de communication_ avec le même _Use Case_ ou le même _Acteur_ de chaque coté est faux d'un point de vue UML.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez le _lien de communication_ ou changez sa destination.

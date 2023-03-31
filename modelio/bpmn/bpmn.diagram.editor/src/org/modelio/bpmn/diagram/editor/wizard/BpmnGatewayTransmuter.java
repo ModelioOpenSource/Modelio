@@ -20,6 +20,7 @@
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
@@ -33,6 +34,8 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
+import org.modelio.metamodel.uml.infrastructure.Note;
+import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MExpert;
@@ -135,6 +138,16 @@ public class BpmnGatewayTransmuter extends AbstractElementTransmuter {
                 ((BpmnInclusiveGateway) newGateway).setDefaultFlow(defaultflow);
             } else if (newGateway instanceof BpmnComplexGateway && defaultflow != null) {
                 ((BpmnComplexGateway) newGateway).setDefaultFlow(defaultflow);
+            }
+        
+            if (oldGateway.getDescriptor().size() > 0) {
+                List<NoteType> noteTypes = modelServices.findNoteTypes(".*", ".*", ".*", newGateway.getMClass());
+                for (Note note : new ArrayList<>(oldGateway.getDescriptor())) {
+                    NoteType noteType = note.getModel();
+                    if (noteType != null && noteTypes.contains(noteType)) {
+                        newGateway.getDescriptor().add(note);
+                    }
+                }
             }
         }
         return newElement;

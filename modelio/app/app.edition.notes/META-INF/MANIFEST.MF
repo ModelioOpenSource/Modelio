@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Edition Notes
 Bundle-SymbolicName: org.modelio.app.edition.notes;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Localization: plugin
 Bundle-Activator: org.modelio.edition.notes.plugin.EditionNotes
 Bundle-Vendor: modelio.org
@@ -32,7 +32,7 @@ Require-Bundle: org.eclipse.jface,
  org.modelio.app.editors.richnote
 Bundle-ClassPath: .,
  res/
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Export-Package: org.modelio.edition.notes.panelprovider,
  org.modelio.edition.notes.panelprovider.tree,

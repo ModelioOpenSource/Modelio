@@ -12,7 +12,7 @@ The Modelio BPMN Import service is used to import a BPMN model form a *.bpmn fil
 
 During the import process, you can choose to keep the ID of the elements declared in the imported file, or to generate new Modelio ID. If you choose to keep the original elements id, you must keep in mind that these ID must be unique. Otherwise, you will be exposed to unexpected errors during the import process.
 
-[[HImportingaBPMNModel]]
+
 == Importing a BPMN Model
 
 To import a BPMN model form a *.bpmn file:
@@ -34,7 +34,7 @@ image::images/attachment/bpmn41/User_Documentation_en/Importing_and_exporting_mo
 4. Choose whether or not to keep the imported elements IDs.
 5. Click on *OK* to validate and launch the import.
 
-[[HUpdateaBPMNModel]]
+
 == Update a BPMN Model
 
 To update an existing BPMN model based on an updated *.bpmn file:

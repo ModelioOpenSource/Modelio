@@ -197,14 +197,22 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
         IFigure fig = getHostFigure();
         Dimension delta = request.getSizeDelta();
         
+        Dimension prefered = fig.getPreferredSize(askedBounds.width(), -1);
         if (delta.height() == 0) {
-            return fig.getPreferredSize(askedBounds.width(), -1);
+            prefered = fig.getPreferredSize(askedBounds.width(), -1);
         } else if (delta.width() == 0) {
-            return fig.getPreferredSize(askedBounds.width(), askedBounds.height());
-        } else {
-            return fig.getPreferredSize(askedBounds.width(), -1);
+            prefered =  fig.getPreferredSize(askedBounds.width(), askedBounds.height());
         }
         
+        // Finx Min Size
+        if(prefered.width < 30) {
+            prefered.width = 30;
+        }
+        
+        if(prefered.height < 15) {
+            prefered.height = 15;
+        }
+        return prefered;
     }
 
 }

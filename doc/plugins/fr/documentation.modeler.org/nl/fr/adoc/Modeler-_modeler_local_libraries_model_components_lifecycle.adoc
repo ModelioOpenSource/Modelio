@@ -13,9 +13,9 @@ Le cycle de vie d'un composant de modèle peut être divisé en trois phases dis
 2.  La <<Modeler-_modeler_local_libraries_model_components_development.adoc#,phase de packaging>>, pendant laquelle le composant de modèle est véritablement construit par le développeur. Cette phase comprend la définition des informations de packaging, et la création d'un fichier de composant de modèle unique dont l'extension est ".ramc".
 3.  La <<Modeler-_modeler_local_libraries_model_components_deployment.adoc#,phase de déploiement>>, durant laquelle le composant de modèle est déployé sur un projet par un utilisateur. Si des erreurs de déploiement sont rencontrées, elles peuvent être corrigées et le processus de déploiement relancé.
 
-[[Les-versions-dun-composant-de-modèle-et-les-dépendances-entre-composants-de-modèle]]
 
-[[les-versions-dun-composant-de-modèle-et-les-dépendances-entre-composants-de-modèle]]
+
+
 === Les versions d'un composant de modèle et les dépendances entre composants de modèle
 
 Lorsqu'un composant de modèle est développé, un numéro de version lui est assigné. Ce numéro de version peut être incrémenté à chaque fois que le composant de modèle est repackagé (que ce soit à la suite de modifications effectuées ou lors des livraisons plannifiées).

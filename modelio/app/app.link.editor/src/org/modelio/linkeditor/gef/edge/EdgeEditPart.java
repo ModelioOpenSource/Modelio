@@ -49,8 +49,7 @@ import org.modelio.metamodel.uml.statik.Generalization;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
-import org.modelio.platform.mda.infra.ModuleI18NService;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.ui.UIFont;
 
 /**
@@ -84,7 +83,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
 
     @objid ("a453cc05-31bf-4ad0-92d4-9ba5c2a2aed2")
     private static final PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0,
-    	        -3, -1, -2, 0, -3, 1, -2, 0 });
+            	        -3, -1, -2, 0, -3, 1, -2, 0 });
 
     @objid ("c95d026f-58e2-45ea-af1a-761b6e8ba561")
     private static final PointList TRIANGLE_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1 });
@@ -94,32 +93,32 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
      */
     @objid ("3e66ff73-5806-45e6-a3d4-cc056af6f039")
     public static IEdgeDecorator colorizer = new IEdgeDecorator() {
-    		
-    		@Override
-    		public void decorateLabel(Edge edge, Label fig) {
-    			fig.setFont(CoreFontRegistry.getModifiedFont(Display.getDefault().getSystemFont(), SWT.NONE, UIFont.SMALL_SIZE));
-    			fig.setForegroundColor(ColorConstants.lightGray);
-    		}
-    		
-    		@Override
-    		public void decorateLine(Edge edge, PolylineConnection fig) {
-    			
-    			if (edge.data != null) {
-    				// Link towards node
-    				Color swtColor = Display.getDefault().getSystemColor(SWT.COLOR_LIST_FOREGROUND);
-                    fig.setForegroundColor(swtColor);
-                    fig.setLineWidth(1);
-    				
-    			} else {
-    				// Link towards bus
-    				fig.setForegroundColor(ColorConstants.lightGray);
-                    fig.setLineWidth(2);
-    			}
-    			
-    		}
     
-    		
-    	};
+            		@Override
+            		public void decorateLabel(Edge edge, Label fig) {
+            			fig.setFont(UIFont.SMALL);
+            			fig.setForegroundColor(ColorConstants.lightGray);
+            		}
+    
+            		@Override
+            		public void decorateLine(Edge edge, PolylineConnection fig) {
+    
+            			if (edge.data != null) {
+            				// Link towards node
+            				Color swtColor = Display.getDefault().getSystemColor(SWT.COLOR_LIST_FOREGROUND);
+                            fig.setForegroundColor(swtColor);
+                            fig.setLineWidth(1);
+    
+            			} else {
+            				// Link towards bus
+            				fig.setForegroundColor(ColorConstants.lightGray);
+                            fig.setLineWidth(2);
+            			}
+    
+            		}
+    
+    
+            	};
 
     @objid ("1b9d2874-5e33-11e2-b81d-002564c97630")
     @Override
@@ -144,7 +143,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
         
         
         if (model != null) {
-            
+        
             if (model instanceof Generalization || model instanceof Operation) {
                 decorateGeneralization(fig);
             } else if (model instanceof InterfaceRealization) {
@@ -192,7 +191,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             role.setText(EdgeEditPart.OPENING + "access" + EdgeEditPart.CLOSING);
         }
         
-              
+        
         
         colorizer.decorateLabel((Edge) getModel(), role);
         
@@ -217,12 +216,12 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             Label role = new Label();
             if (stereotypes.size() == 1) {
                 Stereotype stereotype = stereotypes.get(0);
-                String stereoLabel = ModuleI18NService.getLabel(stereotype);
+                String stereoLabel = MdaResources.getLabel(stereotype);
                 role.setText(EdgeEditPart.OPENING + stereoLabel + EdgeEditPart.CLOSING);
             } else {
                 Label tooltip = new Label();
                 for (Stereotype stereotype : dependency.getExtension()) {
-                    String stereoLabel = ModuleI18NService.getLabel(stereotype);
+                    String stereoLabel = MdaResources.getLabel(stereotype);
                     if (tooltip.getText() == null || tooltip.getText().isEmpty()) {
                         tooltip.setText(EdgeEditPart.OPENING + stereoLabel);
                     } else {
@@ -232,12 +231,12 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
                 tooltip.setText(tooltip.getText() + EdgeEditPart.CLOSING);
                 role.setToolTip(tooltip);
                 Stereotype stereotype = stereotypes.get(0);
-                String stereoLabel = ModuleI18NService.getLabel(stereotype);
+                String stereoLabel = MdaResources.getLabel(stereotype);
                 role.setText(EdgeEditPart.OPENING + stereoLabel + ", ... " + EdgeEditPart.CLOSING);
             }
-           
+        
             colorizer.decorateLabel((Edge) getModel(), role);
-            
+        
             ConnectionLocator constraint = new ConnectionLocator(fig, ConnectionLocator.MIDDLE);
             constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
             constraint.setRelativePosition(PositionConstants.NORTH);
@@ -299,10 +298,10 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             fig.setTargetDecoration(targetDecoration);
             Label role = new Label();
             role.setText(assocEnd.getName());
-            
-            
+        
+        
             colorizer.decorateLabel((Edge) getModel(), role);
-            
+        
             ConnectionLocator constraint = new ConnectionLocator(fig, ConnectionLocator.TARGET);
             constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
         
@@ -328,9 +327,9 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
                 cardText = "[" + assocEnd.getMultiplicityMin() + ".." + assocEnd.getMultiplicityMax() + "]";
             }
             card.setText(cardText);
-            
+        
             colorizer.decorateLabel((Edge) getModel(), card);
-            
+        
             constraint = new ConnectionLocator(fig, ConnectionLocator.TARGET);
             constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
             if (vertical) {
@@ -379,8 +378,8 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             fig.setSourceDecoration(sourceDecoration);
             Label role = new Label();
             role.setText(opposite.getName());
-            
-            
+        
+        
             colorizer.decorateLabel((Edge) getModel(), role);
             ConnectionLocator constraint = new ConnectionLocator(fig, ConnectionLocator.SOURCE);
             constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
@@ -406,10 +405,10 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
                 cardText = "[" + opposite.getMultiplicityMin() + ".." + opposite.getMultiplicityMax() + "]";
             }
             card.setText(cardText);
-            
-            
+        
+        
             colorizer.decorateLabel((Edge) getModel(), card);
-            
+        
             constraint = new ConnectionLocator(fig, ConnectionLocator.SOURCE);
             constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
             if (vertical) {
@@ -465,22 +464,16 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
     public interface IEdgeDecorator {
         /**
          * Set the link figure color and width.
-         * @param model
-         * @param rect
-         * @param label
          */
         @objid ("e6774114-cac4-4270-acd0-367bd0ca11db")
         void decorateLine(Edge edge, PolylineConnection fig);
 
         /**
          * Set the link label font and color.
-         * @param model
-         * @param rect
-         * @param label
          */
         @objid ("8de71a1e-e4c7-4664-b07a-abc10820842d")
         void decorateLabel(Edge edge, Label fig);
-
-    }
+}
+    
 
 }

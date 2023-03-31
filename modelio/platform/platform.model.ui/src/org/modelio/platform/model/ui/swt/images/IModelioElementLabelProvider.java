@@ -33,5 +33,5 @@ public interface IModelioElementLabelProvider extends IStyledLabelProvider, IToo
     default String getToolTipText(Object object) {
         return null;
     }
-
 }
+

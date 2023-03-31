@@ -2,11 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelio platform utils
 Bundle-SymbolicName: org.modelio.platform.utils;singleton:=true
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 5.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Vendor: modelio.org
 Require-Bundle: org.modelio.core.utils,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ ch.qos.logback.classic;bundle-version="1.2.7",
+ ch.qos.logback.core;bundle-version="1.2.7",
+ org.modelio.version
 Bundle-Activator: org.modelio.platform.utils.plugin.Utils
 Export-Package: org.modelio.platform.utils.plugin;uses:="org.osgi.framework",
  org.modelio.platform.utils.i18n,
@@ -14,7 +17,6 @@ Export-Package: org.modelio.platform.utils.plugin;uses:="org.osgi.framework",
  org.modelio.platform.utils.plugin
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
- config/,
- libs/slf4j-api-1.6.6.jar,
- libs/logback-classic-1.1.2.jar,
- libs/logback-core-1.1.2.jar
+ config/
+Import-Package: org.slf4j;version="1.7.25"
+

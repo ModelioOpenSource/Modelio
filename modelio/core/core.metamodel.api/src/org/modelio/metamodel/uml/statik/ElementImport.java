@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * ModelElement.Name: Specifies the name that should be added to the namespace of the importing Package in lieu of the name of the imported PackagableElement. The aliased name must not clash with any other member name in the importing Package. By default, no alias is used.
+ * 
+ * 
  */
 @objid ("0008034a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ElementImport extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface ElementImport extends UmlModelElement {
      * <i>Specifies the visibility of the imported PackageableElement within the importing Package. The default visibility is the same as that of the imported element. If the imported element does not have a visibility, it is possible to add visibility to the element import.
      * 
      * The visibility of an ElementImport is either public or private.</i>
+     * 
      */
     @objid ("f333d29b-5325-47d6-aab0-b62acb358a92")
     VisibilityMode getVisibility();
@@ -66,6 +69,7 @@ public interface ElementImport extends UmlModelElement {
      * <i>Specifies the visibility of the imported PackageableElement within the importing Package. The default visibility is the same as that of the imported element. If the imported element does not have a visibility, it is possible to add visibility to the element import.
      * 
      * The visibility of an ElementImport is either public or private.</i>
+     * 
      */
     @objid ("b67e4a2c-03c9-49b5-bb2e-7341523c73e9")
     void setVisibility(VisibilityMode value);
@@ -75,6 +79,7 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ef612157-25da-48f2-ba02-a1d55a872482")
     NameSpace getImportingNameSpace();
@@ -84,6 +89,7 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6c658a02-e297-40dd-bd6a-0fa942bc8d11")
     void setImportingNameSpace(NameSpace value);
@@ -93,6 +99,7 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the PackageableElement whose name is to be added to a Namespace. Subsets DirectedRelationship::target.</i>
+     * 
      */
     @objid ("b3357fbf-7f97-47dd-a3b5-a58275f9db9c")
     NameSpace getImportedElement();
@@ -102,6 +109,7 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the PackageableElement whose name is to be added to a Namespace. Subsets DirectedRelationship::target.</i>
+     * 
      */
     @objid ("acbf821d-3fb7-430c-91be-b961d882f3b1")
     void setImportedElement(NameSpace value);
@@ -111,6 +119,7 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("eb74ad35-0103-409f-abb3-29767873c37c")
     Operation getImportingOperation();
@@ -120,8 +129,9 @@ public interface ElementImport extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("59fe75d5-f031-47ab-a236-ecc0193dde4a")
     void setImportingOperation(Operation value);
-
 }
+

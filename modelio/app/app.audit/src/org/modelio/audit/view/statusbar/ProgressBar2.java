@@ -43,7 +43,7 @@ public class ProgressBar2 extends Composite {
     @objid ("7cc5b01d-ee1f-4e27-addb-4de0f9dca940")
     private int selection = 0;
 
-    @objid ("679b0efb-1675-402c-9101-b21c9a47faf4")
+    @objid ("481d7ced-9da7-4fdd-83e1-a651229e3575")
     private Color textColor;
 
     @objid ("ee231947-41c9-4716-b17e-fc930ea6ad15")
@@ -51,7 +51,7 @@ public class ProgressBar2 extends Composite {
         super(parent, style);
         
         // Set a default size
-        setSize(100, getFont().getFontData()[0].getHeight() + 2);
+        setSize(100, getFont().getFontData()[0].getHeight() + 8);
         
         addDisposeListener((e) -> {
             if (ProgressBar2.this.textColor != null) {
@@ -60,13 +60,11 @@ public class ProgressBar2 extends Composite {
         });
         
         addPaintListener(new PaintListener() {
-        
-        
             @Override
             public void paintControl(PaintEvent e) {
                 ProgressBar2 pb = (ProgressBar2) e.widget;
                 Color fgColor = pb.getForeground();
-                Color txtColor = pb.getTextColor();
+                Color txtColor = pb.getTextColor(pb.getBackground(), fgColor);
         
                 // Draw whole background
                 e.gc.fillRectangle(e.x, e.y, e.width, e.height);
@@ -78,11 +76,12 @@ public class ProgressBar2 extends Composite {
                 e.gc.fillRectangle(e.x, e.y, (int) (e.width * ratio), e.height);
         
                 e.gc.setForeground(txtColor);
+        
                 String s = getSelectionLabel();
                 FontMetrics fontMetrics = e.gc.getFontMetrics();
                 int sWidth = (int) (fontMetrics.getAverageCharacterWidth() * s.length());
                 int sHeight = fontMetrics.getHeight();
-                e.gc.drawText(s, e.x + e.width / 2 - sWidth / 2, e.y + e.height / 2 - sHeight / 2, true);
+                e.gc.drawText(s, e.x + e.width / 2 - sWidth / 2, e.y + 1+ e.height / 2 - sHeight / 2, true);
         
             }
         });
@@ -131,16 +130,20 @@ public class ProgressBar2 extends Composite {
     }
 
     @objid ("842327b4-e1c5-4932-ad54-4f956600d415")
-    protected Color getTextColor() {
+    protected Color getTextColor(Color bg, Color fg) {
         // String to draw.
         if (this.textColor == null) {
-            Color fgColor = getForeground();
+        //            Color fgColor = getForeground();
+        //            if (fgColor.getRGB().getHSB()[2] > 0.5) {
+        //                this.textColor = new Color(this.getDisplay(), new RGB(fgColor.getRed() / 3, fgColor.getGreen() / 3, fgColor.getBlue() / 3));
+        //            } else {
+        //                this.textColor = new Color(this.getDisplay(), new RGB(fgColor.getRed() * 3, fgColor.getGreen() * 3, fgColor.getBlue() * 3));
+        //            }
+            this.textColor = new Color(this.getDisplay(), new RGB(
+                    (fg.getRed() + bg.getRed()) / 2,
+                    (fg.getGreen() + bg.getGreen()) / 2,
+                    (fg.getBlue() + bg.getBlue()) / 2 ));
         
-            if (fgColor.getRGB().getHSB()[2] > 0.5) {
-                this.textColor = new Color(this.getDisplay(), new RGB(fgColor.getRed() / 3, fgColor.getGreen() / 3, fgColor.getBlue() / 3));
-            } else {
-                this.textColor = new Color(this.getDisplay(), new RGB(fgColor.getRed() * 3, fgColor.getGreen() * 3, fgColor.getBlue() * 3));
-            }
         }
         return this.textColor;
     }

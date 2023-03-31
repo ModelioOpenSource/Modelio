@@ -39,14 +39,13 @@ import org.modelio.diagram.elements.core.model.GmReference;
 import org.modelio.diagram.elements.core.model.IGmModelRelated;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
-import org.modelio.platform.ui.CoreFontRegistry;
 
 @objid ("ee7ca53f-4a98-4e5d-b3b6-79f0a03cd7b7")
 public class GmPropView {
-    @objid ("4e966285-c87c-40eb-b368-6a87c19b670d")
+    @objid ("4d05fe29-fcf0-413d-94c4-7b8f1ab08cd9")
     private TableViewer gmProps;
 
-    @objid ("05501e77-5c2f-43ba-8e82-c346fd8c6ef5")
+    @objid ("f24339b1-c090-47ef-9690-a48ac7f20a72")
     private Font boldFont;
 
     @objid ("a877daa3-89c7-4019-8e78-5382cb8ab70b")
@@ -57,7 +56,7 @@ public class GmPropView {
         table.setHeaderVisible(true);
         table.setLinesVisible(true);
         
-        this.boldFont = CoreFontRegistry.getModifiedFont(table.getFont(), SWT.BOLD, 1.0f);
+        
         
         TableViewerColumn colKey = new TableViewerColumn(this.gmProps, SWT.NONE);
         colKey.getColumn().setWidth(200);

@@ -28,10 +28,10 @@ import org.eclipse.core.commands.common.EventManager;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.util.SafeRunnable;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.project.GProperties.Entry;
-import org.modelio.gproject.gproject.GProject;
 
 /**
  * Provides a PreferenceStore which persists the values in the properties of a GProject
@@ -50,13 +50,13 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
     private String subSet;
 
     @objid ("4b068e30-1dd4-48e4-b91c-079919c2bb4a")
-    private GProject project;
+    private IGProject project;
 
     @objid ("b870b159-1dc7-4e79-a3fb-9748ae7b43fe")
     List<IPropertyChangeListener> listeners = new ArrayList<>();
 
     @objid ("72a2fec7-bb26-4608-80c4-e0989af69dc6")
-    public  GProjectPreferenceStore(GProject gProject) {
+    public  GProjectPreferenceStore(IGProject gProject) {
         assert (gProject != null);
         
         this.project = gProject;
@@ -447,7 +447,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
 
     @objid ("d101d1ac-a9f8-4a10-bd96-27fe471fa8ed")
     @Override
-    public GProject getProject() {
+    public IGProject getProject() {
         return this.project;
     }
 

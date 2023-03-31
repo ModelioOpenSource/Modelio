@@ -36,6 +36,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0009e2dc-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnResourceParameter extends BpmnBaseElement {
@@ -56,6 +58,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6d54aaaa-90d0-4696-a8ac-efbd176dc705")
     boolean isIsRequired();
@@ -65,6 +68,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e5f792c3-2fe1-45f1-abb1-ac9ffee4f35b")
     void setIsRequired(boolean value);
@@ -74,6 +78,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c4f0b879-0837-46f6-babc-3c2ad3e82eff")
     BpmnResource getResource();
@@ -83,6 +88,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4ba49e47-7f9f-4da5-8962-7cd919a645fd")
     void setResource(BpmnResource value);
@@ -92,6 +98,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("757c1123-ea46-4dda-9a5b-bed7172b16ea")
     BpmnItemDefinition getType();
@@ -101,6 +108,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c28bc082-eeb1-4ee8-8057-46df609640dc")
     void setType(BpmnItemDefinition value);
@@ -110,6 +118,7 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a2895b02-c260-4943-b29a-6e333e821133")
     EList<BpmnResourceParameterBinding> getParameterBindingRefs();
@@ -119,8 +128,9 @@ public interface BpmnResourceParameter extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8a4bf2ec-3163-4f5c-aba0-2e346ef123bc")
     <T extends BpmnResourceParameterBinding> List<T> getParameterBindingRefs(java.lang.Class<T> filterClass);
-
 }
+

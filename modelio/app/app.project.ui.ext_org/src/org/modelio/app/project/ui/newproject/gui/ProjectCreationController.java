@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.platform.project.creation.ProjectCreationDataModel;
+import org.modelio.platform.project.creation.BasicProjectCreationDataModel;
 import org.modelio.platform.project.creation.ProjectNameValidator;
 
 /**
@@ -37,7 +37,7 @@ import org.modelio.platform.project.creation.ProjectNameValidator;
 @objid ("0044a9ee-cc35-1ff2-a7f4-001ec947cd2a")
 public class ProjectCreationController implements Listener, ISelectionChangedListener {
     @objid ("0048e676-cc35-1ff2-a7f4-001ec947cd2a")
-    private final ProjectCreationDataModel dataModel;
+    private final BasicProjectCreationDataModel dataModel;
 
     @objid ("0045ae3e-cc35-1ff2-a7f4-001ec947cd2a")
     private final ProjectCreationDialog dialog;
@@ -51,7 +51,7 @@ public class ProjectCreationController implements Listener, ISelectionChangedLis
      * @param dataModel The data model
      */
     @objid ("0046d53e-cc35-1ff2-a7f4-001ec947cd2a")
-    public  ProjectCreationController(final ProjectCreationDialog dialog, final ProjectCreationDataModel dataModel, final IModuleStore moduleCatalog) {
+    public  ProjectCreationController(final ProjectCreationDialog dialog, final BasicProjectCreationDataModel dataModel, final IModuleStore moduleCatalog) {
         this.dataModel = dataModel;
         this.dialog = dialog;
         this.moduleCatalog = moduleCatalog;

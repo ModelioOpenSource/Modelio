@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2420]]
 
-[[r2420]]
+
+
 = R2420
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _Opération_ doit avoir la même signature que l'opération qu'elle redéfinit.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Par définition, la redéfinition d'opération sert à réécrire une opération ayant la même signature, il n'est donc pas possible de redéfinir une opération avec une signature différente.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vérifiez les signatures de vos méthodes ou supprimez la redéfinition.

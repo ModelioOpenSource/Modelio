@@ -22,6 +22,10 @@ import org.modelio.api.module.IModule;
 
 /**
  * This interface defines the property page of a module.
+ * <p>
+ * For instantiation purpose, Modelio needs the implementing classes to define a public constructor with this signature: <br/>
+ * <code>XXXPropertyPage(IModule module, String name, String label, String icon)</code>
+ * </p>
  */
 @objid ("b0ecb3ae-0375-46b9-bc56-757dca2b706d")
 public interface IModulePropertyPanel {
@@ -88,5 +92,5 @@ public interface IModulePropertyPanel {
      */
     @objid ("c8d567b7-141d-4b87-8bea-c5950c864cb6")
     Path getIcon();
-
 }
+

@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A Transaction is a specialized type of Sub-Process which will have a special behavior that is controlled through a transaction protocol (such as WS-Transaction). The boundary of the Sub-Process will be double-lined to indicate that it is a Transaction
+ * 
+ * 
  */
 @objid ("00855ebc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnTransaction extends BpmnSubProcess {
@@ -53,6 +55,7 @@ public interface BpmnTransaction extends BpmnSubProcess {
      * Metamodel description:
      * <i>TransactionMethod is an attribute that defines the technique that will be used to undo a Transaction that has been cancelled.
      * The default is compensate, but the attribute MAY be set to store or image.</i>
+     * 
      */
     @objid ("6fedfcd5-a6db-46be-b068-055565fd88a3")
     TransactionMethod getMethod();
@@ -63,8 +66,9 @@ public interface BpmnTransaction extends BpmnSubProcess {
      * Metamodel description:
      * <i>TransactionMethod is an attribute that defines the technique that will be used to undo a Transaction that has been cancelled.
      * The default is compensate, but the attribute MAY be set to store or image.</i>
+     * 
      */
     @objid ("29a1fa51-9b8e-42fd-9730-28c720e35ca1")
     void setMethod(TransactionMethod value);
-
 }
+

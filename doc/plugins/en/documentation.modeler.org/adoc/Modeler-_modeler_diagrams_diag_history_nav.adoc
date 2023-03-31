@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Using-the-diagram-history-navigation-feature]]
 
-[[using-the-diagram-history-navigation-feature]]
+
+
 = Using the diagram history navigation feature
 
 The diagram history navigation feature enables you to move forwards and backwards through the different diagrams you have consulted during your work session. This feature is particularly useful if your project contains a large number of diagrams.

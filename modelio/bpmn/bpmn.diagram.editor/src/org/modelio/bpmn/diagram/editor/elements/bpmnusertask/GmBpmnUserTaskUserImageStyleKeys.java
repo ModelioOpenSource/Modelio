@@ -40,7 +40,7 @@ public class GmBpmnUserTaskUserImageStyleKeys extends BpmnAbstractStyleKeyProvid
 
     @objid ("4fc083d8-4841-47b3-862a-e9c49a69bb76")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLOPERATION_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("4f58ec9a-17e1-4774-8a24-48969cb01fdc")
     public static final StyleKey SHOWTAGS = createStyleKey("CALLOPERATION_SHOWTAGS", MetaKey.SHOWTAGS);

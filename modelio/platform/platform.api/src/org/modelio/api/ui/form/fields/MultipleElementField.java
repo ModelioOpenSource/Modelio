@@ -37,7 +37,6 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -60,7 +59,6 @@ import org.modelio.api.ui.form.models.IFormFieldData;
 import org.modelio.api.ui.labelprovider.ElementLabelProvider;
 import org.modelio.api.ui.swt.SelectionHelper;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.UIImages;
 import org.modelio.platform.ui.panel.IPanelProvider;
@@ -74,20 +72,20 @@ public class MultipleElementField extends AbstractField {
     @objid ("3481aa81-af9c-4831-9d1f-5308dfeb83d4")
     private ILabelProvider labelProvider = new ElementLabelProvider();
 
-    @objid ("ffa8855f-8abd-4562-9e18-31ce099ee431")
-    private final INavigationService navigationService;
-
     @objid ("20b6b936-023b-4dbf-8de1-d84e3d5d1dc7")
     private Text text;
+
+    @objid ("6b3809d6-a1dd-43be-8255-2936267bf5dc")
+    private List<Class<? extends MObject>> allowedMetaclasses = new ArrayList<>();
+
+    @objid ("ffa8855f-8abd-4562-9e18-31ce099ee431")
+    private final INavigationService navigationService;
 
     @objid ("c4721011-0767-4d7b-b63f-9a1bec1ecc2b")
     private List<ModelElement> values = Collections.emptyList();
 
     @objid ("a37337b3-9ec1-4bed-a9a5-3b44c9d923c2")
     private IModelingSession session;
-
-    @objid ("6b3809d6-a1dd-43be-8255-2936267bf5dc")
-    private List<Class<? extends MObject>> allowedMetaclasses = new ArrayList<>();
 
     @objid ("8c057806-e91e-4b1d-a227-2ba7d3dcdd8e")
     public  MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
@@ -216,11 +214,11 @@ public class MultipleElementField extends AbstractField {
      */
     @objid ("f1f199b1-1214-42bc-b955-c08202edc58c")
     private static class SelectElementsPanel implements IPanelProvider {
-        @objid ("db227e2b-6e20-4b59-b2b4-740d88835b1e")
-        private final Controller controler;
-
         @objid ("c1ffbd4e-9e2b-462d-a92c-29b65007e01c")
         private ILabelProvider labelProvider;
+
+        @objid ("db227e2b-6e20-4b59-b2b4-740d88835b1e")
+        private final Controller controler;
 
         /**
          * C'tor
@@ -295,9 +293,6 @@ public class MultipleElementField extends AbstractField {
 
         @objid ("eeb0afd2-ebce-475c-b2cc-5ef6ed5e1570")
         private static class View {
-            @objid ("b100fb77-6829-4288-973b-ea128148435d")
-            private final Controller controler;
-
             @objid ("310b5223-6553-4ffe-bc47-0fb2ad7c327b")
             private final Composite container;
 
@@ -327,6 +322,9 @@ public class MultipleElementField extends AbstractField {
 
             @objid ("e882e5ba-df90-4b06-a079-efe9e9ecdf0e")
             private Button downButton;
+
+            @objid ("b100fb77-6829-4288-973b-ea128148435d")
+            private final Controller controler;
 
             @objid ("30b4e4f1-b182-4352-ba89-8c9864dbd3b5")
             public  View(Composite parent, ILabelProvider labelProvider, Controller controler) {
@@ -395,8 +393,7 @@ public class MultipleElementField extends AbstractField {
                 this.candidatesStatusLabel.setText("...");
                 this.candidatesStatusLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
                 
-                this.candidatesStatusLabel.setFont(CoreFontRegistry.getModifiedFont(this.candidatesStatusLabel.getFont(),
-                        SWT.ITALIC, UIFont.SMALL_SIZE));
+                this.candidatesStatusLabel.setFont(UIFont.SMALLI);
                 
                 // Listeners and behavior
                 
@@ -441,8 +438,7 @@ public class MultipleElementField extends AbstractField {
                 this.resultsStatusLabel = new Label(resultsGroup, SWT.NONE);
                 this.resultsStatusLabel.setText("...");
                 this.resultsStatusLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-                this.resultsStatusLabel.setFont(CoreFontRegistry.getModifiedFont(this.resultsStatusLabel.getFont(), SWT.ITALIC,
-                        UIFont.SMALL_SIZE));
+                this.resultsStatusLabel.setFont(UIFont.SMALLI);
                 
                 // Double click removes the element
                 this.results.addDoubleClickListener(
@@ -797,13 +793,13 @@ public class MultipleElementField extends AbstractField {
     @objid ("890d44d3-af17-42d0-a11e-e6363782e9cb")
     private static class ThinDialog {
         @objid ("95089ba8-52e2-48f9-963e-31fae5fa4256")
-        private Control masterControl;
-
-        @objid ("b2b2e6b7-78bc-4256-aaaf-dfbe5bf72d39")
-        private IPanelProvider panelProvider;
+        private final Control masterControl;
 
         @objid ("8c01da44-acb6-4c02-a825-9f29f3f87a08")
         private Shell slaveShell;
+
+        @objid ("b2b2e6b7-78bc-4256-aaaf-dfbe5bf72d39")
+        private final IPanelProvider panelProvider;
 
         @objid ("658d49ff-0a0d-4c62-a86a-e95d27ecfe0a")
         public  ThinDialog(Control masterControl, IPanelProvider panelProvider) {
@@ -918,9 +914,27 @@ public class MultipleElementField extends AbstractField {
                 return false;
             }
             
+            // Get and compute coordinates
             Rectangle r = this.masterControl.getBounds();
-            Point p = this.masterControl.getParent().toDisplay(r.x, r.y + r.height);
-            this.slaveShell.setBounds(p.x, p.y, r.width, 300);
+            Rectangle newBounds = new Rectangle(r.x, r.y + r.height, r.width, 300);
+            
+            // Convert to absolute bounds
+            r = this.masterControl.getDisplay().map(this.masterControl.getParent(), null, r);
+            newBounds = this.masterControl.getDisplay().map(this.masterControl.getParent(), null, newBounds);
+            
+            // Ensure bounds fit in the screen, by moving the rectangle
+            Rectangle monitorArea = this.masterControl.getMonitor().getClientArea();
+            newBounds.x = Math.min(newBounds.x, monitorArea.x + monitorArea.width - r.width);
+            newBounds.x = Math.max(newBounds.x, monitorArea.x);
+            
+            if (newBounds.y + newBounds.height > monitorArea.y + monitorArea.height) {
+                newBounds.y = r.y - newBounds.height;
+            }
+            newBounds.y = Math.min(newBounds.y, monitorArea.y + monitorArea.height - r.height);
+            newBounds.y = Math.max(newBounds.y, monitorArea.y);
+            
+            // Apply
+            this.slaveShell.setBounds(newBounds);
             return true;
         }
 

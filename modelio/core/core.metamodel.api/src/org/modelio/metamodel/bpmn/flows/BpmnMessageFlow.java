@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * ownership
  * a MessageFlow belongs to a collaboration
+ * 
+ * 
  */
 @objid ("007c58ee-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnMessageFlow extends BpmnBaseElement {
@@ -57,6 +59,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fc61b415-66f1-420e-9cee-fef089863da6")
     BpmnMessage getMessageRef();
@@ -66,6 +69,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("55dc3637-6eb8-49b8-b76c-4eebaa30e54e")
     void setMessageRef(BpmnMessage value);
@@ -81,6 +85,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * - an Event,
      * - or a Task
      * </i>
+     * 
      */
     @objid ("15f62a14-3910-430d-aeea-f7ae3d1a8e82")
     BpmnBaseElement getSourceRef();
@@ -96,6 +101,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * - an Event,
      * - or a Task
      * </i>
+     * 
      */
     @objid ("18146e19-fced-44a5-9322-b6a2ce0787d3")
     void setSourceRef(BpmnBaseElement value);
@@ -111,6 +117,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * - an Event,
      * - or a Task.
      * </i>
+     * 
      */
     @objid ("421e2bb6-0a8a-45c6-a8d4-07f9a96f669c")
     BpmnBaseElement getTargetRef();
@@ -126,6 +133,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * - an Event,
      * - or a Task.
      * </i>
+     * 
      */
     @objid ("38161bee-5508-404a-ae1b-6a8932fbfa3f")
     void setTargetRef(BpmnBaseElement value);
@@ -135,6 +143,7 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b8cd2e22-c5d4-4190-854b-2de62fea6587")
     BpmnCollaboration getCollaboration();
@@ -144,8 +153,9 @@ public interface BpmnMessageFlow extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("481977a8-7cbd-4b57-910c-eae29db5a2cd")
     void setCollaboration(BpmnCollaboration value);
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2690]]
 
-[[r2690]]
+
+
 = R2690
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An element cannot have a _TemplateBinding_ towards itself.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A template class cannot instanciate itself.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Review your template instanciation.

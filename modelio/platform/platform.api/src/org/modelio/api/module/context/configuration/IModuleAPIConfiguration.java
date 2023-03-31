@@ -103,5 +103,5 @@ public interface IModuleAPIConfiguration {
      */
     @objid ("182e0cca-faf7-4d8f-a818-d7e410702ef9")
     void removeListener(IModuleConfigurationListener l);
-
 }
+

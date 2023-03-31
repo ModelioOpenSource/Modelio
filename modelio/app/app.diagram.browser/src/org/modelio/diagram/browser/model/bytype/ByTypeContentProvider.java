@@ -27,10 +27,10 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelio.diagram.browser.model.core.VirtualFolder;
 import org.modelio.diagram.browser.plugin.DiagramBrowser;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.model.IModel;
 
@@ -45,7 +45,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
     protected Map<String, VirtualFolder> types = new HashMap<>();
 
     @objid ("007af9cc-3566-10c7-842f-001ec947cd2a")
-    protected GProject project;
+    protected IGProject project;
 
     @objid ("00411a9a-0d4f-10c6-842f-001ec947cd2a")
     @Override
@@ -96,7 +96,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
      * Constructor.
      */
     @objid ("00421d46-0d4f-10c6-842f-001ec947cd2a")
-    public  ByTypeContentProvider(GProject project) {
+    public  ByTypeContentProvider(IGProject project) {
         this.project = project;
     }
 
@@ -166,7 +166,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
     protected static String getType(AbstractDiagram diagram) {
         if (!diagram.getExtension().isEmpty()) {
             Stereotype s = diagram.getExtension().get(0);
-            return ModuleI18NService.getLabel(s);
+            return MdaResources.getLabel(s);
         }
         return diagram.getMClass().getName();
     }
@@ -176,7 +176,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
         // for Stereotype use stereotype label if possible
         if (!diagram.getExtension().isEmpty()) {
             Stereotype s = diagram.getExtension().get(0);
-            return ModuleI18NService.getLabel(s);
+            return MdaResources.getLabel(s);
         }
         // for native diagram metaclasses use a i18n label
         return DiagramBrowser.I18N.getString("$" + diagram.getMClass().getName() + ".label");

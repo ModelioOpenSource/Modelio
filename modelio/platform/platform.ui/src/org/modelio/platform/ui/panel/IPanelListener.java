@@ -43,5 +43,5 @@ public interface IPanelListener {
      */
     @objid ("7d116904-de1f-4307-a41a-cf292f4d03ab")
     void dataChanged(Object changedData, boolean isValidate);
-
 }
+

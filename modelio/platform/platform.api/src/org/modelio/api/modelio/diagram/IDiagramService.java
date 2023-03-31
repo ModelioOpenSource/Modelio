@@ -284,5 +284,5 @@ public interface IDiagramService {
      */
     @objid ("492c6dc7-808d-4dac-9d63-965b1afe180e")
     IModelViewTemplate<AbstractDiagram> getDiagramTemplate(String modelViewTemplateId);
-
 }
+

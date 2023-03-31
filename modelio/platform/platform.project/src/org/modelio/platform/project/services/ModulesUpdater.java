@@ -32,12 +32,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.module.HTopoSorter;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.gproject.module.ModuleSorter;
+import org.modelio.gproject.parts.module.GModule;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper.CompatibilityLevel;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
@@ -61,8 +62,11 @@ public class ModulesUpdater {
     @objid ("b268d021-26e2-42ba-9273-130af1f43313")
     private static final String pluginId = AppProjectCore.PLUGIN_ID;
 
-    @objid ("7cf2c371-4a20-4d55-b6de-3d047e0f26f6")
-    private final GProject project;
+    @objid ("0524dade-8dbb-469b-b487-1a00af2ca79f")
+    private final List<IStatus> results;
+
+    @objid ("494dc229-8175-417c-9f9a-390f76633944")
+    private final IGProject project;
 
     @objid ("5f651f9b-bd04-4dfd-84e1-c7ddc8fb3e6f")
     private final IModuleManagementService moduleSvc;
@@ -70,16 +74,13 @@ public class ModulesUpdater {
     @objid ("d2f4ad4c-77b1-4e94-bfc2-b5ab0397a544")
     private final IModuleStore modulesCatalog;
 
-    @objid ("0f3ac3b1-d3ad-4da0-85be-18fea833c3d5")
-    private final List<IStatus> results;
-
     /**
      * C'tor
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.
      */
     @objid ("26c9a208-ec68-472e-b5a8-667df7e45fca")
-    public  ModulesUpdater(IModuleManagementService moduleSvc, IModuleStore modulesCatalog, GProject project, boolean withConfirmation) {
+    public  ModulesUpdater(IModuleManagementService moduleSvc, IModuleStore modulesCatalog, IGProject project, boolean withConfirmation) {
         this.modulesCatalog = modulesCatalog;
         this.project = Objects.requireNonNull(project);
         this.moduleSvc = moduleSvc;
@@ -94,9 +95,9 @@ public class ModulesUpdater {
     @objid ("481caa61-d023-4be9-8475-dbbbf9ba8cc9")
     public void run(IProgressMonitor monitor) {
         Collection<IModuleHandle> toInstall = new HashSet<>();
-        SubProgress mon = ModelioProgressAdapter.convert(monitor, "Updating modules ...", this.project.getModules().size() * 2 + 1);
-        for (GModule gModule : this.project.getModules()) {
-            if (gModule.getScope() == DefinitionScope.LOCAL) {
+        SubProgress mon = ModelioProgressAdapter.convert(monitor, "Updating modules ...", this.project.getParts(GModule.class).size() * 2 + 1);
+        for (GModule gModule : this.project.getParts(GModule.class)) {
+            if (gModule.getDefinitionScope() == DefinitionScope.LOCAL) {
                 try {
                     IModuleHandle found = this.modulesCatalog.findModule(gModule.getName(), null, mon.newChild(1));
                     if (found != null && found.getVersion().isNewerThan(gModule.getVersion())) {
@@ -157,7 +158,7 @@ public class ModulesUpdater {
 
     @objid ("fa306aff-95c2-4a4c-8a37-44cd4f136da3")
     private boolean isPresent(String moduleName) {
-        for (GModule m : this.project.getModules()) {
+        for (GModule m : this.project.getParts(GModule.class)) {
             if (m.getName().equals(moduleName)) {
                 return true;
             }
@@ -172,7 +173,7 @@ public class ModulesUpdater {
         // Sort modules
         List<IModuleHandle> sorted;
         try {
-            sorted = ModuleSorter.sortHandles(toInstall);
+            sorted = HTopoSorter.sortHandles(toInstall);
         } catch (CyclicDependencyException e) {
             this.results.add(new Status(IStatus.WARNING, ModulesUpdater.pluginId, e.getLocalizedMessage(), e));
             sorted = new ArrayList<>(toInstall);
@@ -211,12 +212,10 @@ public class ModulesUpdater {
 
     /**
      * Install or update all mandatory modules.
-     * @param monitor
-     * @param monitorTicks
      */
     @objid ("6c13e3cb-5c56-4bbe-9173-d2f537fffa50")
     public void installMandatoryModules(IProgressMonitor monitor) {
-        SubProgress mon = ModelioProgressAdapter.convert(monitor, "Checking mandatory modules ...", this.project.getModules().size() * 2);
+        SubProgress mon = ModelioProgressAdapter.convert(monitor, "Checking mandatory modules ...", this.project.getParts(GModule.class).size() * 2);
         try {
             Collection<IModuleHandle> toInstall = getMissingMandatoryModules(mon.newChild(5));
         
@@ -234,13 +233,12 @@ public class ModulesUpdater {
     private Collection<IModuleHandle> getMissingMandatoryModules(SubProgress mon) throws FileSystemException, IOException {
         List<IModuleHandle> toInstall = new ArrayList<>();
         
-        for (IModuleHandle moduleHandle : this.modulesCatalog.findAllModules(mon)) {
-            if (moduleHandle.isMandatory()) {
-                IRTModule existing = this.moduleSvc.getModuleRegistry().getModule(new VersionedItem<>(moduleHandle.getName(), moduleHandle.getVersion()));
-                if (existing == null || !Objects.equals(existing.getVersion(), moduleHandle.getVersion())) {
-                    toInstall.add(moduleHandle);
-                }
-            }
+        IModuleHandle moduleHandle = this.modulesCatalog.findModule(IModelerModulePeerModule.MODULE_NAME,
+                IModelerModulePeerModule.MODULE_VERSION.toString(), mon);
+        
+        IRTModule existing = this.moduleSvc.getModuleRegistry().getModule(new VersionedItem<>(moduleHandle.getName(), moduleHandle.getVersion()));
+        if (existing == null || !Objects.equals(existing.getVersion(), moduleHandle.getVersion())) {
+            toInstall.add(moduleHandle);
         }
         return toInstall;
     }

@@ -753,8 +753,8 @@ public class SymbolViewContentBuilder {
          */
         @objid ("0b9191b7-00c8-4102-8345-504ecf6daacc")
         boolean accept(IStyle style, IStyleProvider context);
-
-    }
+}
+    
 
     @objid ("3404107f-55a0-4b00-ab57-cf8e8c6f9a69")
     @SuppressWarnings ("unchecked")

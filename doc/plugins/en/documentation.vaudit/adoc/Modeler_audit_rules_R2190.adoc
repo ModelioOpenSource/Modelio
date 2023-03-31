@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2190]]
 
-[[r2190]]
+
+
 = R2190
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A maximum of one _Generalization_ should exist between two _NameSpaces_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 It is useless to inherit from the same _NameSpace_ several times.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove the spare _Generalizations_.

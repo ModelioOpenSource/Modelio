@@ -377,27 +377,29 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @Override
     public SmObjectImpl findById(SmClass cls, final String siteIdentifier) {
         ObjId id  = new ObjId(cls, siteIdentifier);
-        try (IModelLoader modelLoader = this.modelLoaderProvider.beginLoadSession()) {
-            // The search is first done for the metaclass itself
-            SmObjectImpl obj = findByObjId(id, modelLoader );
+        if (this.modelLoaderProvider != null) {
+            try (IModelLoader modelLoader = this.modelLoaderProvider.beginLoadSession()) {
+                // The search is first done for the metaclass itself
+                SmObjectImpl obj = findByObjId(id, modelLoader );
         
-            // and then it must be carried out for all the metaclass derived from 'cls'
-            if (obj == null) {
-                for (SmClass mc : cls.getAllSubClasses()) {
-                    obj = findByObjId(new ObjId(mc, siteIdentifier), modelLoader );
-                    if (obj != null) {
-                        return obj;
+                // and then it must be carried out for all the metaclass derived from 'cls'
+                if (obj == null) {
+                    for (SmClass mc : cls.getAllSubClasses()) {
+                        obj = findByObjId(new ObjId(mc, siteIdentifier), modelLoader );
+                        if (obj != null) {
+                            return obj;
+                        }
                     }
                 }
-            }
         
-            return obj;
-        } catch (DuplicateObjectException e) {
-            getErrorSupport().fireError(e);
-        } catch (IndexException e) {
-            getErrorSupport().fireError(e);
-        } catch (IllegalReferenceException e) {
-            getErrorSupport().fireWarning(e);
+                return obj;
+            } catch (DuplicateObjectException e) {
+                getErrorSupport().fireError(e);
+            } catch (IndexException e) {
+                getErrorSupport().fireError(e);
+            } catch (IllegalReferenceException e) {
+                getErrorSupport().fireWarning(e);
+            }
         }
         return null;
     }
@@ -609,8 +611,8 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("0d638b02-8fb6-11e1-be7e-001ec947ccaf")
     @Override
     public final boolean isStored(final SmObjectImpl obj) {
-        return (SmLiveId.getRid(obj.getLiveId()) == this.rid) 
-                                                                                                                                                                                                                                                                                && isStored(new ObjId(obj));
+        return (SmLiveId.getRid(obj.getLiveId()) == this.rid)
+                && isStored(new ObjId(obj));
         
     }
 
@@ -653,7 +655,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             // Create and return a shell stub object
             try {
                 obj = getloadHelper().createStubCmsNode(modelLoader, id, "");
-                
+        
                 getloadHelper().loadFailed(obj, modelLoader, failure);
             } catch (DuplicateObjectException e) {
                 // The object may be being loaded by the same repository in a concurrent thread.
@@ -661,7 +663,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                 if (obj == null) {
                     throw e; // the object comes from another repository
                 }
-            } 
+            }
         }
         return obj;
     }
@@ -673,19 +675,19 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         
         try (IModelLoader modelLoader = this.modelLoaderProvider.beginLoadSession()) {
             for (ObjId depTargetId : getUserNodeIndex().getObjectUsers(
-                    new ObjId(obj), 
+                    new ObjId(obj),
                     dep.getSymetric().getName())) {
-                
+        
                 SmObjectImpl depTarget = findByObjId(depTargetId, modelLoader);
                 if (depTarget != null) {
                     depTarget.getRepositoryObject().loadDep(depTarget, dep.getSymetric());
                 }
             }
-            
+        
         } catch (DuplicateObjectException e) {
             getErrorSupport().fireError(e);
         } catch (IndexException e) {
-            getErrorSupport().fireError(e); 
+            getErrorSupport().fireError(e);
         } catch (IllegalReferenceException e) {
             getErrorSupport().fireError(e);
         }
@@ -768,7 +770,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         
         final String clsSimpleName = getClass().getSimpleName()+ ": ";
         this.objIdReader = new ObjIdReader(
-                this.modelLoaderProvider.getMetamodel(), 
+                this.modelLoaderProvider.getMetamodel(),
                 () -> clsSimpleName, // prefix
                 () -> ""); // suffix
         
@@ -782,7 +784,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             initializeLoader(); // implementation may call assertOpen()
             ok = true;
         } catch (CannotOpenIndexException e) {
-            throw new IOException(e.getLocalizedMessage(), e); 
+            throw new IOException(e.getLocalizedMessage(), e);
         } finally {
             if (! ok) {
                 this.baseOpen = false;
@@ -823,11 +825,11 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                     }
         
                     ObjId id = new ObjId(metamodel.getMClass(ref.mc), ref.uuid);
-                    
+        
                     loadCmsNode(id, refresher, true);
                 }
             }
-            
+        
             for (MObject obj : toReload) {
                 synchronized(this.detachedObjects) {
                     this.detachedObjects.remove(obj.getUuid());
@@ -855,7 +857,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                         // delete the object only if has not been stolen by another repository
                         refresher.deleteObject(impl);
                     }
-                    
+        
                 }
             }
         } catch (DuplicateObjectException e) {
@@ -912,7 +914,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             this.deletedNodes.put(object.getUuid(), handler);
             synchronized(this.storageHandlers) {
                 // don't use this.storageHandlers.remove() : WeakReference does not define equals()
-                for (Iterator<WeakReference<ExmlStorageHandler>> it = this.storageHandlers.iterator(); 
+                for (Iterator<WeakReference<ExmlStorageHandler>> it = this.storageHandlers.iterator();
                         it.hasNext();) {
                     WeakReference<ExmlStorageHandler> ref = it.next();
                     if (ref.get() == handler) {
@@ -981,7 +983,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             }
         
             saveMetamodelDescriptor();
-            
+        
             // Commit resources, will also write a stamp
             this.resProvider.commit();
             synchronized (this.detachedObjects) {
@@ -1164,7 +1166,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                 ObjId id = del.getCmsNodeId();
         
                 lindexes.removeFromIndexes(id);
-                
+        
                 //clean uses index
                 for (ObjId objId : getCmsNodeIndex().getCmsNodeContent(id)) {
                     lindexes.getUserNodeIndex().remove(objId);
@@ -1268,7 +1270,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         
         SmMetamodel metamodel = getModelLoaderProvider().getMetamodel();
         if (this.repositoryFormatVersion == null) {
-            // Initialize 
+            // Initialize
             this.repositoryFormatVersion = new RepositoryVersions(metamodel);
         
             if (this.writeable == Boolean.TRUE) {
@@ -1380,42 +1382,42 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("fd2458f1-5986-11e1-991a-001ec947ccaf")
     private void loadAll(SmClass cls, IModelLoader modelLoader) throws DuplicateObjectException, IndexException {
         try {
-        getCmsNodeIndex()
-        .idByMClass(cls)
-        .forEach(objId -> {
-            try {
-                getByObjIdName(objId, true, modelLoader);
-            } catch (AbstractMetaclassException e) {
-                // Report and continue
-                getErrorSupport().fireWarning(e);
-            } catch (IllegalReferenceException e) {
-                // The object may have moved to another repository
+            getCmsNodeIndex()
+            .idByMClass(cls)
+            .forEach(objId -> {
                 try {
-                    SmObjectImpl foundobj = modelLoader.loadForeignObject(cls, objId.id, objId.name);
-                    if (foundobj.isShell()) {
-                        // Object not found anywhere else, the index is probably dead
+                    getByObjIdName(objId, true, modelLoader);
+                } catch (AbstractMetaclassException e) {
+                    // Report and continue
+                    getErrorSupport().fireWarning(e);
+                } catch (IllegalReferenceException e) {
+                    // The object may have moved to another repository
+                    try {
+                        SmObjectImpl foundobj = modelLoader.loadForeignObject(cls, objId.id, objId.name);
+                        if (foundobj.isShell()) {
+                            // Object not found anywhere else, the index is probably dead
+                            setIndexesDamaged(e);
+        
+                            getErrorSupport().fireWarning(e);
+                        }
+                    } catch (RuntimeException e2) {
+                        e.addSuppressed(e2);
+        
+                        // The index is probably dead
                         setIndexesDamaged(e);
         
                         getErrorSupport().fireWarning(e);
                     }
-                } catch (RuntimeException e2) {
-                    e.addSuppressed(e2);
-        
-                    // The index is probably dead
-                    setIndexesDamaged(e);
-        
-                    getErrorSupport().fireWarning(e);
+                } catch (DuplicateObjectException e) {
+                    throw new StreamException(e);
+                } catch (IndexException e) {
+                    throw new StreamException(e);
                 }
-            } catch (DuplicateObjectException e) {
-                throw new StreamException(e);
-            } catch (IndexException e) {
-                throw new StreamException(e);
-            }
-        });
+            });
         } catch (StreamException e) {
             /*
-             * Though exception will be anyway re-thrown during first rethrow() call (oh, Java generics...), 
-             * this way allows to get a strict static definition of possible exceptions 
+             * Though exception will be anyway re-thrown during first rethrow() call (oh, Java generics...),
+             * this way allows to get a strict static definition of possible exceptions
              * (requires to declare them in throws). And no instanceof or something is needed.
              */
             e.<IndexException>rethrow();
@@ -1513,24 +1515,24 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             } catch (IOException e) {
                 throw new CannotOpenIndexException(FileUtils.getLocalizedMessage(e), e);
             }
-            
+        
             if (this.needRebuildIndexes) {
                 // Try deleting index file and rebuild all
                 try (ExmlIndex.CloseOnFail shield = this.indexes.getCloseOnFail()) {
                     SubProgress mon = SubProgress.convert(aMonitor, 100);
-            
+        
                     // Create a new stamp in case there is none
                     //if (this.resProvider.getStamp().isEmpty())
                     // Workaround 'stamp.dat' versioned and got from fresh svn checkout: rewrite it always
                     this.resProvider.writeStamp();
-            
+        
                     mon.subTask( VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.deletingIndexes",this.resProvider.getName()));
                     this.indexes.deleteIndexes();
                     this.indexes.open(mon.newChild(10), this.modelLoaderProvider.getMetamodel());
-            
+        
                     mon.subTask( VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.buildingIndexes",this.resProvider.getName()));
                     this.indexes.buildIndexes(mon.newChild(90));
-            
+        
                     shield.success();
                     this.needRebuildIndexes = false;
                     indexesRebuilt = true;
@@ -1619,7 +1621,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                 setIndexesDamaged(e);
                 throw new StreamException(e);
             } catch (CannotOpenIndexException e) {
-               throw new StreamException(e);
+                throw new StreamException(e);
             }
         }
         return false;
@@ -1631,8 +1633,8 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         try (OutputStream out = mmDescRes.bufferedWrite()){
             // TODO :write only the used metamodel fragments and handle changes on each SVN commit.
             MetamodelDescriptor desc = new MetamodelWriter()
-            //.withFragmentFilter(mmf -> isMetamodelFragmentUsed(metamodel, mmf)) // write only the used metamodel fragments
-            .run(metamodel);
+                    //.withFragmentFilter(mmf -> isMetamodelFragmentUsed(metamodel, mmf)) // write only the used metamodel fragments
+                    .run(metamodel);
         
             new MetamodelDescriptorWriter().write(desc, out);
             return desc;

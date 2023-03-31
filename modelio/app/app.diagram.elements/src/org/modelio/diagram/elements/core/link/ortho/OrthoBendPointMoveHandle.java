@@ -132,6 +132,7 @@ class OrthoBendPointMoveHandle extends ConnectionHandle {
     private Orientation getOrientationOfPreviousSegment() {
         return this.orientationOfPreviousSegment;
     }
+
 {
             setCursor(Cursors.SIZEALL);
         }

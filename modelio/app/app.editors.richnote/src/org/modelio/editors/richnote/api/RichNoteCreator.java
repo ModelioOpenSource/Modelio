@@ -29,7 +29,8 @@ import org.modelio.editors.richnote.editor.IRichNoteEditor;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.management.RichNotesSession;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
@@ -135,13 +136,13 @@ public class RichNoteCreator {
     @objid ("2d42e648-4d15-4799-afb6-714f4dfb1fd6")
     private static Path getTemplate(final AbstractResource docToInitialize, final String extension) throws IOException {
         Path defPath;
-        GProject gproject = GProject.getProject(docToInitialize);
+        IGProject gproject = AbstractGProject.getProject(docToInitialize);
         
         AbstractResource defDoc = getDefaultDocument(docToInitialize);
         if (defDoc != null) {
             defPath = extractDefaultRichNote(defDoc);
         } else {
-            Path dir = gproject.getProjectFileStructure().getProjectDataConfigPath().resolve(RichNoteCreator.RICHNOTES_SUBDIR);
+            Path dir = gproject.getPfs().getProjectDataConfigPath().resolve(RichNoteCreator.RICHNOTES_SUBDIR);
         
             defPath = lookForDefaultFile(dir, docToInitialize, extension);
         }

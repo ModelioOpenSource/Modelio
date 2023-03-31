@@ -29,7 +29,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * 
  * @since 5.1
  */
-@objid ("17f2cec7-38ae-4e3e-8cf6-2ae2482c5f45")
+@objid ("4670a5ab-2d59-4550-9534-e38838e6955f")
 @FunctionalInterface
 public interface IAnchorRefResolver {
     /**
@@ -39,7 +39,7 @@ public interface IAnchorRefResolver {
      * @param linkElement the link being unmasked.
      * @return an absolute point.
      */
-    @objid ("98f211e3-0363-4223-87fe-5f5e96643eed")
+    @objid ("b8321ca6-d031-40c5-8695-321c036654d8")
     Point resolveAnchorRef(AbstractGraphicalEditPart sourceEditPart, AbstractGraphicalEditPart targetEditPart, MObject linkElement);
-
 }
+

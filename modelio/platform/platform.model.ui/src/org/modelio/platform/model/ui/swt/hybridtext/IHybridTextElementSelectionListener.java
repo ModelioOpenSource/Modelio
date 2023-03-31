@@ -30,5 +30,5 @@ public interface IHybridTextElementSelectionListener {
      */
     @objid ("3701b524-c347-4178-b5f2-9e7824613e3b")
     void selectedElementChanged(final Object oldValue, final Object newValue);
-
 }
+

@@ -22,6 +22,17 @@ package org.modelio.audit.engine.core;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
+/**
+ * Abstract implementation of {@link IControl}.
+ * <p>
+ * <h2>Important notes for concrete implementation</h2>
+ * Since Modelio 5.3.1 The default implementation of {@link #equals(Object)} and {@link #hashCode()} assume
+ * that <b>all instances are equal</b> and there is only a single instance (singleton) of the control
+ * that is called for any element to audit.
+ * <p>
+ * If this is not the case you <b> have to redefine {@link #equals(Object)} and {@link #hashCode()} !</b>.
+ * @author cmarin
+ */
 @objid ("578f0691-fee9-4dc1-bd98-8b9bd9752a25")
 public abstract class AbstractControl implements IControl {
     @objid ("c7579749-b241-471b-aa63-6cc4afda6f5e")
@@ -32,10 +43,49 @@ public abstract class AbstractControl implements IControl {
         this.rule = rule;
     }
 
+    /**
+     * Don't use this method anymore.
+     * <p>
+     * Don't redefine it, redefined {@link #hashCode()} and {@link #equals(Object)} instead.
+     * @return a hash code for this control.
+     * @deprecated Not safe. There is no safe way to generate a unique hashId for any control. They should all implement equals and hashcode.
+     */
     @objid ("0faf5d9d-137f-4c7d-8978-b73ba08ef87b")
-    @Override
-    public int hashId() {
+    @Deprecated
+    protected final int hashId() {
         return this.getClass().hashCode();
+    }
+
+    /**
+     * Since Modelio 5.3.1 The default implementation of {@link #equals(Object)} and {@link #hashCode()} assume
+     * that <b>all instances are equal</b> and there is only a single instance (singleton) of the control
+     * that is called for any element to audit.
+     * <p>
+     * If this is not the case you <b> have to redefine {@link #equals(Object)} and {@link #hashCode()} !</b>.
+     */
+    @objid ("06421850-e410-4b11-a3a3-883977937aab")
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    /**
+     * Since Modelio 5.3.1 The default implementation of {@link #equals(Object)} and {@link #hashCode()} assume
+     * that <b>all instances are equal</b> and there is only a single instance (singleton) of the control
+     * that is called for any element to audit.
+     * <p>
+     * If this is not the case you <b> have to redefine {@link #equals(Object)} and {@link #hashCode()} !</b>.
+     */
+    @objid ("aa2e6180-efdb-476e-8657-1a3eec668516")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        return (getClass() == obj.getClass());
     }
 
     @objid ("45dbc326-5ed2-4a1d-82ef-7c953c93ba04")

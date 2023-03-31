@@ -21,7 +21,7 @@ package org.modelio.platform.project.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 /**
  * {@link FragmentsMigrator} factory interface.
@@ -38,6 +38,6 @@ public interface IFragmentMigratorFactory {
      * @return a fragment migrator. Never null.
      */
     @objid ("57c179ee-bd5c-4ada-8d6d-a480f38cf1f2")
-    FragmentsMigrator getFragmentMigrator(final IEclipseContext eclipseContext, final GProject project, final boolean withConfirmation);
-
+    FragmentsMigrator getFragmentMigrator(final IEclipseContext eclipseContext, final IGProject project, final boolean withConfirmation);
 }
+

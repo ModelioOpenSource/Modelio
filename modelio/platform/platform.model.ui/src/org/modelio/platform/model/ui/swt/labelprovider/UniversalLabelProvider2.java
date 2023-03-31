@@ -34,11 +34,8 @@ import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -54,14 +51,13 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixValueDefinition;
 import org.modelio.metamodel.uml.infrastructure.matrix.QueryDefinition;
 import org.modelio.metamodel.visitors.DefaultInfrastructureVisitor;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.platform.model.ui.swt.images.ElementStyler;
 import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.platform.model.ui.swt.images.FragmentStyledLabelProvider;
 import org.modelio.platform.model.ui.swt.images.IModelioElementLabelProvider;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -74,12 +70,6 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
 
     @objid ("2d312b47-d304-4ba5-bb20-419c52aecf54")
     protected BrowserLabelService umlLabelService;
-
-    @objid ("a2937331-089c-4a88-aeb1-755c79dbbc40")
-    protected static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
-
-    @objid ("5d1dfaf1-5de0-428c-817f-4244d8753190")
-    protected static final Font italicFont = CoreFontRegistry.getModifiedFont(UniversalLabelProvider2.normalFont, SWT.ITALIC, 1.0f);
 
     @objid ("2b624f23-7227-4bd6-887f-7ee611574dd5")
     private Map<String, IModelioElementLabelProvider> extensions = new HashMap<>();
@@ -110,8 +100,8 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
         // null object special case
         if (obj == null) {
             return null;
-        } else if (obj instanceof IProjectFragment) {
-            return FragmentImageService.getImage((IProjectFragment) obj);
+        } else if (obj instanceof IGModelFragment) {
+            return FragmentImageService.getImage((IGModelFragment) obj);
         } else if (obj instanceof IModelContainer) {
             return ((IModelContainer<?>) obj).getIcon();
         } else if (obj instanceof MObject) {
@@ -137,8 +127,8 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
     public StyledString getStyledText(Object obj) {
         if (obj == null) {
             return new StyledString("<null>", StyledString.createColorRegistryStyler("red", null));
-        } else if (obj instanceof IProjectFragment) {
-            return FragmentStyledLabelProvider.getStyledText((IProjectFragment) obj);
+        } else if (obj instanceof IGModelFragment) {
+            return FragmentStyledLabelProvider.getStyledText((IGModelFragment) obj);
         } else if (obj instanceof IModelContainer) {
             return new StyledString(((IModelContainer<?>) obj).getLabel());
         } else if (obj instanceof MObject) {
@@ -303,8 +293,6 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
         @Override
         public Object visitDependency(Dependency theDependency) {
             final ModelElement destination = theDependency.getDependsOn();
-            
-            //assert Dependency.class == theDependency.getMClass().getJavaInterface();
             return visitDependencyLikeObject(theDependency, "depends on", destination);
         }
 
@@ -453,7 +441,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
             final StringBuilder stringBuilder = new StringBuilder();
             if (!dep.getExtension().isEmpty()) {
                 for (final Stereotype v : dep.getExtension()) {
-                    stringBuilder.append(ModuleI18NService.getLabel(v));
+                    stringBuilder.append(MdaResources.getLabel(v));
             
                     stringBuilder.append(", ");
                 }

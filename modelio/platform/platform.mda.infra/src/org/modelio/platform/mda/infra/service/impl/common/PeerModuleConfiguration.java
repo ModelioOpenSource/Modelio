@@ -42,7 +42,7 @@ public final class PeerModuleConfiguration implements IModuleAPIConfiguration {
     /**
      * The instance to delegate access to the module parameters.
      */
-    @objid ("9803ebfc-76d6-4385-aa63-2bf49abdaaa2")
+    @objid ("e5d71a75-90d0-467f-a328-9133335b77ba")
     private ConfigurationImpl impl;
 
     /**

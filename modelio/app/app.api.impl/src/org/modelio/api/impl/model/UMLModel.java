@@ -27,8 +27,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.model.IDefaultNameService;
 import org.modelio.api.modelio.model.IUMLTypes;
 import org.modelio.api.modelio.model.IUmlModel;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnBusinessRuleTask;
@@ -299,7 +299,7 @@ public class UMLModel implements IUmlModel {
     private IMModelServices modelService;
 
     @objid ("0ea1948c-0851-4396-bdf2-a3c88b0198f7")
-    private GProject openedProject;
+    private IGProject openedProject;
 
     @objid ("087f5657-bec3-4dbd-ab3f-498128b038b7")
     private IUMLTypes umlTypes;
@@ -311,7 +311,7 @@ public class UMLModel implements IUmlModel {
      * @param model the model access
      */
     @objid ("d4fb7a4d-87e9-4a59-8d69-ff16c3c345f1")
-    public  UMLModel(final GProject openedProject, final IMModelServices modelService, final IModel model) {
+    public  UMLModel(final IGProject openedProject, final IMModelServices modelService, final IModel model) {
         this.model = model;
         this.modelService = modelService;
         this.openedProject = openedProject;
@@ -3292,10 +3292,10 @@ public class UMLModel implements IUmlModel {
     @Override
     public List<MObject> getLibraryRoots() {
         List<MObject> ret = new ArrayList<>();
-        for (IProjectFragment fragment : this.openedProject.getFragments()) {
+        for (IGModelFragment fragment : this.openedProject.getParts(IGModelFragment.class)) {
             switch (fragment.getType()) {
             case RAMC:
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 ret.addAll(fragment.getRoots());
                 break;
             default:
@@ -3314,10 +3314,10 @@ public class UMLModel implements IUmlModel {
     @Override
     public List<MObject> getModelRoots() {
         List<MObject> ret = new ArrayList<>();
-        for (IProjectFragment fragment : this.openedProject.getFragments()) {
+        for (IGModelFragment fragment : this.openedProject.getParts(IGModelFragment.class)) {
             switch (fragment.getType()) {
-            case EXML:
-            case EXML_SVN:
+            case EXMLFRAGMENT:
+            case SVNFRAGMENT:
                 ret.addAll(fragment.getRoots());
                 break;
             default:

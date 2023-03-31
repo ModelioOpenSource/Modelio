@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1740]]
 
-[[r1740]]
+
+
 = R1740
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _InformationFlow_ doit porter de l'information.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _InformationFlow_ ont pour but de porter de l'information.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un _InformationFlow_ qui ne porte pas d'information, vous devriez le supprimer, ou alors faire en sorte qu'il porte de l'information.

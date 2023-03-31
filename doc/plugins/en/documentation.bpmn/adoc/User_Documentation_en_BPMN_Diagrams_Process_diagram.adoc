@@ -7,7 +7,7 @@
 
 Process diagrams are attached to processes and are dedicated to modeling processes.
 
-[[HPizzaVendorexample]]
+
 === Pizza Vendor example
 
 .The Pizza Vendor Process Design Diagram

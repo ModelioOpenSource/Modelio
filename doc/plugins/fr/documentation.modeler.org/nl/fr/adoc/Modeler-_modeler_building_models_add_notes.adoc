@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Ajouter-des-notes-contraintes-aux-éléments]]
 
-[[ajouter-des-notes-contraintes-aux-éléments]]
+
+
 = Ajouter des notes / contraintes aux éléments
 
 Il existe deux moyens d'ajouter des notes ou contraintes aux éléments :
@@ -23,9 +23,9 @@ image::images/Modeler-_modeler_building_models_add_notes_modifelements_003.png[2
 3.  Dans la fenêtre "Ajouter une(des) note(s)", sélectionnez le type de note que vous voulez ajouter puis cliquez "OK".
 4.  La nouvelle note apparaît alors, et vous pouvez saisir son contenu dans la zone prévue à cet effet.
 
-[[Éditeur-HTML-pour-les-notes-ldquoDescriptionrdquo]]
 
-[[éditeur-html-pour-les-notes-description]]
+
+
 == Éditeur HTML pour les notes "Description"
 
 .Les notes "Description" peuvent être éditées en HTML

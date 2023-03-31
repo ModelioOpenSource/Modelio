@@ -86,5 +86,5 @@ public interface ExtensionLocation {
      */
     @objid ("91c1ac10-1e83-11e2-8cad-001ec947c8cc")
     public static final String OnMiddle = "OnMiddle";
-
 }
+

@@ -28,6 +28,7 @@ package org.modelio.metamodel.uml.infrastructure.properties;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -37,6 +38,8 @@ import org.modelio.metamodel.uml.infrastructure.Stereotype;
  * 
  * 
  * Definition of a typed property table.
+ * 
+ * 
  */
 @objid ("00669770-ec87-1098-b22e-001ec947cd2a")
 public interface PropertyTableDefinition extends ModelElement {
@@ -66,6 +69,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("68665ced-fc04-4cbc-9d82-781b934ecb4c")
     EList<TypedPropertyTable> getTypedTable();
@@ -75,6 +79,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4a57fa89-bd5f-446c-89e5-40fd11b58794")
     <T extends TypedPropertyTable> List<T> getTypedTable(java.lang.Class<T> filterClass);
@@ -84,6 +89,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7c573276-3cec-42ef-a158-555b34627e5c")
     MetaclassReference getOwnerReference();
@@ -93,6 +99,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7a3c1476-78f4-4e77-aeac-5aa3de729832")
     void setOwnerReference(MetaclassReference value);
@@ -102,6 +109,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("be419eaa-b951-4045-a7a0-cc4ea7a19057")
     Stereotype getOwnerStereotype();
@@ -111,6 +119,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("049ec8ab-03dc-42d3-bbf5-9f36a607dd0a")
     void setOwnerStereotype(Stereotype value);
@@ -120,6 +129,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3f87d97c-964b-48de-9bbb-ae5936dcd816")
     EList<PropertyDefinition> getOwned();
@@ -129,8 +139,12 @@ public interface PropertyTableDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fa620c26-5647-4122-8495-0c34d8fe0ace")
     <T extends PropertyDefinition> List<T> getOwned(java.lang.Class<T> filterClass);
 
+    @objid ("5778ae33-8940-4874-8d96-0b11553d2f8b")
+    ModuleComponent getModule();
 }
+

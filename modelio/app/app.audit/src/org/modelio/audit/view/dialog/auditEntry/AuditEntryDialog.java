@@ -64,10 +64,10 @@ public class AuditEntryDialog extends ModelioDialog {
     /**
      * The main composite of the dialog box
      */
-    @objid ("1cd0e3bb-361c-40b8-9744-ea3efc8dbfe5")
+    @objid ("ca33695d-6e4d-492f-94aa-e5cd4410023d")
     private Composite area = null;
 
-    @objid ("469796b0-1de9-415b-90d0-9be78d01102e")
+    @objid ("f77bd829-afe2-4ea0-99ae-a85f8129f9c9")
     private Browser browser;
 
     /**

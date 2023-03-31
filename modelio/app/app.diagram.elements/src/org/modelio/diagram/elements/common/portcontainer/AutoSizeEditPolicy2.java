@@ -123,7 +123,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         return getHost().getParent().getCommand(req);
     }
 
-    @objid ("7e31d20c-33fe-49b0-8e0b-3c4262e934ff")
+    @objid ("ec88a824-a5bb-43df-8cca-a9488ea26c4b")
     @Override
     public PortContainerEditPart getHost() {
         return (PortContainerEditPart) super.getHost();

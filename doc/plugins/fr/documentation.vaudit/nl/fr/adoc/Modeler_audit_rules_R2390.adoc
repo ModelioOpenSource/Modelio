@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2390]]
 
-[[r2390]]
+
+
 = R2390
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un constructeur ne peut pas avoir de paramètres de retour.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un constructeur est une méthode qui instancie un _Classifier_, et ne retourne rien.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Supprimez le paramètre de retour.

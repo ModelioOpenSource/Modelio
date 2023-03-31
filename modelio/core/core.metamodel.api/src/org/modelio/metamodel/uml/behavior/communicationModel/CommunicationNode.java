@@ -36,6 +36,9 @@ import org.modelio.metamodel.uml.statik.Instance;
  * 
  * 
  * <p>A Communication node represents an individual participant in the Communication Interaction. While Parts and StructuralFeatures may have multiplicity greater than 1, Communication nodes represent only one interacting entity.</p><p>If the referenced Instance is multivalued (i.e, has a multiplicity &gt; 1), then the Communication node may have an expression (the &quot;selector&quot;) that specifies which particular part is represented by this Communication node. If the selector is omitted, this means that an arbitrary representative of the multivalued Connectable element is chosen.</p>
+ * 
+ * 
+ * 
  */
 @objid ("005a9290-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CommunicationNode extends UmlModelElement {
@@ -56,6 +59,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>If the represented element is multivalued, then this specifies the specific individual part within that set.</i>
+     * 
      */
     @objid ("3164a86f-9d16-428a-a7a7-d2009711cde8")
     String getSelector();
@@ -65,6 +69,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>If the represented element is multivalued, then this specifies the specific individual part within that set.</i>
+     * 
      */
     @objid ("bddb5c61-5f91-4e5d-8041-8d55c81fe972")
     void setSelector(String value);
@@ -74,6 +79,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ea5ebe1f-a78b-42d2-8e26-ee7efb2f83c1")
     CommunicationInteraction getOwner();
@@ -83,6 +89,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("df4a4945-5fec-4fdb-b28f-5e7ccde0c9c8")
     void setOwner(CommunicationInteraction value);
@@ -92,6 +99,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Instance the communication node represents.</i>
+     * 
      */
     @objid ("a037bb25-d3be-4550-9f91-7de521858a83")
     Instance getRepresented();
@@ -101,6 +109,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the Instance the communication node represents.</i>
+     * 
      */
     @objid ("148476c4-1c00-4fcc-a112-26b741465f51")
     void setRepresented(Instance value);
@@ -110,6 +119,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References communication channels starting from the node.</i>
+     * 
      */
     @objid ("745027bc-bf1a-4220-bb3b-a053765d38b6")
     EList<CommunicationChannel> getStarted();
@@ -119,6 +129,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References communication channels starting from the node.</i>
+     * 
      */
     @objid ("68c1bc33-ea97-4ad0-8beb-8309b34a3c43")
     <T extends CommunicationChannel> List<T> getStarted(java.lang.Class<T> filterClass);
@@ -128,6 +139,7 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References communication channels ending on the node.</i>
+     * 
      */
     @objid ("1b84ffa4-13c2-464a-b8ea-1b74a4675fc4")
     EList<CommunicationChannel> getEnded();
@@ -137,8 +149,9 @@ public interface CommunicationNode extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References communication channels ending on the node.</i>
+     * 
      */
     @objid ("b0604c18-b798-4ec2-9174-eaa0c8863676")
     <T extends CommunicationChannel> List<T> getEnded(java.lang.Class<T> filterClass);
-
 }
+

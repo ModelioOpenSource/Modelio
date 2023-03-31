@@ -41,5 +41,5 @@ public interface ISmObjectFactory {
      */
     @objid ("0048f2ce-fd1a-1f27-a7da-001ec947cd2a")
     SmObjectImpl createImpl() throws AbstractMetaclassException;
-
 }
+

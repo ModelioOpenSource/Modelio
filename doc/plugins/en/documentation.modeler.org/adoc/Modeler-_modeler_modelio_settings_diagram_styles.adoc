@@ -55,9 +55,9 @@ image::images/Modeler-_modeler_modelio_settings_diagram_styles_themes_styles_004
 3. The style is applied to the selected element
  
 
-[[Custom-diagram-themes]]
 
-[[custom-diagram-themes]]
+
+
 ===== Custom diagram themes
 
 Modelio also offers the possibility to create custom diagram themes so you can create your own. To do so, you have to open the diagram style/theme editor: +

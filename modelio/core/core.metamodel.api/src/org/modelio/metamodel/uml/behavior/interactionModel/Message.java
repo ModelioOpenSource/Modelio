@@ -45,6 +45,9 @@ import org.modelio.metamodel.uml.statik.Operation;
  * 
  * The message sequencing information is handled in sequence diagrams by both its MessageEnds, with  an internal feature that is not directly accessible.
  * The Joni Java API will provide methods to access the ordering of MessagesEnd as for InteractionFragments.
+ * 
+ * 
+ * 
  */
 @objid ("00493ff4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Message extends UmlModelElement {
@@ -65,6 +68,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Arguments passed with the message.</i>
+     * 
      */
     @objid ("b07c14cc-cafc-4d54-a9ea-be050d0c0e80")
     String getArgument();
@@ -74,6 +78,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Arguments passed with the message.</i>
+     * 
      */
     @objid ("e778037b-a90c-4b78-ab3e-f1dfbd05129f")
     void setArgument(String value);
@@ -83,6 +88,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The derived kind of the Message (complete, lost, found, or unknown). The default value is unknown.</i>
+     * 
      */
     @objid ("69c5e5a5-2189-4c53-9d35-4d67584928dc")
     MessageKind getKindOfMessage();
@@ -92,6 +98,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The derived kind of the Message (complete, lost, found, or unknown). The default value is unknown.</i>
+     * 
      */
     @objid ("8f0b9298-1892-4535-9a6e-12dcf583e5d5")
     void setKindOfMessage(MessageKind value);
@@ -101,6 +108,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The sort of communication reflected by the Message. The default value is synchCall.</i>
+     * 
      */
     @objid ("1dd151fa-6087-4f80-95d4-007bfcb8a836")
     MessageSort getSortOfMessage();
@@ -110,6 +118,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The sort of communication reflected by the Message. The default value is synchCall.</i>
+     * 
      */
     @objid ("b24eef98-49e1-453e-b4b2-0f1e40a72b3b")
     void setSortOfMessage(MessageSort value);
@@ -119,6 +128,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Arguments passed with the message.</i>
+     * 
      */
     @objid ("8ace86bf-73b7-447d-98b1-82c7bf2c51b5")
     String getSequence();
@@ -128,6 +138,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Arguments passed with the message.</i>
+     * 
      */
     @objid ("2afcd8ad-54f0-4067-9ee7-02f7432ac668")
     void setSequence(String value);
@@ -137,6 +148,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Signal that is sent by the message.</i>
+     * 
      */
     @objid ("71df1909-20a8-4a08-8414-b86cece376e6")
     Signal getSignalSignature();
@@ -146,6 +158,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Signal that is sent by the message.</i>
+     * 
      */
     @objid ("8a321b92-431e-4b2b-9daf-acafb43fa393")
     void setSignalSignature(Signal value);
@@ -155,6 +168,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the reception of the message.</i>
+     * 
      */
     @objid ("df1a3657-2d45-4783-9273-a61e4ff958c5")
     MessageEnd getReceiveEvent();
@@ -164,6 +178,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>References the reception of the message.</i>
+     * 
      */
     @objid ("6d2f06bc-19c4-43f3-b1ff-4df3b0ef86ec")
     void setReceiveEvent(MessageEnd value);
@@ -173,6 +188,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f0ebf765-985a-44d1-a735-3491d3b4faf4")
     MessageEnd getSendEvent();
@@ -182,6 +198,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("140b7683-c454-4a77-8630-986a062d3d08")
     void setSendEvent(MessageEnd value);
@@ -191,6 +208,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Operation that is invoked by the Message.</i>
+     * 
      */
     @objid ("12cb26e2-22fb-4464-8d4c-e7cf57095395")
     Operation getInvoked();
@@ -200,6 +218,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Operation that is invoked by the Message.</i>
+     * 
      */
     @objid ("5ee404a4-24b3-43f2-a3e6-289f700c025a")
     void setInvoked(Operation value);
@@ -209,6 +228,7 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e264b8e3-6026-4d19-9cda-34a9fcfefe58")
     EList<InformationFlow> getRealizedInformationFlow();
@@ -218,8 +238,9 @@ public interface Message extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fca4f651-ed57-4400-93b4-fb4cfae60a90")
     <T extends InformationFlow> List<T> getRealizedInformationFlow(java.lang.Class<T> filterClass);
-
 }
+

@@ -46,7 +46,7 @@ import org.modelio.api.module.context.i18n.I18nSupport;
 import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.context.project.IProjectStructure;
 import org.modelio.api.module.script.IScriptService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -169,7 +169,7 @@ public final class ModuleContext implements IModuleContext {
     @objid ("74853afd-df91-4d66-87f8-3c1538e799c0")
     @Override
     public IProjectStructure getProjectStructure() {
-        return new ProjectStructure(GProject.getProject(this.moduleComponent));
+        return new ProjectStructure(AbstractGProject.getProject(this.moduleComponent));
     }
 
     @objid ("1141bccd-8f7b-4adb-8b98-c5009980a966")

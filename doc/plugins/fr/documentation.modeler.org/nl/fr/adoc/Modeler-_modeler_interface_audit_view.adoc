@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoAuditrdquo]]
 
-[[la-vue-audit]]
+
+
 = La vue "Audit"
 
 .La vue Audit
@@ -31,9 +31,9 @@ image::images/Modeler-_modeler_interface_audit_view_vue_audit.png[2]
 9. Résumé de l'audit courant. Ceci indique combien de problèmes de type "conseil", "avertissement" et "erreur" sont actuellement ouverts.
 10. Statut de l'audit. Un feu vert indique que l'audit n'est pas en train de s'exécuter, tandis qu'un feu rouge indique que l'audit tourne actuellement.
 
-[[Principaux-services-de-la-vue-ldquoAuditrdquo]]
 
-[[principaux-services-de-la-vue-audit]]
+
+
 ===== Principaux services de la vue "Audit"
 
 *Depuis la barre d'outil de la vue "Audit" :*
@@ -53,9 +53,9 @@ image::images/Modeler-_modeler_interface_audit_view_vue_audit.png[2]
 * *Changer la sévérité* : Les trois commandes "Changer la sévérité" ("Changer la sévérité en conseil", "Changer la sévérité en avertissement" et "Changer la sévérité en erreur") vous permettent de changer la sévérité de la règle d'audit sélectionnée.
 * *Désactiver la règle* : Cette commande vous permet de désactiver la règle sélectionnée. La règle en question ne s'appliquera plus à votre modèle. Si vous souhaitez réactiver la règle, vous pouvez le faire en utilisant le "Configurateur de l'audit".
 
-[[La-fenêtre-ldquoDétails-du-problèmerdquo]]
 
-[[la-fenêtre-détails-du-problème]]
+
+
 ===== La fenêtre "Détails du problème"
 
 .La fenêtre "Détails du problème

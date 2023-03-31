@@ -28,7 +28,7 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -42,6 +42,7 @@ import org.modelio.xmi.reverse.ReverseProperties;
 
 /**
  * Handler of the XMI "Import" command.
+ * 
  * @author ebrosse
  */
 @objid ("7edba6b8-77da-4e0d-b1bd-206a28e2606d")
@@ -51,19 +52,19 @@ public class ImportXMI {
 
     @objid ("d7078e17-0b20-4a46-b248-136e0b29a551")
     @Execute
-    public void execute(@Named(IServiceConstants.ACTIVE_SHELL) final Shell activeShell, IProgressService progressService, IProjectService projectService, IMModelServices mmService, final IModelioNavigationService navigationService) {
-        //initialization
+    public void execute(@Named (IServiceConstants.ACTIVE_SHELL) final Shell activeShell, IProgressService progressService, IProjectService projectService, IMModelServices mmService, final IModelioNavigationService navigationService) {
+        // initialization
         ReverseProperties revprop = ReverseProperties.getInstance();
         revprop.initialize(mmService, projectService.getSession().getMetamodel(), navigationService);
         revprop.setRootElement(this.selectedPackage);
         
-        for (MObject module : GProject.getProject(this.selectedPackage).getFragment(this.selectedPackage).getRoots()){
-            if ((module instanceof ModuleComponent) && (module.getName().equals("LocalModule"))){
-                revprop.setProfileRoot((ModuleComponent)module);
+        for (MObject module : AbstractGProject.getProject(this.selectedPackage).getFragment(this.selectedPackage).getRoots()) {
+            if (module instanceof ModuleComponent && module.getName().equals("LocalModule")) {
+                revprop.setProfileRoot((ModuleComponent) module);
             }
         }
         
-        //SWT dialog box
+        // SWT dialog box
         final SwtWizardImport dialog = new SwtWizardImport(activeShell, progressService, projectService);
         dialog.open();
         
@@ -71,24 +72,25 @@ public class ImportXMI {
 
     @objid ("f2eae5f5-da79-4575-a3d5-43e5546a3ae9")
     @CanExecute
-    public boolean isEnabled(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        if (selection.size() == 1)
-            if ((selection.getFirstElement() instanceof Package)
-                    && (!(selection.getFirstElement() instanceof Profile))){
+    public boolean isEnabled(@Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+        if (selection.size() == 1) {
+            if (selection.getFirstElement() instanceof Package
+                    && !(selection.getFirstElement() instanceof Profile)) {
                 this.selectedPackage = (Package) selection.getFirstElement();
-                final MStatus status =  this.selectedPackage.getStatus();
-                return (status.isModifiable());
+                final MStatus status = this.selectedPackage.getStatus();
+                return status.isModifiable();
         
             }
+        }
         return false;
     }
 
     @objid ("c06bceb2-7b82-4067-927e-b563d9183c44")
     public static boolean isVisible(List<MObject> selectedElements) {
-        return ((! selectedElements.isEmpty())
-                && (selectedElements.size() == 1)
-                && (selectedElements.get(0) instanceof Package)
-                && (!(selectedElements.get(0)  instanceof Profile)));
+        return !selectedElements.isEmpty()
+                && selectedElements.size() == 1
+                && selectedElements.get(0) instanceof Package
+                && !(selectedElements.get(0) instanceof Profile);
         
     }
 

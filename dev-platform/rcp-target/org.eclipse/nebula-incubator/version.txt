@@ -1,0 +1,8 @@
+Download P2 at 6th December 2021
+
+http://download.eclipse.org/nebula/incubation/snapshot
+
+Market place Url : https://marketplace.eclipse.org/content/eclipse-nebula-incubation-widgets
+
+Version compatible :
+2019-09 (4.13), 2019-06 (4.12), 2019-03 (4.11), 2018-12 (4.10), 2018-09 (4.9), Photon (4.8), Oxygen (4.7), Neon (4.6), Mars (4.5), Luna (4.4), Kepler (4.3), Juno (4.2, 3.8), Previous to Juno (<=4.1), 2019-12 (4.14), 2020-03 (4.15), 2020-06 (4.16), 2020-09 (4.17), 2020-12 (4.18), 2021-03 (4.19)

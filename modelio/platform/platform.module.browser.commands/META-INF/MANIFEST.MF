@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Module Browser Commands
 Bundle-SymbolicName: org.modelio.platform.module.browser.commands;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,
  org.eclipse.core.runtime,
@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.module.commands,
  org.eclipse.e4.ui.model.workbench,
  org.modelio.platform.mda.infra
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ClassPath: res/,
  .
 Bundle-ActivationPolicy: lazy

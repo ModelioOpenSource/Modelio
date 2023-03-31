@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Text;
 import org.modelio.edition.dialogs.plugin.EditionDialogs;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.MimeServices.MimeType;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.ui.UIColor;
@@ -162,7 +162,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Set the view controlled by this controller
-         * @param view
          */
         @objid ("983e9fcc-9d76-4d3d-ba94-f06cda488cc6")
         public void setView(NoteEditView view) {
@@ -181,7 +180,6 @@ public class NoteEditPanel implements IPanelProvider {
         /**
          * Set the Note being edited. This method also refreshes the view
          * contents.
-         * @param note
          */
         @objid ("bbf3026c-0843-4cd7-90e6-b68c9ac4c4d5")
         public void setNote(Note note) {
@@ -207,7 +205,7 @@ public class NoteEditPanel implements IPanelProvider {
             
                 this.view.setText(note.getContent());
             
-                this.view.setTitle(ModuleI18NService.getLabel(type));
+                this.view.setTitle(MdaResources.getLabel(type));
             
             } else {
                 this.view.setText("");
@@ -221,7 +219,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Called by the view to change the effective mime type of the note
-         * @param type
          */
         @objid ("66d3465d-e9aa-48be-8208-7893c6be7193")
         public void onSwitchNoteMimeMode(MimeType type) {
@@ -252,8 +249,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Change a Note mime type in the model within a Transaction.
-         * @param note
-         * @param mimeType
          */
         @objid ("135a4789-fac2-4a15-a4cf-845213edfd40")
         private void setNoteMimeType(Note note, MimeType mimeType) {
@@ -269,7 +264,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Returns the current mime type of a Note
-         * @param note
          * @return
          */
         @objid ("e98748ba-5c39-4104-8b5e-ad55afab96c3")
@@ -284,7 +278,7 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Returns the mime type preference of the NoteType
-         * @param model @return
+         * @return
          */
         @objid ("925f2ddd-916f-41d2-b6b5-ed17cfd82ce5")
         private MimeType getNoteTypeMimeMode(NoteType model) {
@@ -295,7 +289,6 @@ public class NoteEditPanel implements IPanelProvider {
         /**
          * Change a Note content in the model within a Transaction. Called by
          * the view.
-         * @param value
          */
         @objid ("fe7d1dba-92c3-425f-bc7b-28734233a277")
         private void onSetNoteContent(String value) {
@@ -448,7 +441,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Show/hide the HTML mime type checkbox
-         * @param onOff
          */
         @objid ("eeb1cb25-4142-452e-a51f-facb1f0344e0")
         public void enableModeSwitcher(boolean onOff) {
@@ -457,7 +449,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Set the panel title string.
-         * @param s
          */
         @objid ("6c7b4317-7bb6-483f-9ffd-5a2b87eb5ecf")
         public void setTitle(String s) {
@@ -466,7 +457,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Set the panel note content string.
-         * @param s
          */
         @objid ("9cda9bc0-1db2-41dd-beb8-b59f125c6046")
         public void setText(String s) {
@@ -506,7 +496,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Change the view displayed mime type
-         * @param mode
          */
         @objid ("30aed129-1719-403a-9fb4-e463ff42d8b1")
         public void setMimeMode(MimeType mode) {
@@ -532,7 +521,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Change the read only mode for the view (text editors)
-         * @param modifiable
          */
         @objid ("0e9b798d-1c6e-4767-8b07-bdf27f0651bc")
         public void setReadOnly(boolean modifiable) {

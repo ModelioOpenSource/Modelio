@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * In contrast to Associations, which specify Links between any instance of the associated Classifiers, Connectors specify Links between instances playing the connected parts only.
  * 
  * In Modelio, a Connector is a Link and can be bound to another element.
+ * 
+ * 
  */
 @objid ("cd9b2759-1983-42c6-8227-b8e657f3c577")
 public interface Connector extends Link {
@@ -50,5 +52,5 @@ public interface Connector extends Link {
      */
     @objid ("a999dc3c-bd72-42ca-b48b-63a5f3547776")
     public static final String MQNAME = "Standard.Connector";
-
 }
+

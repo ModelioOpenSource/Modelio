@@ -15,6 +15,14 @@
       </panel>
    </extension>
 
+    <extension
+       point="org.modelio.platform.preferencespages">
+    <page class="org.modelio.audit.preferences.AuditPreferencePage"
+          id="org.modelio.audit.preferences.AuditPreferencePage"
+          name="%AuditTab.label"
+          icon="icons/base.png" />
+ </extension>
+
    <extension point="org.modelio.app.audit.extensions">
       <audit clazz="org.modelio.audit.infrastructure.InfrastructureAuditExtension"/>
    </extension>
@@ -26,4 +34,11 @@
 			page="org.modelio.audit.projectconf.AuditPage" >
 		</confpage>
 	</extension>
+
+
+	<extension id="com.modeliosoft.modelio.app.svn.statusBar"  point="org.modelio.app.ui.statusbar">
+       <group id="group1" area='right' priority="0">
+          <item class="org.modelio.audit.view.statusbar.AuditStatusContributor"/>
+       </group>
+    </extension>
 </plugin>

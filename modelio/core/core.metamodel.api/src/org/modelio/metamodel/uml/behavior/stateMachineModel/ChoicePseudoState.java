@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * ChoicePseudoState vertices result in the dynamic evaluation of the guards of the triggers of its outgoing transitions. This realizes a dynamic conditional branch. It allows transitions to be split into multiple outgoing paths such that the decision on which path to take may be a function of the results of prior actions performed in the same run-to-completion step. If more than one of the guards evaluates to true, an arbitrary one is selected. If none of the guards evaluates to true, then the model is considered ill-formed. (To avoid this, it is recommended that you define one outgoing transition with the predefined "else" guard for every choice vertex.) Choice vertices should be distinguished from static branch points that are based on junction points (described above).
+ * 
+ * 
  */
 @objid ("004dc326-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ChoicePseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface ChoicePseudoState extends AbstractPseudoState {
      */
     @objid ("af95da40-22ec-4ae8-a785-0602d3c51f62")
     public static final String MQNAME = "Standard.ChoicePseudoState";
-
 }
+

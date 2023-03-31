@@ -49,6 +49,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 4) Attribute and Value
  * A partition may be represented by an attribute and its subpartitions by values of that attribute. Behaviors of invocations contained by the subpartition have this attribute and the value represented by the subpartition. For example, a partition may represent the location at which a behavior is carried out, and the subpartitions would represent specific values for that attribute, such as Chicago. The location attribute could be on the process class associated with an activity, or added in a profile to extend behaviors with these attributes.
+ * 
+ * 
  */
 @objid ("0029d8f8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityPartition extends ActivityGroup {
@@ -69,6 +71,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Indicates whether the partition groups other partitions along a dimension.</i>
+     * 
      */
     @objid ("68dad451-f92f-4274-8fde-e7d52fd3ade2")
     boolean isIsDimension();
@@ -78,6 +81,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Indicates whether the partition groups other partitions along a dimension.</i>
+     * 
      */
     @objid ("35c1f434-aa17-4504-ba98-67eb5c5b4725")
     void setIsDimension(boolean value);
@@ -87,6 +91,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Indicates whether the partition represents an entity to which the partitioning structure does not apply.</i>
+     * 
      */
     @objid ("67caaeb0-995e-4b8f-95c2-6eae9d846b2f")
     boolean isIsExternal();
@@ -96,6 +101,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Indicates whether the partition represents an entity to which the partitioning structure does not apply.</i>
+     * 
      */
     @objid ("741b2335-dcbc-48cb-a014-0e236e32d595")
     void setIsExternal(boolean value);
@@ -105,6 +111,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>An element constraining behaviors invoked by nodes in the partition. A partition should represent a classifier, an attribute, its value a parameter or an instance.</i>
+     * 
      */
     @objid ("ccf30f53-ebe4-4a49-b85f-8e2beb67446e")
     UmlModelElement getRepresented();
@@ -114,6 +121,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>An element constraining behaviors invoked by nodes in the partition. A partition should represent a classifier, an attribute, its value a parameter or an instance.</i>
+     * 
      */
     @objid ("356e66f6-8153-484f-8dfb-188395b28750")
     void setRepresented(UmlModelElement value);
@@ -123,6 +131,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Nodes immediately contained in the partition.</i>
+     * 
      */
     @objid ("c6218c1a-68b7-4dbc-be99-d3c88ddef542")
     EList<ActivityNode> getContainedNode();
@@ -132,6 +141,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Nodes immediately contained in the partition.</i>
+     * 
      */
     @objid ("12a44b14-c0c5-4fb1-872c-569948006641")
     <T extends ActivityNode> List<T> getContainedNode(java.lang.Class<T> filterClass);
@@ -141,6 +151,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Outgoing BPMN messages.</i>
+     * 
      */
     @objid ("fc34208c-08df-44b4-836f-8d234c0c4219")
     EList<MessageFlow> getOutgoing();
@@ -150,6 +161,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Outgoing BPMN messages.</i>
+     * 
      */
     @objid ("cc543b6b-241e-4242-8ab8-de56f215ea0b")
     <T extends MessageFlow> List<T> getOutgoing(java.lang.Class<T> filterClass);
@@ -159,6 +171,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("caaab23f-9938-4df1-989f-9dd274ac818d")
     ActivityPartition getSuperPartition();
@@ -168,6 +181,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e8b4e312-fb80-402c-9d0f-e6c0798690f2")
     void setSuperPartition(ActivityPartition value);
@@ -177,6 +191,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Partitions immediately contained in the partition.</i>
+     * 
      */
     @objid ("76e25389-dc66-4b6a-be13-4143c59d1ac0")
     EList<ActivityPartition> getSubPartition();
@@ -186,6 +201,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>Partitions immediately contained in the partition.</i>
+     * 
      */
     @objid ("ed54ccbe-fdb4-4349-9835-f6150cd24c7c")
     <T extends ActivityPartition> List<T> getSubPartition(java.lang.Class<T> filterClass);
@@ -195,6 +211,7 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1ae55ed6-30f4-4246-877d-c3e7277a9e58")
     EList<MessageFlow> getIncoming();
@@ -204,8 +221,9 @@ public interface ActivityPartition extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("86a74b2a-fe1a-457c-8d00-a2fb29c58c32")
     <T extends MessageFlow> List<T> getIncoming(java.lang.Class<T> filterClass);
-
 }
+

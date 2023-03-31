@@ -50,5 +50,5 @@ public interface IPropertyPanel {
      */
     @objid ("8fa5670b-c068-11e1-8c0a-002564c97630")
     void refresh();
-
 }
+

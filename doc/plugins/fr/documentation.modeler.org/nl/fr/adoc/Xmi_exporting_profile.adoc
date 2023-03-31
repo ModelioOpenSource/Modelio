@@ -5,9 +5,9 @@
 
 = Exporter un profil au format XMI
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 L'opération d'export de profils de Modelio lance la génération de fichiers XMI à partir d'un profil construit dans Modelio.
@@ -22,9 +22,9 @@ image::images/Xmi_exporting_profile_ExportProfileCommand.png[image]
 1. Cliquez droit sur un profil pour ouvrir son menu contextuel.
 2. Lancez la commande "Import/Export \ Export \ Export de profil" command.
 
-[[La-fenêtre-ldquoExport-de-profil-XMIrdquo]]
 
-[[la-fenêtre-export-de-profil-xmi]]
+
+
 ===== La fenêtre "Export de profil XMI"
 
 .La fenêtre "Export de profil XMI"

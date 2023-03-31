@@ -53,5 +53,5 @@ public interface ISwapMXBean {
      */
     @objid ("dcbe8754-493b-11e2-91c9-001ec947ccaf")
     long getRestoreCount();
-
 }
+

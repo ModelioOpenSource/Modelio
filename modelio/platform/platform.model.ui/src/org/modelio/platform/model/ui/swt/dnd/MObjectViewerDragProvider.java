@@ -66,13 +66,9 @@ public class MObjectViewerDragProvider implements DragSourceListener {
             if (selection instanceof IStructuredSelection) {
                 List<Object> selectedObjects = ((IStructuredSelection) selection).toList();
                 for (Object obj : selectedObjects) {
-                    if (obj instanceof IAdaptable) {
-                        final MObject adapter = ((IAdaptable) obj).getAdapter(MObject.class);
-                        if (adapter != null) {
-                            selectedElements.add(adapter);
-                        }
-                    } else if (obj instanceof MObject) {
-                        selectedElements.add((MObject) obj);
+                    MObject mobj = convertToMObject(obj);
+                    if (mobj != null) {
+                        selectedElements.add(mobj);
                     } else {
                         // Invalid dragged object... cancel drag
                         event.doit = false;
@@ -86,6 +82,28 @@ public class MObjectViewerDragProvider implements DragSourceListener {
             }
         }
         
+    }
+
+    /**
+     * Convert a selected element to a {@link MObject}.
+     * <p>
+     * May be redefined by subclasses to support proxies, adapters, ...
+     * @param dataModel a IStructuredSelection element.
+     * @return a MObject or null.
+     */
+    @objid ("64540cb1-fcc7-476b-b91e-c7dc281343e4")
+    protected MObject convertToMObject(Object dataModel) {
+        if (dataModel instanceof MObject) {
+            return (MObject) dataModel;
+        }
+        
+        if (dataModel instanceof IAdaptable) {
+            final MObject adapter = ((IAdaptable) dataModel).getAdapter(MObject.class);
+            if (adapter != null) {
+                return adapter;
+            }
+        }
+        return null;
     }
 
     @objid ("3cee9d83-a992-4c81-9b8e-4cd6f29f212d")

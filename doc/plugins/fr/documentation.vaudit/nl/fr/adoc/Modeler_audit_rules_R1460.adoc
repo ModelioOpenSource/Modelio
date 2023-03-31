@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1460]]
 
-[[r1460]]
+
+
 = R1460
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une association publique venant d'un Classifier publique ne peut cibler un Classifier privé ou protégé.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une classe utilisant une association publique vers une classe privée n'aura pas accès à la classe cible.
 
 Le code Java ou C++ généré à partir d'une telle association donnera probablement des erreurs à la compilation.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vous pouvez :

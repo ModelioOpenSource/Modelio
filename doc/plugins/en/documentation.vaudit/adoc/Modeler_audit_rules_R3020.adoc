@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3020]]
 
-[[r3020]]
+
+
 = R3020
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «related» _Dependency_ must be must be between two _BusinessRules_ or two _Terms_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «related» _Dependency_ links _BusinessRules_ or _Terms_ that have a semantic connection (they concern similar or related subjects).
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «related» _Dependency_ which is not between two _BusinessRules_ or two _Terms_, you should delete it.

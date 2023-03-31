@@ -50,8 +50,11 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swt.widgets.Widget;
 import org.modelio.app.model.imp.impl.ModelImportDataModel;
 import org.modelio.app.model.imp.plugin.AppModelImportOrg;
-import org.modelio.gproject.gproject.GProjectFactory;
-import org.modelio.gproject.gproject.IGProjectEnv;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
+import org.modelio.gproject.env.IGProjectEnv;
+import org.modelio.gproject.project.GProject;
+import org.modelio.gproject.project.GProjectDescriptorFactory;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
@@ -280,11 +283,14 @@ public class ImportModelDialog extends ModelioDialog {
                 // Open the new project
                 Path projectConfPath = new File(projectPath).getParentFile().toPath();
         
+        
                 IModelioProgress monitor = null;
-                this.dataModel.setImportedProject(GProjectFactory
-                        .fromProjectDirectory(projectConfPath)
+                GProjectDescriptor projectDescriptor = GProjectDescriptorFactory.readProjectDirectory(projectConfPath);
+                IGProject project = GProject.newBuilder(projectDescriptor)
                         .withEnvironment(this.gProjectEnvironment)
-                        .open(monitor));
+                        .build(monitor);
+                this.dataModel.setImportedProject(project);
+                project.open(monitor);
         
                 setErrorMessage(null);
             } catch (IOException e) {

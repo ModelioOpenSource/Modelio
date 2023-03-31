@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1950]]
 
-[[r1950]]
+
+
 = R1950
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _Messages_ de type 'reply' ne peuvent pas invoquer une _Operation_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _Message_ de type 'reply' est un _Message_ de réponse suite à l'invocation d'une _Operation_, il ne peut donc pas invoquer une autre _Operation_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un _Message_ de type 'reply' qui invoque une _Operation_, changez le type du _Message_ ou supprimez l'invocation.

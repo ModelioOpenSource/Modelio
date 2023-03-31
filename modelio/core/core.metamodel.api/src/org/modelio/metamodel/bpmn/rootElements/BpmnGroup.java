@@ -34,6 +34,9 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * <p>The Group object is an Artifact that provides a visual mechanism to group elements of a diagram informally. The grouping is tied to the Category supporting element . That is, a Group is a visual depiction of a single Category. The graphical elements within the Group will be assigned the Category of the Group. (Note: Categories can be highlighted through other mechanisms, such as color, as defined by a modeler or a modeling tool). Categories, which have user-defined semantics, can be used for documentation or analysis purposes.</p><p>For example, FlowElements can be categorized has being customer oriented vs. support oriented.</p><p>Groups are one way in which Categories of objects can be visually displayed on the diagram. That is, a Group is a visual depiction of a single Category. The graphical elements within the Group will be assigned the Category of the Group. The Category name appears on the diagram as the Group label. (Note:&nbsp;Categories can be highlighted through other mechanisms, such as color, as defined by a modeler or a modeling tool). A single Category can be used for multiple Groups in a diagram.</p><p>&nbsp;</p>
+ * 
+ * 
+ * 
  */
 @objid ("007a3514-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnGroup extends BpmnArtifact {
@@ -55,6 +58,7 @@ public interface BpmnGroup extends BpmnArtifact {
      * Metamodel description:
      * <i>specifies the Category that the Group represents (Further details about the definition of a Category can be found on page 92). The name of the Category provides the label for the Group.
      * The graphical elements within the boundaries of the Group will be assigned the Category.</i>
+     * 
      */
     @objid ("34203cef-d4af-4b07-adfc-a51588476cdc")
     String getCategory();
@@ -65,6 +69,7 @@ public interface BpmnGroup extends BpmnArtifact {
      * Metamodel description:
      * <i>specifies the Category that the Group represents (Further details about the definition of a Category can be found on page 92). The name of the Category provides the label for the Group.
      * The graphical elements within the boundaries of the Group will be assigned the Category.</i>
+     * 
      */
     @objid ("55fc2394-28f7-40dc-80d2-8dcd9873e36b")
     void setCategory(String value);
@@ -74,6 +79,7 @@ public interface BpmnGroup extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("75d46e82-9db8-4fdd-988b-89d2af8f4c96")
     EList<BpmnFlowElement> getCategorized();
@@ -83,8 +89,9 @@ public interface BpmnGroup extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("76c8bcab-8c83-4c33-8986-dd678c8240fc")
     <T extends BpmnFlowElement> List<T> getCategorized(java.lang.Class<T> filterClass);
-
 }
+

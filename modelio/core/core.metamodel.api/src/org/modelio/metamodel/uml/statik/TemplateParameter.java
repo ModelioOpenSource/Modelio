@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Concerning NameSpaces, this particularly applies for Classes, Packages and Collaborations. 
  * 
  * In Modelio, TemplateParameters belong to their parameterized NameSpace or Operation.
+ * 
+ * 
  */
 @objid ("001d18e8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface TemplateParameter extends GeneralClass {
@@ -59,6 +61,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Default parameter value, when the IsValueParameter is true.</i>
+     * 
      */
     @objid ("5341107f-8f3d-4e4f-b9ff-ed7fcf942b5e")
     String getDefaultValue();
@@ -68,6 +71,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Default parameter value, when the IsValueParameter is true.</i>
+     * 
      */
     @objid ("b38eb119-f468-4941-a51c-2a480c637182")
     void setDefaultValue(String value);
@@ -77,6 +81,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Expresses if the parameter is a value, which is in this case "DefaultValue".</i>
+     * 
      */
     @objid ("8069fb71-0d70-4b79-9a86-d3bd37a14aac")
     boolean isIsValueParameter();
@@ -86,6 +91,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Expresses if the parameter is a value, which is in this case "DefaultValue".</i>
+     * 
      */
     @objid ("4d0b7482-5d16-4080-a471-d696d8c13434")
     void setIsValueParameter(boolean value);
@@ -95,6 +101,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("acba0b26-33bb-4da7-ade3-aed1211fab64")
     EList<TemplateParameterSubstitution> getParameterSubstitution();
@@ -104,6 +111,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("12ab4c2f-9bd4-4ac8-b763-dfde76590637")
     <T extends TemplateParameterSubstitution> List<T> getParameterSubstitution(java.lang.Class<T> filterClass);
@@ -113,6 +121,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Default parameter type, when IsValueParameter is false.</i>
+     * 
      */
     @objid ("88acf422-649e-4f0c-96f9-3242f1bce808")
     UmlModelElement getType();
@@ -122,6 +131,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Default parameter type, when IsValueParameter is false.</i>
+     * 
      */
     @objid ("ce31ef04-3a41-4654-9b3c-1821e48559e3")
     void setType(UmlModelElement value);
@@ -131,6 +141,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("51849e9a-8658-4448-ae07-d65ab393af12")
     NameSpace getParameterized();
@@ -140,6 +151,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b495c0c7-63dc-4f38-b02e-085935587700")
     void setParameterized(NameSpace value);
@@ -149,6 +161,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>A TemplateParameter references a ParameterableElement that is exposed as a formal template parameter in the container template. This parameterizable element is meaningful only within the template, or other templates that may have access to its content (for example, if the template supports specialization). The exposed parameterizable element may not be used in other parts of the model. A TemplateParameter may own the exposed ParameterableElement in situations where that element is only referenced from within the template.</i>
+     * 
      */
     @objid ("0d254a89-1539-4e2c-8740-4089dde10f88")
     UmlModelElement getOwnedParameterElement();
@@ -158,6 +171,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>A TemplateParameter references a ParameterableElement that is exposed as a formal template parameter in the container template. This parameterizable element is meaningful only within the template, or other templates that may have access to its content (for example, if the template supports specialization). The exposed parameterizable element may not be used in other parts of the model. A TemplateParameter may own the exposed ParameterableElement in situations where that element is only referenced from within the template.</i>
+     * 
      */
     @objid ("cdea5137-c89b-4c9b-9bc9-c6b2c8e80ef5")
     void setOwnedParameterElement(UmlModelElement value);
@@ -167,6 +181,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Value that the parameter takes if no specific value is specified.</i>
+     * 
      */
     @objid ("f04652b4-c9cc-42db-99ca-b8afe1a7d10a")
     UmlModelElement getDefaultType();
@@ -176,6 +191,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Value that the parameter takes if no specific value is specified.</i>
+     * 
      */
     @objid ("361ae28c-582a-473c-b6dd-ce97873e7501")
     void setDefaultType(UmlModelElement value);
@@ -185,6 +201,7 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7da870fd-ce3e-4468-80e2-7b7f75ecd0e9")
     Operation getParameterizedOperation();
@@ -194,8 +211,9 @@ public interface TemplateParameter extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5cd8477a-b62e-446c-a266-f11df4883c8b")
     void setParameterizedOperation(Operation value);
-
 }
+

@@ -29,7 +29,7 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.ISelection;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -97,7 +97,7 @@ public class SelectFromHistoryHandler {
     @Inject
     @Optional
     void onProjectClosed(@SuppressWarnings("unused")
-    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final IGProject project) {
         SelectFromHistoryHandler.selectionHistory.clear();
     }
 

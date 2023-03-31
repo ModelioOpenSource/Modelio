@@ -110,5 +110,5 @@ public interface IBlobSupport {
      */
     @objid ("ef800a0f-f06d-4117-8e82-9fdca2daab7e")
     void fireObjectsMoved(Collection<? extends MObject> objs, IRepository fromRepo, IRepository destRepo);
-
 }
+

@@ -92,7 +92,7 @@ public class LinkToVoidEditPart extends LinkEditPart {
         
     }
 
-    @objid ("a7901733-7bb4-447f-8ee1-df048cfbc9bc")
+    @objid ("4dd8eb69-0f10-4e24-836c-44fdf61e6af1")
     @Override
     protected void updateRouterDependentEditPolicies(RoutingMode mode) {
         // Do nothing

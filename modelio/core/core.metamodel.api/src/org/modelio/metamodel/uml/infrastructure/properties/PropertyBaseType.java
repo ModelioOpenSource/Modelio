@@ -91,6 +91,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * <td>the string itself</td>
  * </tr>
  * </table>
+ * 
+ * 
  */
 @objid ("0074c304-ec87-1098-b22e-001ec947cd2a")
 public enum PropertyBaseType {
@@ -120,6 +122,7 @@ public enum PropertyBaseType {
     MULTISTRING(11, "MultiString", "MultiString"),
     @objid ("c00de649-598d-4491-8c3b-18f56ac6d356")
     MULTIELEMENT(12, "MultiElement", "MultiElement");
+
 public static final int STRING_VALUE = 0;
     public static final int TEXT_VALUE = 1;
     public static final int BOOLEAN_VALUE = 2;

@@ -80,5 +80,5 @@ public interface IModelViewTemplate<T extends MObject> {
      */
     @objid ("601b42a7-92dd-4225-9a45-fab6fb6d5cd7")
     ModelElement getMainElement(T view);
-
 }
+

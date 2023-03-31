@@ -7,7 +7,7 @@
 
 Les diagrammes de sous-processus BPMN sont utilisés pour modéliser des processus au niveau des sous-processus BPMN.
 
-[[HExemple22ReceivePayment22]]
+
 === Exemple "Receive Payment"
 
 .Exemple de diagramme de sous-processus "Receive Payment"

@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISearchController {
     @objid ("77912199-c897-4714-a649-294af58bd9f5")
     void runSearch();
-
 }
+

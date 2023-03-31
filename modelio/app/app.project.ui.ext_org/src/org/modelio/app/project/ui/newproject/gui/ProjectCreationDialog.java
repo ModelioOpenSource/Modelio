@@ -33,7 +33,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.platform.project.creation.ProjectCreationDataModel;
+import org.modelio.platform.project.creation.BasicProjectCreationDataModel;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 
 /**
@@ -41,14 +41,14 @@ import org.modelio.platform.ui.dialog.ModelioDialog;
  */
 @objid ("004483ce-cc35-1ff2-a7f4-001ec947cd2a")
 public class ProjectCreationDialog extends ModelioDialog {
-    @objid ("3ef86f84-06b3-418a-981a-f314b28cf71c")
+    @objid ("9ec94af0-3b37-43b2-9ff7-5faef9c5af11")
     private Button createButton = null;
 
-    @objid ("b2070684-13a4-4d07-b658-1c93760c3ff6")
+    @objid ("26a4291a-4b8b-464e-8b34-0346454ac28c")
     private Button cancelButton = null;
 
     @objid ("0044e242-cc35-1ff2-a7f4-001ec947cd2a")
-    private final ProjectCreationDataModel dataModel;
+    private final BasicProjectCreationDataModel dataModel;
 
     @objid ("0044cf50-cc35-1ff2-a7f4-001ec947cd2a")
     private ProjectPanel projectPanel = null;
@@ -61,12 +61,11 @@ public class ProjectCreationDialog extends ModelioDialog {
 
     /**
      * Initialize the dialog.
-     * @param moduleCatalog
      * @param parentShell The parent shell.
      * @param dataModel The dialog data model.
      */
     @objid ("0044ee9a-cc35-1ff2-a7f4-001ec947cd2a")
-    public  ProjectCreationDialog(final Shell parentShell, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
+    public  ProjectCreationDialog(final Shell parentShell, final BasicProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
         super(parentShell);
         this.dataModel = dataModel;
         this.moduleCatalog = moduleCatalog;
@@ -179,23 +178,23 @@ public class ProjectCreationDialog extends ModelioDialog {
      */
     @objid ("0044b06a-cc35-1ff2-a7f4-001ec947cd2a")
     static class ProjectPanel extends Composite {
-        @objid ("9fc8402d-c974-4225-bb51-1c7ba4a57a71")
+        @objid ("dd735d42-36e9-4a4f-8864-c89a2bb18cb9")
         private Text projectNameText = null;
 
-        @objid ("de77df9e-e3c0-4307-a533-5b687b723b3e")
+        @objid ("8d3891cd-8bc8-4ab5-9ef3-c895e74870b1")
         private Text projectDescriptionText = null;
 
-        @objid ("bac54d7e-44f0-4125-b2a2-a73e60bfae6c")
+        @objid ("ae09e5c0-d0c5-4107-b261-950834249971")
         private Button javaCheckBox;
 
         @objid ("004721ba-cc35-1ff2-a7f4-001ec947cd2a")
-        private final ProjectCreationDataModel dataModel;
+        private final BasicProjectCreationDataModel dataModel;
 
         @objid ("0000672a-be2f-10b4-9941-001ec947cd2a")
         private final IModuleStore moduleCatalog;
 
         @objid ("0044d702-cc35-1ff2-a7f4-001ec947cd2a")
-        public  ProjectPanel(final Composite parent, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
+        public  ProjectPanel(final Composite parent, final BasicProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
             super(parent, SWT.NONE);
             this.dataModel = dataModel;
             this.moduleCatalog = moduleCatalog;

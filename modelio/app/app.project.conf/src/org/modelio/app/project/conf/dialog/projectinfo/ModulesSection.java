@@ -41,7 +41,7 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ModuleHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.ui.UIColor;

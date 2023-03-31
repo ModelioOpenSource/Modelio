@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2080]]
 
-[[r2080]]
+
+
 = R2080
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Dans un _PropertySet_, le nom de chaque _Property_ doit être unique.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Avoir plusieurs éléments portant le même nom peut être déroutant.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Renommez chaque élément ayant un nom dupliqué.

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1670]]
 
-[[r1670]]
+
+
 = R1670
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _EnumerationLiteral_ défini dans une _Enumeration_ doit avoir un nom unique.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une énumération énumère plusieurs valeurs définies par leur nom, aussi appelées _EnumerationLiterals_. Ces propriétés doivent avoir des noms différents afin d'être différenciées entre elles.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Renommez les _EnumerationLiteral_ afin qu'elles aient un nom unique dans leur énumération.

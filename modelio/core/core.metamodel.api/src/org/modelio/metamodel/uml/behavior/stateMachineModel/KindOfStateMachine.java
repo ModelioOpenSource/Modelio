@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("000d2dc0-91e1-1f74-804b-001ec947cd2a")
 public enum KindOfStateMachine {
@@ -36,6 +38,7 @@ public enum KindOfStateMachine {
     DYNAMIC(0, "Dynamic", "Dynamic"),
     @objid ("ba0adeb8-25a2-4228-87d8-a5f2573e4f3b")
     PROTOCOL(1, "Protocol", "Protocol");
+
 public static final int DYNAMIC_VALUE = 0;
     public static final int PROTOCOL_VALUE = 1;
     private static final KindOfStateMachine[] VALUES_ARRAY =

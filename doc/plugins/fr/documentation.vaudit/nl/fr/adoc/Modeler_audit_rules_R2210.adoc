@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2210]]
 
-[[r2210]]
+
+
 = R2210
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _NameSpace_ feuille ne peut pas être hérité.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _NameSpace_ feuille (final) ne peut pas être dérivé.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Mettez le _NameSpace_ non final.

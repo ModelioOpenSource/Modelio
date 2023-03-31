@@ -34,6 +34,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A Lifeline has a class associated as the type of the Instance that the Lifeline represents. That class may have an internal structure and the PartDecomposition is an Interaction that describes the behavior of that internal structure relative to the Interaction where the decomposition is referenced.
  * 
  * A PartDecomposition is a specialization of InteractionUse. It associates with the Instance that it decomposes.
+ * 
+ * 
+ * 
  */
 @objid ("004ae91c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface PartDecomposition extends InteractionUse {
@@ -54,6 +57,7 @@ public interface PartDecomposition extends InteractionUse {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5e6275a0-a518-4787-8d3c-d7ffce6eb4f8")
     Lifeline getDecomposed();
@@ -63,8 +67,9 @@ public interface PartDecomposition extends InteractionUse {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("76182f0a-bd6e-4a22-8054-71f5b0ffb4a0")
     void setDecomposed(Lifeline value);
-
 }
+

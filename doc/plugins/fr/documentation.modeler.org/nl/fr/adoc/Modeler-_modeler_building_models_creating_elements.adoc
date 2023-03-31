@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-des-éléments]]
 
-[[créer-des-éléments]]
+
+
 = Créer des éléments
 
-[[Les-trois-façons-de-créer-des-éléments]]
 
-[[les-trois-façons-de-créer-des-éléments]]
+
+
 ===== Les trois façons de créer des éléments
 
 .Les trois façons de créer des éléments

@@ -32,9 +32,9 @@ public class GmMessageStyleKeys extends SequenceAbstractStyleKeyProvider {
     /**
      * Routing mode: bendpoint, orthogonal, ...
      */
-    @objid ("4db5b8ab-8843-461e-a39e-658fe85b7779")
+    @objid ("4d4fd90f-7ff8-4e6b-b4e7-e46d8e898fcc")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("MESSAGE_ROUTINGMODE",
-                                                                               MetaKey.CONNECTIONROUTER);
+                                                                                   MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color

@@ -70,7 +70,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
     @objid ("914c4c42-60c3-4f93-8782-2e21c499226f")
     private static final SegmentMover SegmentMover = new SegmentMover();
 
-    @objid ("f0ac304e-9198-4930-9d51-7021cc61d49f")
+    @objid ("2d79cd95-af0a-46dc-8f11-1f7d596a5313")
     private static final AnchorChangedEditor anchorChangedEditor = new AnchorChangedEditor();
 
     @objid ("69f0d26a-9fcb-4397-a36d-14d198913b30")
@@ -99,7 +99,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
     @objid ("cdc5a955-c573-48c8-9f33-e896d1a85965")
     private final ConnectionEditor editor = new ConnectionEditor();
 
-    @objid ("36eefd08-0f82-41e7-b14a-95f20fd27d44")
+    @objid ("ac1e8a95-1c12-4cf5-a8a5-f4a3290b8975")
     @Override
     public ILinkPathEditor applyChangeBoundsRequest(final ChangeBoundsRequest request, boolean isSimulation) {
         if (isSimulation) {
@@ -122,7 +122,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
      * </ol>
      * @return this instance
      */
-    @objid ("4000a02f-178f-48d2-b283-5830bf37dbb9")
+    @objid ("65e7e4d6-999a-4543-a380-29b20fec91de")
     public ILinkPathEditor adaptToNewNodeBounds() {
         anchorChangedEditor.init(this.editor).adaptToNewNodeBounds();
         return this;
@@ -143,13 +143,13 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
      * @param request the move/resize request
      * @return this instance to chain calls.
      */
-    @objid ("8397600d-da02-4400-a342-ee6360bd525e")
+    @objid ("d5a8b110-fd1f-4509-8d1f-49ba02fe09d6")
     public ILinkPathEditor simulateChangeBoundsRequest(final ChangeBoundsRequest request) {
         anchorChangedEditor.init(this.editor).simulateChangeBoundsRequest(request);
         return this;
     }
 
-    @objid ("fbc0dc9f-9f7e-4804-a9aa-c82d3a37b2e9")
+    @objid ("e32ae6e0-6f54-43d3-b6b3-5efb5a29b3a8")
     @Override
     public void applyStateToConnection() {
         this.editor.applyStateToConnection();
@@ -161,21 +161,21 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         return this;
     }
 
-    @objid ("1ef18fa4-0afd-44d4-a7d7-c6959c476fe0")
+    @objid ("09a6cc29-13ce-4d7f-ab41-0ad0652c57e9")
     @Override
     public ILinkPathEditor from(ConnectionEditPart connectionEditPart) {
         this.editor.init(connectionEditPart);
         return this;
     }
 
-    @objid ("833409b1-5b42-4743-bb57-3eb2019f2bdc")
+    @objid ("8475cbec-30b8-4b55-b51c-1216586f6354")
     @Override
     public ILinkPathEditor from(ConnectionEditPart connectionEditPart, ConnectionState initState) {
         this.editor.init(connectionEditPart, initState);
         return this;
     }
 
-    @objid ("b804ed7c-5552-48a0-9f40-0d919fbd2010")
+    @objid ("005c1b8a-1b37-495d-aa30-6c27bfc9bc5d")
     @Override
     public ConnectionState getState() {
         return this.editor.getView().getState();
@@ -286,11 +286,11 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         }
         
         
-        this.editor.fixWithRouter();
+        this.editor.fixWithRouter(false);
         return this;
     }
 
-    @objid ("87ea1514-69fd-44be-8b87-149a36157296")
+    @objid ("b5939502-105b-454c-82d1-9f3b80fdbfe1")
     private static <T extends Point> T snapToPoint(T edited, Point reference) {
         if (Math.abs(edited.x() - reference.x()) < AutoOrthoConstants.SNAP_DIST) {
             edited.setX(reference.x());
@@ -306,7 +306,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
      * @param i the index of the point in the connection points. Must be 1 <= i <= routing.size()
      * @param access axis accessors
      */
-    @objid ("99cb5f58-02ca-43c3-a18f-a341a44aea70")
+    @objid ("c3bed9e1-87e9-4a23-af5d-1f15adf4d54b")
     private void insertOrthoBendPointBefore(int i, Point p1, Point p2, OrientedAccessors access, boolean reversed) {
         MPrecisionPoint newLoc = TMP5;
         if (reversed) {
@@ -333,7 +333,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
     public ILinkPathEditor setSourceAnchor(ConnectionAnchor newAnchor) {
         doSetSourceAnchor(this.editor, newAnchor);
         
-        this.editor.fixWithRouter();
+        this.editor.fixWithRouter(false);
         return this;
     }
 
@@ -342,7 +342,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
     public ILinkPathEditor setTargetAnchor(ConnectionAnchor newAnchor) {
         doSetTargetAnchor(this.editor, newAnchor);
         
-        this.editor.fixWithRouter();
+        this.editor.fixWithRouter(false);
         return this;
     }
 
@@ -454,7 +454,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         
     }
 
-    @objid ("251a0c92-0e1e-467f-8ba7-656925a63a37")
+    @objid ("87abc01d-311b-4fa3-b493-0cebd01edef6")
     @Override
     protected ConnectionEditPart getConnectionEditPart() {
         return this.editor.getConnectionEditPart();
@@ -475,7 +475,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         
     }
 
-    @objid ("b3a8b2a7-3916-46aa-98a4-11dfd50899b6")
+    @objid ("a06454b4-3b74-4252-a513-dc29ba466911")
     @Override
     public ILinkPathEditor createFrozenStateCopy() {
         AutoOrthoLinkPathEditor1 ret = new AutoOrthoLinkPathEditor1();
@@ -706,12 +706,12 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
                 acrossAccess.setCoord(this.newStartPoint, this.newEndPoint);
             }
             
-            this.editor.setPoint(pointIndex, this.newStartPoint, true, null);
+            this.editor.setPoint(pointIndex, this.newStartPoint, true, true);
             this.editor.setPoint(pointIndex + 1, this.newEndPoint, true, null);
             
             if (conflict) {
                 // May be a bounce conflict because of intersection with both nodes
-                this.editor.fixWithRouter();
+                this.editor.fixWithRouter(true);
             }
             
         }
@@ -838,7 +838,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
             fixLocation(view, this.newStartPoint, this.origStartPoint, pointIndex - 1, this.axis.across);
             fixLocation(view, this.newEndPoint, this.origEndPoint, pointIndex + 2, this.axis.across);
             
-            this.editor.setPoint(pointIndex, this.newStartPoint, true, null);
+            this.editor.setPoint(pointIndex, this.newStartPoint, true, true);
             this.editor.setPoint(pointIndex + 1, this.newEndPoint, true, null);
             
         }
@@ -852,7 +852,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         private void changeSourceAnchor(ConnectionAnchor newAnchor) {
             doSetSourceAnchor(editor, newAnchor);
             
-            this.editor.fixWithRouter();
+            this.editor.fixWithRouter(false);
             
         }
 
@@ -860,7 +860,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
         private void changeTargetAnchor(ConnectionAnchor newAnchor) {
             doSetTargetAnchor(editor, newAnchor);
             
-            this.editor.fixWithRouter();
+            this.editor.fixWithRouter(false);
             
         }
 
@@ -931,15 +931,15 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
 
     }
 
-    @objid ("7fc91c09-1b5e-4660-b1a9-297b07bd1b12")
+    @objid ("e7ae99ce-ff56-4fd2-b3db-63e858862a08")
     protected static class AnchorChangedEditor {
-        @objid ("7de003c4-129e-4f82-aec5-ef357200bf80")
+        @objid ("c4be9243-e198-4c28-b109-d155b5c539fb")
         private ConnectionEditor editor;
 
-        @objid ("77d5a4ae-ca7d-4272-a80c-5441bf9b9d3c")
+        @objid ("ef5b0567-d3de-4ad6-88d4-7b63a8eff7cb")
         private static final PrecisionRectangle R1 = new PrecisionRectangle();
 
-        @objid ("4df3c482-a010-4658-91dc-5b9a0da1ac33")
+        @objid ("8cf0e455-4c7e-49f7-9339-993ca5766bff")
         public AnchorChangedEditor init(ConnectionEditor editor) {
             this.editor = editor;
             return this;
@@ -957,7 +957,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
          * </ol>
          * @return this instance
          */
-        @objid ("d2468160-69a8-47c3-a161-520e74559185")
+        @objid ("59408514-50e2-4a97-9ba9-42103e28b16c")
         public void adaptToNewNodeBounds() {
             ConnectionEditPart linkEditPart = this.editor.getConnectionEditPart();
             GraphicalEditPart linkSource = (GraphicalEditPart) linkEditPart.getSource();
@@ -1020,7 +1020,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
          * Assumes the source and target nodes are still at their initial location.
          * @param request the move/resize request
          */
-        @objid ("131dccca-463c-467f-a86d-eefedf2a25d5")
+        @objid ("0f85ee79-f909-4d7e-8ace-95d010de0215")
         public void simulateChangeBoundsRequest(final ChangeBoundsRequest request) {
             ConnectionEditPart linkEditPart = this.editor.getConnectionEditPart();
             GraphicalEditPart linkSource = (GraphicalEditPart) linkEditPart.getSource();
@@ -1055,9 +1055,10 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
             
         }
 
-        @objid ("6b1c8739-d6c0-4782-b72a-52bb88ed0b0e")
+        @objid ("9dfb9f15-a253-4522-b723-1970a5406ee9")
         private void rerouteAfterNodeBoundschange(Point bendpointsDelta, boolean sourceMoved, boolean targetMoved, boolean sourceOrTargetResized) {
-            ConnectionState state = this.editor.getView().getState();
+            ConnectionState origState = this.editor.getView().getState();
+            ConnectionState state = new ConnectionState().init(origState) ; // copy state to allow replay the method in the debugger
             Connection connection = this.editor.getView().getConnection();
             
             if (sourceMoved && targetMoved && ! bendpointsDelta.equals(0, 0) && ! sourceOrTargetResized) {
@@ -1085,16 +1086,18 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
             
                 // 2) call the router again
                 AutoOrthogonalRouter router = new AutoOrthogonalRouter()
-                        .setCleanupManualPoints(false)
-                        .setIgnoreAutomaticPoints(false);
+                        .setCleanupManualPoints(false);
                 List<MPoint> newConstraint = router.computeMPointRoute(connection, state);
             
                 state.setConstraint(AutoOrthogonalRouter.routeToConstraint(newConstraint));
+            
             }
+            
+            state.applyTo(origState);
             
         }
 
-        @objid ("bb1e8723-c0f8-4934-983c-beab4b608b85")
+        @objid ("5f631896-ca05-4fa3-9b00-52e4dac910dc")
         private void deleteLastAutomaticBendPoints(ConnectionState state) {
             ListIterator<MPoint> it = state.getMPoints().listIterator(state.getMPoints().size());
             while (it.hasPrevious()) {
@@ -1105,7 +1108,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
             
         }
 
-        @objid ("915e0575-01ef-4a22-b788-e927571107d3")
+        @objid ("37b0f5d7-bfb5-4b48-bab6-fa54ebe2d8ee")
         private void deleteFirstAutomaticBendPoints(ConnectionState state) {
             for (Iterator<MPoint> it = state.getMPoints().iterator(); it.hasNext();) {
                 MPoint p = it.next();
@@ -1123,7 +1126,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
          * @param source whether a source or target anchor is requested
          * @return the new anchor
          */
-        @objid ("639d1e03-ab41-44e5-ba71-b2c35a1f11f8")
+        @objid ("71a09acc-8e79-465e-9ba9-afa42ce3eeb2")
         private ConnectionAnchor getAnchorAfterBoundsChanged(IFigure nodeFigure, ConnectionAnchor previousAnchor, boolean source) {
             if (nodeFigure instanceof Connection)
                 return getAnchorAfterConnectionChanged((Connection) nodeFigure, previousAnchor, source);
@@ -1169,7 +1172,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
             
         }
 
-        @objid ("578364f9-35b1-4e1f-b502-2502b13a9482")
+        @objid ("7a0724b6-eca6-4337-8361-94546d696383")
         private static Rectangle getHandleBounds(IFigure nodeFigure) {
             if (nodeFigure instanceof HandleBounds) {
                 return ((HandleBounds) nodeFigure).getHandleBounds();
@@ -1188,7 +1191,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
          * @param source whether a source or target anchor is requested
          * @return the new anchor
          */
-        @objid ("46621396-0376-42eb-8619-92bfc45d3746")
+        @objid ("0415eea5-5a47-462d-abba-1f2adf377d32")
         private ConnectionAnchor getAnchorAfterConnectionChanged(Connection connectionNode, ConnectionAnchor previousAnchor, boolean source) {
             final ConnectionView view = this.editor.getView();
             
@@ -1224,7 +1227,7 @@ public class AutoOrthoLinkPathEditor1 extends AbstractLinkPathEditor implements 
          * @param isSource whether a source or target anchor is requested
          * @return the simulated anchor
          */
-        @objid ("46aabbf6-b03b-4c50-9c8e-1535f040981f")
+        @objid ("66d92da7-ebf1-4dbc-ab2e-dcba06c36fb2")
         private ConnectionAnchor getSimulatedAnchor(GraphicalEditPart sourceEp, GraphicalEditPart targetEp, ChangeBoundsRequest request, ConnectionAnchor previousAnchor, boolean isSource) {
             Point absMoveDelta = request.getMoveDelta();
             Point oldAnchorLoc = previousAnchor.getReferencePoint();

@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("5baa6b80-135d-4087-b40c-42085acc4818")
 public interface ExternElement extends ModelElement {
@@ -52,6 +54,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("13076b59-23b8-4bbe-bf57-a2515b84ec3b")
     String getProvider();
@@ -61,6 +64,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("27cc61d2-9a21-4e9b-a564-efa0af45050d")
     void setProvider(String value);
@@ -70,6 +74,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("57c5fe6f-1435-4407-b574-4dec593a1e36")
     String getExternId();
@@ -79,6 +84,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("72bdadda-713c-431c-9173-17c88b047f98")
     void setExternId(String value);
@@ -88,6 +94,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d526c094-e6d6-4cb5-97e5-a30f69108ab6")
     String getLocation();
@@ -97,6 +104,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("04d04758-f23e-4e14-9eb4-6e9045e5f9f0")
     void setLocation(String value);
@@ -106,6 +114,7 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("229e3817-6440-4030-99c2-91c84cc1ddb9")
     MethodologicalLink getOwner();
@@ -115,8 +124,9 @@ public interface ExternElement extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2c13bf5a-d1df-43f4-ac00-017192e8c89f")
     void setOwner(MethodologicalLink value);
-
 }
+

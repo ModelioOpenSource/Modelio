@@ -50,5 +50,5 @@ public interface IHttpUriException {
      */
     @objid ("4b5b9335-7d47-4c77-9a59-90732e5f765e")
     int getHttpStatus();
-
 }
+

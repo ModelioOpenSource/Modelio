@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A Message Flow is used to show the flow of messages between two entities that are prepared to send and receive them. 
  * 
  * In BPMN, two separate Pools in the Diagram will represent the two entities.
+ * 
+ * 
  */
 @objid ("0037db42-c4bf-1fd8-97fe-001ec947cd2a")
 public interface MessageFlow extends ActivityEdge {
@@ -54,6 +56,7 @@ public interface MessageFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("4d437793-469a-4ba8-9ecf-7196fa3974b4")
     ActivityPartition getTargetPartition();
@@ -63,6 +66,7 @@ public interface MessageFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("77c20f5d-ff07-455c-b879-f31b40e54f19")
     void setTargetPartition(ActivityPartition value);
@@ -72,6 +76,7 @@ public interface MessageFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3d49eddb-b75c-4f09-bae7-ee3888660687")
     ActivityPartition getSourcePartition();
@@ -81,8 +86,9 @@ public interface MessageFlow extends ActivityEdge {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2caad4f0-28f5-4d7e-af25-7e5c1426225c")
     void setSourcePartition(ActivityPartition value);
-
 }
+

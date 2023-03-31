@@ -1,1 +1,3 @@
-repository-nebula-2.1.0.zip
+https://www.eclipse.org/nebula/releases/2.5.0/index.php
+
+repository-nebula-2.5.0.zip

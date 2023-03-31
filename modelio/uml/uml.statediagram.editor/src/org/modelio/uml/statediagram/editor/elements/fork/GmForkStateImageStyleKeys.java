@@ -40,7 +40,7 @@ public class GmForkStateImageStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("811d6fb7-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("FORK_SHOWSTEREOTYPES",
-                                                                          MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("811d6fb9-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("FORK_SHOWTAGS", MetaKey.SHOWTAGS);

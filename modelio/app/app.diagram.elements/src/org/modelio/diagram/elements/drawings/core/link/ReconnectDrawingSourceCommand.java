@@ -69,9 +69,9 @@ public class ReconnectDrawingSourceCommand extends Command {
         updateLinkSource();
         
         if (this.anchorModel != null) {
-            GmPath newPath = new GmPath(this.gmLink.getPath());
-            newPath.setSourceAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(newPath);
+        	GmPath newPath = new GmPath(this.gmLink.getPath());
+        	newPath.setSourceAnchor(this.anchorModel);
+        	this.gmLink.setLayoutData(newPath);
         }
         
     }
@@ -93,7 +93,7 @@ public class ReconnectDrawingSourceCommand extends Command {
         
                 // Update gm model
                 oldSourceNode.removeStartingDrawingLink(this.gmLink);
-            }
+            } 
             this.newSrcNode.addStartingDrawingLink(this.gmLink);
         }
         

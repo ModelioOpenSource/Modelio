@@ -37,5 +37,5 @@ import org.modelio.vcore.session.impl.transactions.Transaction;
 public interface ITransactionValidator {
     @objid ("005ea11e-8239-1033-9188-001ec947cd2a")
     void validate(Transaction currentTransaction);
-
 }
+

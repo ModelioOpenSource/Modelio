@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.statik.NameSpace;
  * DataFlows are the representation of all types of information that can be transmitted between elements. For example, DataFlows can be objects or requests. 
  * 
  * A DataFlow between elements expresses that the kind of information that it represents (defined through its ModelSignal) can circulate between the connected elements. This can provide high level (system level) information exchange diagrams.
+ * 
+ * 
  */
 @objid ("00645dc0-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DataFlow extends UmlModelElement {
@@ -57,6 +59,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates the NameSpaces (Packages, Classes, and so on) that are targeted by the DataFlow.</i>
+     * 
      */
     @objid ("cb85610a-2b7a-4fe6-82b8-265f1181c182")
     NameSpace getDestination();
@@ -66,6 +69,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates the NameSpaces (Packages, Classes, and so on) that are targeted by the DataFlow.</i>
+     * 
      */
     @objid ("f686905d-0f36-42e1-b528-731b7e19b571")
     void setDestination(NameSpace value);
@@ -75,6 +79,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bdb182d5-020e-427e-8a2c-4c2cfd51b425")
     NameSpace getOrigin();
@@ -84,6 +89,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e165e2fd-e42c-4eb2-9d6c-6ea0fc1bc25d")
     void setOrigin(NameSpace value);
@@ -93,6 +99,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("10216a1f-a118-4a0c-92f5-02c495339c5d")
     NameSpace getOwner();
@@ -102,6 +109,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c01a778a-dfb1-42eb-8feb-b336860cdd3d")
     void setOwner(NameSpace value);
@@ -111,6 +119,7 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the DataFlow as being an instance of the associated Signal.</i>
+     * 
      */
     @objid ("80909ac5-15f1-432f-92cc-4d9a6f266f52")
     Signal getSModel();
@@ -120,8 +129,9 @@ public interface DataFlow extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the DataFlow as being an instance of the associated Signal.</i>
+     * 
      */
     @objid ("2a253688-e37c-47a0-a1e4-0bcc85b4fd4c")
     void setSModel(Signal value);
-
 }
+

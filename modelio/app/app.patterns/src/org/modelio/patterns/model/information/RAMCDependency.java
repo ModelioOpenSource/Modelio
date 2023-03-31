@@ -50,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
 @objid ("5d54cd0c-52bb-4671-920d-f90b17c5210c")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RAMCDependency")
-public class RAMCDependency extends ExternalDependency {// Empty
+public class RAMCDependency extends ExternalDependency {
+// Empty
     
 }

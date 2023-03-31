@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Styles-amp-thèmes-de-diagrammes]]
 
-[[styles-thèmes-de-diagrammes]]
+
+
 = Styles & thèmes de diagrammes
 
 L'apparence graphique des éléments d'un diagramme est définie dans un thème de diagramme ou dans un style d'élément. +
@@ -59,9 +59,9 @@ image::images/Modeler-_modeler_modelio_settings_diagram_styles_themes_styles_004
 3. Le style est appliqué à l'élément
 
 
-[[Thèmes-de-diagramme-personnalisés]]
 
-[[thèmes-de-diagramme-personnalisés]]
+
+
 ===== Thèmes de diagramme personnalisés
 
 Modelio offre également la possibilité de créer ses propres thèmes de diagrame. Pour cela, il faut utiliser l'éditeur de thèmes de diagrammes/styles d'éléments :
@@ -116,9 +116,9 @@ image::images/Modeler-_modeler_modelio_settings_diagram_styles_themes_styles_008
 
 *Note*: La même procédure peut être utilisée pour éditer et modifier les thèmes du catalogue de Modelio.
 
-[[Importer-un-thème]]
 
-[[importer-un-thème]]
+
+
 ===== Importer un thème
 
 Modelio permet d'importer des thèmes externes. Ces thèmes peuvent ensuite être utilisés tels quels, ou personnalisés dans l'éditeur de thèmes de diagrammes/styles d'éléments.
@@ -134,9 +134,9 @@ image::images/Modeler-_modeler_modelio_settings_diagram_styles_themes_styles_009
 
  
 
-[[Création-de-style-délément]]
 
-[[création-de-style-délément]]
+
+
 ===== Création de style d'élément
 
 Il existe deux méthodes pour créer des styles d'élément : l'éditeur de thèmes de diagrammes/styles d'éléments, et la vue Symbole d'un diagramme.

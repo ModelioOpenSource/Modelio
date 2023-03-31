@@ -28,21 +28,19 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editparts.ZoomManager;
+import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.BpmnSequenceFlowEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.link.GmLinkLayoutEditPolicy;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
-import org.modelio.metamodel.bpmn.flows.BpmnMessage;
-import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
  * This policy creates a workflow node and insert it in a sequence flow.
  */
 @objid ("cf49b75f-87b0-45b1-a6e8-bdc6c869f6ee")
-public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
+public class InsertThrowCatchEditPolicy extends GraphicalEditPolicy {
     @objid ("3f2fb89c-b27b-4f4b-8868-eb9bf858c952")
     private InsertThrowCatchFeedback feedback;
 
@@ -53,51 +51,55 @@ public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
             CreateRequest createRequest = (CreateRequest) request;
             ModelioCreationContext ctx = ModelioCreationContext.lookRequest(createRequest);
         
-            if (ctx != null && ctx.getElementToUnmask() instanceof BpmnMessage) {
+            if (ctx != null && isHandled(ctx)) {
                 return getHost();
             }
         }
-        return super.getTargetEditPart(request);
+        return null;
+    }
+
+    @objid ("ffebd843-acec-488b-917c-67158b4938b4")
+    @Override
+    public Command getCommand(Request request) {
+        if (getTargetEditPart(request) == null)
+            return null;
+        return getCreateCommand((CreateRequest) request);
     }
 
     @objid ("55515f02-67f0-4f75-806d-114ed636f634")
-    @Override
     protected Command getCreateCommand(CreateRequest createRequest) {
         ModelioCreationContext ctx = ModelioCreationContext.lookRequest(createRequest);
         if (ctx == null) {
             return null;
         }
         
-        GmBpmnSequenceFlow gm = getHost().getModel();
-        String metaclass = (String) createRequest.getNewObjectType();
-        MClass mClass = gm.getRelatedElement().getMClass().getMetamodel().getMClass(metaclass);
-        
         // Throw link - Catch Link insertion, allowed cases:
         // - BpmnIntermediateThrowEvent in 'throw link' flavor
         // - BpmnIntermediateCatchEvent in 'catch link' flavor
         //
-        if ((BpmnIntermediateThrowEvent.class.isAssignableFrom(mClass.getJavaInterface()) || BpmnIntermediateCatchEvent.class.isAssignableFrom(mClass.getJavaInterface()))
-                && ctx.getProperties().getOrDefault("type", "").equals("LINK")) {
+        if (isHandled(ctx)) {
         
             // Create task command
-            Point location = createRequest.getLocation().getCopy();
-        
-            int defaultWidth = 100;
-            int defaultHeight = 50;
-        
-            Rectangle requestRect = new Rectangle(location, new Dimension(-1, -1));
-            requestRect.translate(-defaultWidth / 2, -defaultHeight / 2);
-            getHostFigure().translateToRelative(requestRect);
+            GmBpmnSequenceFlow gm = getSequenceFlowHost().getModel();
+            Rectangle requestRect = new Rectangle(new Point(0,0), new Dimension(-1, -1));
         
             InsertThrowCatchCommand createTaskCommand = new InsertThrowCatchCommand(gm.getDiagram(), gm, ctx, requestRect);
             return createTaskCommand;
         }
-        return super.getCreateCommand(createRequest);
+        return null;
+    }
+
+    @objid ("6d5d3733-dc4c-4313-8a0e-99cfd7e44ca4")
+    private boolean isHandled(ModelioCreationContext ctx) {
+        return (BpmnIntermediateThrowEvent.class.isAssignableFrom(ctx.getJavaClass())
+                || BpmnIntermediateCatchEvent.class.isAssignableFrom(ctx.getJavaClass()))
+                && "LINK".equals(ctx.getProperties().get("type"));
+        
     }
 
     @objid ("3a9b9e73-f38f-4ae1-b06f-95fccabc61a0")
     @Override
-    protected void showLayoutTargetFeedback(Request request) {
+    public void showTargetFeedback(Request request) {
         // Show nothing if we cannot issue an executable command.
         Command command = getCommand(request);
         if (command == null || !command.canExecute()) {
@@ -117,7 +119,7 @@ public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
 
     @objid ("497c5802-e384-413c-80e4-a72f6e13194c")
     @Override
-    protected void eraseLayoutTargetFeedback(Request request) {
+    public void eraseTargetFeedback(Request request) {
         if (this.feedback != null) {
             this.feedback.hide();
             this.feedback = null;
@@ -125,9 +127,12 @@ public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
         
     }
 
+    /**
+     * @see #getHost()
+     * @return the <i>host</i> BpmnSequenceFlowEditPart on which this policy is installed.
+     */
     @objid ("24f4deae-4a6b-4eec-a559-cf9e4832a68b")
-    @Override
-    public BpmnSequenceFlowEditPart getHost() {
+    public BpmnSequenceFlowEditPart getSequenceFlowHost() {
         return (BpmnSequenceFlowEditPart) super.getHost();
     }
 

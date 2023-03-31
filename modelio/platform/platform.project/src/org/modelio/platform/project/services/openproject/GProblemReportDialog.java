@@ -30,7 +30,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.gproject.gproject.GProblem;
+import org.modelio.gproject.GProblem;
 import org.modelio.platform.model.ui.swt.StyledTextHelper;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.ui.dialog.ModelioDialog;
@@ -40,7 +40,7 @@ public class GProblemReportDialog extends ModelioDialog {
     @objid ("3f76f710-3057-4485-b1f7-40b6e51e6a62")
     private String projectName;
 
-    @objid ("cdf29826-01e8-4565-b1a0-25dcd89911b3")
+    @objid ("000a44ed-4a07-479e-9005-95f4dffbff7b")
     private List<GProblem> failures;
 
     @objid ("822b1260-d254-485c-b4cd-266e55d7264c")

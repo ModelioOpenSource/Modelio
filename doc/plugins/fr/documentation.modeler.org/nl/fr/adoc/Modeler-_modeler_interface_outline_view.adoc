@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoOutlinerdquo]]
 
-[[la-vue-outline]]
+
+
 = La vue "Outline"
 
 .La vue "Outline"

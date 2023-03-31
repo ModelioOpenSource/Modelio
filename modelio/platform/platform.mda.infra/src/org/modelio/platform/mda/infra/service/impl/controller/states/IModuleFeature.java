@@ -40,5 +40,5 @@ public interface IModuleFeature {
      */
     @objid ("3c84d350-a238-4535-a3ca-46fa46a2d2ab")
     void disable() throws ModuleException;
-
 }
+

@@ -31,6 +31,7 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnactivity.BpmnActivityCreateD
 import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnBoundaryEventReparentElementCommand;
 import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnFlowElementReparentElementCommand;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPolicy;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
@@ -56,20 +57,18 @@ public class BpmnPortContainerEditPolicy extends PortContainerEditPolicy {
         if (elementToUnmask != null) {
             // Unmasking an existing element
             if (getHostCompositeNode().canUnmask(elementToUnmask)) {
-                return new BpmnActivityCreateBoundaryEventCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint);
+                return new DefaultEditCreatedElementCommand(new BpmnActivityCreateBoundaryEventCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
             } else {
                 return null;
             }
         } else {
             // Creating a new element, deal with smart interactions
             if (BpmnDataOutput.class.equals(ctx.getJavaClass())) {
-                return new BpmnActivityCreateDataOutputCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint);
-        
+                return new DefaultEditCreatedElementCommand(new BpmnActivityCreateDataOutputCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
             } else if (BpmnDataInput.class.equals(ctx.getJavaClass())) {
-                return new BpmnActivityCreateDataInputCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint);
-        
+                return new DefaultEditCreatedElementCommand(new BpmnActivityCreateDataInputCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
             } else {
-                return new BpmnActivityCreateBoundaryEventCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint);
+                return new DefaultEditCreatedElementCommand(new BpmnActivityCreateBoundaryEventCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
             }
         }
         

@@ -77,7 +77,7 @@ public class SnapEditPartAdapter {
         val = (Boolean)this.editPart.getViewer().getProperty(SnapToGeometry.PROPERTY_SNAP_ENABLED);
         if(val != null && val.booleanValue()) {
             snapStrategies.add(new ModelioSnapToGeometry(this.editPart, 0));
-            
+        
             for (Data cont : this.otherContainers) {
                 snapStrategies.add(new ModelioSnapToGeometry(cont.container, cont.margin));
             }

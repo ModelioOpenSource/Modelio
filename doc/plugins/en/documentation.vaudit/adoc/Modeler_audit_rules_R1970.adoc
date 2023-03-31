@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1970]]
 
-[[r1970]]
+
+
 = R1970
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _TemplateParameterSubstitution_ must reference a _TemplateParameter_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A _TemplateParameterSubstitution_ defines a value for a particular _TemplateParameter_. Therefore it must reference a _TemplateParameter_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Choose a _TemplateParameter_ of the template class to reference.

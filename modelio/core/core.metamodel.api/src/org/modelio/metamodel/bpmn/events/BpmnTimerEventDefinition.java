@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Event corresponding to a timer event, such as the end of a duration
+ * 
+ * 
  */
 @objid ("00965cf8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
@@ -52,6 +54,7 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>If the trigger is a Timer, then a timeCycle MAY be entered. If a timeCycle is not entered, then a timeDate MUST be entered (see attribute above?if the processType attribute of the Process is set to executable).</i>
+     * 
      */
     @objid ("16db0a30-5697-4512-a883-59a87c6e5d80")
     String getTimeCycle();
@@ -61,6 +64,7 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>If the trigger is a Timer, then a timeCycle MAY be entered. If a timeCycle is not entered, then a timeDate MUST be entered (see attribute above?if the processType attribute of the Process is set to executable).</i>
+     * 
      */
     @objid ("317d2120-d7d0-4173-8f6f-2af9fdb8a1c0")
     void setTimeCycle(String value);
@@ -70,6 +74,7 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>If the trigger is a Timer, then a timeDate MAY be entered. If a timeDate is not entered, then a timeCycle MUST be entered (see attribute below?if the processType attribute of the Process is set to executable).</i>
+     * 
      */
     @objid ("d281f450-c90f-4d4e-ab41-eaf2ab118276")
     String getTimeDate();
@@ -79,6 +84,7 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>If the trigger is a Timer, then a timeDate MAY be entered. If a timeDate is not entered, then a timeCycle MUST be entered (see attribute below?if the processType attribute of the Process is set to executable).</i>
+     * 
      */
     @objid ("5e45bac0-c40d-4acc-90e8-70de1991f8bf")
     void setTimeDate(String value);
@@ -88,6 +94,7 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("06310744-8b53-4854-913d-da607b8f865f")
     String getTimeDuration();
@@ -97,8 +104,9 @@ public interface BpmnTimerEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("309d4bab-b553-44e9-a918-871bd4c181f4")
     void setTimeDuration(String value);
-
 }
+

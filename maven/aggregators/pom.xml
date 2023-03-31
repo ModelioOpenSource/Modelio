@@ -1,0 +1,27 @@
+<!--
+	This 'aggregation' pom executes a maven target on ALL the (eclipse) features that compose the different Modelio distribution.
+	It is to be used before using the PRODUCTS/pom.xml to build the different Modelio distributions themselves.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../modelio-parent</relativePath>
+	</parent>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>Modelio-Zebulon</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>prebuild</module>
+		<module>plugins</module>
+		<module>doc</module>
+		<module>features</module>
+		<module>products</module>
+	</modules>
+
+</project>

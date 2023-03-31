@@ -19,6 +19,7 @@ package org.modelio.module.modelermodule.api;
 import java.nio.file.Path;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.core.runtime.Platform;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
@@ -31,6 +32,7 @@ import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.Interface;
+import org.modelio.vbasic.version.Version;
 
 /**
  * Interface gathering all public services provided by Modeler Module.
@@ -40,6 +42,9 @@ import org.modelio.metamodel.uml.statik.Interface;
 public interface IModelerModulePeerModule extends IPeerModule {
     @objid ("dec66be7-ac89-4d74-b771-282cd6e56bcb")
     public static final String MODULE_NAME = "ModelerModule";
+
+    @objid ("c2216ba8-b262-4d60-a83f-a4d110519b54")
+    public static final Version MODULE_VERSION = new Version(Platform.getBundle("org.modelio.modelermodule").getVersion().toString());
 
     /**
      * Create an attribute from an attribute link. If the class doesn't exists, it is also created.
@@ -164,5 +169,5 @@ public interface IModelerModulePeerModule extends IPeerModule {
 
     @objid ("8a7663ad-c072-4a7d-a3d1-80b88bea1305")
     Path computePath(final Artifact fileArtifact);
-
 }
+

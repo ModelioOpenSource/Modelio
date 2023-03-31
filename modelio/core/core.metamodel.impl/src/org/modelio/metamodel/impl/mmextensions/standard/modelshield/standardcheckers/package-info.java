@@ -26,5 +26,6 @@
  *          100-199       => synchronous blocking controls in metamodel
  *          200-999      => blocking core audit rules
  *          1000-9999 => standard audit
+ * 
  */
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;

@@ -110,7 +110,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
         
     }
 
-    @objid ("c46d3614-aa9f-42bd-a457-955583f58776")
+    @objid ("3f3d9171-5f75-4b5a-a796-1b4cad168106")
     private boolean checkModelBendPoints() {
         if (this.modelBendPoints == null)
             return false;

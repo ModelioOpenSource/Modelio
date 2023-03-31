@@ -39,5 +39,5 @@ public interface IRepositoryContentInitializer extends IMetamodelDependentServic
      */
     @objid ("bd1cf53b-cb1b-4521-a9ff-151c4648cfb0")
     Collection<MObject> populate(String modelName, ICoreSession session, IRepository repository);
-
 }
+

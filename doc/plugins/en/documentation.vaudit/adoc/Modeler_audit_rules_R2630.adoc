@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2630]]
 
-[[r2630]]
+
+
 = R2630
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A region cannot have more than one shallow history state.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A history state represents the last state the object was in before a transition left the enclosing state. When a transition returns to this state, the object will resume the state defined by the history state. Therefore, only one history state by region can be defined, otherwise it would not be possible
 
 to determine which state to resume from.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you need to use more than one shallow history state, you should consider adding a new region in your state and moving your history state into that region.

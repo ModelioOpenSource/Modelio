@@ -28,7 +28,7 @@ import org.modelio.api.impl.swt.metaclasselector.MetaclassSelectorAdapter;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.ui.swt.IUiToolkit;
 import org.modelio.api.ui.swt.metaclassselect.IMetaclassSelector;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.model.ui.swt.edition.EditorActivationStrategy;
 
 /**
@@ -45,7 +45,7 @@ public class UiToolkit implements IUiToolkit {
     private final IEclipseContext eclipseContext;
 
     @objid ("d4e6aab7-c6b6-44cb-9374-e45b93876768")
-    private GProject gProject;
+    private IGProject gProject;
 
     /**
      * C'tor.
@@ -54,7 +54,7 @@ public class UiToolkit implements IUiToolkit {
      * @param eclipseContext the eclipse context.
      */
     @objid ("46ef2267-6bbf-4fb0-95f2-45527958e057")
-    public  UiToolkit(IModelioServices modelioServices, GProject gProject, IEclipseContext eclipseContext) {
+    public  UiToolkit(IModelioServices modelioServices, IGProject gProject, IEclipseContext eclipseContext) {
         this.modelioServices = modelioServices;
         this.gProject = gProject;
         this.eclipseContext = eclipseContext;

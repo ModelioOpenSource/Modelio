@@ -108,10 +108,15 @@ public class BpmnLaneSetContainerEditPart extends AbstractNodeEditPart {
         
     }
 
-    @objid ("e8aa8801-3654-41ba-8ae5-02631483f39b")
+    @objid ("b8fc86c1-f149-4282-973e-963d615c1613")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
-        return new LayoutLaneSetConnectionsEditPolicyDecorator((OrderedLayoutEditPolicy) layoutPolicy);
+        if (false) {
+            return layoutPolicy;
+        } else {
+            return new LayoutLaneSetConnectionsEditPolicyDecorator((OrderedLayoutEditPolicy) layoutPolicy);
+        }
+        
     }
 
     @objid ("613a8ea6-55b6-11e2-877f-002564c97630")
@@ -277,14 +282,14 @@ public class BpmnLaneSetContainerEditPart extends AbstractNodeEditPart {
         
     }
 
-    @objid ("8929715f-0c0c-4591-865f-41304bbd1de4")
+    @objid ("d70fc722-f3d5-413f-a27b-94846a6ede63")
     private static class RefreshFromModelEditPolicy extends ResizableGroupRefreshFromModelEditPolicy {
-        @objid ("02409de1-abca-4efb-9cde-04c8f67cc201")
+        @objid ("daae4f21-ecff-475b-944e-5c4ce71651f0")
         public  RefreshFromModelEditPolicy(Function<MObject, List<? extends MObject>> expectedChildren, boolean ordered) {
             super(expectedChildren, ordered);
         }
 
-        @objid ("e5073227-54ac-422e-85a7-0407c523818d")
+        @objid ("cb3f1a49-a4ef-49d6-a357-15a15a69cb2b")
         @Override
         protected Command getRefreshChildrencommand(GmCompositeNode gmGroup, List<? extends MObject> obChildren) {
             if (obChildren.isEmpty()) {

@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Free-drawing]]
 
-[[free-drawing]]
+
+
 = Free drawing
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Modelio 3.1 introduces a new free drawing feature to let you add pure-graphical information in your diagrams.
@@ -19,9 +19,9 @@ Modelio 3.1 introduces a new free drawing feature to let you add pure-graphical 
 image::images/Modeler-_modeler_diagrams_free_drawing_freedrawing_001.png[2]
 
 
-[[Free-drawing-in-Modelio-diagrams]]
 
-[[free-drawing-in-modelio-diagrams]]
+
+
 ===== Free drawing in Modelio diagrams
 
 Use the diagram palette to add one of the available free drawing elements:
@@ -47,16 +47,16 @@ Select "Text" in the palette, then click in the diagram background to create a n
 
 Select "Line" in the palette, click in the diagram background where you want the arrow to start (Line source), then click again where you want the arrow to stop (Line target). You can draw simple lines, one-direction arrows, or bi-directional arrows. Use the Symbol view to customize your lines.
 
-[[Customization]]
 
-[[customization]]
+
+
 ===== Customization
 
 All the free drawing elements can be modified in the Symbol view (color, line width, background, font, line end, etc.)
 
-[[Commands]]
 
-[[commands]]
+
+
 ===== Commands
 
 Free drawing elements can be moved to background or foreground:

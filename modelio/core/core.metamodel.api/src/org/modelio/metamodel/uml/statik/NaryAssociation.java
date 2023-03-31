@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0021601a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface NaryAssociation extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("60ef25b9-3341-4243-a409-69012ee7b228")
     EList<NaryLink> getOccurence();
@@ -64,6 +67,7 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a099024b-2bd1-44c0-bb83-1589f31abb8d")
     <T extends NaryLink> List<T> getOccurence(java.lang.Class<T> filterClass);
@@ -73,6 +77,7 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e79b8613-dce8-4352-9ae1-7f1deecb0306")
     EList<NaryAssociationEnd> getNaryEnd();
@@ -82,6 +87,7 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6beafd6b-b4eb-41c2-a9ac-3e09abe1885c")
     <T extends NaryAssociationEnd> List<T> getNaryEnd(java.lang.Class<T> filterClass);
@@ -91,6 +97,7 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0360046a-c5cd-4601-bbf6-93146a668dc6")
     ClassAssociation getLinkToClass();
@@ -100,8 +107,9 @@ public interface NaryAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("169b4849-4ab0-48c3-af98-e44bbafecaeb")
     void setLinkToClass(ClassAssociation value);
-
 }
+

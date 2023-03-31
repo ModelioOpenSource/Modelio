@@ -44,5 +44,5 @@ public interface IReportWriter {
 
     @objid ("8725f3ab-125d-4ffa-b181-3e4aaec4770e")
     boolean hasInfos();
-
 }
+

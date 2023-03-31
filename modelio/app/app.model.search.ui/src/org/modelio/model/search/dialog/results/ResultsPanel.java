@@ -56,7 +56,7 @@ import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.platform.model.ui.swt.images.ElementStyler;
 import org.modelio.platform.model.ui.swt.images.StandardModelStyleProvider;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("ccf7d325-0d5f-4a70-8515-0947b65cd873")
@@ -95,7 +95,7 @@ public class ResultsPanel {
         this.navigationService = navigationService;
         this.topGroup = new Group(parent, SWT.NONE);
         this.topGroup.setText(ModelSearch.I18N.getMessage("SearchDialog.initial")); //$NON-NLS-1$
-        this.topGroup.setFont(CoreFontRegistry.getModifiedFont(this.topGroup.getFont(), SWT.BOLD, 1.0f));
+        this.topGroup.setFont(UIFont.NORMALB);
         
         final GridLayout gridLayout2 = new GridLayout();
         gridLayout2.numColumns = 1;
@@ -212,7 +212,7 @@ public class ResultsPanel {
         
                 /*
                  * new Styler() {
-                 * 
+                 *
                  * @Override public void applyStyles(TextStyle textStyle) { textStyle.font = CoreFontRegistry.getModifiedFont(getControl().getFont(), SWT.BOLD, 1.0f); } });
                  */
         

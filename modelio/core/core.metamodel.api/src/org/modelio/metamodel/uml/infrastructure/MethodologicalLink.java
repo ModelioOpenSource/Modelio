@@ -40,6 +40,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * The module bringing the stereotype defines:
  * - the semantic of the methodological link
  * - the allowed sources and targets of the link
+ * 
+ * 
  */
 @objid ("1fd5ae12-7cf1-4193-bf37-5acd71f63010")
 public interface MethodologicalLink extends Dependency {
@@ -60,6 +62,7 @@ public interface MethodologicalLink extends Dependency {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f48cdf02-014d-43c6-9907-a5333e7e0888")
     ExternElement getExternElement();
@@ -69,8 +72,9 @@ public interface MethodologicalLink extends Dependency {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5e846696-595e-4299-8864-81652a7619b8")
     void setExternElement(ExternElement value);
-
 }
+

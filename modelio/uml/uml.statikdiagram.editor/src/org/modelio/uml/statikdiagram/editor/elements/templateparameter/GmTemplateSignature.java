@@ -41,9 +41,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("36e6dfda-55b7-11e2-877f-002564c97630")
 public class GmTemplateSignature extends GmDefaultModelElementLabel {
-    @objid ("36e6dfde-55b7-11e2-877f-002564c97630")
-    private NameSpace related;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -52,6 +49,9 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     @objid ("36e6dfe4-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("36e6dfde-55b7-11e2-877f-002564c97630")
+    private NameSpace related;
 
     /**
      * Initializes a model element header.

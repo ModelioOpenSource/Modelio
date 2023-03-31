@@ -53,6 +53,10 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A Part specifies that a set of Instances may exist.  This set of Instances is a subset of the total set of Instances specified by the Classifier typing the Part. A Part of a Classifier declares that an Instance of this Classifier may contain a set of Instances by composition. All such Instances are destroyed when the container Classifier Instance is destroyed.  
  * 
  * In Modelio, an Instance belongs to another Instance (embedded or clustered Instances) or belongs to a NameSpace (Package, Class, Collaboration).
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("000d46d4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Instance extends UmlModelElement {
@@ -73,6 +77,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether it is a constant.</i>
+     * 
      */
     @objid ("cbf4bfdf-e849-4a67-857f-8ae959fb0ef8")
     boolean isIsConstant();
@@ -82,6 +87,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether it is a constant.</i>
+     * 
      */
     @objid ("865dad67-4da7-46e5-8686-0483cdac1a23")
     void setIsConstant(boolean value);
@@ -91,6 +97,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Minimum number of Instances that can exist. In the case where the Instance belongs to a Collaboration (typically in the case of internalStructure) this represents the number of instances at the time of creation of the container NameSpace or Classifier.</i>
+     * 
      */
     @objid ("78aeb23d-c9bf-44bd-8b9f-609402209229")
     String getMultiplicityMin();
@@ -100,6 +107,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Minimum number of Instances that can exist. In the case where the Instance belongs to a Collaboration (typically in the case of internalStructure) this represents the number of instances at the time of creation of the container NameSpace or Classifier.</i>
+     * 
      */
     @objid ("2022624f-4242-4c24-88e0-ab4608df0e0d")
     void setMultiplicityMin(String value);
@@ -109,6 +117,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Maximum number of Instances that can exist in the context of the owner NameSpace.</i>
+     * 
      */
     @objid ("1d5b8244-5218-4ba3-bf32-37fde38c25a5")
     String getMultiplicityMax();
@@ -118,6 +127,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Maximum number of Instances that can exist in the context of the owner NameSpace.</i>
+     * 
      */
     @objid ("3011c509-a62d-4429-88bd-4a004f16adc7")
     void setMultiplicityMax(String value);
@@ -127,6 +137,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Current value of the Instance. This can be an expression, used instead of the set of values of the AttributeLinks of the instance.</i>
+     * 
      */
     @objid ("36f5af1c-d5f4-49a8-8563-88aa949b81b9")
     String getValue();
@@ -136,6 +147,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Current value of the Instance. This can be an expression, used instead of the set of values of the AttributeLinks of the instance.</i>
+     * 
      */
     @objid ("4614f4df-34b3-49b2-87e7-445af037a2b3")
     void setValue(String value);
@@ -145,6 +157,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0d6b12eb-f25c-4a1c-a293-00697c2caf30")
     EList<CommunicationNode> getRepresentedCommunicationNode();
@@ -154,6 +167,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c1ff2079-c3ba-4862-b5f8-c245bb4f7d37")
     <T extends CommunicationNode> List<T> getRepresentedCommunicationNode(java.lang.Class<T> filterClass);
@@ -163,6 +177,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5203e26f-9a7c-40ac-94c8-3eaa7884fee8")
     EList<LinkEnd> getOwnedEnd();
@@ -172,6 +187,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7e85deb2-3ed6-4880-8f2a-3cdfa52d4cb8")
     <T extends LinkEnd> List<T> getOwnedEnd(java.lang.Class<T> filterClass);
@@ -181,6 +197,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the Classifier as the model of the Instance or Role.</i>
+     * 
      */
     @objid ("8cfbd12a-548a-497a-8087-411eee12d5e5")
     NameSpace getBase();
@@ -190,6 +207,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the Classifier as the model of the Instance or Role.</i>
+     * 
      */
     @objid ("56ec2646-0933-42b9-9d71-a4dc1067b0f7")
     void setBase(NameSpace value);
@@ -199,6 +217,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c2cf428c-dc9b-44f5-be8f-a3693832c34e")
     EList<ObjectNode> getRepresentingObjectNode();
@@ -208,6 +227,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a3bd373d-1f9b-4b05-a1ee-65603ef94e72")
     <T extends ObjectNode> List<T> getRepresentingObjectNode(java.lang.Class<T> filterClass);
@@ -217,6 +237,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cba82375-ef0c-408f-8e6b-308688db9577")
     NameSpace getOwner();
@@ -226,6 +247,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7cf9487f-a9c6-43f7-8ba0-9b8c8d445762")
     void setOwner(NameSpace value);
@@ -235,6 +257,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4bdad97a-b277-490a-bfa0-547ef3ac634d")
     EList<NaryLinkEnd> getOwnedNaryEnd();
@@ -244,6 +267,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4a4d73d2-775f-4dd5-8283-9f0be638c84b")
     <T extends NaryLinkEnd> List<T> getOwnedNaryEnd(java.lang.Class<T> filterClass);
@@ -253,6 +277,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8b9b38eb-607b-40e6-9fc3-5c2cf0d6cce6")
     EList<Lifeline> getRepresentedLifeLine();
@@ -262,6 +287,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("acd2c7f9-a10e-4e34-ba24-bd5c33b4c864")
     <T extends Lifeline> List<T> getRepresentedLifeLine(java.lang.Class<T> filterClass);
@@ -271,6 +297,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Occurrences of attributes for the current object (Instance or Role).</i>
+     * 
      */
     @objid ("14e8bfc8-75ae-4b9b-b970-2fa7eebb5b2b")
     EList<AttributeLink> getSlot();
@@ -280,6 +307,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Occurrences of attributes for the current object (Instance or Role).</i>
+     * 
      */
     @objid ("af9bb602-6c0d-49e4-b145-e4a87adfff41")
     <T extends AttributeLink> List<T> getSlot(java.lang.Class<T> filterClass);
@@ -289,6 +317,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Instances can be embedded. This can represent cluster. In Modelio, this is used to represent ComponentInstance supported by NodeInstances, or Objects in ComponentInstances or NodeInstances.</i>
+     * 
      */
     @objid ("9de4b527-60bd-4139-9490-57a7be953616")
     EList<BindableInstance> getPart();
@@ -298,6 +327,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Instances can be embedded. This can represent cluster. In Modelio, this is used to represent ComponentInstance supported by NodeInstances, or Objects in ComponentInstances or NodeInstances.</i>
+     * 
      */
     @objid ("878347c2-1d7c-423e-b51b-a77c4424e127")
     <T extends BindableInstance> List<T> getPart(java.lang.Class<T> filterClass);
@@ -307,6 +337,7 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9c23efa7-3497-4f1d-ad96-959ee385ceb5")
     EList<LinkEnd> getTargetingEnd();
@@ -316,8 +347,9 @@ public interface Instance extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3a94e95a-92b4-44cf-b91f-64b7e28032c5")
     <T extends LinkEnd> List<T> getTargetingEnd(java.lang.Class<T> filterClass);
-
 }
+

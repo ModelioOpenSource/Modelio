@@ -33,6 +33,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00084846-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnDataState extends BpmnBaseElement {
@@ -53,6 +55,7 @@ public interface BpmnDataState extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a9f36242-f1d0-42ad-8e79-fa3e79a6c882")
     BpmnItemAwareElement getItem();
@@ -62,8 +65,9 @@ public interface BpmnDataState extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9e06f521-b3b0-4f98-a3a8-abedf46c2c4e")
     void setItem(BpmnItemAwareElement value);
-
 }
+

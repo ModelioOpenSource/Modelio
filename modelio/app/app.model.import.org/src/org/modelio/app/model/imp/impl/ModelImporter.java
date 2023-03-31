@@ -35,7 +35,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.app.model.imp.plugin.AppModelImportOrg;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.model.api.MTools;
@@ -80,7 +80,7 @@ public class ModelImporter implements IRunnableWithProgress {
         this.localSession = localSession;
         this.localTargetElements = SelectionHelper.toList(selection, MObject.class);
         
-        this.localRepository = Optional.ofNullable(SelectionHelper.getFirst(selection, IProjectFragment.class))
+        this.localRepository = Optional.ofNullable(SelectionHelper.getFirst(selection, IGModelFragment.class))
                 .map(f -> f.getRepository())
                 .orElseGet(() -> localSession.getRepositorySupport().getRepository(this.localTargetElements.get(0)));
         

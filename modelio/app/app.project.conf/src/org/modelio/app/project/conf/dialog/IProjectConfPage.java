@@ -41,5 +41,5 @@ public interface IProjectConfPage {
      */
     @objid ("6c0ab407-4913-41bf-897f-f1c4baf29fe4")
     String getHelpTopic();
-
 }
+

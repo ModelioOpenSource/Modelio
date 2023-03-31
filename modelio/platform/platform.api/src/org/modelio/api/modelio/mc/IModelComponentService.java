@@ -78,5 +78,5 @@ public interface IModelComponentService {
      */
     @objid ("457863fa-f5c7-422f-9178-7d62c1292345")
     List<IModelComponentContributor> getContributors(final Artifact mc, final Set<IPeerModule> peerModules);
-
 }
+

@@ -9,7 +9,7 @@
 
 BPMN Sub-Process diagrams model processes at sub-process level.
 
-[[HTheReceivePaymentexample]]
+
 === The Receive Payment example
 
 .The Receive Payment Sub-Process Diagram example

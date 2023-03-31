@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Objects diagrams are used to provide instance models of classifiers (classes, components, etc.).</p><p>They can be created in the context of a classifier (internal structure of a class) or collaboration, and also under a package.</p><p>You can create an instance model to represent existing instances, and then abstract them as classes. You can also illustrate a class model by providing a typical instance configuration: in that case classes and attributes pre-exist to instances.</p><p>Under a classifier, the object diagram represents parts of the classifier : generally, composite diagrams which show ports and connectors are preferred in this case.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00722e8c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ObjectDiagram extends StaticDiagram {
@@ -46,5 +49,5 @@ public interface ObjectDiagram extends StaticDiagram {
      */
     @objid ("e8331b8a-6fd8-458c-8a9a-88adc9838991")
     public static final String MQNAME = "Standard.ObjectDiagram";
-
 }
+

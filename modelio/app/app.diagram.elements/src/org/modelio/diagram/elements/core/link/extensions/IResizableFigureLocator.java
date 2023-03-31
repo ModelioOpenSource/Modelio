@@ -64,5 +64,5 @@ public interface IResizableFigureLocator extends Locator {
      */
     @objid ("46652d74-4d9d-4d9c-936c-ec13e8fdd008")
     void setHeightConstraint(int fixedHeight);
-
 }
+

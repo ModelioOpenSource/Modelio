@@ -28,7 +28,8 @@ import org.xhtmlrenderer.extend.FontContext;
  * @author cmarin
  */
 @objid ("d674349e-1f3a-4bd5-9e39-4d28cc384b02")
-class GefFsFontContext implements FontContext {/*
+class GefFsFontContext implements FontContext {
+/*
         * Empty implementation, we don't need anything.
         */
     

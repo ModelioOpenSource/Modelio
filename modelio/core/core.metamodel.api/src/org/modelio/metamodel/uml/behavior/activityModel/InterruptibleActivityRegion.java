@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * An interruptible region contains activity nodes. When a token leaves an interruptible region via edges designated by the region as interrupting edges, all tokens and behaviors in the region are terminated.
+ * 
+ * 
  */
 @objid ("00366bf4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InterruptibleActivityRegion extends ActivityGroup {
@@ -54,6 +56,7 @@ public interface InterruptibleActivityRegion extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b62f098a-fb5e-48b3-a2fc-00138fa6219c")
     EList<ActivityEdge> getInterruptingEdge();
@@ -63,8 +66,9 @@ public interface InterruptibleActivityRegion extends ActivityGroup {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("050b8209-d5b6-45dd-b258-bad3dfd1763c")
     <T extends ActivityEdge> List<T> getInterruptingEdge(java.lang.Class<T> filterClass);
-
 }
+

@@ -54,22 +54,13 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
     private boolean cleanupManualPoints;
 
     /**
-     * if true automatic points are ignored and removed before computing route.
-     */
-    @objid ("03662b8c-956a-44ef-bbee-cf3ebe764518")
-    private boolean ignoreAutomaticPoints = true;
-
-    /**
      * Activate simplification by asking the source/target anchors whether they can align to the second/before last bend points.
      */
-    @objid ("dfb77389-0025-4eea-8286-5494a3d3c848")
+    @objid ("63e0d17a-97a3-48cf-85a3-48a8bfac6453")
     private boolean simplifyEnds = true;
 
-    /**
-     * Temporary point used to avoid Point allocations.
-     */
-    @objid ("5d6ddb25-cffb-4411-b040-6d2207e3ca16")
-    private static final MPrecisionPoint A_POINT = new MPrecisionPoint();
+    @objid ("afe1ba17-e17d-4845-968a-48c06abcb7f0")
+    private boolean rerouteWrongSectionFromPreviousManualPoint;
 
     @objid ("80f1cc21-58dd-489e-b490-571c14a6d0a1")
     private static final Rectangle R1 = new Rectangle();
@@ -77,18 +68,26 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
     @objid ("a253fea5-4b81-467e-8624-24cd4f5d9e65")
     private static final Rectangle R2 = new Rectangle();
 
-    @objid ("68ab2dd4-38d2-4d5b-9965-5feca4e6f769")
+    /**
+     * Temporary point used to avoid Point allocations.
+     */
+    @objid ("5d6ddb25-cffb-4411-b040-6d2207e3ca16")
+    private static final MPrecisionPoint A_POINT = new MPrecisionPoint();
+
+    /**
+     * Temporary state data used only while computing route
+     */
+    @objid ("85106767-0362-4fd6-a384-266bcbdb2afc")
     private static final AutoOrthoState sharedState = new AutoOrthoState();
 
     /**
      * Convert a route to a constraint.
      * <p>
+     * @see AutoOrthoUtils#routeToConstraint(List)
      * @param route a route computed by {@link #computeMPointRoute(Connection, List)}, {@link #computePointList(Connection)} ...
      * @return the same list striped from extremities, suitable as constraint.
-     * @deprecated moved to {@link AutoOrthoUtils#routeToConstraint(List)}
      */
-    @objid ("72479142-f254-4ac3-8da2-57f13f050791")
-    @Deprecated
+    @objid ("336c0542-6357-413f-9a0e-eecc1caaa7b1")
     public static List<MPoint> routeToConstraint(List<MPoint> route) {
         return AutoOrthoUtils.routeToConstraint(route);
     }
@@ -116,7 +115,7 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
      * @param connState a connection state. It won't be modified
      * @return the new updated connection route.
      */
-    @objid ("26b8fdaa-b7f8-437d-8183-c35d2a07586b")
+    @objid ("271873f1-0e11-45b5-b319-006557033cfe")
     public List<MPoint> computeMPointRoute(Connection connection, ConnectionState connState) {
         return computeMPointRoute(connection, connState.getMPoints(), connState.getSourceAnchor(), connState.getTargetAnchor());
     }
@@ -133,10 +132,6 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
      */
     @objid ("730c248d-45ba-4b0a-9291-59132d8e2eb1")
     public List<MPoint> computePartialRoute(Connection connection, List<MPoint> initialConstraint, int startIndex, int len) {
-        if (this.ignoreAutomaticPoints) {
-            throw new UnsupportedOperationException("Partial computing works only with setIgnoreAutomaticPoints(false)");
-        }
-        
         AutoOrthoState state = sharedState.init(
                 connection,
                 initialConstraint,
@@ -192,16 +187,6 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
     }
 
     /**
-     * @param ignoreAutomaticPoints if true automatic points are ignored and removed before computing route.
-     * @return this instance
-     */
-    @objid ("e16f16d0-b998-4419-ab8f-7c1418409584")
-    public AutoOrthogonalRouter setIgnoreAutomaticPoints(boolean ignoreAutomaticPoints) {
-        this.ignoreAutomaticPoints = ignoreAutomaticPoints;
-        return this;
-    }
-
-    /**
      * Activate simplification by asking the source/target anchors whether they can align to the second/before last bend points.
      * <p>
      * According to the link, it may result in bendpoint removal.
@@ -209,13 +194,13 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
      * @param enable if <code>true</code>, activates the simplification.
      * @return this instance
      */
-    @objid ("8c54a2d9-4cd7-49ec-9fd2-2d15db9461a5")
+    @objid ("54934afe-2d21-4008-8322-b0da4899815c")
     public AutoOrthogonalRouter setSimplifyEnds(boolean enable) {
         this.simplifyEnds = enable;
         return this;
     }
 
-    @objid ("5c846784-73be-48bb-ab0a-47fbedd20f53")
+    @objid ("7a502c42-0461-4c49-b71f-3630e0e3f7b6")
     private List<MPoint> computeMPointRoute(Connection connection, List<MPoint> initialConstraint, final ConnectionAnchor sourceAnchor, final ConnectionAnchor targetAnchor) {
         AutoOrthoState state = sharedState.init(connection, initialConstraint, sourceAnchor, targetAnchor);
         
@@ -254,7 +239,7 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
         return points;
     }
 
-    @objid ("f39e3f5a-8835-44e5-9ce1-8131980f47b3")
+    @objid ("ab3f788f-c293-4cc7-ac66-6a06355832b6")
     private static boolean tryFixIntermediateBendPoint(int index, final List<MPoint> allPoints) {
         assert index > 1;
         assert index < allPoints.size() - 2;
@@ -285,7 +270,7 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
         return true;
     }
 
-    @objid ("08809afd-13e3-47c2-a3aa-3e4478a8f12b")
+    @objid ("dd29589a-4896-4888-a349-25fceba34b49")
     private static boolean alignFirsBendPoint(final List<MPoint> allPoints, Direction sourceAnchorDir, Direction targetAnchorDir) {
         final int index = 1;
         
@@ -316,7 +301,7 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
         return true;
     }
 
-    @objid ("f9f62035-67b3-4c73-a4cc-ffeb00a8a2b3")
+    @objid ("ff74d6c5-8417-45dc-8816-bf0d2dcb40f1")
     private static boolean alignLastBendPoint(final List<MPoint> allPoints, Direction sourceAnchorDir, Direction targetAnchorDir) {
         final int index = allPoints.size() - 2;
         
@@ -351,6 +336,19 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
             cur.setY(next.y());
         }
         return true;
+    }
+
+    /**
+     * In case of wrong segment, allow the router to reroute all segments from previous manual point.
+     * <p>
+     * If false, reroute only from the wrong segment start.
+     * @param rewindToPreviousManualPoint true to allow the router to reroute all segments from previous manual point.
+     * @return this instance
+     */
+    @objid ("fc61ddb0-ee8e-463a-8a24-60fa5c77e180")
+    public AutoOrthogonalRouter setRerouteWrongSectionFromPreviousManualPoint(boolean rewindToPreviousManualPoint) {
+        this.rerouteWrongSectionFromPreviousManualPoint = rewindToPreviousManualPoint;
+        return this;
     }
 
     /**
@@ -416,8 +414,13 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
             //
             // Reroute all between current /*previous manual*/ point and next manual point
             // ----------------------------------------------------------------------------
-            final int index1 = i; // findManualPointBefore(allPoints, i);
+            final int index1 ;
             final int index2 = findManualPointAfter(state.allPoints, i + 1);
+            if (this.rerouteWrongSectionFromPreviousManualPoint && index2 == endIndex) {
+                index1 = findManualPointBefore(state.allPoints, i-1);
+            } else {
+                index1 = i;
+            }
             final MPoint point1 = state.allPoints.get(index1);
             final MPoint point2 = state.allPoints.get(index2);
         
@@ -455,6 +458,17 @@ public class AutoOrthogonalRouter extends BendpointConnectionRouter {
                     // false node : it is the mouse cursor ==> no margin
                     currentTargetDir = state.targetAnchorDir;
                     currentTargetBounds = state.anchorBounds.target;
+                }
+            }
+        
+            if (true && currentSourceBounds.intersects(currentTargetBounds)) {
+                // Source and target node are too near from each other,
+                // revert currentXxxBounds.expands(WORKAROUND,WORKAROUND)
+                if (currentSourceBounds.width() == state.anchorBounds.source.width()+WORKAROUND*2) {
+                    currentSourceBounds.setBounds(state.anchorBounds.source);
+                }
+                if (currentTargetBounds.width() == state.anchorBounds.target.width()+WORKAROUND*2) {
+                    currentTargetBounds.setBounds(state.anchorBounds.target);
                 }
             }
         

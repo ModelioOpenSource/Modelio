@@ -67,6 +67,7 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
         group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_RECTANGLE));
         group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_ELLIPSE));
         group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_TEXT));
+        group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_NOTE));
         //group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_POLYGON));
         group.add(toolRegistry.getTool(ToolRegistry.TOOL_CREATE_DRAWING_LINE));
         

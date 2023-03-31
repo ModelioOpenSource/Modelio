@@ -85,5 +85,5 @@ public interface IModulePropertyTable {
      */
     @objid ("0b195d2a-1f03-4698-a056-a395e60d06ee")
     void addProperty(String key, MObject value, Collection<? extends MClass> acceptedMetaclasses, IMObjectFilter mobjectFilter);
-
 }
+

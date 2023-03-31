@@ -41,5 +41,5 @@ public interface IEditableText {
      */
     @objid ("80801c72-1dec-11e2-8cad-001ec947c8cc")
     void setText(String text);
-
 }
+

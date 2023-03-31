@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.floatingtext.feature"
+      label="Nebula Floating Text Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://www.eclipse.org/nebula/widgets/floatingtext/floatingtext.php">
+      Nebula Floating Text Widget
+   </description>
+
+   <copyright>
+      Copyright (c) 2018 Remain Software
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.floatingtext"
+         download-size="14"
+         install-size="21"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.floatingtext.source"
+         download-size="10"
+         install-size="19"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

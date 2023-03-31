@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2990]]
 
-[[r2990]]
+
+
 = R2990
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «guarantee» _Dependency_ must be from a _Requirement_ towards a _Goal_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «guarantee» _Dependency_ indicates that the advent or success of the original _Requirement_ guarantees that the _Goal_ will be reached.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «guarantee» _Dependency_ which is not from a _Requirement_ towards a _Goal_, you should update or delete it.

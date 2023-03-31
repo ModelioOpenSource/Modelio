@@ -44,5 +44,5 @@ public interface IShaper {
 
     @objid ("7fa72674-1dec-11e2-8cad-001ec947c8cc")
     Insets getShapeInsets(Rectangle rect);
-
 }
+

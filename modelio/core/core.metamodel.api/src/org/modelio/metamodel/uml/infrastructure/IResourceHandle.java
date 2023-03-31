@@ -99,5 +99,5 @@ public interface IResourceHandle {
      */
     @objid ("dbb373fa-e595-41bc-8a98-51897dbe96d7")
     URI getLocation();
-
 }
+

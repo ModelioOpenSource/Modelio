@@ -33,6 +33,9 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * <p>Non typed property table that is owned by nobody.</p><p>This table is not copied nor imported with the element referencing it. This table is not versioned either.</p>
+ * 
+ * 
+ * 
  */
 @objid ("006c6ff6-ec87-1098-b22e-001ec947cd2a")
 public interface LocalPropertyTable extends PropertyTable {
@@ -53,6 +56,7 @@ public interface LocalPropertyTable extends PropertyTable {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("61b8c6c5-294e-4051-80eb-a6a5063b74ca")
     ModelElement getLocalAnnoted();
@@ -62,8 +66,9 @@ public interface LocalPropertyTable extends PropertyTable {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f7aaee88-34b8-424c-935d-f15c55f00af4")
     void setLocalAnnoted(ModelElement value);
-
 }
+

@@ -581,5 +581,5 @@ public interface IParseModelBehavior {
 
     @objid ("ea2b12b1-c4b5-42a5-a3e1-0a09673c6b84")
     void visitNaryLinkEnd(NaryLinkEnd param);
-
 }
+

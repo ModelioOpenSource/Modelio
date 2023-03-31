@@ -34,7 +34,7 @@ public interface IGmLinkRake {
     /**
      * The property name used to fire change events.
      */
-    @objid ("675f58a8-ea22-4819-a0bc-c16cda580c5d")
+    @objid ("98f1b725-b146-44d4-baef-b89d0b8015ff")
     public static final String PROP = "rake anchor changed";
 
     /**
@@ -48,14 +48,14 @@ public interface IGmLinkRake {
      * Register a listener fired with {@link #PROP} property when the shared anchor changes.
      * @param listener a property change listener
      */
-    @objid ("0553b900-7f71-4913-a9d9-f466dc080f2e")
+    @objid ("5a6d87cd-4659-496a-a89c-a87777feac72")
     void addListener(PropertyChangeListener listener);
 
     /**
      * Remove a listener registered with {@link #addListener(PropertyChangeListener)}.
      * @param listener a listener to remove
      */
-    @objid ("12c556b6-0f08-48b5-b299-81c9d3ff71c8")
+    @objid ("72002c35-0cda-47d9-bf45-638667c53c90")
     void removeListener(PropertyChangeListener listener);
 
     /**
@@ -64,7 +64,7 @@ public interface IGmLinkRake {
      * Fires a {@link #PROP} property change event to all listeners registered with {@link #addListener(PropertyChangeListener)}.
      * @param anchor the shared anchor.
      */
-    @objid ("74443359-3b09-497a-b8da-b9f6cf83d71c")
+    @objid ("4701dad8-74f4-4e6b-a78e-cdd52621e03c")
     void setSharedAnchor(final Object anchor);
-
 }
+

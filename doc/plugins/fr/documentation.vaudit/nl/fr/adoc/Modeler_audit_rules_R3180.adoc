@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3180]]
 
-[[r3180]]
+
+
 = R3180
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un élément BPMN ne peut pas avoir de _SequenceFlow_ vers lui-même.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Avoir un flux vers soi-même n'a pas de sens en BMPN.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un élément BPMN avec un flux vers lui-même, supprimez ce flux ou changez sa destination.

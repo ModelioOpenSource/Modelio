@@ -42,17 +42,17 @@ import org.eclipse.gef.requests.GroupRequest;
  * @see LayoutEditPolicy
  * @since 5.1.0
  */
-@objid ("464ee156-6568-4f35-bde4-f860573b72a8")
+@objid ("b686f483-d6d1-46e5-a276-5656f7019c10")
 public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutConnectionsAbstractLayoutEditPolicyDecorator {
     /**
      * @param decorated the initial layout edit policy.
      */
-    @objid ("bfcd8962-f4d4-481c-beab-0f2dd1a1405c")
+    @objid ("4a47d43f-8079-459f-b005-353880399bdb")
     public  LayoutConnectionsOrderedLayoutEditPolicyDecorator(OrderedLayoutEditPolicy decorated) {
         super( decorated);
     }
 
-    @objid ("7dd2cd43-5590-478d-9d04-f4b1e879310e")
+    @objid ("58007ad5-488c-4acd-a32b-656814e2716f")
     @Override
     protected void addAddCommand(CompoundCommand command, Request request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -61,7 +61,7 @@ public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutCon
         
     }
 
-    @objid ("fcb03359-e6b6-4dee-844b-6ab528be304d")
+    @objid ("92a8999a-f8a1-430a-87ea-16ade66d161e")
     @Override
     protected void addCloneCommand(CompoundCommand command, ChangeBoundsRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -74,7 +74,7 @@ public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutCon
      * Add <code>Commands</code> to perform a create.
      * @param request the CreateRequest
      */
-    @objid ("d2244079-e3b8-457e-9191-99bed336f612")
+    @objid ("ff30f0ff-0bc6-46ac-8b04-ddc2131e5741")
     @Override
     protected void addCreateCommand(CompoundCommand command, CreateRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -90,7 +90,7 @@ public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutCon
      * container editpart.
      * @param request the Request
      */
-    @objid ("b0bed91a-cdcb-4f75-b6c9-20a21629b694")
+    @objid ("2e895f92-dfe9-4e9c-8cda-37a840180d88")
     @Override
     protected void addDeleteDependantCommand(CompoundCommand command, GroupRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -104,7 +104,7 @@ public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutCon
      * Add <code>Commands</code> to move a group of children.
      * @param request the Request
      */
-    @objid ("5d774154-d1a6-4ab3-a09c-f34ad6f95a0d")
+    @objid ("48143f6a-e0ea-4809-8e55-de282e8aa3de")
     @Override
     protected void addMoveChildrenCommand(CompoundCommand command, ChangeBoundsRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -128,7 +128,7 @@ public class LayoutConnectionsOrderedLayoutEditPolicyDecorator extends LayoutCon
      * </ul>
      * @param request the Request
      */
-    @objid ("9956003d-0db2-437f-ab5b-b71df51a3a8c")
+    @objid ("894efe5a-c692-42da-9153-a22888ea1461")
     @Override
     protected void addOrphanChildrenCommand(CompoundCommand command, GroupRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)

@@ -43,11 +43,11 @@ public interface ISearchPanel {
      * @since Modelio 3.8
      * 
      * Whether or not this search panel should be displayed or not (implementors may analyze any condition they want to decide  upon)
-     * @param session @return
+     * @return
      */
     @objid ("79555ee2-5889-45ec-a43c-db504247af54")
     default boolean isActive(ICoreSession session) {
         return true;
     }
-
 }
+

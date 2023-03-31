@@ -202,5 +202,5 @@ public interface IMofSession {
      */
     @objid ("b6f6311e-cb3f-4ab3-b5e4-4dcaf24f2eab")
     MofSmObjectImpl createObject(MClass mc, String name);
-
 }
+

@@ -49,7 +49,7 @@ import org.modelio.diagram.elements.core.model.IGmObject;
  */
 @objid ("80be19de-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultNodeNonResizableEditPolicy extends NonResizableEditPolicy {
-    @objid ("3e68ea19-6ec0-4d09-88ea-bb7750b28653")
+    @objid ("d0d7ca6f-a00d-454b-b306-179d968068db")
     @Override
     public void activate() {
         super.activate();
@@ -60,7 +60,7 @@ public class DefaultNodeNonResizableEditPolicy extends NonResizableEditPolicy {
         
     }
 
-    @objid ("d197bec9-f46e-4674-8f61-3a76721ce3b3")
+    @objid ("0a978f1f-1ec7-4a2d-8c94-25e3be174f2f")
     @Override
     public void deactivate() {
         getHost().removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);

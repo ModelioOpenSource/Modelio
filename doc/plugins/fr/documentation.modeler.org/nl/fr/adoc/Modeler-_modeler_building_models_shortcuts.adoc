@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Utiliser-des-raccourcis]]
 
-[[utiliser-des-raccourcis]]
+
+
 = Utiliser des raccourcis
 
 Les principaux raccourcis clavier disponibles avec Modelio sont les suivants :

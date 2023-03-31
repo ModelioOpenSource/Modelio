@@ -115,7 +115,7 @@ public interface ISymbolViewItem {
      * @since 3.7
      */
     @objid ("ca48dc93-eca5-408f-858d-4eef8218f7a9")
-    public static final class Choice {
+    static final class Choice {
         @objid ("73df7186-e6d7-4558-99d2-b5f4d9142a18")
         public final String label;
 
@@ -136,5 +136,5 @@ public interface ISymbolViewItem {
         }
 
     }
-
 }
+

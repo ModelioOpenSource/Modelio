@@ -120,6 +120,7 @@ public final class UnoCaller {
      */
     @objid ("37255090-3cf9-46ee-b784-11f0f9826f54")
     private static final ExecutorService unoThreadExecutor = ForkJoinPool.commonPool(); // Executors.newCachedThreadPool();
+    
 
     /**
      * Call synchronously an operation in the OpenOffice main thread.

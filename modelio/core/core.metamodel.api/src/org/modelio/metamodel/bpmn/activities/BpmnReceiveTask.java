@@ -41,6 +41,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessage;
  * - The incoming Sequence Flow for the Receive Task has a source of a Start Event.
  * - Note that no other incoming Sequence Flow are allowed for that Receive Task (in particular, a loop
  * connection from a downstream object).
+ * 
+ * 
  */
 @objid ("008180d0-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnReceiveTask extends BpmnTask {
@@ -65,6 +67,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("478c36b7-cff6-4c15-98d5-a6e42459ffc1")
     String getImplementation();
@@ -78,6 +81,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("117762a9-ccf1-4242-b514-667a4c4fdf42")
     void setImplementation(String value);
@@ -91,6 +95,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * This attribute MAY be set to true if the Task is the first Activity (i.e., there are no incoming Sequence Flows). 
      * 
      * Multiple Tasks MAY have this attribute set to true.</i>
+     * 
      */
     @objid ("6905296f-a282-4e84-b63d-4662fec4eec1")
     boolean isInstanciate();
@@ -104,6 +109,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * This attribute MAY be set to true if the Task is the first Activity (i.e., there are no incoming Sequence Flows). 
      * 
      * Multiple Tasks MAY have this attribute set to true.</i>
+     * 
      */
     @objid ("45c6fd90-5ca8-4599-92b7-4ce6cda0af60")
     void setInstanciate(boolean value);
@@ -113,6 +119,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("62720dce-60b1-459b-b04f-5092e40c375b")
     BpmnMessage getMessageRef();
@@ -122,6 +129,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b226c6e2-89bd-4d38-ada2-6518d481c7a7")
     void setMessageRef(BpmnMessage value);
@@ -131,6 +139,7 @@ public interface BpmnReceiveTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("987948aa-1d6a-4bcc-9f54-7c23370a0233")
     BpmnOperation getOperationRef();
@@ -140,8 +149,9 @@ public interface BpmnReceiveTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0f259938-c36c-45b2-a54a-6e1694b7f052")
     void setOperationRef(BpmnOperation value);
-
 }
+

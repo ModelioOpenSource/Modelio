@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2500]]
 
-[[r2500]]
+
+
 = R2500
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Parameter_ de type 'out' ne peut pas avoir de valeur par défaut.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un paramètre de sortie ne peut pas avoir de valeur par défaut.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Supprimez la valeur par défaut.

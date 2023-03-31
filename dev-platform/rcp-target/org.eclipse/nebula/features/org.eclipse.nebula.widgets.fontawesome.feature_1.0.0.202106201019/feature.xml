@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.fontawesome.feature"
+      label="Nebula FontAwesome Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Patrik Dufresne">
+
+   <description url="http://eclipse.org/nebula">
+      FontAwesome Widget
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.fontawesome"
+         download-size="443"
+         install-size="739"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.fontawesome.source"
+         download-size="436"
+         install-size="745"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

@@ -31,7 +31,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.browser.plugin.DiagramBrowser;
 import org.modelio.diagram.browser.view.DiagramBrowserView;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.transactions.ITransaction;
@@ -51,7 +51,7 @@ public abstract class AbstractBrwModelHandler {
     @objid ("001c6e16-0d4f-10c6-842f-001ec947cd2a")
     @Execute
     public final Object execute(MPart part, IProjectService projectService, @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection) {
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         
         final DiagramBrowserView browserView = (DiagramBrowserView) part.getObject();
         

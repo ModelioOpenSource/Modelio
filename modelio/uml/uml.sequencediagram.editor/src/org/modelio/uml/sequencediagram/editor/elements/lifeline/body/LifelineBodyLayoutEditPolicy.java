@@ -34,6 +34,7 @@ import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPol
 import org.modelio.diagram.elements.common.freezone.ILayoutAssistant;
 import org.modelio.diagram.elements.common.freezone.NoopLayoutAssistant;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeNonResizableEditPolicy;
@@ -162,7 +163,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
                     requestConstraint.setSize(newWidth, newHeight);
                     return new CreateStateInvariantCommand(getHostCompositeNode(), requestConstraint);
                 } else {
-                    return new DefaultCreateElementCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint);
+                    return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(hostElement, getHostCompositeNode(), ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                 }
             }
         }
@@ -266,7 +267,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
     @objid ("d935e3a4-55b6-11e2-877f-002564c97630")
     private Command getUnmaskCommand(final CreateRequest req, final MObject hostElement, final ModelioCreationContext ctx, final MObject elementToUnmask) {
         if (getHostCompositeNode().canUnmask(elementToUnmask)) {
-            return new DefaultCreateElementCommand(hostElement, getHostCompositeNode(), ctx, getConstraintFor(req));
+            return new DefaultEditCreatedElementCommand( new DefaultCreateElementCommand(hostElement, getHostCompositeNode(), ctx, getConstraintFor(req)),getHost().getRoot().getViewer().getEditPartRegistry());
         } else {
             return null;
         }

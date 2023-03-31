@@ -36,7 +36,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bc6ecd-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("TRANSITION_ROUTINGMODE",
-                                                                           MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -61,7 +61,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bdf56b-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("TRANSITION_DRAWLINEBRIDGES",
-                                                                          MetaKey.DRAWLINEBRIDGES);
+                                                                      MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -80,7 +80,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bdf574-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TRANSITION_SHOWSTEREOTYPES",
-                                                                          MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -96,7 +96,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("81bdf57e-55c2-11e2-9337-002564c97630")
     static final StyleKey POSTCONDITIONVISIBLE = createStyleKey("TRANSITION_POSTCONDITIONVISIBLE",
-                                                                        Boolean.class);
+                                                                    Boolean.class);
 
     /**
      * Line pattern

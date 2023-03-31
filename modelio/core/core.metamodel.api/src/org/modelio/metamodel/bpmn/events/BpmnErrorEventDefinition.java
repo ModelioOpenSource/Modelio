@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Event definition for an error.
+ * 
+ * 
  */
 @objid ("008b3af8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnErrorEventDefinition extends BpmnEventDefinition {
@@ -57,6 +59,7 @@ public interface BpmnErrorEventDefinition extends BpmnEventDefinition {
      * If the Trigger is an Error, then the errorCode MUST be entered (if the processType attribute of the Process is set to executable). This ?throws? the Error.
      * For an Intermediate Event attached to the boundary of an Activity:
      * If the Trigger is an Error, then the errorCode MAY be entered. This Event ?catches? the Error. If there is no errorCode, then any error SHALL trigger the Event. If there is an errorCode, then only an Error that matches the errorCode SHALL trigger the Event.</i>
+     * 
      */
     @objid ("e105da0c-90b9-4653-881b-4eec31fd4899")
     String getErrorCode();
@@ -71,8 +74,9 @@ public interface BpmnErrorEventDefinition extends BpmnEventDefinition {
      * If the Trigger is an Error, then the errorCode MUST be entered (if the processType attribute of the Process is set to executable). This ?throws? the Error.
      * For an Intermediate Event attached to the boundary of an Activity:
      * If the Trigger is an Error, then the errorCode MAY be entered. This Event ?catches? the Error. If there is no errorCode, then any error SHALL trigger the Event. If there is an errorCode, then only an Error that matches the errorCode SHALL trigger the Event.</i>
+     * 
      */
     @objid ("07db8ec5-9b15-46ee-8336-b5233e43e19c")
     void setErrorCode(String value);
-
 }
+

@@ -54,7 +54,6 @@ import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.model.view.template.service.ModelViewTemplateManager;
 import org.modelio.platform.ui.panel.IPanelProvider;
-import org.modelio.vcore.model.api.IElementNamer;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
@@ -211,35 +210,34 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
      */
     @objid ("f4c1d908-58be-4fe2-87b9-966a8c3ebcd9")
     private void populateProcess(IStandardModelFactory modelFactory, BpmnProcess process) {
-        IElementNamer namer = this.mmServices.getElementNamer();
-        
-        // Create a Start event
-        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
-        startEvent.setContainer(process);
-        startEvent.setName(namer.getUniqueName(startEvent));
-        
-        // Create an End event
-        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
-        endEvent.setContainer(process);
-        endEvent.setName(namer.getUniqueName(endEvent));
-        
-        // Create a dumb task
-        BpmnTask task = modelFactory.createBpmnTask();
-        task.setContainer(process);
-        task.setName(namer.getUniqueName(task));
-        
-        // Create a flow between start and task
-        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
-        flow1.setSourceRef(startEvent);
-        flow1.setTargetRef(task);
-        flow1.setContainer(process);
-        
-        // Create a flow between task and end
-        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
-        flow2.setSourceRef(task);
-        flow2.setTargetRef(endEvent);
-        flow2.setContainer(process);
-        
+        //        IElementNamer namer = this.mmServices.getElementNamer();
+        //
+        //        // Create a Start event
+        //        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
+        //        startEvent.setContainer(process);
+        //        startEvent.setName(namer.getUniqueName(startEvent));
+        //
+        //        // Create an End event
+        //        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
+        //        endEvent.setContainer(process);
+        //        endEvent.setName(namer.getUniqueName(endEvent));
+        //
+        //        // Create a dumb task
+        //        BpmnTask task = modelFactory.createBpmnTask();
+        //        task.setContainer(process);
+        //        task.setName(namer.getUniqueName(task));
+        //
+        //        // Create a flow between start and task
+        //        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
+        //        flow1.setSourceRef(startEvent);
+        //        flow1.setTargetRef(task);
+        //        flow1.setContainer(process);
+        //
+        //        // Create a flow between task and end
+        //        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
+        //        flow2.setSourceRef(task);
+        //        flow2.setTargetRef(endEvent);
+        //        flow2.setContainer(process);
     }
 
     @objid ("6bbb4a2e-d02d-4b6d-88f1-a7e16ec881c3")

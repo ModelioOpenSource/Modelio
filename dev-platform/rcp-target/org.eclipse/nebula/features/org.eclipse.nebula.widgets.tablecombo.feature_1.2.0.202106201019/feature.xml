@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.tablecombo.feature"
+      label="Nebula TableCombo Widget"
+      version="1.2.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org">
+      Table Combo
+   </description>
+
+   <copyright>
+      s
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.tablecombo"
+         download-size="39"
+         install-size="76"
+         version="1.2.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.tablecombo.source"
+         download-size="54"
+         install-size="225"
+         version="1.2.0.202106201019"
+         unpack="false"/>
+
+</feature>

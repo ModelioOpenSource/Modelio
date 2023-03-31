@@ -43,14 +43,14 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
  * @author cma
  * @since 5.1.0
  */
-@objid ("f4f1920a-80a6-4692-b133-b0eee1662f16")
+@objid ("7cb7c73e-4c7b-4a2c-a491-54769579a639")
 public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectionsOrderedLayoutEditPolicyDecorator {
-    @objid ("11630c53-7165-45b4-bcb9-f1c253f556ec")
+    @objid ("4a6b8bf7-0b3f-44f1-9dff-0c997ddaf011")
     public  LayoutLaneSetConnectionsEditPolicyDecorator(OrderedLayoutEditPolicy decorated) {
         super(decorated);
     }
 
-    @objid ("c3b5c206-9c6d-4109-ab30-5dba58c87128")
+    @objid ("7190c40c-3a73-400e-980c-ec48d30a428c")
     protected void addLayoutRootLaneSetConnectionsCommands(CompoundCommand command, Request request) {
         // - host is BodyHybridContainerEditPart
         // - parent is BpmnLaneEditPart
@@ -70,7 +70,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("a7aa10bf-09e5-4420-9b3c-9833ee6e61c6")
+    @objid ("ec5fe42a-1825-4b54-9903-a98671ca7ea8")
     protected static boolean isLaneRelatedEditPart(Object parent) {
         return parent instanceof BpmnLaneSetContainerEditPart ||
                 parent instanceof BpmnLaneEditPart ||
@@ -78,7 +78,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("e7548f5b-4a3c-4197-abbd-33e3e998573e")
+    @objid ("bcdf413f-efcd-4ccb-9cb0-7a495800a348")
     @Override
     protected void addCreateCommand(CompoundCommand command, CreateRequest request) {
         final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
@@ -94,7 +94,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("661cbe80-43e4-4c41-9bc9-8eb630e10f42")
+    @objid ("cc4d1fe5-d2d7-4edb-9989-6c7bc9456372")
     @Override
     protected void addAddCommand(CompoundCommand command, Request request) {
         if (isLaneRelatedRequest(request)) {
@@ -105,7 +105,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("6e697c8e-727b-4077-99f6-dfef9ecd43d7")
+    @objid ("07ebadda-47f3-420b-909c-30711d9a0d1f")
     @Override
     protected void addDeleteDependantCommand(CompoundCommand command, GroupRequest request) {
         if (request.getEditParts().stream().anyMatch(e -> isLaneRelatedEditPart(e) )) {
@@ -116,7 +116,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("2f73668a-0ced-4c63-a098-1b56745acd28")
+    @objid ("314dbc69-2211-4a38-b96f-85b1a398b6b8")
     @Override
     protected void addCloneCommand(CompoundCommand command, ChangeBoundsRequest request) {
         if (isLaneRelatedRequest(request)) {
@@ -127,7 +127,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("5da75233-4c9d-4d45-9991-d05b6572cff5")
+    @objid ("161939b9-35c9-4860-bbe5-e5f3a75679aa")
     @Override
     protected void addOrphanChildrenCommand(CompoundCommand command, GroupRequest request) {
         if (isLaneRelatedRequest(request)) {
@@ -138,7 +138,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("b5c0ff74-3081-49c2-9e41-fdbfbd7a15a2")
+    @objid ("c28bb1a2-5c61-43df-abf4-a4f769aca6be")
     @Override
     protected void addMoveChildrenCommand(CompoundCommand command, ChangeBoundsRequest request) {
         if (isLaneRelatedRequest(request)) {
@@ -149,7 +149,7 @@ public class LayoutLaneSetConnectionsEditPolicyDecorator extends LayoutConnectio
         
     }
 
-    @objid ("77ef834b-207f-4170-825f-fc270894cbe3")
+    @objid ("bf0400e8-6dda-46ff-83ed-96637f5af69f")
     protected static boolean isLaneRelatedRequest(Request request) {
         if (request instanceof GroupRequest) {
             GroupRequest groupRequest = (GroupRequest) request;

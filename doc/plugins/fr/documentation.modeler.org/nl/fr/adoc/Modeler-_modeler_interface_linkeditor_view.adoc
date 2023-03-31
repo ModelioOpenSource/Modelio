@@ -3,17 +3,17 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoEditeur-de-liensrdquo]]
 
-[[la-vue-editeur-de-liens]]
+
+
 = La vue "Editeur de liens"
 
 .La vue "Editeur de liens"
 image::images/Modeler-_modeler_interface_linkeditor_view_vue_editeur_liens.png[2]
 
-[[Principales-commandes-dans-la-vue-ldquoEditeur-de-liensrdquo]]
 
-[[principales-commandes-dans-la-vue-editeur-de-liens]]
+
+
 ===== Principales commandes dans la vue "Editeur de liens"
 
 *Depuis la barre d'outils située en haut de l'éditeur de liens :*

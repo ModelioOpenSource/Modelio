@@ -31,5 +31,5 @@ public interface ITextElementSelectionListener {
      */
     @objid ("8d4be666-c068-11e1-8c0a-002564c97630")
     void selectedElementChanged(final MObject oldElement, final MObject newElement);
-
 }
+

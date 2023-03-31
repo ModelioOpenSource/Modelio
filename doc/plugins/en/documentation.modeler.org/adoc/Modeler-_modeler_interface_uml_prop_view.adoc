@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-Element-view]]
 
-[[the-element-view]]
+
+
 = The Element view
 
 .The Element view
@@ -18,9 +18,9 @@ image::images/Modeler-_modeler_interface_uml_prop_view_Element.png[2]
 3. The "UML" group.
 4. The "Modeler Module" group.
 
-[[Stereotypes]]
 
-[[stereotypes]]
+
+
 === Stereotypes
 
 *From the Element contextual menu:*
@@ -40,9 +40,9 @@ image::images/Modeler-_modeler_interface_uml_prop_view_Element.png[2]
 
 *Note:* For more information, see "<<Modeler-_modeler_building_models_add_stereotypes.adoc#,Adding stereotypes to elements>>".
 
-[[UML-Group]]
 
-[[uml-group]]
+
+
 === UML Group
 
 .The "UML" group of the "Element" view
@@ -64,9 +64,9 @@ You can also use the [*Ctrl-Space*] short-cut to display a drop-down list of the
 
 *Note:* For more information, see "<<Modeler-_modeler_building_models_modifying_element_props.adoc#,Modifying an element's properties>>".
 
-[[Modeler-Module-Group]]
 
-[[modeler-module-group]]
+
+
 === Modeler Module Group
 
 .The "Modeler Module" group of the "Element" view

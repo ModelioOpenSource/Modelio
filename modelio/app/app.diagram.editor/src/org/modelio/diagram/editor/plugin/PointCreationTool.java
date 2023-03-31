@@ -21,6 +21,7 @@ package org.modelio.diagram.editor.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.tools.CreationTool;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 
 /**
  * Specialised Creation Tool that create with a single point (does not use a Rectangle but a Point).
@@ -44,6 +45,21 @@ public class PointCreationTool extends CreationTool {
         setState(STATE_TERMINAL);
         handleFinished();
         return true;
+    }
+
+    /**
+     * Change Create Request Type if ControlKey is pressed. Initiate an "Unmask or Create children" request.
+     */
+    @objid ("dc11587c-6b6a-4ffa-94a1-a3d9f94b6934")
+    @Override
+    protected void updateTargetRequest() {
+        super.updateTargetRequest();
+        if(getCurrentInput().isControlKeyDown()) {
+          getTargetRequest().setType(RequestTypes.UNMASK_OR_CREATE_CHILDREN);
+        }else {
+            getTargetRequest().setType(REQ_CREATE);
+        }
+        
     }
 
 }

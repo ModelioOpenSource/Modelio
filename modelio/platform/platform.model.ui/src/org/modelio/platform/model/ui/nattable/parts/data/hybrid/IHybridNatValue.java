@@ -58,5 +58,5 @@ public interface IHybridNatValue extends ISingleNatValue {
      */
     @objid ("190df862-21bf-44eb-b004-b727df26b137")
     void setElementFilter(IMObjectFilter elementFilter);
-
 }
+

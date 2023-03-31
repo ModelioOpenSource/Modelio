@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IAuditListener {
     @objid ("51efa3f3-f1bf-4419-917e-fd045d2b2428")
     void auditModelChanged(IAuditDiagnostic auditDiagnostic);
-
 }
+

@@ -37,5 +37,5 @@ public interface IElementNamerService extends IElementNamer {
      */
     @objid ("a959e243-6474-40f2-b062-535ab878e5c0")
     MetamodelExtensionPoint<IElementNamer> getMetamodelExtensionPoint();
-
 }
+

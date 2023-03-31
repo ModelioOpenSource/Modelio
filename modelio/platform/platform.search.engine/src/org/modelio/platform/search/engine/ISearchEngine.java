@@ -28,5 +28,5 @@ import org.modelio.vcore.session.api.ICoreSession;
 public interface ISearchEngine {
     @objid ("af530e90-7d11-4e95-bbda-64e0dd896b12")
     List<Element> search(ICoreSession session, ISearchCriteria criteria);
-
 }
+

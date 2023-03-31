@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2360]]
 
-[[r2360]]
+
+
 = R2360
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The visibility of an _Operation_ cannot be greater than that of the _Operations_ it redefines.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 For example, if an operation is protected in its classifier, a classifier that inherits this method can redefine it, but its visibility cannot be public (although it can be private).
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Change the original operation visibility.

@@ -56,6 +56,7 @@ import org.modelio.api.modelio.meta.IMetamodelService;
 import org.modelio.api.modelio.model.IImageService;
 import org.modelio.api.modelio.model.IModelManipulationService;
 import org.modelio.api.modelio.model.IModelingSession;
+import org.modelio.api.modelio.model.ModelingSessionRegistry;
 import org.modelio.api.modelio.module.IModuleService;
 import org.modelio.api.modelio.navigation.INavigationService;
 import org.modelio.api.modelio.pattern.IPatternService;
@@ -64,7 +65,7 @@ import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.script.IScriptService;
 import org.modelio.api.ui.swt.IUiToolkit;
 import org.modelio.core.modelshield.ModelShield;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.events.ModelioEventTopics;
@@ -84,12 +85,19 @@ import org.modelio.platform.project.services.IProjectService;
  */
 @objid ("93a2d68f-02f0-4698-978d-413380676c25")
 public class ModelioServices implements IModelioServices, IModelioServicesRegistry {
+    @objid ("5434f26b-ad43-4616-bae9-66d859eb36de")
+    private boolean servicesInitialized;
+
+    /**
+     * The id of the CoreSession associated to this.gProject.
+     * Used as ModelingSessionRegistry key
+     */
+    @objid ("5936bb21-b76a-491d-b980-dfec0f05d9f6")
+    private Integer coreSessionId = null;
+
     @objid ("0317acfe-1583-43d9-a91d-bb009f036055")
     @Inject
     private IEclipseContext eclipseContext;
-
-    @objid ("5434f26b-ad43-4616-bae9-66d859eb36de")
-    private boolean servicesInitialized;
 
     @objid ("12127771-76b4-4e10-ad5e-3caffff01928")
     private static ModelioServices instance;
@@ -105,7 +113,7 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
     private Map<Class<?>, Object> serviceMap = new HashMap<>();
 
     @objid ("6c88c71d-0dd4-45b6-9c42-ca7da663f4bd")
-    private GProject gProject;
+    private IGProject gProject;
 
     /**
      * Called once at creation by injection mechanism (E4 processor execute)
@@ -223,16 +231,34 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
     }
 
     /**
-     * On project closing , clear the service cache
-     * @param closedProject the project being closed.
+     * On project closed , clear the service cache
+     * @param closedProject = null
      */
     @objid ("6b190cd8-644a-4e6b-8d3b-3e938d0a282b")
     @Inject
     @Optional
-    public synchronized void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
-        this.serviceMap = new HashMap<>();
+    public synchronized void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final IGProject closedProject) {
+        endServices();
+    }
+
+    /**
+     * Create a shared session and register it in the ModelingSessionRegistry.
+     * @param project the project being opened.
+     */
+    @objid ("928b6c61-a101-443d-b643-7c6fc440654f")
+    @Inject
+    @Optional
+    void onProjectOpeningMdaSessionUp(@EventTopic(ModelioEventTopics.PROJECT_OPENING_MDA_SESSION_UP) final IGProject project) {
         this.servicesInitialized = false;
-        this.gProject = null;
+        this.gProject = project;
+        this.coreSessionId = project.getSession().hashCode();
+        
+        // Prepare a SharedModelingSession instance for the mda session given to modules.
+        IModelingSession sharedModelingSession = new SharedModelingSession(project, this.eclipseContext.get(IMModelServices.class));
+        this.serviceMap.put(IModelingSession.class, sharedModelingSession);
+        
+        // Register the core session / mda session association in the registry
+        ModelingSessionRegistry.register(this.coreSessionId, sharedModelingSession);
         
     }
 
@@ -243,10 +269,8 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
     @objid ("9c59d5ce-bfdd-4e4c-a938-e6123da56fb4")
     @Inject
     @Optional
-    void onProjectOpening(@EventTopic(ModelioEventTopics.PROJECT_OPENING) final GProject newProject) {
-        this.servicesInitialized = false;
-        this.gProject = newProject;
-        
+    void onProjectOpening(@EventTopic(ModelioEventTopics.PROJECT_OPENING) final IGProject newProject) {
+        // Nothing to do
     }
 
     @objid ("c647d7c7-edeb-492a-abd8-d881be8fcbee")
@@ -263,13 +287,25 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
         
     }
 
+    @objid ("781a9455-b78c-484e-8072-1ec07d733a5b")
+    private void endServices() {
+        this.servicesInitialized = false;
+        
+        // Remove services
+        this.serviceMap = new HashMap<>();
+        
+        
+        // Detach from project, detach session
+        ModelingSessionRegistry.unregister(this.coreSessionId);
+        this.coreSessionId = null;
+        this.gProject = null;
+        
+    }
+
     @objid ("611abdc6-6a92-48c4-879b-5203115f3efa")
     private void initializeServices() {
         final IProjectService projectService = this.eclipseContext.get(IProjectService.class);
         final org.modelio.platform.mda.infra.service.IModuleManagementService coreModuleService = this.eclipseContext.get(org.modelio.platform.mda.infra.service.IModuleManagementService.class);
-        
-        IModelingSession modelingSession = new SharedModelingSession(this.gProject, this.eclipseContext.get(IMModelServices.class));
-        this.serviceMap.put(IModelingSession.class, modelingSession);
         
         IAuditService auditService = new AuditService(this.eclipseContext.get(ModelShield.class), this.eclipseContext.get(org.modelio.audit.service.IAuditService.class));
         this.serviceMap.put(IAuditService.class, auditService);

@@ -159,7 +159,7 @@ class InsertInFlowFeedback {
         
     }
 
-    @objid ("3612b999-5803-423e-8768-eb64f9c8f4b6")
+    @objid ("f52710f1-c06c-4898-82b6-5fba80b83b14")
     private void scaleToRelative(IFigure flowFigure, Translatable t) {
         flowFigure.translateToAbsolute(t);
         this.feedbackLayer.translateToRelative(t);

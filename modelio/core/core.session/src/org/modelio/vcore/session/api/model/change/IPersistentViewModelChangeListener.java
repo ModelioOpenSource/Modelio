@@ -40,5 +40,5 @@ import org.modelio.vcore.session.impl.transactions.TransactionManager;
 public interface IPersistentViewModelChangeListener {
     @objid ("f5d00b18-d4fc-44e7-a9c1-d31097596c2c")
     void updateView(final IModelChangeEvent event);
-
 }
+

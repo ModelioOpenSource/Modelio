@@ -56,5 +56,5 @@ public interface IGmDrawing extends IGmObject {
      */
     @objid ("3a9d17a1-4b2f-413c-8b2b-769c8e228aa4")
     void setHyperLink(MRef ref);
-
 }
+

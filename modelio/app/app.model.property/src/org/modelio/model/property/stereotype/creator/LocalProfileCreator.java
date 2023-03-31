@@ -20,7 +20,7 @@
 package org.modelio.model.property.stereotype.creator;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.platform.project.services.IProjectService;
@@ -43,7 +43,7 @@ class LocalProfileCreator {
      * @return profile to create stereotype
      */
     @objid ("8d9dadb0-7e6f-414e-956a-cfbf602207d4")
-    public Profile execute(IProjectFragment fragment) {
+    public Profile execute(IGModelFragment fragment) {
         ModuleComponent module = getFirstModule(fragment);
         Profile ownerProfile = null;
         if (module != null) {
@@ -56,7 +56,7 @@ class LocalProfileCreator {
     }
 
     @objid ("349b6d80-75ef-4943-bcbb-12c1fd04266d")
-    private ModuleComponent getFirstModule(IProjectFragment fragment) {
+    private ModuleComponent getFirstModule(IGModelFragment fragment) {
         for (MObject root : fragment.getRoots()) {
             if (root instanceof ModuleComponent) {
                 return (ModuleComponent) root;
@@ -80,7 +80,7 @@ class LocalProfileCreator {
     }
 
     @objid ("b9d69598-b0a5-4554-9f39-71bec7cdf101")
-    private Profile createLocalProfile(IProjectFragment fragment, ModuleComponent localModule) {
+    private Profile createLocalProfile(IGModelFragment fragment, ModuleComponent localModule) {
         Profile ownerProfile;
         // Create the local profile:
         Profile profile = (Profile) this.session.getSmFactory().createObject((SmClass) localModule.getMClass().getMetamodel().getMClass(Profile.class), fragment.getRepository());

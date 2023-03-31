@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-un-projet]]
 
-[[créer-un-projet]]
+
+
 = Créer un projet
 
 .Création d'un nouveau projet

@@ -88,7 +88,7 @@ public interface IRepositoryChangeEvent {
      * Precision of the repository change event.
      */
     @objid ("353ea8da-a209-41f0-b227-76f1d91ce89f")
-    public enum Granularity {
+    enum Granularity {
         /**
          * The event contains the exact list of modified elements.
          */
@@ -110,5 +110,5 @@ public interface IRepositoryChangeEvent {
         UNDEFINED;
 
     }
-
 }
+

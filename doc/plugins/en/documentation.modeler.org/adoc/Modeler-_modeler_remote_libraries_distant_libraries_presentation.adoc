@@ -11,9 +11,9 @@ Remote libraries (also called HTTP models) are independent, identified and coher
 
 Remote libraries can contain any model, either complete including all annotations (tags, notes) or simplified limited to namespace and inheritance links, as is often the case for _Model Components_
 
-[[What-are-the-benefits-of-using-remote-libraries]]
 
-[[what-are-the-benefits-of-using-remote-libraries]]
+
+
 ===== What are the benefits of using remote libraries?
 
 Being libraries, _remote libraries_ provide read-only model elements just like _Model Components_ (local libraries). They allow developers to share models through a network. For example, several geographically distinct teams can work together by sharing models in the form of libraries.
@@ -27,14 +27,14 @@ The integration team do not publish any model, but rather collect all the models
 
 image::images/Distant_libraries_presentation_http_libraries.png[1]
 
-[[Several-teams-sharing-HTTP-libraries]]
 
-[[several-teams-sharing-http-libraries]]
+
+
 Several teams sharing HTTP libraries
 
-[[Local-or-remote-libraries-for-my-project]]
 
-[[local-or-remote-libraries-for-my-project]]
+
+
 === Local or remote libraries for my project?
 
 There is no universal answer to this question. +

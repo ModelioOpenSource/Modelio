@@ -65,14 +65,14 @@ import org.modelio.app.project.conf.dialog.common.ScopeHelper;
 import org.modelio.app.project.conf.dialog.modules.ModuleRemovalConfirmationDialog;
 import org.modelio.app.project.conf.dialog.modules.ModuleSelectDialog;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.module.HTopoSorter;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleRTCache;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.gproject.module.ModuleSorter;
+import org.modelio.gproject.parts.module.GModule;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -85,6 +85,7 @@ import org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyExceptio
 import org.modelio.vbasic.version.VersionedItem;
 import org.modelio.vcore.session.api.transactions.ITransaction;
 import org.modelio.vcore.smkernel.AccessDeniedException;
+import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * The modules management section.
@@ -213,7 +214,7 @@ public class ModulesSection {
             @Override
             public String getText(final Object element) {
                 if (element instanceof GModule) {
-                    return ScopeHelper.getText(((GModule) element).getScope());
+                    return ScopeHelper.getText(((GModule) element).getDefinitionScope());
                 }
                 return ""; //$NON-NLS-1$
             }
@@ -491,7 +492,7 @@ public class ModulesSection {
                     AppProjectConfExt.LOG.debug(sb.toString());
                 }
         
-                final GProject openedProject = ModulesSection.this.projectService.getOpenedProject();
+                final IGProject openedProject = ModulesSection.this.projectService.getOpenedProject();
                 AddModuleHelper.run(openedProject, ModulesSection.this.moduleService, modulesToAdd.values(), monitor, getProjectAdapter());
             }
         };
@@ -521,7 +522,7 @@ public class ModulesSection {
         }
         
         if (!dependencies.isEmpty()) {
-            final IModuleRTCache cache = this.projectModel.getOpenedProject().getModuleCache();
+            final IModuleRTCache cache = this.projectModel.getOpenedProject().getProjectEnvironment().getModulesCache();
             try {
                 for (final VersionedItem<?> moduleId : dependencies) {
                     final IModuleHandle latestModule = cache.findModule(moduleId.getName(), null, null);
@@ -554,11 +555,11 @@ public class ModulesSection {
     @objid ("6a7f385f-fa3e-4d6c-af88-573cf0bc9c18")
     private static class AddModuleHelper {
         @objid ("1fd29654-21c1-4873-b1c2-60a226d699a3")
-        public static void run(final GProject project, final IModuleManagementService moduleService, final Collection<IModuleHandle> modules, final IProgressMonitor monitor, final ProjectModel projectAdapter) {
+        public static void run(final IGProject project, final IModuleManagementService moduleService, final Collection<IModuleHandle> modules, final IProgressMonitor monitor, final ProjectModel projectAdapter) {
             // Sort the module according to their dependencies
             List<IModuleHandle> sortedModules;
             try {
-                sortedModules = ModuleSorter.sortHandles(modules);
+                sortedModules = HTopoSorter.sortHandles(modules);
             
                 if (AppProjectConfExt.LOG.isDebugEnabled()) {
                     final StringBuilder sb = new StringBuilder();
@@ -623,10 +624,12 @@ public class ModulesSection {
         @objid ("b03e8915-397b-4e81-af86-4450dd811c66")
         private static List<String> getExistFragmentIdList(final ProjectModel projectAdapter) {
             final List<String> fragmentIds = new ArrayList<>();
-            final List<IProjectFragment> fragments = projectAdapter.getAllFragments();
-            for (final IProjectFragment fragment : fragments) {
-                if (fragment.getType() != FragmentType.MDA) {
-                    fragmentIds.add(fragment.getId());
+            final List<IGModelFragment> fragments = projectAdapter.getAllFragments();
+            for (final IGModelFragment fragment : fragments) {
+                for (MObject root : fragment.getRoots()) {
+                    if (!(root instanceof ModuleComponent)) {
+                        fragmentIds.add(fragment.getId());
+                    }
                 }
             }
             return fragmentIds;

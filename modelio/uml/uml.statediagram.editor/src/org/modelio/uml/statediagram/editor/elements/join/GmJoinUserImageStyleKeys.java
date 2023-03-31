@@ -40,7 +40,7 @@ public class GmJoinUserImageStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("d0fb1f46-3e4a-436b-b1ac-7e371f006953")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("JOIN_SHOWSTEREOTYPES",
-                                                                          MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("afad7073-72f3-489e-9f9d-534705eee769")
     public static final StyleKey SHOWTAGS = createStyleKey("JOIN_SHOWTAGS", MetaKey.SHOWTAGS);

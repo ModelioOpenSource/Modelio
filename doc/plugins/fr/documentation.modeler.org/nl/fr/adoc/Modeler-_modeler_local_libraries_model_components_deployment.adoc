@@ -28,9 +28,9 @@ image::images/Model_components_deployment_ConfigRamcPuces.png[6]
 1.  Cliquez sur "Configuration \ Bibliothèques..." ou sur l'icône [image:images/Model_components_deployment_config.png[3]] puis l'onglet "Bibliothèques".
 2.  Vous pouvez ajouter de nouvelles bibliothèques locales à votre projet, depuis un fichier local ou depuis le site de mise à jour.
 
-[[Déploiement-depuis-un-fichier-local]]
 
-[[déploiement-depuis-un-fichier-local]]
+
+
 ===== Déploiement depuis un fichier local
 
 .Déploiement d'un composant de modèle depuis un fichier local
@@ -43,9 +43,9 @@ image::images/Model_components_deployment_AjoutRamcPuces.png[7]
 3.  Une <<Modeler-_modeler_local_libraries_model_components_lifecycle.adoc#,dépendance>> entre le composant de modèle que vous souhaitez déployer et un autre composant de modèle qui doit être déployé d'abord n'est pas respectée. Les composants de modèle manquants sont signalés en rouge.Pour résoudre ce problème, il suffit de déployer dans sa version exacte l'autre composant de modèle (indiqué dans le champ "Dépendances") dans votre projet. Vous pouvez alors relancer l'opération de déploiement du composant de modèle que vous souhaitez déployer.
 4.  Cliquez sur 'Ajouter au projet'.
 
-[[Déploiement-depuis-le-site-de-mise-à-jour]]
 
-[[déploiement-depuis-le-site-de-mise-à-jour]]
+
+
 ===== Déploiement depuis le site de mise à jour
 
 .Déploiement d'un composant de modèle depuis le site de mise à jour

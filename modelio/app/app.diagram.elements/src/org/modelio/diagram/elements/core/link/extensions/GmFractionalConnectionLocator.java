@@ -235,13 +235,13 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
         
     }
 
-    @objid ("cd263f7c-5b5a-4873-b1f7-f7045b3dd048")
+    @objid ("8fbf84ba-0897-49f6-8272-6062da06f601")
     @Override
     public int hashCode() {
         return Objects.hash(this.fraction, this.towardTarget, this.uDistance, this.useObsoleteLocator, this.vDistance);
     }
 
-    @objid ("2d43867c-858f-43ce-8ccd-c261587ee891")
+    @objid ("9f784e25-323e-4cbb-a31d-3c8f11c85cff")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

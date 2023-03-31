@@ -54,5 +54,5 @@ public interface IModulePropertyPage extends IModulePropertyPanel {
      */
     @objid ("3d69221c-0edf-11e2-b457-002564c97630")
     void changeProperty(List<MObject> elements, int row, String value);
-
 }
+

@@ -32,5 +32,5 @@ public interface ITransactionClosureHandler {
      */
     @objid ("bb9589d6-a5ba-418c-9a17-dd6b0ad73c41")
     void commit(ITransaction transaction);
-
 }
+

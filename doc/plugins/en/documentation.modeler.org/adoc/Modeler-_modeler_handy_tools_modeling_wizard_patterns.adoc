@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modeling-assistants]]
 
-[[modeling-assistants]]
+
+
 = Modeling assistants
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Modeling assistants enable you to significantly improve productivity, coherence and traceability, by creating elements from other elements through deduction.
@@ -22,9 +22,9 @@ Modeling assistants are run from the "Modeler Module" item in the context menus 
 .Example of modeling assistant command on an Instance
 image::images/Modeler-_modeler_handy_tools_modeling_wizard_patterns_ModelingPaterns.png[2]
 
-[[assistants-available]]
 
-[[assistants-available]]
+
+
 ===== assistants available
 
 The following list shows which Modeling assistants are available on which model elements.

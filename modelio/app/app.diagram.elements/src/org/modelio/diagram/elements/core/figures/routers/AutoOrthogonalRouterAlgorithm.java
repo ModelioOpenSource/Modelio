@@ -445,7 +445,7 @@ public class AutoOrthogonalRouterAlgorithm {
      * @param b an integer
      * @return the integer at mid distance between a and b.
      */
-    @objid ("f447980b-0c7f-479d-9fd3-57d06208878f")
+    @objid ("a60b1eaf-185d-44c0-893e-219abb40e165")
     private static int middle(int a, int b) {
         if (a < b) {
             return a + (b - a) / 2;

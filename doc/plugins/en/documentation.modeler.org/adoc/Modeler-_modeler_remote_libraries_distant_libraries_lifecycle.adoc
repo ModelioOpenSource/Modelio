@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-and-publishing-a-remote-library]]
 
-[[creating-and-publishing-a-remote-library]]
+
+
 = Creating and publishing a remote library
 
-[[The-remote-library-life-cycle]]
 
-[[the-remote-library-life-cycle]]
+
+
 ===== The remote library life cycle
 
 The life cycle of a remote library has only two stages:
@@ -18,18 +18,18 @@ The life cycle of a remote library has only two stages:
 1.  The *development*
 2.  The *publication*
 
-[[Development]]
 
-[[development]]
+
+
 ===== Development
 
 The development stage consists in producing the model contained by the library. This task is carried out using Modelio and any one of the numerous means of creating models in Modelio: direct modeling, code reverse, XMI import and so on.
 
 The goal is simply to produce a model. Once this model is available, it can be published on an HTTP accessible site.
 
-[[Publication]]
 
-[[publication]]
+
+
 ===== Publication
 
 This operation consists in _preparing_ and uploading the library on an HTTP server where it will be available.

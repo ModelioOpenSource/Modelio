@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Diagrams used for collaborations between participant BPMN processes.</p><p>This diagram kind can show any element of the BPMN&nbsp;metamodel.</p><p>Collaboration diagrams are owned&nbsp;by the&nbsp;BpmnCollaboration.</p>
+ * 
+ * 
+ * 
  */
 @objid ("f63910e6-05c7-459e-ab53-ab8e8e87ec7c")
 public interface BpmnCollaborationDiagram extends BpmnProcessCollaborationDiagram {
@@ -46,5 +49,5 @@ public interface BpmnCollaborationDiagram extends BpmnProcessCollaborationDiagra
      */
     @objid ("71337a2c-cd67-4b6b-b637-e2805df94395")
     public static final String MQNAME = "Standard.BpmnCollaborationDiagram";
-
 }
+

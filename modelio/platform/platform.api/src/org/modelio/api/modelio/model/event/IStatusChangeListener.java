@@ -57,5 +57,5 @@ public interface IStatusChangeListener {
      */
     @objid ("9b89140c-f790-11dd-83f5-0014222a9f79")
     void statusChanged(IModelingSession session, IStatusChangeEvent event);
-
 }
+

@@ -176,5 +176,5 @@ public interface MMetamodelFragment {
     default void removeDynamicBehavior(String key, Object value) {
         throw new UnsupportedOperationException("removeDynamicBehavior is not available.");
     }
-
 }
+

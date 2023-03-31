@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2230]]
 
-[[r2230]]
+
+
 = R2230
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _NameSpace_ racine ne peut pas hériter d'un autre _NameSpace_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Par définition, le _NameSpace_ racine est le _NameSpace_ de plus haut niveau, il ne peut donc pas hériter d'un autre _NameSpace_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Fixez le _NameSpace_ parent comme racine à la place de celui-ci.

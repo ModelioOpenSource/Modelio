@@ -35,5 +35,5 @@ public interface IExtentFilter extends Predicate<IFigure> {
      */
     @objid ("0a4cd405-e15c-4440-b816-88cc2ca45989")
     public static final IExtentFilter NONE = f -> true;
-
 }
+

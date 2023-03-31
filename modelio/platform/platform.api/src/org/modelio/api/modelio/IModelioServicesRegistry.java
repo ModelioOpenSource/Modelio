@@ -48,5 +48,5 @@ public interface IModelioServicesRegistry {
      */
     @objid ("f7560138-06d6-4b76-b50a-7b023c15b79a")
     <I> void unregisterService(final Class<I> serviceInterface);
-
 }
+

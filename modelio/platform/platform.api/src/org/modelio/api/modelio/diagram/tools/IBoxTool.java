@@ -81,5 +81,5 @@ public interface IBoxTool extends IDiagramTool {
      */
     @objid ("a3ead6f8-0ecc-11e2-96c4-002564c97630")
     void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic parent, Rectangle rect);
-
 }
+

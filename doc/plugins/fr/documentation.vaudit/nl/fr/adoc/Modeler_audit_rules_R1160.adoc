@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1160]]
 
-[[r1160]]
+
+
 = R1160
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Pin_ cible ne peut être contenu que par une _CallOperationAction_ ou un _SendSignalAction_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Le _Pin_ cible est un _InputPin_ qui représente l'objet cible vers lequel la requête ou le signal est envoyé. Il ne peut être contenu que par une _CallOperationAction_ ou un _SendSignalAction_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Cette règle est déclenchée lorsque la propriété " _Self_ " sur un _Pin_ est validée alors que son propriétaire n'est ni une _CallOperationAction_ ni un _SendSignalAction_.

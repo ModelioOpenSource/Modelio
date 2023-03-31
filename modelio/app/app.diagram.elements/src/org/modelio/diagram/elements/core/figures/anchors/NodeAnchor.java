@@ -145,13 +145,13 @@ public class NodeAnchor extends AbstractConnectionAnchor {
         
     }
 
-    @objid ("f3c13864-210d-4a31-81c6-11d968838d75")
+    @objid ("0c8309de-634a-4c29-803c-227abee40f43")
     @Override
     public int hashCode() {
         return Objects.hash(getOwner(), this.anchorOffset);
     }
 
-    @objid ("47c073bd-cd7e-46e0-9444-12df4a6bb8df")
+    @objid ("78d8a491-8d71-481c-a812-4a4aa449b61f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

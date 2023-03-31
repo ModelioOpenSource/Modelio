@@ -34,7 +34,7 @@ import org.modelio.editors.richnote.api.RichNoteFormatRegistry;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 
 /**
  * Helper class to get the label and the icon of an {@link ExternDocument}.
@@ -127,7 +127,7 @@ public class RichNoteLabelProvider {
                 name += " ";
             }
         
-            final String label = ModuleI18NService.getLabel(type);
+            final String label = MdaResources.getLabel(type);
             if (!label.isEmpty()) {
                 return name + "[" + label + "]";
             } else {

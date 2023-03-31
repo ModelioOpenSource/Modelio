@@ -28,7 +28,6 @@ import java.util.concurrent.CompletableFuture;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.Locator;
@@ -52,9 +51,13 @@ import org.eclipse.gef.requests.SimpleFactory;
 import org.eclipse.gef.tools.AbstractTool;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.elements.core.figures.anchors.AnchorFigureFactory;
+import org.modelio.diagram.elements.core.figures.anchors.FacesConstants;
+import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
+import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
-import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.handle.TranslatedAnchorLocator;
 import org.modelio.diagram.elements.core.link.extensions.FractionalConnectionLocator;
 import org.modelio.diagram.elements.core.model.IGmModelRelated;
 import org.modelio.diagram.elements.core.tools.BendedConnectionAndNodeCreationTool;
@@ -106,7 +109,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
     private CompletableFuture<Void> removeHandlesFuture;
 
     @objid ("2dab6c0a-bc01-4577-8cc5-70bfcdafafb8")
-    private static IFixedConnectionAnchorFactory defaultAnchorProvider = new VariableFixedAnchorProvider();
+    private static IFixedNodeAnchorProvider defaultAnchorProvider = DefaultFixedAnchorProvider.createDefault();
 
     /**
      * @param connsource the created connections source edit part.
@@ -265,29 +268,61 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
                     new FractionalConnectionLocator((Connection) srcFigure, 0.6, false)));
         }
         
-        IFixedConnectionAnchorFactory anchorFactory = this.connSource.getAdapter(IFixedConnectionAnchorFactory.class);
+        IFixedNodeAnchorProvider anchorFactory = this.connSource.getAdapter(IFixedNodeAnchorProvider.class);
         if (anchorFactory == null)
             anchorFactory = defaultAnchorProvider;
         
         List<CreateHandle> ret = new ArrayList<>();
-        for (ConnectionAnchor anchor : anchorFactory.getAllAnchors(srcFigure, ConnectionRouterId.ORTHOGONAL, null)) {
-            Locator loc =  (IFigure target) -> {
+        for (ConnectionAnchor anchor : anchorFactory.getAnchorFactoryFor(this.connSource, srcFigure).getAllAnchors(ConnectionRouterId.ORTHOGONAL, null)) {
+            Locator loc;
+            if (true) {
+            loc = (IFigure target) -> {
                 Point p = anchor.getReferencePoint();
+                int distance = FixedAnchor.ANCHOR_RADIUS;
                 if (true) {
                     // move the handle ANCHOR_RADIUS px farther from the figure to avoid overriding resize handles
                     Rectangle srcBounds = srcFigure.getBounds().getCopy();
                     srcFigure.translateToAbsolute(srcBounds);
         
                     p = p.getCopy();
-                    GeomUtils.translate(p, GeomUtils.getDirection(p, srcBounds), IFixedConnectionAnchorFactory.ANCHOR_RADIUS);
+                    if (anchor instanceof FixedAnchor) {
+                        FixedAnchor fixedAnchor = (FixedAnchor) anchor;
+                        if (fixedAnchor.getRank() ==0 && fixedAnchor.getTotalOnFace() == 1 ) {
+                            // XXX hack : move the middle anchor farther to avoid anchors walking on each other
+                            distance *= 3.5;
+                        }
+                        switch (fixedAnchor.getFace()) {
+                        case FacesConstants.FACE_NORTH:
+                            GeomUtils.translate(p, Direction.NORTH, distance);
+                            break;
+                        case FacesConstants.FACE_SOUTH:
+                            GeomUtils.translate(p, Direction.SOUTH, distance);
+                            break;
+                        case FacesConstants.FACE_EAST:
+                            GeomUtils.translate(p, Direction.EAST, distance);
+                            break;
+                        case FacesConstants.FACE_WEST:
+                            GeomUtils.translate(p, Direction.WEST, distance);
+                            break;
+                        default:
+                            GeomUtils.translate(p, GeomUtils.getDirection(p, srcBounds), distance);
+                        }
+                    } else {
+                        GeomUtils.translate(p, GeomUtils.getDirection(p, srcBounds), distance);
+                    }
                 }
                 Rectangle r = new Rectangle(p.x, p.y,1,1);
                 target.translateToRelative(r);
-                r.expand(IFixedConnectionAnchorFactory.ANCHOR_RADIUS, IFixedConnectionAnchorFactory.ANCHOR_RADIUS);
+                r.expand(FixedAnchor.ANCHOR_RADIUS, FixedAnchor.ANCHOR_RADIUS);
                 r.expand(target.getInsets());
                 target.setBounds(r);
             };
-            CreateHandle handle = new CreateHandle(this.connSource, loc);
+            } else {
+                // FIXME does not work : feedback is 2* too small comparing to link creation handles !!!
+                loc = new TranslatedAnchorLocator(anchor);
+            }
+        
+            CreateHandle handle = new CreateHandle(this.connSource, loc, AnchorFigureFactory.createHandleFigure(anchor));
             ret.add(handle);
         }
         return ret;
@@ -384,15 +419,29 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         @objid ("f86c7f45-75ce-43e6-9210-b51636f2ba74")
         private static final UniversalLabelProvider labelProvider = new UniversalLabelProvider();
 
-        @objid ("b01cb947-3ffc-4801-b782-180bac0ce931")
+        /**
+         * Make a circle figure by default
+         * @param owner the node edit part
+         * @param locator the handle Locator
+         */
+        @objid ("43575bc1-7fae-43e2-9c73-9b4c6b23b6f6")
         public  CreateHandle(GraphicalEditPart owner, Locator locator) {
+            // Make a circle figure by default
+            this(owner, locator, AnchorFigureFactory.createDefaultHandleFigure(owner.getFigure()));
+            
+        }
+
+        /**
+         * @param owner the node edit part
+         * @param locator the handle Locator
+         * @param anchorFigure the figure to use to display the handle.
+         */
+        @objid ("b01cb947-3ffc-4801-b782-180bac0ce931")
+        public  CreateHandle(GraphicalEditPart owner, Locator locator, IFigure anchorFigure) {
             super(owner, locator);
             setLayoutManager(new StackLayout());
             
-            // Make a circle figure
-            Ellipse child = AnchorFigureFactory.createHandleFigure(owner);
-            
-            add(child);
+            add(anchorFigure);
             
             setCursor(SharedCursors.CURSOR_PLUG);
             

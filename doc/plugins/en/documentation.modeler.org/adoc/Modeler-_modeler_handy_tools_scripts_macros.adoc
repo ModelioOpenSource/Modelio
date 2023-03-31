@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Scripts]]
 
-[[scripts]]
+
+
 = Scripts
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 With Modelio, you can run scripts written in Jython:
@@ -20,9 +20,9 @@ With Modelio, you can run scripts written in Jython:
 
 You can also save these scripts as macros, which you can then use as often as you wish. These macros are defined and organized in a dedicated catalog, and can be run through an associated pop-up menu command, an associated toolbar icon or through the macro window itself. For more information on macros, please see the section on the <<Modeler-_modeler_modelio_settings_macros_catalog.adoc#,macros catalog>>.
 
-[[The-script-view]]
 
-[[the-script-view]]
+
+
 ===== The script view
 
 .The script view
@@ -36,9 +36,9 @@ image::images/Modeler-_modeler_handy_tools_scripts_macros_scripts1.png[2]
 4. The Script view output zone.
 5. The Script view intput zone.
 
-[[The-script-view-toolbar]]
 
-[[the-script-view-toolbar]]
+
+
 ===== The script view toolbar
 
 The script view toolbar buttons run the following operations:
@@ -56,9 +56,9 @@ The script view toolbar buttons run the following operations:
 * *Ctrl+Enter*: Runs everything in the script input zone.
 * *Shift+Enter*: Runs only what is selected in the script input zone.
 
-[[Entering-and-running-Jython-scripts]]
 
-[[entering-and-running-jython-scripts]]
+
+
 ===== Entering and running Jython scripts
 
 .Entering and running a Jython script
@@ -70,9 +70,9 @@ image::images/Modeler-_modeler_handy_tools_scripts_macros_scripts2.png[3]
 2. Click on the image:images/Modeler-_modeler_handy_tools_scripts_macros_go_16.png[7] button to execute the script.
 3. The result immediately appears in the Script view output zone.
 
-[[Saving-a-script-for-re-use]]
 
-[[saving-a-script-for-re-use]]
+
+
 ===== Saving a script for re-use
 
 If you intend to re-use a Jython script, you may want to save it, as shown below.

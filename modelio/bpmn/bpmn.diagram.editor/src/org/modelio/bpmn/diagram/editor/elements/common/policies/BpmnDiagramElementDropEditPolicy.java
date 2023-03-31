@@ -37,15 +37,15 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * Extension of {@link DiagramElementDropEditPolicy} setting anchor ref resolvers for links.
  */
-@objid ("197d9172-c34a-4de4-ae2d-a2827b3a8a01")
+@objid ("534c32a0-c711-43e3-8720-6761bdf8d179")
 public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
-    @objid ("88054654-c176-41af-b13f-6f6bb82994ed")
+    @objid ("3d04258c-0903-43d7-8e80-1f4ffd553af5")
     @Override
     public Command createDropCommandForLink(final Point dropLocation, final IGmLink link) {
         return new UnmaskLinkCommand(link, (AbstractDiagramEditPart) getHost(), dropLocation, new BpmnSourceAnchorRefResolver(), new BpmnTargetAnchorRefResolver());
     }
 
-    @objid ("6693c841-4eb0-4728-b90e-fec6d74359b4")
+    @objid ("fbc13eae-a9f1-4e3b-a711-79e8348d4a12")
     @Override
     protected UnmaskLinkCommand createUnmaskCommandForLink(Point dropLocation, GmLink link) {
         UnmaskLinkCommand unmaskCommand = super.createUnmaskCommandForLink(dropLocation, link);
@@ -57,9 +57,9 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
     /**
      * Get the default source anchor reference point for link creation request in BPMN diagrams.
      */
-    @objid ("3acf2d4d-9003-4e2f-8fb0-3be3c6fbdde7")
+    @objid ("a74fc481-1da0-4b56-a8d8-a45af88a331c")
     public static class BpmnSourceAnchorRefResolver implements IAnchorRefResolver {
-        @objid ("e6f5d467-6b0f-4a96-a655-e8bec7bbae8d")
+        @objid ("90272231-0ae2-48eb-922c-d9e673153a1e")
         @Override
         public Point resolveAnchorRef(AbstractGraphicalEditPart sourceEditPart, AbstractGraphicalEditPart targetEditPart, MObject linkElement) {
             IFigure sourceFig = sourceEditPart.getFigure();
@@ -85,7 +85,7 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         /**
          * Default strategy is to start on right, top or bottom.
          */
-        @objid ("62b3eb15-36c3-4077-8a52-9fc77e28e9fc")
+        @objid ("cca4422d-727d-4916-bf01-00da12577110")
         private Point getDefaultAnchorRef(Rectangle sourceBounds, Rectangle targetBounds) {
             final Point ret;
             if (sourceBounds.right() > targetBounds.x() && sourceBounds.y() > targetBounds.bottom()) {
@@ -101,7 +101,7 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         /**
          * Default strategy is to start preferably on the left/right side, or top/bottom otherwise.
          */
-        @objid ("0817c0a8-11a0-49b0-8738-2764aaf5a995")
+        @objid ("b1e334d3-e79c-41b5-9434-190a578e5910")
         private Point getMessageFlowAnchorRef(Rectangle sourceBounds, Rectangle targetBounds) {
             final Point ret;
             if (sourceBounds.x() > targetBounds.right()) {
@@ -124,9 +124,9 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
     /**
      * Get the default target anchor reference point for link creation request in BPMN diagrams.
      */
-    @objid ("552fa964-1bd9-4136-9cac-1657eee7368a")
+    @objid ("6df00f2c-5226-4d27-98f2-1cddcf311094")
     public static class BpmnTargetAnchorRefResolver implements IAnchorRefResolver {
-        @objid ("f278cb28-6b6e-4316-b1ab-29c38cbc91bd")
+        @objid ("eecf2b07-40da-4cfe-b37b-f01a63e11498")
         @Override
         public Point resolveAnchorRef(AbstractGraphicalEditPart sourceEditPart, AbstractGraphicalEditPart targetEditPart, MObject linkElement) {
             IFigure sourceFig = sourceEditPart.getFigure();
@@ -151,7 +151,7 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         /**
          * Default strategy is to end on left, top or bottom.
          */
-        @objid ("c8e58d99-e403-4887-acc2-c7a70e507861")
+        @objid ("5f8bafb8-3c14-4447-99fe-3d2091497bc0")
         private Point getDefaultAnchorRef(Rectangle sourceBounds, Rectangle targetBounds) {
             final Point ret;
             if (sourceBounds.right() > targetBounds.x() && sourceBounds.y() > targetBounds.bottom()) {
@@ -167,7 +167,7 @@ public class BpmnDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         /**
          * Default strategy is to end preferably on the left/right side, or top/bottom otherwise.
          */
-        @objid ("d8ea98b7-0eaf-4502-8ac3-421149cc1bf3")
+        @objid ("0b796aa5-8243-4c38-aa0a-52bdcb27982e")
         private Point getMessageFlowAnchorRef(Rectangle sourceBounds, Rectangle targetBounds) {
             final Point ret;
             if (sourceBounds.x() > targetBounds.right()) {

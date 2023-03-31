@@ -26,5 +26,5 @@ import org.modelio.vcore.smkernel.mapi.modelshield.api.IErrorReport;
 public interface IErrorReportListener {
     @objid ("00280b20-0000-0018-0000-000000000000")
     void onCommitDiagnostic(final IErrorReport aDiagnostic);
-
 }
+

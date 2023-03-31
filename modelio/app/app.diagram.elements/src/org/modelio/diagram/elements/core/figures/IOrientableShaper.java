@@ -36,7 +36,7 @@ public interface IOrientableShaper extends IShaper {
      * Orientation
      */
     @objid ("7fa4c435-1dec-11e2-8cad-001ec947c8cc")
-    public enum Orientation {
+    enum Orientation {
         /**
          * Do not stick to any specific direction.
          */
@@ -64,5 +64,5 @@ public interface IOrientableShaper extends IShaper {
         WestEast;
 
     }
-
 }
+

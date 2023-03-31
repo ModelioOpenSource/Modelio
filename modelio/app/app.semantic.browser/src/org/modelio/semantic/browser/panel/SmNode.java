@@ -32,7 +32,8 @@ import org.modelio.vcore.smkernel.meta.SmFeature;
 
 /**
  * Utility class for the Semantic Model Browser.</br>
- * A SmNode holds a pair composed of<ul>
+ * A SmNode holds a pair composed of
+ * <ul>
  * <li>a model object of type MObject</li>
  * <li>a semantic feature of type SmFeature</li>
  * </ul>
@@ -74,7 +75,7 @@ public class SmNode {
     @objid ("221b0728-6c6d-4d5d-ac91-1717dfc4b843")
     public  SmNode(MObject mObj, MAttribute mAtt) {
         this.obj = mObj;
-        this.feature = (SmFeature)mAtt;
+        this.feature = (SmFeature) mAtt;
         
     }
 
@@ -119,14 +120,13 @@ public class SmNode {
     }
 
     /**
-     * For a SmDependency, return its contents.
-     * For a SmAttribute return nothing.
+     * For a SmDependency, return its contents. For a SmAttribute return nothing.
      * @return the tree node children
      */
     @objid ("2f8fc558-4e88-47b2-afb7-605daf6eda20")
     public Collection<?> getContent() {
         if (getFeature() instanceof SmDependency) {
-            return ((SmObjectImpl) getObj()).getDepValList((SmDependency)getFeature());
+            return ((SmObjectImpl) getObj()).getDepValList((SmDependency) getFeature());
         }
         
         // For a SmAttribute return nothing
@@ -134,6 +134,7 @@ public class SmNode {
     }
 
     @objid ("81c0b8b9-5e42-4912-8822-f2463905944d")
+    @Override
     public String toString() {
         return "SmNode {" + this.feature.getName() + ":" + this.obj.getName() + "}";
     }

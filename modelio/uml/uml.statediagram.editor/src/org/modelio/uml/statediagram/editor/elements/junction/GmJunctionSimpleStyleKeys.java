@@ -52,7 +52,7 @@ public class GmJunctionSimpleStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("817d1bdc-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("JUNCTION_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("817d1bde-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("JUNCTION_SHOWTAGS", MetaKey.SHOWTAGS);

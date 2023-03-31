@@ -112,13 +112,6 @@ public class SelectElementsDialog extends ModelioDialog {
      * The candidates are defined by the session, searcher and searchCriteria
      * parameters. They are searched in the model when the dialog is popped.
      * <br/>
-     * @param parentShell
-     * @param session
-     * @param searcher
-     * @param searchCriteria
-     * @param titleKey
-     * @param selection
-     * @param autorunSearch
      */
     @objid ("167ded70-15f4-4906-8127-aa8bba584616")
     public  SelectElementsDialog(final Shell parentShell, final ICoreSession session, final ISearchEngine searcher, final ISearchCriteria searchCriteria, final String titleKey, final List<MObject> selection, final boolean autorunSearch) {
@@ -129,11 +122,7 @@ public class SelectElementsDialog extends ModelioDialog {
                 autorunSearch ? SelectElementsPanel.SearchMode.AUTO : SelectElementsPanel.SearchMode.USER);
         setContent(selection);
         
-        // Hack the shell style uglily set by ObjingDialog so that
-        // the dialog is not modal.
-        int style = getShellStyle();
-        style &= ~(SWT.PRIMARY_MODAL | SWT.APPLICATION_MODAL | SWT.SYSTEM_MODAL);
-        setShellStyle(style);
+        setBlockOnOpen(false);
         
     }
 

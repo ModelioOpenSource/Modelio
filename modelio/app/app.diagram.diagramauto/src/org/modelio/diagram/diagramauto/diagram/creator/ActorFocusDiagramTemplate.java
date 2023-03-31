@@ -32,6 +32,7 @@ import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.groups.DgNodeGroup;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
@@ -43,10 +44,13 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Package;
 
+/**
+ * Auto diagram template: display an Actor (main) and its associated use cases
+ */
 @objid ("cb580394-83b9-4a66-8196-e2dbf8d16b49")
 public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
     /**
-     * the DG representing the focused Actor
+     * The DG representing the focused Actor
      */
     @objid ("f3d3a48d-dc36-4979-8c08-896903fa588a")
     private IDiagramNode _actorDG;
@@ -64,6 +68,12 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
     public List<IDiagramNode> _linkedUseCaseDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("d151d1ae-ca8a-4c73-8788-8ab493e6bac9")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("a596718a-fdaf-437c-8d2b-d04770c5d963")
@@ -71,6 +81,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         super();
         this._linksDgs = new ArrayList<>();
         this._linkedUseCaseDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -86,40 +97,65 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         return main;
     }
 
-    @objid ("48374ecb-a934-4f73-be7c-daa28a4358cd")
+    @objid ("e78ce0e9-49fb-4530-9a7a-3735360e911f")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof Actor) {
-            initialUnmasking(dh, (Actor) main);
-        }
+    protected void generateNodesContent(IDiagramHandle dh, ModelElement main) {
+        // Dumb case 'main' is not a UML Actor
+        if (!(main instanceof Actor))
+            return;
         
-    }
-
-    @objid ("5a583caf-4ed0-4c84-9a86-019600a8e9d2")
-    protected void initialUnmasking(final IDiagramHandle dh, final Actor actor) {
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
-        }
+        Actor actor = (Actor) main;
         
         // The focused UseCase
-        this._actorDG = (IDiagramNode) dh.unmask(actor, 400, 400).get(0);
-        this._actorDG.fitToContent();
+        this._actorDG = this._unmasker.unmask(dh, actor);
+        if (this._actorDG != null) {
+            this._actorDG.fitToContent();
+        }
         
-        // Unmask the "left" nodes : the usecase associated to the actor
+        // Unmask the "right side" nodes : the usecase associated to the actor
         // Need to explore both incoming and outgoing associations because orientation is completely ignored in use case diagrams
         
-        // First, links from an Actor to the UseCase
+        // First, follow links from an Actor to the UseCase
         for (AssociationEnd a : actor.getTargetingEnd()) {
             Classifier e = a.getSource();
             if (e != null && e instanceof UseCase) {
                 // Unmask usecase
-                List<IDiagramGraphic> nodes = dh.unmask(e, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
+                IDiagramNode node = this._unmasker.unmask(dh, e);
+                if (node != null) {
                     this._linkedUseCaseDgs.add(node);
                 }
+            }
+        }
         
+        // Then, links from the UseCase to an Actor
+        for (AssociationEnd a : actor.getOwnedEnd()) {
+            Classifier e = a.isNavigable() ? a.getTarget() : a.getOpposite().getSource();
+            if (e != null && e instanceof UseCase) {
+                // Unmask use case
+        
+                IDiagramNode node = this._unmasker.unmask(dh, e);
+                if (node != null) {
+                    this._linkedUseCaseDgs.add(node);
+                }
+            }
+        }
+        
+    }
+
+    @objid ("1a52cff6-f300-4ec5-bcfb-02498cc00cee")
+    @Override
+    protected void generateLinksContent(IDiagramHandle dh, ModelElement main) {
+        // Dumb case 'main' is not a UML Actor
+        if (!(main instanceof Actor))
+            return;
+        
+        Actor actor = (Actor) main;
+        
+        // Need to explore both incoming and outgoing associations because orientation is completely ignored in use case diagrams
+        // First, follow links from an Actor to the UseCase
+        for (AssociationEnd a : actor.getTargetingEnd()) {
+            Classifier e = a.getSource();
+            if (e != null && e instanceof UseCase) {
                 // Unmask the link
                 List<IDiagramGraphic> linkDgs = dh.unmask(a.getAssociation(), 0, 0);
                 if ((linkDgs != null) && (linkDgs.size() > 0)) {
@@ -134,13 +170,6 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         for (AssociationEnd a : actor.getOwnedEnd()) {
             Classifier e = a.isNavigable() ? a.getTarget() : a.getOpposite().getSource();
             if (e != null && e instanceof UseCase) {
-                // Unmask use case
-                List<IDiagramGraphic> nodes = dh.unmask(e, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
-                    this._linkedUseCaseDgs.add(node);
-                }
-        
                 // Unmask the link
                 Association link = a.getAssociation();
                 List<IDiagramGraphic> linkDgs = dh.unmask(link, 0, 0);
@@ -148,6 +177,36 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
                     IDiagramLink linkDg = (IDiagramLink) linkDgs.get(0);
                     this._linksDgs.add(linkDg);
                 }
+            }
+        }
+        
+    }
+
+    @objid ("8b8edf06-0436-45c9-954c-fa68a1fa54ce")
+    @Override
+    protected void layoutNodes(IDiagramHandle dh) {
+        if (this._actorDG != null) {
+            UseCaseFocusLayout layout = new UseCaseFocusLayout();
+            try {
+                layout.layoutNodes(this._actorDG, this._linkedUseCaseDgs);
+            } catch (Exception e) {
+                // Should never happen
+                DiagramAuto.LOG.debug(e);
+            }
+        }
+        
+    }
+
+    @objid ("2a137b81-8e46-4d40-86d1-ff97e24c54f5")
+    @Override
+    protected void layoutLinks(IDiagramHandle dh) {
+        if (this._actorDG != null) {
+            UseCaseFocusLayout layout = new UseCaseFocusLayout();
+            try {
+                layout.layoutLinks(this._actorDG, this._linksDgs);
+            } catch (Exception e) {
+                // Should never happen
+                DiagramAuto.LOG.debug(e);
             }
         }
         
@@ -175,21 +234,6 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         return parent;
     }
 
-    @objid ("c196d88a-4653-4bd1-9790-b6f55f407ab7")
-    @Override
-    protected void layout(final IDiagramHandle dh) {
-        if (this._actorDG != null) {
-            UseCaseFocusLayout layout = new UseCaseFocusLayout();
-            try {
-                layout.layout(this._actorDG, this._linkedUseCaseDgs, this._linksDgs);
-            } catch (Exception e) {
-                // Should never happen
-                DiagramAuto.LOG.debug(e);
-            }
-        }
-        
-    }
-
     @objid ("2e68029e-e6b8-4e9b-a607-b82127d784a0")
     @Override
     public ModelElement getMainElement(AbstractDiagram autoDiagram) {
@@ -212,6 +256,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         this._actorDG = null;
         this._linksDgs.clear();
         this._linkedUseCaseDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -226,8 +271,8 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         @objid ("fe592af8-72a6-48dd-9dce-e735438fad00")
         private static final int NODE_V_SPACING = 25;
 
-        @objid ("2d8a6c19-41f1-4ba9-98bc-44a1ff168ab4")
-        public void layout(IDiagramNode actorDg, List<IDiagramNode> linkedUseCaseDgs, List<IDiagramLink> linksDgs) {
+        @objid ("862fe199-c9b4-4934-b45b-05ad4859fa95")
+        public void layoutNodes(IDiagramNode actorDg, List<IDiagramNode> linkedUseCaseDgs) {
             DgNodeGroup rightGroup = new DgNodeGroup(linkedUseCaseDgs);
             
             // Layout Actors : right DGs
@@ -242,14 +287,20 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
             actorDg.setLocation((int) xUc, (int) yUc);
             
             // Position the right block
-            double xRight = actorDg.getBounds().preciseX() + actorDg.getBounds().preciseWidth() +  BLOCK_H_SPACING;
+            double xRight = actorDg.getBounds().preciseX() + actorDg.getBounds().preciseWidth() + BLOCK_H_SPACING;
             double yRight = actorDg.getBounds().preciseY() + actorDg.getBounds().preciseHeight() / 2 - rightBlock.preciseHeight() / 2;
             rightGroup.moveTo(xRight, yRight);
             
+        }
+
+        @objid ("f17f7af4-df99-42ad-8df1-409bb8ee4243")
+        public void layoutLinks(IDiagramNode actorDg, List<IDiagramLink> linksDgs) {
             // Route links
             for (IDiagramLink linkDg : linksDgs) {
                 if (linkDg.getFrom() instanceof IDiagramNode && linkDg.getTo() instanceof IDiagramNode) {
+            
                     linkDg.setRouterKind(LinkRouterKind.DIRECT);
+            
                     IDiagramNode from = (IDiagramNode) linkDg.getFrom();
                     IDiagramNode to = (IDiagramNode) linkDg.getTo();
                     List<Point> points = Arrays.asList(new Point(from.getBounds().getCenter()), new Point(to.getBounds().getCenter()));

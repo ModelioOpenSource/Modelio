@@ -19,5 +19,6 @@
  */
 /**
  * <p>Services that metamodels may provide.</p>
+ * 
  */
 package org.modelio.vcore.smkernel.mapi.modelshield.spi;

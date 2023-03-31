@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>products</artifactId>
@@ -7,56 +9,255 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>5.1.0-SNAPSHOT</version>
+		<version>5.3.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	
+
 	<build>
 		<plugins>
-			
 			<plugin>
-				<groupId>${tycho-groupid}</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			
-			<plugin>
-				<groupId>${tycho-groupid}</groupId>
-				<artifactId>tycho-p2-director-plugin</artifactId>
-				<version>${tycho-version}</version>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
-						<id>materialize-products</id>
+						<id>copy-p2-resources</id>
+						<phase>package</phase>
 						<goals>
-							<goal>materialize-products</goal>
+							<goal>copy-resources</goal>
 						</goals>
-					</execution>
-					<execution>
-						<id>archive-products</id>
-						<goals>
-							<goal>archive-products</goal>
-						</goals>
+
+						<configuration>
+							<outputDirectory>${basedir}/target</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/p2repository</directory>
+									<includes>
+										<include>changelog.html</include>
+										<include>style.css</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<products>
-						<product>
-							<id>org.modelio.product</id>
-							<attachId>OpenSource</attachId>
-							<rootFolder>${modelio.rootFolder}</rootFolder>
-						</product>
-					</products>
-					<installFeatures>true</installFeatures>
-					<profile>DefaultProfile</profile>
-					<formats>
-						<linux>tar.gz</linux>
-						<macosx>tar.gz</macosx>
-						<win32>zip</win32>
-					</formats>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
+
+	<profiles>
+		<profile>
+			<!-- Package all products for all supported platform -->
+			<id>package.all</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>products</id>
+								<goals>
+									<goal>materialize-products</goal>
+									<goal>archive-products</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<products>
+								<product>
+									<id>org.modelio.product</id>
+									<attachId>OpenSource</attachId>
+									<rootFolder>${modelio.rootFolder}</rootFolder>
+								</product>
+							</products>
+							<installFeatures>true</installFeatures>
+							<profile>DefaultProfile</profile>
+							<formats>
+								<linux>tar.gz</linux>
+								<win32>zip</win32>
+							</formats>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- The following profiles allow to choose the Modelio packagings -->
+		<!-- Enable theses profiles in order to package them -->
+		<!-- - product.org -->
+		<!-- - product.com -->
+		<!-- - product.saas -->
+		<!-- - platform.linux -->
+		<!-- - platform.win -->
+		<!-- - platform.mac -->
+		<!-- - repositoryP2 -->
+		<profile>
+			<id>product.org</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-repository-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<skipArchive>true</skipArchive>
+							<createArtifactRepository>false</createArtifactRepository>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>products</id>
+								<goals>
+									<goal>materialize-products</goal>
+									<goal>archive-products</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<products>
+								<product>
+									<id>org.modelio.product</id>
+									<attachId>OpenSource</attachId>
+									<rootFolder>${modelio.rootFolder}</rootFolder>
+								</product>
+							</products>
+							<installFeatures>true</installFeatures>
+							<profile>DefaultProfile</profile>
+							<formats>
+								<linux>tar.gz</linux>
+								<win32>zip</win32>
+							</formats>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>platform.linux</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>platform.win</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>repositoryP2</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-repository-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<skipArchive>false</skipArchive>
+							<createArtifactRepository>true</createArtifactRepository>
+							<repositoryName>modelio-repository</repositoryName>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>materialize-products</id>
+								<goals>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<products>
+								<product>
+									<id>org.modelio.product</id>
+									<attachId>OpenSource</attachId>
+								</product>
+							</products>
+							<installFeatures>true</installFeatures>
+							<profile>DefaultProfile</profile>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

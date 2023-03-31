@@ -91,13 +91,13 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
         return this.distance;
     }
 
-    @objid ("bae996ac-e34b-49c5-a0fa-4db2af9b74d2")
+    @objid ("17152861-9424-45f5-a270-de8aafb49026")
     @Override
     public int hashCode() {
         return Objects.hash(getOwner(), this.distance);
     }
 
-    @objid ("a279e809-6c3d-449c-a9cc-7ec4992ed01d")
+    @objid ("2e1fa872-8a3d-4f6d-a00c-2e99afd6ae4a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

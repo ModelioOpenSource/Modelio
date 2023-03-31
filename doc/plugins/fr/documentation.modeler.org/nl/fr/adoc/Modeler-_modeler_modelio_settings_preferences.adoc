@@ -5,9 +5,9 @@
 
 = Préférences Modelio
 
-[[Administration]]
 
-[[administration]]
+
+
 ===== Administration
 
 Dans la catégorie *Administration* de la fenêtre *Préférences*, vous avez la possibilité de définir le niveau de log de Modelio et d'activer les commandes d'administration.
@@ -28,9 +28,9 @@ Ces commandes sont disponibles dans le menu contextuel de la racine d'un modèle
 
 
 
-[[Catalogue-de-modules]]
 
-[[catalogue-de-modules]]
+
+
 ===== Catalogue de modules
 
 Le catalogue de modules est la liste de tous les modules connus par votre installation locale de Modelio. Par défaut, les modules figurant dans le catalogue de modules sont ceux fournis avec votre installation Modelio, mais vous pouvez également y rajouter d'autres modules que vous avez téléchargés ou créés vous-même, afin de pouvoir les utiliser dans les projets Modelio.
@@ -50,9 +50,9 @@ Par défaut, le catalogue est stocké dans l'espace utilisateur :
 Vous pouvez choisir un autre emplacement pour le catalogue de modules. Pour cela, cliquez sur le bouton "Déplacer le catalogue de modules..." et choisissez un autre emplacement. Le contenu du catalogue sera alors déplacé vers ce nouvel emplacement. Veuillez noter que cette opération peut prendre plusieurs minutes en fonction de la taille du catalogue et de la performance de votre ordinateur.
 
 
-[[Configuration-réseau]]
 
-[[configuration-réseau]]
+
+
 ===== Configuration réseau
 
 Dans la catégorie *Configuration réseau* de la fenêtre *Préférences*, vous avez la possibilité de configurer la connexion à un serveur proxy.
@@ -82,9 +82,9 @@ Utilisez cette table pour spécifier les noms d'hôtes avec lesquels il ne faut 
 La case à cocher de la 1ère colonne indique que l'entrée est utilisée par le "Fournisseur" actuellement sélectionné.
 
 
-[[Valeurs-par-défaut-du-projet]]
 
-[[valeurs-par-défaut-du-projet]]
+
+
 ===== Valeurs par défaut du projet
 
 Dans la catégorie *Valeurs par défaut du projet* de la fenêtre *Préférences*, vous avez la possibilité de définir les valeurs par défaut lors de la création de nouveaux éléments.
@@ -98,9 +98,9 @@ image::images/Modeler-_modeler_modelio_settings_preferences_OpenProject_default_
 * *Notes Description* : Définit le type MIME (texte brut ou HTML) pour les notes "Description"
 
 
-[[Mises-à-jour]]
 
-[[mises-à-jour]]
+
+
 ===== Mises à jour
 
 Le "site de Mise à jour" contient les mises à jour de l'application Modelio, des modules et des composants de modèles. +
@@ -109,9 +109,9 @@ Par défaut, l'URL pointe sur le site officiel de la mise à jour de Modelio.
 image::images/Modeler-_modeler_modelio_settings_preferences_OpenUpdates_fr.png[1]
 
 
-[[Pont-LibreOffice-OpenOffice]]
 
-[[pont-libreoffice-openoffice]]
+
+
 ===== Pont LibreOffice / OpenOffice
 
 Dans la catégorie *Pont LibreOffice / OpenOffice* de la fenêtre *Préférences*, vous avez la possibilité de définir le chemin vers le répertoire contenant l'exécutable LibreOffice ou OpenOffice, au cas où Modelio n'arrive pas à le trouver automatiquement, ou si vous souhaitez utiliser l'une de ces applications plutôt que l'autre.
@@ -119,9 +119,9 @@ Dans la catégorie *Pont LibreOffice / OpenOffice* de la fenêtre *Préférences
 image::images/Modeler-_modeler_modelio_settings_preferences_OpenLibreOffice_bridge_fr.png[9]
 
 
-[[XMI]]
 
-[[xmi]]
+
+
 ===== XMI
 
 Dans la catégorie *XMI* de la fenêtre *Préférences*, vous avez la possibilité de définir plusieurs options pour vos opérations d'import / d'export XMI.

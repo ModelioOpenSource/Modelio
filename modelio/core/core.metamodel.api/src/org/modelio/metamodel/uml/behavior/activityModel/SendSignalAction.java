@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
  * 
  * 
  * SendSignalAction is an action that creates a signal instance from its inputs, and transmits it to the target object, where it may cause the firing of a state machine transition or the execution of an activity. The argument values are available to the execution of associated behaviors. The requestor continues execution immediately. 
+ * 
+ * 
  */
 @objid ("003d3af6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface SendSignalAction extends ActivityAction {
@@ -53,6 +55,7 @@ public interface SendSignalAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>The type of signal transmitted.</i>
+     * 
      */
     @objid ("32d7800b-c4f3-4739-953f-b632dfba9aa0")
     Signal getSent();
@@ -62,8 +65,9 @@ public interface SendSignalAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>The type of signal transmitted.</i>
+     * 
      */
     @objid ("20e005e4-a642-401c-a2de-213a0509b046")
     void setSent(Signal value);
-
 }
+

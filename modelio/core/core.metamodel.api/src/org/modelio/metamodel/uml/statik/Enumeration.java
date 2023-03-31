@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * An Enumeration corresponds to C++ or Java enum, or equivalent types in Pascal, Ada or any other language. 
  * 
  * In Modelio, an Enumeration belongs to its NameSpace.
+ * 
+ * 
  */
 @objid ("000981a2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Enumeration extends GeneralClass {
@@ -56,6 +58,7 @@ public interface Enumeration extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Link to the "Literal", which represents the possible values of the type representatives.</i>
+     * 
      */
     @objid ("a95cdd5d-c795-4e2d-96e6-a806fbc9068d")
     EList<EnumerationLiteral> getValue();
@@ -65,8 +68,9 @@ public interface Enumeration extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Link to the "Literal", which represents the possible values of the type representatives.</i>
+     * 
      */
     @objid ("a8e40152-46ca-4a78-b904-993cdf74c9ed")
     <T extends EnumerationLiteral> List<T> getValue(java.lang.Class<T> filterClass);
-
 }
+

@@ -50,5 +50,5 @@ public interface IModulePropertyTreePanel {
 
     @objid ("c88bf696-1eba-11e2-9382-bc305ba4815c")
     void setFocus();
-
 }
+

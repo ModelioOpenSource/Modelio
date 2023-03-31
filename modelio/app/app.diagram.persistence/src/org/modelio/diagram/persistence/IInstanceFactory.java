@@ -61,5 +61,5 @@ public interface IInstanceFactory {
      */
     @objid ("492c3070-b9ef-4542-a089-00593a6662dc")
     IPersistentMigrator createMigratorInstance(String classNamespace) throws PersistenceException;
-
 }
+

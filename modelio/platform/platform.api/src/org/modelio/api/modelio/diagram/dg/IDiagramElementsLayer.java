@@ -45,5 +45,5 @@ public interface IDiagramElementsLayer extends IDiagramLayer {
      */
     @objid ("29dac33c-3a37-4054-90ea-9b113ca3b37a")
     List<IDiagramLink> getElementLinks();
-
 }
+

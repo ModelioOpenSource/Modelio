@@ -24,7 +24,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 
 /**
  * Edit policy that shows a feedback when hovering the host figure while creating or reconnecting a connection.
@@ -32,15 +32,15 @@ import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnch
 @objid ("f70f18c3-799c-487d-9a11-1151b352f5d9")
 public class AnchorsFeedbackEditPolicy extends GraphicalEditPolicy {
     @objid ("f5830548-f761-4a5a-bb5b-5e13802ff029")
-    private final IFixedConnectionAnchorFactory anchorFactory;
+    private final IFixedNodeAnchorProvider anchorProvider;
 
     @objid ("48659857-c0ad-468e-8eef-ae924c4bb65d")
     private DisplayAnchorFeedbackHelper anchorFbHelper;
 
     @objid ("7dec3524-3e27-4dc2-9810-a0f4cf5dee0f")
-    public  AnchorsFeedbackEditPolicy(IFixedConnectionAnchorFactory anchorFactory) {
+    public  AnchorsFeedbackEditPolicy(IFixedNodeAnchorProvider anchorFactory) {
         super();
-        this.anchorFactory = anchorFactory;
+        this.anchorProvider = anchorFactory;
         
     }
 
@@ -55,8 +55,8 @@ public class AnchorsFeedbackEditPolicy extends GraphicalEditPolicy {
     public void showTargetFeedback(Request request) {
         if (isHandled(request)) {
             if (this.anchorFbHelper==null) {
-                if (this.anchorFactory != null) {
-                    this.anchorFbHelper = new DisplayAnchorFeedbackHelper(getHost(), getHostFigure(), this.anchorFactory, getFeedbackLayer());
+                if (this.anchorProvider != null) {
+                    this.anchorFbHelper = new DisplayAnchorFeedbackHelper(getHost(), getHostFigure(), this.anchorProvider, getFeedbackLayer());
                 }
             }
             if (this.anchorFbHelper!=null) {
@@ -82,9 +82,9 @@ public class AnchorsFeedbackEditPolicy extends GraphicalEditPolicy {
         case RequestConstants.REQ_CONNECTION_END:
         case RequestConstants.REQ_RECONNECT_SOURCE:
         case RequestConstants.REQ_RECONNECT_TARGET:
+            return true;
         case RequestConstants.REQ_SELECTION:
         case RequestConstants.REQ_SELECTION_HOVER:
-            return true;
         default:
             return false;
         }

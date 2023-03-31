@@ -48,6 +48,7 @@ import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkCh
 import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnFlowElementReparentElementCommand;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.linknode.AbstractCreateLinkChooseNodeEditPolicy;
@@ -101,8 +102,13 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
     public  BodyHybridContainerLayoutEditPolicy() {
         super();
         // Create an instance of both free zone and lane set policies.
-        this.freeZonePolicy = new LayoutConnectionsConstrainedLayoutEditPolicyDecorator( new BpmnFreeZoneLayoutPolicy());
-        this.laneSetPolicy = new LayoutLaneSetConnectionsEditPolicyDecorator(new BpmnLaneSetEditPolicy());
+        if (false) {
+               this.freeZonePolicy = new LayoutConnectionsConstrainedLayoutEditPolicyDecorator( new BpmnFreeZoneLayoutPolicy());
+            this.laneSetPolicy = new LayoutLaneSetConnectionsEditPolicyDecorator(new BpmnLaneSetEditPolicy());
+        } else {
+            this.freeZonePolicy = new BpmnFreeZoneLayoutPolicy();
+            this.laneSetPolicy = new BpmnLaneSetEditPolicy();
+        }
         
     }
 
@@ -553,10 +559,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 if (elementToUnmask != null) {
                     if (gmParentNode.canUnmask(elementToUnmask)) {
                         Object requestConstraint = getConstraintFor(request);
-                        return new DefaultCreateElementCommand(hostElement,
-                                gmParentNode,
-                                ctx,
-                                requestConstraint);
+                        return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(hostElement, gmParentNode, ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                     } else {
                         return null;
                     }
@@ -571,15 +574,9 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 if (returnCommand) {
                     Object requestConstraint = getConstraintFor(request);
                     if (BpmnSubProcess.class.isAssignableFrom(ctx.getJavaClass())) {
-                        return new CreateBpmnSubProcessCommand(hostElement,
-                                gmParentNode,
-                                ctx,
-                                requestConstraint);
+                        return new DefaultEditCreatedElementCommand(new CreateBpmnSubProcessCommand(hostElement, gmParentNode,ctx,requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                     } else {
-                        return new CreateBpmnFlowElementCommand(hostElement,
-                                gmParentNode,
-                                ctx,
-                                requestConstraint);
+                        return new DefaultEditCreatedElementCommand(new CreateBpmnFlowElementCommand(hostElement, gmParentNode, ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                     }
                 }
             }

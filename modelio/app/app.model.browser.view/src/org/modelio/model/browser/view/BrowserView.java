@@ -32,13 +32,15 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.menu.MPopupMenu;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.model.browser.view.plugin.BrowserViewActivator;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
@@ -73,6 +75,14 @@ public class BrowserView {
     @objid ("6d8830e5-78e2-47a6-ae7f-cb061116280f")
     public static final String VIEWMENU_ID = "org.modelio.model.browser.view.viewmenu";
 
+    @objid ("68f3f575-a169-43b7-a786-0fd107080f18")
+    @Inject
+    private MApplication application;
+
+    @objid ("0ba5070b-a9e9-4ca3-b2fd-96550d977c95")
+    @Inject
+    private EModelService modelService;
+
     @objid ("af8097c3-bfe0-4ef9-aec9-5d93522c7108")
     private IPanelProvider contributedPanel;
 
@@ -87,7 +97,10 @@ public class BrowserView {
 
     @objid ("e515f626-907b-4a4c-8def-10f7b28483a8")
     @PostConstruct
-    public void postConstruct(final Composite parent) {
+    public void postConstruct(final Composite parent, final MPart part) {
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        part.getToolbar().setVisible(true);
+        
         // Read the extensions to find the effective browser panel
         // As only one panel is currently expected, just pick the first available one and post a LOG warning message for ignored definitions.
         this.contributedPanel = null;
@@ -116,7 +129,7 @@ public class BrowserView {
         
         final IProjectService projectService = this.eclipseContext.get(IProjectService.class);
         if (projectService != null) {
-            final GProject project = projectService.getOpenedProject();
+            final IGProject project = projectService.getOpenedProject();
         
             if (project != null) {
                 onProjectOpened(project);
@@ -151,7 +164,7 @@ public class BrowserView {
     @Inject
     @SuppressWarnings("unused")
     @Optional
-    void onFragmentEvents(@UIEventTopic(ModelioEventTopics.FRAGMENT_EVENTS) final IProjectFragment fragment) {
+    void onFragmentEvents(@UIEventTopic(ModelioEventTopics.FRAGMENT_EVENTS) final IGModelFragment fragment) {
         if (this.contributedPanel != null
                 && !((Control) this.contributedPanel.getPanel()).isDisposed()) {
             this.contributedPanel.setInput(BrowserView.this.contributedPanel.getInput());
@@ -175,15 +188,20 @@ public class BrowserView {
     @Inject
     @Optional
     void onProjectClosed(@SuppressWarnings("unused")
-    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         this.contributedPanel.setInput(null);
     }
 
     @objid ("a050354a-95e7-4676-99a2-ed77fce97338")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
+    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject) {
         this.contributedPanel.setInput(openedProject);
+        MPart part = (MPart) this.modelService.find(BrowserView.PART_ID, this.application);
+        if (part != null) {
+            part.setLabel(openedProject.getName());
+        }
+        
     }
 
 }

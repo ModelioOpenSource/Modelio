@@ -26,19 +26,19 @@ import org.eclipse.swt.printing.Printer;
 
 @objid ("2e05ad42-835e-4483-8a2d-228b3f4e0571")
 public class PrintMargin {
-    // Margin to the left side, in pixels
+     // // Margin to the left side, in pixels
     @objid ("cdd140a7-376b-4d1b-a395-4b828a25e405")
     public int left;
 
-    //  Margins to the right side, in pixels
+     // //  Margins to the right side, in pixels
     @objid ("5abd9edf-25a2-422a-8214-e9662a6e85c6")
     public int right;
 
-    //  Margins to the top side, in pixels
+     // //  Margins to the top side, in pixels
     @objid ("35d49bb4-f4eb-48ad-928e-e223f6516dc6")
     public int top;
 
-    //  Margins to the bottom side, in pixels
+     // //  Margins to the bottom side, in pixels
     @objid ("245369c7-6bff-45ff-bc93-6c38ac676753")
     public int bottom;
 

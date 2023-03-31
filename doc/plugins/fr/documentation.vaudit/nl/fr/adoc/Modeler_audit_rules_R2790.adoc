@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2790]]
 
-[[r2790]]
+
+
 = R2790
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une transition entre deux régions du même état est interdite.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les régions d'un état sont des flux concurrents, il ne peut donc y avoir de transition entre ces régions.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des transitions entre des régions d'un même état, supprimez-les.

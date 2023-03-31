@@ -194,5 +194,5 @@ public interface IDiagramGraphic {
      */
     @objid ("e97e5d15-861c-11e0-b2a1-002564c97630")
     void setStyle(final IStyleHandle style);
-
 }
+

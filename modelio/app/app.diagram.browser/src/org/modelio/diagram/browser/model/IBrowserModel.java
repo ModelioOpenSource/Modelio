@@ -62,5 +62,5 @@ public interface IBrowserModel {
 
     @objid ("0030d694-0d4f-10c6-842f-001ec947cd2a")
     ICellModifier getLabelEditor(TreeViewer browserView, ICoreSession iCoreSession);
-
 }
+

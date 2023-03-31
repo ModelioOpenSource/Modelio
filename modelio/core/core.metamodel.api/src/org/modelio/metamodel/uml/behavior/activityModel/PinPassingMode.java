@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007f7718-91e0-1f74-804b-001ec947cd2a")
 public enum PinPassingMode {
@@ -36,6 +38,7 @@ public enum PinPassingMode {
     INPIN(0, "InPin", "InPin"),
     @objid ("d221b14e-051b-4d05-b72f-5ab2db6bea45")
     OUTPIN(1, "OutPin", "OutPin");
+
 public static final int INPIN_VALUE = 0;
     public static final int OUTPIN_VALUE = 1;
     private static final PinPassingMode[] VALUES_ARRAY =

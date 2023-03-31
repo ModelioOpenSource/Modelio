@@ -31,5 +31,5 @@ public interface ITextNatValue extends IStringNatValue {
     @objid ("1d333eb7-6d0c-49ae-beb0-24e1ce865b9b")
     @Override
     String getValue();
-
 }
+

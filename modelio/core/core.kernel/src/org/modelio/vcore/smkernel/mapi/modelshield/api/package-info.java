@@ -19,5 +19,6 @@
  */
 /**
  * <p>Service that may be provided by metamodel extensions to register model shield checkers.</p>
+ * 
  */
 package org.modelio.vcore.smkernel.mapi.modelshield.api;

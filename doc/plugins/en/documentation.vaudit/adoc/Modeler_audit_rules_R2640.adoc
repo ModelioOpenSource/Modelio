@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2640]]
 
-[[r2640]]
+
+
 = R2640
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _Interface_ cannot have _StateMachines_, except a protocol _StateMachine_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A state machine defines the behavior of an instantiated classifier; therefore it cannot define an interface.
 
 Since an interface specifies conformity characteristics, it does not own detailed behavior specifications. Instead, interfaces may own a protocol state machine that specifies event sequences and pre/post conditions for the operations described by the interface.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Move the state machine to an instantiable _Classifier_.

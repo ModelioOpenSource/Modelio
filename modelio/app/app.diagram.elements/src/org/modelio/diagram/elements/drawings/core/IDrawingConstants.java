@@ -45,5 +45,5 @@ public interface IDrawingConstants {
      */
     @objid ("e82c3741-d625-4a30-8bcb-b0b430accb83")
     public static final Insets TRANSPARENT_MARGIN = new Insets(5);
-
 }
+

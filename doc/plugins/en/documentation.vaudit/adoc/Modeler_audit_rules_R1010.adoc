@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1010]]
 
-[[r1010]]
+
+
 = R1010
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _ActivityPartition_ cannot be contained in both an _Activity_ and an _ActivityPartition._
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The involved _ActivityPartition_ is contained by both another _ActivityPartition_ (through the _SuperPartition_ relationship) and an _Activity_ (through the _InActivity_ relationship), but these relationships should be exclusive of one another.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 This rule is usually triggered by a malfunctioning module (or macro). Please contact the module authors so they may fix it.

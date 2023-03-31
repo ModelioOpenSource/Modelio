@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * An exit point pseudostate is an exit point of a state machine or composite state. Entering an exit point within any region of the composite state or state machine referenced by a submachine state implies the exit of this composite state or submachine state and the triggering of the transition that has this exit point as source in the state machine enclosing the submachine or composite state.
+ * 
+ * 
  */
 @objid ("004fc78e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExitPointPseudoState extends AbstractPseudoState {
@@ -54,6 +56,7 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("c3e11d2e-db22-43aa-96bf-150d5065778e")
     State getExitOf();
@@ -63,6 +66,7 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("ba45ac5d-8529-40cf-afe4-6b50c43ea738")
     void setExitOf(State value);
@@ -72,6 +76,7 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("4e724efc-720e-416c-8841-cb642f1d1c0b")
     EList<ConnectionPointReference> getConnection();
@@ -81,6 +86,7 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("fc24d24a-8edb-409e-889c-77825bba3f08")
     <T extends ConnectionPointReference> List<T> getConnection(java.lang.Class<T> filterClass);
@@ -90,6 +96,7 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6b6d3bf7-c03c-4f74-9f1a-67ccbfab19d7")
     StateMachine getExitOfMachine();
@@ -99,8 +106,9 @@ public interface ExitPointPseudoState extends AbstractPseudoState {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4c60da79-fc2e-41f0-9a18-c6445b56365c")
     void setExitOfMachine(StateMachine value);
-
 }
+

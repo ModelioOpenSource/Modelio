@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2450]]
 
-[[r2450]]
+
+
 = R2450
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _Package_ cannot have inheritance links.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Packages cannot have inheritance links.
 
 They can have import links and package merge links (_PackageMerge_).
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Delete the inheritance links.

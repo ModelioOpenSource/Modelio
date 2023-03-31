@@ -76,7 +76,7 @@ class StateDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
         return getDropCommand(subReq);
     }
 
-    @objid ("c1575c9b-b7ae-4557-998e-97a609c6abfb")
+    @objid ("13540c1b-99f6-47ef-92ba-64721388bb0c")
     @Override
     protected UnmaskLinkCommand createUnmaskCommandForLink(Point dropLocation, GmLink link) {
         UnmaskLinkCommand unmaskCommand = super.createUnmaskCommandForLink(dropLocation, link);
@@ -85,7 +85,7 @@ class StateDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
         return unmaskCommand;
     }
 
-    @objid ("a9ce9fe6-d4a6-4033-9ba6-d6132423c020")
+    @objid ("cd8bf14a-ea3c-4df8-96a9-92b1763a977a")
     @Override
     public Command createDropCommandForLink(final Point dropLocation, final IGmLink link) {
         return new UnmaskLinkCommand(link, (AbstractDiagramEditPart) getHost(), dropLocation, new StateSourceAnchorRefResolver(), new StateTargetAnchorRefResolver());
@@ -94,9 +94,9 @@ class StateDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
     /**
      * Get the default source anchor reference point for link creation request in State diagrams.
      */
-    @objid ("599a0404-e301-4896-b45c-472a45068007")
+    @objid ("add76dfb-1213-4e0a-867e-3b762ad8a844")
     private static class StateSourceAnchorRefResolver implements IAnchorRefResolver {
-        @objid ("6c1a1c99-92c7-4d11-9823-541d187665c7")
+        @objid ("36841290-1510-409f-8682-c5bf22bbd35c")
         @Override
         public Point resolveAnchorRef(AbstractGraphicalEditPart sourceEditPart, AbstractGraphicalEditPart targetEditPart, MObject linkElement) {
             IFigure sourceFig = sourceEditPart.getFigure();
@@ -125,9 +125,9 @@ class StateDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
     /**
      * Get the default target anchor reference point for link creation request in State diagrams.
      */
-    @objid ("8daea993-8d20-4e76-b295-91ef32c1f4c8")
+    @objid ("1297adf1-eaae-438a-91c0-d15d101352c2")
     private static class StateTargetAnchorRefResolver implements IAnchorRefResolver {
-        @objid ("dff0eaed-f936-434b-8ac1-3fda3fb29e38")
+        @objid ("2e842459-1529-4272-97f3-5ddab467a5dd")
         @Override
         public Point resolveAnchorRef(AbstractGraphicalEditPart sourceEditPart, AbstractGraphicalEditPart targetEditPart, MObject linkElement) {
             IFigure sourceFig = sourceEditPart.getFigure();

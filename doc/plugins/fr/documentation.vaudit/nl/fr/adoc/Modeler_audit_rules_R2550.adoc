@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2550]]
 
-[[r2550]]
+
+
 = R2550
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si un _Port_ est un _Port_ de behavior, les Interfaces qu'il fournit doivent être implémentées par la _Classifier_ auquel il appartient.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les demandes arrivant sur des _Ports_ de behavior sont directement traitées par le _Classifier_ qui les contient. Le _Classifier_ doit donc implémenter les _Interfaces_ fournies par le _Port_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Implémentez les _Interfaces_ manquantes.

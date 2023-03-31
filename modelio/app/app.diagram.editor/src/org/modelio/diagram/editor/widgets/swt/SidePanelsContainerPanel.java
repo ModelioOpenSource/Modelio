@@ -30,7 +30,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Device;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -46,7 +45,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Sash;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.panel.IPanelProvider;
 
 /**
@@ -354,8 +353,8 @@ public class SidePanelsContainerPanel {
             layoutFactory.spacing(3, 0).numColumns(3).applyTo(this.titleBar);
             this.titleBar.addListener(SWT.Paint, ev -> drawTitleBackground(ev.gc, this.titleBar));
             
-            Font modifiedFont = CoreFontRegistry.getModifiedFont(parent.getFont(), 0, 0.9f);
-            setFont(modifiedFont);
+            
+            setFont(UIFont.SMALL);
             
             this.expandButton2 = new ArrowButtonCanvas(this.titleBar);
             this.expandButton2.setDirection(PositionConstants.WEST);

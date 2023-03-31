@@ -111,6 +111,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
      */
     @objid ("be9a8b4b-01a8-49f0-8c00-0694ab16f54e")
     private BpmnParticipant element; // BpmnLane or BpmnParticipant
+    
 
     /**
      * Default constructor.

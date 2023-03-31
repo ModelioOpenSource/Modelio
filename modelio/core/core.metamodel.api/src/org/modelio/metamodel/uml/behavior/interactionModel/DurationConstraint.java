@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.Constraint;
  * 
  * Modelio specific:
  * DurationConstraint has been greatly simplified to improve its useability : its bounds are expressed directly textually instead of using the IntervalConstraint and DurationIntervals OMG metaclasses.
+ * 
+ * 
  */
 @objid ("0043d1ea-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DurationConstraint extends Constraint {
@@ -59,6 +61,7 @@ public interface DurationConstraint extends Constraint {
      * 
      * Metamodel description:
      * <i>The minimum duration between 2 MessageEnds.</i>
+     * 
      */
     @objid ("d2d087e3-a93f-46c3-9b04-fdaf1d8b6e13")
     String getDurationMin();
@@ -68,6 +71,7 @@ public interface DurationConstraint extends Constraint {
      * 
      * Metamodel description:
      * <i>The minimum duration between 2 MessageEnds.</i>
+     * 
      */
     @objid ("73911b6e-4ada-421d-b52d-a917e0462ec9")
     void setDurationMin(String value);
@@ -77,6 +81,7 @@ public interface DurationConstraint extends Constraint {
      * 
      * Metamodel description:
      * <i>The maximum duration between 2 MessageEnds.</i>
+     * 
      */
     @objid ("a6fbb6f8-288a-4ce9-930b-f1be8fc75d15")
     String getDurationMax();
@@ -86,8 +91,9 @@ public interface DurationConstraint extends Constraint {
      * 
      * Metamodel description:
      * <i>The maximum duration between 2 MessageEnds.</i>
+     * 
      */
     @objid ("7fc91f32-ead7-45e1-b6de-09f55c8e4d76")
     void setDurationMax(String value);
-
 }
+

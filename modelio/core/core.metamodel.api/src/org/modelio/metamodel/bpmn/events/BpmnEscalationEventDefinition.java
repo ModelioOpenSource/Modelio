@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Event corresponding to an escalation.
+ * 
+ * 
  */
 @objid ("008be606-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnEscalationEventDefinition extends BpmnEventDefinition {
@@ -60,6 +62,7 @@ public interface BpmnEscalationEventDefinition extends BpmnEventDefinition {
      * For an Intermediate Event attached to the boundary of an Activity: 
      * If the trigger is an Escalation, then the escalationCode MAY be entered.
      * This Event ?catches? the Escalation. If there is no escalationCode, then any Escalation SHALL trigger the Event. If there is an escalationCode, then only an Escalation that matches the escalationCode SHALL trigger the Event.</i>
+     * 
      */
     @objid ("da480362-cb57-4894-8119-5c5727524288")
     String getEscalationCode();
@@ -77,8 +80,9 @@ public interface BpmnEscalationEventDefinition extends BpmnEventDefinition {
      * For an Intermediate Event attached to the boundary of an Activity: 
      * If the trigger is an Escalation, then the escalationCode MAY be entered.
      * This Event ?catches? the Escalation. If there is no escalationCode, then any Escalation SHALL trigger the Event. If there is an escalationCode, then only an Escalation that matches the escalationCode SHALL trigger the Event.</i>
+     * 
      */
     @objid ("056b17a1-51b2-424b-8f43-2cb6b0087710")
     void setEscalationCode(String value);
-
 }
+

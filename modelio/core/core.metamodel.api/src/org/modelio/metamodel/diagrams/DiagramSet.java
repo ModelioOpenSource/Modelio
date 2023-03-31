@@ -36,6 +36,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("006e175c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DiagramSet extends ModelElement {
@@ -56,6 +58,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("761229bd-7312-44d7-aee4-83a5a68797d4")
     EList<DiagramSet> getSub();
@@ -65,6 +68,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("62c8187a-3506-4719-bac3-c974e46df613")
     <T extends DiagramSet> List<T> getSub(java.lang.Class<T> filterClass);
@@ -74,6 +78,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("27604e88-764f-47d3-8c8e-abbbb05301b9")
     DiagramSet getParent();
@@ -83,6 +88,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4e11123c-896c-4874-a1da-a8fb4606960c")
     void setParent(DiagramSet value);
@@ -92,6 +98,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a92db1e5-1b2d-4e4b-b28e-6f32ddd682bc")
     EList<AbstractDiagram> getReferencedDiagram();
@@ -101,6 +108,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4161ef4e-20a0-4aaa-b11c-1025489f575a")
     <T extends AbstractDiagram> List<T> getReferencedDiagram(java.lang.Class<T> filterClass);
@@ -110,6 +118,7 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("49e5fc7b-9d0b-41f4-b179-2b31951b8233")
     AbstractProject getOwner();
@@ -119,8 +128,9 @@ public interface DiagramSet extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8586acbd-d937-4641-a86a-9f41271254ee")
     void setOwner(AbstractProject value);
-
 }
+

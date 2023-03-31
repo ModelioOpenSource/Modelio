@@ -33,6 +33,9 @@ import org.modelio.metamodel.uml.infrastructure.Element;
  * 
  * 
  * <p>This mechanism provides the ability to define partial orders of OccurrenceSpecifications that may otherwise not have a specified order.</p><p>A GeneralOrdering may appear anywhere in an Interaction, but only between OccurrenceSpecifications.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0045de18-c4bf-1fd8-97fe-001ec947cd2a")
 public interface GeneralOrdering extends Element {
@@ -53,6 +56,7 @@ public interface GeneralOrdering extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ca176abe-2e93-481b-a767-e4105b7de98a")
     OccurrenceSpecification getBefore();
@@ -62,6 +66,7 @@ public interface GeneralOrdering extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1c6aaec8-abe8-4837-96f9-a549ad051c03")
     void setBefore(OccurrenceSpecification value);
@@ -71,6 +76,7 @@ public interface GeneralOrdering extends Element {
      * 
      * Metamodel description:
      * <i>The OccurrenceSpecification referred comes after the OccurrenceSpecification referred by before.</i>
+     * 
      */
     @objid ("df4340e9-880f-422a-8ba7-a04288ff3d24")
     OccurrenceSpecification getAfter();
@@ -80,8 +86,9 @@ public interface GeneralOrdering extends Element {
      * 
      * Metamodel description:
      * <i>The OccurrenceSpecification referred comes after the OccurrenceSpecification referred by before.</i>
+     * 
      */
     @objid ("18a66cbe-683a-42d7-9237-ccbecb212de9")
     void setAfter(OccurrenceSpecification value);
-
 }
+

@@ -22,24 +22,23 @@ package org.modelio.propertyview.fragment.model;
 import java.io.IOException;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.data.project.IFragmentInfos;
-import org.modelio.gproject.fragment.exml.ExmlFragment;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
- * <i>ExmlFragment</i> data model.
+ * <i>GExmlFragment</i> data model.
  * <p>
- * This class provides the list of properties for the <i>ExmlFragment</i>
- * metaclass.
+ * This class provides the list of properties for the <i>GExmlFragment</i> metaclass.
  */
 @objid ("1451bf35-b809-4b9b-b541-790dab474d27")
 public class ExmlFragmentPropertyModel extends AbstractFragmentPropertyModel {
     /**
-     * Create a new <i>ExmlFragment</i> data model from an <i>ExmlFragment</i>.
+     * Create a new <i>GExmlFragment</i> data model from an <i>GExmlFragment</i>.
      * @param fragment the fragment of which properties will be display
      */
     @objid ("9e02e801-3d0a-483c-a366-2d3533bc7b34")
-    public  ExmlFragmentPropertyModel(ExmlFragment fragment) {
+    public  ExmlFragmentPropertyModel(IGModelFragment fragment) {
         super(fragment);
         IFragmentInfos infos;
         try {
@@ -54,7 +53,7 @@ public class ExmlFragmentPropertyModel extends AbstractFragmentPropertyModel {
     @objid ("d84822f2-b1a8-481c-a674-90f8c08b2c9f")
     @Override
     public Map<String, String> getPropertyList() {
-        Map<String,String> map = super.getPropertyList();
+        Map<String, String> map = super.getPropertyList();
         map.put(PropertyViewPlugin.I18N.getString("fragment.type.label"), PropertyViewPlugin.I18N.getString("fragment.type.label.exml"));
         return map;
     }

@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00839f78-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics {
@@ -53,6 +55,7 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * Metamodel description:
      * <i>Flag that controls whether the loop condition is evaluated at the beginning (testBefore = true) or at the end (testBefore = false) of the
      * loop iteration.</i>
+     * 
      */
     @objid ("b7760519-b3e5-48b3-b44e-022cd353760b")
     boolean isTestBefore();
@@ -63,6 +66,7 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * Metamodel description:
      * <i>Flag that controls whether the loop condition is evaluated at the beginning (testBefore = true) or at the end (testBefore = false) of the
      * loop iteration.</i>
+     * 
      */
     @objid ("3042aa90-232d-4ec9-9ea8-00b3b1f73326")
     void setTestBefore(boolean value);
@@ -72,6 +76,7 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("aac3d07d-1cbf-4cbf-ac36-10725dfd01bb")
     String getLoopCondition();
@@ -81,6 +86,7 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("74d6b1e4-4645-4a4b-9e90-fe336cbb1ab5")
     void setLoopCondition(String value);
@@ -90,6 +96,7 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("924fd35c-397a-4f6f-bba7-928d5af72cc9")
     String getLoopMaximum();
@@ -99,8 +106,9 @@ public interface BpmnStandardLoopCharacteristics extends BpmnLoopCharacteristics
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1c3377e3-ccc9-4da5-a978-41ff468c81ef")
     void setLoopMaximum(String value);
-
 }
+

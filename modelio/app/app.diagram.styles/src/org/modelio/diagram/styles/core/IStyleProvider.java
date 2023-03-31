@@ -70,5 +70,5 @@ public interface IStyleProvider {
      */
     @objid ("4e6c63bd-2d1e-49d5-99eb-d56ed3e32ab2")
     ISymbolViewModel getSymbolViewModel();
-
 }
+

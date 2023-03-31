@@ -22,15 +22,14 @@ package org.modelio.propertyview.fragment.model;
 import java.io.IOException;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.data.ramc.IModelComponentInfos;
-import org.modelio.gproject.fragment.ramcfile.MdaFragment;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
  * <i>MdaFragment</i> data model.
  * <p>
- * This class provides the list of properties for the <i>MdaFragment</i>
- * metaclass.
+ * This class provides the list of properties for the <i>MdaFragment</i> metaclass.
  */
 @objid ("e43720c1-5e74-4676-9f0c-01b7ae374416")
 public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
@@ -42,10 +41,10 @@ public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
      * @param fragment the fragment of which properties will be display
      */
     @objid ("7b0b7092-95f5-4d3c-96f9-1c7af8577968")
-    public  MdaFragmentPropertyModel(MdaFragment fragment) {
+    public  MdaFragmentPropertyModel(IGModelFragment fragment) {
         super(fragment);
         try {
-            IModelComponentInfos infos = fragment.getInformations();
+            IFragmentInfos infos = fragment.getInformations();
             this.name = infos.getName();
             this.version = infos.getVersion().toString();
         } catch (IOException e) {
@@ -75,7 +74,7 @@ public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
     @objid ("5ac813a3-766c-439e-b26e-090dced38434")
     @Override
     public Map<String, String> getPropertyList() {
-        Map<String,String> map = super.getPropertyList();
+        Map<String, String> map = super.getPropertyList();
         map.put(PropertyViewPlugin.I18N.getString("fragment.type.label"), PropertyViewPlugin.I18N.getString("fragment.type.label.mda"));
         map.put(PropertyViewPlugin.I18N.getString("fragment.version.label"), this.getVersion());
         return map;

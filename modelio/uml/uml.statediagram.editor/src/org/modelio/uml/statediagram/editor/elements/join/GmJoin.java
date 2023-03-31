@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f551a0fa-55b6-11e2-877f-002564c97630")
 public class GmJoin extends GmPortContainer {
+    @objid ("f551a0fe-55b6-11e2-877f-002564c97630")
+    private JoinPseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmJoin extends GmPortContainer {
 
     @objid ("f551a10a-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f551a0fe-55b6-11e2-877f-002564c97630")
-    private JoinPseudoState element;
 
     @objid ("fdc7abc3-5a5b-11e2-9e33-00137282c51b")
     static final GmJoinStructuredStyleKeys STRUCTURED_KEYS = new GmJoinStructuredStyleKeys();

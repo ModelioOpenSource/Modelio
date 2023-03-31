@@ -138,5 +138,5 @@ public interface IRepositorySupport {
      */
     @objid ("06a53b06-cc63-4961-8d2c-b192fb46977b")
     void removeRepositoryChangeListener(IRepositoryChangeListener listener);
-
 }
+

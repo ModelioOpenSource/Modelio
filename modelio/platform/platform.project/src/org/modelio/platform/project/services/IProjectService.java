@@ -21,20 +21,14 @@ package org.modelio.platform.project.services;
 
 import java.io.IOException;
 import java.net.URI;
-import java.nio.file.FileSystemException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.FragmentConflictException;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.gproject.GProjectAuthenticationException;
+import org.modelio.gproject.auth.GProjectAuthenticationException;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.core.project.ICurrentProjectService;
 import org.modelio.platform.preferences.IGProjectPreferenceStore;
 import org.modelio.platform.project.services.closeproject.IProjectCloser;
-import org.modelio.platform.project.services.createproject.IProjectCreator2;
-import org.modelio.platform.project.services.openproject.IProjectOpener;
+import org.modelio.platform.project.services.createproject.IProjectCreator;
 import org.modelio.platform.project.services.workspace.IWorkspaceService;
 import org.modelio.vbasic.auth.IAuthData;
 
@@ -47,17 +41,7 @@ import org.modelio.vbasic.auth.IAuthData;
  * IProjectService has a singleton instance available for injection.
  */
 @objid ("0056d718-9dc5-103b-a520-001ec947cd2a")
-public interface IProjectService extends ICurrentProjectService, IWorkspaceService, IProjectOpener, IProjectCreator2, IProjectCloser, IFragmentMigratorFactory {
-    /**
-     * Adds a model fragment to the currently opened project.
-     * @param project the project to modify
-     * @param fragmentDescriptor the descriptor of the fragment to add.
-     * @param monitor a progress monitor.
-     * @throws FragmentConflictException if a fragment with same name or URI is already deployed.
-     */
-    @objid ("00545222-bb2f-103c-a520-001ec947cd2a")
-    void addFragment(GProject project, FragmentDescriptor fragmentDescriptor, IProgressMonitor monitor) throws FragmentConflictException;
-
+public interface IProjectService extends ICurrentProjectService, IWorkspaceService, IProjectCreator, IProjectCloser, IFragmentMigratorFactory {
     /**
      * @param nodeId a preference node identifier.
      * @return the project preference store for the node.
@@ -80,7 +64,7 @@ public interface IProjectService extends ICurrentProjectService, IWorkspaceServi
      * @throws InterruptedException on user cancel
      */
     @objid ("0082f550-acc2-103b-a520-001ec947cd2a")
-    void openProject(final ProjectDescriptor project, IAuthData authData, IProgressMonitor monitor) throws IOException, IllegalArgumentException, IllegalStateException, GProjectAuthenticationException, InterruptedException;
+    void openProject(final GProjectDescriptor project, IAuthData authData, IProgressMonitor monitor) throws IOException, IllegalArgumentException, IllegalStateException, GProjectAuthenticationException, InterruptedException;
 
     /**
      * Opens the project designated by 'projectURI' in the current workspace.
@@ -107,28 +91,6 @@ public interface IProjectService extends ICurrentProjectService, IWorkspaceServi
     void openProject(String projectName, IAuthData authData, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException;
 
     /**
-     * Remove a model fragment from the currently opened project.
-     * <p>
-     * All fragment datas will be deleted from disk.
-     * @param project the project to modify
-     * @param fragment the fragment to remove
-     */
-    @objid ("002f56d4-a4c3-1044-a30e-001ec947cd2a")
-    void removeFragment(GProject project, IProjectFragment fragment);
-
-    /**
-     * Rename a fragment and adapt its directory to match the new name.
-     * @param project the project that owns the fragment
-     * @param fragment the fragment to edit.
-     * @param name the new name.
-     * @throws FileSystemException in case of file system error.
-     * @throws IOException in case of I/O failure.
-     * @throws FragmentConflictException if a fragment with same name or URI is already deployed.
-     */
-    @objid ("616c200b-ef1a-44b2-9bbb-a43efbd8f4cc")
-    void renameFragment(GProject project, IProjectFragment fragment, String name) throws FileSystemException, IOException, FragmentConflictException;
-
-    /**
      * Saves the contents of the project currently opened in the application.
      * @param monitor a progress monitor. If <code>null</code>, no progress will be reported.
      * @throws IOException If the project saving failed at the IO level.
@@ -137,4 +99,11 @@ public interface IProjectService extends ICurrentProjectService, IWorkspaceServi
     @objid ("00831bd4-acc2-103b-a520-001ec947cd2a")
     void saveProject(IProgressMonitor monitor) throws IOException, IllegalStateException;
 
+    /**
+     * @return <code>true</code> if Modelio runs in batch mode.
+     * @since 5.2
+     */
+    @objid ("c852e319-b81f-423f-a084-147aeca3e74d")
+    boolean isBatchMode();
 }
+

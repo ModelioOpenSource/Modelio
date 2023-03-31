@@ -22,5 +22,5 @@ package org.modelio.platform.rcp.extensionpoint;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("3472d66b-3c3d-442e-b80a-bc0c4241d768")
-public interface IApplicationExtensionPointContribution extends IExtensionPointContribution {
-}
+public interface IApplicationExtensionPointContribution extends IExtensionPointContribution {}
+

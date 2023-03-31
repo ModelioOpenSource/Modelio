@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Tracer-des-liens-dans-un-diagramme]]
 
-[[tracer-des-liens-dans-un-diagramme]]
+
+
 = Tracer des liens dans un diagramme
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Dans les diagrammes Modelio, il existe quatre façons de tracer un lien :
@@ -22,8 +22,8 @@ Dans les diagrammes Modelio, il existe quatre façons de tracer un lien :
 
 Tous les diagrammes Modelio bénéficient de la fonctionnalité "expert de modélisation", qui fournit une aide à la création de liens en temps réel. Si vous essayez de créer un lien autorisé (par exemple, une association entre deux classes), l'expert de modélisation affiche l'élément concerné en vert, indiquant ainsi que l'opération de création est autorisée. En revanche, si vous essayez de créer un lien non-autorisé (par exemple, une association entre un package et une classe), l'expert de modélisation affiche l'élément concerné en rouge, indiquant ainsi que l'opération de création n'est pas autorisée.
 
-[[Tracer-un-lien-en-mode-orthogonal]]
-[[tracer-un-lien-en-mode-orthogonal]]
+
+
 ===== Tracer un lien en mode orthogonal
 
 .Traçage d'une association entre deux classes en mode orthogonal (mode par défaut)
@@ -35,9 +35,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateLink.png[2]
 2. Cliquez sur la classe d'origine.
 3. Tracez votre lien, avec des points de routage image:images/RoutingPoint.png[RoutingPoint], si vous le désirez, puis cliquez sur la classe de destination.
 
-[[Tracer-un-lien-en-mode-libre]]
 
-[[tracer-un-lien-en-mode-libre]]
+
+
 ===== Tracer un lien en mode libre
 
 .Traçage de la même association en mode libre (en utilisant la touche *"SHIFT"*)
@@ -49,9 +49,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateBendLink.png[3]
 2. Cliquez sur la classe d'origine.
 3. Tracez votre lien en maintenant enfoncée la touche "*SHIFT*", avec autant de points intermédiaires que nécessaire, puis cliquez sur la classe de destination.
 
-[[Tracer-un-lien-en-mode-cible-partagée-sous-forme-de-râteau]]
 
-[[tracer-un-lien-en-mode-cible-partagée-sous-forme-de-râteau]]
+
+
 ===== Tracer un lien en mode cible partagée (sous forme de râteau)
 
 Les liens d'héritage reliant plus de deux éléments sont automatiquement représentés sous forme de râteau. Ils peuvent être horizontaux ou verticaux, et peuvent pointer soit vers le haut, soit vers le bas.
@@ -67,9 +67,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateRakeLink.png[4]
 2. Cliquez sur la classe d'origine.
 3. Tracez votre lien avec autant de points de routage que nécessaire, puis cliquez sur le lien de généralisation existant.
 
-[[Ancres-fixes]]
 
-[[ancres-fixes]]
+
+
 ===== Ancres fixes
 
 Certains éléments (comme les éléments BPMN, State ou ArchiMate) disposent de points d'ancrage fixes, qui permettent d'y accrocher les liens de sorte à ce que leur points d'origines/destinations ne changent pas par la suite, lors des déplacements ou du retaillage de ces éléments. Le nombre d’ancres fixes dépend de la taille de l’élément.
@@ -81,9 +81,9 @@ image::images/FixedAnchors.png[FixedAnchors]
 image::images/FixedAnchors2.png[FixedAnchors2]
 
 
-[[Loutil-Smart-links]]
 
-[[loutil-smart-links]]
+
+
 === L'outil Smart links
 
 Modelio apporte Smart Links, un nouvel outil pour créer rapidement et facilement des liens dans les diagrammes. Il peut être utilisé de deux manières différentes.

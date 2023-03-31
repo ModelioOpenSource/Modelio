@@ -143,27 +143,27 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
             return null;
         }
         return new IEditableText() {
-            @Override
-            public String getText() {
-                return computeLabel();
-            }
+                    @Override
+                    public String getText() {
+                        return computeLabel();
+                    }
         
-            @Override
-            public void setText(String text) {
-                String[] values = text.split("\\.\\.");
+                    @Override
+                    public void setText(String text) {
+                        String[] values = text.split("\\.\\.");
         
-                if (values.length == 1 && values[0].equals("*")) {
-                    linkEnd.setMultiplicityMin("0");
-                    linkEnd.setMultiplicityMax(values[0]);
-                } else if (values.length == 1) {
-                    linkEnd.setMultiplicityMin(values[0]);
-                    linkEnd.setMultiplicityMax(values[0]);
-                } else if (values.length == 2) {
-                    linkEnd.setMultiplicityMin(values[0]);
-                    linkEnd.setMultiplicityMax(values[1]);
-                }
-            }
-        };
+                        if (values.length == 1 && values[0].equals("*")) {
+                            linkEnd.setMultiplicityMin("0");
+                            linkEnd.setMultiplicityMax(values[0]);
+                        } else if (values.length == 1) {
+                            linkEnd.setMultiplicityMin(values[0]);
+                            linkEnd.setMultiplicityMax(values[0]);
+                        } else if (values.length == 2) {
+                            linkEnd.setMultiplicityMin(values[0]);
+                            linkEnd.setMultiplicityMax(values[1]);
+                        }
+                    }
+                };
         
     }
 

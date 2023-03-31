@@ -73,4 +73,10 @@ public class GmNoteStyleKeys extends ElementsAbstractStyleKeyProvider {
     @objid ("818b23fb-1dec-11e2-8cad-001ec947c8cc")
     public static final StyleKey LINEPATTERN = createStyleKey("NOTE_LINEPATTERN", MetaKey.LINEPATTERN);
 
+    /*
+         * Note representation mode
+         */
+    @objid ("43320e5c-ada9-4bea-bae9-59bc1262528b")
+    public static final StyleKey UMLREPR = createStyleKey("NOTE_UML_REPRESENTATION", Boolean.class);
+
 }

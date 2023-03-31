@@ -75,5 +75,5 @@ public interface IMultiRowElementNatValue extends ISingleNatValue {
      */
     @objid ("22b75262-f0b8-4bdf-acb8-8889d7d099ad")
     String getTagSuffix();
-
 }
+

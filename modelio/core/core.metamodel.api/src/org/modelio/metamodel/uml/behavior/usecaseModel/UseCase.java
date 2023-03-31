@@ -41,6 +41,8 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
  * UseCases are structured by Packages, and have cooperation links with Actors. 
  * 
  * UseCases belong to a NameSpace.
+ * 
+ * 
  */
 @objid ("00588716-c4bf-1fd8-97fe-001ec947cd2a")
 public interface UseCase extends GeneralClass {
@@ -61,6 +63,7 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>In dependencies between UseCases, this defines the link to the UseCaseDependency association.</i>
+     * 
      */
     @objid ("36ad0db2-503f-4a7b-b655-f49eecf61fbe")
     EList<UseCaseDependency> getUsed();
@@ -70,6 +73,7 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>In dependencies between UseCases, this defines the link to the UseCaseDependency association.</i>
+     * 
      */
     @objid ("f2cc379a-3c84-4056-8b1b-0686a8a194fb")
     <T extends UseCaseDependency> List<T> getUsed(java.lang.Class<T> filterClass);
@@ -79,6 +83,7 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>References the ExtensionPoints owned by the use case.</i>
+     * 
      */
     @objid ("d5e55c4c-a9f7-4b14-8b56-a3cdcc4e9f48")
     EList<ExtensionPoint> getOwnedExtension();
@@ -88,6 +93,7 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>References the ExtensionPoints owned by the use case.</i>
+     * 
      */
     @objid ("3ff26b82-b7d6-4ad9-8c61-57cc766102fe")
     <T extends ExtensionPoint> List<T> getOwnedExtension(java.lang.Class<T> filterClass);
@@ -97,6 +103,7 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5a9d2594-3abb-4492-b48a-3756f087b1d7")
     EList<UseCaseDependency> getUser();
@@ -106,8 +113,9 @@ public interface UseCase extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b2f44928-7688-4c2f-9641-12d791441dce")
     <T extends UseCaseDependency> List<T> getUser(java.lang.Class<T> filterClass);
-
 }
+

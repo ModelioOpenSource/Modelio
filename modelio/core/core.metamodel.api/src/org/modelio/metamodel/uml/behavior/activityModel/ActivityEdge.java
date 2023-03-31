@@ -38,6 +38,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * ActivityEdge is an abstract class for the connections along which tokens flow between activity nodes. It covers control and data flow edges. 
  * 
  * Activity edges can control token flow.
+ * 
+ * 
  */
 @objid ("00270a1a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityEdge extends UmlModelElement {
@@ -58,6 +60,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specification evaluated at runtime to determine if the edge can be traversed. </i>
+     * 
      */
     @objid ("1c1d862e-62d0-49a2-bd68-0255cd773bcb")
     String getGuard();
@@ -67,6 +70,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specification evaluated at runtime to determine if the edge can be traversed. </i>
+     * 
      */
     @objid ("7a4298ae-c76f-46bd-bee6-8ebcd6b316b5")
     void setGuard(String value);
@@ -76,6 +80,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Number of tokens consumed from the source node on each traversal.</i>
+     * 
      */
     @objid ("c5239dbe-1843-42f8-b7a9-0832d6da205c")
     String getWeight();
@@ -85,6 +90,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Number of tokens consumed from the source node on each traversal.</i>
+     * 
      */
     @objid ("90b2f773-ffa9-4b6a-ae53-5bc78a8d34bb")
     void setWeight(String value);
@@ -94,6 +100,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node to which tokens are put when they traverse the edge.</i>
+     * 
      */
     @objid ("3b9e6485-10bb-41dc-a4b5-2e4d050ce98c")
     ActivityNode getTarget();
@@ -103,6 +110,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Node to which tokens are put when they traverse the edge.</i>
+     * 
      */
     @objid ("ea02e10d-dc72-4146-9e63-7008d99beb80")
     void setTarget(ActivityNode value);
@@ -112,6 +120,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b22358e4-9995-4008-b4cb-2fd92455a274")
     ActivityNode getSource();
@@ -121,6 +130,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fd552e24-8ecb-4da9-b0e2-c5d354e72dc8")
     void setSource(ActivityNode value);
@@ -130,6 +140,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Region that the edge can interrupt.</i>
+     * 
      */
     @objid ("293e4ca5-42c2-44d7-be6e-d2eebaa53f1f")
     InterruptibleActivityRegion getInterrupts();
@@ -139,6 +150,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Region that the edge can interrupt.</i>
+     * 
      */
     @objid ("a026a71d-2a0d-4795-956c-f4a0fbc4fabe")
     void setInterrupts(InterruptibleActivityRegion value);
@@ -148,6 +160,7 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90f1cb58-8242-4480-8565-36b34020e6c3")
     EList<InformationFlow> getRealizedInformationFlow();
@@ -157,8 +170,9 @@ public interface ActivityEdge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8202b523-94e7-43f5-9adc-2a3bdaf5db74")
     <T extends InformationFlow> List<T> getRealizedInformationFlow(java.lang.Class<T> filterClass);
-
 }
+

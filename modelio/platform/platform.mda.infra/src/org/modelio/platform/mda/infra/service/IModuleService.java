@@ -22,6 +22,7 @@ package org.modelio.platform.mda.infra.service;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.mda.IMdaExpert;
+import org.modelio.platform.mda.infra.IMdaResourceProvider;
 
 /**
  * Access to services provided by deployed modules.
@@ -42,4 +43,11 @@ public interface IModuleService {
     @objid ("e7106362-faf7-4de6-8f2c-a192145b7b58")
     List<IRTModule> getStartedModules();
 
+    /**
+     * The MDA resource provider can provide I18n'ed labels and descriptions along with icons and images from MDA elements.
+     * @return the MDA resources provider.
+     */
+    @objid ("62129c91-5ccd-4e05-ba93-7b9a9907a60a")
+    IMdaResourceProvider getMdaResourceProvider();
 }
+

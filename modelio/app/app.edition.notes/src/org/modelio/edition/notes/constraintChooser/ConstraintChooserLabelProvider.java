@@ -26,7 +26,7 @@ import org.modelio.edition.notes.plugin.EditionNotes;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 
 /**
@@ -39,10 +39,10 @@ public class ConstraintChooserLabelProvider extends LabelProvider {
     public Image getImage(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            return ModuleI18NService.getModuleImage(moduleComponent);
+            return MdaResources.getModuleImage(moduleComponent);
         } else if (element instanceof Stereotype) {
             Stereotype stereotype = (Stereotype) element;
-            Image image = ModuleI18NService.getIcon(stereotype);
+            Image image = MdaResources.getIcon(stereotype);
             if (image != null) {
                 return image;
             }
@@ -55,7 +55,7 @@ public class ConstraintChooserLabelProvider extends LabelProvider {
     public String getText(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            String label = ModuleI18NService.getLabel(moduleComponent);
+            String label = MdaResources.getLabel(moduleComponent);
             if (label != null && !label.isEmpty()) {
                 return label;
             }
@@ -63,7 +63,7 @@ public class ConstraintChooserLabelProvider extends LabelProvider {
         } else if (element instanceof Stereotype) {
             StringBuilder constraintTypeLabel = new StringBuilder();
             Stereotype stereotype = (Stereotype) element;
-            String label = ModuleI18NService.getLabel(stereotype);
+            String label = MdaResources.getLabel(stereotype);
             if (label != null && !label.isEmpty()) {
                 constraintTypeLabel.append(label);
             } else {

@@ -50,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
 @objid ("6b064bb8-afb6-4d6e-95bf-18642fe075ee")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PatternParameter")
-public class PatternParameter extends Parameter {// Empty
+public class PatternParameter extends Parameter {
+// Empty
     
 }

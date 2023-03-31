@@ -19,16 +19,25 @@
  */
 package org.modelio.diagram.elements.common.freezone;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.commands.PostLayoutCommand;
+import org.modelio.diagram.elements.core.figures.routers.AutoOrthogonalRouter;
+import org.modelio.diagram.elements.core.figures.routers.OrthogonalRectifierRouter;
+import org.modelio.diagram.elements.core.helpers.ToolSelectionUtils;
 
 /**
  * Edit policy that catches {@link PostLayoutCommand#REQ_TYPE} requests to translate children if the request tells this edit part was resized toward left and/or top.
@@ -90,14 +99,14 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
                 return;
             }
             
-            Rectangle absOldBounds = this.oldBounds.getCopy();
-            Rectangle absNewBounds = newBounds.getCopy();
+            PrecisionRectangle absOldBounds = new PrecisionRectangle(this.oldBounds);
+            PrecisionRectangle absNewBounds = new PrecisionRectangle(newBounds);
             
             hostFigure.translateToAbsolute(absNewBounds);
             hostFigure.translateToAbsolute(absOldBounds);
             
-            Dimension minsize = hostFigure.getMinimumSize().getCopy();
-            hostFigure.translateToAbsolute(minsize);
+            Dimension absMinSize = hostFigure.getMinimumSize().getCopy();
+            hostFigure.translateToAbsolute(absMinSize);
             
             int dx = absNewBounds.x - absOldBounds.x;
             int dy = absNewBounds.y - absOldBounds.y;
@@ -113,7 +122,7 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
             } else if (dx > 0 && dw < 0) {
                 // shrunk left border toward right
                 int curW = absNewBounds.width();
-                tx = -Math.min(dx, curW - minsize.width());
+                tx = -Math.min(dx, curW - absMinSize.width());
             }
             
             if (dy < 0 && dh > 0) {
@@ -122,17 +131,80 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
             } else if (dy > 0 && dh < 0) {
                 // shrunk top border toward bottom
                 int curW = absNewBounds.height();
-                tx = -Math.min(dy, curW - minsize.height());
+                ty = -Math.min(dy, curW - absMinSize.height());
             }
             
+            // 18/08/2022 : add fast exit if nothing to do
+            if (tx==0 && ty == 0 && true)
+                return;
+            
             ChangeBoundsRequest r = new ChangeBoundsRequest(REQ_MOVE_CHILDREN);
-            r.setEditParts(this.editPart.getChildren());
+            List<GraphicalEditPart> containerChildren = this.editPart.getChildren();
+            r.setEditParts(new ArrayList<>(containerChildren));
             r.getMoveDelta().setLocation(tx, ty);
             r.getExtendedData().put("noautoexpand", Boolean.TRUE); // to avoid some infinite loops from auto expand edit policies
             
             Command cmd = this.editPart.getCommand(r);
+            
+            if (cmd == null)
+                return;
+            
+            CompoundCommand cmds = new CompoundCommand();
+            cmds.add(cmd);
+            
+            // Move all inner connections the difference of container move and children move.
+            addMoveConnectionsCommands(cmds, dx, dy, tx, ty);
+            
+            cmd = cmds.unwrap();
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
+            }
+            
+        }
+
+        /**
+         * Compute commands that Move all inner connections the difference of container move and children move.
+         * @param cmds the compound command to fill
+         * @param containerDx container delta x
+         * @param containerDy container delta y
+         * @param childrenDx children move delta x
+         * @param childrenDy children move delta y
+         */
+        @objid ("b214f806-b982-4124-94ba-cc73889147d1")
+        protected void addMoveConnectionsCommands(CompoundCommand cmds, int containerDx, int containerDy, int childrenDx, int childrenDy) {
+            int connDx = containerDx+childrenDx;
+            int connDy = containerDy+childrenDy;
+            
+            if (connDx==0 && connDy == 0)
+                return;
+            
+            List<GraphicalEditPart> containerChildren = this.editPart.getChildren();
+            
+            // Move all inner connections the difference of container move and children move.
+            ChangeBoundsRequest r = new ChangeBoundsRequest(REQ_MOVE);
+            r.setEditParts(new ArrayList<>(containerChildren));
+            r.getMoveDelta().setLocation(connDx, connDy);
+            
+            ToolSelectionUtils.addAllLinksFor(r.getEditParts(), r, true);
+            //Some bendpoint policies check source and target are part of the request.
+            //r.getEditParts().removeAll(containerChildren);
+            for (Object objEp : r.getEditParts()) {
+                GraphicalEditPart linkEp = (GraphicalEditPart) objEp;
+                if ( containerChildren.contains(linkEp))
+                    continue;
+            
+                // Auto orthogonal policies mess the link layout, filter them out
+                if (true) {
+                    if (! (linkEp.getFigure() instanceof Connection))
+                        continue;
+                    ConnectionRouter connectionRouter = ((Connection) linkEp.getFigure()).getConnectionRouter();
+                    if ( connectionRouter instanceof AutoOrthogonalRouter || connectionRouter instanceof OrthogonalRectifierRouter)
+                        continue;
+                }
+            
+                Command cmd = linkEp.getCommand(r);
+                if (cmd != null)
+                    cmds.add(cmd);
             }
             
         }

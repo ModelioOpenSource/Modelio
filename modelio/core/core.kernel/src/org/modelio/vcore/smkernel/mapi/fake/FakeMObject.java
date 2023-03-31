@@ -28,5 +28,5 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * Fake objects are objects who have a fake metaclass.
  */
 @objid ("66c1d5c7-ea68-4ae9-a7c7-ce9274d27ddf")
-public interface FakeMObject extends MObject {
-}
+public interface FakeMObject extends MObject {}
+

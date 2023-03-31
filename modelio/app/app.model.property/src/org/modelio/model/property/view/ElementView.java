@@ -39,7 +39,7 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.model.property.panel.ElementPropertyPanelProvider;
 import org.modelio.platform.core.activation.IActivationService;
@@ -47,6 +47,7 @@ import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.picking.IModelioPickingService;
 import org.modelio.platform.core.picking.IPickingSession;
 import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.UIThreadRunner;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
 import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
@@ -105,7 +106,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     private IStructuredSelection currentSelection;
 
     @objid ("15b80f6e-e47c-4fec-bc9e-05c944872e50")
-    GProject project;
+    IGProject project;
 
     /**
      * Called by the framework to create the view and initialize it.
@@ -174,7 +175,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     @objid ("8fb871da-c068-11e1-8c0a-002564c97630")
     @Optional
     @Inject
-    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional IMModelServices mmService, @Optional IModelioPickingService modelioPickingService, @Optional IActivationService modelioActivationService, @Optional EMenuService theMenuService, MPart propertyPart) {
+    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, @Optional IMModelServices mmService, @Optional IModelioPickingService modelioPickingService, @Optional IActivationService modelioActivationService, @Optional EMenuService theMenuService, MPart propertyPart) {
         this.project = openedProject;
         this.modelService = mmService;
         this.pickingService = modelioPickingService;
@@ -202,7 +203,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     @objid ("3e16e841-cbe8-4277-bb1a-fc8232bfc8d5")
     @Inject
     @Optional
-    void onProjectClosing(@EventTopic (ModelioEventTopics.PROJECT_CLOSING) GProject closedProject) {
+    void onProjectClosing(@EventTopic (ModelioEventTopics.PROJECT_CLOSING) IGProject closedProject) {
         if (this.panel != null) {
             this.panel.setInput(null);
         }
@@ -215,7 +216,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     @objid ("8fb871e3-c068-11e1-8c0a-002564c97630")
     @Inject
     @Optional
-    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) GProject closedProject) {
+    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) IGProject closedProject) {
         if (closedProject == this.project) {
             removeModelListeners();
         
@@ -357,8 +358,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     @Override
     public void statusChanged(IStatusChangeEvent event) {
         if (this.panel != null) {
-            this.panel.getTreeViewer().getControl().getDisplay().asyncExec(() -> {
-                this.panel.setInput(this.currentSelection);
+            UIThreadRunner.asynExec(this.panel.getPanel(), new Runnable() {
+                @Override
+                public void run() {
+                   panel.setInput(currentSelection);
+                }
             });
         }
         

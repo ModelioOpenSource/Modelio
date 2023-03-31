@@ -55,13 +55,13 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  * Masks/unmasks the link again.
  * </p>
  */
-@objid ("e604b4d7-4673-4af3-8182-33cfe2af7463")
+@objid ("f3f2af71-b081-4672-abc0-43425965cc78")
 public class FullResetLinkHandler extends AbstractLinkHandler {
     /**
      * Execute the command.
      * @param selection the current diagram selection.
      */
-    @objid ("4e35936e-daf4-4f5f-b1ca-7174df4ad493")
+    @objid ("15ba4a94-73e7-4715-b1de-f84222b84673")
     @Execute
     public void execute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
         List<LinkEditPart> linkEditPaths = SelectionHelper.toList(selection, LinkEditPart.class);
@@ -74,7 +74,7 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
      * @param selection the current diagram selection.
      * @return <code>true</code> if the handler can be executed.
      */
-    @objid ("5aff29b0-147e-4082-92b1-42be572f4733")
+    @objid ("eee64018-ffd2-4290-af6a-ac65beb3a73a")
     @Override
     @CanExecute
     public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
@@ -94,17 +94,17 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
         return true;
     }
 
-    @objid ("6508043f-d8d1-4c8d-80b4-85bfea0bfceb")
+    @objid ("aa893e21-2cf1-4931-ad88-b152f6c088fe")
     private static class FullResetLinkCommand extends Command {
-        @objid ("8daba2ee-a832-4e10-bed4-d3f649e43df2")
+        @objid ("13bc3ca3-f9a7-4b42-9829-953275220587")
         private List<LinkEditPart> linkEditPaths;
 
-        @objid ("0b1f4764-2208-489f-bc74-30e4c439fddf")
+        @objid ("448a7034-14b7-4ebc-8366-45ee63cf0b32")
         public  FullResetLinkCommand(List<LinkEditPart> linkEditPaths) {
             this.linkEditPaths = linkEditPaths;
         }
 
-        @objid ("498f2fd8-29c5-45d6-b1fd-6f4a920a5c3e")
+        @objid ("36bddcf6-b443-49ba-b2b6-aaa33c1b4500")
         @Override
         public void execute() {
             EditPartViewer viewer = this.linkEditPaths.get(0).getViewer();
@@ -159,7 +159,7 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
          * @param x the x coordinate for the unmasking location.
          * @param y the y coordinate for the unmasking location.
          */
-        @objid ("76e83002-6b31-4121-bb1d-548d598fa8ca")
+        @objid ("eb6a5b7f-696a-4ac0-bf7e-c289c2daae13")
         private void unmask(final AbstractDiagramEditPart diagramEditPart, final MObject element, final int x, final int y) {
             Point dropLocation = new Point(x, y);
             
@@ -177,7 +177,7 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
             
         }
 
-        @objid ("3c6cdb18-6681-458b-b476-abc44d738e17")
+        @objid ("df2ba265-64ca-4808-ad50-ee5da0a5d96e")
         @Override
         public boolean canExecute() {
             return !this.linkEditPaths.isEmpty();
@@ -186,18 +186,18 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
         /**
          * Keep layout data and locally defined style keys to re-apply them after masking/unmasking an element.
          */
-        @objid ("fcd7b7c2-c539-44e2-96f4-782b0f5461b5")
+        @objid ("a82ea9fe-b1de-4c62-9c32-a93c9fce2721")
         private class UnmaskState {
-            @objid ("a697c6f8-af85-4325-a3e3-27770742407e")
+            @objid ("50ede4df-1edd-49d8-832a-7b4d9ca1b5f1")
             private Map<StyleKey, Object> localValues = new HashMap<>();
 
-            @objid ("0e578891-3510-441e-9550-34036e2584eb")
+            @objid ("19064247-4b42-45e8-b932-993f2cf42de5")
             private Object layoutData;
 
-            @objid ("a7ea6a52-404a-4c31-ab3e-bf4cb248e2a8")
+            @objid ("6801e173-696c-46c9-8b1c-be4a2a2966f7")
             private IGmDiagram diagram;
 
-            @objid ("6372f895-ee18-4508-94e4-5d2e68feb8ef")
+            @objid ("a7c02d79-2a6e-458f-91f5-ee0ee81812ec")
             public  UnmaskState(GmModel model, IGmLinkable end) {
                 GmModel toUnmask;
                 
@@ -224,7 +224,7 @@ public class FullResetLinkHandler extends AbstractLinkHandler {
                 
             }
 
-            @objid ("e2bac1c5-46f8-44e9-b38c-db5df3b7f01e")
+            @objid ("add20657-b8fd-41a9-bebc-9a0b289a5b52")
             private void apply(MObject element, IGmDiagram context) {
                 // Restore local properties
                 for (GmModel gm : context.getAllGMRepresenting(new MRef(element))) {

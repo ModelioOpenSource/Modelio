@@ -29,5 +29,5 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.IChecker;
 public interface IModelShieldPlan {
     @objid ("0063cbdb-b29c-48c0-ac68-1fea5b3cc6fd")
     Collection<IChecker> getApplicableCheckers(final TriggerType trigger, final MObject obj, final String feature);
-
 }
+

@@ -31,7 +31,7 @@ public interface ILicenseInfos {
     Status getStatus();
 
     @objid ("889058ab-7290-4b65-8f1a-f0d837bc32c4")
-    public enum Status {
+    enum Status {
         @objid ("fb5c8ee9-161b-430a-a726-b6437d73c667")
         FREE,
         @objid ("0f0339ed-7604-4042-b85d-643fc6fd1985")
@@ -48,5 +48,5 @@ public interface ILicenseInfos {
         NO_LICENSE;
 
     }
-
 }
+

@@ -28,5 +28,5 @@ public interface ICommand {
 
     @objid ("611864f6-eee9-4095-87d2-9cb0f68387d1")
     String getScript();
-
 }
+

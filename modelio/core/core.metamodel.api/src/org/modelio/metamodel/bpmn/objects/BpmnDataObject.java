@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * The primary construct for modeling data within the Process flow is the DataObject element. A DataObject has a well-defined lifecycle, with resulting visibility constraints.
  * Data Object elements must be contained within Process or Sub-Process elements. Data Object elements are visible in a Process diagram.
+ * 
+ * 
  */
 @objid ("000345d0-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnDataObject extends BpmnItemAwareElement {
@@ -53,6 +55,7 @@ public interface BpmnDataObject extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("df094be9-d1ec-4e1a-a0a1-58639469a79a")
     boolean isIsCollection();
@@ -62,8 +65,9 @@ public interface BpmnDataObject extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("48bba1eb-e40f-43c4-8b85-26291e0c283e")
     void setIsCollection(boolean value);
-
 }
+

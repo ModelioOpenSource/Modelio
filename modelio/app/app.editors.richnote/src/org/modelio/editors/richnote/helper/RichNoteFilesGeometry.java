@@ -23,7 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.statik.Artifact;
 
@@ -39,14 +39,14 @@ public class RichNoteFilesGeometry {
     private static final String RICHNOTE_DIRNAME = "richnotes";
 
     @objid ("94228891-c349-4824-921c-aa1abcad4f78")
-    private GProject project;
+    private IGProject project;
 
     /**
      * initialize the service.
      * @param project the project to handle
      */
     @objid ("8f1bf648-57fd-48fb-8d86-069b26a5ecdc")
-    public  RichNoteFilesGeometry(GProject project) {
+    public  RichNoteFilesGeometry(IGProject project) {
         this.project = project;
     }
 
@@ -81,9 +81,9 @@ public class RichNoteFilesGeometry {
         if (filePath.startsWith(getRuntimePath())) {
             // Relative to the runtime directory
             return getRuntimePath().relativize(filePath).toString();
-        } else if (filePath.startsWith(this.project.getProjectFileStructure().getProjectPath())) {
+        } else if (filePath.startsWith(this.project.getPfs().getProjectPath())) {
             // Relative to the project directory
-            String docPath = this.project.getProjectFileStructure().getProjectPath().relativize(filePath).toString();
+            String docPath = this.project.getPfs().getProjectPath().relativize(filePath).toString();
             return RichNoteFilesGeometry.PROJECT_KEYWORD + "/" + docPath;
         
         } else {
@@ -124,7 +124,7 @@ public class RichNoteFilesGeometry {
         if (idx == -1) {
             return getRuntimePath().resolve(fileName);
         } else {
-            return this.project.getProjectFileStructure().getProjectPath().resolve(fileName.substring(idx + RichNoteFilesGeometry.PROJECT_KEYWORD.length()));
+            return this.project.getPfs().getProjectPath().resolve(fileName.substring(idx + RichNoteFilesGeometry.PROJECT_KEYWORD.length()));
         }
         
     }
@@ -134,7 +134,7 @@ public class RichNoteFilesGeometry {
      */
     @objid ("6ca7b7a7-4d2f-4082-a310-cd59c3d8a69d")
     private Path getRuntimePath() {
-        return this.project.getProjectFileStructure().getProjectRuntimePath();
+        return this.project.getPfs().getProjectRuntimePath();
     }
 
     @objid ("6b07fd7b-c36f-4dfd-b90a-bf46f462c68c")

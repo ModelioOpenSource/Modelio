@@ -35,6 +35,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * Modelio specific:
  * AbstractPseudoState is used to seemlessly migrate old PseudoState elements to the upcoming UML2PseudoState class hierarchy.
+ * 
+ * 
+ * 
  */
 @objid ("004d4b30-c4bf-1fd8-97fe-001ec947cd2a")
 public interface AbstractPseudoState extends StateVertex {
@@ -49,5 +52,5 @@ public interface AbstractPseudoState extends StateVertex {
      */
     @objid ("05b6504d-ea2a-49b2-a49d-c918da5cc03a")
     public static final String MQNAME = "Standard.AbstractPseudoState";
-
 }
+

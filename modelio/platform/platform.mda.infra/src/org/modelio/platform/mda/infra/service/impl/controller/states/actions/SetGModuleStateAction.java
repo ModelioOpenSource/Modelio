@@ -21,7 +21,7 @@ package org.modelio.platform.mda.infra.service.impl.controller.states.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.impl.controller.states.IModuleStateAction;
 
@@ -50,7 +50,7 @@ public class SetGModuleStateAction implements IModuleStateAction {
     @objid ("ce1c3e68-9f00-4b88-8009-7fdf4f287c94")
     @Override
     public void execute() throws ModuleException {
-        this.module.getGModule().setActivated(this.state);
+        this.module.getGModule().setActive(this.state);
     }
 
 }

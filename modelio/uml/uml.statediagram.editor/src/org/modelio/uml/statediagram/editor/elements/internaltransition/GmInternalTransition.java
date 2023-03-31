@@ -44,6 +44,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f54d0d1a-55b6-11e2-877f-002564c97630")
 public class GmInternalTransition extends GmModelElementLabel {
+    @objid ("f54d0d1f-55b6-11e2-877f-002564c97630")
+    private InternalTransition element = null;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -52,9 +55,6 @@ public class GmInternalTransition extends GmModelElementLabel {
 
     @objid ("f54d0d25-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f54d0d1f-55b6-11e2-877f-002564c97630")
-    private InternalTransition element = null;
 
     @objid ("fdbbc001-5a5b-11e2-9e33-00137282c51b")
     private static GmInternalTransitionStructuredStyleKeys STRUCTKEYS = new GmInternalTransitionStructuredStyleKeys();

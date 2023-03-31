@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-elements-in-diagrams]]
 
-[[creating-elements-in-diagrams]]
+
+
 = Creating elements in diagrams
 
 In Modelio, there are different ways of creating elements in diagrams depending on the nature of the elements in question. It is also possible to "unmask" elements, which already exist in the model but which do not yet appear in a diagram.

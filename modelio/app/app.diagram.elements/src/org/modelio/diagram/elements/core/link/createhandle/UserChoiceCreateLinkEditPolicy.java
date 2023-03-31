@@ -32,6 +32,7 @@ import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
@@ -65,14 +66,14 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("2760976d-52aa-4e35-862b-b116e79d5f9f")
     private static final int ARROW_SIZE = 9;
 
-    @objid ("763ce685-38e5-42d5-8efd-679be6a413e9")
-    private IFigure highlight;
-
-    @objid ("0c1953b9-9154-4e5f-ba4b-2769078c648c")
-    private XYAnchor dummyAnchor = new XYAnchor(new Point(10, 10));
-
     @objid ("318aafff-0a93-4b41-bd88-facde051c8d1")
     private ICreationActionProvider actionProvider;
+
+    @objid ("b4e0ec70-ea92-408f-8c4e-0eda3965b9ee")
+    private XYAnchor dummyAnchor = new XYAnchor(new Point(10, 10));
+
+    @objid ("398e5d25-77ee-4a0f-99e3-54c333d1eae4")
+    private IFigure highlight;
 
     @objid ("76d355ac-db20-4709-8ab8-ab460b60f906")
     public  UserChoiceCreateLinkEditPolicy(ICreationActionProvider actionProvider, boolean useSmartLinkHandle) {
@@ -94,16 +95,16 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("bcc450b4-b6b6-4abe-a708-c68ed18bfbcd")
     @Override
     public EditPart getTargetEditPart(Request request) {
-        if (isSupportedCreateLinkRequest(request)) {
+        if (isRequestHandled(request)) {
             return getHost();
         }
-        return null; // super.getTargetEditPart(request);
+        return null;
     }
 
     @objid ("703226b4-63fe-47c5-b4b8-22e2616edf2f")
     @Override
     public Command getCommand(Request request) {
-        if (isSupportedCreateLinkRequest(request)) {
+        if (isRequestHandled(request)) {
         
             CreateConnectionRequest createReq = (CreateConnectionRequest) request;
         
@@ -136,7 +137,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("192d1583-b95c-4506-8fad-199c41116587")
     @Override
     public void showSourceFeedback(Request request) {
-        if (!isSupportedCreateLinkRequest(request)) {
+        if (!isRequestHandled(request)) {
             // do nothing, DefaultCreateLinkEditPolicy should handle it
             return;
         }
@@ -156,7 +157,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("080dfbfb-e944-46f5-a87b-7c08a587ec61")
     @Override
     public void eraseSourceFeedback(Request request) {
-        if (!isSupportedCreateLinkRequest(request)) {
+        if (!isASupportedCreateLinkRequest(request)) {
             // do nothing, DefaultCreateLinkEditPolicy should handle it
             return;
         }
@@ -175,7 +176,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("145a9243-5b33-432f-a856-10ad64c82b67")
     @Override
     public void showTargetFeedback(Request request) {
-        if (!isSupportedCreateLinkRequest(request)) {
+        if (!isRequestHandled(request)) {
             // do nothing, DefaultCreateLinkEditPolicy should handle it
             return;
         }
@@ -194,7 +195,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("b450b4f5-eaa0-4b4d-9746-a4b7b72a96d1")
     @Override
     public void eraseTargetFeedback(Request request) {
-        if (!isSupportedCreateLinkRequest(request)) {
+        if (!isASupportedCreateLinkRequest(request)) {
             // do nothing, DefaultCreateLinkEditPolicy should handle it
             return;
         }
@@ -218,7 +219,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     @objid ("fea75c0f-f13b-4b7b-b136-72cec86c8c6e")
     @Override
     public boolean understandsRequest(Request req) {
-        return isSupportedCreateLinkRequest(req) ? true : super.understandsRequest(req);
+        return isASupportedCreateLinkRequest(req) ? true : super.understandsRequest(req);
     }
 
     @objid ("b4d4e5e6-eb1d-4c90-831d-85f6655151fc")
@@ -449,7 +450,25 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     }
 
     @objid ("f9946cc3-8dd6-4230-82b7-b365b82bb1e4")
-    private boolean isSupportedCreateLinkRequest(Request request) {
+    private boolean isRequestHandled(Request request) {
+        if (! isASupportedCreateLinkRequest(request))
+            return false;
+        
+        // Allow only the border of the host figure
+        IFigure hostFigure = getHostFigure();
+        Rectangle innerBounds = hostFigure.getClientArea();
+        hostFigure.translateToAbsolute(innerBounds);
+        innerBounds.shrink(20, 20);
+        
+        CreateConnectionRequest req = (CreateConnectionRequest) request;
+        Point reqLoc = req.getLocation();
+        if (innerBounds.isEmpty())
+            return true;
+        return (! innerBounds.contains(reqLoc));
+    }
+
+    @objid ("e24b1ed0-68ff-4601-863b-6d5d8aa04117")
+    private boolean isASupportedCreateLinkRequest(Request request) {
         return request instanceof CreateConnectionRequest
                 && ((CreateConnectionRequest) request).getNewObjectType() == UserChoiceLinkCreationFactory.class;
         

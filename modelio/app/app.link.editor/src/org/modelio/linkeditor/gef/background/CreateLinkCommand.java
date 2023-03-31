@@ -210,7 +210,6 @@ public class CreateLinkCommand extends Command {
         if (model.getTypes().size() == 1) {
             return model.getTypes().iterator().next();
         }
-        
         // Pop the selection dialog to get user's choice
         LinkTypeSelectionDialog popup = new LinkTypeSelectionDialog(Display.getDefault().getActiveShell(), model);
         popup.setBlockOnOpen(true);

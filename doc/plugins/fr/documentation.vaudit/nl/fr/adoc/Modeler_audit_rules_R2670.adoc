@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2670]]
 
-[[r2670]]
+
+
 = R2670
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une machine à états protocolaire ne peut pas avoir d'états historiques.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une machine à états protocolaire spécifie quelles opérations du classifier peuvent être appelées dans chaque état, et sous quelles conditions, spécifiant la séquence d'appel autorisée des opérations du classifier. Il ne doit donc pas y avoir d'états historiques définis.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez les états historiques de la machine à états ou déplacez les vers une autre machine à états (non protocolaire).

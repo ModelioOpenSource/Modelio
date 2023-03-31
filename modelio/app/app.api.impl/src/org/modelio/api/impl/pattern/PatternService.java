@@ -28,7 +28,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.modelio.api.modelio.pattern.IPatternService;
 import org.modelio.api.modelio.pattern.IPatternService.PatternException;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.patterns.model.ProfileUtils;
 import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
@@ -132,11 +132,11 @@ public class PatternService implements IPatternService {
 
     @objid ("80745b6d-debe-469b-a17b-01ce2d96fa1b")
     private MObject getModelRoot() {
-        for (IProjectFragment fragment : this.projectService.getOpenedProject().getFragments()) {
+        for (IGModelFragment fragment : this.projectService.getOpenedProject().getParts(IGModelFragment.class)) {
             switch (fragment.getType()) {
-            case EXML:
-            case EXML_SVN:
-                if(fragment.getRoots().size() > 0){
+            case EXMLFRAGMENT:
+            case SVNFRAGMENT:
+                if (fragment.getRoots().size() > 0) {
                     return fragment.getRoots().iterator().next();
                 }
                 break;

@@ -1,0 +1,28 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+
+
+= R4050
+
+
+
+
+===== Summary
+
+The ArchiMate element does not appear in any diagram.
+
+
+
+===== Details
+
+
+In ArchiMate, views are central to the organization of the model.
+An element that does not appear in any view has probably been forgotten and therefore needs to be unmasked in a view, or it is obsolete and destined to be deleted.
+
+
+
+

@@ -56,7 +56,7 @@ public class AuditEngine {
     @objid ("392ee00d-9cdd-4e79-a706-38839730de8c")
     private ICoreSession session;
 
-    @objid ("4371ff55-d43d-4b6b-ae3f-9540692832ba")
+    @objid ("92172022-ea7c-4dc0-a3f1-4fb06726e478")
     private Thread auditThread;
 
     @objid ("54d1b224-431d-4f26-9fd2-ad0b65773c35")

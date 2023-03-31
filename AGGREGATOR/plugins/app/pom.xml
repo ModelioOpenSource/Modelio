@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../..</relativePath>
+	</parent>
+
+	<artifactId>aggregator-modelio.app</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../modelio/app/app.admtool</module>
+		<module>../../../modelio/app/app.admtool.ext_org</module>
+		<module>../../../modelio/app/app.api.impl</module>
+		<module>../../../modelio/app/app.api.impl.ext_org</module>
+		<module>../../../modelio/app/app.audit</module>
+		<module>../../../modelio/app/app.audit.ext_org</module>
+		<module>../../../modelio/app/app.creation.wizard</module>
+		<module>../../../modelio/app/app.creation.wizard.ext_org</module>
+		<module>../../../modelio/app/app.diagram.api</module>
+		<module>../../../modelio/app/app.diagram.browser</module>
+		<module>../../../modelio/app/app.diagram.diagramauto</module>
+		<module>../../../modelio/app/app.diagram.editor</module>
+		<module>../../../modelio/app/app.diagram.elements</module>
+		<module>../../../modelio/app/app.diagram.outline</module>
+		<module>../../../modelio/app/app.diagram.persistence</module>
+		<module>../../../modelio/app/app.diagram.styles</module>
+		<module>../../../modelio/app/app.diagram.styles.ext_org</module>
+		<module>../../../modelio/app/app.diagram.symbol</module>
+		<module>../../../modelio/app/app.edition.dialogs</module>
+		<module>../../../modelio/app/app.edition.notes</module>
+		<module>../../../modelio/app/app.editors.richnote</module>
+		<module>../../../modelio/app/app.editors.richnote.libreoffice</module>
+		<module>../../../modelio/app/app.editors.richnote.microsoft</module>
+		<module>../../../modelio/app/app.editors.texteditors</module>
+		<module>../../../modelio/app/app.link.editor</module>
+		<module>../../../modelio/app/app.link.editor.ext_org</module>
+		<module>../../../modelio/app/app.model.browser.view</module>
+		<module>../../../modelio/app/app.model.browser.view.ext_org</module>
+		<module>../../../modelio/app/app.model.import.org</module>
+        <module>../../../modelio/app/app.model.merge</module>
+		<module>../../../modelio/app/app.model.property</module>
+		<module>../../../modelio/app/app.model.search.ui</module>
+		<module>../../../modelio/app/app.module.catalog</module>
+		<module>../../../modelio/app/app.module.propertytab</module>
+		<module>../../../modelio/app/app.patterns</module>
+		<module>../../../modelio/app/app.project.conf</module>
+		<module>../../../modelio/app/app.project.conf.ext_org</module>
+		<module>../../../modelio/app/app.project.ui</module>
+		<module>../../../modelio/app/app.project.ui.ext_org</module>
+		<module>../../../modelio/app/app.propertyview</module>
+		<module>../../../modelio/app/app.ramcs</module>
+		<module>../../../modelio/app/app.script.ui</module>
+		<module>../../../modelio/app/app.semantic.browser</module>
+		<module>../../../modelio/app/app.ui</module>
+		<module>../../../modelio/app/app.ui.ext_org</module>
+		<module>../../../modelio/app/app.ui.perspective.org</module>
+		<module>../../../modelio/app/app.ui.welcome</module>
+		<module>../../../modelio/app/app.update</module>
+		<module>../../../modelio/app/app.update.ext_org</module>
+		<module>../../../modelio/app/app.xmi</module>
+	</modules>
+</project>

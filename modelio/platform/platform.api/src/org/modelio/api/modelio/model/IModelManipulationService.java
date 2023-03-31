@@ -66,5 +66,5 @@ public interface IModelManipulationService {
      */
     @objid ("550b2fe3-5fb1-42c5-90b7-6e9c885ae70f")
     void moveTo(final Collection<? extends MObject> elements, final MObject to, final MObject oldParentHint);
-
 }
+

@@ -104,7 +104,7 @@ public interface IPatternService {
      * @since 4.1.00
      */
     @objid ("ef3c01f8-ed51-43c2-bc6e-d45a34d6af7c")
-    public class PatternException extends Exception {
+    class PatternException extends Exception {
         @objid ("d9538d80-a4d9-4aca-a9e9-658b5bba3d22")
         private static final long serialVersionUID = -7653196136489107023L;
 
@@ -137,5 +137,5 @@ public interface IPatternService {
         }
 
     }
-
 }
+

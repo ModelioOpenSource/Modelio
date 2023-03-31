@@ -96,5 +96,5 @@ public interface IMetaExpert {
      */
     @objid ("00428808-e50d-1097-bcec-001ec947cd2a")
     boolean canDep(MObject source, MObject target, String dep);
-
 }
+

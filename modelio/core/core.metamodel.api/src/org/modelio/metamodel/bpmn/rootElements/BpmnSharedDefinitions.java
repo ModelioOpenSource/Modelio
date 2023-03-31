@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * 
  * 
  * Definitions BPMN metaclass.
+ * 
+ * 
  */
 @objid ("b3eec24c-5799-4134-abbe-1afb8df80c12")
 public interface BpmnSharedDefinitions extends Behavior {
@@ -55,6 +57,7 @@ public interface BpmnSharedDefinitions extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("dabf4df0-7906-4b63-9010-4d0e11397bf8")
     EList<BpmnSharedElement> getRootElement();
@@ -64,8 +67,9 @@ public interface BpmnSharedDefinitions extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5755c11a-293c-4b6c-9ac6-04ab96b887bf")
     <T extends BpmnSharedElement> List<T> getRootElement(java.lang.Class<T> filterClass);
-
 }
+

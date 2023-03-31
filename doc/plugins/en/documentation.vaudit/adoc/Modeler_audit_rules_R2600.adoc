@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2600]]
 
-[[r2600]]
+
+
 = R2600
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A state machine or a state cannot contain several states with the same name.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The name of a state must be unique in the enclosing state machine or state. Showing the same name twice may cause confusion.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Possible solutions to this problem are as follows:

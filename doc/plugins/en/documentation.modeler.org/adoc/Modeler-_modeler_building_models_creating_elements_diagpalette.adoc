@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-node-type-elements-in-diagrams]]
 
-[[creating-node-type-elements-in-diagrams]]
+
+
 = Creating node-type elements in diagrams
 
 In Modelio diagrams, elements are created using the icons in the palette on the left of the diagram.

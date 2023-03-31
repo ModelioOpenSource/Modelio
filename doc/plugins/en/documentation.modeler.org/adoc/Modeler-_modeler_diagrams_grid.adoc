@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Activating-the-grid]]
 
-[[activating-the-grid]]
+
+
 = Activating the grid
 
 Activating the grid in Modelio diagrams makes it easier for you to align diagram elements, with a greater degree of precision.

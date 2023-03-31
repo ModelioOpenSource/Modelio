@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
  * Definition of a matrix value.
  * 
  * References an external java processor able to compute a matrix value and to modify it.
+ * 
+ * 
  */
 @objid ("6ae11939-6513-44a4-b535-1daf76e27f63")
 public interface MatrixValueDefinition extends Element {
@@ -57,6 +59,7 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>External java processor that displays and edit matrix values.</i>
+     * 
      */
     @objid ("26925aff-a2ca-463c-bcfb-f9273b871dc6")
     ExternProcessor getProcessor();
@@ -66,6 +69,7 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>External java processor that displays and edit matrix values.</i>
+     * 
      */
     @objid ("08e9645f-d484-4fef-bd58-c7f1b9ad1f2d")
     void setProcessor(ExternProcessor value);
@@ -75,6 +79,7 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
+     * 
      */
     @objid ("1872153e-861c-4278-b938-7e6ee5d3674a")
     PropertyTable getParameters();
@@ -84,6 +89,7 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
+     * 
      */
     @objid ("2763c304-dc08-42cf-bee4-c2e96023a479")
     void setParameters(PropertyTable value);
@@ -93,6 +99,7 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Matrix owner</i>
+     * 
      */
     @objid ("6b848df0-2dab-40a3-8635-2fd92767ff5d")
     MatrixDefinition getMatrix();
@@ -102,8 +109,9 @@ public interface MatrixValueDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Matrix owner</i>
+     * 
      */
     @objid ("d2fd3a7b-8138-466a-8103-0b9e3624c598")
     void setMatrix(MatrixDefinition value);
-
 }
+

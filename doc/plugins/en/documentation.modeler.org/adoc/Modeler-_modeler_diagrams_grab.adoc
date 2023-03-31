@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Using-the-grab-function]]
 
-[[using-the-grab-function]]
+
+
 = Using the grab function
 
 The "Grab" function is used to move the entire contents of a diagram, without having to select each element.

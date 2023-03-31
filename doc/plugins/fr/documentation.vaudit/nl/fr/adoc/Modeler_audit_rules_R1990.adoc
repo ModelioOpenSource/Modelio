@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1990]]
 
-[[r1990]]
+
+
 = R1990
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom des _Attributes_ et des rôles d'un _Classifier_ doivent être uniques dans le _Classifier_ et ses _Classifiers_ hérités.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _Attributes_ et les _AssociationEnd_ d'un _Classifier_ représentent des variables identifiables par leur nom.
 
 Quand un _Classifier_ hérite d'un autre Classifier, ses propriétés sont héritées, et donc les noms des propriétés doivent être uniques non seulement dans le _Classifier_ lui-même mais aussi dans ses parents.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez plusieurs _Attributes_ ou _AssociationEnds_ avec le même nom dans un _Classifier_ ou ses parents, vous devez les renommer afin qu'ils aient un nom unique.

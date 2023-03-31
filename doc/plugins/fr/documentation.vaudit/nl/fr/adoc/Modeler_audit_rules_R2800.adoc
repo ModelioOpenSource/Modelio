@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2800]]
 
-[[r2800]]
+
+
 = R2800
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un état initial ne peut avoir plus d'une transition sortante.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les états initiaux sont des états temporaires et ne doivent cibler qu'un état, qui est le premier état d'un objet.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez plusieurs transitions sortant d'un état initial, supprimez-les.

@@ -46,5 +46,5 @@ public interface IModelerModuleNoteTypes {
 
     @objid ("51d90841-d71e-4155-8215-ea8a7eed9106")
     public static final String USECASE_PRECONDITION = "precondition";
-
 }
+

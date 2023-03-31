@@ -185,5 +185,5 @@ public interface IMetamodelExtensions {
 
     @objid ("56f77f5f-6eca-41c1-b3e6-d9b27854d919")
     String getDescription(PropertyDefinition pdef);
-
 }
+

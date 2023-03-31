@@ -31,8 +31,10 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.model.browser.view.BrowserView;
 import org.modelio.model.browser.view.panel.ModelBrowserPanelProvider;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 
 /**
  * Handler class for the "open browser on element" command.
@@ -71,6 +73,10 @@ public class OpenNewBrowserHandler {
         BrowserView browserView = (BrowserView) newPart.getObject();
         if (browserView != null) {
             ((ModelBrowserPanelProvider) browserView.getContributedPanel()).setLocalRoots(selection.toList());
+            ModelElement rootObject = SelectionHelper.getFirst(selection, ModelElement.class);
+            if (rootObject != null) {
+                newPart.setLabel(rootObject.getName());
+            }
         }
         
     }

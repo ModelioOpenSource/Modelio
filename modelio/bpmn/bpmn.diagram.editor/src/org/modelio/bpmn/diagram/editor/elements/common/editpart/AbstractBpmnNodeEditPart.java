@@ -22,9 +22,8 @@ package org.modelio.bpmn.diagram.editor.elements.common.editpart;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.AccessibleAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
-import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 
@@ -33,48 +32,20 @@ import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
  */
 @objid ("3ad04988-df6b-4f8e-9f26-ae66ff72a185")
 public class AbstractBpmnNodeEditPart extends AbstractNodeEditPart {
-    @objid ("c4a19e1f-08e1-4739-a6b5-1c08e8dcfbbc")
-    private AbstractFixedNodeAnchorProvider nodeAnchorProvider;
-
-    @objid ("32ab754b-dbcd-41a2-95fe-89fd310b975a")
-    @Override
-    protected AbstractFixedNodeAnchorProvider getNodeAnchorProvider() {
-        if (this.nodeAnchorProvider == null) {
-            this.nodeAnchorProvider = createAnchorProvider(this.figure);
-        }
-        return this.nodeAnchorProvider;
-    }
-
     @objid ("423f3039-e840-4b1d-82ae-098d5f9d1466")
     @Override
     protected void setFigure(IFigure figure) {
         super.setFigure(figure);
-        getNodeAnchorProvider().onFigureMoved(figure);
-        
     }
 
     /**
-     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
+     * Create the {@link IFixedNodeAnchorProvider} for this edit part.
      * @param figure the edit part figure.
      * @return the created anchor provider.
      */
     @objid ("e482d180-72a9-42d5-a8c5-ae8a908709c4")
-    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
-        return new VariableFixedAnchorProvider();
-    }
-
-    /**
-     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
-     */
-    @objid ("af2b2c82-d69b-4ecc-a223-0043b0784dc1")
-    @Override
-    public Object getAdapter(Class adapter) {
-        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
-        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
-            return this.nodeAnchorProvider;
-        }
-        return super.getAdapter(adapter);
+    protected IFixedNodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.defaultFor(this);
     }
 
     @objid ("520c5efa-501f-4a44-a5e0-eb9eced56ff9")
@@ -82,7 +53,7 @@ public class AbstractBpmnNodeEditPart extends AbstractNodeEditPart {
     protected void createEditPolicies() {
         super.createEditPolicies();
         
-        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
+        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(getNodeAnchorProvider()));
         
     }
 

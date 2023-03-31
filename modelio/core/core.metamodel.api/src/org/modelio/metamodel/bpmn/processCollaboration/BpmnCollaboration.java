@@ -41,6 +41,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * 
  * Ownership:
  * Collaborations/Processes are structured under UML Packages or Classifiers or operations.
+ * 
+ * 
  */
 @objid ("0073c9fe-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnCollaboration extends Behavior {
@@ -63,6 +65,7 @@ public interface BpmnCollaboration extends Behavior {
      * <i>A boolean value specifying whether Message Flow not modeled in the Collaboration can occur when the Collaboration is carried out.
      * ? If the value is true, they MAY NOT occur.
      * ? If the value is false, they MAY occur.</i>
+     * 
      */
     @objid ("e0e88aa4-4c8c-4dd0-90bb-7df9712edce3")
     boolean isIsClosed();
@@ -74,6 +77,7 @@ public interface BpmnCollaboration extends Behavior {
      * <i>A boolean value specifying whether Message Flow not modeled in the Collaboration can occur when the Collaboration is carried out.
      * ? If the value is true, they MAY NOT occur.
      * ? If the value is false, they MAY occur.</i>
+     * 
      */
     @objid ("033efae4-a9d9-4399-a805-d0d7003591f9")
     void setIsClosed(boolean value);
@@ -83,6 +87,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("529d1b67-1469-4a9f-96ba-1f1930f6e75d")
     EList<BpmnArtifact> getArtifact();
@@ -92,6 +97,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d0a8b543-1766-4221-8612-352b522f64ea")
     <T extends BpmnArtifact> List<T> getArtifact(java.lang.Class<T> filterClass);
@@ -102,6 +108,7 @@ public interface BpmnCollaboration extends Behavior {
      * Metamodel description:
      * <i>This provides the list of Message Flow that are used in the
      * Collaboration.</i>
+     * 
      */
     @objid ("6c7aeca7-88dc-42ae-9829-5d54fe696708")
     EList<BpmnMessageFlow> getMessageFlow();
@@ -112,6 +119,7 @@ public interface BpmnCollaboration extends Behavior {
      * Metamodel description:
      * <i>This provides the list of Message Flow that are used in the
      * Collaboration.</i>
+     * 
      */
     @objid ("d0739dd1-f0e7-4c7e-a212-06c9c2cf6ad2")
     <T extends BpmnMessageFlow> List<T> getMessageFlow(java.lang.Class<T> filterClass);
@@ -121,6 +129,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("37e743ff-38a0-477c-8459-e359c85336b9")
     EList<BpmnParticipant> getParticipants();
@@ -130,6 +139,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d365f132-c1cd-41b9-ae53-840f304a97c6")
     <T extends BpmnParticipant> List<T> getParticipants(java.lang.Class<T> filterClass);
@@ -139,6 +149,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("adecdfc7-7925-46b8-b65e-add8ed7ec17c")
     EList<BpmnMessage> getMessages();
@@ -148,6 +159,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b32a6a89-ec9f-49a5-96f7-6fdd6089c377")
     <T extends BpmnMessage> List<T> getMessages(java.lang.Class<T> filterClass);
@@ -157,6 +169,7 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a10c0b97-5ef1-4537-a95b-8b2b1a35f9b6")
     BpmnProcess getDefinedProcess();
@@ -166,8 +179,9 @@ public interface BpmnCollaboration extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9579f47d-1a58-4768-87b6-4522c936b4bc")
     void setDefinedProcess(BpmnProcess value);
-
 }
+

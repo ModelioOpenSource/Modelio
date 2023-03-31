@@ -38,10 +38,10 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.gproject.data.project.ILockInfo;
-import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectFileStructure;
-import org.modelio.gproject.gproject.GProject;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.UIImages;
 
@@ -136,8 +136,8 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     public void update(final ViewerCell cell) {
         Object obj = cell.getElement();
         
-        if (obj instanceof ProjectDescriptor) {
-            ProjectDescriptor project = (ProjectDescriptor) obj;
+        if (obj instanceof GProjectDescriptor) {
+            GProjectDescriptor project = (GProjectDescriptor) obj;
         
             if (isCurrentlyOpenedProject(project)) {
                 updateOpenedProject(cell, project);
@@ -162,7 +162,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     }
 
     @objid ("a5280d20-2eaf-48cf-9a3d-1a72c3748fc9")
-    private void updateOpenedProject(final ViewerCell cell, final ProjectDescriptor project) {
+    private void updateOpenedProject(final ViewerCell cell, final GProjectDescriptor project) {
         cell.setFont(this.selectedFont);
         cell.setText(getProjectLabel(project));
         Image icon = getProjectIcon(project);
@@ -185,7 +185,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     }
 
     @objid ("e56fb3bb-8c37-407a-acef-68957789f598")
-    private void updateClosedProject(final ViewerCell cell, final ProjectDescriptor project) {
+    private void updateClosedProject(final ViewerCell cell, final GProjectDescriptor project) {
         cell.setFont(this.normalFont);
         cell.setText(getProjectLabel(project));
         Image icon = getProjectIcon(project);
@@ -221,13 +221,13 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     }
 
     @objid ("f2fb3f5f-71e3-4e4d-bf1b-8057d9820aa1")
-    private boolean isCurrentlyOpenedProject(ProjectDescriptor projectDescriptor) {
-        final GProject currentlyOpenedProject = this.projectService.getOpenedProject();
-        return currentlyOpenedProject != null && currentlyOpenedProject.getProjectFileStructure().getProjectPath().equals(projectDescriptor.getProjectFileStructure().getProjectPath());
+    private boolean isCurrentlyOpenedProject(GProjectDescriptor projectDescriptor) {
+        final IGProject currentlyOpenedProject = this.projectService.getOpenedProject();
+        return currentlyOpenedProject != null && currentlyOpenedProject.getPfs().getProjectPath().equals(projectDescriptor.getProjectFileStructure().getProjectPath());
     }
 
     @objid ("c8d6ac2d-739c-42df-97c6-2b68b4d5c5bb")
-    private Image getProjectIcon(final ProjectDescriptor project) {
+    private Image getProjectIcon(final GProjectDescriptor project) {
         ProjectFileStructure projectFileStructure = project.getProjectFileStructure();
         Image projectIcon = this.icons.get(projectFileStructure.getProjectPath().toString());
         if (projectIcon == null) {
@@ -269,7 +269,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     }
 
     @objid ("2c38442c-9528-4a2a-8c5d-faa59e1a1f44")
-    private String getProjectLabel(ProjectDescriptor project) {
+    private String getProjectLabel(GProjectDescriptor project) {
         String text;
         Path p = project.getProjectFileStructure().getProjectPath();
         if (p.getNameCount() > 0) {
@@ -306,8 +306,8 @@ public class WksLabelProvider extends StyledCellLabelProvider {
         super.paint(event, element);
         
         // Add lock icon on locked projects
-        if (element instanceof ProjectDescriptor) {
-            ProjectDescriptor desc = (ProjectDescriptor) element;
+        if (element instanceof GProjectDescriptor) {
+            GProjectDescriptor desc = (GProjectDescriptor) element;
         
             ILockInfo lockInfo = desc.getLockInfo();
             if (lockInfo != null) {
@@ -323,8 +323,8 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     @objid ("e51fc0fd-57bd-4e70-80b3-0b8d05c572c3")
     @Override
     public String getToolTipText(Object element) {
-        if (element instanceof ProjectDescriptor) {
-            ProjectDescriptor project = (ProjectDescriptor) element;
+        if (element instanceof GProjectDescriptor) {
+            GProjectDescriptor project = (GProjectDescriptor) element;
         
             ILockInfo lockInfo = project.getLockInfo();
             if (!isCurrentlyOpenedProject(project) && lockInfo != null && !lockInfo.isSelf()) {
@@ -353,7 +353,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
         private static final String PROJECT_TYPE_LOCAL = "LOCAL";
 
         @objid ("d90383c2-1544-4c6a-ad10-5c8e4ab5b8ff")
-        public static ProjectType get(final ProjectDescriptor project) {
+        public static ProjectType get(final GProjectDescriptor project) {
             if (project.getType().equals(ProjectType.PROJECT_TYPE_LOCAL)) {
                 return LOCAL;
             } else if (project.getRemoteLocation().startsWith("constellation:")) {

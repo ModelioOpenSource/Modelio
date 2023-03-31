@@ -183,7 +183,7 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
         return GmBpmnLaneSetContainer.MAJOR_VERSION;
     }
 
-    @objid ("0d651654-3fbc-4073-93af-b8e4c99abaa8")
+    @objid ("442cb5be-f85c-4a14-a091-d428be06ea84")
     @Override
     protected void obChildDeleted(GmModel child) {
         firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);

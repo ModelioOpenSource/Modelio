@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * An initial pseudostate represents a default vertex that is the source for a single transition to the default state of a composite state. There can be at most one initial vertex in a region. The outgoing transition from the initial vertex may have a behavior, but not a trigger or guard.
+ * 
+ * 
  */
 @objid ("0050cd82-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InitialPseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface InitialPseudoState extends AbstractPseudoState {
      */
     @objid ("ce5a5ab1-8f20-4be3-96dc-bfb4c3eede14")
     public static final String MQNAME = "Standard.InitialPseudoState";
-
 }
+

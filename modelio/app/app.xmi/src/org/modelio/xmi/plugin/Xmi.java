@@ -33,7 +33,7 @@ import org.osgi.framework.ServiceReference;
  */
 @objid ("66331fcd-41ae-4dcb-94a9-e95ee23e8ec0")
 public class Xmi extends AbstractUIPlugin {
-    // The plug-in ID
+     // // The plug-in ID
     @objid ("394f68e1-7139-4387-85b6-f41108391653")
     public static final String PLUGIN_ID = "org.modelio.app.xmi";
 

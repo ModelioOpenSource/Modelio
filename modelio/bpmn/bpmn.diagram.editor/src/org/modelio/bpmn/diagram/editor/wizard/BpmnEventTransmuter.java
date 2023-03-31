@@ -20,6 +20,7 @@
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
@@ -34,6 +35,8 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
+import org.modelio.metamodel.uml.infrastructure.Note;
+import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MExpert;
@@ -139,6 +142,16 @@ public class BpmnEventTransmuter extends AbstractElementTransmuter {
             if (oldEvent.getIncomingFlow().size() > 0) {
                 for (BpmnMessageFlow flow : new ArrayList<>(oldEvent.getIncomingFlow())) {
                     newEvent.getIncomingFlow().add(flow);
+                }
+            }
+        
+            if (oldEvent.getDescriptor().size() > 0) {
+                List<NoteType> noteTypes = modelServices.findNoteTypes(".*", ".*", ".*", newEvent.getMClass());
+                for (Note note : new ArrayList<>(oldEvent.getDescriptor())) {
+                    NoteType noteType = note.getModel();
+                    if (noteType != null && noteTypes.contains(noteType)) {
+                        newEvent.getDescriptor().add(note);
+                    }
                 }
             }
         }

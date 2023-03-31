@@ -157,5 +157,5 @@ public interface IModelioServices {
      */
     @objid ("31eb3f27-145f-4dee-9deb-ac42ce8cb3e6")
     IUiToolkit getUiToolkit();
-
 }
+

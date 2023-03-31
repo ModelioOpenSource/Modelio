@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2270]]
 
-[[r2270]]
+
+
 = R2270
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Chaque _Collaboration_ d'une _Operation_ doit avoir un nom différent.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Les _Collaborations_ d'une _Opération_ doivent toutes avoir un nom différent pour pouvoir les distinguer.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Renommez les _Collaborations_ qui sont en conflit.

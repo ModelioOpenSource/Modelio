@@ -128,8 +128,8 @@ public class Splash {
         formData.left = new FormAttachment(0, 10);
         this.copyright.setLayoutData(formData);
         
-        BundledMessages b = new BundledMessages(AppUi.LOG, ResourceBundle.getBundle("appui-about"));
-        this.copyright.setText(b.getString("Splash.copyright"));
+        BundledMessages aboutI18N = new BundledMessages(AppUi.LOG, ResourceBundle.getBundle("appui-about"));
+        this.copyright.setText(aboutI18N.getString("$Splash.copyright"));
         
     }
 

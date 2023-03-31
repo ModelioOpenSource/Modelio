@@ -7,9 +7,9 @@
 
 Il existe plusieurs moyens de créer des liens dans les diagrammes de Modelio.
 
-[[La-palette-des-diagrammes]]
 
-[[la-palette-des-diagrammes]]
+
+
 ===== La palette des diagrammes
 
 Tous les diagrammes Modelio bénéficient de la fonctionnalité "expert de modélisation", qui fournit une aide à la création de liens en temps réel. Si vous essayez de créer un lien autorisé (par exemple, une association entre deux classes), l'expert de modélisation affiche l'élément concerné en vert, indiquant ainsi que l'opération de création est autorisée. En revanche, si vous essayez de créer un lien non-autorisé (par exemple, une association entre un package et une classe), l'expert de modélisation affiche l'élément concerné en rouge, indiquant ainsi que l'opération de création n'est pas autorisée.
@@ -32,9 +32,9 @@ Dans les diagrammes Modelio, il existe quatre façons de tracer un lien :
 
 *Note :* Si vous souhaitez tracer un lien en mode libre, il suffit de maintenir enfoncée la touche "SHIFT" de votre clavier lors du traçage du lien.
 
-[[Loutil-Smart-links]]
 
-[[loutil-smart-links]]
+
+
 === L'outil Smart links
 
 Smart links est un nouvel outil pour créer rapidement et facilement des liens dans les diagrammes. Il peut être utilisé de deux manières différentes.

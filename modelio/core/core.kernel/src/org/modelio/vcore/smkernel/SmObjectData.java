@@ -19,6 +19,7 @@
  */
 package org.modelio.vcore.smkernel;
 
+import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
@@ -26,8 +27,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("008a4350-dbe7-1f1f-85a5-001ec947cd2a")
 public abstract class SmObjectData implements ISmObjectData {
+    /**
+     * Status flags.
+     * <p>
+     * In order to support atomic flag changes, all access must be done through {@link #StatusAccessor} setters.
+     */
     @objid ("00275434-117d-1f35-b94f-001ec947cd2a")
-    volatile long status;
+    private volatile long status;
 
     @objid ("0022240a-fd1a-1f27-a7da-001ec947cd2a")
     private static final long serialVersionUID = 4272487596063422376L;
@@ -52,6 +58,12 @@ public abstract class SmObjectData implements ISmObjectData {
 
     @objid ("bcd89f29-ba93-44d0-9ce5-371dbfb9fc1e")
     protected final SmObjectSmClass classof;
+
+    /**
+     * Atomic field updater to use to access {@link #status}
+     */
+    @objid ("ebd8b330-6356-4a2f-970e-a39c4e51218d")
+    private static AtomicLongFieldUpdater<SmObjectData> StatusAccessor = AtomicLongFieldUpdater.newUpdater(SmObjectData.class, "status");
 
     /**
      * To be called before using the object.
@@ -94,7 +106,7 @@ public abstract class SmObjectData implements ISmObjectData {
     @objid ("00322396-702c-1f21-85a5-001ec947cd2a")
     @Override
     public final long getStatus() {
-        return this.status;
+        return StatusAccessor.get(this);
     }
 
     @objid ("0085ae62-eb1b-1f22-8c06-001ec947cd2a")
@@ -107,6 +119,10 @@ public abstract class SmObjectData implements ISmObjectData {
     @Override
     public final void setRepositoryObject(final IRepositoryObject repositoryObject) {
         assert (!(repositoryObject instanceof DummyRepositoryObject));
+        
+        if (repositoryObject == null) {
+            throw new NullPointerException("Repository object should never be null");
+        }
         
         this.repositoryObject = repositoryObject;
         
@@ -134,16 +150,21 @@ public abstract class SmObjectData implements ISmObjectData {
     @Override
     public final void setRFlags(long flags, StatusState state) {
         // check flags only contains runtime flags
-        assert ((flags & ~SmStatus.RFLAGS) == 0);
+        checkInvalidFlags("setRFlags(...)", flags, SmStatus.RFLAGS);
         
         // check no CMS flag is defined on non CMS node
         if (((flags & SmStatus.MASK_CMS) != 0) && state != StatusState.UNDEFINED && !getClassOf().isCmsNode()) {
-            throw new IllegalArgumentException(String.format("setRFlags(%s, %s) : CMS flags cannot be defined on non CMS {%s} %s.", 
-                    SmStatus.flagsToString(flags), state, 
+            throw new IllegalArgumentException(String.format("setRFlags(%s, %s) : CMS flags cannot be defined on non CMS {%s} %s.",
+                    SmStatus.flagsToString(flags), state,
                     this.uuid,  getClassOf().getQualifiedName()));
         }
         
-        this.status = SmStatus.setFlags(this.status, flags, state);
+        long newStatus;
+        long oldStatus;
+        do {
+            oldStatus = StatusAccessor.get(this);
+            newStatus = SmStatus.setFlags(oldStatus, flags, state);
+        } while (! StatusAccessor.compareAndSet(this, oldStatus, newStatus));
         
     }
 
@@ -156,40 +177,104 @@ public abstract class SmObjectData implements ISmObjectData {
     @Override
     public final void setPFlags(long flags, StatusState state) {
         // check flags only contains runtime flags
-        assert ((flags & ~SmStatus.PFLAGS) == 0);
+        checkInvalidFlags("setPFlags(...)", flags, SmStatus.PFLAGS);
         
         // check no CMS flag is defined on non CMS node
         if (((flags & SmStatus.MASK_CMS) != 0) && state != StatusState.UNDEFINED && !getClassOf().isCmsNode()) {
-            throw new IllegalArgumentException(String.format("setPFlags(%s, %s) : CMS flags cannot be defined on non CMS {%s} %s.", 
-                    SmStatus.flagsToString(flags), state, 
+            throw new IllegalArgumentException(String.format("setPFlags(%s, %s) : CMS flags cannot be defined on non CMS {%s} %s.",
+                    SmStatus.flagsToString(flags), state,
                     this.uuid,  getClassOf().getQualifiedName()));
         }
         
+        long newStatus;
+        long oldStatus;
+        do {
+            oldStatus = StatusAccessor.get(this);
+            newStatus = SmStatus.setFlags(oldStatus, flags, state);
+        } while (! StatusAccessor.compareAndSet(this, oldStatus, newStatus));
         
-        this.status = SmStatus.setFlags(this.status, flags, state);
+    }
+
+    @objid ("b2afcd9d-eede-4915-bc19-1b396c51f985")
+    private void checkInvalidFlags(String name, long flags, long allowedFlags) throws IllegalArgumentException {
+        if ((flags & ~allowedFlags) == 0)
+            return;
         
+        throw new IllegalArgumentException(String.format("%s: %s flag(s) not allowed on {%s} %s.",
+                name,
+                SmStatus.flagsToString(flags & ~allowedFlags),
+                this.uuid,
+                getClassOf().getQualifiedName()));
+        
+    }
+
+    @objid ("de75df49-41f6-4cc4-9a1f-1d21679a80a8")
+    private void checkInvalidFlags(String name, long trueFlags, long falseFlags, long undefFlags, long allowedFlags) {
+        if (((trueFlags| falseFlags| undefFlags) & ~allowedFlags) == 0)
+            return;
+        
+        throw new IllegalArgumentException(String.format("%s({%s}, {%s}, {%s}): %s flag(s) not allowed on {%s} %s.",
+                name,
+                SmStatus.flagsToString(trueFlags),
+                SmStatus.flagsToString(falseFlags),
+                SmStatus.flagsToString(undefFlags),
+                SmStatus.flagsToString((trueFlags| falseFlags| undefFlags) & ~allowedFlags),
+                this.uuid,
+                getClassOf().getQualifiedName()));
+        
+    }
+
+    /**
+     * Set all persistent flags state at once.
+     * <p>
+     * Package private to avoid mess.
+     * @param pFlags the new persistent flags
+     */
+    @objid ("5b6b368b-c462-400c-afa7-958504a3939e")
+    final void replacePersistentFlags(long pFlags) {
+        long newStatus;
+        long oldStatus;
+        do {
+            oldStatus = StatusAccessor.get(this);
+            newStatus = SmStatus.setPersistentPart(oldStatus, pFlags);
+        } while (! StatusAccessor.compareAndSet(this, oldStatus, newStatus));
+        
+    }
+
+    /**
+     * Set all persistent flags state at once.
+     * <p>
+     * Package private to avoid mess.
+     * @param newStatus the new runtime and persistent persistent flags
+     */
+    @objid ("5eb4b655-c87f-4cac-8c3b-fd35dbf829f7")
+    final void replaceAllFlags(long newStatus) {
+        StatusAccessor.set(this, newStatus);
     }
 
     @objid ("d093ac00-8056-477e-8fe4-1ce4b6b46d9c")
     @Override
     public final void setRFlags(long trueFlags, long falseFlags, long undefFlags) {
         // check flags only contains runtime flags
-        assert (((trueFlags| falseFlags| undefFlags) & ~SmStatus.RFLAGS) == 0);
+        checkInvalidFlags("setRFlags", trueFlags, falseFlags, undefFlags, SmStatus.RFLAGS);
         
         // check no CMS flag is defined on non CMS node
         if ((((trueFlags| falseFlags) & SmStatus.MASK_CMS) != 0) && !getClassOf().isCmsNode()) {
-            String msg = String.format("setRFlags(%s, %s, %s) : CMS flags cannot be defined on non CMS {%s} %s.", 
-                    SmStatus.flagsToString(trueFlags), SmStatus.flagsToString(falseFlags), SmStatus.flagsToString(undefFlags), 
+            String msg = String.format("setRFlags(%s, %s, %s) : CMS flags cannot be defined on non CMS {%s} %s.",
+                    SmStatus.flagsToString(trueFlags), SmStatus.flagsToString(falseFlags), SmStatus.flagsToString(undefFlags),
                     this.uuid,  getClassOf().getQualifiedName());
             throw new IllegalArgumentException(msg);
         }
         
-        final long newStatus = SmStatus.setFlags(this.status, trueFlags, falseFlags, undefFlags);
-        
         // debug
         //System.err.println("Set "+this.getUuid()+" "+this.getClassOf().getName()+" status from {"+SmStatus.toString(this.status)+ "} to {"+SmStatus.toString(newStatus)+"}");
         
-        this.status = newStatus;
+        long newStatus;
+        long oldStatus;
+        do {
+            oldStatus = StatusAccessor.get(this);
+            newStatus = SmStatus.setFlags(oldStatus, trueFlags, falseFlags, undefFlags);
+        } while (! StatusAccessor.compareAndSet(this, oldStatus, newStatus));
         
     }
 
@@ -197,30 +282,34 @@ public abstract class SmObjectData implements ISmObjectData {
     @Override
     public final void setPFlags(long trueFlags, long falseFlags, long undefFlags) {
         // check flags only contains persistent flags
-        assert (((trueFlags| falseFlags| undefFlags) & ~SmStatus.PFLAGS) == 0);
+        checkInvalidFlags("setRFlags", trueFlags, falseFlags, undefFlags, SmStatus.PFLAGS);
         
         // check no CMS flag is defined on non CMS node
         if ((((trueFlags| falseFlags) & SmStatus.MASK_CMS) != 0) && !getClassOf().isCmsNode()) {
-            throw new IllegalArgumentException(String.format("setPFlags(%s, %s, %s) : CMS flags cannot be defined on non CMS {%s} %s.", 
-                    SmStatus.flagsToString(trueFlags), SmStatus.flagsToString(falseFlags), SmStatus.flagsToString(undefFlags), 
+            throw new IllegalArgumentException(String.format("setPFlags(%s, %s, %s) : CMS flags cannot be defined on non CMS {%s} %s.",
+                    SmStatus.flagsToString(trueFlags), SmStatus.flagsToString(falseFlags), SmStatus.flagsToString(undefFlags),
                     this.uuid,  getClassOf().getQualifiedName()));
         }
         
-        
-        this.status = SmStatus.setFlags(this.status, trueFlags, falseFlags, undefFlags);
+        long newStatus;
+        long oldStatus;
+        do {
+            oldStatus = StatusAccessor.get(this);
+            newStatus = SmStatus.setFlags(oldStatus, trueFlags, falseFlags, undefFlags);
+        } while (! StatusAccessor.compareAndSet(this, oldStatus, newStatus));
         
     }
 
     @objid ("0623aa1b-a60d-4292-acb6-9b166adfd2cb")
     @Override
     public final StatusState hasAllStatus(long flags) {
-        return SmStatus.areAllSet(this.status, flags);
+        return SmStatus.areAllSet(StatusAccessor.get(this), flags);
     }
 
     @objid ("3bf5de1f-b836-42b3-b552-0b62e9b58ddc")
     @Override
     public final StatusState hasAnyStatus(long flags) {
-        return SmStatus.isAnySet(this.status, flags);
+        return SmStatus.isAnySet(StatusAccessor.get(this), flags);
     }
 
     /**

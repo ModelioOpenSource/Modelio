@@ -75,5 +75,5 @@ public interface IConnectionHelperFactory {
      */
     @objid ("74a4b21e-18fb-4117-8328-0968e677f535")
     IConnectionHelper getUpdatedConnectionHelper(CreateBendedConnectionRequest req, Connection connection);
-
 }
+

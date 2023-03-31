@@ -36,6 +36,9 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefiniti
  * 
  * 
  * <p>Through Stereotypes, the end user can create new icons and new adaptations of ModelElements. Stereotypes cannot be created with the Java / Jython language. They are defined at meta level, and do not belong to a ModelElement at model level.</p>
+ * 
+ * 
+ * 
  */
 @objid ("008d239a-c4be-1fd8-97fe-001ec947cd2a")
 public interface Stereotype extends ModelElement {
@@ -68,6 +71,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Image that represents the stereotype in diagrams for elements in image mode.</i>
+     * 
      */
     @objid ("f646a97c-df9d-4066-a96c-8d20ccd0d19b")
     String getImage();
@@ -77,6 +81,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Image that represents the stereotype in diagrams for elements in image mode.</i>
+     * 
      */
     @objid ("ff9a8197-3e42-46ab-bd71-820a893089e9")
     void setImage(String value);
@@ -86,6 +91,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Icon that can represent the stereotyped ModelElement.</i>
+     * 
      */
     @objid ("8129819e-9021-4771-89ef-a3d1ac7d7bd6")
     String getIcon();
@@ -95,6 +101,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Icon that can represent the stereotyped ModelElement.</i>
+     * 
      */
     @objid ("6e399aa9-3ad6-4f49-a75b-8dc902a758b3")
     void setIcon(String value);
@@ -105,6 +112,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this stereotype will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("192777cf-12cf-4880-bfb4-046f55b3c1cc")
     boolean isIsHidden();
@@ -115,6 +123,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this stereotype will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("f544b284-e1b7-428d-b6e8-760ffac80abf")
     void setIsHidden(boolean value);
@@ -125,6 +134,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>Tells the stereotype is abstract.</p><p>Abstract stereotypes may not be applied to elements and must serve only as base stereotype for child ones.</p>
      * </i>
+     * 
      */
     @objid ("adde264e-a042-4a08-b6ce-c5127ff6b5f0")
     boolean isIsAbstract();
@@ -135,6 +145,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>Tells the stereotype is abstract.</p><p>Abstract stereotypes may not be applied to elements and must serve only as base stereotype for child ones.</p>
      * </i>
+     * 
      */
     @objid ("77f77b7b-3094-4087-bf50-484995125046")
     void setIsAbstract(boolean value);
@@ -145,6 +156,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>The stereotype label key used to look into module resources for the translated stereotype label.</p>
      * </i>
+     * 
      */
     @objid ("6bea0aa1-a217-4330-b37d-6a6e6586b655")
     String getLabelKey();
@@ -155,6 +167,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>The stereotype label key used to look into module resources for the translated stereotype label.</p>
      * </i>
+     * 
      */
     @objid ("995d1e2c-0579-4cd5-acb0-31626d364e30")
     void setLabelKey(String value);
@@ -165,6 +178,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>MetaClass whose instances can be annotated by this Stereotype.</p>
      * </i>
+     * 
      */
     @objid ("d07a6cde-3f3d-4581-bdd6-606e94d62222")
     String getBaseClassName();
@@ -175,6 +189,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>MetaClass whose instances can be annotated by this Stereotype.</p>
      * </i>
+     * 
      */
     @objid ("685e817a-dcd9-4e33-8657-5c1d338fc0c8")
     void setBaseClassName(String value);
@@ -184,6 +199,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9620b9e1-3293-4b9a-8e85-7170adfd610e")
     PropertyTableDefinition getDefinedTable();
@@ -193,6 +209,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e6583b5e-1639-43e2-aeaf-4abfe09ab6aa")
     void setDefinedTable(PropertyTableDefinition value);
@@ -202,6 +219,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cad89353-31db-452e-80ad-008c91d510a6")
     EList<ResourceType> getDefinedResourceType();
@@ -211,6 +229,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0b3cb31e-6630-49ce-afe4-a34905245383")
     <T extends ResourceType> List<T> getDefinedResourceType(java.lang.Class<T> filterClass);
@@ -220,6 +239,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8dac0868-ef42-43bd-87d7-e4eb2693585b")
     Profile getOwner();
@@ -229,6 +249,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("966d098c-178b-4351-ac54-2670aa9b763c")
     void setOwner(Profile value);
@@ -238,6 +259,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c9765e77-a706-42c6-aa6a-52670cf4fdd1")
     Stereotype getParent();
@@ -247,6 +269,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("edc13f38-ea18-4856-ac8f-98ebcf3f7166")
     void setParent(Stereotype value);
@@ -256,6 +279,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("23a5e876-bfa6-4051-8d72-a97a6f839d92")
     EList<TagType> getDefinedTagType();
@@ -265,6 +289,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("03836d0e-b665-4dab-8249-28b9b7b808a8")
     <T extends TagType> List<T> getDefinedTagType(java.lang.Class<T> filterClass);
@@ -274,6 +299,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Stereotypes inheriting from this one.</i>
+     * 
      */
     @objid ("25020361-36d8-437d-84ff-16bc481e8e16")
     EList<Stereotype> getChild();
@@ -283,6 +309,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i>Stereotypes inheriting from this one.</i>
+     * 
      */
     @objid ("55698fc3-8ecd-406b-816d-c1dbabb2de9e")
     <T extends Stereotype> List<T> getChild(java.lang.Class<T> filterClass);
@@ -292,6 +319,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("ab6d8673-42f8-4270-90f2-4379bc7d5d1f")
     EList<NoteType> getDefinedNoteType();
@@ -301,6 +329,7 @@ public interface Stereotype extends ModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("88117104-4340-4261-ae95-1998d1484e6d")
     <T extends NoteType> List<T> getDefinedNoteType(java.lang.Class<T> filterClass);
@@ -311,6 +340,7 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>All elements in the project this stereotype is applied on.</p><p>Beware: this list can be huge and take many seconds to compute!</p>
      * </i>
+     * 
      */
     @objid ("de5f773c-76ca-4e9a-b0fe-9304bd63a0ec")
     EList<ModelElement> getExtendedElement();
@@ -321,8 +351,9 @@ public interface Stereotype extends ModelElement {
      * Metamodel description:
      * <i><p>All elements in the project this stereotype is applied on.</p><p>Beware: this list can be huge and take many seconds to compute!</p>
      * </i>
+     * 
      */
     @objid ("4b4e95d4-e04d-4e9a-aee1-36dac8b4bfed")
     <T extends ModelElement> List<T> getExtendedElement(java.lang.Class<T> filterClass);
-
 }
+

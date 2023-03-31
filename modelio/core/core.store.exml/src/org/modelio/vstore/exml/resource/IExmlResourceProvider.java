@@ -290,7 +290,7 @@ public interface IExmlResourceProvider {
      * Represents an EXML node resource.
      */
     @objid ("cf2f175a-03e4-11e2-b5bf-001ec947ccaf")
-    public interface ExmlResource {
+    interface ExmlResource {
         /**
          * Open a buffered input stream on the resource.
          * <p>
@@ -348,7 +348,7 @@ public interface IExmlResourceProvider {
          */
         @objid ("cf2f175e-03e4-11e2-b5bf-001ec947ccaf")
         OutputStream write() throws IOException;
-
-    }
-
 }
+    
+}
+

@@ -34,7 +34,7 @@ public class GmBpmnSequenceFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("72230391-55c1-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("BPMNSEQUENCEFLOW_ROUTINGMODE",
-                MetaKey.CONNECTIONROUTER);
+                    MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -53,14 +53,14 @@ public class GmBpmnSequenceFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("72248a29-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINERADIUS = createStyleKey("BPMNSEQUENCEFLOW_LINERADIUS",
-                MetaKey.LINERADIUS);
+                    MetaKey.LINERADIUS);
 
     /**
      * Bridge
      */
     @objid ("72248a2c-55c1-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("BPMNSEQUENCEFLOW_DRAWLINEBRIDGES",
-                MetaKey.DRAWLINEBRIDGES);
+                    MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -79,7 +79,7 @@ public class GmBpmnSequenceFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("72248a35-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNSEQUENCEFLOW_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -99,6 +99,6 @@ public class GmBpmnSequenceFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("72248a3e-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("BPMNSEQUENCEFLOW_LINEPATTERN",
-                MetaKey.LINEPATTERN);
+                    MetaKey.LINEPATTERN);
 
 }

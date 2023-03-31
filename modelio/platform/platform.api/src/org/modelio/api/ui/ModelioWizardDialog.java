@@ -81,6 +81,7 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
      */
     @objid ("d6549436-910f-11e0-9de7-002564c97630")
     public static final String WIZ_IMG_ERROR = "dialog_title_error_image"; // $NON-NLS-1$
+    
 
     /**
      * The number of long running operation executed from the dialog.
@@ -122,6 +123,7 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
 
     @objid ("d655ccb8-910f-11e0-9de7-002564c97630")
     private static final String FOCUS_CONTROL = "focusControl"; // $NON-NLS-1$
+    
 
     /**
      * A delay in milliseconds that reduces the risk that the user accidentally triggers a button by pressing the 'Enter' key immediately after a job has finished.

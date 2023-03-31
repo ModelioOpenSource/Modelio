@@ -68,6 +68,7 @@ public final class SmStatus implements IRStatus, IPStatus {
      */
     @objid ("325165af-d27b-11e1-b069-001ec947ccaf")
     static final long PMASK = PFLAGS << 16; // 0xffff_0000_0000_0000L;
+    
 
     /**
      * Runtime flags area.
@@ -89,6 +90,7 @@ public final class SmStatus implements IRStatus, IPStatus {
      */
     @objid ("325165a8-d27b-11e1-b069-001ec947ccaf")
     private static final long RMASK = RFLAGS << 16; // 0x0000_0000_ffff_0000L;
+    
 
     @objid ("004918ee-fd1a-1f27-a7da-001ec947cd2a")
     private static final long serialVersionUID = 2436486008927826622L;

@@ -37,6 +37,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * Modelio specific:
  * The functionality of merge node and decision node can be combined by using the same node. This case maps to a model containing a merge node with all the incoming edges and one outgoing edge to a decision node that has all the outgoing edges.
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("002fbdcc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DecisionMergeNode extends ControlNode {
@@ -57,6 +61,7 @@ public interface DecisionMergeNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>BPMN decision kind.</i>
+     * 
      */
     @objid ("df893ddf-15af-47bd-b5bd-a892a4496531")
     DecisionNodeKind getDecisionKind();
@@ -66,6 +71,7 @@ public interface DecisionMergeNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>BPMN decision kind.</i>
+     * 
      */
     @objid ("7fd5e37b-ad6e-4671-a710-740e29eb2eea")
     void setDecisionKind(DecisionNodeKind value);
@@ -75,6 +81,7 @@ public interface DecisionMergeNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>Provides input to guard specifications on edges outgoing from the decision node.</i>
+     * 
      */
     @objid ("047f4395-cb2d-42e4-a05f-a5969e9a2628")
     String getDecisionInputBehavior();
@@ -84,8 +91,9 @@ public interface DecisionMergeNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>Provides input to guard specifications on edges outgoing from the decision node.</i>
+     * 
      */
     @objid ("21bdf8d6-431c-4b8b-8bdf-5469fcc89bf5")
     void setDecisionInputBehavior(String value);
-
 }
+

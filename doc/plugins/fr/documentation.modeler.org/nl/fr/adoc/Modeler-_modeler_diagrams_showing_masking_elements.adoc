@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Afficher-et-masquer-des-éléments-dans-un-diagramme]]
 
-[[afficher-et-masquer-des-éléments-dans-un-diagramme]]
+
+
 = Afficher et masquer des éléments dans un diagramme
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Les diagrammes peuvent rapidement devenir désordonnés et par conséquent difficiles à gérer si leur contenu et les liens associés sont rendus visibles. C'est pour cette raison que Modelio vous permet de décider d'afficher ou de masquer les différents éléments de vos diagrammes, ainsi que les éléments qu'ils référencent.
@@ -27,9 +27,9 @@ Pour masquer des éléments, vous avez également le choix entre trois possibili
 * La commande *"Masquer"* dans les menus contextuels,
 * La définition d'une politique automatique de masquage dans la vue *"Symbole"*.
 
-[[Afficher-un-élément-en-utilisant-le-glisser-déposer-depuis-la-vue-ldquoModèlerdquo]]
 
-[[afficher-un-élément-en-utilisant-le-glisser-déposer-depuis-la-vue-modèle]]
+
+
 ===== Afficher un élément en utilisant le glisser-déposer depuis la vue "Modèle"
 
 .Afficher une classe en utilisant le glisser-déposer
@@ -40,9 +40,9 @@ image::images/Modeler-_modeler_diagrams_showing_masking_elements_DiagDragDrop.pn
 1. Cliquez-gauche sur l'élément dans la vue "Modèle".
 2. En maintenant enfoncé le bouton gauche de la souris, glissez-déposez l'élément dans le diagramme, puis relâchez le bouton de la souris.
 
-[[Afficher-un-élément-en-utilisant-la-commande-ldquoDémasquerrdquo]]
 
-[[afficher-un-élément-en-utilisant-la-commande-démasquer]]
+
+
 ===== Afficher un élément en utilisant la commande "Démasquer"
 
 .Afficher une généralisation entre deux classes
@@ -53,9 +53,9 @@ image::images/Modeler-_modeler_diagrams_showing_masking_elements_UnmaskMenu.png[
 1. Cliquez-droit sur l'élément dans la vue d'édition des diagrammes.
 2. Dans le menu *"Démasquer"* menu, cliquez sur la commande de démasquage de votre choix.
 
-[[Afficher-des-éléments-en-utilisant-une-politique-automatique-de-démasquage-définie-dans-la-vue-ldquoSymbolerdquo]]
 
-[[afficher-des-éléments-en-utilisant-une-politique-automatique-de-démasquage-définie-dans-la-vue-symbole]]
+
+
 ===== Afficher des éléments en utilisant une politique automatique de démasquage définie dans la vue "Symbole"
 
 .Afficher les éléments en utilisant l'onglet 'symbole'
@@ -66,9 +66,9 @@ image::images/Modeler-_modeler_diagrams_showing_masking_elements_AutoUnmask.png[
 1. Cliquez-droit sur l'élément dans la vue d'édition des diagrammes.
 2. Dans la vue "Symbole", éditez le champ de votre choix pour l'élément concerné.
 
-[[Afficher-tous-le-contenu-dune-classe]]
 
-[[afficher-tous-le-contenu-dune-classe]]
+
+
 ===== Afficher tous le contenu d'une classe
 
 Pour un élément sélectionné, le champ "Filtrer par visibilité" de la vue "Symbole" permet la définition d'une politique automatique de démasquage de son contenu, selon sa visibilité :
@@ -78,9 +78,9 @@ Pour un élément sélectionné, le champ "Filtrer par visibilité" de la vue "S
 * Non-privés : Masquer les éléments privés
 * Manuel : Afficher ou masquer les éléments individuellement
 
-[[Les-options-de-représentation]]
 
-[[les-options-de-représentation]]
+
+
 ===== Les options de représentation
 
 Vous pouvez définir des options de représentation pour chaque élément dans un diagramme Modelio dans la vue *"Symbole"*.
@@ -92,9 +92,9 @@ image::images/Modeler-_modeler_diagrams_showing_masking_elements_SymbolVisibilit
 
 1. Dans la vue "Symbole", éditez le champ de votre choix pour l'élément concerné.
 
-[[Masquer-un-élément]]
 
-[[masquer-un-élément]]
+
+
 ===== Masquer un élément
 
 image::images/Modeler-_modeler_diagrams_showing_masking_elements_MaskClass.png[5]

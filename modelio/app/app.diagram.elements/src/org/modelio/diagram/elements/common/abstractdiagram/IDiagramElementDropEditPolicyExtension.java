@@ -71,5 +71,5 @@ public interface IDiagramElementDropEditPolicyExtension {
      */
     @objid ("8016633e-cb46-41b0-b13a-831d51dc1ec6")
     boolean canUnmask(DiagramElementDropEditPolicy dropPolicy, MObject candidate);
-
 }
+

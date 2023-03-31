@@ -177,9 +177,7 @@ public class PrecisionPointList extends PointList {
     @Override
     public Point getPoint(int index) {
         if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index: " + index + //$NON-NLS-1$
-                    ", Size: " +
-                    this.size);
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
         index *= 2;
         return new PrecisionPoint(this.points[index], this.points[index + 1]);
@@ -189,9 +187,7 @@ public class PrecisionPointList extends PointList {
     @Override
     public Point getPoint(Point p, int index) {
         if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index: " + index + //$NON-NLS-1$
-                    ", Size: " +
-                    this.size);
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
         index *= 2;
         if (p instanceof PrecisionPoint) {
@@ -212,9 +208,7 @@ public class PrecisionPointList extends PointList {
             this.bounds = null;
         }
         if (index > this.size || index < 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + //$NON-NLS-1$
-                    ", Size: " +
-                    this.size);
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
         index *= 2;
         
@@ -272,9 +266,7 @@ public class PrecisionPointList extends PointList {
     public Point removePoint(int index) {
         this.bounds = null;
         if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index: " + index + //$NON-NLS-1$
-                    ", Size: " +
-                    this.size);
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
         
         index *= 2;
@@ -305,9 +297,7 @@ public class PrecisionPointList extends PointList {
     @Override
     public void setPoint(Point pt, int index) {
         if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index: " + index + //$NON-NLS-1$
-                    ", Size: " +
-                    this.size);
+            throw new IndexOutOfBoundsException("Index: " + index +  ", Size: " + this.size);
         }
         if (this.bounds != null && !this.bounds.contains(pt)) {
             this.bounds = null;

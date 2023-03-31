@@ -508,9 +508,10 @@ public class MObjectCache {
      * Typedef to Map<UUID,SmObjectImpl> .
      */
     @objid ("eeabc200-5921-48a9-9945-775681defcde")
-    private interface IMClassCache extends ConcurrentMap<String, SmObjectImpl> {// nothing more
-        
-    }
+    private interface IMClassCache extends ConcurrentMap<String, SmObjectImpl> {
+// nothing more
+        }
+    
 
     /**
      * Typedef to ConcurrentHashMap<UUID,SmObjectImpl> implementation of {@link IMClassCache}.

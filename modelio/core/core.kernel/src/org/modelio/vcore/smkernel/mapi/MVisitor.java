@@ -32,6 +32,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * @see <a href="http://c2.com/cgi/wiki?GangOfFour">http://c2.com/cgi/wiki?AcyclicVisitor</a>
  */
 @objid ("0009c1a8-480c-1f35-b94f-001ec947cd2a")
-public interface MVisitor {// no code
-    
-}
+public interface MVisitor {
+// no code
+    }
+

@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Property table whose possible keys are restrained to the table definition.
+ * 
+ * 
  */
 @objid ("006a7cb4-ec87-1098-b22e-001ec947cd2a")
 public interface TypedPropertyTable extends PropertyTable {
@@ -87,6 +89,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f1e997c8-6638-48b3-a67c-94560e5eb3a0")
     PropertyTableDefinition getType();
@@ -96,8 +99,9 @@ public interface TypedPropertyTable extends PropertyTable {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("26f8be33-ff8a-4315-b938-c259ca03fe4e")
     void setType(PropertyTableDefinition value);
-
 }
+

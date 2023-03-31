@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * 
  * 
  * CallBehaviorAction is a call action that invokes a behavior directly rather than invoking a behavioral feature that, in turn, results in the invocation of that behavior. The argument values of the action are available to the execution of the invoked behavior. For synchronous calls the execution of the call behavior action waits until the execution of the invoked behavior completes and a result is returned on its output pin. The action completes immediately without a result, if the call is asynchronous.
+ * 
+ * 
  */
 @objid ("002af378-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CallBehaviorAction extends CallAction {
@@ -53,6 +55,7 @@ public interface CallBehaviorAction extends CallAction {
      * 
      * Metamodel description:
      * <i>The invoked behavior. It must be capable of accepting and returning control.</i>
+     * 
      */
     @objid ("77b912dc-c739-48ae-a069-0dd45b6b8b7c")
     Behavior getCalled();
@@ -62,8 +65,9 @@ public interface CallBehaviorAction extends CallAction {
      * 
      * Metamodel description:
      * <i>The invoked behavior. It must be capable of accepting and returning control.</i>
+     * 
      */
     @objid ("7d6c1e3b-3bd9-47b6-abb3-7256f0465e9b")
     void setCalled(Behavior value);
-
 }
+

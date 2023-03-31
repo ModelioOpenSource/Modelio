@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoElémentrdquo]]
 
-[[la-vue-elément]]
+
+
 = La vue "Elément"
 
 .La vue "Elément"
@@ -18,9 +18,9 @@ image::images/Modeler-_modeler_interface_uml_prop_view_vue_element.png[2]
 3. Le groupe "UML".
 4. Le groupe "Modeler Module".
 
-[[Stéréotypes]]
 
-[[stéréotypes]]
+
+
 === Stéréotypes
 
 *Depuis le menu contextuel de la vue "Elément" :*
@@ -40,9 +40,9 @@ image::images/Modeler-_modeler_interface_uml_prop_view_vue_element.png[2]
 
 *Note :* Pour plus d'informations, voir "<<Modeler-_modeler_building_models_add_stereotypes.adoc#,Ajouter des stéréotypes aux éléments>>".
 
-[[Le-groupe-UML]]
 
-[[le-groupe-uml]]
+
+
 === Le groupe UML
 
 .Le groupe "UML" de la vue "Elément"
@@ -64,9 +64,9 @@ Vous pouvez également utiliser le raccourci[*Ctrl-Espace*] pour afficher une li
 
 *Note :* Pour plus d'informations, voir "<<Modeler-_modeler_building_models_modifying_element_props.adoc#,Modifier des propriétés d'un élément>>".
 
-[[Le-groupe-ldquoModeler-Modulerdquo]]
 
-[[le-groupe-modeler-module]]
+
+
 === Le groupe "Modeler Module"
 
 .Le groupe "Modeler Module" de la vue "Elément"

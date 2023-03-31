@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * An AcceptTimeEventAction waits for the occurrence of a time event meeting a specified condition. 
  * The time expression specifies a point in time. It can be absolute or can be relative to some other point in time.
+ * 
+ * 
  */
 @objid ("00258b22-c4bf-1fd8-97fe-001ec947cd2a")
 public interface AcceptTimeEventAction extends ActivityAction {
@@ -53,6 +55,7 @@ public interface AcceptTimeEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("37e92c69-263e-4f7f-b80c-d53d0897393a")
     String getTimeExpresion();
@@ -62,8 +65,9 @@ public interface AcceptTimeEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4510feeb-769d-443a-9a87-5a7acc4c7389")
     void setTimeExpresion(String value);
-
 }
+

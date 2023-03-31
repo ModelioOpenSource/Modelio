@@ -46,7 +46,7 @@ public class ProjectPageView {
     @objid ("2586ae42-4f09-4e07-95cf-c862ede205b6")
     private String url;
 
-    @objid ("7d00c469-2d7f-4d2a-a193-a3caf732a371")
+    @objid ("c457403f-d946-4002-a81c-cf0dcae13af9")
     private Browser browser;
 
     /**
@@ -146,11 +146,12 @@ public class ProjectPageView {
             this.browser.setText("");
         
     }
+
 // @Optional
     // @Inject
     //
     // public void update(final @Named(IServiceConstants.ACTIVE_SELECTION)
-    // GProject project) {
+    // IGProject project) {
     // if (browser == null)
     // return;
     //

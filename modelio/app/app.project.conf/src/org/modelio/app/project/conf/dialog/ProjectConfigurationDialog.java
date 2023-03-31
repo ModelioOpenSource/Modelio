@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 
@@ -70,7 +70,7 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
     protected TabFolder tabFolder;
 
     @objid ("a7410968-33f6-11e2-a514-002564c97630")
-    public  ProjectConfigurationDialog(final MApplication application, final GProject openedProject, final Shell parentShell) {
+    public  ProjectConfigurationDialog(final MApplication application, final IGProject openedProject, final Shell parentShell) {
         super(parentShell);
         this.application = application;
         this.model = new ProjectModel(openedProject);

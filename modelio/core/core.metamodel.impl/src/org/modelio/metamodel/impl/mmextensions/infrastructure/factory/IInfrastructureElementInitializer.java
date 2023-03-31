@@ -40,5 +40,5 @@ interface IInfrastructureElementInitializer {
 
     @objid ("f46f2e56-5bdf-47c0-a132-7fb684c23a92")
     void setDefaultValue(String key, Object value);
-
 }
+

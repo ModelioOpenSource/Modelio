@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2830]]
 
-[[r2830]]
+
+
 = R2830
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 La source d'une transition ne peut être un état final.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un état final est le dernier état d'un objet, il ne peut pas cibler d'autres états.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une transition venant d'un état final, supprimez-la.

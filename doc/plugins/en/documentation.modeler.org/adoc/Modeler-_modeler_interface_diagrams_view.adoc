@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-Diagrams-view]]
 
-[[the-diagrams-view]]
+
+
 = The Diagrams view
 
 .The Diagrams explorer view in User Folder mode
@@ -17,9 +17,9 @@ image::images/Modeler-_modeler_interface_diagrams_view_diagram_view.png[2]
 2. The "Diagrams" view toolbar.
 3. Diagrams
 
-[[Main-diagram-explorer-commands]]
 
-[[main-diagram-explorer-commands]]
+
+
 ===== Main diagram explorer commands
 
 *From the Diagrams explorer contextual menu:*

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2680]]
 
-[[r2680]]
+
+
 = R2680
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nombre d'éléments d'une _TaggedValue_ doit être le même que le nombre de paramètres définis dans sa déclaration.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Le _TagType_ d'une _TaggedValue_ défini le nombre de paramètres qu'elle peut avoir.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vérifiez le nombre de paramètres de la _TaggedValue_ incriminée.

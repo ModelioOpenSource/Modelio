@@ -39,5 +39,5 @@ public interface IInputView {
      */
     @objid ("00088676-6478-105c-84ef-001ec947cd2a")
     void append(String content);
-
 }
+

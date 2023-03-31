@@ -44,7 +44,7 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -171,7 +171,7 @@ public class GmExternDocument extends GmSimpleNode {
         
         final ResourceType resourceType = this.document.getType();
         if (resourceType != null) {
-            return !ModuleI18NService.getLabel(resourceType).isEmpty() ? ModuleI18NService.getLabel(resourceType) : resourceType.getName();
+            return !MdaResources.getLabel(resourceType).isEmpty() ? MdaResources.getLabel(resourceType) : resourceType.getName();
         }
         return "";
     }

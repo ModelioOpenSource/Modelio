@@ -31,7 +31,7 @@ public final class ModelioVersion {
      * Modelio version as a string.
      */
     @objid ("53a2d18d-300b-4607-9904-301d9723dcb4")
-    public static final String STR_VERSION = "5.1.0";
+    public static final String STR_VERSION = "5.3.1";
 
     /**
      * Modelio build ID
@@ -60,6 +60,23 @@ public final class ModelioVersion {
     @objid ("f53a0942-7a4a-43bc-a017-3063e1cdc709")
     private  ModelioVersion() {
         // no instance
+    }
+
+    /**
+     * Checks that the proposed version is compatible with this Modelio version.
+     * Only Modelio MAJOR_MINOR is checked (build ignored).
+     * @return false if versionToCheck is newer than Modelio.MAJOR_MINOR
+     */
+    @objid ("84f760a0-8779-4499-9409-eee9ccc87c77")
+    public static boolean isCompatible(Version versionToCheck) {
+        if (versionToCheck != null) {
+            if (versionToCheck.withoutBuild().isNewerThan(ModelioVersion.MAJOR_MINOR)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

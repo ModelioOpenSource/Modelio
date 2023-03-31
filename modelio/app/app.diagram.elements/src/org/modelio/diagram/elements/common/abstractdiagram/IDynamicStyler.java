@@ -39,5 +39,5 @@ public interface IDynamicStyler {
      */
     @objid ("4ccd7b8e-9a6a-4483-9a5d-3877226ff177")
     IStyle getStyle(GmModel gmModel, IStyle originalStyle);
-
 }
+

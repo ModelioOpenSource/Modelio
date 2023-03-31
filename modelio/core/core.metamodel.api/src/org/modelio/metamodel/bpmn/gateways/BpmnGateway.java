@@ -36,6 +36,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
  * 
  * Ownership
  * Gateways belong to Flow element containers, or sub processes
+ * 
+ * 
  */
 @objid ("0000e402-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnGateway extends BpmnFlowNode {
@@ -59,6 +61,7 @@ public interface BpmnGateway extends BpmnFlowNode {
      * -  A Gateway with a gatewayDirection of mixed MUST have both multiple incoming and outgoing Sequence Flow.
      * -  A Gateway with a gatewayDirection of converging MUST have multiple incoming Sequence Flow, but MUST NOT have multiple outgoing Sequence Flow.
      * -  A Gateway with a gatewayDirection of diverging MUST have multiple outgoing Sequence Flow, but MUST NOT have multiple incoming Sequence Flow.</i>
+     * 
      */
     @objid ("0ed70bd5-9ea1-4f18-b49a-ce3646dbd0d4")
     BpmnGatewayDirection getGatewayDirection();
@@ -71,8 +74,9 @@ public interface BpmnGateway extends BpmnFlowNode {
      * -  A Gateway with a gatewayDirection of mixed MUST have both multiple incoming and outgoing Sequence Flow.
      * -  A Gateway with a gatewayDirection of converging MUST have multiple incoming Sequence Flow, but MUST NOT have multiple outgoing Sequence Flow.
      * -  A Gateway with a gatewayDirection of diverging MUST have multiple outgoing Sequence Flow, but MUST NOT have multiple incoming Sequence Flow.</i>
+     * 
      */
     @objid ("3c04761c-f2a5-46a1-95b1-fa3bb65c881b")
     void setGatewayDirection(BpmnGatewayDirection value);
-
 }
+

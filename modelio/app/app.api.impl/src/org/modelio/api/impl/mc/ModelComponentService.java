@@ -31,13 +31,15 @@ import org.modelio.api.modelio.mc.IModelComponentDescriptor;
 import org.modelio.api.modelio.mc.IModelComponentService;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.app.ramcs.edition.RamcModel;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPart;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.data.ramc.ModelComponentArchive;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.parts.GPartFactory;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor;
 import org.modelio.gproject.ramc.core.packaging.RamcPackager;
 import org.modelio.metamodel.uml.statik.Artifact;
@@ -58,7 +60,7 @@ public class ModelComponentService implements IModelComponentService {
     private IModuleService moduleService;
 
     @objid ("5799ad84-ac95-458c-9dc1-2d4c023240b1")
-    private GProject gProject;
+    private IGProject gProject;
 
     /**
      * C'tor.
@@ -67,7 +69,7 @@ public class ModelComponentService implements IModelComponentService {
      * @param moduleManagementService the module service, needed to find model component contributors.
      */
     @objid ("5fa17d16-6f97-4206-b5f3-888ac153780d")
-    public  ModelComponentService(IProjectService projectService, GProject gProject, IModuleService moduleManagementService) {
+    public  ModelComponentService(IProjectService projectService, IGProject gProject, IModuleService moduleManagementService) {
         this.projectService = projectService;
         this.gProject = gProject;
         this.moduleService = moduleManagementService;
@@ -83,8 +85,13 @@ public class ModelComponentService implements IModelComponentService {
             final IModelComponentInfos infos = modelComponentArchive.getInfos();
             removeModelComponent(buildDescriptor(infos));
         
-            FragmentDescriptor fragmentDescriptor = modelComponentArchive.getFragmentDescriptor();
-            this.projectService.addFragment(this.gProject, fragmentDescriptor, monitor);
+            GProjectPartDescriptor fragmentDescriptor = modelComponentArchive.getFragmentDescriptor();
+        
+            // Instantiate the part
+            final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+        
+            // Add new fragment to project, permanent mount
+            this.gProject.addGPart(newFragment, true);
         } catch (Exception e) {
             ApiImpl.LOG.error(e);
         }
@@ -96,11 +103,11 @@ public class ModelComponentService implements IModelComponentService {
     public void removeModelComponent(final IModelComponentDescriptor modelComponent) {
         String name = modelComponent.getName();
         
-        IProjectFragment fragmentToRemove = null;
-        for (IProjectFragment fragment : this.gProject.getFragments()) {
-            if (fragment.getType() == FragmentType.RAMC) {
+        IGModelFragment fragmentToRemove = null;
+        for (IGModelFragment fragment : this.gProject.getParts(IGModelFragment.class)) {
+            if (fragment.getType() == GProjectPartType.RAMC) {
                 try {
-                    IModelComponentInfos infos = ((RamcFileFragment) fragment).getInformations();
+                    IModelComponentInfos infos = (IModelComponentInfos) fragment.getInformations();
                     if (name.equals(infos.getName())) {
                         fragmentToRemove = fragment;
                         break;
@@ -112,7 +119,11 @@ public class ModelComponentService implements IModelComponentService {
         }
         
         if (fragmentToRemove != null) {
-            this.projectService.removeFragment(this.gProject, fragmentToRemove);
+            try {
+                this.gProject.removeGPart(fragmentToRemove);
+            } catch (GPartException e) {
+                ApiImpl.LOG.error(e);
+            }
         }
         
     }
@@ -122,11 +133,11 @@ public class ModelComponentService implements IModelComponentService {
     public List<IModelComponentDescriptor> getModelComponents() {
         List<IModelComponentDescriptor> mcList = new ArrayList<>();
         
-        for (IProjectFragment fragment : this.gProject.getFragments()) {
-            if (fragment.getType() == FragmentType.RAMC) {
+        for (IGModelFragment fragment : this.gProject.getParts(IGModelFragment.class)) {
+            if (fragment.getType() == GProjectPartType.RAMC) {
                 try {
                     // Parse the fragment to get its version
-                    mcList.add(buildDescriptor(((RamcFileFragment) fragment).getInformations()));
+                    mcList.add(buildDescriptor((IModelComponentInfos) fragment.getInformations()));
                 } catch (@SuppressWarnings ("unused") IOException e) {
                     // Ignore broken ramcs...
                 }
@@ -156,7 +167,7 @@ public class ModelComponentService implements IModelComponentService {
     @objid ("55bfc149-73b4-4ae6-b7ad-98f5acbac725")
     @Override
     public List<IModelComponentContributor> getContributors(final Artifact mc, Set<IPeerModule> peerModules) {
-        RamcModel model = new RamcModel(this.gProject.getProjectFileStructure().getProjectPath(), mc);
+        RamcModel model = new RamcModel(this.gProject.getPfs().getProjectPath(), mc);
         
         // Contributors to RAMC packaging
         List<IModelComponentContributor> contributors = new ArrayList<>();

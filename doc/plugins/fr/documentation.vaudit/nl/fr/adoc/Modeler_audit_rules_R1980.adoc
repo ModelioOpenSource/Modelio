@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1980]]
 
-[[r1980]]
+
+
 = R1980
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom d'un _Attribut_ ou d'un _AssociationEnd_ doit être unique dans le _Classifier_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _Attribute_ et les _AssociationEnd_ d'un _Classifier_ représente des variables identifiables par leur nom. Ils doivent donc impérativement avoir un nom unique au sein du _Classifier_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Renommez les _Attribute_ et les _AssociationEnd_ du _Classifier_, afin qu'ils aient un nom unique au sein du _Classifier_.

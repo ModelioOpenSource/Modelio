@@ -252,5 +252,5 @@ public interface MStatus {
      */
     @objid ("f34b675a-5bb7-4804-a63e-868a027dd998")
     boolean isDirty();
-
 }
+

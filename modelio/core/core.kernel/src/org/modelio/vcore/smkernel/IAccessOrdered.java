@@ -42,5 +42,5 @@ public interface IAccessOrdered {
      */
     @objid ("aa4fe13e-0783-4852-ae2c-65a1277c8ee9")
     int getLastAccess();
-
 }
+

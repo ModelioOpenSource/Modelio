@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Coverage-of-UML2]]
 
-[[coverage-of-uml2]]
+
+
 = Coverage of UML2
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Modelio XMI Import/Export is designed to enable all model elements to be imported and exported.
@@ -19,9 +19,9 @@ However, at this time, only some of the elements defined in the UML2 metamodel a
 
 It should also be noted that imports/exports may be incomplete, because of the differences that exist between the UML2 and Modelio metamodels.
 
-[[Static-diagram-elements]]
 
-[[static-diagram-elements]]
+
+
 ===== Static diagram elements
 
 *Class diagrams*
@@ -48,9 +48,9 @@ All package diagram elements are managed.
 
 All composite structure diagram elements are managed.
 
-[[Behavioral-diagram-elements]]
 
-[[behavioral-diagram-elements]]
+
+
 ===== Behavioral diagram elements
 
 *Use case diagrams*
@@ -65,9 +65,9 @@ All state diagram elements are managed.
 
 All activity diagram elements are managed.
 
-[[Dynamic-diagram-elements]]
 
-[[dynamic-diagram-elements]]
+
+
 ===== Dynamic diagram elements
 
 *Sequence diagrams*
@@ -82,16 +82,16 @@ Communication diagram elements are not yet managed.
 
 Timing diagram elements are not managed by Modelio.
 
-[[Auxiliary-constructions]]
 
-[[auxiliary-constructions]]
+
+
 ===== Auxiliary constructions
 
 Templates are managed.
 
-[[Profiles]]
 
-[[profiles]]
+
+
 ===== Profiles
 
 Profiles can be imported into Modelio but they must be defined in a module. +
@@ -99,9 +99,9 @@ This means that the UML profile must be imported into a module by using the <<Xm
 
 Profiles can also be exported from Modelio through the <<Xmi_exporting_profile.adoc#,XMI Export Profile command>>.
 
-[[Modelio-compatibility-option]]
 
-[[modelio-compatibility-option]]
+
+
 ===== Modelio compatibility option
 
 By activating the <<Xmi_config.adoc#,Modelio/Modelio compatibility option>>, it is possible to export and re-import notes with their associated type. If this option has not been activated, the types of notes are lost (UML2 restriction). By default, imported notes are of "comment" type.

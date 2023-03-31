@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Core
 Bundle-SymbolicName: org.modelio.platform.project;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.platform.project.plugin.AppProjectCore
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.modelio.platform.core,
  org.modelio.core.project,
  org.modelio.core.utils,
@@ -33,7 +33,8 @@ Require-Bundle: org.modelio.platform.core,
  org.eclipse.e4.core.di.extensions,
  org.modelio.platform.preferences,
  org.modelio.platform.rcp,
- org.apache.commons.commons-compress
+ org.apache.commons.commons-compress,
+ org.modelio.modelermodule
 Bundle-ActivationPolicy: lazy
 Export-Package: org.modelio.platform.project.creation,
  org.modelio.platform.project.prefs,
@@ -41,6 +42,7 @@ Export-Package: org.modelio.platform.project.creation,
  org.modelio.platform.project.services.closeproject,
  org.modelio.platform.project.services.createproject,
  org.modelio.platform.project.services.openproject,
+ org.modelio.platform.project.services.syncproject,
  org.modelio.platform.project.services.workspace
 Bundle-ClassPath: res/,
  .

@@ -49,6 +49,8 @@ import org.modelio.metamodel.uml.statik.Parameter;
  * A DataFlow associated to the Signal will then be able to express this data, represented by the Signal, and may circulate between different NameSpaces.  
  * 
  * In Modelio, a Signal belongs to a NameSpace, notably its Package.
+ * 
+ * 
  */
 @objid ("00421152-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Signal extends GeneralClass {
@@ -69,6 +71,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Establishes if it is an event in the sense of event based systems : CORBA, Java, XWindow's, SGBDR.</i>
+     * 
      */
     @objid ("0480e45a-6886-42c0-b13c-78b8ab8f713d")
     boolean isIsEvent();
@@ -78,6 +81,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Establishes if it is an event in the sense of event based systems : CORBA, Java, XWindow's, SGBDR.</i>
+     * 
      */
     @objid ("b47d48ab-22b9-48c5-87ec-5f1f114e042d")
     void setIsEvent(boolean value);
@@ -87,6 +91,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Defines if it is an exception, as they exist in Java, C++, and so on.</i>
+     * 
      */
     @objid ("7652bc7c-103c-4e5a-a8fa-ee4e662fd446")
     boolean isIsException();
@@ -96,6 +101,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Defines if it is an exception, as they exist in Java, C++, and so on.</i>
+     * 
      */
     @objid ("9ecad15f-7403-4692-8909-d35b3a624c86")
     void setIsException(boolean value);
@@ -105,6 +111,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("022e5c44-f663-4da4-8639-9b68dd8c72fb")
     EList<SendSignalAction> getSender();
@@ -114,6 +121,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ced63337-39ce-42f8-90bd-d077dff7d70f")
     <T extends SendSignalAction> List<T> getSender(java.lang.Class<T> filterClass);
@@ -123,6 +131,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f29e2e4a-e5e9-43fa-b193-525c198df148")
     EList<Message> getUsage();
@@ -132,6 +141,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("32b6a3ff-7ef7-493d-9a41-7f72b2ccde96")
     <T extends Message> List<T> getUsage(java.lang.Class<T> filterClass);
@@ -141,6 +151,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5fbc4043-71c3-4fa2-8c35-72372f15ccb1")
     EList<Transition> getSends();
@@ -150,6 +161,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c8de396e-ab02-483d-b196-1ed35eed0fa2")
     <T extends Transition> List<T> getSends(java.lang.Class<T> filterClass);
@@ -159,6 +171,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Parameter that the Signal may represent.</i>
+     * 
      */
     @objid ("9a83ac2d-0b09-43f4-8fe1-99b21824cd6b")
     Parameter getPBase();
@@ -168,6 +181,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Parameter that the Signal may represent.</i>
+     * 
      */
     @objid ("4a70fdf5-35b2-4c97-bf6d-f67d64977605")
     void setPBase(Parameter value);
@@ -177,6 +191,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>The Operation that the Signal may represent.</i>
+     * 
      */
     @objid ("5d1e9f76-f0d9-4b67-a34e-4ac268bb9498")
     Operation getOBase();
@@ -186,6 +201,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>The Operation that the Signal may represent.</i>
+     * 
      */
     @objid ("f604cc17-9920-4a0a-a7d0-2659ddf966f4")
     void setOBase(Operation value);
@@ -195,6 +211,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d7ed9b2c-9f72-4c27-953d-a33403c8913b")
     EList<CommunicationMessage> getCommunicationUsage();
@@ -204,6 +221,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("940a558d-b540-4c08-9dac-bccf65aba0cc")
     <T extends CommunicationMessage> List<T> getCommunicationUsage(java.lang.Class<T> filterClass);
@@ -213,6 +231,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a51f6fac-85fb-48fa-82df-d3b3861efe20")
     EList<DataFlow> getDOccurence();
@@ -222,6 +241,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c8f09e68-aa31-4979-af01-1efd506d638e")
     <T extends DataFlow> List<T> getDOccurence(java.lang.Class<T> filterClass);
@@ -231,6 +251,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f06e9701-bed5-478b-88af-6a964a67a2f4")
     EList<Event> getEOccurence();
@@ -240,6 +261,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2c133f02-d778-4c15-874c-c08e507222c0")
     <T extends Event> List<T> getEOccurence(java.lang.Class<T> filterClass);
@@ -249,6 +271,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Class that the Signal may represent.</i>
+     * 
      */
     @objid ("7c271445-4f62-40f6-a5cd-146acbb64048")
     GeneralClass getBase();
@@ -258,6 +281,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>Class that the Signal may represent.</i>
+     * 
      */
     @objid ("332a71dc-5b01-4699-b13d-7978d6dfd6de")
     void setBase(GeneralClass value);
@@ -267,6 +291,7 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("47a6d36a-07a0-47b5-ac0d-05c42d9fcecf")
     EList<AcceptSignalAction> getReceiver();
@@ -276,8 +301,9 @@ public interface Signal extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cbd0a8e5-49ed-47a7-945c-b91754b129e5")
     <T extends AcceptSignalAction> List<T> getReceiver(java.lang.Class<T> filterClass);
-
 }
+

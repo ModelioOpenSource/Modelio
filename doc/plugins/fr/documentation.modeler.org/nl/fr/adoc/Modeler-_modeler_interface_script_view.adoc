@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoScriptrdquo]]
 
-[[la-vue-script]]
+
+
 = La vue "Script"
 
 .La vue "Script"
@@ -18,9 +18,9 @@ image::images/Modeler-_modeler_interface_script_view_ScriptTab.png[2]
 3. La zone d'entrée du script.
 4. La zone de sortie du script.
 
-[[Principales-commandes-disponibles-dans-la-vue-ldquoScriptrdquo]]
 
-[[principales-commandes-disponibles-dans-la-vue-script]]
+
+
 ===== Principales commandes disponibles dans la vue "Script"
 
 * *Ouvrir le catalogue de macros* [image:images/Modeler-_modeler_interface_script_view_scriptcatalog.png[10]] : Ouvre le catalogue de macros.

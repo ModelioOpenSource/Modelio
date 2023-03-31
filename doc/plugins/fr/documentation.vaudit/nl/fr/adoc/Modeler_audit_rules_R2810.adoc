@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2810]]
 
-[[r2810]]
+
+
 = R2810
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les vertex historiques ne peuvent avoir qu'une seule transition sortante.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les vertex historiques ne doivent cibler qu'un état dans lequel l'objet doit se trouver lors de sa réactivation.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez plusieurs transitions sortant d'un vertex historique, supprimez les transitions en trop.

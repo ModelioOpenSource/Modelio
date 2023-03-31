@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2780]]
 
-[[r2780]]
+
+
 = R2780
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une transition sortant d'un pseudo state ne peut pas avoir de trigger (sauf dans le cas de celle venant d'un initial state).
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un pseudo state est un état temporaire, les transitions en sortant ne devraient pas avoir de trigger.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez tous les triggers des transitions sortant de pseudo states.

@@ -78,5 +78,5 @@ public interface IStatusChangeEvent {
      */
     @objid ("15129f5d-ba62-4b0c-85c6-e3f046b9a9df")
     ChangeCause getCause();
-
 }
+

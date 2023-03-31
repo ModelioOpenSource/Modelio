@@ -39,5 +39,5 @@ public interface IDiagramDrawingNode extends IDiagramDrawing, IDiagramNode {
      */
     @objid ("7ce1e4d3-c7cb-4023-a5f4-74d477e8ee8f")
     void setLabel(String label);
-
 }
+

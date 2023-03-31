@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModuleClassLoaderProvider {
     @objid ("693d7c55-5877-42bd-977e-6f51dcc5b09c")
     ClassLoader getClassLoader();
-
 }
+

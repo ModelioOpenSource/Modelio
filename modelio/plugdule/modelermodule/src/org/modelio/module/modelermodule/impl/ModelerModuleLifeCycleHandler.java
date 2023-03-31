@@ -52,7 +52,7 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         // Remove the metamodelVersion
         final Version version = this.module.getVersion();
         final String fullVersion = version.toString();
-        final String message = "Modelio/" + this.module.getName() + " " + fullVersion + " - Copyright 2008-2019 Modeliosoft";
+        final String message = "Modelio/" + this.module.getName() + " " + fullVersion + " - Copyright 2008-2022 Softeam";
         
         reinitializeProxies();
         
@@ -399,6 +399,7 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ClassifierTemplateParameter.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ConnectableElementTemplateParameter.MdaTypes.init(moduleContext);
+        
     }
 
 }

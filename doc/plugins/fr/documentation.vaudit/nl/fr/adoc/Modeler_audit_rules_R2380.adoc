@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2380]]
 
-[[r2380]]
+
+
 = R2380
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _Opération_ abstraite ne devrait pas redéfinir une _Opération_ concrète.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une redéfinition d'_Operation_ correspond à définir une implémentation différente, or les méthodes abstraites ne définissent pas d'implémentation. Elles ne devraient donc pas redéfinir une autre méthode.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Rendez la méthode concrète  avec une implémentation vide.

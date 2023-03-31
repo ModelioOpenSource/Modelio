@@ -48,7 +48,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
 import org.modelio.platform.ui.UIColor;
@@ -87,18 +87,18 @@ public class ProjectToolbar extends TrimBarComponent {
      */
     @objid ("c33f4e63-228e-4d6b-8289-b66c0f421f7c")
     private final SelectionListener executionListener = new SelectionListener() {
-            @Override
-            public void widgetSelected(final SelectionEvent e) {
-                final Object data = e.widget.getData();
-                if (data instanceof ParameterizedCommand) {
-                    ProjectToolbar.this.handlerService.executeHandler((ParameterizedCommand) data);
-                }
-            }
-            @Override
-            public void widgetDefaultSelected(final SelectionEvent e) {
-                // Nothing to do
-            }
-        };
+                        @Override
+                        public void widgetSelected(final SelectionEvent e) {
+                            final Object data = e.widget.getData();
+                            if (data instanceof ParameterizedCommand) {
+                                ProjectToolbar.this.handlerService.executeHandler((ParameterizedCommand) data);
+                            }
+                        }
+                        @Override
+                        public void widgetDefaultSelected(final SelectionEvent e) {
+                            // Nothing to do
+                        }
+                    };
 
     @objid ("ae27e308-232e-4f41-8f82-4f0d626831a5")
     @Inject
@@ -277,14 +277,14 @@ public class ProjectToolbar extends TrimBarComponent {
     @Inject
     @Optional
     private void onProjectClosed(@SuppressWarnings ("unused")
-    @EventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    @EventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         getControl().getDisplay().asyncExec(() -> setVisible(false));
     }
 
     @objid ("b13b2f3e-ec69-4652-8cf6-cce977ac9c25")
     @Inject
     @Optional
-    private void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
+    private void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject) {
         getControl().getDisplay().asyncExec(() -> setVisible(true));
         
         // Add a model change listener to refresh button status
@@ -319,38 +319,39 @@ public class ProjectToolbar extends TrimBarComponent {
     @Inject
     @Optional
     private void onProjectSaved(@SuppressWarnings ("unused")
-    @EventTopic (ModelioEventTopics.PROJECT_SAVED) final GProject project) {
+    @EventTopic (ModelioEventTopics.PROJECT_SAVED) final IGProject project) {
         refreshStatus();
     }
+
 static {
-            final ImageDescriptor image1 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/save.png");
-            if (image1 != null) {
-                SAVE = image1.createImage();
-            } else {
-                SAVE = null;
-            }
+                        final ImageDescriptor image1 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/save.png");
+                        if (image1 != null) {
+                            SAVE = image1.createImage();
+                        } else {
+                            SAVE = null;
+                        }
     
-            final ImageDescriptor image2 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/undo.png");
-            if (image2 != null) {
-                UNDO = image2.createImage();
-            } else {
-                UNDO = null;
-            }
+                        final ImageDescriptor image2 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/undo.png");
+                        if (image2 != null) {
+                            UNDO = image2.createImage();
+                        } else {
+                            UNDO = null;
+                        }
     
-            final ImageDescriptor image3 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/redo.png");
-            if (image3 != null) {
-                REDO = image3.createImage();
-            } else {
-                REDO = null;
-            }
+                        final ImageDescriptor image3 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/redo.png");
+                        if (image3 != null) {
+                            REDO = image3.createImage();
+                        } else {
+                            REDO = null;
+                        }
     
-            final ImageDescriptor image4 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/config.png");
-            if (image4 != null) {
-                OPENCONFIGURATOR = image4.createImage();
-            } else {
-                OPENCONFIGURATOR = null;
-            }
+                        final ImageDescriptor image4 = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "icons/config.png");
+                        if (image4 != null) {
+                            OPENCONFIGURATOR = image4.createImage();
+                        } else {
+                            OPENCONFIGURATOR = null;
+                        }
     
-        }
+                    }
     
 }

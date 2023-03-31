@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1030]]
 
-[[r1030]]
+
+
 = R1030
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 La source et la cible d'un _ActivityEdge_ doivent être contenues dans la même _Activity_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 image::images/Modeler_audit_rules_R1030_modeler_fig_1030.gif[1]
 
 Dans cet exemple, le _ControlFlow_ est invalide car sa source est contenue dans l'_Activity_ " Recruitment ", tandis que sa cible est contenue dans l'_Activity_ " Developement ".
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1030, vous pouvez la corriger en :

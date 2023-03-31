@@ -20,7 +20,6 @@
 package org.modelio.app.ui.env;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.modelio.platform.core.IModelioService;
 import org.modelio.platform.ui.swt.imagesselector.ImageLibrary;
 
@@ -28,8 +27,5 @@ import org.modelio.platform.ui.swt.imagesselector.ImageLibrary;
 public interface IModelioEnvService extends IModelioService {
     @objid ("80b4ea0f-1bcf-4389-b3d8-6cf045f3f535")
     ImageLibrary getImageLibrary();
-
-    @objid ("0351a29d-f850-4944-9eb0-d754cda0e592")
-    ImageRegistry getImagesCache();
-
 }
+

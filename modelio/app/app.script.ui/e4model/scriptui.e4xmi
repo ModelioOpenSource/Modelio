@@ -60,6 +60,15 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_-nIDYN_KEeKdg8e0rQGLrw" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_-nIDYd_KEeKdg8e0rQGLrw" elementId="org.modelio.script.placeholder" ref="_rufhkAPxEeKxNazQ0qFNQg"/>
+    <elements xsi:type="advanced:Placeholder" xmi:id="_-nIDYd_KEeKdg8e0rQGLrw" elementId="org.modelio.script.placeholder" ref="_rufhkAPxEeKxNazQ0qFNQg" closeable="true"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_V9IXkI3KEe2vp-62Tt9gAg" featurename="menuContributions" parentElementId="org.modelio.app.application">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_ar5XUI3LEe2vp-62Tt9gAg" elementId="org.modelio.script.diagram.editor.menucontribution" positionInParent="after=org.modelio.diagram.editor.menu.align" parentId="org.modelio.diagram.editor.popup">
+      <children xsi:type="menu:Menu" xmi:id="_bNuSAI3LEe2vp-62Tt9gAg" elementId="org.modelio.diagram.script.item.modelboowser.macros" label="%MacroMenu.label" iconURI="platform:/plugin/org.modelio.app.script.ui/icons/scriptcatalog.png" tooltip="%MacroMenu.tooltip">
+        <children xsi:type="menu:DynamicMenuContribution" xmi:id="_dSV1II3LEe2vp-62Tt9gAg" elementId="org.modelio.diagram.script.item.modelboowser.dynamic" contributionURI="bundleclass://org.modelio.app.script.ui/org.modelio.script.popup.MacrosPopupProvider"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_I-S3sI3MEe2vp-62Tt9gAg" elementId="org.modelio.diagram.script.item.separator"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_vNYo8I3MEe2vp-62Tt9gAg" elementId="org.modelio.script.diagram.item.modelboowser.opencatalog" label="%OpenMacroCatalogInModelBrowser.label" iconURI="platform:/plugin/org.modelio.app.script.ui/icons/scriptcatalog.png" tooltip="%OpenMacroCatalogInModelBrowser.tooltip" command="_q44OEAyKEeKONtOyJXdjyQ"/>
+      </children>
+    </elements>
   </fragments>
 </fragment:ModelFragments>

@@ -30,6 +30,11 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 
 /**
  * RaisedException v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("001a6e72-c4bf-1fd8-97fe-001ec947cd2a")
 public interface RaisedException extends UmlModelElement {
@@ -50,6 +55,7 @@ public interface RaisedException extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Raised exception type.</i>
+     * 
      */
     @objid ("9b687292-a1c1-47f6-8a07-f93644ccf296")
     Classifier getThrownType();
@@ -59,6 +65,7 @@ public interface RaisedException extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Raised exception type.</i>
+     * 
      */
     @objid ("09ba1d32-3cd2-4a58-89d3-6cff88c58966")
     void setThrownType(Classifier value);
@@ -68,6 +75,7 @@ public interface RaisedException extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1f6110e7-99c3-4f32-abdf-b4c020c9daa1")
     Operation getThrower();
@@ -77,8 +85,9 @@ public interface RaisedException extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b5f9600a-edeb-458f-bade-288cac96d82c")
     void setThrower(Operation value);
-
 }
+

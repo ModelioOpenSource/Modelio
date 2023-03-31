@@ -25,7 +25,7 @@ import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -54,7 +54,7 @@ public class CreateUmlProjectHandler {
     @objid ("d3295a68-b094-4100-a6b7-449dd2a000dc")
     @Execute
     public final void execute(@Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, IProjectService projectService, IModelioNavigationService selectionService) {
-        IProjectFragment fragment = SelectionHelper.getFirst(selection, IProjectFragment.class);
+        IGModelFragment fragment = SelectionHelper.getFirst(selection, IGModelFragment.class);
         
         final ICoreSession session = projectService.getSession();
         try (ITransaction t = session.getTransactionSupport().createTransaction("Create UML Project")) {
@@ -99,7 +99,7 @@ public class CreateUmlProjectHandler {
         }
         
         // Fragment checks
-        IProjectFragment fragment = SelectionHelper.getFirst(selection, IProjectFragment.class);
+        IGModelFragment fragment = SelectionHelper.getFirst(selection, IGModelFragment.class);
         if (isReadonly(fragment)) {
             return false;
         }
@@ -116,8 +116,8 @@ public class CreateUmlProjectHandler {
      * @return true if the fragment is read only.
      */
     @objid ("0c090460-494d-4641-8241-d9b00d7cd143")
-    private boolean isReadonly(IProjectFragment fragment) {
-        String s = fragment.getProperties().getValue(IProjectFragment.PROP_READ_ONLY);
+    private boolean isReadonly(IGModelFragment fragment) {
+        String s = fragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY);
         return s != null && Boolean.parseBoolean(s);
     }
 

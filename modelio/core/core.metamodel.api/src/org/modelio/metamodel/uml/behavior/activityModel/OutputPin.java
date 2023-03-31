@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * An output pin is a pin that holds output values produced by an action.
  * 
  * An action cannot terminate itself if an output pin has fewer values than the lower multiplicity. An action may not put more values in an output pin in a single execution than the upper multiplicity of the pin.
+ * 
+ * 
  */
 @objid ("003aad54-c4bf-1fd8-97fe-001ec947cd2a")
 public interface OutputPin extends Pin {
@@ -54,6 +56,7 @@ public interface OutputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e8d0e737-6460-4eb0-abe1-ddd9b6deccd7")
     ActivityAction getOutputing();
@@ -63,8 +66,9 @@ public interface OutputPin extends Pin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9f2521c4-bef7-4d02-905e-fcdd4e96ddc2")
     void setOutputing(ActivityAction value);
-
 }
+

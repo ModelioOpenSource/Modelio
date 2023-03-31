@@ -56,5 +56,5 @@ public interface IStatusChangeEvent {
      */
     @objid ("1326b059-63d8-4e08-bd3e-53a8a0388521")
     Collection<MObject> getStatusChanged();
-
 }
+

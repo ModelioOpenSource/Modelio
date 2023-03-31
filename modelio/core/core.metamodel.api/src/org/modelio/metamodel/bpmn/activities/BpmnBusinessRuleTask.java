@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A Business Rule Task provides a mechanism for the Process to provide input to a Business Rules Engine and to get the output of calculations that the Business Rules Engine might provide. The InputOutputSpecification of the Task will allow the Process to send data to and receive data from the Business Rules Engine.
+ * 
+ * 
  */
 @objid ("007e6878-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnBusinessRuleTask extends BpmnTask {
@@ -46,5 +48,5 @@ public interface BpmnBusinessRuleTask extends BpmnTask {
      */
     @objid ("a1b51726-204a-459f-a037-ec750dec359f")
     public static final String MQNAME = "Standard.BpmnBusinessRuleTask";
-
 }
+

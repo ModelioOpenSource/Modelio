@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-Propriétés]]
 
-[[la-vue-propriétés]]
+
+
 = La vue Propriétés
 
 La vue *Propriétés* est une vue combinée agrégeant les vues *<<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>>*, *<<Modeler-_modeler_interface_annot_view.adoc#,Notes & contraintes>>*

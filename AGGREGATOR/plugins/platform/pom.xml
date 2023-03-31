@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../..</relativePath>
+	</parent>
+
+	<artifactId>aggregator-modelio.platform</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../modelio/platform/platform.api</module>
+		<module>../../../modelio/platform/platform.core</module>
+		<module>../../../modelio/platform/platform.mda.infra</module>
+		<module>../../../modelio/platform/platform.metamodel.extensions</module>
+		<module>../../../modelio/platform/platform.model.ui</module>
+		<module>../../../modelio/platform/platform.model.view.template</module>
+		<module>../../../modelio/platform/platform.module.browser.commands</module>
+		<module>../../../modelio/platform/platform.module.commands</module>
+		<module>../../../modelio/platform/platform.preferences</module>
+		<module>../../../modelio/platform/platform.project</module>
+		<module>../../../modelio/platform/platform.project.ext_org</module>
+		<module>../../../modelio/platform/platform.rcp</module>
+		<module>../../../modelio/platform/platform.script.engine</module>
+		<module>../../../modelio/platform/platform.search.engine</module>
+		<module>../../../modelio/platform/platform.ui</module>
+		<module>../../../modelio/platform/platform.update.repo</module>
+		<module>../../../modelio/platform/platform.utils</module>
+	</modules>
+</project>

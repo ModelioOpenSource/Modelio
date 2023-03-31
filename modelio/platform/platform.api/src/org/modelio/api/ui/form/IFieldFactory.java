@@ -44,5 +44,5 @@ public interface IFieldFactory {
      */
     @objid ("eb3034e6-9480-4cd9-b637-79ef6a7b8ffd")
     List<IField> createFields(FormToolkit toolkit, Composite parent, ModelElement input, FormFieldPage page);
-
 }
+

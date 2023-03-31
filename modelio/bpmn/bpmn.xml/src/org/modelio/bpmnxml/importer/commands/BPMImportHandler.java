@@ -35,7 +35,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.bpmnxml.importer.service.BPMNImportService;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -62,21 +62,21 @@ public class BPMImportHandler {
     @objid ("52740ba0-d666-4618-b632-c3967193aecf")
     @Execute
     public void execute(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Named(IServiceConstants.ACTIVE_SHELL) final Shell activeShell) {
-        Object context = SelectionHelper.getFirst(selection, IProjectFragment.class);
-        if(context == null){    
+        Object context = SelectionHelper.getFirst(selection, IGModelFragment.class);
+        if(context == null){
             context = SelectionHelper.getFirst(selection, Element.class);
         }
         
         BPMImportModel model = new BPMImportModel();
-            
+        
         if(context instanceof BpmnProcess || context instanceof BpmnCollaboration){
             model.setUpdate(true);
         }
-            
+        
         BPMImportDialog dialog = new BPMImportDialog(activeShell, model);
-        if(dialog.open() == 0){               
-            File bpmnFile =    new File(model.getFilePath()); 
-            importBpmn(bpmnFile.toPath(), context,model.isKeeyId());       
+        if(dialog.open() == 0){
+            File bpmnFile =    new File(model.getFilePath());
+            importBpmn(bpmnFile.toPath(), context,model.isKeeyId());
         }
         
     }
@@ -87,8 +87,8 @@ public class BPMImportHandler {
             IDiagramService diagramService = this.eclipseContext.get(IModuleContext.class).getModelioServices().getDiagramService();
             BPMNImportService importService = new BPMNImportService(this.projectService.getSession(), diagramService);
         
-            if (context instanceof IProjectFragment) {
-                importService.importBPMN(filePath, (IProjectFragment) context, keepId);
+            if (context instanceof IGModelFragment) {
+                importService.importBPMN(filePath, (IGModelFragment) context, keepId);
             }if (context instanceof Package) {
                 importService.importBPMN(filePath, (Package) context, keepId);
             } else if (context instanceof BpmnCollaboration) {
@@ -96,8 +96,8 @@ public class BPMImportHandler {
             }else if (context instanceof BpmnProcess) {
                 importService.updateBPMN(filePath, (BpmnProcess) context, keepId);
             }
-            
-               
+        
+        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,7 +108,7 @@ public class BPMImportHandler {
     @CanExecute
     public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         final List<MObject> selectedElements = SelectionHelper.toList(selection, MObject.class);
-        final List<IProjectFragment> selectedFragments = SelectionHelper.toList(selection, IProjectFragment.class);
+        final List<IGModelFragment> selectedFragments = SelectionHelper.toList(selection, IGModelFragment.class);
         if (selectedElements.size() != 1 && selectedFragments.size() != 1) {
             return false;
         }

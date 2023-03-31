@@ -30,7 +30,7 @@ import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -229,37 +229,37 @@ public class MetamodelExtensions implements IMetamodelExtensions {
     @objid ("47acd5b5-ee1b-4605-b122-b34e4e6cd5c5")
     @Override
     public String getLabel(final Stereotype stereotype) {
-        return ModuleI18NService.getLabel(stereotype);
+        return MdaResources.getLabel(stereotype);
     }
 
     @objid ("25b8a355-b042-48e7-9d19-7cb868c8a44a")
     @Override
     public String getLabel(final TagType tagType) {
-        return ModuleI18NService.getLabel(tagType);
+        return MdaResources.getLabel(tagType);
     }
 
     @objid ("5c2431fd-79fd-4f43-af6b-bc13f0fff1b0")
     @Override
     public String getLabel(final NoteType noteType) {
-        return ModuleI18NService.getLabel(noteType);
+        return MdaResources.getLabel(noteType);
     }
 
     @objid ("a1cf88d8-89c6-451e-ac3e-a344c973fc59")
     @Override
     public String getLabel(final ResourceType docType) {
-        return ModuleI18NService.getLabel(docType);
+        return MdaResources.getLabel(docType);
     }
 
     @objid ("be72b2a5-b041-4d83-984a-9d04a2d87a5a")
     @Override
     public String getLabel(final PropertyDefinition pdef) {
-        return ModuleI18NService.getLabel(pdef);
+        return MdaResources.getLabel(pdef);
     }
 
     @objid ("dd400467-a0ce-4c9c-9c82-6049ed06e9a1")
     @Override
     public String getDescription(final PropertyDefinition pdef) {
-        return ModuleI18NService.getDescription(pdef);
+        return MdaResources.getDescription(pdef);
     }
 
     @objid ("d42e5a6f-ccc0-4aca-bdc0-bb6062615a84")

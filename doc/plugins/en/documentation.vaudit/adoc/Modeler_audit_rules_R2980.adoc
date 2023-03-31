@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2980]]
 
-[[r2980]]
+
+
 = R2980
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «measure» _Dependency_ must be from a _ModelElement_ towards a _Goal_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «measure» _Dependency_ represents an element that will be used to measure the attainment of a _Goal_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «measure» _Dependency_ towards an element other than a _Goal_, you should remove it.

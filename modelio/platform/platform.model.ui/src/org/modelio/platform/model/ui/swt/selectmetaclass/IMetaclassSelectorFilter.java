@@ -26,5 +26,5 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetaclassSelectorFilter {
     @objid ("fc8fd322-0dc1-47ab-a28f-6b0fdc9ed9a1")
     boolean accept(MClass mClass);
-
 }
+

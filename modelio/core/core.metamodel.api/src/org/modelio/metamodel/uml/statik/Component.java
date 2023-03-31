@@ -48,6 +48,10 @@ import org.eclipse.emf.common.util.EList;
  * A Component has a number of ProvidedInterfaces and RequiredInterfaces, that form the basis for wiring components together, either using Dependencies or Connectors. A ProvidedInterface is one that is either implemented directly by the Component or one of its realizing Classifiers, or it is the type of a provided Port of the Component. A RequiredInterface is designated by a Usage Dependency from the Component or one of its realizing Classifiers, or it is the type of a required Port. 
  * 
  * A Component is extended to define the grouping aspects of packaging Components. This defines the NameSpace aspects of a Component through its inherited ownedMember and elementImport associations. In a Component's NameSpace, all ModelElements that are involved in or related to its definition are either owned or imported explicitly. This may include, for example, UseCases and Dependencies (for example, mappings), Packages, Components and Artifacts.
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("000509f6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Component extends Class {
@@ -68,6 +72,7 @@ public interface Component extends Class {
      * 
      * Metamodel description:
      * <i>Specifies the Classifier to which it can be substituted.</i>
+     * 
      */
     @objid ("2a9fec55-5773-479c-98f7-5145f72a5c11")
     EList<ComponentRealization> getRealization();
@@ -77,8 +82,9 @@ public interface Component extends Class {
      * 
      * Metamodel description:
      * <i>Specifies the Classifier to which it can be substituted.</i>
+     * 
      */
     @objid ("caacee20-3bad-4705-a56d-8642dfac1b1e")
     <T extends ComponentRealization> List<T> getRealization(java.lang.Class<T> filterClass);
-
 }
+

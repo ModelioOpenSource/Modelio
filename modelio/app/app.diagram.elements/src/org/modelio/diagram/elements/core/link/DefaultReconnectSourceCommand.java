@@ -37,7 +37,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7feead19-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultReconnectSourceCommand extends Command {
-    @objid ("c3be2a17-f194-4929-900d-7b7199450f11")
+    @objid ("c2fee6d9-267d-494b-b2e3-52e55acf58ca")
     private boolean gmModelOnly;
 
     @objid ("7feead1d-1dec-11e2-8cad-001ec947c8cc")
@@ -152,7 +152,7 @@ public class DefaultReconnectSourceCommand extends Command {
         
     }
 
-    @objid ("6223f073-b10a-4ade-93ef-d75c136cda13")
+    @objid ("41313a5a-e597-4ef7-9169-678a9d074478")
     private void updateObModel(final MExpert expert, final MObject link, final MObject oldSource, final MObject newSource) {
         if (!this.gmModelOnly) {
             expert.setSource(link, oldSource, newSource);

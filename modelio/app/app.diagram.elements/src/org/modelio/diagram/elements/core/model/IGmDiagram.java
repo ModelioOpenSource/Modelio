@@ -139,7 +139,7 @@ public interface IGmDiagram extends IGmNode {
      * The returned collection is not modifiable.
      * @return all links of this diagram.
      */
-    @objid ("a8b35565-ed30-47d0-9c51-fd6312dacb3d")
+    @objid ("e092ec96-e937-4b1d-a3e7-d9fbbe518259")
     Collection<IGmLinkObject> getAllLinks();
 
     /**
@@ -467,7 +467,7 @@ public interface IGmDiagram extends IGmNode {
      * @since 3.7
      */
     @objid ("14b54765-50b9-4f6c-b25a-e36eb71f6a76")
-    public interface IModelManager {
+    interface IModelManager {
         /**
          * Get the diagram project metamodel.
          * @return the project metamodel.
@@ -554,7 +554,7 @@ public interface IGmDiagram extends IGmNode {
          */
         @objid ("79b35881-7604-4721-936a-f54b06f7a432")
         ICoreSession getModelingSession();
-
-    }
-
 }
+    
+}
+

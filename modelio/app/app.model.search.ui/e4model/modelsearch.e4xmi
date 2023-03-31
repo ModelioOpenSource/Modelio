@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__QozQIkZEeWbO4MnNK7ogg">
+  <imports xsi:type="menu:Menu" xmi:id="_FiLOgJDfEe2ZGa22dFZs4Q" elementId="org.modelio.app.ui.menu.edit"/>
+  <imports xsi:type="commands:BindingContext" xmi:id="_NDBpcJDiEe2ZGa22dFZs4Q" elementId="org.eclipse.ui.contexts.window"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_EsN88LoQEeGR05fGaOD0Vw" featurename="children" parentElementId="org.modelio.app.trimbar.main" positionInList="before:org.eclipse.e4.ui.PerspectiveSwitcher">
     <elements xsi:type="menu:ToolControl" xmi:id="_YL9l8DMsEeKMsZkGq0rg9g" elementId="org.modelio.model.search.toolcontrol" contributionURI="bundleclass://org.modelio.app.model.search.ui/org.modelio.model.search.QuickSearchCombo"/>
   </fragments>
@@ -8,5 +10,13 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_5yfNcDMoEeKMsZkGq0rg9g" featurename="handlers" parentElementId="org.modelio.app.application">
     <elements xsi:type="commands:Handler" xmi:id="_7tEDwDMoEeKMsZkGq0rg9g" elementId="org.modelio.model.search.handler.search" contributionURI="bundleclass://org.modelio.app.model.search.ui/org.modelio.model.search.handlers.OpenSearchDialogHandler" command="_wPlT0DMoEeKMsZkGq0rg9g"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_FiLOgJDfEe2ZGa22dFZs4Q" featurename="children" parentElementId="org.modelio.app.ui.menu.edit" positionInList="">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_wm8usnCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.edit.search" label="%Search.label" iconURI="platform:/plugin/org.modelio.app.model.search.ui/icons/search.png" tooltip="%Search.tooltip" command="_wPlT0DMoEeKMsZkGq0rg9g"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_kqq-QJDkEe2ZGa22dFZs4Q" featurename="bindingTables" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="" elementId="org.modelio.model.search.bindings.table" bindingContext="_NDBpcJDiEe2ZGa22dFZs4Q">
+      <bindings xmi:id="" elementId="scope.del" keySequence="M1+F" command="_wPlT0DMoEeKMsZkGq0rg9g"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>

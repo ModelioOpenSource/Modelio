@@ -33,6 +33,8 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("ac704cea-67ae-43d8-9f69-505ef8c868ee")
 public interface ImpactDiagram extends AbstractDiagram {
@@ -47,5 +49,5 @@ public interface ImpactDiagram extends AbstractDiagram {
      */
     @objid ("a8e73107-7f4e-474e-b40e-796316b8bc07")
     public static final String MQNAME = "Infrastructure.ImpactDiagram";
-
 }
+

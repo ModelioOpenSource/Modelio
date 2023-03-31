@@ -21,7 +21,7 @@ package org.modelio.app.project.ui.views.workspace.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.services.IProjectService;
 
 @objid ("af15325d-eecf-4b45-a2a0-70b282acdc22")
@@ -29,7 +29,7 @@ public class RefreshWorkspaceHandler {
     @objid ("96cae632-d79e-4e96-8722-9c68008a6056")
     @Execute
     public void execute(final IProjectService projectService) {
-        GProject currentProject = projectService.getOpenedProject();
+        IGProject currentProject = projectService.getOpenedProject();
         projectService.refreshWorkspace((currentProject != null) ? currentProject.getName() : null);
         
     }

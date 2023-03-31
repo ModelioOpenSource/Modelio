@@ -43,5 +43,5 @@ public interface IExmlLoader {
      */
     @objid ("2b11cbb4-3faf-11e2-87cb-001ec947ccaf")
     SmObjectImpl load(final InputSource is, IModelLoader loader) throws IOException, DuplicateObjectException, IndexException;
-
 }
+

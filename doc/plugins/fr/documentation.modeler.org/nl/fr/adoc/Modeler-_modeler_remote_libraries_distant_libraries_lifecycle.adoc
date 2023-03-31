@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-et-publier-une-bibliothèque-distante]]
 
-[[créer-et-publier-une-bibliothèque-distante]]
+
+
 = Créer et publier une bibliothèque distante
 
-[[Le-cycle-de-vie-dune-bibliothèque-distante]]
 
-[[le-cycle-de-vie-dune-bibliothèque-distante]]
+
+
 ===== Le cycle de vie d'une bibliothèque distante
 
 Le cycle de vie d'une bibliothèque distante consiste en deux étapes :
@@ -18,18 +18,18 @@ Le cycle de vie d'une bibliothèque distante consiste en deux étapes :
 1.  Son *développement*,
 2.  Sa *publication*.
 
-[[Le-développement-dune-bibliothèque-distante]]
 
-[[le-développement-dune-bibliothèque-distante]]
+
+
 ===== Le développement d'une bibliothèque distante
 
 L'étape de développement consiste en la production du modèle contenu dans la bibliothèque. Cette tâche se fait dans Modelio, en utilisant l'une de ses nombreuses méthodes de création de modèles : la modélisation directe, le reverse de code, l'import XMI et ainsi de suite.
 
 Le but est simplement de produire un modèle. Une fois ce modèle disponible, il peut être publié sur un site HTTP accessible.
 
-[[La-publication-dune-bibliothèque-distante]]
 
-[[la-publication-dune-bibliothèque-distante]]
+
+
 ===== La publication d'une bibliothèque distante
 
 Cette opération comprend la _préparation_ et la mise en ligne d'une bibliothèque sur un serveur HTTP où il sera disponible.

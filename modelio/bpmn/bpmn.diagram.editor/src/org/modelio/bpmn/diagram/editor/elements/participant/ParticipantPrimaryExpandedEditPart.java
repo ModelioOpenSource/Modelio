@@ -47,8 +47,6 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEdi
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
-import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -86,12 +84,6 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
     @Override
     public boolean isSelectable() {
         return false;
-    }
-
-    @objid ("692cfdb5-fb57-493f-a531-f1a4f6b90cd5")
-    @Override
-    protected INodeAnchorProvider getNodeAnchorProvider() {
-        return RectangleNodeAnchorProvider.getNonSlidable();
     }
 
     @objid ("8a4a7aec-126b-4e15-9c77-12ff36f87668")
@@ -403,7 +395,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         // Orientation is changing, do not apply FitToMinSize
     }
 
-    @objid ("b0731cb9-84cc-4358-9bc3-f9802f28891c")
+    @objid ("da02224f-79aa-4c80-8e21-96211b378b7b")
     @Override
     protected void setFigure(IFigure figure) {
         super.setFigure(figure);

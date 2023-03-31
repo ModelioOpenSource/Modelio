@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2030]]
 
-[[r2030]]
+
+
 = R2030
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 In a _PropertyContainer_, the name of each _EnumerationPropertyType_ must be unique.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Having duplicate names can be confusing.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Rename any element with a duplicated name.

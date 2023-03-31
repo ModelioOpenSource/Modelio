@@ -103,5 +103,5 @@ public interface IPanelProvider {
     default void removeListener(IPanelListener l) {
         throw new UnsupportedOperationException();
     }
-
 }
+

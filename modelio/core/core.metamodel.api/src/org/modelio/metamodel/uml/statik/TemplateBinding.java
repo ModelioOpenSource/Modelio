@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A TemplateBinding is a directed relationship from a bound templateable element to the template signature of the target template. 
  * 
  * A TemplateBinding owns a set of TemplateParameterSubstitutions.
+ * 
+ * 
  */
 @objid ("001c3784-c4bf-1fd8-97fe-001ec947cd2a")
 public interface TemplateBinding extends UmlModelElement {
@@ -59,6 +61,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The ParameterSubstitutions owned by this TemplateBinding.</i>
+     * 
      */
     @objid ("3700592c-0e6a-44e6-a711-13f4470fc630")
     EList<TemplateParameterSubstitution> getParameterSubstitution();
@@ -68,6 +71,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The ParameterSubstitutions owned by this TemplateBinding.</i>
+     * 
      */
     @objid ("c8b3f99c-7414-45cb-bf0d-8605de0ae5fd")
     <T extends TemplateParameterSubstitution> List<T> getParameterSubstitution(java.lang.Class<T> filterClass);
@@ -77,6 +81,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("95fe74a6-beaa-4d7e-9272-502f86bd9548")
     Operation getBoundOperation();
@@ -86,6 +91,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e4c8213c-75d6-43f8-947f-d6df89d6614f")
     void setBoundOperation(Operation value);
@@ -95,6 +101,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The element that is bound by this Binding.</i>
+     * 
      */
     @objid ("609fb3fd-9499-4578-804b-b1fe68449daf")
     Operation getInstanciatedTemplateOperation();
@@ -104,6 +111,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The element that is bound by this Binding.</i>
+     * 
      */
     @objid ("ea58ef31-e063-4901-be8f-52763144b785")
     void setInstanciatedTemplateOperation(Operation value);
@@ -113,6 +121,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The template element that is the target of the Binding.</i>
+     * 
      */
     @objid ("6ab20e06-9507-434d-b63c-fbf510de2559")
     NameSpace getInstanciatedTemplate();
@@ -122,6 +131,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The template element that is the target of the Binding.</i>
+     * 
      */
     @objid ("87add2fb-af99-4ec0-bbd4-97d0c4f6a639")
     void setInstanciatedTemplate(NameSpace value);
@@ -131,6 +141,7 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5cc3abd2-87b4-4f94-b51a-7c059f0d34d6")
     NameSpace getBoundElement();
@@ -140,8 +151,9 @@ public interface TemplateBinding extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("955d57ed-fc57-4b12-adcc-82a515cfa61b")
     void setBoundElement(NameSpace value);
-
 }
+

@@ -53,8 +53,8 @@ public class DiagonalLayout {
     @objid ("ab577120-36ad-4eb4-864b-6838382cfb99")
     private int _contentgH;
 
-    @objid ("7cc87054-6807-491c-a326-21b26538fc36")
-    public void layout(final IDiagramHandle dh, final List<IDiagramNode> contentDgs) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
+    @objid ("41470ee6-7f2c-4135-8614-4cbed9418a6d")
+    private void sortNodes(List<IDiagramNode> contentDgs) {
         // sort elements according to their NSU
         // - elements with more out links should be first
         // - elements with more in links should be last
@@ -82,10 +82,16 @@ public class DiagonalLayout {
             }
         });
         
-        // compute content group height, diagonal group
+    }
+
+    @objid ("06d97901-c70e-42a6-8428-287359858c55")
+    public void layoutNodes(final IDiagramHandle dh, final List<IDiagramNode> contentDgs) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
+        // sort nodes
+        sortNodes(contentDgs);
+        
+        // compute content group size, diagonal group
         for (IDiagramNode content : contentDgs) {
             content.fitToContent();
-        
             int toLinks = content.getToLinks().size();
             int fromLinks = content.getFromLinks().size();
             Rectangle r = content.getOverallBounds();
@@ -106,6 +112,55 @@ public class DiagonalLayout {
         moveDiagonalElements(contentDgs, _contentgX, _contentgY);
         
         dh.save();
+        
+        // move links on content nodes
+        // for (IDiagramNode source : contentDgs) {
+        // // System.out.println("source=" + source);
+        // Rectangle sourceR = source.getOverallBounds();
+        // int sourceN = source.getFromLinks().size();
+        // int sourceH = sourceR.height;
+        // int sourceYoffset = (sourceH - (sourceN - 1) * ANCHORSPACING) / 2;
+        //
+        // // Links to the content
+        // for (IDiagramLink link : source.getFromLinks()) {
+        // if (link.getTo() instanceof IDiagramNode) {
+        // IDiagramNode target = (IDiagramNode) link.getTo();
+        // // System.out.println("target=" + target);
+        // Rectangle targetR = target.getOverallBounds();
+        // int targetN = target.getToLinks().size();
+        // int targetW = targetR.width;
+        // int targetXoffset = (targetW - (targetN - 1) * ANCHORSPACING) / 2 + target.getToLinks().indexOf(link) * ANCHORSPACING;
+        //
+        // ILinkPath path = link.getPath();
+        //
+        // List<Point> points = new ArrayList<>();
+        // if (sourceR.x < targetR.x) {
+        // points.add(new Point(sourceR.x + sourceR.width, sourceR.y + sourceYoffset));
+        // points.add(new Point(targetR.x + targetXoffset, sourceR.y + sourceYoffset));
+        // points.add(new Point(targetR.x + targetXoffset, targetR.y));
+        // } else {
+        // points.add(new Point(sourceR.x, sourceR.y + sourceYoffset));
+        // points.add(new Point(targetR.x + targetXoffset, sourceR.y + sourceYoffset));
+        // points.add(new Point(targetR.x + targetXoffset, targetR.y + targetR.height));
+        // }
+        //
+        // path.setPoints(points);
+        // link.setPath(path);
+        //
+        // // System.out.println(points);
+        //
+        // sourceYoffset = sourceYoffset + ANCHORSPACING;
+        // }
+        // }
+        // System.out.println("");
+        
+    }
+
+    @objid ("d50c0a8b-840c-4327-91b1-b1f02895d207")
+    public void layoutLinks(final IDiagramHandle dh, final List<IDiagramNode> contentDgs) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
+        // sort nodes
+        sortNodes(contentDgs);
+        
         
         // move links on content nodes
         for (IDiagramNode source : contentDgs) {

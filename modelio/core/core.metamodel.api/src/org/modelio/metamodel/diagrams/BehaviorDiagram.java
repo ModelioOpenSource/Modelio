@@ -33,6 +33,8 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00686762-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BehaviorDiagram extends AbstractDiagram {
@@ -47,5 +49,5 @@ public interface BehaviorDiagram extends AbstractDiagram {
      */
     @objid ("b1b8a43a-c8ed-4f43-bc3e-a1419c63b921")
     public static final String MQNAME = "Standard.BehaviorDiagram";
-
 }
+

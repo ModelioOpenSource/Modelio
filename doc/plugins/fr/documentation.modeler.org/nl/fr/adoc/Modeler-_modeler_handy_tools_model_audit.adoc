@@ -5,9 +5,9 @@
 
 = Audit de modèle Modelio
 
-[[Audit-de-modèle-en-temps-réel]]
 
-[[audit-de-modèle-en-temps-réel]]
+
+
 ===== Audit de modèle en temps réel
 
 L'outil d'audit de Modelio peut analyser le modèle en temps réel. Lorsque des erreurs sont detectées, il ajoute un pictogramme sur chacun des éléments concernés dans la vue modèle :
@@ -15,9 +15,9 @@ L'outil d'audit de Modelio peut analyser le modèle en temps réel. Lorsque des 
 .Dans l'exemple ci-dessus, l'audit a detecté des erreurs dans le package "browser"
 image::images/Modeler-_modeler_handy_tools_model_audit_ModelAudit01_FR.png[2]
 
-[[La-commande-de-vérification-de-modèle]]
 
-[[la-commande-de-vérification-de-modèle]]
+
+
 ===== La commande de vérification de modèle
 
 Lorsque l'audit signale des erreurs ou des avertissements dans le modèle, vous avez la possibilité d'obtenir les messages d'erreur correspondants en un clic, en exécutant la commande "Vérifier le modèle":

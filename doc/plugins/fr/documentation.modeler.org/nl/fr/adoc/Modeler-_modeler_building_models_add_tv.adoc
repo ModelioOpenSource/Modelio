@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Ajouter-des-tagged-values-aux-éléments]]
 
-[[ajouter-des-tagged-values-aux-éléments]]
+
+
 = Ajouter des tagged values aux éléments
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Les tagged values sont ajoutées dans les vues <<Modeler-_modeler_interface_properties_view.adoc#,Propriétés>> ou <<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>> aux éléments sélectionnés dans la vue "Modèle".
@@ -23,9 +23,9 @@ Il existe trois types de tagged values :
 * Les tagged values pouvant prendre un seul paramètre,
 * Les tagged values pouvant prendre plusieurs paramètres.
 
-[[Ajouter-une-tagged-value-qui-ne-prend-pas-de-paramètres]]
 
-[[ajouter-une-tagged-value-qui-ne-prend-pas-de-paramètres]]
+
+
 ===== Ajouter une tagged value qui ne prend pas de paramètres
 
 .Ajout d'une tagged value qui ne prend pas de paramètres à un package
@@ -37,9 +37,9 @@ image::images/Modeler-_modeler_building_models_add_tv_modifelements_004.png[2]
 2.  Ouvrez la vue "Elément" et puis le groupe approprié.
 3.  Les tagged values qui ne prennent pas de paramètres sont ajoutées ou enlevées simplement en cochant ou décochant leur case.
 
-[[Ajouter-une-tagged-value-qui-prend-un-seul-paramètre]]
 
-[[ajouter-une-tagged-value-qui-prend-un-seul-paramètre]]
+
+
 ===== Ajouter une tagged value qui prend un seul paramètre
 
 .Ajout d'une tagged value qui prend un seul paramètre à une classe
@@ -51,9 +51,9 @@ image::images/Modeler-_modeler_building_models_add_tv_modifelements_005.png[3]
 2.  Ouvrez la vue "Elément" et puis le groupe approprié.
 3.  Les tagged values pouvant prendre un seul paramètre sont ajoutés à l'élément sélectionné lorsque vous saisissez une valeur pour le paramètre. Cliquez sur le champ de la colonne "Valeur" pour la tagged value que vous souhaitez ajouter puis saisissez une valeur pour le paramètre. Validez en appuyant sur la touche Entrée.
 
-[[Ajouter-une-tagged-value-qui-peut-prendre-plusieurs-paramètres]]
 
-[[ajouter-une-tagged-value-qui-peut-prendre-plusieurs-paramètres]]
+
+
 ===== Ajouter une tagged value qui peut prendre plusieurs paramètres
 
 .Ajout d'une tagged value qui peut prendre plusieurs paramètres à une classe

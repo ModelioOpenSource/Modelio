@@ -22,17 +22,22 @@ package org.modelio.diagram.elements.core.policies;
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
+import org.modelio.diagram.elements.core.figures.anchors.AnchorFigureFactory;
+import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
 import org.modelio.diagram.elements.core.link.RoutingModeGetter;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.handle.AnchorHandle;
+import org.modelio.diagram.elements.core.link.anchors.handle.TranslatedAnchorLocator;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 
 @objid ("c709e541-f4af-4793-8902-57e6ce347adf")
@@ -41,23 +46,23 @@ public class DisplayAnchorFeedbackHelper {
     private IFigure[] feedbacks;
 
     @objid ("bc5f925a-943a-4675-a739-8b0053a55751")
-    private final IFixedConnectionAnchorFactory anchorFactory;
+    private final IFixedNodeAnchorProvider anchorProvider;
 
     @objid ("dda16344-85f7-4021-9628-ef623fd8c62d")
     private final IFigure feedbackLayer;
 
     @objid ("6dddbdce-0e12-4ac7-8fd1-b79d26217a21")
-    private final EditPart host;
+    private final GraphicalEditPart host;
 
     @objid ("909889cb-d52b-418a-a7df-d1dd986f3a4a")
     private final IFigure hostFigure;
 
     @objid ("c75e6c61-d411-40e7-a055-6a16134dc290")
-    public  DisplayAnchorFeedbackHelper(EditPart host, IFigure hostFigure, IFixedConnectionAnchorFactory anchorFactory, IFigure feedbackLayer) {
+    public  DisplayAnchorFeedbackHelper(EditPart host, IFigure hostFigure, IFixedNodeAnchorProvider anchorProvider, IFigure feedbackLayer) {
         super();
-        this.host = host;
+        this.host = (GraphicalEditPart) host;
         this.hostFigure = hostFigure;
-        this.anchorFactory = anchorFactory;
+        this.anchorProvider = anchorProvider;
         this.feedbackLayer = feedbackLayer;
         
     }
@@ -77,7 +82,7 @@ public class DisplayAnchorFeedbackHelper {
     @objid ("a3fc6a34-8636-4a4c-8f27-2eb0266da163")
     public void showTargetFeedback(Request request) {
         ConnectionRouterId routingMode = RoutingModeGetter.fromRequest(request);
-        Collection<ConnectionAnchor> allanchors = this.anchorFactory.getAllAnchors(this.hostFigure, routingMode, null);
+        Collection<ConnectionAnchor> allanchors = this.anchorProvider.getAnchorFactoryFor(this.host, this.hostFigure).getAllAnchors( routingMode, null);
         
         if (this.feedbacks != null && this.feedbacks.length != allanchors.size()) {
             removeAllFeedbacks();
@@ -108,17 +113,20 @@ public class DisplayAnchorFeedbackHelper {
         int i=0;
         for (ConnectionAnchor anchor : allanchors) {
             IFigure fb = this.feedbacks[i++];
-            Point ref = anchor.getReferencePoint();
-        
-            Rectangle bounds = new Rectangle();
-            bounds.setLocation(ref);
-            bounds.expand(IFixedConnectionAnchorFactory.ANCHOR_RADIUS, IFixedConnectionAnchorFactory.ANCHOR_RADIUS);
         
             FigureUtilities2.updateHighlightType(fb, hightlightType);
+            if (true) {
+                new TranslatedAnchorLocator(anchor).relocate(fb);
+            } else {
+                Point ref = anchor.getReferencePoint();
+                Rectangle bounds = new Rectangle();
+                bounds.setLocation(ref);
+                bounds.expand(FixedAnchor.ANCHOR_RADIUS, FixedAnchor.ANCHOR_RADIUS);
         
-            fb.translateToRelative(bounds);
-            fb.setBounds(bounds);
-            fb.validate();
+                fb.translateToRelative(bounds);
+                fb.setBounds(bounds);
+                fb.validate();
+            }
         }
         
     }
@@ -132,15 +140,27 @@ public class DisplayAnchorFeedbackHelper {
     protected IFigure[] createFeedbackFigures(Collection<ConnectionAnchor> allanchors) {
         int size = allanchors.size();
         IFigure[] ret = new IFigure[size];
+        int i=0;
         
-        for (int i = 0; i < size; i++) {
-            Ellipse fb = new Ellipse();
-            fb.setOpaque(false);
-            fb.setFill(false);
-            fb.setAlpha(150);
-            fb.setAntialias(1);
-            fb.setLineWidth(2);
-            ret[i] = fb;
+        for (ConnectionAnchor anchor : allanchors) {
+            if (false) {
+                AnchorHandle fb;
+                fb = new AnchorHandle(this.host, anchor);
+                fb.setTransludent();
+                ret[i++] = fb;
+            } else {
+                IFigure fb;
+                fb = AnchorFigureFactory.createHandleFigure(anchor);
+                fb.setOpaque(false);
+                if (fb instanceof Shape) {
+                    Shape shape = (Shape) fb;
+                    shape.setFill(false);
+                    shape.setAlpha(150);
+                    shape.setAntialias(1);
+                }
+                ret[i++] = fb;
+            }
+        
         }
         return ret;
     }

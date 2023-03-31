@@ -34,7 +34,6 @@ import org.modelio.diagram.symbol.plugin.DiagramSymbol;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.model.ui.swt.contribitem.SwtContributionItem;
 import org.modelio.platform.model.ui.swt.contribitem.SwtContributionItem.Style;
-import org.modelio.platform.utils.i18n.BundledMessages;
 
 /**
  * Factory that builds contextual menu and toolbar content.
@@ -126,14 +125,13 @@ class SymbolContributionFactory {
         final ISelection sel = panelSelection.getSelection();
         final boolean containsModifiedProperties = panelSelection.containsModifiedProperties();
         
-        final BundledMessages i18n = DiagramSymbol.I18N;
         final int nbModified = editedStyle.getLocalKeys().size();
         final NamedStyle parentStyle = getNamedStyle(editedStyle);
         final String parentStyleName = parentStyle.getName();
         final String escParentStyleName = escapeMnemonics(parentStyleName);
-        final String styleOrTheme = parentStyle.isTheme() ? i18n.getMessage("SymbolPanelProvider.isTheme") : i18n.getMessage("SymbolPanelProvider.isStyle");
+        final String styleOrTheme = parentStyle.isTheme() ? DiagramSymbol.I18N.getMessage("SymbolPanelProvider.isTheme") : DiagramSymbol.I18N.getMessage("SymbolPanelProvider.isStyle");
         final boolean shouldCreateTheme = this.symbolModel.shouldCreateTheme();
-        final String createStyleOrTheme = shouldCreateTheme ? i18n.getMessage("SymbolPanelProvider.isTheme") : i18n.getMessage("SymbolPanelProvider.isStyle");
+        final String createStyleOrTheme = shouldCreateTheme ? DiagramSymbol.I18N.getMessage("SymbolPanelProvider.isTheme") : DiagramSymbol.I18N.getMessage("SymbolPanelProvider.isStyle");
         
         if (containsModifiedProperties) {
             ISymbolViewItem firstProp = SelectionHelper.getFirst(sel, ISymbolViewItem.class);
@@ -142,22 +140,22 @@ class SymbolContributionFactory {
             String allLabels = SelectionHelper.toStream(sel, ISymbolViewItem.class).map(i -> " - " + i.getLabel()).collect(Collectors.joining("\n"));
         
             int size = SelectionHelper.size(sel);
-            this.extractStyleFromSelected.setText(i18n.getMessage("SymbolPanelProvider.ExtractStyleFromSelectedCommand.label", size, escFirstLabel, escParentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
-            this.extractStyleFromSelected.setTooltipText(i18n.getMessage("SymbolPanelProvider.ExtractStyleFromSelectedCommand.tooltip", size, firstLabel, parentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
+            this.extractStyleFromSelected.setText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.ExtractStyleFromSelectedCommand.label", size, escFirstLabel, escParentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
+            this.extractStyleFromSelected.setTooltipText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.ExtractStyleFromSelectedCommand.tooltip", size, firstLabel, parentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
         
-            this.updateStyleFromSelected.setText(i18n.getMessage("SymbolPanelProvider.UpdateStyleFromSelectedCommand.label", size, escFirstLabel, escParentStyleName, styleOrTheme, allLabels));
-            this.updateStyleFromSelected.setTooltipText(i18n.getMessage("SymbolPanelProvider.UpdateStyleFromSelectedCommand.tooltip", size, firstLabel, parentStyleName, styleOrTheme, allLabels));
+            this.updateStyleFromSelected.setText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.UpdateStyleFromSelectedCommand.label", size, escFirstLabel, escParentStyleName, styleOrTheme, allLabels));
+            this.updateStyleFromSelected.setTooltipText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.UpdateStyleFromSelectedCommand.tooltip", size, firstLabel, parentStyleName, styleOrTheme, allLabels));
         }
         
         if (nbModified > 0) {
             String firstLabel = editedStyle.getLocalKeys().iterator().next().getLabel();
             String escFirstLabel = escapeMnemonics(firstLabel);
             String allLabels = editedStyle.getLocalKeys().stream().map(i -> " - " + i.getLabel()).collect(Collectors.joining("\n"));
-            this.extractStyleFromModified.setText(i18n.getMessage("SymbolPanelProvider.ExtractStyleFromModifiedCommand.label", nbModified, escFirstLabel, allLabels, createStyleOrTheme));
-            this.extractStyleFromModified.setTooltipText(i18n.getMessage("SymbolPanelProvider.ExtractStyleFromModifiedCommand.tooltip", nbModified, firstLabel, parentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
+            this.extractStyleFromModified.setText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.ExtractStyleFromModifiedCommand.label", nbModified, escFirstLabel, allLabels, createStyleOrTheme));
+            this.extractStyleFromModified.setTooltipText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.ExtractStyleFromModifiedCommand.tooltip", nbModified, firstLabel, parentStyleName, styleOrTheme, allLabels, createStyleOrTheme));
         
-            this.updateStyleFromAllModified.setText(i18n.getMessage("SymbolPanelProvider.UpdateStyleFromModifiedCommand.label", nbModified, escFirstLabel, escParentStyleName, styleOrTheme, allLabels));
-            this.updateStyleFromAllModified.setTooltipText(i18n.getMessage("SymbolPanelProvider.UpdateStyleFromModifiedCommand.tooltip", nbModified, firstLabel, parentStyleName, styleOrTheme, allLabels));
+            this.updateStyleFromAllModified.setText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.UpdateStyleFromModifiedCommand.label", nbModified, escFirstLabel, escParentStyleName, styleOrTheme, allLabels));
+            this.updateStyleFromAllModified.setTooltipText(DiagramSymbol.I18N.getMessage("SymbolPanelProvider.UpdateStyleFromModifiedCommand.tooltip", nbModified, firstLabel, parentStyleName, styleOrTheme, allLabels));
         }
         
         ImageDescriptor createImage = getImage(shouldCreateTheme ? DiagramSymbol.I18N.getMessage("SymbolPanelProvider.create.theme.image") : DiagramSymbol.I18N.getMessage("SymbolPanelProvider.create.style.image"));

@@ -27,8 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.plugin.CoreProject;
+import org.modelio.gproject.project.AbstractGProject;
+import org.modelio.gproject.project.GProject;
 import org.modelio.gproject.ramc.core.model.ModelComponent;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor.ExportedFileEntry;
 import org.modelio.metamodel.uml.statik.Artifact;
@@ -59,7 +61,7 @@ public class RamcPackager {
     private boolean includeArtifact;
 
     @objid ("d3a3c16f-cb72-11e1-87f1-001ec947ccaf")
-    private GProject gproject;
+    private IGProject gproject;
 
     @objid ("d3a3c16a-cb72-11e1-87f1-001ec947ccaf")
     private ModelComponent ramc;
@@ -79,7 +81,7 @@ public class RamcPackager {
      * @param archivePath the archive path
      */
     @objid ("7ebc81ec-ccc1-4db4-90a8-2f1a06e60ba5")
-    public  RamcPackager(GProject gproject, Artifact artifact, final Path archivePath) {
+    public  RamcPackager(IGProject gproject, Artifact artifact, final Path archivePath) {
         this(gproject, artifact, archivePath, new ArrayList<IModelComponentContributor>());
     }
 
@@ -90,7 +92,7 @@ public class RamcPackager {
      * @param contributors the RAMC contributors
      */
     @objid ("c2e03ffa-a5b8-11e1-aa98-001ec947ccaf")
-    public  RamcPackager(GProject gproject, Artifact artifact, final Path archivePath, List<IModelComponentContributor> contributors) {
+    public  RamcPackager(IGProject gproject, Artifact artifact, final Path archivePath, List<IModelComponentContributor> contributors) {
         this.archivePath = archivePath;
         this.ramc = new ModelComponent(artifact);
         this.gproject = gproject;
@@ -149,8 +151,8 @@ public class RamcPackager {
                 .build();
         
         // register metamodel target session on metamodel extensions
-        GProject project = GProject.getProject(srcSession);
-        for (IGMetamodelExtension mmExt : project.getEnvironment().getDefaultMetamodelExtensions()) {
+        IGProject project = AbstractGProject.getProject(srcSession);
+        for (IGMetamodelExtension mmExt : project.getProjectEnvironment().getDefaultMetamodelExtensions()) {
             // Register metamodel extensions
             mmExt.register(targetSession);
         }
@@ -190,7 +192,7 @@ public class RamcPackager {
     @objid ("d3a623c0-cb72-11e1-87f1-001ec947ccaf")
     private void exportFiles(Path exportPath, Metadatas metadatas, SubProgress subMonitor) throws IOException {
         subMonitor.subTask(CoreProject.I18N.getString("RamcPackager.ExportFiles"));
-        FilesExporter exporter = new FilesExporter(exportPath, this.gproject.getProjectFileStructure().getProjectPath());
+        FilesExporter exporter = new FilesExporter(exportPath, this.gproject.getPfs().getProjectPath());
         exporter.run(getFilesToExport(), metadatas, subMonitor);
         
     }

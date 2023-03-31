@@ -31,7 +31,7 @@ import org.modelio.metamodel.uml.statik.Interface;
  * 
  * @since 5.1
  */
-@objid ("4a25ac33-d477-45ef-a9fe-1feb62fefd88")
+@objid ("675d9633-166c-4dfb-b90c-86435f465fe0")
 public class DgUtils {
     /**
      * Move a node and align its label if it has one.
@@ -39,7 +39,7 @@ public class DgUtils {
      * @param x the x coordinate
      * @param y the y coordinate
      */
-    @objid ("7845ad85-3ed1-4c0d-9749-61066bfb7771")
+    @objid ("1b2b54df-a6d4-4667-89c9-f75e6dad9678")
     public static void setLocation(IDiagramNode dg, int x, int y) {
         dg.setLocation(x, y);
         

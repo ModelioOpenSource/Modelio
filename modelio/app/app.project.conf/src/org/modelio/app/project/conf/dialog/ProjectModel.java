@@ -22,31 +22,32 @@ package org.modelio.app.project.conf.dialog;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.app.project.conf.dialog.urls.PropertiesUrlAdapter;
 import org.modelio.app.project.conf.dialog.urls.UrlEntry;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.data.project.FragmentType;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.data.project.ProjectType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.ramcfile.MdaFragment;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.vbasic.progress.NullProgress;
+import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("a7474af3-33f6-11e2-a514-002564c97630")
 public class ProjectModel {
-    @objid ("a7474af4-33f6-11e2-a514-002564c97630")
-    private final GProject gProject;
+    @objid ("6a0b4eb7-937a-417a-9efc-93394ce24dbd")
+    private final IGProject gProject;
 
     @objid ("357b55c4-0f90-4438-a772-4efeccb24fb0")
     private PropertiesUrlAdapter propertiesUrlAdapter;
 
     @objid ("a7477205-33f6-11e2-a514-002564c97630")
-    public  ProjectModel(GProject gProject) {
+    public  ProjectModel(IGProject gProject) {
         this.gProject = gProject;
         
         if (gProject != null) {
@@ -69,21 +70,21 @@ public class ProjectModel {
 
     @objid ("a747c026-33f6-11e2-a514-002564c97630")
     public ProjectFileStructure getProjectFileStructure() {
-        return this.gProject.getProjectFileStructure();
+        return this.gProject.getPfs();
     }
 
     @objid ("a747c02a-33f6-11e2-a514-002564c97630")
-    public List<IProjectFragment> getAllFragments() {
-        return this.gProject.getFragments();
+    public List<IGModelFragment> getAllFragments() {
+        return this.gProject.getParts(IGModelFragment.class);
     }
 
     @objid ("a747e73b-33f6-11e2-a514-002564c97630")
-    public List<IProjectFragment> getSVNFragments() {
-        List<IProjectFragment> svnFragments = new ArrayList<>();
+    public List<IGModelFragment> getSVNFragments() {
+        List<IGModelFragment> svnFragments = new ArrayList<>();
         
-        for (IProjectFragment fragment : getAllFragments()) {
+        for (IGModelFragment fragment : getAllFragments()) {
             switch (fragment.getType()) {
-            case EXML_SVN:
+            case SVNFRAGMENT:
                 svnFragments.add(fragment);
                 break;
             default:
@@ -94,12 +95,12 @@ public class ProjectModel {
     }
 
     @objid ("a7480e4b-33f6-11e2-a514-002564c97630")
-    public List<IProjectFragment> getLocalFragments() {
-        List<IProjectFragment> exmlFragments = new ArrayList<>();
+    public List<IGModelFragment> getLocalFragments() {
+        List<IGModelFragment> exmlFragments = new ArrayList<>();
         
-        for (IProjectFragment fragment : getAllFragments()) {
+        for (IGModelFragment fragment : getAllFragments()) {
             switch (fragment.getType()) {
-            case EXML:
+            case EXMLFRAGMENT:
                 exmlFragments.add(fragment);
                 break;
             default:
@@ -110,12 +111,12 @@ public class ProjectModel {
     }
 
     @objid ("a748355a-33f6-11e2-a514-002564c97630")
-    public List<IProjectFragment> getDistantLibraryFragments() {
-        List<IProjectFragment> urlFragments = new ArrayList<>();
+    public List<IGModelFragment> getDistantLibraryFragments() {
+        List<IGModelFragment> urlFragments = new ArrayList<>();
         
-        for (IProjectFragment fragment : getAllFragments()) {
+        for (IGModelFragment fragment : getAllFragments()) {
             switch (fragment.getType()) {
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 urlFragments.add(fragment);
                 break;
             default:
@@ -126,16 +127,26 @@ public class ProjectModel {
     }
 
     @objid ("a7485c6b-33f6-11e2-a514-002564c97630")
-    public List<RamcFileFragment> getLocalLibraryFragments() {
-        List<RamcFileFragment> ramcFragments = new ArrayList<>();
+    public List<IGModelFragment> getLocalLibraryFragments() {
+        List<IGModelFragment> ramcFragments = new ArrayList<>();
         
-        for (IProjectFragment fragment : getAllFragments()) {
-            if (fragment.getType() == FragmentType.RAMC) {
-                if (!(fragment instanceof MdaFragment)) {
-                    if (!fragment.getId().equals("PredefinedTypes")) {
-                        ramcFragments.add((RamcFileFragment) fragment);
-                    }
+        List<IGModelFragment> allFragments = getAllFragments();
+        List<String> toSkip = new ArrayList<>();
+        toSkip.add("PredefinedTypes");
+        toSkip.addAll(getModules()
+                .stream()
+                .filter(f -> f.getType() == GProjectPartType.MODULE)
+                .map(f -> f.getId())
+                .collect(Collectors.toList()));
+        for (IGModelFragment fragment : allFragments) {
+            switch (fragment.getType()) {
+            case RAMC:
+                if (!toSkip.contains(fragment.getId())) {
+                    ramcFragments.add(fragment);
                 }
+                break;
+            default:
+                break;
             }
         }
         return ramcFragments;
@@ -143,11 +154,11 @@ public class ProjectModel {
 
     @objid ("a748837c-33f6-11e2-a514-002564c97630")
     public List<GModule> getModules() {
-        return this.gProject.getModules();
+        return this.gProject.getParts(GModule.class);
     }
 
     @objid ("a748aa8d-33f6-11e2-a514-002564c97630")
-    public GProject getOpenedProject() {
+    public IGProject getOpenedProject() {
         return this.gProject;
     }
 
@@ -190,8 +201,8 @@ public class ProjectModel {
     @objid ("f99e5007-1dad-40b0-8c74-042279ddbbfa")
     public List<String> getFragmentIdList() {
         List<String> fragmentIds = new ArrayList<>();
-        List<IProjectFragment> fragments = getAllFragments();
-        for (IProjectFragment fragment : fragments) {
+        List<IGModelFragment> fragments = getAllFragments();
+        for (IGModelFragment fragment : fragments) {
             fragmentIds.add(fragment.getId());
         }
         return fragmentIds;
@@ -202,12 +213,15 @@ public class ProjectModel {
      * @return
      */
     @objid ("479ee3d8-103c-4c25-9560-d2b8b45a9697")
-    public List<IProjectFragment> getModels() {
-        List<IProjectFragment> models = new ArrayList<>();
+    public List<IGModelFragment> getModels() {
+        List<IGModelFragment> models = new ArrayList<>();
         
-        for (IProjectFragment fragment : getAllFragments()) {
-            if (!(fragment instanceof MdaFragment)) {
-                models.add(fragment);
+        for (IGModelFragment fragment : getAllFragments()) {
+            for (MObject root : fragment.getRoots()) {
+                if (!(root instanceof ModuleComponent)) {
+                    models.add(fragment);
+                    break;
+                }
             }
         }
         return models;

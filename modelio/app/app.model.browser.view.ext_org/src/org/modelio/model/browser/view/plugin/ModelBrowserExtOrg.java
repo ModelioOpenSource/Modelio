@@ -39,6 +39,7 @@ public class ModelBrowserExtOrg extends AbstractUIPlugin {
      */
     @objid ("001c1240-dd16-1fab-b27f-001ec947cd2a")
     public static final String PLUGIN_ID = "org.modelio.app.model.browser.view.ext_org"; // $NON-NLS-1$
+    
 
     @objid ("f0357e0e-bedd-11e1-b430-001ec947c8cc")
     public static BundledMessages I18N;

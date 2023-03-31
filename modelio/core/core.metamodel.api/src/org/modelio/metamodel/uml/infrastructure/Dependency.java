@@ -41,6 +41,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * </ul>
  * 
  * <p>A Dependency now belongs to the impacted element (the client in UML 2.0).</p>
+ * 
+ * 
+ * 
  */
 @objid ("0085d9be-c4be-1fd8-97fe-001ec947cd2a")
 public interface Dependency extends ModelElement {
@@ -61,6 +64,7 @@ public interface Dependency extends ModelElement {
      * 
      * Metamodel description:
      * <i>Client</i>
+     * 
      */
     @objid ("c7ca69e1-54af-478c-93e8-8aff08a5ee9c")
     ModelElement getImpacted();
@@ -70,6 +74,7 @@ public interface Dependency extends ModelElement {
      * 
      * Metamodel description:
      * <i>Client</i>
+     * 
      */
     @objid ("d033cf37-1949-4609-bb99-6b27ecfaf1e2")
     void setImpacted(ModelElement value);
@@ -79,6 +84,7 @@ public interface Dependency extends ModelElement {
      * 
      * Metamodel description:
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
+     * 
      */
     @objid ("ed4e56b8-4744-4856-b679-ba18a7726af4")
     ModelElement getDependsOn();
@@ -88,8 +94,9 @@ public interface Dependency extends ModelElement {
      * 
      * Metamodel description:
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
+     * 
      */
     @objid ("962a2663-1dec-4159-b092-d026990556a4")
     void setDependsOn(ModelElement value);
-
 }
+

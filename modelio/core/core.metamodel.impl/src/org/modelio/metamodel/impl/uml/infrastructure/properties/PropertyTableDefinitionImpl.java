@@ -22,7 +22,6 @@
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
-
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
@@ -33,18 +32,16 @@ import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
-import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
 import org.modelio.vcore.smkernel.SmList;
 import org.modelio.vcore.smkernel.SmObjectImpl;
-import org.modelio.vcore.smkernel.mapi.MClass;
-import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("0067251e-ec87-1098-b22e-001ec947cd2a")
@@ -81,12 +78,11 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         }
         final List<T> results = new ArrayList<>();
         for (final TypedPropertyTable element : getTypedTable()) {
-        	if (filterClass.isInstance(element)) {
-        		results.add(filterClass.cast(element));
-        	}
+            if (filterClass.isInstance(element)) {
+                results.add(filterClass.cast(element));
+            }
         }
         return Collections.unmodifiableList(results);
-        
     }
 
     @objid ("5326e862-1e97-4f3f-bf0d-6ee67acf8355")
@@ -129,12 +125,11 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         }
         final List<T> results = new ArrayList<>();
         for (final PropertyDefinition element : getOwned()) {
-        	if (filterClass.isInstance(element)) {
-        		results.add(filterClass.cast(element));
-        	}
+            if (filterClass.isInstance(element)) {
+                results.add(filterClass.cast(element));
+            }
         }
         return Collections.unmodifiableList(results);
-        
     }
 
     @objid ("2edf994c-6513-46fb-9342-425c7ee2e03a")
@@ -169,7 +164,6 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         dep = ((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep();
         obj = (SmObjectImpl)this.getDepVal(dep);
         if (obj != null) return new SmDepVal(dep, obj);
-        
         return super.getCompositionRelation();
     }
 
@@ -177,6 +171,21 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyTableDefinition(this);
+    }
+
+    @objid ("6fe6159a-f82a-4f98-9b3e-3ee05905ee03")
+    @Override
+    public ModuleComponent getModule() {
+        MetaclassReference ref = getOwnerReference();
+        Stereotype st = getOwnerStereotype();
+        
+        if (ref != null && ref.getOwnerProfile() != null) {
+            return ref.getOwnerProfile().getOwnerModule();
+        } else if (st != null && st.getOwner() != null) {
+            return st.getOwner().getOwnerModule();
+        } else
+            return null;
+        
     }
 
 }

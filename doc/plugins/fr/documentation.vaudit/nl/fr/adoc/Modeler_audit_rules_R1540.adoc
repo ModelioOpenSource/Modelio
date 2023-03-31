@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1540]]
 
-[[r1540]]
+
+
 = R1540
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _RepresentedFeature_ d'une _BindableInstance_ (Part) ne peuvent pas référencer la _BindableInstance_ elle même, directement ou indirectement.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Par exemple, dans le cas de trois _BindableInstances_ 'A', 'B' et 'C', si 'A' représente 'B', 'B' représente 'C', et 'C' représente 'A', au final 'A' représente 'C' indirectement, et 'C' représente 'A' directement, ce qui est faux.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Assurez-vous qu'il n'y ai pas de cycle quand vous représentez des éléments dans des parts et des Ports.

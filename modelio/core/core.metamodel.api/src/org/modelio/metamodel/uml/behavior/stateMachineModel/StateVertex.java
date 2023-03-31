@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * A StateVertex can be either a State, or a PseudoState that is only a graphical convention. A StateVertex belongs to a State, or to a StateMachine if it is a root State.
+ * 
+ * 
  */
 @objid ("0054944e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StateVertex extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the Transitions departing from the StateVertex.</i>
+     * 
      */
     @objid ("5146c59c-4407-4962-90a2-2e9f4a42c62b")
     EList<Transition> getOutGoing();
@@ -64,6 +67,7 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the Transitions departing from the StateVertex.</i>
+     * 
      */
     @objid ("53b8bca8-ff35-4de3-893b-ac070dfd7173")
     <T extends Transition> List<T> getOutGoing(java.lang.Class<T> filterClass);
@@ -73,6 +77,7 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the Transitions entering the StateVertex.</i>
+     * 
      */
     @objid ("8574f5d1-6cdb-40d0-8b34-befbf2fb31dd")
     EList<Transition> getIncoming();
@@ -82,6 +87,7 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the Transitions entering the StateVertex.</i>
+     * 
      */
     @objid ("c5ee922f-b50e-4242-8ca5-1ba7e48f0b09")
     <T extends Transition> List<T> getIncoming(java.lang.Class<T> filterClass);
@@ -91,6 +97,7 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("38729d42-249f-4746-b4c2-600d84de2be5")
     Region getParent();
@@ -100,8 +107,9 @@ public interface StateVertex extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("10d06ea1-52fd-467a-aa7f-95f215a12131")
     void setParent(Region value);
-
 }
+

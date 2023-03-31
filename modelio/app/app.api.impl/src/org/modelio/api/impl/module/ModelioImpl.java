@@ -48,7 +48,7 @@ import org.modelio.api.modelio.picking.IPickingProvider;
 import org.modelio.api.modelio.picking.IPickingService;
 import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.script.IScriptService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.picking.IPickingSession;
 import org.modelio.platform.project.services.IProjectService;
@@ -67,7 +67,7 @@ public class ModelioImpl extends Modelio {
     private IEclipseContext eclipseContext;
 
     @objid ("71bc1743-3b13-438c-9350-7d42c87bcf76")
-    private GProject openedProject;
+    private IGProject openedProject;
 
     @objid ("3b9c361a-b9ee-49af-84f3-61729a901869")
     @Override
@@ -214,7 +214,7 @@ public class ModelioImpl extends Modelio {
     @objid ("64d34c74-89d2-4563-999e-2889f7f3e111")
     @Inject
     @Optional
-    void onProjectOpening(@EventTopic(ModelioEventTopics.PROJECT_OPENING) final GProject newProject) {
+    void onProjectOpening(@EventTopic(ModelioEventTopics.PROJECT_OPENING) final IGProject newProject) {
         this.openedProject = newProject;
     }
 

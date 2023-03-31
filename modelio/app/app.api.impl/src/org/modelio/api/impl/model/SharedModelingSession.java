@@ -35,7 +35,7 @@ import org.modelio.api.modelio.model.event.IModelChangeHandler;
 import org.modelio.api.modelio.model.event.IModelChangeListener;
 import org.modelio.api.modelio.model.event.IStatusChangeEvent;
 import org.modelio.api.modelio.model.event.IStatusChangeListener;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.vcore.session.UnknownMetaclassException;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -76,7 +76,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
      * @param modelService a model service working on the project.
      */
     @objid ("f72f5713-f301-4dad-9c7e-9c4013836cfb")
-    public  SharedModelingSession(final GProject openedProject, final IMModelServices modelService) {
+    public  SharedModelingSession(final IGProject openedProject, final IMModelServices modelService) {
         this.session = openedProject.getSession();
         this.modelChangeListeners = new CopyOnWriteArrayList<>();
         this.modelChangeHandlers = new CopyOnWriteArrayList<>();

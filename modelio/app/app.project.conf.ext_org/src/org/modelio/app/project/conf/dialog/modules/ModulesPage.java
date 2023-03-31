@@ -41,7 +41,7 @@ import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.modules.list.ModulesSection;
 import org.modelio.app.project.conf.dialog.modules.parameters.ParameterSection;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 
 /**
  * Modules page

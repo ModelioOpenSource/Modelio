@@ -39,6 +39,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 	<li>Disrupt the normal flow through exception handling, or</li>
  * 	<li>Show the extra work required for compensation.</li>
  * </ul>
+ * 
+ * 
+ * 
  */
 @objid ("008f5aa2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnIntermediateThrowEvent extends BpmnThrowEvent {
@@ -53,5 +56,5 @@ public interface BpmnIntermediateThrowEvent extends BpmnThrowEvent {
      */
     @objid ("fd5ff0fe-b31c-4ba4-9db9-2f11efa064c4")
     public static final String MQNAME = "Standard.BpmnIntermediateThrowEvent";
-
 }
+

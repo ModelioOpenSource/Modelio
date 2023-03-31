@@ -22,5 +22,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IConfigParamValidator {
     @objid ("015852d8-f122-11e1-9565-002564c97630")
     boolean isValidValue(String paramName, String value);
-
 }
+

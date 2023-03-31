@@ -21,16 +21,13 @@ package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.TextStyle;
-import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Feature;
 import org.modelio.metamodel.uml.statik.Interface;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.vcore.smkernel.DeadObjectException;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MStatus;
@@ -57,19 +54,13 @@ public class ElementStyler extends Styler {
     @objid ("48b49845-ebdf-49e4-b4be-232d715330c5")
     private final boolean isModifiable;
 
-    @objid ("ec5f5315-79fb-4776-a27a-046e7903a8fa")
-    private static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
-
-    @objid ("298c9994-a195-4fcc-990c-99c8a1c9c086")
-    private static final Font italicFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.ITALIC, 1.0f);
-
     @objid ("24c14b30-5f2a-48b4-8957-fa958b75dcee")
     public static final Styler NORMAL = new Styler() {
-            @Override
-            public void applyStyles(TextStyle textStyle) {
-                //right now, nothing to do
-            }
-        };
+                @Override
+                public void applyStyles(TextStyle textStyle) {
+                    //right now, nothing to do
+                }
+            };
 
     @objid ("34d9373e-9cd7-48ad-a552-adcfd863a0b6")
     private final MObject element;
@@ -100,7 +91,7 @@ public class ElementStyler extends Styler {
         textStyle.background = getBackground(this.element);
         textStyle.underline = isUnderlined(this.element);
         textStyle.underlineColor = textStyle.foreground;
-        textStyle.font = isItalic(this.element) ? italicFont : null;
+        textStyle.font = isItalic(this.element) ? UIFont.NORMALI : null;
         
     }
 
@@ -118,7 +109,7 @@ public class ElementStyler extends Styler {
     private Color getForeground(MObject e) {
         try {
             MStatus status = e.getStatus();
-            
+        
             if (status.isShell() || this.shellVariant) {
                 return UIColor.SHELL_ELEMENT_FG;
             } else if (status.isRamc() || this.ramcVariant) {

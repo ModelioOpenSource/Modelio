@@ -31,6 +31,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.figures.anchors.BorderAnchor;
@@ -43,7 +44,8 @@ import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmAbstractLinkAnchor;
 import org.modelio.diagram.elements.core.link.RoutingModeGetter;
-import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.IGmLinkObject;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
@@ -64,17 +66,17 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  */
 @objid ("80a17d88-1dec-11e2-8cad-001ec947c8cc")
 public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
-    @objid ("6431258a-1c3a-4a8e-a6a3-25c518a7bfa0")
+    @objid ("4ce93557-a331-4b2d-a095-005ae2ff6de8")
     protected final boolean useSlidable;
 
     @objid ("80a17d8a-1dec-11e2-8cad-001ec947c8cc")
     private static final RectangleNodeAnchorProvider SLIDABLE_PROVIDER = new RectangleNodeAnchorProvider(true);
 
-    @objid ("19e0e577-4048-426d-8a9e-f702544f22a0")
+    @objid ("52694ce3-4960-43e1-ac34-daf4fab611c3")
     private static final RectangleNodeAnchorProvider NONSLIDABLE_PROVIDER = new RectangleNodeAnchorProvider(false);
 
-    @objid ("d150403f-9107-42c7-a874-dd93ec8d8fde")
-    private VariableFixedAnchorProvider fixedFallbackProvider = new VariableFixedAnchorProvider();
+    @objid ("8617a03a-c27a-4dcd-894b-4b5b339043a1")
+    private IFixedNodeAnchorProvider fixedFallbackProvider = DefaultFixedAnchorProvider.createDefault();
 
     /**
      * Factory to get a anchor provider .
@@ -95,7 +97,7 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
      * This is the only way to get an anchor provider. The returned provider should be used then discarded. It is not intended to be cached.
      * @return an anchor provider.
      */
-    @objid ("9682f579-715c-4d80-bfe1-d1c7fe6def8a")
+    @objid ("3003a4c1-a010-4052-980b-e0975a9dc26c")
     public static RectangleNodeAnchorProvider getSlidable() {
         return SLIDABLE_PROVIDER;
     }
@@ -106,7 +108,7 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
      * This is the only way to get an anchor provider. The returned provider should be used then discarded. It is not intended to be cached.
      * @return an anchor provider.
      */
-    @objid ("aaf56525-359c-49a4-8d78-960739813798")
+    @objid ("0cf4e86a-6561-435b-b1fe-f97cc7a4f955")
     public static RectangleNodeAnchorProvider getNonSlidable() {
         return NONSLIDABLE_PROVIDER;
     }
@@ -210,14 +212,14 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
             }
         } else if (gmLinkAnchor instanceof GmFixedAnchor) {
             // This should happen only for ghost nodes
-            return this.fixedFallbackProvider.createFromModel(fig, (GmFixedAnchor) gmLinkAnchor);
+            return this.fixedFallbackProvider.getAnchorFactoryFor(nodeEditPart, fig).createFromModel( (GmFixedAnchor) gmLinkAnchor);
         } else {
             throw new UnsupportedOperationException(gmLinkAnchor.toString());
         }
         
     }
 
-    @objid ("f0164871-ea50-4c23-ba20-14e8c4d376aa")
+    @objid ("5103b12d-39f5-4094-aa5f-d22bcd3ccdea")
     @Override
     public Object createAnchorModel(ConnectionAnchor anchor) {
         if (anchor instanceof FixedAnchor) {
@@ -251,7 +253,7 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
         
         fig.translateToRelative(offset);
         
-        if (needSlidableAnchor(request.getData().getRoutingMode(), raked)) {
+        if (needSlidableAnchor(request, request.getData().getRoutingMode(), raked)) {
             // For Orthogonal and Rake routers, return "sliding" anchors.
             return new RaySlidableAnchor(fig, offset);
         } else {
@@ -287,7 +289,7 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
         
     }
 
-    @objid ("ee726c27-d0e2-4a7d-9321-41ad98fa97dc")
+    @objid ("6d307040-b659-40aa-8049-4af802bb3513")
     private ConnectionAnchor createBorderAnchor(IFigure fig, Dimension offset, boolean isSourceAnchor) {
         Rectangle figBounds = fig.getBounds();
         
@@ -343,13 +345,18 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
         fig.translateToRelative(offset);
         
         // Return a new anchor
-        if (needSlidableAnchor(state.getFigureRoutingMode(), state.raked)) {
+        if (needSlidableAnchor(request, state.getFigureRoutingMode(), state.raked)) {
             RaySlidableAnchor ret = new RaySlidableAnchor(fig, offset);
             return ret;
         } else {
             return createBorderAnchor(fig, offset, isSourceAnchor);
         }
         
+    }
+
+    @objid ("7bb8fee1-5924-4c46-951c-d5c9e656a01f")
+    private static boolean reqAllowSlidable(Request request) {
+        return (Boolean) request.getExtendedData().getOrDefault(CreateLinkConstants.PROP_NEED_SLIDABLE_ANCHOR, true);
     }
 
     /**
@@ -371,6 +378,11 @@ public class RectangleNodeAnchorProvider extends AbstractNodeAnchorProvider {
     @objid ("53ccc5e4-267d-4071-a477-29fcd7fd52cd")
     protected boolean needSlidableAnchor(ConnectionRouterId router, boolean raked) {
         return this.useSlidable && router == ConnectionRouterId.ORTHOGONAL && !raked;
+    }
+
+    @objid ("de6f3b99-5220-4b31-b525-697f87c8740f")
+    protected boolean needSlidableAnchor(Request request, ConnectionRouterId router, boolean raked) {
+        return needSlidableAnchor(router, raked) && reqAllowSlidable(request);
     }
 
     @objid ("718ca7bc-099f-47ff-9169-b7e15fc7665a")

@@ -29,6 +29,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * TerminateSpecification v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("004c18e6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface TerminateSpecification extends ExecutionOccurenceSpecification {
@@ -43,5 +48,5 @@ public interface TerminateSpecification extends ExecutionOccurenceSpecification 
      */
     @objid ("e3c86675-db6c-4580-a98f-751ddbc33592")
     public static final String MQNAME = "Standard.TerminateSpecification";
-
 }
+

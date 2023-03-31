@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00558606-91e1-1f74-804b-001ec947cd2a")
 public enum TransactionMethod {
@@ -38,6 +40,7 @@ public enum TransactionMethod {
     STORETRANSACTION(1, "storeTransaction", "storeTransaction"),
     @objid ("c7e5d6ca-5384-4241-ba28-1ee89760f75c")
     IMAGETRANSACTION(2, "imageTransaction", "imageTransaction");
+
 public static final int COMPENSATETRANSACTION_VALUE = 0;
     public static final int STORETRANSACTION_VALUE = 1;
     public static final int IMAGETRANSACTION_VALUE = 2;

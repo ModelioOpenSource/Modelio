@@ -92,6 +92,7 @@ public class HorizontalSegmentMoveHandle extends ConnectionHandle {
         super.validate();
         
     }
+
 {
             setCursor(Cursors.SIZENS);
         }

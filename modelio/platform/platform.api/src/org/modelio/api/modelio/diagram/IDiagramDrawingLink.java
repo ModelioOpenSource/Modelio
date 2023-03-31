@@ -23,6 +23,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * @since 3.8
  */
 @objid ("63bf1e0f-b37c-4874-a25f-9a2439dded2b")
-public interface IDiagramDrawingLink extends IDiagramDrawing, IDiagramLink {// Empty
-    
-}
+public interface IDiagramDrawingLink extends IDiagramDrawing, IDiagramLink {
+// Empty
+    }
+

@@ -110,11 +110,17 @@ public class Represents {
         	throw new IllegalArgumentException("Represents: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("b68488da-cf0c-4fc1-94b3-9950d52ae9bb")
     public static ModelElement getTarget(ModelElement source) {
         return AbstractMethodologicalLink.getTarget(source, MdaTypes.STEREOTYPE_ELT);
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("85a28a48-571f-47ac-b1b3-7f5fb1f27c90")
     public static void setTarget(ModelElement source, ModelElement target) {
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
@@ -175,6 +181,7 @@ public class Represents {
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
             
         }
+
 	static {
         		if(ModelerModuleModule.getInstance() != null) {
         			init(ModelerModuleModule.getInstance().getModuleContext());

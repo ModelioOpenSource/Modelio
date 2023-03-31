@@ -32,6 +32,11 @@ import org.modelio.metamodel.mda.ModuleComponent;
 
 /**
  * ResourceType v2.1.00
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("0092fefa-c4be-1fd8-97fe-001ec947cd2a")
 public interface ResourceType extends ModelElement {
@@ -56,6 +61,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this resource will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("5f58d834-8063-41a1-b7ea-7d647a40caeb")
     boolean isIsHidden();
@@ -66,6 +72,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this resource will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("40d86791-368c-4761-a700-4e52769f4ed0")
     void setIsHidden(boolean value);
@@ -75,6 +82,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>The label key used to look into module resources for the translated label.</i>
+     * 
      */
     @objid ("cb7718a2-4901-47ae-b850-5e79288bd4ee")
     String getLabelKey();
@@ -84,6 +92,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>The label key used to look into module resources for the translated label.</i>
+     * 
      */
     @objid ("afa3130a-3a9a-4009-8378-7fbf960a5547")
     void setLabelKey(String value);
@@ -93,6 +102,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Optional icon for the browser and diagram</i>
+     * 
      */
     @objid ("63846800-312d-400d-b97b-4e68f785f98f")
     String getIcon();
@@ -102,6 +112,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Optional icon for the browser and diagram</i>
+     * 
      */
     @objid ("7e5791a1-edaa-4093-acd9-881a18dd8832")
     void setIcon(String value);
@@ -111,6 +122,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Big image for the diagram in image mode.</i>
+     * 
      */
     @objid ("21638f2c-9421-4716-8244-95030f14bccb")
     String getImage();
@@ -120,6 +132,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Big image for the diagram in image mode.</i>
+     * 
      */
     @objid ("801c01fb-329a-405e-9174-cc21f1cf82b7")
     void setImage(String value);
@@ -129,6 +142,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("26d5a564-a425-4047-b9bb-95e951ec0466")
     Stereotype getOwnerStereotype();
@@ -138,6 +152,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a9d8c1bf-8599-441c-8ef0-b031b3ef97ec")
     void setOwnerStereotype(Stereotype value);
@@ -147,6 +162,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f7771cbc-7f0f-43fd-9b30-553bad6d1988")
     MetaclassReference getOwnerReference();
@@ -156,6 +172,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e7f38817-a7d3-4118-8a1f-e81b8f07936f")
     void setOwnerReference(MetaclassReference value);
@@ -165,6 +182,7 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("56cac07d-9fd1-44a9-b203-876a4fdde921")
     EList<AbstractResource> getTypedResource();
@@ -174,8 +192,9 @@ public interface ResourceType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("655b90bc-6c42-42fa-ac0e-30305c3b53d6")
     <T extends AbstractResource> List<T> getTypedResource(java.lang.Class<T> filterClass);
-
 }
+

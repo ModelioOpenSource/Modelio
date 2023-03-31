@@ -48,7 +48,7 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.vcore.smkernel.mapi.MRef;
 import org.modelio.vcore.smkernel.mapi.MStatus;
@@ -214,7 +214,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
                 final List<Image> ret = new ArrayList<>(stereotypes.size());
         
                 for (Stereotype s : stereotypes) {
-                    final Image im = ModuleI18NService.getIcon(s);
+                    final Image im = MdaResources.getIcon(s);
                     if (im != null) {
                         ret.add(im);
                     }
@@ -240,7 +240,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
                 for (Stereotype s : stereotypes) {
                     // if there is no label, use the name
                     // question: should we filter out hidden stereotypes ? if(!s.isIsHidden())
-                    labels.add(ModuleI18NService.getLabel(s));
+                    labels.add(MdaResources.getLabel(s));
                 }
                 return labels;
             }
@@ -571,7 +571,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
         final StringBuilder buf = new StringBuilder();
         final TagType tagType = tag.getDefinition();
         
-        String tagLabel = ModuleI18NService.getLabel(tagType);
+        String tagLabel = MdaResources.getLabel(tagType);
         if (tagLabel == null || tagLabel.isEmpty()) {
             tagLabel = tagType.getName();
         }
@@ -580,7 +580,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
         
         buf.append("{");
         if (typeStereotype != null) {
-            String stereotypeLabel = ModuleI18NService.getLabel(typeStereotype);
+            String stereotypeLabel = MdaResources.getLabel(typeStereotype);
             if (stereotypeLabel == null || stereotypeLabel.isEmpty()) {
                 stereotypeLabel = typeStereotype.getName();
             }
@@ -650,7 +650,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
             PropertyTableDefinition type = ((TypedPropertyTable) propertyTable).getType();
             PropertyDefinition propDef = type.getOwned(key);
             if (propDef != null) {
-                propLabel = ModuleI18NService.getLabel(propDef);
+                propLabel = MdaResources.getLabel(propDef);
             }
         }
         if (propLabel == null) {

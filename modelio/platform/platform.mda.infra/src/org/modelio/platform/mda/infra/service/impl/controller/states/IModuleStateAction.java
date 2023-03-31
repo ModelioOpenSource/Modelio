@@ -33,5 +33,5 @@ public interface IModuleStateAction {
      */
     @objid ("dd139934-bc36-409d-b528-ce8c9cce52e6")
     void execute() throws ModuleException;
-
 }
+

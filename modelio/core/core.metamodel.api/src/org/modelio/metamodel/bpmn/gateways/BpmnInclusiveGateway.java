@@ -33,6 +33,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
  * 
  * 
  * A diverging Inclusive Gateway (Inclusive Decision) can be used to create alternative but also parallel paths within a Process flow. Unlike the Exclusive Gateway, all condition Expressions are evaluated. The true evaluation of one condition Expression does not exclude the evaluation of other condition Expressions. All Sequence Flow with a true evaluation will be traversed by a token. Since each path is considered to be independent, all combinations of the paths may be taken, from zero to all. However, it should be designed so that at least one path is taken.
+ * 
+ * 
  */
 @objid ("00019a82-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnInclusiveGateway extends BpmnGateway {
@@ -53,6 +55,7 @@ public interface BpmnInclusiveGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e2ff77f2-b7ca-462e-aca8-0d03af420168")
     BpmnSequenceFlow getDefaultFlow();
@@ -62,8 +65,9 @@ public interface BpmnInclusiveGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("43242af2-6a3f-4d2b-964a-42a15edb37e4")
     void setDefaultFlow(BpmnSequenceFlow value);
-
 }
+

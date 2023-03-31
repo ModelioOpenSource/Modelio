@@ -24,11 +24,7 @@ import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
-import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
-import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
-import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
-import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
@@ -62,8 +58,6 @@ public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
         process.getProduct().add(diagram);
         diagram.setName(namer.getUniqueName(diagram));
         
-        populateDiagram(modelFactory, namer, process);
-        
         // Layout diagram
         new BpmnLayouter(diagram).run();
         
@@ -81,47 +75,6 @@ public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
                         () -> "CreateBpmnProcessHandler.postCommit()",
                         ModelioEvent.EDIT_ELEMENT,
                         diagram));
-        
-    }
-
-    /**
-     * Create an initial diagram contents:
-     * <ul>
-     * <li>A {@link BpmnStartEvent}</li>
-     * <li>A {@link BpmnEndEvent}</li>
-     * <li>A {@link BpmnTask}</li>
-     * <li>A {@link BpmnSequenceFlow} from the start event to the task.</li>
-     * <li>A {@link BpmnSequenceFlow} from the task to the end event.</li>
-     * </ul>
-     */
-    @objid ("6636a7e3-67cf-4996-ab43-8b0def80a627")
-    private void populateDiagram(IStandardModelFactory modelFactory, IElementNamer namer, BpmnProcess process) {
-        // Create a Start event
-        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
-        startEvent.setContainer(process);
-        startEvent.setName(namer.getUniqueName(startEvent));
-        
-        // Create an End event
-        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
-        endEvent.setContainer(process);
-        endEvent.setName(namer.getUniqueName(endEvent));
-        
-        // Create a dumb task
-        BpmnTask task = modelFactory.createBpmnTask();
-        task.setContainer(process);
-        task.setName(namer.getUniqueName(task));
-        
-        // Create a flow between start and task
-        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
-        flow1.setSourceRef(startEvent);
-        flow1.setTargetRef(task);
-        flow1.setContainer(process);
-        
-        // Create a flow between task and end
-        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
-        flow2.setSourceRef(task);
-        flow2.setTargetRef(endEvent);
-        flow2.setContainer(process);
         
     }
 

@@ -11,9 +11,9 @@ Une bibliothèque distante (également appelée modèle HTTP) est une partie de 
 
 Les bibliothèques distantes peuvent contenir n'importe quel type de modèle, soit des modèles complets avec toutes les annotations (tags, notes), soit des modèles simplifiés composés de namespaces et de liens d'héritage, comme cela est souvent le cas pour les _composants de modèle_.
 
-[[Quels-avantages-présente-lutilisation-des-bibliothèques-distantes-]]
 
-[[quels-avantages-présente-lutilisation-des-bibliothèques-distantes]]
+
+
 ===== Quels avantages présente l'utilisation des bibliothèques distantes ?
 
 En tant que bibliothèques, les _bibliothèques distantes_ fournissent des éléments de modèle en mode lecture seule, tout comme les _composants de modèle_ (les bibliothèques locales). Elles permettent aux développeurs de partager des modèles à travers un réseau. Par exemple, plusieurs équipes géographiquement distinctes peuvent travailler ensemble, en partageant des modèles sous forme de bibliothèques.
@@ -28,9 +28,9 @@ L'équipe d'intégration ne publie aucun modèle, mais regroupe tous les modèle
 .Plusieurs équipes partageant des bibliothèques HTTP
 image::images/Distant_libraries_presentation_http_libraries.png[1]
 
-[[Les-bibliothèques-locales-ou-les-bibliothèques-distantes-pour-mon-projet-]]
 
-[[les-bibliothèques-locales-ou-les-bibliothèques-distantes-pour-mon-projet]]
+
+
 === Les bibliothèques locales ou les bibliothèques distantes pour mon projet ?
 
 Il n'y a pas de réponse universelle à cette question. +

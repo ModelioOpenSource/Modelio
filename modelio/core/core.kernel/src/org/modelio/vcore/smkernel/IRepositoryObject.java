@@ -175,5 +175,5 @@ public interface IRepositoryObject {
      */
     @objid ("4e2fcaea-71c8-4474-a0db-5f21f1db31b0")
     void setToReload(SmObjectImpl obj);
-
 }
+

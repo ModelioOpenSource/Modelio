@@ -21,7 +21,7 @@ package org.modelio.platform.project.services.closeproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.mmextensions.standard.services.MModelServices;
 import org.modelio.platform.core.events.ModelioEvent;
@@ -37,7 +37,7 @@ public class ProjectCloser implements IProjectCloser {
 
     @objid ("9aade60b-0081-47b4-b02a-c78e9d4828a4")
     @Override
-    public void closeProject(final GProject projectToClose, final boolean sendSyncEvents) throws IllegalStateException {
+    public void closeProject(final IGProject projectToClose, final boolean sendSyncEvents) throws IllegalStateException {
         if (this.projectServiceAccess.isOpeningEventSent()) {
             // Plenty event listeners are not prepared to receive a
             // PROJECT_CLOSING if PROJECT_OPENING
@@ -90,7 +90,7 @@ public class ProjectCloser implements IProjectCloser {
 
     @objid ("0f4795fc-8ecb-462f-8920-5978cba5c5d8")
     @Override
-    public final void closeProject(final GProject projectToClose) throws IllegalStateException {
+    public final void closeProject(final IGProject projectToClose) throws IllegalStateException {
         closeProject(projectToClose, false);
     }
 

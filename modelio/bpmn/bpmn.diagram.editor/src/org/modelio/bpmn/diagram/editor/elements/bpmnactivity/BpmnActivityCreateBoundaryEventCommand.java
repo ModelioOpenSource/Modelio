@@ -55,7 +55,8 @@ public class BpmnActivityCreateBoundaryEventCommand extends DefaultCreateElement
         }
         
         // Show the new element in the diagram (ie create its Gm )
-        diagram.unmask(this.getParentNode(), newElement, this.getConstraint());
+        
+        this.mainLinkable = diagram.unmask(this.getParentNode(), newElement, this.getConstraint());
         
     }
 
@@ -72,12 +73,12 @@ public class BpmnActivityCreateBoundaryEventCommand extends DefaultCreateElement
     @objid ("8c0f81aa-aa03-49c9-a175-b4383f2ab3e3")
     private MObject createBoundryEventElement(IModelManager modelManager) {
         MObject newElement;
-               
-              
+        
+        
         // Create the Element...
         final IStandardModelFactory modelFactory = modelManager.getModelFactory().getFactory(IStandardModelFactory.class);
         newElement = modelFactory.createElement(this.getContext().getMetaclass());
-              
+        
         // Add Port to Task : Relation boundaryEventRef
         assert (getParentElement() instanceof BpmnActivity);
         assert (newElement instanceof BpmnBoundaryEvent);
@@ -85,24 +86,24 @@ public class BpmnActivityCreateBoundaryEventCommand extends DefaultCreateElement
         
         BpmnBoundaryEvent boundaryElement = (BpmnBoundaryEvent) newElement;
         BpmnActivity activity = (BpmnActivity) getParentElement();
-              
+        
         if (activity.getContainer() != null) {
             boundaryElement.setContainer(activity.getContainer());
         } else if (activity.getSubProcess() != null) {
             boundaryElement.setSubProcess(activity.getSubProcess());
         }
-              
+        
         activity.getBoundaryEventRef().add((BpmnBoundaryEvent) newElement);
-              
+        
         // Attach the stereotype if needed.
         if (this.getContext().getStereotype() != null) {
             boundaryElement.getExtension().add(this.getContext().getStereotype());
         }
-              
+        
         // Configure element from properties
         final IElementConfigurator elementConfigurer = modelManager.getModelServices().getElementConfigurer();
         elementConfigurer.configure(boundaryElement, getContext().getProperties());
-              
+        
         // Set default name
         IElementNamer elementNamer = modelManager.getModelServices().getElementNamer();
         boundaryElement.setName(elementNamer.getUniqueName(boundaryElement));

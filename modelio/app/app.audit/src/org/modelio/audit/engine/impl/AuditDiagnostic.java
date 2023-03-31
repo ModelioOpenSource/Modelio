@@ -70,7 +70,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
     @objid ("308e961f-d900-49fc-aa6a-5ddf506fb612")
     @Override
     public synchronized List<IAuditEntry> getEntries(String jobId) {
-        if ("".equals(jobId)) {
+        if (jobId.isEmpty()) {
             return getEntries();
         }
         

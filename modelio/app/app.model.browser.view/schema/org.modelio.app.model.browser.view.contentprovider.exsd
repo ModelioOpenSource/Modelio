@@ -3,7 +3,7 @@
 <schema targetNamespace="org.modelio.app.model.browser.view" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.modelio.app.model.browser.view" id="org.modelio.app.model.browser.view.panelprovider" name="Metamodel browser content provider"/>
+         <meta.schema plugin="org.modelio.app.model.browser.view" id="org.modelio.app.model.browser.view.contentprovider" name="Metamodel browser content provider"/>
       </appinfo>
       <documentation>
          Allow a metamodel fragment to defines a browser content provider.
@@ -62,7 +62,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.jface.viewers.ITreeContentProvider"/>
+                  <meta.attribute kind="java" basedOn=":org.modelio.model.browser.view.content.IModelioTreeContentProvider"/>
                </appinfo>
             </annotation>
          </attribute>

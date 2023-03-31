@@ -42,5 +42,5 @@ public interface ILinkExpert {
 
     @objid ("005e266c-d07d-1098-bcec-001ec947cd2a")
     boolean canTarget(MObject linkElement, MObject to);
-
 }
+

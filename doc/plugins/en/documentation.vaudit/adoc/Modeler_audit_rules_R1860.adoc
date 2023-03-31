@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1860]]
 
-[[r1860]]
+
+
 = R1860
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 In an _Interface_, the visibility of all _Features_ must be public.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _Interface_ is by definition a public contract.
 
 All its features must be public.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Change the visibility of all features to public.

@@ -145,5 +145,5 @@ public interface ICoreSession {
      */
     @objid ("e983a3aa-4d49-4a42-bdb9-f07052488b1b")
     boolean isValid();
-
 }
+

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Standard metamodel implementation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.modelio.core.metamodel.impl;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.modelio.core.kernel,
  org.eclipse.emf.ecore,
  org.modelio.core.metamodel.api,

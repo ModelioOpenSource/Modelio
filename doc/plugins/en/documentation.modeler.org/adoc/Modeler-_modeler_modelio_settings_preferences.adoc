@@ -4,9 +4,9 @@
 :stylesdir: .
 = Modelio preferences
 
-[[Administration]]
 
-[[administration]]
+
+
 ===== Administration
 
 In the *Administration* entry of the *Preferences* dialog, you can define the log level for Modelio and activate the administration commands.
@@ -26,9 +26,9 @@ Only in case of problems, should the more verbose levels *Warning, Trace, Debug*
 * *Rebuild all impact models*: It may happen that SVN operations corrupt the impact model. This command rebuilds the whole imact model.
 
 
-[[Module-catalog]]
 
-[[module-catalog]]
+
+
 ===== Module catalog
 
 The Modelio modules catalog is the list of all modules which are known to your local Modelio installation. By default, the modules that appear in the modules catalog are those provided with your Modelio installation, but you can also add other modules which you have downloaded or created yourself, for subsequent use in your Modelio projects.
@@ -48,9 +48,9 @@ By default, the modules catalog is located in the user folder:
 You can relocate Modelio's modules catalog. To do so, simply click on the 'Move modules catalog...' button and select a new location. The catalog contents will be moved to the chosen directory. Please note that this process may take a few minutes, depending on the catalog size and the machine's capacities.
 
 
-[[Network-configuration]]
 
-[[network-configuration]]
+
+
 ===== Network configuration
 
 This section lets you configure the connection to a proxy server.
@@ -78,9 +78,9 @@ The list of default port numbers for each of the predefined schemas.
 Use this table to specify, either by name or pattern, which hosts should not use any proxy. A direct connection will always be used for matching hosts. Checkboxes in the first column of the table indicate entries to be used for the currently selected provider.
 
 
-[[Project-default-values]]
 
-[[project-default-values]]
+
+
 ===== Project default values
 
 In the *Project default values* entry of the *Preferences* dialog, you can define some default values for the new created elements.
@@ -94,9 +94,9 @@ image::images/Modeler-_modeler_modelio_settings_preferences_OpenProject_default_
 * *Description notes* : Defines the default MIME type (either raw text or HTML) for 'Description' notes.
 
 
-[[Updates]]
 
-[[updates]]
+
+
 ===== Updates
 
 The 'Update site' contains updates for Modelio, modules, and model components. +
@@ -104,9 +104,9 @@ By default, the URL points to the official Modelio update site.
 
 image::images/Modeler-_modeler_modelio_settings_preferences_OpenUpdates.png[1]
 
-[[LibreOfficeOpenOffice-bridge]]
 
-[[libreofficeopenoffice-bridge]]
+
+
 ===== LibreOffice/OpenOffice bridge
 
 In the *LibreOffice/OpenOffice bridge* entry of the *Preferences* dialog, you can define the path to +
@@ -115,9 +115,9 @@ or if you want to use one Office suite instead of the other.
 
 image::images/Modeler-_modeler_modelio_settings_preferences_OpenLibreOffice_bridge.png[9]
 
-[[XMI]]
 
-[[xmi]]
+
+
 ===== XMI
 
 In the *XMI* entry of the *Preferences* dialog, you can define several options for the XMI import/export operations.

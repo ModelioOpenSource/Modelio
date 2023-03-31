@@ -89,5 +89,5 @@ public interface IMPoint<T extends IMPoint<T>> extends Cloneable, Translatable, 
      */
     @objid ("02441bb0-a0a7-4e0a-bacb-26d6106bcab2")
     Point asPoint();
-
 }
+

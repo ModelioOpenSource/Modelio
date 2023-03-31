@@ -1,39 +1,45 @@
-/* 
+/*
  * Copyright 2013-2020 Modeliosoft
- * 
+ *
  * This file is part of Modelio.
- * 
+ *
  * Modelio is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Modelio is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package org.modelio.app.ui.persp;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.internal.workbench.E4Workbench;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspectiveStack;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.model.application.ui.menu.MToolControl;
+import org.eclipse.e4.ui.workbench.IWorkbench;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -47,15 +53,17 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
 import org.eclipse.ui.internal.util.PrefUtil;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
+import org.modelio.platform.project.services.IProjectService;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
@@ -69,167 +77,173 @@ import org.osgi.service.event.EventHandler;
  * </p>
  */
 @objid ("4db4fdd8-3a8f-4794-99e6-eea50769bdc6")
-@SuppressWarnings("restriction")
+@SuppressWarnings ("restriction")
 public class PerspectiveSwitcher extends TrimBarComponent {
     @objid ("a6605b37-b873-4011-b716-0a62f2e0699f")
-    public static final String PERSPECTIVE_SWITCHER_ID = "org.eclipse.e4.ui.PerspectiveSwitcher"; // $NON-NLS-1$
+    public static final String PERSPECTIVE_SWITCHER_ID = "org.eclipse.e4.ui.PerspectiveSwitcher"; // // $NON-NLS-1$
 
-    @objid ("4538cf36-48d0-447f-b780-d12c64279fad")
+
+    @objid ("885237b4-aec9-45f5-8819-89c804e63ae9")
     private EventHandler childrenHandler = new EventHandler() {
-    		@Override
-    		public void handleEvent(Event event) {
-    			if (getControl().isDisposed()) {
-    				return;
-    			}
-    			Object changedObj = event.getProperty(UIEvents.EventTags.ELEMENT);
-    			String eventType = (String) event.getProperty(UIEvents.EventTags.TYPE);
-    			if (changedObj instanceof MWindow && UIEvents.EventTypes.ADD.equals(eventType)) {
-    				MUIElement added = (MUIElement) event.getProperty(UIEvents.EventTags.NEW_VALUE);
-    				if (added instanceof MPerspectiveStack) {
-    				}
-    			}
-    			if (PerspectiveSwitcher.this.toolControl == null || !(changedObj instanceof MPerspectiveStack)) {
-    				return;
-    			}
-    			MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor((MUIElement) changedObj);
-    			MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
-    			if (perspWin != switcherWin) {
-    				return;
-    			}
-    			if (UIEvents.EventTypes.ADD.equals(eventType)) {
-    				MPerspective added = (MPerspective) event.getProperty(UIEvents.EventTags.NEW_VALUE);
-    				// Adding invisible elements is a NO-OP
-    				if (!added.isToBeRendered()) {
-    					return;
-    				}
-    				addPerspectiveItem(added);
-    			} else if (UIEvents.EventTypes.REMOVE.equals(eventType)) {
-    				MPerspective removed = (MPerspective) event.getProperty(UIEvents.EventTags.OLD_VALUE);
-    				// Removing invisible elements is a NO-OP
-    				if (!removed.isToBeRendered()) {
-    					return;
-    				}
-    				removePerspectiveItem(removed);
-    			}
-    		}
-    	};
+            @Override
+            public void handleEvent(Event event) {
+                if (getControl().isDisposed()) {
+                    return;
+                }
+                Object changedObj = event.getProperty(UIEvents.EventTags.ELEMENT);
+                String eventType = (String) event.getProperty(UIEvents.EventTags.TYPE);
+                if (changedObj instanceof MWindow && UIEvents.EventTypes.ADD.equals(eventType)) {
+                    MUIElement added = (MUIElement) event.getProperty(UIEvents.EventTags.NEW_VALUE);
+                    if (added instanceof MPerspectiveStack) {
+                    }
+                }
+                if (PerspectiveSwitcher.this.toolControl == null || !(changedObj instanceof MPerspectiveStack)) {
+                    return;
+                }
+                MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor((MUIElement) changedObj);
+                MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
+                if (perspWin != switcherWin) {
+                    return;
+                }
+                if (UIEvents.EventTypes.ADD.equals(eventType)) {
+                    MPerspective added = (MPerspective) event.getProperty(UIEvents.EventTags.NEW_VALUE);
+                    // Adding invisible elements is a NO-OP
+                    if (!added.isToBeRendered()) {
+                        return;
+                    }
+                    addPerspectiveItem(added);
+                } else if (UIEvents.EventTypes.REMOVE.equals(eventType)) {
+                    MPerspective removed = (MPerspective) event.getProperty(UIEvents.EventTags.OLD_VALUE);
+                    // Removing invisible elements is a NO-OP
+                    if (!removed.isToBeRendered()) {
+                        return;
+                    }
+                    removePerspectiveItem(removed);
+                }
+            }
+        };
 
-    @objid ("ea56249b-62a4-45fc-8d0e-b1ccdfe76c11")
+    @objid ("9db7febd-c26c-48ae-8baa-ee0be31477a5")
     @Inject
     private IEventBroker eventBroker;
 
-    @objid ("983aca84-316e-4891-8bc7-60bb680261dc")
+    @objid ("c1f8615f-e7cf-440c-bd31-0846bee3aeb2")
     private EventHandler labelHandler = new EventHandler() {
-    		@Override
-    		public void handleEvent(Event event) {
-    			if (getControl().isDisposed()) {
-    				return;
-    			}
-    			MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
-    			if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspective)) {
-    				return;
-    			}
-    			String attName = (String) event.getProperty(UIEvents.EventTags.ATTNAME);
-    			Object newValue = event.getProperty(UIEvents.EventTags.NEW_VALUE);
-    			MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
-    			MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
-    			if (perspWin != switcherWin) {
-    				return;
-    			}
-    			MPerspective perspective = (MPerspective) changedElement;
-    			if (!perspective.isToBeRendered()) {
-    				return;
-    			}
-    			for (ToolItem ti : getControl().getItems()) {
-    				if (ti.getData() == perspective) {
-    					updateToolItem(ti, attName, newValue);
-    				}
-    			}
-    			// update the layout
-    			refreshLayout();
-    		}
-    		private void updateToolItem(ToolItem ti, String attName, Object newValue) {
-    			boolean showText = PrefUtil.getAPIPreferenceStore().getBoolean(
-    			        IWorkbenchPreferenceConstants.SHOW_TEXT_ON_PERSPECTIVE_BAR);
-    			if (showText && UIEvents.UILabel.LABEL.equals(attName)) {
-    				String newName = (String) newValue;
-    				ti.setText(newName);
-    			} else if (UIEvents.UILabel.TOOLTIP.equals(attName)) {
-    				String newTTip = (String) newValue;
-    				ti.setToolTipText(newTTip);
-    			}
-    		}
-    	};
+            @Override
+            public void handleEvent(Event event) {
+                if (getControl().isDisposed()) {
+                    return;
+                }
+                MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
+                if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspective)) {
+                    return;
+                }
+                String attName = (String) event.getProperty(UIEvents.EventTags.ATTNAME);
+                Object newValue = event.getProperty(UIEvents.EventTags.NEW_VALUE);
+                MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
+                MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
+                if (perspWin != switcherWin) {
+                    return;
+                }
+                MPerspective perspective = (MPerspective) changedElement;
+                if (!perspective.isToBeRendered()) {
+                    return;
+                }
+                for (ToolItem ti : getControl().getItems()) {
+                    if (ti.getData() == perspective) {
+                        updateToolItem(ti, attName, newValue);
+                    }
+                }
+                // update the layout
+                refreshLayout();
+            }
 
-    @objid ("7af47043-9934-4c14-92b7-ac90989216d9")
+            private void updateToolItem(ToolItem ti, String attName, Object newValue) {
+                boolean showText = PrefUtil.getAPIPreferenceStore().getBoolean(
+                        IWorkbenchPreferenceConstants.SHOW_TEXT_ON_PERSPECTIVE_BAR);
+                if (showText && UIEvents.UILabel.LABEL.equals(attName)) {
+                    String newName = (String) newValue;
+                    ti.setText(newName);
+                } else if (UIEvents.UILabel.TOOLTIP.equals(attName)) {
+                    String newTTip = (String) newValue;
+                    ti.setToolTipText(newTTip);
+                }
+            }
+        };
+
+    @objid ("69b1f81a-0271-4613-8437-92b870a925a6")
     @Inject
     private EModelService modelService;
 
-    @objid ("0785a402-d3b1-4bcc-8289-f58746c67024")
+    @objid ("85d4d656-05fe-4c61-9707-a3b476ccab61")
     private Image perspectiveImage;
 
-    @objid ("4845f972-da76-43a8-8f7c-7ce8d793abd2")
+    @objid ("f31bf22c-2d52-49ba-a51a-7d628d6e6bf3")
     private EventHandler selectionHandler = new EventHandler() {
-    		@Override
-    		public void handleEvent(Event event) {
-    			if (getControl().isDisposed()) {
-    				return;
-    			}
-    			MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
-    			if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspectiveStack)) {
-    				return;
-    			}
-    			MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
-    			MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
-    			if (perspWin != switcherWin) {
-    				return;
-    			}
-    			MPerspectiveStack perspStack = (MPerspectiveStack) changedElement;
-    			if (!perspStack.isToBeRendered()) {
-    				return;
-    			}
-    			MPerspective selElement = perspStack.getSelectedElement();
-    			for (ToolItem ti : getControl().getItems()) {
-    				ti.setSelection(ti.getData() == selElement);
-    			}
-    		}
-    	};
+            @Override
+            public void handleEvent(Event event) {
+                if (getControl().isDisposed()) {
+                    return;
+                }
 
-    @objid ("c431b0d1-eeec-433b-be41-bc69ba92c5e6")
+                MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
+                if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspectiveStack)) {
+                    return;
+                }
+                MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
+                MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
+                if (perspWin != switcherWin) {
+                    return;
+                }
+                MPerspectiveStack perspStack = (MPerspectiveStack) changedElement;
+                if (!perspStack.isToBeRendered()) {
+                    return;
+                }
+                MPerspective selElement = perspStack.getSelectedElement();
+                for (ToolItem ti : getControl().getItems()) {
+                    ti.setSelection(ti.getData() == selElement);
+                }
+            }
+        };
+
+    @objid ("23c05a6b-0fb7-4963-8712-ecb2b42bc3a0")
     private EventHandler toBeRenderedHandler = new EventHandler() {
-    		@Override
-    		public void handleEvent(Event event) {
-    			if (getControl().isDisposed()) {
-    				return;
-    			}
-    			MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
-    			if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspective)) {
-    				return;
-    			}
-    			MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
-    			MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
-    			if (perspWin != switcherWin) {
-    				return;
-    			}
-    			MPerspective persp = (MPerspective) changedElement;
-    			if (!persp.getParent().isToBeRendered()) {
-    				return;
-    			}
-    			if (changedElement.isToBeRendered()) {
-    				addPerspectiveItem(persp);
-    			} else {
-    				removePerspectiveItem(persp);
-    			}
-    		}
-    	};
+            @Override
+            public void handleEvent(Event event) {
+                if (getControl().isDisposed()) {
+                    return;
+                }
+                MUIElement changedElement = (MUIElement) event.getProperty(UIEvents.EventTags.ELEMENT);
+                if (PerspectiveSwitcher.this.toolControl == null || !(changedElement instanceof MPerspective)) {
+                    return;
+                }
+                MWindow perspWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(changedElement);
+                MWindow switcherWin = PerspectiveSwitcher.this.modelService.getTopLevelWindowFor(PerspectiveSwitcher.this.toolControl);
+                if (perspWin != switcherWin) {
+                    return;
+                }
+                MPerspective persp = (MPerspective) changedElement;
+                if (!persp.getParent().isToBeRendered()) {
+                    return;
+                }
+                if (changedElement.isToBeRendered()) {
+                    addPerspectiveItem(persp);
+                } else {
+                    removePerspectiveItem(persp);
+                }
+            }
+        };
 
-    @objid ("b7439697-a043-40c7-912b-899110f403fc")
+    @objid ("659c81be-3abf-4cba-bf60-629042c6a679")
     @Inject
     private MToolControl toolControl;
 
-    @objid ("7cf0bccc-47b8-4f6a-abf8-86ac026e1187")
+    @objid ("5dcd64b8-73ce-4d3a-adfa-e1bef97fbb62")
     @Inject
     private MWindow window;
+
+    @objid ("d72c1e5a-a0e2-49f9-8090-66121b599d35")
+    private static final String PERSPECTIVE_SUBDIR = "perspective";
 
     @objid ("f957c856-3f6d-4535-bc36-0a6b13616cfa")
     public  PerspectiveSwitcher() {
@@ -240,15 +254,15 @@ public class PerspectiveSwitcher extends TrimBarComponent {
     @Override
     protected Control createControl(Composite parent) {
         ToolBar toolbar = new ToolBar(parent, SWT.FLAT | SWT.WRAP | SWT.RIGHT);
-        
+
         toolbar.addDisposeListener(new DisposeListener() {
             @Override
             public void widgetDisposed(DisposeEvent e) {
                 disposeTBImages();
             }
-        
+
         });
-        
+
         toolbar.getAccessible().addAccessibleListener(new AccessibleAdapter() {
             @Override
             public void getName(AccessibleEvent e) {
@@ -268,7 +282,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
         if (getControl() == null) {
             return null;
         }
-        
+
         for (ToolItem ti : getControl().getItems()) {
             if (ti.getData() == persp) {
                 return ti;
@@ -297,7 +311,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
                 }
             }
         }
-        
+
     }
 
     @objid ("12303834-b2a9-4edc-85c7-b9f3c0ff7ecd")
@@ -310,7 +324,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
     private ToolItem addPerspectiveItem(final MPerspective persp) {
         final ToolItem psItem = new ToolItem(getControl(), SWT.RADIO);
         psItem.setData(persp);
-        
+
         String iconUri = persp.getIconURI();
         ImageDescriptor imageDescriptor = null;
         try {
@@ -318,7 +332,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
         } catch (MalformedURLException e) {
             AppUi.LOG.error(e);
         }
-        
+
         boolean foundImage = false;
         if (imageDescriptor != null) {
             final Image image = imageDescriptor.createImage(false);
@@ -334,28 +348,55 @@ public class PerspectiveSwitcher extends TrimBarComponent {
                 psItem.setToolTipText(persp.getLocalizedLabel());
             }
         }
-        
+
         if (!foundImage) {
             psItem.setText(persp.getLocalizedLabel());
             psItem.setToolTipText(persp.getLocalizedTooltip());
         }
-        
+
         psItem.setSelection(persp == persp.getParent().getSelectedElement());
-        
+
+        /*
+         * The perspective button supports a little trick here. - when simply pressed it selects the perspective. - when CTRL+ALT pressed it resets the perspective and restart Modelio.
+         */
         psItem.addSelectionListener(new SelectionListener() {
             @Override
             public void widgetSelected(SelectionEvent e) {
+                boolean reset = (e.stateMask & SWT.ALT) != 0 && (e.stateMask & SWT.CTRL) != 0;
                 MPerspective p = (MPerspective) e.widget.getData();
-                p.getParent().setSelectedElement(p);
+                if (reset) {
+                    // Switch to the perspective
+                    p.getParent().setSelectedElement(p);
+
+                    // Create the reset flag file and restart modelio
+                    final IEclipseContext eclipseContext = E4Workbench.getServiceContext().getActiveChild();
+
+                    IProjectService projectService = eclipseContext.get(IProjectService.class);
+                    IGProject openedProject = projectService.getOpenedProject();
+                    Path persistenceDir = openedProject.getPfs().getProjectRuntimePath().resolve(PERSPECTIVE_SUBDIR);
+                    Path persistenceResetFlagFile = persistenceDir.resolve(p.getElementId() + ".reset");
+                    try {
+                        Files.createFile(persistenceResetFlagFile);
+                        final IWorkbench workbench = eclipseContext.get(IWorkbench.class);
+                        if (workbench != null) {
+                            Display.getDefault().asyncExec(() -> workbench.restart());
+                        }
+                    } catch (IOException e1) {
+
+                    }
+                } else {
+                    // Just switch to the perspective
+                    p.getParent().setSelectedElement(p);
+                }
             }
-        
+
             @Override
             public void widgetDefaultSelected(SelectionEvent e) {
                 MPerspective p = (MPerspective) e.widget.getData();
                 p.getParent().setSelectedElement(p);
             }
         });
-        
+
         // update the layout
         refreshLayout();
         return psItem;
@@ -368,12 +409,12 @@ public class PerspectiveSwitcher extends TrimBarComponent {
             this.perspectiveImage.dispose();
             this.perspectiveImage = null;
         }
-        
+
         this.eventBroker.unsubscribe(this.toBeRenderedHandler);
         this.eventBroker.unsubscribe(this.childrenHandler);
         this.eventBroker.unsubscribe(this.selectionHandler);
         this.eventBroker.unsubscribe(this.labelHandler);
-        
+
     }
 
     /**
@@ -396,7 +437,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
                 image.dispose();
             }
         }
-        
+
     }
 
     @objid ("d6d98beb-5d47-41f3-bfd4-584f34127d17")
@@ -415,7 +456,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
         this.eventBroker.subscribe(UIEvents.UIElement.TOPIC_TOBERENDERED, this.toBeRenderedHandler);
         this.eventBroker.subscribe(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT, this.selectionHandler);
         this.eventBroker.subscribe(UIEvents.UILabel.TOPIC_ALL, this.labelHandler);
-        
+
     }
 
     @objid ("3b16c889-4ecc-4cfd-85ac-ccf01216a8de")
@@ -424,25 +465,25 @@ public class PerspectiveSwitcher extends TrimBarComponent {
         if (psItem != null) {
             psItem.dispose();
         }
-        
+
         // update the layout
         refreshLayout();
-        
+
     }
 
     @objid ("d252865a-a816-4196-8ba7-4b63f94cae56")
     @Inject
     @Optional
-    private void onProjectClosed(@SuppressWarnings("unused")
-    @EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
+    private void onProjectClosed(@SuppressWarnings ("unused")
+    @EventTopic (ModelioEventTopics.PROJECT_CLOSED) IGProject project) {
         getControl().getDisplay().asyncExec(() -> setVisible(false));
     }
 
     @objid ("c27c7634-0183-4e80-848e-37ac21da739c")
     @Inject
     @Optional
-    private void onProjectOpened(@SuppressWarnings("unused")
-    @EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
+    private void onProjectOpened(@SuppressWarnings ("unused")
+    @EventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject) {
         getControl().getDisplay().asyncExec(() -> setVisible(true));
     }
 

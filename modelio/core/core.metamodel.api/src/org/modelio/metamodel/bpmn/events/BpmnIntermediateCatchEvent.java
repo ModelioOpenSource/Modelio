@@ -41,6 +41,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * </ul>
  * 
  * <p>&nbsp;</p>
+ * 
+ * 
+ * 
  */
 @objid ("008ea3be-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnIntermediateCatchEvent extends BpmnCatchEvent {
@@ -55,5 +58,5 @@ public interface BpmnIntermediateCatchEvent extends BpmnCatchEvent {
      */
     @objid ("0ef8166c-cd12-49c1-bedb-ba56e2dfd4c3")
     public static final String MQNAME = "Standard.BpmnIntermediateCatchEvent";
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3040]]
 
-[[r3040]]
+
+
 = R3040
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An «implement» _Dependency_ must be from a _Process_ or a _Class_ towards a _BusinessRule_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An «implement» _Dependency_ defines a link between a _Process_ or _Activity_ describing the _BusinessRule_ and the _BusinessRule_ itself.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have an «implement» _Dependency_ which is not from a _Process_ or a _Class_ to a _BusinessRule_, you should delete it.

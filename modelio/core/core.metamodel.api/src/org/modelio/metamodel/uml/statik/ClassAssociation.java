@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A ClassAssociation is represented in UML as a Class that plays the role of an Association.
  * 
  * In Modelio, a ClassAssociation belongs to an Association.
+ * 
+ * 
  */
 @objid ("0002bc78-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ClassAssociation extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3c48401b-bda3-415b-a364-d2d9f4550a56")
     NaryAssociation getNaryAssociationPart();
@@ -64,6 +67,7 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9420e331-7e07-4b38-a973-3d9c053353d5")
     void setNaryAssociationPart(NaryAssociation value);
@@ -73,6 +77,7 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Link to the Class that composes the ClassAssociation.</i>
+     * 
      */
     @objid ("55d3a895-22b3-44d1-b0b8-8d6cccd19274")
     Class getClassPart();
@@ -82,6 +87,7 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Link to the Class that composes the ClassAssociation.</i>
+     * 
      */
     @objid ("6aa1ea5e-2627-40cb-99b5-971b4ee0084e")
     void setClassPart(Class value);
@@ -91,6 +97,7 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("feb18cb2-0978-4297-b2b8-be10a7d0c249")
     Association getAssociationPart();
@@ -100,8 +107,9 @@ public interface ClassAssociation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2a7c62bd-8959-4777-aa81-e734f09079a3")
     void setAssociationPart(Association value);
-
 }
+

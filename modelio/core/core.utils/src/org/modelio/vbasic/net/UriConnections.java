@@ -110,6 +110,7 @@ public class UriConnections {
         conn.setAuthenticationData(authData);
         return conn.getInputStream();
     }
+
 static {
             // Add handler for https URIs
             //handlers.add(new HttpsUriConnection.Factory());

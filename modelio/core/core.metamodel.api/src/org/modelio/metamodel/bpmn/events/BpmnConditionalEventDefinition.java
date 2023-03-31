@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Event defined by a condition
+ * 
+ * 
  */
 @objid ("0089eafe-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnConditionalEventDefinition extends BpmnEventDefinition {
@@ -53,6 +55,7 @@ public interface BpmnConditionalEventDefinition extends BpmnEventDefinition {
      * Metamodel description:
      * <i>The Expression might be underspecified and provided in the form of natural language.
      * For executable Processes (processType = executable), if the trigger is Conditional, then a FormalExpression MUST be entered.</i>
+     * 
      */
     @objid ("3bbdf2ef-bd75-4a92-aaf4-52570b30504b")
     String getCondition();
@@ -63,8 +66,9 @@ public interface BpmnConditionalEventDefinition extends BpmnEventDefinition {
      * Metamodel description:
      * <i>The Expression might be underspecified and provided in the form of natural language.
      * For executable Processes (processType = executable), if the trigger is Conditional, then a FormalExpression MUST be entered.</i>
+     * 
      */
     @objid ("c5330437-5edc-473f-ba19-dbcf0ba616e2")
     void setCondition(String value);
-
 }
+

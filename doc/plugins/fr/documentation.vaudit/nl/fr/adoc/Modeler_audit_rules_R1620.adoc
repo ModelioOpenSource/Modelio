@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1620]]
 
-[[r1620]]
+
+
 = R1620
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Classifier_ concret ne peut pas avoir des méthodes abstraites.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une classe possédant des méthodes abstraites ne peut pas être instanciée et est donc forcément abstraite.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vous pouvez :

@@ -45,5 +45,5 @@ public interface IRichNoteInput {
      */
     @objid ("fbd5604b-1051-47a8-a997-fb811bcd21d3")
     IRichNoteFileRepository getFileManager();
-
 }
+

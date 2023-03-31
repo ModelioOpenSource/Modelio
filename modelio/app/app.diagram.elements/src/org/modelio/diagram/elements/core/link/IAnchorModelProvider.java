@@ -40,5 +40,5 @@ public interface IAnchorModelProvider extends NodeEditPart {
      */
     @objid ("802a47e6-1dec-11e2-8cad-001ec947c8cc")
     Object createAnchorModel(final ConnectionAnchor anchor);
-
 }
+

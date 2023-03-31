@@ -42,5 +42,5 @@ public interface IPatternService {
      */
     @objid ("b21e3d18-54cf-4992-8c9e-f81720eea83e")
     IPatternRepository getCatalog();
-
 }
+

@@ -259,12 +259,12 @@ public interface IModule {
     }
 
     @objid ("8e52ef63-72a1-11dd-a1d1-001ec947cd2a")
-    public enum ImageType {
+    enum ImageType {
         @objid ("1af429aa-b807-11de-af68-001ec947cd2a")
         ICON,
         @objid ("1af429ac-b807-11de-af68-001ec947cd2a")
         IMAGE;
 
     }
-
 }
+

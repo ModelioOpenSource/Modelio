@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Importer-un-Modèle-BPMN]]
 
-[[importer-un-modèle-bpmn]]
+
+
 = Importer un Modèle BPMN
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Le service d'import BPMN de Modelio permet d'importer un modèle BPMN à partir d'un fichier _.bpmn. Il permet aussi de mettre à jour un modèle existant à partir d'un fichier_.bpmn mis à jour.
 
 Pendant le processus d'import, vous pouvez choisir de conserver les ID des éléments BPMN déclarés dans le fichier importé, ou encore choisir de générer de nouveaux ID Modelio. Dans le cas où vous choisiriez de conserver les ID d'origine, vous devez vous assurer que ceux-ci sont uniques. Dans le cas contraire, vous vous exposerez à des erreurs inattendues lors du processus d'import.
 
-[[Importer-un-Modèle-BPMN-2]]
 
-[[importer-un-modèle-bpmn-1]]
+
+
 ===== Importer un Modèle BPMN
 
 Pour importer un modèle BPMN depuis un fichier, vous devrez :
@@ -39,9 +39,9 @@ image::images/Import_BPMN_bpmn_import_2_FR.png[image]
 4. Indiquez si vous souhaitez ou non conserver les identifiants des éléments importés +
 5. Cliquez sur *OK* pour valider et démarrer l'import
 
-[[Mettre-à-jour-un-modèle-BPMN]]
 
-[[mettre-à-jour-un-modèle-bpmn]]
+
+
 ===== Mettre à jour un modèle BPMN
 
 Pour mettre à jour un modèle BPMN existant à partir d'un fichier *.bpmn modifié, vous devrez :

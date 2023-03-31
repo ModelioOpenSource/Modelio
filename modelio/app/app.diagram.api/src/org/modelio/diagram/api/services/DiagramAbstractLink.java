@@ -88,19 +88,19 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         return linkPath;
     }
 
-    @objid ("13f44d9b-3a5a-45b1-84af-9985697c013e")
+    @objid ("16950134-e78b-497e-b059-aa5562c6f43a")
     @Override
     public ILinkRoute getRoute() {
         return new LinkRoute(getConnectionEditPart());
     }
 
-    @objid ("4bd03d97-6e7e-4595-b73c-54a4e45c287d")
+    @objid ("dcf93ec5-84a9-4224-894f-6bd183fd4c21")
     @Override
     public ILinkRouteBuilder buildRoute() {
         return new LinkRouteBuilder(getConnectionEditPart());
     }
 
-    @objid ("93c87f39-dfe0-4966-b83d-82c5faa54094")
+    @objid ("6e505b6d-5727-4ea4-8aee-e624e98bb45b")
     @Override
     public void setRoute(ILinkRoute linkPath) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
         ((LinkRoute) linkPath).apply(getConnectionEditPart());

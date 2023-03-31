@@ -33,7 +33,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 
 /**
@@ -62,17 +62,16 @@ public class DiagramOutlineView {
 
     /**
      * Called when the modeling session is closed. This method empties this outline page.
-     * @param closedProject
      */
     @objid ("ddedb240-a430-4689-a03b-db636a2afcbb")
     @Inject
     @Optional
-    void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
+    void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final IGProject closedProject) {
         Display.getDefault().asyncExec(new Runnable() {
-            
+        
             @Override
             public void run() {
-                if (DiagramOutlineView.this.outlinePage != null) {                    
+                if (DiagramOutlineView.this.outlinePage != null) {
                     DiagramOutlineView.this.outlinePage.dispose();
                 }
             }
@@ -93,7 +92,7 @@ public class DiagramOutlineView {
         if (part == null || ! (part.getObject() instanceof IAdaptable)) {
             return;
         }
-        if (this.outlinePage != null && this.outlinePage.getControl() != null) {            
+        if (this.outlinePage != null && this.outlinePage.getControl() != null) {
             this.outlinePage.dispose();
         }
         this.outlinePage = ((IAdaptable) part.getObject()).getAdapter(IContentOutlinePage.class);

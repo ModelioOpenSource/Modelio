@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.statik.Parameter;
  * 
  * 
  * A pin represents an input to an action or an output from an action.
+ * 
+ * 
  */
 @objid ("003b6582-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Pin extends ObjectNode {
@@ -53,6 +55,7 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the pins provide data to the actions, or just controls when it executes it.</i>
+     * 
      */
     @objid ("db0869b0-0b85-47b0-a14b-74bc1b6b7e20")
     boolean isIsControl();
@@ -62,6 +65,7 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the pins provide data to the actions, or just controls when it executes it.</i>
+     * 
      */
     @objid ("bb28f25d-295c-427f-9f74-da49b2ea46a2")
     void setIsControl(boolean value);
@@ -71,6 +75,7 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the pin is used for expansion: enables an iteration of the action on the tokens attached to the pin.</i>
+     * 
      */
     @objid ("7d775630-24fb-45e8-8456-0cb1af7d02a7")
     boolean isIsExpansion();
@@ -80,6 +85,7 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the pin is used for expansion: enables an iteration of the action on the tokens attached to the pin.</i>
+     * 
      */
     @objid ("869f0fb5-0d9a-40dc-9cee-1753025222f9")
     void setIsExpansion(boolean value);
@@ -89,6 +95,7 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("431b47b4-99a4-444b-93d3-ab630c017bd5")
     Parameter getMatched();
@@ -98,8 +105,9 @@ public interface Pin extends ObjectNode {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("637250f9-e39a-4ebe-9a1e-4d260eee22c7")
     void setMatched(Parameter value);
-
 }
+

@@ -142,5 +142,5 @@ public interface IMetaOf {
      */
     @objid ("00969024-004e-1f20-85a5-001ec947cd2a")
     void silentActionRemove(SmObjectImpl obj);
-
 }
+

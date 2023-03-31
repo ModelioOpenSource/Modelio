@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Drawing-links-in-a-diagram]]
 
-[[drawing-links-in-a-diagram]]
+
+
 = Drawing links in a diagram
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 In Modelio diagrams, there are four different ways of drawing links:
@@ -22,9 +22,9 @@ In Modelio diagrams, there are four different ways of drawing links:
 
 All Modelio diagrams include the model expert feature, which provides real-time assistance when you are creating links in diagrams. If you try to create an authorized element (in this example, an association between two classes), the model expert highlights the concerned element in green, indicating that the creation operation you are attempting is allowed. If you try to create an unauthorized link (for example, an association between a package and a class), the model expert highlights the concerned element in red, indicating that the creation operation you are attempting is not allowed.
 
-[[Drawing-links-in-orthogonal-mode]]
 
-[[drawing-links-in-orthogonal-mode]]
+
+
 ===== Drawing links in orthogonal mode
 
 .Drawing an association between two classes in orthogonal mode (default mode)
@@ -36,9 +36,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateLink.png[2]
 2.  Click on the origin class.
 3.  Draw your link, with any desired routing points image:images/RoutingPoint.png[RoutingPoint], and then click on the destination class.
 
-[[Drawing-links-in-bendpoint-mode]]
 
-[[drawing-links-in-bendpoint-mode]]
+
+
 ===== Drawing links in bendpoint mode
 
 .Drawing the same association but this time in bendpoint mode (using *Shift*)
@@ -50,9 +50,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateBendLink.png[3]
 2.  Click on the origin class.
 3.  Draw your link while holding down the *Shift* key, with any desired routings points, and then click on the destination class.
 
-[[Drawing-links-in-rake-bar-mode-shared-target-links]]
 
-[[drawing-links-in-rake-bar-mode-shared-target-links]]
+
+
 ===== Drawing links in rake-bar mode (shared target links)
 
 Inheritance links linking more than two elements are automatically presented in rake-bar mode. Links in rake-bar mode can be drawn vertically, horizontally, pointing up or pointing down.
@@ -69,9 +69,9 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateRakeLink.png[4]
 3. Draw your link with any desired intermediate points, and then click on the already existing Generalization.
 
 
-[[Fixed-anchors]]
 
-[[fixed-anchors]]
+
+
 ===== Fixed anchors
 
 Some elements (such as BPMN, State or ArchiMate elements) have fixed anchor points, which allow the links to be hooked there so that their origin/destination points do not change subsequently, when moving or resizing these elements. The number of fixed anchors depends on the size of the element.
@@ -82,9 +82,9 @@ image::images/FixedAnchors.png[FixedAnchors]
 .Fixed anchors on larger State element
 image::images/FixedAnchors2.png[FixedAnchors2]
 
-[[The-Smart-links-tool]]
 
-[[the-smart-links-tool]]
+
+
 === The Smart links tool
 
 Modelio 3.6 introduces Smart Links, an easy-to-use powerful tool to create links in your diagrams. It can be used in two different ways.

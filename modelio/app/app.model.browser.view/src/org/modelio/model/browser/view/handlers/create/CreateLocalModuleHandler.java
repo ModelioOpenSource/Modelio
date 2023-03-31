@@ -25,7 +25,7 @@ import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.infrastructure.IInfrastructureModelFactory;
 import org.modelio.model.browser.view.plugin.BrowserViewActivator;
@@ -51,7 +51,7 @@ public class CreateLocalModuleHandler {
     @objid ("e32980c1-0d2b-4c46-be99-5527119d1678")
     @Execute
     public final void execute(@Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, IProjectService projectService, IModelioNavigationService selectionService) {
-        IProjectFragment fragment = SelectionHelper.getFirst(selection, IProjectFragment.class);
+        IGModelFragment fragment = SelectionHelper.getFirst(selection, IGModelFragment.class);
         
         final ICoreSession session = projectService.getSession();
         try (ITransaction t = session.getTransactionSupport().createTransaction("create Local Module")) {
@@ -88,7 +88,7 @@ public class CreateLocalModuleHandler {
         }
         
         // Fragment checks
-        IProjectFragment fragment = SelectionHelper.getFirst(selection, IProjectFragment.class);
+        IGModelFragment fragment = SelectionHelper.getFirst(selection, IGModelFragment.class);
         if (isReadonly(fragment)) {
             return false;
         }
@@ -105,8 +105,8 @@ public class CreateLocalModuleHandler {
      * @return true if the fragment is read only.
      */
     @objid ("bb0ad448-1c59-4d7b-9c8d-4216cabad51e")
-    private boolean isReadonly(IProjectFragment fragment) {
-        String s = fragment.getProperties().getValue(IProjectFragment.PROP_READ_ONLY);
+    private boolean isReadonly(IGModelFragment fragment) {
+        String s = fragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY);
         return s != null && Boolean.parseBoolean(s);
     }
 

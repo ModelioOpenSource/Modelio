@@ -44,7 +44,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f5888f87-55b6-11e2-877f-002564c97630")
 public class RegionsGroupEditPart extends ResizableGroupEditPart {
-    @objid ("92e69579-325b-40c1-a5d3-17214c44e4dc")
+    @objid ("d3dae8da-6e9a-4092-912a-419f03192d6a")
     @Override
     protected void createEditPolicies() {
         super.createEditPolicies();
@@ -54,7 +54,7 @@ public class RegionsGroupEditPart extends ResizableGroupEditPart {
         
     }
 
-    @objid ("d00d1e3c-550f-49dc-a2fc-bcbd40381531")
+    @objid ("a254fbfe-7c1e-4f88-9847-c4f7f61103ae")
     private List<? extends MObject> getExpectedChildren(MObject t) {
         State state = (State) t;
         return state.getOwnedRegion();

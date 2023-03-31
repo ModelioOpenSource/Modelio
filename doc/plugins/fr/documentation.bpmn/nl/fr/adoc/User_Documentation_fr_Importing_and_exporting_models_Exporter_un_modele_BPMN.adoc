@@ -5,7 +5,7 @@
 
 = Exporter un modèle BPMN
 
-[[HIntroduction]]
+
 == Introduction
 
 Le service d'export BPMN permet de générer un fichier *.bpmn à partir d'un modèle BPMN modélisé avec Modelio.

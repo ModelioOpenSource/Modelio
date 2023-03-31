@@ -59,5 +59,5 @@ public interface IAction {
      */
     @objid ("006b1f98-0d1e-1f20-85a5-001ec947cd2a")
     void undo(final boolean rollback);
-
 }
+

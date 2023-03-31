@@ -50,5 +50,5 @@ public interface IDGFactory {
      */
     @objid ("b3ad134e-01f2-4146-be90-856e066bc445")
     IDiagramNode getDiagramNode(IDiagramHandle diagramHandle, GmNodeModel gmNodeModel);
-
 }
+

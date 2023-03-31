@@ -202,27 +202,28 @@ public class PanSelectionTool extends SelectionTool {
 
     @objid ("66aa0ceb-33f7-11e2-95fe-001ec947c8cc")
     private void adjustWorkarea(AbstractDiagramFigure diagramFigure, FigureCanvas canvas) {
-        Rectangle r = diagramFigure.getFreeformExtent().getCopy();
+        Rectangle rModified = diagramFigure.getFreeformExtent().getCopy();
         
         int newX = this.viewLocation.x - this.getDragMoveDelta().width;
         RangeModel hRange = canvas.getViewport().getHorizontalRangeModel();
         if (newX < hRange.getMinimum()) {
-            r.x = r.x - WORKAREA_RESIZE_INCREMENT;
-            r.width += WORKAREA_RESIZE_INCREMENT;
+            rModified.x = rModified.x - WORKAREA_RESIZE_INCREMENT;
+            rModified.width += WORKAREA_RESIZE_INCREMENT;
         } else if (newX + hRange.getExtent() > hRange.getMaximum()) {
-            r.width += WORKAREA_RESIZE_INCREMENT;
+            rModified.width += WORKAREA_RESIZE_INCREMENT;
         }
         
         int newY = this.viewLocation.y - this.getDragMoveDelta().height;
         RangeModel vRange = canvas.getViewport().getVerticalRangeModel();
         if (newY < vRange.getMinimum()) {
-            r.y = r.y - WORKAREA_RESIZE_INCREMENT;
-            r.height += WORKAREA_RESIZE_INCREMENT;
+            rModified.y = rModified.y - WORKAREA_RESIZE_INCREMENT;
+            rModified.height += WORKAREA_RESIZE_INCREMENT;
         } else if (newY + vRange.getExtent() > vRange.getMaximum()) {
-            r.height += WORKAREA_RESIZE_INCREMENT;
+            rModified.height += WORKAREA_RESIZE_INCREMENT;
         }
         
-        diagramFigure.setWorkArea(r);
+        // Note: setWorkArea takes care of 'non-modified' value...
+        diagramFigure.setWorkArea(rModified);
         
     }
 

@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Gérer-les-liens-dans-un-diagramme]]
 
-[[gérer-les-liens-dans-un-diagramme]]
+
+
 = Gérer les liens dans un diagramme
 
-[[Déplacer-un-lien]]
 
-[[déplacer-un-lien]]
+
+
 ===== Déplacer un lien
 
 Des liens simples sans angles peuvent être déplacés en cliquant sur le lien, en maintenant le bouton gauche de la souris enfoncé, en déplaçant le lien vers la nouvelle position souhaitée et en relâchant le bouton de la souris.
 
 Pour les liens avec un ou plusieurs angles, vous pouvez déplacer chaque partie individuelle du lien.
 
-[[Déplacer-une-extrémité-de-lien]]
 
-[[déplacer-une-extrémité-de-lien]]
+
+
 ===== Déplacer une extrémité de lien
 
 Pour déplacer une extrémité de lien, il suffit de faire un clic gauche sur le point correspondant que vous souhaitez déplacer et de le faire glisser vers la nouvelle position. Lorsque vous relâchez le bouton gauche de la souris, l'extrémité du lien est repositionnée.
@@ -28,9 +28,9 @@ Pour déplacer une extrémité de lien, il suffit de faire un clic gauche sur le
 
 *Note 2 :* Certains éléments (comme les éléments BPMN, State ou ArchiMate) disposent de points d'ancrage fixes, qui permettent d'y accrocher les liens de sorte à ce que leur points d'origines/destinations ne changent pas par la suite, lors des déplacements ou du retaillage de ces éléments. Le nombre d’ancres fixes dépend de la taille de l’élément.
 
-[[Retirer-un-point-de-routage]]
 
-[[retirer-un-point-de-routage]]
+
+
 ===== Retirer un point de routage
 
 Pour retirer un point de routage, il suffit de faire un clic droit sur le point que vous souhaitez retirer et cliquer sur "Retirer un point de routage". Le lien sera automatiquement redessiné au plus court entre les points de routages amont et aval.
@@ -38,16 +38,16 @@ Pour retirer un point de routage, il suffit de faire un clic droit sur le point 
 .Retirer un point de routage
 image::images/RemoveRoutingPoint.png[RemoveRoutingPoint]
 
-[[Redessiner-un-lien]]
-[[redessiner-un-lien]]
+
+
 ===== Redessiner un lien
 
 .Commandes "Redessiner un lien"
 image::images/RedrawLink.png[RedrawLink]
 
-[[Redessiner-un-lien-manuellement]]
 
-[[redessiner-un-lien-manuellement]]
+
+
 ====== Redessiner un lien manuellement
 
 Si vous souhaitez redessiner un lien, faites un clic droit sur le lien pour ouvrir le menu contextuel et exécuter la commande "Redessiner le lien manuellement"
@@ -56,9 +56,9 @@ La représentation graphique du lien disparaît alors, vous laissant libre de re
 Maintenir la touche SHIFT enfoncée change le style de trace du lien (Direct ou Orthogonal).
  
 
-[[Redessiner-un-lien-automatiquement]]
 
-[[redessiner-un-lien-automatiquement]]
+
+
 ====== Redessiner un lien automatiquement
 
 Si vous souhaitez redessiner un lien automatiquement, vous avez deux façons d'activer la commande "Redessiner le lien automatiquement":
@@ -70,9 +70,9 @@ Le lien sera complétement redessiné au plus court et ses points de routage ret
 
 *Note :* Cette commande n'est disponible que pour les liens orthogonaux.
 
-[[Reinitialiser-le-chemin-du-lien]]
 
-[[reinitialiser-le-chemin-du-lien]]
+
+
 ====== Réinitialiser le chemin du lien
 
 Si vous souhaitez réinitialiser le chemin d'un lien automatiquement, vous avez deux façons d'activer la commande "Réinitialiser le chemin du lien":
@@ -85,9 +85,9 @@ Le lien sera redessiné au plus court mais ses ancres et points de routage seron
 *Note :* Cette commande n'est disponible que pour les liens orthogonaux.
 
 
-[[Modifier-les-valeurs-dun-lien]]
 
-[[modifier-les-valeurs-dun-lien]]
+
+
 ===== Modifier les valeurs d'un lien
 
 Si vous souhaitez saisir ou modifier les valeurs d'un lien, vous pouvez le faire directement dans le diagramme en appuyant sur *F2* ou en double-cliquant sur son label.

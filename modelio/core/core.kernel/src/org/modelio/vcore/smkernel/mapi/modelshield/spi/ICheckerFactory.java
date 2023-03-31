@@ -48,5 +48,5 @@ public interface ICheckerFactory extends IMetamodelDependentService {
      */
     @objid ("cc3bccbe-7e09-4500-bc0d-b6af4a975933")
     void createCheckers(final IModelShieldRegistry plan, MMetamodel metamodel);
-
 }
+

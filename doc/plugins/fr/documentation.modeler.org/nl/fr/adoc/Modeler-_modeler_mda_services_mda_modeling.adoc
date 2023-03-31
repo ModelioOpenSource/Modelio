@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modélisation-MDA-avec-Modelio-Modeler]]
 
-[[modélisation-mda-avec-modelio-modeler]]
+
+
 = Modélisation MDA avec Modelio Modeler
 
 Modelio propose trois niveaux de services MDA :

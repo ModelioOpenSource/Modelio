@@ -58,7 +58,6 @@ public class AboutDialog extends TrayDialog {
 
     /**
      * Creates the dialog.
-     * @param modelioEnv
      * @param parentShell the parent window shell.
      */
     @objid ("0047078e-cc35-1ff2-a7f4-001ec947cd2a")
@@ -73,7 +72,7 @@ public class AboutDialog extends TrayDialog {
     @Override
     protected void configureShell(final Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText(this.aboutI18N.getString("About.Title"));
+        newShell.setText(this.aboutI18N.getString("$About.Title"));
         
     }
 
@@ -128,31 +127,31 @@ public class AboutDialog extends TrayDialog {
         
         aboutText.setLayoutData(textData);
         
-        final String copyright = this.aboutI18N.getString("About.Copyright");
-        final String appName = this.aboutI18N.getString("About.Application");
-        final String tagline = this.aboutI18N.getString("About.TagLine");
+        final String copyright = this.aboutI18N.getString("$About.Copyright");
+        final String appName = this.aboutI18N.getString("$About.Application");
+        final String tagline = this.aboutI18N.getString("$About.TagLine");
         
         final StringBuilder text = new StringBuilder(300);
         text.append(appName);
         text.append("\n");
         text.append(tagline);
         text.append("\n\n");
-        text.append(this.aboutI18N.getString("About.Version"));
+        text.append(this.aboutI18N.getString("$About.Version"));
         text.append(" ");
         text.append(ModelioVersion.VERSION.toString());
         text.append("\n");
         
-        text.append(this.aboutI18N.getString("About.ProductBuildId"));
+        text.append(this.aboutI18N.getString("$About.ProductBuildId"));
         text.append(" ");
         text.append(ModelioVersion.BUILDID);
         text.append("\n");
         
-        // text.append(this.aboutI18N.getString("About.MetamodelVersion"));
+        // text.append(this.aboutI18N.getString("$About.MetamodelVersion"));
         // text.append(" ");
         // text.append(version.getMetamodelVersion());
         // text.append("\n");
         
-        text.append(this.aboutI18N.getString("About.System"));
+        text.append(this.aboutI18N.getString("$About.System"));
         text.append(" ");
         text.append(Platform.getOS());
         text.append(" (");
@@ -160,7 +159,7 @@ public class AboutDialog extends TrayDialog {
         text.append(") ");
         text.append("\n");
         
-        text.append(this.aboutI18N.getString("About.Arch"));
+        text.append(this.aboutI18N.getString("$About.Arch"));
         text.append(" ");
         text.append(Platform.getOSArch());
         text.append("\n");

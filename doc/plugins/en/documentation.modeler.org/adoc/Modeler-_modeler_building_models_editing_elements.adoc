@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Editing-elements-using-edition-boxes]]
 
-[[editing-elements-using-edition-boxes]]
+
+
 = Editing elements using edition boxes
 
 Elements can be edited through an edition box by double-cliking on them, or by using the 'image:images/Modeler-_modeler_building_models_editing_elements_openproperties.png[1] Edit element...' contextual menu command.
@@ -21,16 +21,16 @@ image::images/Modeler-_modeler_building_models_editing_elements_EditElement_en.p
 4. Modules tabs for each relevant module.
 5. Quick "Description" note edition frame.
 
-[[Noteworthy-edition-boxes]]
 
-[[noteworthy-edition-boxes]]
+
+
 == Noteworthy edition boxes
 
 Some edition boxes are designed specifically for some elements:
 
-[[Operations]]
 
-[[operations]]
+
+
 ===== Operations
 
 .Operation edition box
@@ -41,9 +41,9 @@ image::images/Modeler-_modeler_building_models_editing_elements_EditOperation_en
 1. Operation dedicated tab.
 2. Parameters management frame.
 
-[[Use-Case]]
 
-[[use-case]]
+
+
 ===== Use Case
 
 .Use Case edition box

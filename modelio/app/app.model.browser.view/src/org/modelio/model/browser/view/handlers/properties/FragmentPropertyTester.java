@@ -22,12 +22,12 @@ package org.modelio.model.browser.view.handlers.properties;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.expressions.PropertyTester;
-import org.modelio.gproject.fragment.FragmentMigrationNeededException;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.FragmentMigrationNeededException;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPartState.GPartStateEnum;
 
 /**
- * Core Expression property tester for {@link IProjectFragment}.
+ * Core Expression property tester for {@link IGModelFragment}.
  * 
  * @author cmarin
  */
@@ -36,7 +36,8 @@ public class FragmentPropertyTester extends PropertyTester {
     @objid ("3c2e852e-d9c9-47ce-8694-2c569b6b25cd")
     @Override
     public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-        IProjectFragment frag = (IProjectFragment) receiver;
+        IGModelFragment frag = (IGModelFragment) receiver;
+        GPartStateEnum state = frag.getState().getValue();
         
         switch (property) {
         case "id":
@@ -44,35 +45,35 @@ public class FragmentPropertyTester extends PropertyTester {
             return frag.getId().equals(expectedValue);
         
         case "downError":
-            Throwable downError = frag.getDownError();
+            Throwable downError = frag.getState().getDownError();
             if (downError == null)
                 return expectedValue == null;
             else
                 return Objects.equals(downError.getClass().getSimpleName(), expectedValue);
         case "needMigration":
-            boolean needMigration = frag.getDownError() instanceof FragmentMigrationNeededException;
+            boolean needMigration = frag.getState().getDownError() instanceof FragmentMigrationNeededException;
             return boolCompare(needMigration, expectedValue);
-            
+        
         case "state":
-            return frag.getState().name().equalsIgnoreCase(expectedValue.toString());
-            
+            return state.name().equalsIgnoreCase(expectedValue.toString());
+        
         case "isUp":
-            boolean isUp = frag.getState() == FragmentState.UP_FULL || frag.getState() == FragmentState.UP_LIGHT;
-            return boolCompare(isUp, expectedValue); 
-            
+            boolean isUp = state == GPartStateEnum.MOUNTED;
+            return boolCompare(isUp, expectedValue);
+        
         case "isDown":
-            return boolCompare(frag.getState() == FragmentState.DOWN, expectedValue); 
+            return boolCompare(state == GPartStateEnum.DOWN, expectedValue);
         
         case "type":
             return frag.getType().name().equalsIgnoreCase(expectedValue.toString());
-            
+        
         case "scope":
-            return frag.getScope().name().equalsIgnoreCase(expectedValue.toString());
-            
+            return frag.getDescriptor().getDefinitionScope().name().equalsIgnoreCase(expectedValue.toString());
+        
         case "property":
             String value = frag.getProperties().getValue(args[0].toString());
             return Objects.equals(value, expectedValue);
-            
+        
         default:
             throw new IllegalArgumentException(property);
         

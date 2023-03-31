@@ -18,7 +18,7 @@ package org.modelio.api.modelio.exchange;
 
 import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.uml.statik.Package;
 
 /**
@@ -64,7 +64,7 @@ public class XmiExportConfiguration {
         this.entryPoint = packageToExport;
         this.exportAnnotations = false;
         this.versionExport = VersionExport.EMF300;
-        this.xmiFile = GProject.getProject(packageToExport).getProjectFileStructure().getProjectPath().resolve("XMI").resolve(this.entryPoint.getName() + ".xmi").toFile();
+        this.xmiFile = AbstractGProject.getProject(packageToExport).getPfs().getProjectPath().resolve("XMI").resolve(this.entryPoint.getName() + ".xmi").toFile();
         
     }
 

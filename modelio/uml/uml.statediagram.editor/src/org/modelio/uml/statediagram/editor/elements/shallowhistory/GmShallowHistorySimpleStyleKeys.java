@@ -53,7 +53,7 @@ public class GmShallowHistorySimpleStyleKeys extends StateAbstractStyleKeyProvid
 
     @objid ("8183d29b-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("SHALLOWHISTORY_SHOWSTEREOTYPES",
-                                                                          MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8183d29d-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("SHALLOWHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);

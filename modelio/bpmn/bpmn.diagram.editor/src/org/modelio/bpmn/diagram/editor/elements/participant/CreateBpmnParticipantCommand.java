@@ -21,6 +21,7 @@ package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
@@ -55,11 +56,11 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("74407378-0dba-4588-8304-32145ac0fc1f")
 public class CreateBpmnParticipantCommand extends Command {
-    @objid ("b66ca835-c4f8-4f98-97a4-30a843df3f34")
-    private final BpmnCollaboration parentCollaboration;
-
     @objid ("af884225-c2c5-47b4-973c-42a7076d0d1d")
     private boolean isParticipantCreation;
+
+    @objid ("b66ca835-c4f8-4f98-97a4-30a843df3f34")
+    private final BpmnCollaboration parentCollaboration;
 
     @objid ("9d92bd33-d7ad-4a63-a03a-ef68d1edfe02")
     private final Object newConstraint;
@@ -154,6 +155,16 @@ public class CreateBpmnParticipantCommand extends Command {
                 if (mdaExpert.canLink(Reference.MdaTypes.STEREOTYPE_ELT, linkMetaclass, participant.getMClass(), reference.getMClass())) {
                     Reference.setTarget(participant, reference);
                 }
+            }
+        }
+        
+        if(this.newConstraint instanceof Rectangle) {
+            Rectangle constraint  = (Rectangle)this.newConstraint;
+            if(constraint.width < 800) {
+                constraint.width = 800;
+            }
+            if(constraint.height < 120) {
+                constraint.height = 120;
             }
         }
         
@@ -252,33 +263,6 @@ public class CreateBpmnParticipantCommand extends Command {
         BpmnProcessDesignDiagram diagram = modelFactory.createBpmnProcessDesignDiagram();
         diagram.setOrigin(process);
         diagram.setName(elementNamer.getUniqueName(diagram));
-        
-        // Create a Start event
-        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
-        startEvent.setContainer(process);
-        startEvent.setName(elementNamer.getUniqueName(startEvent));
-        
-        // Create an End event
-        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
-        endEvent.setContainer(process);
-        endEvent.setName(elementNamer.getUniqueName(endEvent));
-        
-        // Create a dumb task
-        BpmnTask task = modelFactory.createBpmnTask();
-        task.setContainer(process);
-        task.setName(elementNamer.getUniqueName(task));
-        
-        // Create a flow between start and task
-        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
-        flow1.setSourceRef(startEvent);
-        flow1.setTargetRef(task);
-        flow1.setContainer(process);
-        
-        // Create a flow between task and end
-        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
-        flow2.setSourceRef(task);
-        flow2.setTargetRef(endEvent);
-        flow2.setContainer(process);
         
         // Layout diagram
         new BpmnLayouter(diagram).run();

@@ -36,8 +36,8 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.data.project.ProjectDescriptorWriter;
+import org.modelio.gproject.data.project.GProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptorWriter;
 import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.project.services.openproject.IProjectServiceAccess;
@@ -98,7 +98,7 @@ public class WorkspaceService implements IWorkspaceService {
 
     @objid ("0089dd7a-8c65-103c-a520-001ec947cd2a")
     @Override
-    public void deleteProject(final ProjectDescriptor projectToDelete) throws IOException, FileSystemException {
+    public void deleteProject(final GProjectDescriptor projectToDelete) throws IOException, FileSystemException {
         // TODO this is a quite naive implementation
         // should deal with project path for delegating project
         
@@ -112,7 +112,7 @@ public class WorkspaceService implements IWorkspaceService {
      */
     @objid ("0089fb8e-8c65-103c-a520-001ec947cd2a")
     @Override
-    public void exportProject(final ProjectDescriptor projectToExport, final Path archivePath, final IModelioProgress monitor) throws IOException {
+    public void exportProject(final GProjectDescriptor projectToExport, final Path archivePath, final IModelioProgress monitor) throws IOException {
         final Zipper zipper = new Zipper(archivePath);
         final List<PathMatcher> skipDirectoryMatchers = new ArrayList<>();
         
@@ -152,7 +152,7 @@ public class WorkspaceService implements IWorkspaceService {
 
     @objid ("ddfed9a9-bcb8-4683-9326-13ed63566396")
     @Override
-    public void renameProject(final ProjectDescriptor projectDescriptor, final String name) throws IOException {
+    public void renameProject(final GProjectDescriptor projectDescriptor, final String name) throws IOException {
         final Path oldPath = projectDescriptor.getProjectFileStructure().getProjectPath();
         final Path newPath = oldPath.resolveSibling(name);
         
@@ -164,7 +164,7 @@ public class WorkspaceService implements IWorkspaceService {
         projectDescriptor.setPath(newPath);
         
         // Write the new project conf
-        new ProjectDescriptorWriter().write(projectDescriptor);
+        new GProjectDescriptorWriter().write(projectDescriptor);
         
         // Notify workspace for refresh
         refreshWorkspace(name);

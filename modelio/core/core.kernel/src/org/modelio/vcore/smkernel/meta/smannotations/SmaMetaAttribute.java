@@ -67,13 +67,13 @@ public @interface SmaMetaAttribute {
      * @return the attribute type.
      */
     @objid ("001d7446-7c3b-1f32-acd1-001ec947cd2a")
-    boolean einoexternalize();
+    boolean einoexternalize() default false;
 
     /**
      * 
      * @return the attribute type.
      */
     @objid ("0085a9f8-7c51-1f32-acd1-001ec947cd2a")
-    boolean fpindexed();
+    boolean fpindexed() default false;
 
 }

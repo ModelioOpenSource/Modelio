@@ -38,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("7a4080af-55b6-11e2-877f-002564c97630")
 public final class GmCommunicationInvertedMessageArrow extends GmNoStyleSimpleNode {
-    @objid ("7a4080b3-55b6-11e2-877f-002564c97630")
-    private CommunicationChannel relatedEl;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -49,6 +46,9 @@ public final class GmCommunicationInvertedMessageArrow extends GmNoStyleSimpleNo
 
     @objid ("7a4080b9-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("7a4080b3-55b6-11e2-877f-002564c97630")
+    private CommunicationChannel relatedEl;
 
     /**
      * Constructor for deserialization only.

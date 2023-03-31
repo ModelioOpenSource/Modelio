@@ -82,5 +82,5 @@ public interface IMetamodelImageProvider {
      */
     @objid ("8702e56b-c3e6-42f9-94d0-091c9a2db50a")
     String getIconCompletePath(MClass metaclass);
-
 }
+

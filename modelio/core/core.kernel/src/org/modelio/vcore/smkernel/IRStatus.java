@@ -95,9 +95,11 @@ public interface IRStatus {
     @objid ("3856b010-820c-418e-95c6-c91626968140")
     public static final long CMSSYNC = 1L << 10;
 
-    //
-    // Audit status
-    //
+    /*
+     * //
+     * // Audit status
+     * //
+     */
     /**
      * Audit state first bit
      */
@@ -167,11 +169,13 @@ public interface IRStatus {
     @objid ("29146a85-d0a7-48db-8b59-8dd359e12aea")
     public static final long CMSNEEDSLOCK = 1L << 41;
 
-    //
-    // Repository flags.
-    //
-    // These flags may be used or not by the repository implementation.
-    //
+    /*
+     * //
+     * // Repository flags.
+     * //
+     * // These flags may be used or not by the repository implementation.
+     * //
+     */
     /**
      * The object has been loaded.
      * This flag may be used or not by the repository implementation.
@@ -258,5 +262,5 @@ public interface IRStatus {
      */
     @objid ("d147b0b9-a93a-4336-9626-af1b0fce858c")
     public static final long MASK_REPO = REPO_LOADED | REPO_USERS_LOADED | REPO_OWNER_LOADED | REPO_DIRTY;
-
 }
+

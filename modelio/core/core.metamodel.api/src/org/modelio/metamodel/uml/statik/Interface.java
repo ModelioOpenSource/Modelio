@@ -40,6 +40,8 @@ import org.eclipse.emf.common.util.EList;
  * Note that a given Classifier may implement more than one Interface and that an Interface may be implemented by a number of different Classifiers.  
  * 
  * Constraints: The visibility of all Features owned by an Interface must be public.
+ * 
+ * 
  */
 @objid ("000e151e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Interface extends GeneralClass {
@@ -60,6 +62,7 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("83920783-200d-4e39-9a79-e2cbe23190ab")
     EList<RequiredInterface> getRequiring();
@@ -69,6 +72,7 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("41498e31-b5ce-4d46-aeb2-f01950dc2408")
     <T extends RequiredInterface> List<T> getRequiring(java.lang.Class<T> filterClass);
@@ -78,6 +82,7 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("92668ea6-2dfc-4e12-afd8-86250d390e20")
     EList<InterfaceRealization> getImplementedLink();
@@ -87,6 +92,7 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ef65fd00-ed22-44f4-a230-153f97f0fa73")
     <T extends InterfaceRealization> List<T> getImplementedLink(java.lang.Class<T> filterClass);
@@ -96,6 +102,7 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1a7f000a-478d-49a1-8857-ce916c55391a")
     EList<ProvidedInterface> getProviding();
@@ -105,8 +112,9 @@ public interface Interface extends GeneralClass {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e0c919c1-6e77-4521-8e56-2b98d231db30")
     <T extends ProvidedInterface> List<T> getProviding(java.lang.Class<T> filterClass);
-
 }
+

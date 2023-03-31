@@ -138,7 +138,7 @@ public final class OrthogonalPathFixer3_7 extends AbstractPathFixer {
         /**
          * Temporary point used to avoid Point allocations.
          */
-        @objid ("b6837aa4-fa87-4b5e-85c5-d71d345c12be")
+        @objid ("e3da5b02-6d24-43dd-9aa1-758500f9e9bc")
         private static final PrecisionPoint A_POINT = new PrecisionPoint();
 
         /**

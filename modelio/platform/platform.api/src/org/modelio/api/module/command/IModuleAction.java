@@ -68,5 +68,5 @@ public interface IModuleAction {
 
     @objid ("bbb97a9a-e383-443c-84e1-c9f9f7d0fa58")
     void parseSlotImagePaths(String slotImagePaths);
-
 }
+

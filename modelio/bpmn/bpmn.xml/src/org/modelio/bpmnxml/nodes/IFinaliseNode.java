@@ -35,5 +35,5 @@ public interface IFinaliseNode<U extends MObject, J> extends IProduction {
 
     @objid ("a5e715a9-193b-4443-8482-23848b31c7b0")
     void setConfiguration(Map<String, Object> configuration);
-
 }
+

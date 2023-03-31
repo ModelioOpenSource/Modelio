@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modelio-model-audit]]
 
-[[modelio-model-audit]]
+
+
 = Modelio model audit
 
-[[Real-time-model-audit]]
 
-[[real-time-model-audit]]
+
+
 ===== Real time model audit
 
 The Modelio Audit feature analyses the model in real time. When errors are detected, it adds a flag on each of the corresponding elements in the model browser:
@@ -18,9 +18,9 @@ The Modelio Audit feature analyses the model in real time. When errors are detec
 .The Audit has detected an error in the "browser" package
 image::images/Modeler-_modeler_handy_tools_model_audit_img_001.png[2]
 
-[[The-Modelio-Check-model-command]]
 
-[[the-modelio-check-model-command]]
+
+
 ===== The Modelio Check model command
 
 When the Audit feature points out errors or warnings in your model, you have to possibility to get the corresponding error messages in one click by running the "Check model" command:

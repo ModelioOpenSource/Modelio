@@ -41,5 +41,5 @@ public interface ICreationActionDescriptor {
 
     @objid ("d155ddc6-25a6-4500-930c-af758354d41c")
     void execute(EditPartViewer viewer);
-
 }
+

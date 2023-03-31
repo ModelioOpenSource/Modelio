@@ -35,6 +35,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * compensation. 
  * 
  * Within Modelio, Text Annotation is implemented by Notes: association is thus not used to connect Notes to Model elements.
+ * 
+ * 
  */
 @objid ("00772770-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnAssociation extends BpmnArtifact {
@@ -58,6 +60,7 @@ public interface BpmnAssociation extends BpmnArtifact {
      * The default is None (no arrowhead). 
      * A value of One means that the arrowhead SHALL be at the Target Object. 
      * A value of Both means that there SHALL be an arrowhead at both ends of the Association line.</i>
+     * 
      */
     @objid ("3a326954-6624-4d2a-a099-851a7841d301")
     BpmnAssociationDirection getAssociationDirection();
@@ -70,6 +73,7 @@ public interface BpmnAssociation extends BpmnArtifact {
      * The default is None (no arrowhead). 
      * A value of One means that the arrowhead SHALL be at the Target Object. 
      * A value of Both means that there SHALL be an arrowhead at both ends of the Association line.</i>
+     * 
      */
     @objid ("5fac718f-f5fe-4048-85cf-3b90c88b974a")
     void setAssociationDirection(BpmnAssociationDirection value);
@@ -79,6 +83,7 @@ public interface BpmnAssociation extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>The BaseElement that the Association is connecting to.</i>
+     * 
      */
     @objid ("64ce76ce-f902-40e8-a473-679199e33a39")
     BpmnBaseElement getTargetRef();
@@ -88,6 +93,7 @@ public interface BpmnAssociation extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>The BaseElement that the Association is connecting to.</i>
+     * 
      */
     @objid ("5a7cdcb1-d250-4c77-a508-01dd8f72d360")
     void setTargetRef(BpmnBaseElement value);
@@ -97,6 +103,7 @@ public interface BpmnAssociation extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>The BaseElement that the Association is connecting from.</i>
+     * 
      */
     @objid ("c4b0ce99-c178-492f-a140-e1934e36efe1")
     BpmnBaseElement getSourceRef();
@@ -106,8 +113,9 @@ public interface BpmnAssociation extends BpmnArtifact {
      * 
      * Metamodel description:
      * <i>The BaseElement that the Association is connecting from.</i>
+     * 
      */
     @objid ("736b706e-d707-4fc7-a4ea-ecc5ba9ea801")
     void setSourceRef(BpmnBaseElement value);
-
 }
+

@@ -38,6 +38,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Modelio extension:
  * The functionality of join node and fork node can be combined by using the same node. 
  * This case maps to a model containing a join node with all the incoming edges shown in the diagram and one outgoing edge to a fork node that has all the outgoing edges shown in the diagram.
+ * 
+ * 
  */
 @objid ("0033b2ec-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ForkJoinNode extends ControlNode {
@@ -58,6 +60,7 @@ public interface ForkJoinNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>Indicates whether tokens with objects with the same identity are combined into one by the join. The default value is true.</i>
+     * 
      */
     @objid ("c031abec-4112-4222-8291-646820e2dc18")
     boolean isIsCombineDuplicate();
@@ -67,6 +70,7 @@ public interface ForkJoinNode extends ControlNode {
      * 
      * Metamodel description:
      * <i>Indicates whether tokens with objects with the same identity are combined into one by the join. The default value is true.</i>
+     * 
      */
     @objid ("9e13f21a-33a6-46dc-9014-b1d0f0ed6144")
     void setIsCombineDuplicate(boolean value);
@@ -77,6 +81,7 @@ public interface ForkJoinNode extends ControlNode {
      * Metamodel description:
      * <i>A specification giving the conditions under which the join will emit a 
      * token. The default value is �??and.</i>
+     * 
      */
     @objid ("62cb8bae-e6dc-4c99-9607-4a8f5e8ad677")
     String getJoinSpec();
@@ -87,8 +92,9 @@ public interface ForkJoinNode extends ControlNode {
      * Metamodel description:
      * <i>A specification giving the conditions under which the join will emit a 
      * token. The default value is �??and.</i>
+     * 
      */
     @objid ("236ab438-e93b-4e3a-88c3-b324f3806a7a")
     void setJoinSpec(String value);
-
 }
+

@@ -515,7 +515,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         return super.getMoveChildrenCommand(request);
     }
 
-    @objid ("b2acabec-05dc-4d30-b7a9-b48a5bcc4610")
+    @objid ("ab8d1d68-8ccb-4834-8e0b-ee511eb10fee")
     protected Command getDeleteChildrenCommand(GroupRequest request) {
         List<GraphicalEditPart> editParts = request.getEditParts();
         CompoundCommand command = new CompoundCommand();
@@ -526,7 +526,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         return command.unwrap();
     }
 
-    @objid ("c6507c80-be26-42e5-b2de-b284d813ddb5")
+    @objid ("69bd2ac2-4c89-4b1b-9bed-a09eb3b62324")
     protected Command createDeleteChildCommand(GroupRequest request, GraphicalEditPart child) {
         DeleteInDiagramCommand command = new DeleteInDiagramCommand();
         command.setNodetoDelete((IGmObject) child.getModel());

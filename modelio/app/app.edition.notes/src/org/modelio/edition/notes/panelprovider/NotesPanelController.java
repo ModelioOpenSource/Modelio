@@ -47,7 +47,8 @@ import org.modelio.edition.notes.panelprovider.helpers.MoveDownHelper;
 import org.modelio.edition.notes.panelprovider.helpers.MoveUpHelper;
 import org.modelio.edition.notes.plugin.EditionNotes;
 import org.modelio.editors.richnote.helper.AddEmbeddedDocumentHelper;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.mmextensions.standard.services.MModelServices;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
@@ -803,7 +804,7 @@ public class NotesPanelController {
             CoreSession newSess = CoreSession.getSession(elt);
             if (newSess != this.session) {
                 this.session = newSess;
-                GProject newProject = GProject.getProject(elt);
+                IGProject newProject = AbstractGProject.getProject(elt);
                 if (newProject != null) {
                     this.modelServices = new MModelServices(newProject.getSession());
                 } else {

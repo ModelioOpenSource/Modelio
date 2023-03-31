@@ -24,7 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.preference.PreferenceStore;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.preferences.plugin.Preferences;
 import org.modelio.vbasic.files.FileUtils;
 
@@ -35,14 +35,14 @@ import org.modelio.vbasic.files.FileUtils;
 @objid ("f698d9f8-7233-48f8-b4f5-22e9fd647d3f")
 public class AppStatePreferenceStore extends PreferenceStore {
     @objid ("ab76bea7-2b14-4138-9e52-b373031c80c4")
-    public  AppStatePreferenceStore(GProject project) {
+    public  AppStatePreferenceStore(IGProject project) {
         super();
         
-        Path p = project.getProjectFileStructure().getProjectRuntimePath().resolve(".save");
+        Path p = project.getPfs().getProjectRuntimePath().resolve(".save");
         setFilename(p.toString());
         try {
             // Create the file only if it does not exist
-            Files.createDirectories(project.getProjectFileStructure().getProjectRuntimePath());
+            Files.createDirectories(project.getPfs().getProjectRuntimePath());
             p.toFile().createNewFile();
         
             load();

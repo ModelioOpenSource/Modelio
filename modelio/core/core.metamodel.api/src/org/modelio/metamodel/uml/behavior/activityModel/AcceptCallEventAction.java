@@ -35,6 +35,9 @@ import org.modelio.metamodel.uml.statik.Operation;
  * AcceptCallAction is an accept event action representing the receipt of a synchronous call request. In addition to the normal operation parameters, the action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller.
  * 
  * This action is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent reply action will complete immediately with no effects.
+ * 
+ * 
+ * 
  */
 @objid ("00241b8e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface AcceptCallEventAction extends ActivityAction {
@@ -55,6 +58,7 @@ public interface AcceptCallEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>The Operation invoked by the call event.</i>
+     * 
      */
     @objid ("f0115a21-4e17-4eee-bc13-b83b7123ca2b")
     Operation getCalled();
@@ -64,8 +68,9 @@ public interface AcceptCallEventAction extends ActivityAction {
      * 
      * Metamodel description:
      * <i>The Operation invoked by the call event.</i>
+     * 
      */
     @objid ("92798763-c583-4113-894d-db427f49131e")
     void setCalled(Operation value);
-
 }
+

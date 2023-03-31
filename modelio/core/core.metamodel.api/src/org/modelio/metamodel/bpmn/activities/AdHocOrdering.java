@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005556d6-91e1-1f74-804b-001ec947cd2a")
 public enum AdHocOrdering {
@@ -36,6 +38,7 @@ public enum AdHocOrdering {
     PARALLELORDERING(0, "ParallelOrdering", "ParallelOrdering"),
     @objid ("d2c651f8-b768-45d9-bef8-7aa5bedc1aee")
     SEQUENTIALORDERING(1, "SequentialOrdering", "SequentialOrdering");
+
 public static final int PARALLELORDERING_VALUE = 0;
     public static final int SEQUENTIALORDERING_VALUE = 1;
     private static final AdHocOrdering[] VALUES_ARRAY =

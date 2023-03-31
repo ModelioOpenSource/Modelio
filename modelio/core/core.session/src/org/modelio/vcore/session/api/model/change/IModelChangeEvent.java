@@ -97,5 +97,5 @@ public interface IModelChangeEvent {
      */
     @objid ("f2ba2ad3-dfb5-4e07-a719-3c3f9c83c695")
     boolean isEmpty();
-
 }
+

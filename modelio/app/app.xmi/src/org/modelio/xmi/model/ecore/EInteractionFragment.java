@@ -96,6 +96,7 @@ public class EInteractionFragment extends ENamedElement {
         }
         
     }
+
 //    @objid ("34cbfcbb-8fe7-4a95-9dcb-0dfeea02cfc5")
     //    private void setLineNumbers(Element objingElt) {
     //        ((InteractionFragment) objingElt).setLineNumber(ObjingEAnnotation.getLineNumber(getEcoreElement()) );

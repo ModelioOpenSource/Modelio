@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1760]]
 
-[[r1760]]
+
+
 = R1760
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 There cannot be inconsistency in the multiplicities of an _Instance_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The minimum multiplicity must be strictly inferior to the maximum multiplicity.
 
 The minimum multiplicity must not be *.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Revise the values of your multiplicities.

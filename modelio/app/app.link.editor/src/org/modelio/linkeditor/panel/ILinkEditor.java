@@ -71,5 +71,5 @@ public interface ILinkEditor extends IPanelProvider, IModelChangeListener {
      */
     @objid ("cf2b2bc3-ae4b-4046-9db9-b5b8423a08b8")
     Image getImage();
-
 }
+

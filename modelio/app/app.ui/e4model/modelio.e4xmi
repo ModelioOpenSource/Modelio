@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_AWbLYJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_AWbLd5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.trimmed" label="%Modelio.window.label" iconURI="platform:/plugin/org.modelio.app.ui/images/modelio256x256.png" tooltip="%Modelio.window.tooltip" bindingContexts="_AWbLYZnlEeGY6K1_JhyUmg" x="150" y="110" width="1024" height="768">
-    <children xsi:type="advanced:PerspectiveStack" xmi:id="_AWbLf5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.stack.perspectives" selectedElement="_AWbLgJnlEeGY6K1_JhyUmg">
-      <children xsi:type="advanced:Perspective" xmi:id="_AWbLgJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.model.perspective" selectedElement="_AWbLgZnlEeGY6K1_JhyUmg" label="%Model.perspective.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/modelpersp.png" tooltip="%Model.perspective.tooltip">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_AWbLd5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.trimmed" label="%Modelio.window.label" iconURI="platform:/plugin/org.modelio.app.ui/images/modelio256x256.png" tooltip="%Modelio.window.tooltip" bindingContexts="_AWbLYZnlEeGY6K1_JhyUmg" x="150" y="110" width="1200" height="800">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_AWbLf5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.stack.perspectives">
+      <children xsi:type="advanced:Perspective" xmi:id="_xZS-cHFSEe2nk_imRGQ1FA" elementId="org.modelio.app.ui.model.perspective" selectedElement="_EXl0cHFTEe2nk_imRGQ1FA" label="%Model.perspective.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/modelpersp.png" tooltip="%Model.perspective.tooltip">
         <tags>project</tags>
         <tags>default</tags>
         <tags>user</tags>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_AWbLgZnlEeGY6K1_JhyUmg" elementId="" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_AWbycJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.left.parts" containerData="25"/>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_kaYO0Jq2EeGkc791dEOVVA" containerData="75">
-            <children xsi:type="advanced:Placeholder" xmi:id="_McuAIDL2EeKL_YUGDpxo2Q" elementId="org.eclipse.ui.editorss" containerData="72" ref="_hYHjYDLzEeKL_YUGDpxo2Q" closeable="true"/>
-            <children xsi:type="basic:PartStack" xmi:id="_lWQoQJq2EeGkc791dEOVVA" elementId="org.modelio.app.bottom.parts" containerData="28">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_EXl0cHFTEe2nk_imRGQ1FA" elementId="app.ui.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_FaMg8HFTEe2nk_imRGQ1FA" elementId="org.modelio.app.left.parts" containerData="25"/>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_HCab8HFTEe2nk_imRGQ1FA" elementId="app.ui.partsashcontainer.1" containerData="75">
+            <children xsi:type="advanced:Placeholder" xmi:id="_IPUT8HFTEe2nk_imRGQ1FA" elementId="org.eclipse.ui.editorss" containerData="72" ref="_hYHjYDLzEeKL_YUGDpxo2Q" closeable="true"/>
+            <children xsi:type="basic:PartStack" xmi:id="_JJO-gHFTEe2nk_imRGQ1FA" elementId="org.modelio.app.bottom.parts" containerData="28">
               <tags>MODULE_STACK</tags>
             </children>
           </children>
@@ -51,11 +51,12 @@
     <trimBars xmi:id="_AWbycZnlEeGY6K1_JhyUmg" elementId="org.modelio.app.trimbar.main">
       <children xsi:type="menu:ToolControl" xmi:id="_jHisgN_wEeKYSOCeOIScJg" elementId="org.eclipse.e4.ui.PerspectiveSwitcher" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.persp.PerspectiveSwitcher"/>
     </trimBars>
+    <trimBars xmi:id="_ZKRFcGSpEeur_Zn1lu6I3Q" elementId="org.modelio.app.trimbar.main.bottom" side="Bottom"/>
   </children>
   <handlers xmi:id="_AWbLdZnlEeGY6K1_JhyUmg" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.about.AboutHandler" command="_AWbLdJnlEeGY6K1_JhyUmg"/>
   <handlers xmi:id="_7XznAH87EeK-XvSICEmsLA" elementId="org.modelio.app.ui.handler.showview" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.ShowViewHandler" command="_TOlEUH87EeK-XvSICEmsLA"/>
   <handlers xmi:id="_fXKZUKdUEeK8tp9C4lOIPQ" elementId="org.modelio.app.ui.handler.help" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.HelpHandler" command="_G-wrEKdUEeK8tp9C4lOIPQ"/>
-  <bindingTables xmi:id="_AWbLbJnlEeGY6K1_JhyUmg" bindingContext="_AWbLYZnlEeGY6K1_JhyUmg">
+  <bindingTables xmi:id="_AWbLbJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.bindingtable" bindingContext="_AWbLYZnlEeGY6K1_JhyUmg">
     <bindings xmi:id="_1ZVnIPRTEeahYs8pXmmB1Q" elementId="app.ui.keybinding.redo" keySequence="M1+Y" command="_Ek_2MDJXEeKZiaivSH_IWA">
       <tags>type:user</tags>
     </bindings>
@@ -67,6 +68,11 @@
     </bindings>
   </bindingTables>
   <rootContext xmi:id="_AWbLYZnlEeGY6K1_JhyUmg" elementId="org.eclipse.ui.contexts.window" name="Application context"/>
+  <trimContributions xmi:id="_OoMoEGVdEeuQlMdSEanbKA" elementId="app.ui.trimcontribution.0" parentId="org.modelio.app.trimbar.main.bottom" positionInParent="first">
+    <children xsi:type="menu:ToolControl" xmi:id="_8EhmoGVeEeuQlMdSEanbKA" elementId="app.ui.toolcontrol.2" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.statusbar.AppStatusBar">
+      <tags>stretch</tags>
+    </children>
+  </trimContributions>
   <commands xmi:id="_AWbLbpnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.command.openproject" commandName="%OpenProject.name" description="%OpenProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
   <commands xmi:id="_AWbLcZnlEeGY6K1_JhyUmg" elementId="org.eclipse.ui.file.save" commandName="%SaveProject.name" description="%SaveProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
   <commands xmi:id="_6hXP4K5FEeGlecv-eW6Gzw" elementId="org.modelio.app.ui.command.newproject" commandName="%NewProject.name" description="%NewProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>

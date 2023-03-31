@@ -52,7 +52,7 @@ import org.modelio.platform.model.ui.treetable.number.IntegerCellEditor;
  */
 @objid ("e95cc1a9-1ccc-4e98-951f-617b0ed09e45")
 class ParametersEditingSupport extends EditingSupport {
-    @objid ("7b410555-792b-468d-b1e4-3eb0e6ca0553")
+    @objid ("381380d5-b813-496c-a64b-0a302f36e6c5")
     private TreeViewer viewer;
 
     /**
@@ -117,8 +117,7 @@ class ParametersEditingSupport extends EditingSupport {
         if (property instanceof BoolParameterModel) {
             return Boolean.valueOf(((ParameterModel) property).getStringValue());
         } else if (property instanceof ColorParameterModel) {
-            // TODO
-            return null;
+            return ((ColorParameterModel) property).getStringValue();
         } else if (property instanceof DirectoryParameterModel) {
             return ((ParameterModel) property).getStringValue();
         } else if (property instanceof EnumParameterModel) {

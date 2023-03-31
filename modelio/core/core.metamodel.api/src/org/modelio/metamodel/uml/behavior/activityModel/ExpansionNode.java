@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00311a8c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExpansionNode extends ObjectNode {
@@ -52,6 +54,7 @@ public interface ExpansionNode extends ObjectNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8684609e-179a-4866-bee1-529e707ac63a")
     ExpansionRegion getRegionAsOutput();
@@ -61,6 +64,7 @@ public interface ExpansionNode extends ObjectNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6ee10e54-5454-4335-9310-2d182bca921a")
     void setRegionAsOutput(ExpansionRegion value);
@@ -70,6 +74,7 @@ public interface ExpansionNode extends ObjectNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("43fd5f1d-e2ae-4de2-a6ae-d2c555fea49e")
     ExpansionRegion getRegionAsInput();
@@ -79,8 +84,9 @@ public interface ExpansionNode extends ObjectNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f4eda086-88d7-4e3f-96f2-a4beb1513e97")
     void setRegionAsInput(ExpansionRegion value);
-
 }
+

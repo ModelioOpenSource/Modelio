@@ -28,5 +28,5 @@ public interface IFormFieldType {
 
     @objid ("cd2c4a03-de10-4ba6-b0e6-7eecf1261064")
     boolean isValidValue(String value);
-
 }
+

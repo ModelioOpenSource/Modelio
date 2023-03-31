@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1750]]
 
-[[r1750]]
+
+
 = R1750
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Repetition of names is forbidden for all _AtrributeLinks_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _AttributeLink_ is the value of an _Attribute_ and must have the same name as the _Attribute_ it instanciates. This name must be unique in the instanciated _Classifier_ as well as in the I_nstance_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Verify that all the slots have the same name as the attributes they instanciate, and if they do, make sure all attributes have a unique name in the instanciated _Classifier_.

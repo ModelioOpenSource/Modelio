@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Les-préférences-de-limport-export-XMI-de-Modelio]]
 
-[[les-préférences-de-limport-export-xmi-de-modelio]]
+
+
 = Les préférences de l'import / export XMI de Modelio
 
-[[Configuration-de-limport-export-XMI]]
 
-[[configuration-de-limport-export-xmi]]
+
+
 ===== Configuration de l'import / export XMI
 
 Vous pouvez modifier le comportement du générateur en définissant les préférences pour le service d'import / export XMI de Modelio.
 
-[[Les-préférences-XMI]]
 
-[[les-préférences-xmi]]
+
+
 ===== Les préférences XMI
 
 Les préférences XMI

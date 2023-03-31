@@ -367,7 +367,7 @@ public class Layouter {
                 }
             } else {
                 // Landing on target South, cells below target between [sourceRow, targetRow[ must be free
-                for (int i = sourceRow; i <= targetRow + 1; i--) {
+                for (int i = sourceRow; i >= targetRow; i--) {
                     if (!this.layout.isFreeCell(i, targetCol)) {
                         return false;
                     }
@@ -397,7 +397,7 @@ public class Layouter {
                 }
             } else {
                 // Landing on target West, cells on the right of the target between [sourceCol, targetCol[ must be free
-                for (int j = sourceCol; j <= targetCol - 1; j--) {
+                for (int j = sourceCol; j >= targetCol - 1; j--) {
                     if (!this.layout.isFreeCell(targetRow, j)) {
                         return false;
                     }

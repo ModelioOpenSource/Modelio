@@ -72,6 +72,7 @@ public class SwtLinuxOOoBean extends Composite {
      */
     @objid ("2131b039-e0dc-41dc-95fa-c119c70e36b1")
     private boolean bIgnoreVisibility = false; // to show even if already visible
+    
 
     @objid ("817baf8a-ee0d-43d7-b818-04a84c3b5b92")
     private boolean bMenuBarVisible = true;

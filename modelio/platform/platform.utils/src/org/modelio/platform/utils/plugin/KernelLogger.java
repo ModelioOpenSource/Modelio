@@ -34,11 +34,11 @@ import org.slf4j.LoggerFactory;
  */
 @objid ("7c68530b-af85-43e2-b42f-b380fd2f19bc")
 class KernelLogger implements IBasicLogger {
-    @objid ("28256d5a-4a14-4f42-bcba-15f25e3e4298")
-    private org.slf4j.Logger service;
-
     @objid ("f4dd6e1c-f3e5-438e-83bd-050be85cdd2a")
     private int logLevel = IBasicLogger.TRACE;
+
+    @objid ("28256d5a-4a14-4f42-bcba-15f25e3e4298")
+    private org.slf4j.Logger service;
 
     @objid ("b0765e71-93f3-4c5b-ad42-79d49e3280e1")
     public  KernelLogger() {

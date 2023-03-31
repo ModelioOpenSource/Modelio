@@ -38,6 +38,7 @@ public class UmlUiOrg extends AbstractUIPlugin {
      */
     @objid ("4edbb350-b88b-4e81-86b4-22c284e905d6")
     public static final String PLUGIN_ID = "org.modelio.uml.ui.ext_org"; // $NON-NLS-1$
+    
 
     @objid ("3ac7b048-2c40-480e-8753-bf17d80da1c9")
     private static BundleContext context;

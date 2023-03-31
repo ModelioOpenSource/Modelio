@@ -28,13 +28,13 @@ class MStatusImpl implements MStatus {
     private final long status;
 
     @objid ("0e9894bb-d4cd-11e1-b069-001ec947ccaf")
-    private static final long VISIBLE_MASK = IRStatus.DOMAINVISIBLE | IPStatus.OBJECTVISIBLE | IPStatus.OBJECTVISIBLE;
+    private static final long VISIBLE_MASK = IRStatus.DOMAINVISIBLE | IRStatus.USERVISIBLE | IPStatus.OBJECTVISIBLE;
 
     @objid ("0e9894c0-d4cd-11e1-b069-001ec947ccaf")
-    private static final long BROWSE_MASK = IRStatus.DOMAINBROWSE | IPStatus.OBJECTBROWSE | IPStatus.OBJECTBROWSE;
+    private static final long BROWSE_MASK = IRStatus.DOMAINBROWSE | IRStatus.USERBROWSE | IPStatus.OBJECTBROWSE;
 
     @objid ("0e9894c5-d4cd-11e1-b069-001ec947ccaf")
-    private static final long WRITE_MASK = IRStatus.DOMAINWRITE | IPStatus.OBJECTWRITE | IPStatus.OBJECTWRITE;
+    private static final long WRITE_MASK = IRStatus.DOMAINWRITE | IRStatus.USERWRITE | IPStatus.OBJECTWRITE;
 
     @objid ("15f08282-7f2f-475b-b69c-bf005c627623")
     private final boolean dirty;
@@ -50,7 +50,7 @@ class MStatusImpl implements MStatus {
                 if (++count > 10000) {
                     throw new IllegalStateException(String.format("Cycle in composition graph of %s.", obj.toString()));
                 }
-                
+        
                 owner = owner.getCompositionOwner();
                 if (owner == null) {
                     break;
@@ -200,8 +200,8 @@ class MStatusImpl implements MStatus {
     @Override
     public boolean isModifiable() {
         final StatusState forbid = SmStatus.isAnySet(this.status, IRStatus.RMASK_MODIFIABLE_FORBIDDEN);
-        final StatusState allow = SmStatus.areAllSet(this.status, IRStatus.RMASK_MODIFIABLE_REQUIRED);
-        return allow != StatusState.FALSE && forbid!=StatusState.TRUE;
+        final StatusState allow = SmStatus.areAllSet(this.status, IRStatus.RMASK_MODIFIABLE_REQUIRED | IPStatus.PMASK_MODIFIABLE_REQUIRED);
+        return allow != StatusState.FALSE && forbid != StatusState.TRUE;
     }
 
     @objid ("2017e4d7-1e9d-11e2-90db-001ec947ccaf")

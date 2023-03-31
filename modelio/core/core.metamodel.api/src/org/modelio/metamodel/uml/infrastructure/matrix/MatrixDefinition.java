@@ -37,6 +37,9 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * A matrix is defined by a lines columns and the value for a line and a column.
  * Line and column content are each defined by a query definition.
  * The matrix values are defined by a MatrixValueDefniition.
+ * 
+ * 
+ * 
  */
 @objid ("8a02f9a1-ae38-48d8-8f92-04ce8b6edc5c")
 public interface MatrixDefinition extends ModelElement {
@@ -57,6 +60,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Lines definition.</i>
+     * 
      */
     @objid ("3b653581-d361-42d4-be84-4f8aa19209b1")
     QueryDefinition getLinesDefinition();
@@ -66,6 +70,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Lines definition.</i>
+     * 
      */
     @objid ("87c51eb8-6234-4764-a993-4351e7435ddd")
     void setLinesDefinition(QueryDefinition value);
@@ -75,6 +80,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Columns definition. If not specified, the line definition is used.</i>
+     * 
      */
     @objid ("eb5febca-d6cb-4d46-970b-131524205935")
     QueryDefinition getColumnsDefinition();
@@ -84,6 +90,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Columns definition. If not specified, the line definition is used.</i>
+     * 
      */
     @objid ("7946dfcf-7269-4433-82da-992a5c4eb9b2")
     void setColumnsDefinition(QueryDefinition value);
@@ -93,6 +100,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Matrix values definition.</i>
+     * 
      */
     @objid ("445ff945-6092-4ac5-85ed-4cf392152791")
     MatrixValueDefinition getValuesDefinition();
@@ -102,6 +110,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Matrix values definition.</i>
+     * 
      */
     @objid ("e83d0483-b7b6-4a3c-aa1e-209440fa8642")
     void setValuesDefinition(MatrixValueDefinition value);
@@ -111,6 +120,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Depth definition. May be left undefined.</i>
+     * 
      */
     @objid ("a31ef6e6-6539-44a7-aa44-3a3d6b1f5603")
     QueryDefinition getDepthDefinition();
@@ -120,6 +130,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>Depth definition. May be left undefined.</i>
+     * 
      */
     @objid ("2c204a5a-97e3-47df-bc9e-9df333172be6")
     void setDepthDefinition(QueryDefinition value);
@@ -129,6 +140,7 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b367827f-e35f-43a1-87d6-744a4c7ffb42")
     ModelElement getOwner();
@@ -138,8 +150,9 @@ public interface MatrixDefinition extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b5b3d212-22d3-45f4-b5a9-b4f7bbdd76c6")
     void setOwner(ModelElement value);
-
 }
+

@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1730]]
 
-[[r1730]]
+
+
 = R1730
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un lien de _Generalization_ doit relier deux éléments du même type, sauf pour les signaux qui peuvent hériter des classes.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Class_ héritant d'un _UseCase_ ou un _Node_ héritant d'un _Artifact_ n'ont pas de sens.
 
 La seule exception est d'autoriser un _Signal_ à hériter d'une _Class_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Supprimez cette généralisation.

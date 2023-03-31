@@ -30,10 +30,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.platform.model.ui.swt.labelprovider.IModelContainer;
 import org.modelio.platform.model.ui.swt.labelprovider.LinkContainer;
@@ -49,18 +50,13 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * Default content provider for the model browser.
  * <p>
- * When setting a GProject or an ICoreSession as input, it registers a model
- * change listener refreshing the viewer.
+ * When setting a IGProject or an ICoreSession as input, it registers a model change listener refreshing the viewer.
  * </p>
  * <p>
- * The {@link #getElements(Object)} method returns the tree roots, from the
- * "local roots" if defined, or from the GProject itself.
+ * The {@link #getElements(Object)} method returns the tree roots, from the "local roots" if defined, or from the IGProject itself.
  * </p>
  * <p>
- * Delegates most of its job to sub-content providers defined for each
- * {@link MMetamodelFragment}. Use
- * {@link #registerExtension(MMetamodelFragment, ITreeContentProvider)} and
- * {@link #unregisterExtension(MMetamodelFragment)} to manage these sub-content
+ * Delegates most of its job to sub-content providers defined for each {@link MMetamodelFragment}. Use {@link #registerExtension(MMetamodelFragment, ITreeContentProvider)} and {@link #unregisterExtension(MMetamodelFragment)} to manage these sub-content
  * providers.
  * </p>
  */
@@ -82,7 +78,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     private final AtomicReference<ViewRefresher> viewRefresher = new AtomicReference<>();
 
     @objid ("97aaacfb-d8fb-4fd5-8b6e-fa9cc2cec994")
-    private GProject openedProject;
+    private IGProject openedProject;
 
     @objid ("aa020c33-b0a1-484f-a267-124f1dc2aaa1")
     private List<Object> localRoots = new ArrayList<>();
@@ -99,8 +95,8 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         this.viewer = currentViewer;
         
         // Unregister model change listener on the old input
-        if (oldInput != null && oldInput instanceof GProject) {
-            ICoreSession session = ((GProject) oldInput).getSession();
+        if (oldInput != null && oldInput instanceof IGProject) {
+            ICoreSession session = ((IGProject) oldInput).getSession();
             if (session != null) {
                 session.getModelChangeSupport().removeModelChangeListener(this);
                 session.getModelChangeSupport().removeStatusChangeListener(this);
@@ -112,10 +108,10 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         }
         
         // Register model change listener on the new input
-        if (newInput != null && newInput instanceof GProject) {
-            this.openedProject = (GProject) newInput;
+        if (newInput != null && newInput instanceof IGProject) {
+            this.openedProject = (IGProject) newInput;
         
-            IModelChangeSupport changeSupport = ((GProject) newInput).getSession().getModelChangeSupport();
+            IModelChangeSupport changeSupport = ((IGProject) newInput).getSession().getModelChangeSupport();
             changeSupport.addModelChangeListener(this);
             changeSupport.addStatusChangeListener(this);
         } else if (newInput != null && newInput instanceof ICoreSession) {
@@ -152,8 +148,8 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         }
         
         // No local root, get all fragments
-        if (parent != null && parent instanceof GProject) {
-            return getFragments((GProject) parent).toArray();
+        if (parent != null && parent instanceof IGProject) {
+            return getFragments((IGProject) parent).toArray();
         }
         
         // Nothing to return yet
@@ -163,15 +159,15 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("20da7dc0-bc98-4a7c-86ae-6a1e0b74943f")
     @Override
     public Object getParent(final Object child) {
-        if (child instanceof IProjectFragment) {
+        if (child instanceof IGModelFragment) {
             return this.viewer.getInput();
         } else if (child instanceof IModelContainer) {
             return ((IModelContainer<?>) child).getOwner();
         } else if (child instanceof MObject) {
             MObject element = (MObject) child;
             if (!element.isValid()) {
-                // No need to ask extensions for a dead element 
-                return null;        
+                // No need to ask extensions for a dead element
+                return null;
             }
         
             // Delegate parent resolution to the extension that added it
@@ -195,8 +191,8 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("7b52bff5-96e4-435b-9c8a-1f5547d4f12a")
     @Override
     public Object[] getChildren(final Object parent) {
-        if (parent instanceof IProjectFragment) {
-            IProjectFragment fragment = (IProjectFragment) parent;
+        if (parent instanceof IGModelFragment) {
+            IGModelFragment fragment = (IGModelFragment) parent;
             return getFragmentRoots(fragment).toArray();
         } else if (parent instanceof IModelContainer) {
             return ((IModelContainer<?>) parent).getContents().toArray();
@@ -235,8 +231,8 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("3be7ab25-36d6-44e6-8493-f179516df4da")
     @Override
     public boolean hasChildren(final Object parent) {
-        if (parent instanceof IProjectFragment) {
-            IProjectFragment fragment = (IProjectFragment) parent;
+        if (parent instanceof IGModelFragment) {
+            IGModelFragment fragment = (IGModelFragment) parent;
             if (!getFragmentRoots(fragment).isEmpty()) {
                 return true;
             }
@@ -303,7 +299,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     }
 
     @objid ("52b87d3b-cfbe-427f-a444-4a21417f6374")
-    private List<Object> getFragmentRoots(IProjectFragment fragment) {
+    private List<Object> getFragmentRoots(IGModelFragment fragment) {
         List<Object> ret = new ArrayList<>();
         
         for (ITreeContentProvider contentProvider : this.extensions.values()) {
@@ -324,12 +320,19 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     }
 
     @objid ("2795e64c-28ef-43f2-b82a-eea53b2f0694")
-    private List<IProjectFragment> getFragments(GProject project) {
-        List<IProjectFragment> fragments = new ArrayList<>();
-        for (IProjectFragment iProjectFragment : project.getFragments()) {
+    private List<IGModelFragment> getFragments(IGProject project) {
+        List<IGModelFragment> fragments = new ArrayList<>();
+        for (IGModelFragment iProjectFragment : project.getParts(IGModelFragment.class)) {
             if (!isShowModuleFragments()) {
                 // Ignore MDA fragments
-                if (iProjectFragment.getType() == FragmentType.MDA) {
+                boolean skip = true;
+                for (MObject root : iProjectFragment.getRoots()) {
+                    if (!(root instanceof ModuleComponent)) {
+                        skip = false;
+                        break;
+                    }
+                }
+                if (skip) {
                     continue;
                 }
             }
@@ -399,7 +402,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     }
 
     @objid ("b780e61b-8b01-4bc0-925d-f2bdabdd4a0d")
-    private static class FragmentComparator implements Comparator<IProjectFragment> {
+    private static class FragmentComparator implements Comparator<IGModelFragment> {
         @objid ("2403e2ad-9b9f-4ce9-a792-acc866bbe802")
         public  FragmentComparator() {
             // Empty constructor
@@ -407,7 +410,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
 
         @objid ("d4fc43be-60b9-42ce-92c6-20faf04f9813")
         @Override
-        public int compare(IProjectFragment f1, IProjectFragment f2) {
+        public int compare(IGModelFragment f1, IGModelFragment f2) {
             if (f1.getType() == f2.getType()) {
                 return f1.getId().compareTo(f2.getId());
             } else {
@@ -417,18 +420,18 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         }
 
         @objid ("0e80d258-ce9c-43b3-936d-13bfdd6b2d18")
-        private static int getTypeWeight(FragmentType type) {
+        private static int getTypeWeight(GProjectPartType type) {
             switch (type) {
-            case EXML:
+            case EXMLFRAGMENT:
                 return 0;
-            case EXML_SVN:
+            case SVNFRAGMENT:
                 return 1;
             case RAMC:
                 return 2;
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 return 3;
-            case MDA:
-                return 4;
+            // case MDAFRAGMENT:
+            // return 4;
             default:
                 return 99;
             }

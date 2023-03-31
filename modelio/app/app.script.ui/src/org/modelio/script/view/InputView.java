@@ -374,17 +374,19 @@ class InputView extends SourceViewer implements IInputView {
          */
         @objid ("00844964-663d-105c-84ef-001ec947cd2a")
         public static final String GROUP_FIND = "group.find"; // $NON-NLS-1$
+        
 
         /**
          * Context menu group for undo/redo related actions. Value: <code>"group.undo"</code>
          */
         @objid ("008477ea-663d-105c-84ef-001ec947cd2a")
         public static final String GROUP_UNDO = "group.undo"; // $NON-NLS-1$
+        
 
         @objid ("0084a698-663d-105c-84ef-001ec947cd2a")
         public static final String GROUP_EXECUTE = "group.execute";
-
-    }
+}
+    
 
     /**
      * Input viewer configuration.
@@ -491,7 +493,7 @@ class InputView extends SourceViewer implements IInputView {
     private interface IUpdate {
         @objid ("008534aa-663d-105c-84ef-001ec947cd2a")
         void update();
-
-    }
+}
+    
 
 }

@@ -22,13 +22,16 @@ package org.modelio.diagram.styles.editingsupport.key;
 import java.util.List;
 import java.util.function.Supplier;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Table;
@@ -40,6 +43,7 @@ import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.platform.ui.CoreColorRegistry;
 import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIImages;
 
 /**
  * Key column label provider for a {@link TableViewer}.
@@ -67,6 +71,9 @@ public class KeyTableLabelProvider extends StyledCellLabelProvider {
     @objid ("ab1a56c4-f1ed-4792-a0cf-e155752a7be6")
     private final Supplier<ISymbolViewModel> modelSupplier;
 
+    @objid ("e84939cd-75bd-4249-a7ab-c717f4d3adcb")
+    private Image sectionIcon;
+
     @objid ("85a95b3b-1926-11e2-92d2-001ec947c8cc")
     public  KeyTableLabelProvider(Supplier<ISymbolViewModel> modelSupplier, Supplier<IStyle> inputSupplier) {
         this.modelSupplier = modelSupplier;
@@ -74,10 +81,28 @@ public class KeyTableLabelProvider extends StyledCellLabelProvider {
         
     }
 
+    @objid ("1a377a76-f0ae-4e54-acb2-0d375a8ae16e")
+    @Override
+    public void initialize(ColumnViewer viewer, ViewerColumn column) {
+        // The section icon is a UIColor.TABLE_HEADER_BG color filled 24x24 rectangle  used for table lines that represent "sections"
+        this.sectionIcon =  new Image(viewer.getControl().getDisplay(), 24, 24);
+        GC gc = new GC(this.sectionIcon);
+        gc.setBackground(UIColor.TABLE_HEADER_BG);
+        gc.fillRectangle(0, 0, 24, 24);
+        gc.dispose();
+        
+        super.initialize(viewer, column);
+        
+    }
+
     @objid ("85a95b48-1926-11e2-92d2-001ec947c8cc")
     @Override
     public void dispose() {
         this.localFont = null;
+        if (this.sectionIcon != null) {
+            this.sectionIcon.dispose();
+            this.sectionIcon = null;
+        }
         super.dispose();
         
     }
@@ -108,70 +133,58 @@ public class KeyTableLabelProvider extends StyledCellLabelProvider {
         ISymbolViewModel viewModel = this.modelSupplier.get();
         List<? extends ISymbolViewItem> children = viewModel.getChildren(element);
         
+        // Cell text
         String cellText = element.getLabel();
+        cell.setText(cellText);
         
         int indent = 0;
-        if (cellText == null) {
-            cellText = "";
-        } else if (!cellText.isEmpty() && viewModel.getParent(element) != null) {
-            // indent child label
-            for (ISymbolViewItem i = viewModel.getParent(element); i != null; i = viewModel.getParent(i)) {
-                cellText = "  " + cellText;
-                indent += 2;
-            }
+        // if (cellText == null) {
+        // cellText = "";
+        // } else if (!cellText.isEmpty() && viewModel.getParent(element) != null) {
+        // // indent child label
+        // for (ISymbolViewItem i = viewModel.getParent(element); i != null; i = viewModel.getParent(i)) {
+        // cellText = " " + cellText;
+        // indent += 2;
+        // }
+        // }
+        
+        // Cell icon
+        if (!children.isEmpty()) {
+            cell.setImage(this.sectionIcon);
+        }
+        else if (element.isLocallyModified(getEditedStyle())) {
+            cell.setImage(UIImages.DOT);
+        } else {
+            cell.setImage(null);
         }
         
+        // Cell coloring
         if (!children.isEmpty()) {
             // Item with children
-        
-            cell.setText(cellText);
             cell.setBackground(UIColor.TABLE_HEADER_BG);
-        
             StyleRange styleRange = new StyleRange();
             styleRange.start = indent;
             styleRange.length = cellText.length() - indent;
             styleRange.foreground = CoreColorRegistry.getColor(KeyTableLabelProvider.localColor);
-            // styleRange.font = getBoldFont(cell.getFont());
-        
-            /*
-             * //set bold if any child is locally modified for (ISymbolViewItem item : children) { if (item.isLocallyModified(getEditedStyle())) { styleRange.foreground = CoreColorRegistry.getColor(localColor); styleRange.font =
-             * getBoldFont(cell.getFont());
-             * 
-             * break; } }
-             */
-        
             cell.setStyleRanges(new StyleRange[] { styleRange });
         } else {
-        
             StyleKey skey = element.getStyleKey();
-        
-            cell.setText(cellText);
-        
             StyleRange styleRange = new StyleRange();
             styleRange.start = indent;
             styleRange.length = cellText.length() - indent;
-        
             if (skey != null && getEditedStyle().isDynamicValue(skey)) {
                 styleRange.font = getLocalDynamicFont(cell.getFont());
                 styleRange.foreground = CoreColorRegistry.getColor(KeyTableLabelProvider.heritedColor);
             } else if (element.isLocallyModified(getEditedStyle())) {
-                styleRange.font = getBoldFont(cell.getFont());
+                styleRange.font = null;
                 styleRange.foreground = CoreColorRegistry.getColor(KeyTableLabelProvider.localColor);
             } else {
-                styleRange.foreground = CoreColorRegistry.getColor(KeyTableLabelProvider.heritedColor);
                 styleRange.font = null;
+                styleRange.foreground = CoreColorRegistry.getColor(KeyTableLabelProvider.heritedColor);
             }
             cell.setStyleRanges(new StyleRange[] { styleRange });
         }
         return;
-    }
-
-    @objid ("85a95b43-1926-11e2-92d2-001ec947c8cc")
-    private Font getBoldFont(Font font) {
-        if (this.localFont == null) {
-            this.localFont = CoreFontRegistry.getModifiedFont(font, SWT.BOLD, 1.0f);
-        }
-        return this.localFont;
     }
 
     @objid ("f37ee52b-ed25-4368-a11f-63dab0095e3f")

@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("8d5694d0-c068-11e1-8c0a-002564c97630")
 public class MetamodelLabels {
     @objid ("e258a9b8-cb6e-11e1-9165-002564c97630")
-    protected static final ResourceBundle bundle = ResourceBundle.getBundle("metamodel_labels");
+    protected static final ResourceBundle METAMODEL_LABELS_BUNDLE = ResourceBundle.getBundle("metamodel_labels");
 
     /**
      * Gets an i18n string for the given key from the 'metamodel_labels' resource bundle
@@ -41,9 +41,8 @@ public class MetamodelLabels {
     public static String getString(String key) {
         String pattern;
         try {
-            pattern = bundle.getString(key);
+            pattern = METAMODEL_LABELS_BUNDLE.getString("$" + key);
         } catch (final MissingResourceException e) {
-            //CoreUi.LOG.warning("No metamodel label for '%s'", key);
             pattern = key;
         }
         return pattern;

@@ -30,20 +30,20 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * 
  * @since 5.1
  */
-@objid ("384412fd-6be8-4ff0-a266-01098584ac46")
+@objid ("f8bbc1c2-5406-498f-8686-3b5605746c52")
 public final class DefaultAnchorRefResolver implements IAnchorRefResolver {
-    @objid ("66f45440-e8ee-4f93-a1f5-a9d400b3e8e4")
+    @objid ("e7a31f83-bad6-4f0d-9591-2ebf3f1e45d8")
     private static final DefaultAnchorRefResolver INSTANCE = new DefaultAnchorRefResolver();
 
     /**
      * Default empty c'tor.
      */
-    @objid ("b614cd44-ed78-4bde-89db-e7ee10d6c116")
+    @objid ("0b6a1175-6d75-4a61-8549-5333067115b8")
     private  DefaultAnchorRefResolver() {
         super();
     }
 
-    @objid ("d560629f-ee12-4ea2-a8ec-5a52112cdf8f")
+    @objid ("7380b3ea-e7ae-4b49-94cd-54a3b804824d")
     @Override
     public Point resolveAnchorRef(AbstractGraphicalEditPart source, AbstractGraphicalEditPart target, MObject linkElement) {
         return getAbsoluteFigureCenter(source);
@@ -54,7 +54,7 @@ public final class DefaultAnchorRefResolver implements IAnchorRefResolver {
      * @param editPart a figure edit part
      * @return the center of the figure.
      */
-    @objid ("4634b2c7-ff3f-47e7-9883-17ba3ca665d0")
+    @objid ("1dac62a6-29c8-4dc1-ac5d-1cbbd9b1322f")
     protected static final Point getAbsoluteFigureCenter(final AbstractGraphicalEditPart editPart) {
         IFigure fig = editPart.getFigure();
         fig.getUpdateManager().performValidation();
@@ -66,7 +66,7 @@ public final class DefaultAnchorRefResolver implements IAnchorRefResolver {
     /**
      * @return the singleton instance.
      */
-    @objid ("c9a25098-b54e-4b2b-9a38-9214581417a0")
+    @objid ("f33bfd97-32cd-42cb-a077-82fa28fc0753")
     public static DefaultAnchorRefResolver get() {
         return INSTANCE;
     }

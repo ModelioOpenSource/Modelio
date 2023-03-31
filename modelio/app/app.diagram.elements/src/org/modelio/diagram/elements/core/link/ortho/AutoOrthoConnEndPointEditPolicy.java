@@ -44,7 +44,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  */
 @objid ("0b3bd8ed-f3f9-46ed-b4e4-78945d3db436")
 public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEditPolicy {
-    @objid ("17e6abb5-05b5-48d1-bf21-9a4062c74401")
+    @objid ("2583bfa7-7602-4a4b-b492-a50806ba0110")
     private OperationState operationState;
 
     @objid ("9f177739-a096-4fac-ac15-530201a7412b")
@@ -53,7 +53,7 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
         return getOperationStateLong().getFeedbackHelper(request);
     }
 
-    @objid ("9cdfeb9a-06b1-422e-8db2-abf4bef9a5df")
+    @objid ("001b8942-9e66-451c-9e9e-22211dadf078")
     protected final OperationState getOperationStateLong() {
         if (this.operationState == null) {
             ConnectionEditPart connHost = (ConnectionEditPart) getHost();
@@ -62,7 +62,7 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
         return this.operationState;
     }
 
-    @objid ("52bce869-9569-409f-932d-ff5e62790024")
+    @objid ("e72cfaac-2c2f-439b-b52b-1cc24e627d1b")
     protected final OperationState getOperationStateShort() {
         if (this.operationState == null) {
             this.operationState = createOperationState();
@@ -70,7 +70,7 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
         return this.operationState.reference();
     }
 
-    @objid ("d925620d-d446-4095-aee7-a2b23e74ae55")
+    @objid ("3e534760-90a4-4e52-aac5-90e391b3e9bf")
     protected final void derefOperationState() {
         if (this.operationState != null && ! this.operationState.dereference()) {
             this.operationState.dispose();
@@ -79,7 +79,7 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
         
     }
 
-    @objid ("b9ff65ef-e566-42f0-b8cc-06dc4afb7d8c")
+    @objid ("33e92f7f-9d48-4835-a672-8ad3424e4701")
     protected OperationState createOperationState() {
         ConnectionEditPart connHost = (ConnectionEditPart) getHost();
         return new OperationState(connHost);
@@ -124,11 +124,11 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
 
     @objid ("e0c83301-1cbb-4405-8b61-d9f4d643ffb9")
     protected static class OrthoFeedbackHelper extends FeedbackHelper {
-        @objid ("a1bd9ba3-d23a-457e-ada9-0a85b6f1d85e")
-        private final ConnectionEditPart editPart;
-
         @objid ("9231e93b-f972-4025-993b-1696aff9f2ad")
         private final ILinkPathEditorFactory linkPathEditor;
+
+        @objid ("d2df7550-2b47-477a-b37d-7cdd1dc1edbd")
+        private final ConnectionEditPart editPart;
 
         @objid ("85151bb4-d84a-4e30-a18d-1d495ef0efd6")
         private final ConnectionState origPath;
@@ -161,24 +161,24 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
 
     }
 
-    @objid ("fe6f78a9-289c-4f54-aaf3-c19b6523cb8d")
+    @objid ("383dbbfb-ffd6-4eec-8382-e39b4e0e4877")
     protected static class OperationState {
-        @objid ("cce5c6cc-e809-426d-9955-17e42b282462")
+        @objid ("d5f3d476-7100-47af-825b-2a9405bca348")
         private int refCount;
-
-        @objid ("1f76dbc7-c49e-400c-9696-44c2effaab7e")
-        private final ConnectionEditPart host;
 
         @objid ("247307bd-8fbe-4394-a43c-bbc79704ef06")
         private OrthoFeedbackHelper feedbackHelper;
 
-        @objid ("36f98012-f7da-429a-a0ea-32969b6ee162")
+        @objid ("2a76183f-96b0-46dd-8d29-12695f80a228")
+        private final ConnectionEditPart host;
+
+        @objid ("2cf89dd4-51f4-4ad3-a6b2-56279cbdde99")
         private final ILinkPathEditorFactory linkPathEditor;
 
-        @objid ("160f1ad2-3ad2-4725-8313-69c03b77ca44")
+        @objid ("887b02d9-456f-45b2-8fc7-a57f608f0025")
         private final ConnectionState origPath;
 
-        @objid ("f3c04076-1ba9-4f68-8ce3-15a8da5c23c0")
+        @objid ("3f687fa5-7f1b-479b-94fe-b59220669a58")
         public  OperationState(ConnectionEditPart host) {
             this.host = host;
             this.linkPathEditor = ConnectionPolicyUtils.getRoutingServices(host).getLinkPathEditor(ConnectionRouterId.ORTHOGONAL);
@@ -186,26 +186,26 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
             
         }
 
-        @objid ("e7242158-d63e-42fa-bf10-78024cbd5a15")
+        @objid ("21e78e62-ba86-4564-b007-a25c1e802f2a")
         public final OperationState reference() {
             this.refCount++;
             return this;
         }
 
-        @objid ("ad618407-b83a-46bd-8e2d-e857abe1325f")
+        @objid ("8d99a955-88be-4d66-9c2b-f399e458ffde")
         public final boolean dereference() {
             this.refCount--;
             return this.refCount > 0;
         }
 
-        @objid ("f6274f9a-4e9c-4cb2-9dd1-22934f2b175b")
+        @objid ("b65700cb-7b67-4df4-819d-81efda8ab24a")
         public void dispose() {
             if (this.feedbackHelper != null)
                 this.feedbackHelper.dispose();
             
         }
 
-        @objid ("6c24cf8c-6faa-4895-832b-7d520b566784")
+        @objid ("4ab07f5c-9605-4c0d-8ad7-d2f124d41875")
         protected FeedbackHelper getFeedbackHelper(ReconnectRequest request) {
             if (this.feedbackHelper == null) {
                 Connection connection = (Connection) this.host.getFigure();
@@ -218,7 +218,7 @@ public class AutoOrthoConnEndPointEditPolicy extends DefaultConnectionEndpointEd
             return this.feedbackHelper;
         }
 
-        @objid ("041cc9ed-40cc-4ff2-8b03-e8d8dea04039")
+        @objid ("b43dc7b0-73ea-40a7-ad56-042c3aeea8c1")
         public ConnectionState apply(ReconnectRequest request) {
             NodeEditPart node = null;
             if (request.getTarget() instanceof NodeEditPart)

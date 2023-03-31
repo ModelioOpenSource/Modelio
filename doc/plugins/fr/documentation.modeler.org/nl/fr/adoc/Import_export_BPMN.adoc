@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Introduction-à-lImportExport-BPMN-Modelio]]
 
-[[introduction-à-limportexport-bpmn-modelio]]
+
+
 = Introduction à l'Import/Export BPMN Modelio
 
 Modelio supporte les modèles et diagrammes BPMN au format BPMN XML 2.0 standardisé par l'OMG.

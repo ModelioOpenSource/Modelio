@@ -84,5 +84,5 @@ public interface IGmNodeFactory {
     default String migrateNamespace(String namespace) {
         return namespace;
     }
-
 }
+

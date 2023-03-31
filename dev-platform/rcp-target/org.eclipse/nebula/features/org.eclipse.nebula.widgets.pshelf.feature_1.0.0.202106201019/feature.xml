@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.pshelf.feature"
+      label="Nebula PShelf Widget Feature"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org">
+      PShelf
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pshelf"
+         download-size="31"
+         install-size="60"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pshelf.source"
+         download-size="26"
+         install-size="73"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+</feature>

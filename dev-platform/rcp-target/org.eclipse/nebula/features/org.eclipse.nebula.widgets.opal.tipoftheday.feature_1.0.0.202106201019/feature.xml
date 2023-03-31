@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.tipoftheday.feature"
+      label="Nebula Opal Tip of the Day Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Tip of the day
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+      <import feature="org.eclipse.nebula.widgets.opal.header.feature"/>
+   </requires>
+   
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.tipoftheday"
+         download-size="15"
+         install-size="23"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.tipoftheday.source"
+         download-size="10"
+         install-size="22"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

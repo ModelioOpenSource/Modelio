@@ -1,0 +1,223 @@
+/* This file contains CSS customization of the WIKI pages for Modelio forge project */
+
+/**** Titles ****/
+h1 {font-size: 20px;padding: 2px 10px 1px 0px;margin: 0 0 10px 0; border-bottom: 2px solid #bbbbbb; color: #2B5775;}
+h2 {font-size: 16px;padding: 2px 10px 1px 0px;margin: 0 0 10px 0; border-bottom: 1px solid #bbbbbb; color: #2B5775;}
+h3 {font-size: 13px;padding: 2px 10px 1px 0px;margin-bottom: 5px; border-bottom: 1px dotted #bbbbbb; color: #2B5775;}
+h4 {font-size: 12px;padding: 2px 10px 1px 0px;margin-bottom: 5px; border-bottom: 0px dotted #bbbbbb; color: #2B5775;}
+p  {margin-left: 4px;}
+
+/**** Links ****/
+body {
+	font-size: 12px;
+	font-family: Verdana,sans-serif;
+	right: 0;
+	text-align: left;
+}
+
+#footer {
+	right: 0;
+	text-align: right;
+	position: fixed;
+	bottom: 0;
+	z-index: 90;
+	background-color: white;
+}
+
+#footer_content {
+	font-size: 10px;
+	right: 0;
+	text-align: right;
+	background-color: white;
+}
+
+/**** Tables *****/
+table {
+    border: 1px solid #505050;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+td {
+    border: 1px solid #bbb;
+    padding: 4px;
+}
+
+th {
+    border: 1px solid #bbb;
+    padding: 4px;
+    color: #444;
+    background: #EEEEEE;
+}
+
+div.external {
+    background-position: 0% 60%;
+    background-repeat: no-repeat;
+    padding-left: 12px;
+    background-image: url(../images/external.png);
+}
+
+pre {
+    margin: 1em 1em 1em 1.6em;
+    padding: 8px;
+    background-color: #fafafa;
+    border: 1px solid #dadada;
+    width:auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+divul.toc {
+    background-color: #ffffdd;
+    border: 1px solid #e4e4e4;
+    padding: 4px;
+    line-height: 1.2em;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    margin-left: 0;
+    display: table
+}
+* html divul.toc { width: 50%; } /* IE6 doesn't autosize div */
+
+divul.toc.right { float: right; margin-left: 12px; margin-right: 0; width: auto; }
+divul.toc.left  { float: left; margin-right: 12px; margin-left: 0; width: auto; }
+divul.toc ul { margin: 0; padding: 0; }
+divul.toc li { list-style-type:none; margin: 0;}
+divul.toc li li { margin-left: 1.5em; }
+divul.toc li li li { font-size: 0.8em; }
+
+divul.toc a {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-decoration: none;
+    color: #606060;
+}
+divul.toc a:hover { color: #c61a1a; text-decoration: underline;}
+
+/**** wiki ****/
+diva.new { color: #b73535; }
+diva { color: #2020AA; text-decoration: none; border-bottom:1px dotted; }    
+diva:link   { color: #2020AA; text-decoration: none; border-bottom:1px dotted; }
+diva:visited{ color: #2020AA; text-decoration: none; border-bottom:1px dotted; }
+diva:hover  { color: #CC0000; text-decoration: none; border-bottom:1px solid; }
+diva:active { color: #CC0000; text-decoration: none; border-bottom:1px solid; }
+diva img    { border: 0; }
+a.wiki-anchor { display: none; margin-left: 6px; text-decoration: none; }
+a.wiki-anchor:hover { color: #aaa !important; text-decoration: none; }
+h1:hover a.wiki-anchor, h2:hover a.wiki-anchor, h3:hover a.wiki-anchor { display: inline; color: #ddd; }
+
+divimg { 
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-top: 4px;
+  margin-top: 4px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+/************* CodeRay styles *************/
+.syntaxhl div {display: inline;}
+.syntaxhl .no { padding: 2px 4px 2px 4px; background-color: #eee; margin:0 }
+.syntaxhl .code pre { overflow: auto }
+.syntaxhl .debug { color:white ! important; background:blue ! important; }
+
+.syntaxhl .af { color:#00C }
+.syntaxhl .an { color:#007 }
+.syntaxhl .at { color:#f08 }
+.syntaxhl .av { color:#700 }
+.syntaxhl .aw { color:#C00 }
+.syntaxhl .bi { color:#509; font-weight:bold }
+.syntaxhl .c  { color:#888; }
+
+.syntaxhl .ch { color:#04D }
+.syntaxhl .ch .k { color:#04D }
+.syntaxhl .ch .dl { color:#039 }
+
+.syntaxhl .cl { color:#B06; font-weight:bold }
+.syntaxhl .cm { color:#A08; font-weight:bold }
+.syntaxhl .co { color:#036; font-weight:bold }
+.syntaxhl .cr { color:#0A0 }
+.syntaxhl .cv { color:#369 }
+.syntaxhl .de { color:#B0B; }
+.syntaxhl .df { color:#099; font-weight:bold }
+.syntaxhl .di { color:#088; font-weight:bold }
+.syntaxhl .dl { color:black }
+.syntaxhl .do { color:#970 }
+.syntaxhl .dt { color:#34b }
+.syntaxhl .ds { color:#D42; font-weight:bold }
+.syntaxhl .e  { color:#666; font-weight:bold }
+.syntaxhl .en { color:#800; font-weight:bold }
+.syntaxhl .er { color:#F00; background-color:#FAA }
+.syntaxhl .ex { color:#C00; font-weight:bold }
+.syntaxhl .fl { color:#60E; font-weight:bold }
+.syntaxhl .fu { color:#06B; font-weight:bold }
+.syntaxhl .gv { color:#d70; font-weight:bold }
+.syntaxhl .hx { color:#058; font-weight:bold }
+.syntaxhl .i  { color:#00D; font-weight:bold }
+.syntaxhl .ic { color:#B44; font-weight:bold }
+
+.syntaxhl .il { background: #ddd; color: black }
+.syntaxhl .il .il { background: #ccc }
+.syntaxhl .il .il .il { background: #bbb }
+.syntaxhl .il .idl { background: #ddd; font-weight: bold; color: #666 }
+.syntaxhl .idl { background-color: #bbb; font-weight: bold; color: #666; }
+
+.syntaxhl .im { color:#f00; }
+.syntaxhl .in { color:#B2B; font-weight:bold }
+.syntaxhl .iv { color:#33B }
+.syntaxhl .la { color:#970; font-weight:bold }
+.syntaxhl .lv { color:#963 }
+.syntaxhl .oc { color:#40E; font-weight:bold }
+.syntaxhl .of { color:#000; font-weight:bold }
+.syntaxhl .op { }
+.syntaxhl .pc { color:#038; font-weight:bold }
+.syntaxhl .pd { color:#369; font-weight:bold }
+.syntaxhl .pp { color:#579; }
+.syntaxhl .ps { color:#00C; font-weight:bold }
+.syntaxhl .pt { color:#074; font-weight:bold }
+.syntaxhl .r, .kw  { color:#080; font-weight:bold }
+
+.syntaxhl .ke { color: #808; }
+.syntaxhl .ke .dl { color: #606; }
+.syntaxhl .ke .ch { color: #80f; }
+.syntaxhl .vl { color: #088; }
+
+.syntaxhl .rx { background-color:#fff0ff }
+.syntaxhl .rx .k { color:#808 }
+.syntaxhl .rx .dl { color:#404 }
+.syntaxhl .rx .mod { color:#C2C }
+.syntaxhl .rx .fu  { color:#404; font-weight: bold }
+
+.syntaxhl .s { background-color:#fff0f0; color: #D20; }
+.syntaxhl .s .s { background-color:#ffe0e0 }
+.syntaxhl .s .s  .s { background-color:#ffd0d0 }
+.syntaxhl .s .k { }
+.syntaxhl .s .ch { color: #b0b; }
+.syntaxhl .s .dl { color: #710; }
+
+.syntaxhl .sh { background-color:#f0fff0; color:#2B2 }
+.syntaxhl .sh .k { }
+.syntaxhl .sh .dl { color:#161 }
+
+.syntaxhl .sy { color:#A60 }
+.syntaxhl .sy .k { color:#A60 }
+.syntaxhl .sy .dl { color:#630 }
+
+.syntaxhl .ta { color:#070 }
+.syntaxhl .tf { color:#070; font-weight:bold }
+.syntaxhl .ts { color:#D70; font-weight:bold }
+.syntaxhl .ty { color:#339; font-weight:bold }
+.syntaxhl .v  { color:#036 }
+.syntaxhl .xt { color:#444 }
+
+.syntaxhl .ins { background: #cfc; }
+.syntaxhl .del { background: #fcc; }
+.syntaxhl .chg { color: #aaf; background: #007; }
+.syntaxhl .head { color: #f8f; background: #505 }
+
+.syntaxhl .ins .ins { color: #080; font-weight:bold }
+.syntaxhl .del .del { color: #800; font-weight:bold }
+.syntaxhl .chg .chg { color: #66f; }
+.syntaxhl .head .head { color: #f4f; }
+
+

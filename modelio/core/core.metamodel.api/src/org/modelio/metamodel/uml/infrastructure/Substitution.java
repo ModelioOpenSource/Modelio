@@ -40,6 +40,9 @@ import org.modelio.metamodel.uml.statik.Classifier;
  * </ol>
  * 
  * <p>In Modelio, contrary to UML 2.0, <em>Substitution</em> derives from <em>ModelElement</em>. A <em>Substitution</em> is owned by its substituting <em>Classifier</em>.</p>
+ * 
+ * 
+ * 
  */
 @objid ("008dd736-c4be-1fd8-97fe-001ec947cd2a")
 public interface Substitution extends UmlModelElement {
@@ -60,6 +63,7 @@ public interface Substitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates the Classifier that is substituted.</i>
+     * 
      */
     @objid ("e2ef3880-f80f-4b92-a4b8-7bd1274eabf0")
     Classifier getContract();
@@ -69,6 +73,7 @@ public interface Substitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates the Classifier that is substituted.</i>
+     * 
      */
     @objid ("e1fa8f87-5981-471a-ab44-53b657282b8b")
     void setContract(Classifier value);
@@ -78,6 +83,7 @@ public interface Substitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("96283b7b-3de0-4d89-bcf3-de145be4b2e3")
     Classifier getSubstitutingClassifier();
@@ -87,8 +93,9 @@ public interface Substitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("854e30f4-c51e-46ac-ae34-685ba8e40a75")
     void setSubstitutingClassifier(Classifier value);
-
 }
+

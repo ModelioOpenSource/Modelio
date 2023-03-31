@@ -54,5 +54,5 @@ public interface IActionVisitor {
 
     @objid ("006db73a-0d1e-1f20-85a5-001ec947cd2a")
     void visitMoveDependencyAction(final MoveDependencyAction theMoveDependencyAction);
-
 }
+

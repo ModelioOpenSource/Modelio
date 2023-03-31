@@ -37,5 +37,5 @@ public interface IJavaEnumNatValue extends ISingleNatValue {
     @objid ("55a97aea-e84a-40c6-9933-152d8019cf6f")
     @Override
     Enum<?> getValue();
-
 }
+

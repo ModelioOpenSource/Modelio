@@ -207,7 +207,7 @@ public class OrientedBendpointTracker extends ConnectionBendpointTracker {
             
             AutoOrthogonalRouter router = new AutoOrthogonalRouter()
                     .setCleanupManualPoints(false)
-                    .setIgnoreAutomaticPoints(false);
+                    .setRerouteWrongSectionFromPreviousManualPoint(true);
             
             Connection conn = (Connection) this.connectionEditPart.getFigure();
             

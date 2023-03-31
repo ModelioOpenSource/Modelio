@@ -88,7 +88,7 @@ public interface IRTModuleListener {
      * runtime exceptions throw by listeners are caught, logged and ignored.
      */
     @objid ("b30f88a3-b03e-40ed-b024-de05fb6c679d")
-    public static class Poster {
+    static class Poster {
         /**
          * Call {@link IRTModuleListener#moduleStarted(IRTModule)} on all module listeners.
          * @param module the related module
@@ -218,5 +218,5 @@ public interface IRTModuleListener {
         }
 
     }
-
 }
+

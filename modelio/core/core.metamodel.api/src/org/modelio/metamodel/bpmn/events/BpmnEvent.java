@@ -50,6 +50,9 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
  * </ul>
  * 
  * <p>Ownership Events belong to Flow element containers or subprocesses</p>
+ * 
+ * 
+ * 
  */
 @objid ("008c8ed0-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnEvent extends BpmnFlowNode {
@@ -70,6 +73,7 @@ public interface BpmnEvent extends BpmnFlowNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f89073ca-be29-4d9a-a512-83da9e333499")
     EList<BpmnEventDefinition> getEventDefinitions();
@@ -79,8 +83,9 @@ public interface BpmnEvent extends BpmnFlowNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("45830a88-01bb-437c-9707-408793f106ea")
     <T extends BpmnEventDefinition> List<T> getEventDefinitions(java.lang.Class<T> filterClass);
-
 }
+

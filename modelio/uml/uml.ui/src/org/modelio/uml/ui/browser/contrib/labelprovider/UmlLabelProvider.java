@@ -112,7 +112,7 @@ import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.MetamodelLabels;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.platform.model.ui.swt.images.ElementStyler;
@@ -1794,7 +1794,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
             final StringBuilder stringBuilder = new StringBuilder();
             if (!dep.getExtension().isEmpty()) {
                 for (final Stereotype v : dep.getExtension()) {
-                    stringBuilder.append(ModuleI18NService.getLabel(v));
+                    stringBuilder.append(MdaResources.getLabel(v));
             
                     stringBuilder.append(", ");
                 }

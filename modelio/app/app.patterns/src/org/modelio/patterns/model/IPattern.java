@@ -39,5 +39,5 @@ public interface IPattern {
      */
     @objid ("ca011653-4be0-4d01-80d2-e0af28bb62af")
     void createModel(MObject root, ICoreSession coreSession, Map<String, Object> parameters) throws PatternException;
-
 }
+

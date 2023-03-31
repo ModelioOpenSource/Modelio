@@ -58,6 +58,8 @@ import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.PaletteEntry;
+import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.tools.SelectionTool;
@@ -98,6 +100,7 @@ import org.modelio.diagram.editor.widgets.swt.SidePanelsContainerPanel;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
 import org.modelio.diagram.elements.common.abstractdiagram.IDiagramElementDropEditPolicyExtension;
+import org.modelio.diagram.elements.common.abstractdiagram.IDynamicStyler;
 import org.modelio.diagram.elements.common.abstractdiagram.InfraDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.root.ScalableFreeformRootEditPart2;
 import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
@@ -162,31 +165,68 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("0afdbf2c-7844-42cd-9d03-9d3238d67724")
     private static final double[] ZOOM_LEVELS = { 0.25, 0.50, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0,
-                                3.25, 3.5, 3.75, 4.0 };
+                                                    3.25, 3.5, 3.75, 4.0 };
+
+    @objid ("fc65ea0b-4fe3-4622-9cee-299a73dc7b78")
+    @Inject
+    private EContextService contextService;
+
+    @objid ("84cc5b0b-335c-4ce4-bbb7-a78572bf1b5f")
+    private GraphicalViewer graphicalViewer;
+
+    @objid ("cb96adb5-d85b-4bd6-8513-111566f3ad23")
+    @Inject
+    private EMenuService menuService;
+
+    @objid ("2a4d3fec-70f0-4708-979d-91a0ec921347")
+    @Inject
+    private MPart part;
+
+    @objid ("9c72f52b-6d2c-4668-99ea-597054f44c84")
+    private IPartListener partListener;
+
+    @objid ("7d3834df-22f8-4697-891a-e79a3565435c")
+    @Inject
+    private EPartService partService;
+
+    @objid ("f671b0be-edab-42f5-8176-191e7198bb9d")
+    private final RootEditPart rootEditPart = new ScalableFreeformRootEditPart2();
+
+    @objid ("081706ac-ce8c-4a8e-9e55-935fa792bba3")
+    @Inject
+    @Optional
+    private ESelectionService selectionService;
+
+    @objid ("32d47ff5-88d6-4155-a5b9-007844de74d7")
+    private EditDomain editDomain;
+
+    @objid ("88da4d34-9487-403b-8a5f-79e4bd9b52e0")
+    private static Image modifiableImage;
+
+    @objid ("305e54cf-9fda-4ed8-9b26-3db2328ba04a")
+    private static Image notModifiableImage;
+
+    @objid ("f7b0e5a9-c872-473e-ae33-b62050bd2eb2")
+    private PaletteRoot paletteRoot;
+
+    @objid ("b56c7ca5-2cc8-4389-a0db-c4460853cb50")
+    private PaletteViewerProvider provider;
+
+    /**
+     * The selection synchronizer object, which can be used to sync the selection of 2 or more EditPartViewers.
+     */
+    @objid ("4ba20193-e69a-4943-9ec9-d72ef7b73c5e")
+    private final SelectionSynchronizer synchronizer = new SelectionSynchronizer();
 
     @objid ("faad5e29-1cb9-4a73-bb62-fa1c3a66b770")
     @Inject
     private IDiagramConfigurerRegistry configurerRegistry;
 
-    @objid ("43bb46d5-1d62-45d4-940a-e37c17be84f6")
-    @Inject
-    private EContextService contextService;
-
-    @objid ("e54cf14b-a49d-44c9-a1e7-d789e01873c5")
-    private EditDomain editDomain;
-
     @objid ("dd9a4a49-a40c-46c2-a2db-b864f7c4a310")
     private final Collection<IPanelProvider> flyoutPanels = new ArrayList<>();
 
-    @objid ("1b01ad6e-4a3d-4804-ae36-f172d233e3b2")
-    private GraphicalViewer graphicalViewer;
-
     @objid ("729499d6-c016-4206-8f12-867a95dd9a45")
     private DiagramEditorInput input;
-
-    @objid ("1b33755e-10be-4586-9ef1-df8c04779a69")
-    @Inject
-    private EMenuService menuService;
 
     @objid ("d75b49eb-d5b5-4bb0-ba02-62014e889dde")
     private ModelChangeController modelChangeController;
@@ -194,56 +234,19 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     @objid ("f1a73c22-dd65-4904-a91d-87531055c9f1")
     private IsModifiableIndicator modifIndicator = new IsModifiableIndicator();
 
-    @objid ("fe09e50a-0583-4c13-9394-a48ec96f54ce")
-    private static Image modifiableImage;
-
     @objid ("5e7a01c6-2b01-4c87-b1e5-371856abaeae")
     @Inject
     private IModuleService moduleService;
-
-    @objid ("68dc1a5a-2910-4334-832a-eae9601539e2")
-    private static Image notModifiableImage;
-
-    @objid ("d1cfa2c1-dd42-486a-b5ff-84b810f5da3f")
-    private PaletteRoot paletteRoot;
-
-    @objid ("647a0c7c-ddd7-4758-b2e1-89df59237d52")
-    @Inject
-    private MPart part;
-
-    @objid ("ac9a40bd-0140-4e04-822a-df56d7cfe291")
-    private IPartListener partListener;
-
-    @objid ("b3079a4c-1999-4c6d-b1cf-993d2954171a")
-    @Inject
-    private EPartService partService;
 
     @objid ("569296b9-13e3-41d8-92b0-cb308fdfcc10")
     @Inject
     private ICurrentProjectService projectService;
 
-    @objid ("d98e225f-ece6-4889-adb3-3f27cd31cb32")
-    private PaletteViewerProvider provider;
-
-    @objid ("1116e796-2eb0-4ada-a8f3-944ff0c5d7f0")
-    private final RootEditPart rootEditPart = new ScalableFreeformRootEditPart2();
-
     @objid ("c9a76d06-eb16-4a02-88f5-ae4d48617016")
     private SidePanelsContainerPanel sashContainer;
 
-    @objid ("c197d3db-dce5-4448-bdaf-6cf9f935af42")
-    @Inject
-    @Optional
-    private ESelectionService selectionService;
-
     @objid ("9a433b9c-436f-4c2c-8115-e810f7654627")
     FlyoutPaletteComposite2 splitter;
-
-    /**
-     * The selection synchronizer object, which can be used to sync the selection of 2 or more EditPartViewers.
-     */
-    @objid ("4a3d9915-24a2-49eb-b7f7-71e3e67f564c")
-    private final SelectionSynchronizer synchronizer = new SelectionSynchronizer();
 
     @objid ("b6687038-cd75-4b98-85ef-942b439f7a43")
     @Inject
@@ -444,6 +447,24 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         
             // Use applicable configurer to configure the diagram
             configureDiagram();
+        
+            if (DiagramEditor.LOG.isDebugEnabled()) {
+                DiagramEditor.LOG.debug("AbstractDiagramEditor: Dumping %s diagram palette:", diagramEditorInput.getDiagram());
+                for (Object child : this.paletteRoot.getChildren()) {
+                    if (child instanceof PaletteGroup) {
+                        PaletteGroup pg = (PaletteGroup) child;
+                        DiagramEditor.LOG.debug("- "+pg.getLabel() + " - " + pg);
+                        DiagramEditor.LOG.debug("    small icon=" + pg.getSmallIcon());
+                        DiagramEditor.LOG.debug("    small icon=" + pg.getLargeIcon());
+                        for (Object child2 : pg.getChildren()) {
+                            PaletteEntry pe2 = (PaletteEntry) child2;
+                            DiagramEditor.LOG.debug("  - "+pe2.getLabel() + " - " + pe2);
+                            DiagramEditor.LOG.debug("      small icon=" + pe2.getSmallIcon());
+                            DiagramEditor.LOG.debug("      large icon=" + pe2.getLargeIcon());
+                        }
+                    }
+                }
+            }
         
             // Configure the edit domain
             this.editDomain.setPaletteRoot(this.paletteRoot);
@@ -765,7 +786,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     @objid ("f39f9fa8-b6c7-4e9f-9403-0ead0ca3848d")
     protected ConnectionRoutingServices initializeConnectionRoutingServices() {
         return ConnectionRoutingServices.builder()
-                .withLegacyDefaults()
+                .withAutoOrthogonalDefaults()
                 .build();
         
     }
@@ -822,12 +843,16 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             for (final IDiagramConfigurer configurer : this.configurerRegistry.getConfigurers(editedDiagram.getMClass().getName(), stereotypes)) {
                 if (current == null || !(configurer instanceof ModuleDiagramCustomizer)) {
                     current = configurer;
-                    // Only the first configurer declares a dynamic styler
-                    this.input.getGmDiagram().setDynamicStyler(current.getDynamicStyler());
                 } else {
                     // Chain the odule customizers
                     ModuleDiagramCustomizer mdc = (ModuleDiagramCustomizer) configurer;
                     current = new ModuleDiagramCustomizer(current, mdc.getModuleCustomizer(), mdc.getDynamicStyler());
+                }
+        
+                // Only the first configurer declaring a dynamic styler is taken into account
+                IDynamicStyler dynamicStyler = current.getDynamicStyler();
+                if (dynamicStyler != null && this.input.getGmDiagram().getDynamicStyler() == null) {
+                    this.input.getGmDiagram().setDynamicStyler(dynamicStyler);
                 }
             }
             if (current != null) {
@@ -1026,7 +1051,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      */
     @objid ("736e0ba7-983a-48d1-b4b0-bec3371dda03")
     private static final class IsModifiableIndicator {
-        @objid ("ad314d82-e384-4e0b-82a5-3a5c04340352")
+        @objid ("f660dfe1-c709-4414-9476-d2551afb5c1d")
         private Image decoratedIcon = null;
 
         @objid ("8cd35c74-3d0a-480f-85b1-380ac0c6288e")

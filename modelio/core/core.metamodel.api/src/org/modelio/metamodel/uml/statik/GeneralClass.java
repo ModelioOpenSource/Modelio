@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
  * 
  * 
  * A GeneralClass is an elaborated Classifier.  It belongs to its NameSpace.
+ * 
+ * 
  */
 @objid ("000bbdb4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface GeneralClass extends Classifier {
@@ -57,6 +59,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>Determines whether a Class is elementary/primitive or not. A Class is primitive if its value cannot be broken down and its instances are not handled by the application. For example, integer and boolean are elementary Classes, whereas Human or Device are generally not.</i>
+     * 
      */
     @objid ("5381523e-36f3-4e47-aeb0-31695bb5aec1")
     boolean isIsElementary();
@@ -66,6 +69,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>Determines whether a Class is elementary/primitive or not. A Class is primitive if its value cannot be broken down and its instances are not handled by the application. For example, integer and boolean are elementary Classes, whereas Human or Device are generally not.</i>
+     * 
      */
     @objid ("c70f56ec-f3fa-4f72-999a-3bb6ffba21a4")
     void setIsElementary(boolean value);
@@ -75,6 +79,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cc9626c2-6c4b-4748-911a-7ad2434600d8")
     EList<Parameter> getOccurence();
@@ -84,6 +89,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7ff2660b-1161-478c-abe5-8e65066ec2eb")
     <T extends Parameter> List<T> getOccurence(java.lang.Class<T> filterClass);
@@ -93,6 +99,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0cf076f7-42d5-4dc7-b317-cb1183fd3559")
     ExceptionHandler getExceptionInput();
@@ -102,6 +109,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("68b97bc9-9419-4cf7-9885-9a1845eae9d7")
     void setExceptionInput(ExceptionHandler value);
@@ -111,6 +119,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0746d0a0-2a00-4e09-ba3b-dee86f0e5c55")
     EList<Attribute> getObject();
@@ -120,6 +129,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a22decbf-7a78-4330-a76a-21cf013fbcab")
     <T extends Attribute> List<T> getObject(java.lang.Class<T> filterClass);
@@ -129,6 +139,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("91619915-6453-4df2-9018-a6d3e67e8f54")
     EList<Signal> getSRepresentation();
@@ -138,6 +149,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("25290dbc-4e3a-4309-9e29-395c86e40f9f")
     <T extends Signal> List<T> getSRepresentation(java.lang.Class<T> filterClass);
@@ -147,6 +159,7 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cab4b85e-bf51-4ad0-bf7e-4419b346ac0c")
     EList<ObjectNode> getOccurenceObjectNode();
@@ -156,8 +169,9 @@ public interface GeneralClass extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90f524cd-ec12-444d-91bb-ddb84691125c")
     <T extends ObjectNode> List<T> getOccurenceObjectNode(java.lang.Class<T> filterClass);
-
 }
+

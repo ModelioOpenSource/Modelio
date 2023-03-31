@@ -47,5 +47,5 @@ public interface IExchangeService {
      */
     @objid ("a3ba4fdd-0ecc-11e2-96c4-002564c97630")
     void importXmiFile(final XmiImportConfiguration configuration, final IProgressMonitor monitor) throws XmiException;
-
 }
+

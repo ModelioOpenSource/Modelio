@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007f536e-91e0-1f74-804b-001ec947cd2a")
 public enum ObjectNodeOrderingKind {
@@ -40,6 +42,7 @@ public enum ObjectNodeOrderingKind {
     LIFO(2, "LIFO", "LIFO"),
     @objid ("e66bd06e-9f7b-4168-aa01-f6f5939c6bbb")
     FIFO(3, "FIFO", "FIFO");
+
 public static final int UNORDERED_VALUE = 0;
     public static final int ORDERED_VALUE = 1;
     public static final int LIFO_VALUE = 2;

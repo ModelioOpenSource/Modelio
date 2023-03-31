@@ -22,6 +22,8 @@ package org.modelio.vcore.session.impl;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.nio.channels.OverlappingFileLockException;
+import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vbasic.progress.NullProgress;
@@ -70,6 +73,7 @@ import org.modelio.vcore.session.impl.storage.memory.MemoryRepository;
 import org.modelio.vcore.session.impl.transactions.TransactionManager;
 import org.modelio.vcore.session.impl.transactions.events.ModelChangeSupport;
 import org.modelio.vcore.session.impl.transactions.events.StatusChangeManager;
+import org.modelio.vcore.session.plugin.VCoreSession;
 import org.modelio.vcore.smkernel.IMetaOf;
 import org.modelio.vcore.smkernel.KernelRegistry;
 import org.modelio.vcore.smkernel.SmLiveId;
@@ -77,6 +81,7 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
 import org.modelio.vcore.swap.JdbmSwap;
+import org.modelio.vstore.jdbm.JdbmRepository;
 
 /**
  * Core modeling session implementation.
@@ -96,6 +101,12 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      */
     @objid ("3cc2caae-129e-45cb-ba2f-7d5f6d004247")
     private byte repoCounter = 0;
+
+    @objid ("1507d5f2-9829-4270-a9d3-fd1583d4d45b")
+    private final Lock repositoriesLock = new ReentrantLock();
+
+    @objid ("70ca08e9-57f7-46d1-a828-083d696c943b")
+    private ScheduledExecutorService schedulerService;
 
     @objid ("7713c146-c1e9-491a-b0b3-5eeb2f3a23c6")
     private BlobSupport blobSupport;
@@ -133,14 +144,8 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
     @objid ("001bb552-a686-44e5-bb36-5fee49a321cc")
     private final List<IRepository> repositories = new CopyOnWriteArrayList<>();
 
-    @objid ("0cfc1e11-5903-45c5-bb64-6e4cb461aa67")
-    private final Lock repositoriesLock = new ReentrantLock();
-
     @objid ("1df81043-14f1-44b5-a9b8-a0bfdf719ec2")
     private Collection<IRepositoryChangeListener> repositoryChangeListeners;
-
-    @objid ("39d2b96c-958c-433b-a490-70c28371377a")
-    private ScheduledExecutorService schedulerService;
 
     /**
      * Repository where newly created objects are located until they are attached to an owner.
@@ -186,9 +191,9 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
-     * @param aMetamodel the metamodel to use. It is stored by reference, no copy is done.
      * @throws IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
+     * @param aMetamodel the metamodel to use. It is stored by reference, no copy is done.
      */
     @objid ("c295ebe8-91ba-45c2-93a8-ecafee94dd10")
     @Deprecated
@@ -198,9 +203,9 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
-     * @param swapPath An empty directory where the swap can be stored.
      * @throws IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
+     * @param swapPath An empty directory where the swap can be stored.
      */
     @objid ("ec98a3c0-9a00-4428-96c9-4c3d2933934c")
     @Deprecated
@@ -279,13 +284,13 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Connect a repository to this modeling session.
+     * @throws IOException in case of failure.
      * @param aBase the repository to add.
      * @param accessManager the access rights manager that will set access rights on loaded objects.
-     * @throws IOException in case of failure.
      */
     @objid ("014123b4-8952-49e1-8c40-01dd2ddb0cd0")
     @Override
-    public void connectRepository(IRepository aBase, String key, final IAccessManager accessManager, IModelioProgress monitor) throws IOException {
+    public void connectRepository(IRepository aBase, String key, final IAccessManager accessManager, IModelioProgress progress) throws IOException {
         assertOpen();
         
         this.repositoriesLock.lock();
@@ -310,12 +315,12 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
                         this.cacheManager, repoManager, this.refreshEventService, new UnloadedRepositoryHandle(aBase));
                 ModelLoaderProvider modelLoaderProvider = new ModelLoaderProvider(config);
         
-                aBase.open(modelLoaderProvider, monitor);
+                aBase.open(modelLoaderProvider, progress);
             }
         
             this.repositories.add(aBase);
             this.repoRegistry.put(key, aBase);
-            
+        
             // If a metamodel descriptor exists, merge it into the metamodel
             aBase.getMetamodelDescriptor().ifPresent(d -> getMetamodel().merge(d));
         
@@ -333,8 +338,8 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Close and remove the given model repository from the connected repositories.
-     * @param toRemove the repository to disconnect.
      * @throws IllegalArgumentException if the repository is not connected to this session
+     * @param toRemove the repository to disconnect.
      */
     @objid ("6703d8f2-07e5-11e2-b33c-001ec947ccaf")
     @Override
@@ -431,8 +436,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
     /**
      * Get the model changes events listeners support.
      * <p>
-     * This object manages model and status change listeners. It is used to add and remove listeners and to fire model change
-     * events.
+     * This object manages model and status change listeners. It is used to add and remove listeners and to fire model change events.
      * @return the model change support.
      */
     @objid ("7dc92792-1c43-11e2-8eb9-001ec947ccaf")
@@ -535,7 +539,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
     @objid ("b8e5c2b5-63a7-46c6-8d82-2575cb7d892e")
     @Override
     public boolean isDirty() {
-        if (! isValid()) {
+        if (!isValid()) {
             // A closed session is not dirty
             return false;
         }
@@ -545,7 +549,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
                 return true;
             }
         }
-        return ! this.cacheManager.getDeletedObjects().isEmpty();
+        return !this.cacheManager.getDeletedObjects().isEmpty();
     }
 
     @objid ("2cbdf4b2-e385-47ea-83c6-865452fa2d41")
@@ -563,10 +567,10 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      */
     @objid ("006d69b0-6ebd-1f22-8c06-001ec947cd2a")
     @Override
-    public void save(IModelioProgress monitor) throws IOException {
+    public void save(IModelioProgress aProgress) throws IOException {
         assertOpen();
         
-        SubProgress mon = SubProgress.convert(monitor, 15 + this.repositories.size() * 10);
+        SubProgress progress = SubProgress.convert(aProgress, 10 + this.repositories.size() * 10);
         
         Iterable<SmObjectImpl> deletedObjects = this.cacheManager.getDeletedObjects();
         for (SmObjectImpl obj : deletedObjects) {
@@ -585,11 +589,11 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
             obj.getRepositoryObject().detach(obj);
         }
         
-        mon.worked(10);
+        progress.worked(10);
         
         // Save changes in the database
         for (IRepository base : getRepositories()) {
-            base.save(mon.newChild(10));
+            base.save(progress.newChild(10));
         }
         
         // Clear the transactions
@@ -597,6 +601,8 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         
         // Clear the cache
         this.cacheManager.clearDeletedObjects();
+        
+        progress.done();
         
     }
 
@@ -709,7 +715,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     @objid ("67063b47-07e5-11e2-b33c-001ec947ccaf")
     private void assertOpen() throws IllegalStateException {
-        if (! isValid()) {
+        if (!isValid()) {
             throw new IllegalStateException(String.format("%s is closed.", this));
         }
         
@@ -717,8 +723,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Create and empties the swap directory.
-     * @throws java.io.IOError
-     * in case of failure
+     * @throws java.io.IOError in case of failure
      * @return the swap directory path
      */
     @objid ("3f1d5b36-7e46-11e1-bee3-001ec947ccaf")
@@ -750,6 +755,45 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         
     }
 
+    @objid ("941381a7-f975-47ae-a882-7030eb0b534a")
+    public void mountNSURepository(Path nsUseRepoPath, SubProgress progress) throws IOException {
+        JdbmRepository nsUseRepo = null;
+        IRepositorySupport repositorySupport = getRepositorySupport();
+        try {
+            progress.setWorkRemaining(15);
+            nsUseRepo = new JdbmRepository(nsUseRepoPath.toFile());
+            repositorySupport.connectRepository(nsUseRepo, IRepositorySupport.REPOSITORY_KEY_LOCAL, new BasicAccessManager(), progress.newChild(10));
+        } catch (final AccessDeniedException e) {
+            // don't delete the model in case of locking problems
+            throw e;
+        } catch (final IOException e) {
+            if (e.getCause() instanceof OverlappingFileLockException) {
+                // don't delete the model in case of locking problems
+                throw e;
+            }
+        
+            // Try to recover by deleting the local repository and create a new empty one.
+            try {
+                // Close and delete the repository
+                nsUseRepo.close();
+                FileUtils.delete(nsUseRepoPath);
+        
+                // Create a new one
+                nsUseRepo = new JdbmRepository(nsUseRepoPath.toFile());
+                repositorySupport.connectRepository(nsUseRepo, IRepositorySupport.REPOSITORY_KEY_LOCAL, new BasicAccessManager(),
+                        progress.newChild(5));
+        
+                // Report the problem
+                Log.warning(VCoreSession.I18N.getMessage("GProject.localRepositoryRecreated", FileUtils.getLocalizedMessage(e)));
+            } catch (IOException | RuntimeException e2) {
+                // Recover failed: Add the new exception as suppressed and rethrow the initial one.
+                e.addSuppressed(e2);
+                throw e;
+            }
+        }
+        
+    }
+
     /**
      * Initialize the scheduled executor service.
      * @return the scheduled executor service.
@@ -759,18 +803,16 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         int corePoolSize = 2;
         
         /*
-         * Creates an Executor that uses a 2 worker threads operating off an unbounded queue, and uses the provided ThreadFactory to
-         * create a new thread when needed.
+         * Creates an Executor that uses a 2 worker threads operating off an unbounded queue, and uses the provided ThreadFactory to create a new thread when needed.
          *
-         * Instantiates a thread factory that creates daemons threads with a custom name and an unhandled exception handler that
-         * logs errors.
+         * Instantiates a thread factory that creates daemons threads with a custom name and an unhandled exception handler that logs errors.
          */
         ThreadFactory threadFactory = new ThreadFactory() {
             private int count = 0;
         
             @Override
             public Thread newThread(Runnable r) {
-                @SuppressWarnings("synthetic-access")
+                @SuppressWarnings ("synthetic-access")
                 final String name = String.format("CoreSession %d Scheduler thead %d", CoreSession.this.ksp.getId(), ++this.count);
         
                 Thread t = new Thread(r, name);
@@ -796,9 +838,9 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Create a CoreSession from a builder.
      * <p>
      * To be called only internally of from {@link CoreSessionBuilder#build()}.
-     * @param builder the session descriptor.
      * @throws IOException on failure.
      * @since 3.6
+     * @param builder the session descriptor.
      */
     @objid ("46d905d6-ebcb-4659-8090-128934bcb851")
     protected  CoreSession(CoreSessionBuilder builder) throws IOException {

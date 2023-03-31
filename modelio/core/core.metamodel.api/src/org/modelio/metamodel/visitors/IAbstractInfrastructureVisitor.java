@@ -63,6 +63,7 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 
 /**
  * This class is an implementation of {@link IInfrastructureVisitor} whose visit() methods simply return <code>null</code>.
+ * 
  */
 @objid ("4219dd4f-4355-4b63-b963-59e96185b0cf")
 public interface IAbstractInfrastructureVisitor extends IInfrastructureVisitor {
@@ -305,5 +306,5 @@ public interface IAbstractInfrastructureVisitor extends IInfrastructureVisitor {
     default Object visitTypedPropertyTable(TypedPropertyTable obj) {
         	return null;
     }
-
 }
+

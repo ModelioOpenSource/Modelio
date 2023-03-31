@@ -48,20 +48,22 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.modelio.api.ui.swt.SelectionHelper;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ColumnHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.FragmentConflictException;
-import org.modelio.platform.project.services.IProjectService;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPart;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.parts.GPartFactory;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
  * Manage the local model section.
  * <p>
- * Call {@link LocalModelSection#createControls(FormToolkit, Composite)} and
- * {@link LocalModelSection#setInput(ProjectModel)} to use it.
+ * Call {@link LocalModelSection#createControls(FormToolkit, Composite)} and {@link LocalModelSection#setInput(ProjectModel)} to use it.
  * </p>
  */
 @objid ("7d61a03a-3adc-11e2-916e-002564c97630")
@@ -93,8 +95,7 @@ public class LocalModelSection {
     }
 
     /**
-     * Update() is called by the project infos view when the project to be
-     * displayed changes or need contents refresh
+     * Update() is called by the project infos view when the project to be displayed changes or need contents refresh
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("7d61a045-3adc-11e2-916e-002564c97630")
@@ -147,15 +148,15 @@ public class LocalModelSection {
         ColumnViewerToolTipSupport.enableFor(this.viewer);
         
         // Name column
-        @SuppressWarnings("unused")
+        @SuppressWarnings ("unused")
         TableViewerColumn nameColumn = ColumnHelper.createFragmentNameColumn(this.viewer);
         
         // Scope column
-        @SuppressWarnings("unused")
+        @SuppressWarnings ("unused")
         TableViewerColumn scopeColumn = ColumnHelper.createFragmentScopeColumn(this.viewer);
         
         // Metamodel version column
-        @SuppressWarnings("unused")
+        @SuppressWarnings ("unused")
         TableViewerColumn mmVer = ColumnHelper.createFragmentMmVersionColumn(this.viewer);
         
         this.viewer.setInput(null);
@@ -226,13 +227,11 @@ public class LocalModelSection {
         public void widgetSelected(SelectionEvent e) {
             AppProjectConf.LOG.debug("add exml fragment"); //$NON-NLS-1$
             
-            final IProjectService projectService = LocalModelSection.this.applicationContext.get(IProjectService.class);
-            
             Shell shell = getViewer().getControl().getShell();
             AddLocalModelDialog dlg = new AddLocalModelDialog(shell, getProjectAdapter().getFragmentIdList());
             dlg.open();
             
-            final FragmentDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
+            final GProjectPartDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
             if (fragmentDescriptor != null) {
             
                 IRunnableWithProgress runnable = new IRunnableWithProgress() {
@@ -240,8 +239,14 @@ public class LocalModelSection {
                     @Override
                     public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                         try {
-                            projectService.addFragment(getProjectAdapter().getOpenedProject(), fragmentDescriptor, monitor);
-                        } catch (FragmentConflictException ex) {
+                            IGProject openedProject = getProjectAdapter().getOpenedProject();
+            
+                            // Instantiate the part
+                            final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+            
+                            // Add new fragment to project, permanent mount
+                            openedProject.addGPart(newFragment, true);
+                        } catch (GPartException ex) {
                             throw new InvocationTargetException(ex, ex.getLocalizedMessage());
                         }
                     }
@@ -280,8 +285,6 @@ public class LocalModelSection {
         public void widgetSelected(SelectionEvent e) {
             AppProjectConf.LOG.debug("rename exml fragment"); //$NON-NLS-1$
             
-            IProjectService projectService = LocalModelSection.this.applicationContext.get(IProjectService.class);
-            
             if (getViewer().getSelection().isEmpty()) {
                 return;
             }
@@ -290,10 +293,16 @@ public class LocalModelSection {
                     AppProjectConf.I18N.getString("LocalModelRemoval.Confirm.Message"));
             
             if (confirm) {
-            
+                IGProject openedProject = getProjectAdapter().getOpenedProject();
                 IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
-                for (Object obj : selection.toList()) {
-                    projectService.removeFragment(getProjectAdapter().getOpenedProject(), (IProjectFragment) obj);
+                try {
+                    for (final IGModelFragment gPart : SelectionHelper.toList(selection, IGModelFragment.class)) {
+                        openedProject.removeGPart(gPart);
+                    }
+                } catch (GPartException ex) {
+                    AppProjectConf.LOG.error(ex);
+                    Shell shell = getViewer().getControl().getShell();
+                    MessageDialog.openError(shell, AppProjectConf.I18N.getString("Error"), ex.getLocalizedMessage());
                 }
             }
             refresh();
@@ -307,8 +316,6 @@ public class LocalModelSection {
         @objid ("7d61a061-3adc-11e2-916e-002564c97630")
         @Override
         public void widgetSelected(SelectionEvent e) {
-            IProjectService projectService = LocalModelSection.this.applicationContext.get(IProjectService.class);
-            
             if (getViewer().getSelection().isEmpty()) {
                 return;
             }
@@ -319,15 +326,15 @@ public class LocalModelSection {
             
             if (dlg.getResult() != null) {
                 IStructuredSelection selection = getViewer().getStructuredSelection();
-                IProjectFragment obj = (IProjectFragment) selection.getFirstElement();
+                IGModelFragment obj = (IGModelFragment) selection.getFirstElement();
                 AppProjectConf.LOG.info("Renaming '%s' fragment to '%s' ...", obj.getId(), dlg.getResult());
                 try {
-                    projectService.renameFragment(getProjectAdapter().getOpenedProject(), obj, dlg.getResult());
+                    obj.rename(dlg.getResult(), null);
                 } catch (IOException e1) {
                     AppProjectConf.LOG.error("Renaming '%s' fragment to '%s' failed: %s", obj.getId(), dlg.getResult(), FileUtils.getLocalizedMessage(e1));
                     AppProjectConf.LOG.debug(e1);
                     MessageDialog.openError(shell, AppProjectConf.I18N.getString("Error"), FileUtils.getLocalizedMessage(e1)); //$NON-NLS-1$
-                } catch (FragmentConflictException e1) {
+                } catch (GPartException e1) {
                     AppProjectConf.LOG.error("Renaming '%s' fragment to '%s' failed: %s", obj.getId(), dlg.getResult(), e1.getLocalizedMessage());
                     AppProjectConf.LOG.debug(e1);
                     MessageDialog.openError(shell, AppProjectConf.I18N.getString("Error"), e1.getLocalizedMessage()); //$NON-NLS-1$

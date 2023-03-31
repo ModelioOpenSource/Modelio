@@ -313,7 +313,7 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
         
     }
 
-    @objid ("4e56c58a-32fb-4313-b6ed-b6e2df8ce111")
+    @objid ("03559980-3f97-4195-a1ed-031b605b7855")
     private Point computeHeaderSize(final BpmnLane lane, GmBpmnLane newLaneGm) {
         Point laneHeaderSize ;
         StyleKey fontStyleKey = newLaneGm.getStyleKey(MetaKey.FONT);

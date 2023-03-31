@@ -39,6 +39,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * Modelio specific : 
  * In order to make the Setup and Test sections easier to fill, these are string expressions in Modelio, instead of a set of activity nodes in the OMG UML specification.
+ * 
+ * 
+ * 
  */
 @objid ("00372b20-c4bf-1fd8-97fe-001ec947cd2a")
 public interface LoopNode extends StructuredActivityNode {
@@ -59,6 +62,7 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the test is performed before the first execution of the body. If false, the body is executed once before the test is performed. The default value is false. </i>
+     * 
      */
     @objid ("d657cfc0-dfc8-4625-b5f6-299a9f2f965f")
     boolean isIsTestedFirst();
@@ -68,6 +72,7 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the test is performed before the first execution of the body. If false, the body is executed once before the test is performed. The default value is false. </i>
+     * 
      */
     @objid ("f1671d6f-612a-44ab-920d-e180adb3cd02")
     void setIsTestedFirst(boolean value);
@@ -77,6 +82,7 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Section that initialize values or perform other setup computations for the loop.</i>
+     * 
      */
     @objid ("570c8038-8ff8-48df-b117-75e42477d819")
     String getSetup();
@@ -86,6 +92,7 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Section that initialize values or perform other setup computations for the loop.</i>
+     * 
      */
     @objid ("3429c38f-dcaa-4d70-b045-7131ebd02a13")
     void setSetup(String value);
@@ -95,6 +102,7 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Expression that computes a Boolean value to determine if another execution of the body will be performed.</i>
+     * 
      */
     @objid ("a6cecf6d-7e14-441f-b1e3-56ad9bd3e49b")
     String getTest();
@@ -104,8 +112,9 @@ public interface LoopNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Expression that computes a Boolean value to determine if another execution of the body will be performed.</i>
+     * 
      */
     @objid ("0a8260af-94da-4423-bd09-3b68857e71ef")
     void setTest(String value);
-
 }
+

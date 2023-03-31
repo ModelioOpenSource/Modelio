@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modelio-XMI-ImportExport-options]]
 
-[[modelio-xmi-importexport-options]]
+
+
 = Modelio XMI Import/Export options
 
-[[Configuring-Modelio-XMI-ImportExport]]
 
-[[configuring-modelio-xmi-importexport]]
+
+
 ===== Configuring Modelio XMI Import/Export
 
 Modelio XMI parameters are used to modify the import and export behavior of the generator.
 
-[[XMI-configuration]]
 
-[[xmi-configuration]]
+
+
 ===== XMI configuration
 
 image::images/Xmi_config_pref_xmi.png[2]
 
-[[The-parameter-set]]
 
-[[the-parameter-set]]
+
+
 The parameter set
 
 [cols=",",options="header",]

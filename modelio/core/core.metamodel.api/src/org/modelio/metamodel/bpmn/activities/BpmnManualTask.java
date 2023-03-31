@@ -35,6 +35,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A Manual Task is neither executed by nor managed by a business process runtime.
  * A Manual Task is a Task that is not managed by any business process engine. It can be considered as an unmanaged
  * Task, unmanaged in the sense of that the business process engine doesn?t track the start and completion of such a Task. An example of this could be a paper based instruction for a telephone technician to install a telephone at a customerlocation.
+ * 
+ * 
  */
 @objid ("008078fc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnManualTask extends BpmnTask {
@@ -49,5 +51,5 @@ public interface BpmnManualTask extends BpmnTask {
      */
     @objid ("8df912b8-d93e-4cb4-bdac-5ff2ebad0e6b")
     public static final String MQNAME = "Standard.BpmnManualTask";
-
 }
+

@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-elements]]
 
-[[creating-elements]]
+
+
 = Creating elements
 
-[[Three-ways-of-creating-elements]]
 
-[[three-ways-of-creating-elements]]
+
+
 ===== Three ways of creating elements
 
 .The three ways of creating an element in Modelio

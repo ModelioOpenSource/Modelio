@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Welcome
 Bundle-SymbolicName: org.modelio.app.ui.welcome;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Vendor: modelio.org
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.1.0",

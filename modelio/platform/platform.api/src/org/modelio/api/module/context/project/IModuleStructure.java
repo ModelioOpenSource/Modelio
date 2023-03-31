@@ -47,5 +47,5 @@ public interface IModuleStructure {
      */
     @objid ("5af8b472-d5cc-11de-884b-001ec947cd2a")
     String getArchive();
-
 }
+

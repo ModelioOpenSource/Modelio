@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Exporting-a-model-in-BPMN-format]]
 
-[[exporting-a-model-in-bpmn-format]]
+
+
 = Exporting a model in BPMN format
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The BPMN Export service is used to generate BPMN files from a BPMN model built in Modelio.

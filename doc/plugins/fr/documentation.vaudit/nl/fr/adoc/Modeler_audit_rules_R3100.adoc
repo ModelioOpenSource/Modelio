@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3100]]
 
-[[r3100]]
+
+
 = R3100
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _SequenceFlow_ dans un _SubProcess_ doit avoir sa source et sa cible dans le même _SubProcess_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _SubProcess_ BPMN représentent des processus indépendants. Tous les éléments faisant partie d'une séquence dans un _SubProcess_ doivent être dans ce _SubProcess_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un _SubProcess_ avec des _SequenceFlows_ qui arrivent ou partent en dehors de ce _SubProcess_, vous devez vous assurer que votre _SubProcess_ possède bien un _StartEvent_ et un _EndEvent_, et qu'il n'y ait qu'une seule séquence. Ces règles devraient vous assurer de n'avoir aucun lien entrant ou sortant en dehors du _SubProcess_.

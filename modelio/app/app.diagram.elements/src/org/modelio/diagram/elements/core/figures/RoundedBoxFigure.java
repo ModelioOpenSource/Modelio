@@ -28,6 +28,7 @@ import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.handles.HandleBounds;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Path;
@@ -249,6 +250,8 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         
         // Paint background
         if (isOpaque()) {
+            graphics.setAdvanced(true);
+        
             Color base = this.brushOptions.fillColor;
             Color gradientColor = this.brushOptions.useGradient ? computeGradientColor(base) : base;
             graphics.setBackgroundColor(gradientColor);
@@ -273,6 +276,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
                 path.lineTo(x + adjustedRadius, y);
                 path.addArc(x, y, 2 * adjustedRadius, 2 * adjustedRadius, 90, 90);
                 graphics.clipPath(path);
+                path.dispose();
             }
         
             graphics.setAlpha(this.brushOptions.alpha);
@@ -348,6 +352,8 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         @objid ("7fae4da5-1dec-11e2-8cad-001ec947c8cc")
         @Override
         public void paint(IFigure figure, Graphics graphics, Insets insets) {
+            graphics.setAntialias(SWT.ON);
+            graphics.setInterpolation(SWT.HIGH);  // seems to be interpolation for images painting
             AbstractBorder.tempRect.setBounds(getPaintRectangle(figure, insets));
             if (getWidth() % 2 != 0) {
                 AbstractBorder.tempRect.width--;
@@ -357,7 +363,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
             if (getColor() != null) {
                 graphics.setForegroundColor(getColor());
             }
-            graphics.setLineWidth(getWidth());
+            graphics.setLineWidthFloat(getWidth());
             graphics.setLineStyle(getStyle());
             int borderRadius = ((RoundedBoxFigure) figure).getAdjustedRadius(AbstractBorder.tempRect);
             graphics.drawRoundRectangle(AbstractBorder.tempRect, borderRadius * 2, borderRadius * 2);

@@ -68,6 +68,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     @objid ("5b107b27-90b4-4282-870c-28338d37cc52")
     private static String ELLIPSIS = "..."; // $NON-NLS-1$
+    
 
     @objid ("39c8428f-4885-429f-9b88-10e4212c604a")
     private int iconAlignment = PositionConstants.CENTER;
@@ -95,6 +96,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     @objid ("ab21b6a3-1d50-4903-9b92-4b221ec8568a")
     private String text = ""; // $NON-NLS-1$
+    
 
     @objid ("ed0c38c0-9d92-48f5-b7a3-dcbd8bf95561")
     private int textAlignment = PositionConstants.CENTER;
@@ -233,6 +235,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
         Rectangle b = getBounds();
         return new Rectangle(b.getLocation().translate(getIconLocation()),
                         getIconSize());
+        
     }
 
     /**
@@ -1093,6 +1096,8 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     @objid ("50a44741-d2c6-4f37-b6a7-b1c28ef6720d")
     @Override
     protected void paintFigure(final Graphics graphics) {
+        graphics.setTextAntialias(SWT.ON);
+        
         if (isOpaque()) {
             super.paintFigure(graphics);
         }
@@ -1120,6 +1125,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
         }
         
         if (this.icon != null) {
+            graphics.setInterpolation(SWT.HIGH);
             graphics.drawImage(this.icon, getIconLocation());
         }
         

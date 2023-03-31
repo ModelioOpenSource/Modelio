@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2570]]
 
-[[r2570]]
+
+
 = R2570
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 If a _Port_ is a behavior _Port_, the _Port_ must be typed either by the _Class_ it belongs to or undefined.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Any invocation of a behavioral feature on a behavior _Port_ will be handled by the owning _Classifier_ itself, rather than by any instances that this classifier may contain.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Change the type of the _Port_ to the owning _Classifier_ or to nothing.

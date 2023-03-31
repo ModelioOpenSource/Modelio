@@ -25,6 +25,7 @@ import org.eclipse.draw2d.Polyline;
 import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
@@ -41,7 +42,7 @@ public class LinkFigure extends PolylineConnection implements IPenOptionsSupport
     /**
      * When creating a link figure, temporary use this as default path.
      */
-    @objid ("81dd60e0-a1f4-46ce-a0c5-7a29e3ab1609")
+    @objid ("6cc4bcd1-3db3-4416-9ffb-fde126b3825c")
     public static final int[] DEFAULT_POINTS = { 0, 0, 0, 0 };
 
     @objid ("7fa7269e-1dec-11e2-8cad-001ec947c8cc")
@@ -98,7 +99,24 @@ public class LinkFigure extends PolylineConnection implements IPenOptionsSupport
     @Override
     protected void outlineShape(Graphics g) {
         ZoomDrawer.setLineWidth(g, this.getLineWidth());
+        configureAntialias(g);
         super.outlineShape(g);
+        
+    }
+
+    /**
+     * Disable anti-aliasing on 1px width dashed lines.
+     * <p>
+     * This is done because anti-aliasing  on dashed lines with line width = 1px blurs too much dashes,
+     * at least on windows.
+     * @param g the graphics object
+     */
+    @objid ("be6c57ad-500a-4e4e-b78d-61cd3715dda9")
+    protected void configureAntialias(Graphics g) {
+        if (g.getAntialias() != SWT.OFF && g.getLineWidth() <= 1 && g.getLineStyle() != SWT.LINE_SOLID) {
+            // Antialias on dashed lines with line width = 1 blurs too much dashes
+            g.setAntialias(SWT.OFF);
+        }
         
     }
 

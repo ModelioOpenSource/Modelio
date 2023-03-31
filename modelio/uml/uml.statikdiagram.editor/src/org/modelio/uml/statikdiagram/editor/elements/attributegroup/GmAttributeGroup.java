@@ -200,7 +200,7 @@ public class GmAttributeGroup extends GmGroup {
             if (mode == null) {
                 return;
             }
-        
+            
             switch (mode) {
             case ALL:
                 break;

@@ -45,5 +45,5 @@ public interface OfficeWindow {
      */
     @objid ("a63d173a-42a5-4f2c-b3f9-f8e0f212bd7e")
     XWindowPeer getUNOWindowPeer();
-
 }
+

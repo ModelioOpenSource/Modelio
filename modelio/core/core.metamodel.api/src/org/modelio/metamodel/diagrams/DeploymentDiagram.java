@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Deployment diagrams are used to represent the physical architecture of a system using nodes and connections between these nodes.</p><p>Tip: to model the deployment of elements in a node, create parts typed by these elements in the node. You can then drag and drop these elements into the node (for example, class, component, ...).</p>
+ * 
+ * 
+ * 
  */
 @objid ("006d2662-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DeploymentDiagram extends StaticDiagram {
@@ -46,5 +49,5 @@ public interface DeploymentDiagram extends StaticDiagram {
      */
     @objid ("75ad1f76-924d-4d73-ae59-b8478047cf10")
     public static final String MQNAME = "Standard.DeploymentDiagram";
-
 }
+

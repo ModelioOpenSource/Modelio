@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>products</artifactId>
+	<packaging>eclipse-repository</packaging>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<products>
+						<product>
+							<id>org.modelio.product</id>
+							<attachId>OpenSource</attachId>
+							<rootFolder>${modelio.rootFolder}</rootFolder>
+						</product>
+					</products>
+					<installFeatures>true</installFeatures>
+					<profile>DefaultProfile</profile>
+					<formats>
+						<linux>tar.gz</linux>
+						<macosx>tar.gz</macosx>
+					</formats>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+

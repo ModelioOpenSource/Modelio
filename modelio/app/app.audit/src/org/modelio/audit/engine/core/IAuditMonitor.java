@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IAuditMonitor {
     @objid ("b1daa558-1ec5-49cd-a8a9-55af1b186838")
     void status(AuditRunnerStatus status, int queueSize);
-
 }
+

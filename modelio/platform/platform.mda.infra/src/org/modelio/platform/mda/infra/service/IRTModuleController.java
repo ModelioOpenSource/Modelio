@@ -23,6 +23,7 @@ import java.net.URI;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.platform.mda.infra.IMdaResourceProviderRegistry;
 import org.modelio.platform.mda.infra.service.impl.IModuleRegistryAccess;
 import org.modelio.vbasic.version.Version;
 
@@ -133,4 +134,13 @@ public interface IRTModuleController {
     @objid ("9d542358-9c57-4179-86ee-980f568e8364")
     void updateFromGModule(Version oldVersion) throws ModuleException;
 
+    @objid ("90f95606-f0e7-4425-a88f-11f9fe13ad05")
+    void initRequiredModules();
+
+    @objid ("ad3a2aed-9008-4a19-b6f2-d2899f97c10e")
+    void initModuleUses();
+
+    @objid ("f115cfff-c8bd-4fa0-adbf-1ae8f8560f57")
+    IMdaResourceProviderRegistry getMdaResourceProviderRegistry();
 }
+

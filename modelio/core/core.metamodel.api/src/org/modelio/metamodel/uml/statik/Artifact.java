@@ -42,6 +42,8 @@ import org.eclipse.emf.common.util.EList;
  * In Modelio, deployment or imbrications of Artifacts are modeled using the internalStructure mechanism. This provides a simpler, more formal and general mechanism that justifies metamodel differences to the standard, but enhances usability. 
  * 
  * In Modelio, an Artifact is a NameSpace, and therefore belongs to its owner NameSpace, which can be a Component, a Package, an Artifact or a TemplateParameter.
+ * 
+ * 
  */
 @objid ("0093d3de-c4be-1fd8-97fe-001ec947cd2a")
 public interface Artifact extends Classifier {
@@ -62,6 +64,7 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>The file system name for the Artifact.</i>
+     * 
      */
     @objid ("48b3b24f-60e9-4d8f-b13d-36121baac0ff")
     String getFileName();
@@ -71,6 +74,7 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>The file system name for the Artifact.</i>
+     * 
      */
     @objid ("a42ad76d-95b0-40f3-aa15-62989ad13da1")
     void setFileName(String value);
@@ -80,6 +84,7 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>The set of model elements that are manifested in the Artifact. These model elements are utilized in the construction (or generation) of the artifact.</i>
+     * 
      */
     @objid ("e9c92a63-7a12-4531-b124-216eb8b5a0f0")
     EList<Manifestation> getUtilized();
@@ -89,6 +94,7 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>The set of model elements that are manifested in the Artifact. These model elements are utilized in the construction (or generation) of the artifact.</i>
+     * 
      */
     @objid ("35d1f8ae-85a4-43de-92fa-a5c411d2af1e")
     <T extends Manifestation> List<T> getUtilized(java.lang.Class<T> filterClass);
@@ -98,6 +104,7 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5d9cc8a0-bf6d-47a1-864c-b269b72322c5")
     EList<Node> getDeploymentLocation();
@@ -107,8 +114,9 @@ public interface Artifact extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("478c0da2-1f50-498c-8830-9a4d644bb69e")
     <T extends Node> List<T> getDeploymentLocation(java.lang.Class<T> filterClass);
-
 }
+

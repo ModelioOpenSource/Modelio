@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1230]]
 
-[[r1230]]
+
+
 = R1230
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 _InitialNode_ can only have _ControlFlows_ as outgoing edges.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _InitialNode_ is a starting point for executing an activity and a control token is placed at this node when the activity starts.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1230 warning on an InitialNode, verify that all outgoing edges are _ControlFlows_.

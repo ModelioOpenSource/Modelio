@@ -33,7 +33,7 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.ui.panel.IPanelProvider;
@@ -107,19 +107,19 @@ public class SmBrowserPanelProvider implements IPanelProvider {
     @objid ("e0678ac3-9a39-4037-862f-baf26c321ffd")
     @Override
     public boolean isRelevantFor(Object input) {
-        return input instanceof GProject || input instanceof List<?>;
+        return input instanceof IGProject || input instanceof List<?>;
     }
 
     /**
-     * input may be either a GProject of a list of root MObject
+     * input may be either a IGProject of a list of root MObject
      */
     @objid ("5520b15f-48a7-48dd-be3b-43d57f2af525")
     @Override
     public void setInput(Object input) {
         if (input != null) {
-            if (input instanceof GProject) {
+            if (input instanceof IGProject) {
                 // Call the controller for project opening
-                this.controller.onProjectOpened((GProject) input);
+                this.controller.onProjectOpened((IGProject) input);
         
                 // // Branching the expertise listener
                 // // Create the expertise listener
@@ -148,7 +148,6 @@ public class SmBrowserPanelProvider implements IPanelProvider {
 
     /**
      * Build a controller with injected fields.
-     * @param context
      */
     @objid ("4bf6ef2e-5b88-4d23-a1ec-fb01f6608e78")
     @PostConstruct
@@ -174,7 +173,6 @@ public class SmBrowserPanelProvider implements IPanelProvider {
 
     /**
      * Called when application selection changes.
-     * @param selection
      */
     @objid ("4b9dfd3c-46de-459d-9f31-e76c28d3b395")
     @Optional
@@ -194,7 +192,6 @@ public class SmBrowserPanelProvider implements IPanelProvider {
 
     /**
      * Register a selection change listener to be called when the 'current' selection changes in the panel.
-     * @param l
      */
     @objid ("f1f8cc7d-7da9-4d1b-aa43-7328357a42a5")
     public void addSelectionChangedListener(ISelectionChangedListener l) {
@@ -203,7 +200,6 @@ public class SmBrowserPanelProvider implements IPanelProvider {
 
     /**
      * Remove a previously registered selection change listener.
-     * @param l
      */
     @objid ("b237b0eb-bc96-4f2e-97fc-8ea6fbad01e9")
     public void removeSelectionChangedListener(ISelectionChangedListener l) {

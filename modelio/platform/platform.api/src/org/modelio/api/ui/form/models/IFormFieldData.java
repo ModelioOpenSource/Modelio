@@ -31,5 +31,5 @@ public interface IFormFieldData {
 
     @objid ("9863c546-aeb2-44fe-9f5a-a11d5c7b94f1")
     void setValue(Object value);
-
 }
+

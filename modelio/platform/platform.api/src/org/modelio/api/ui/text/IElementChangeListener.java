@@ -31,5 +31,5 @@ public interface IElementChangeListener {
      */
     @objid ("d9658cc8-5b07-11e2-9c97-002564c97630")
     void selectedElementChanged(final MObject oldElement, final MObject newElement);
-
 }
+

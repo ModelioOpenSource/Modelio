@@ -50,7 +50,7 @@ public class GmInitialStateStructuredStyleKeys extends StateAbstractStyleKeyProv
 
     @objid ("810e2d78-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INITIALSTATE_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("810e2d7a-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("INITIALSTATE_SHOWTAGS", MetaKey.SHOWTAGS);

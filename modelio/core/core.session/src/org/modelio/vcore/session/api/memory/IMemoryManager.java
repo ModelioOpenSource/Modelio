@@ -48,5 +48,5 @@ public interface IMemoryManager {
      */
     @objid ("9291e0af-b7c7-4be9-9a4a-6dde3c795661")
     boolean isSwapEnabled();
-
 }
+

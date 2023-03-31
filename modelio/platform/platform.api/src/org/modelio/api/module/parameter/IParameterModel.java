@@ -37,5 +37,5 @@ public interface IParameterModel {
 
     @objid ("c1fd9981-2ba9-4b09-a7e0-9d665bbc0e2c")
     boolean isLocked();
-
 }
+

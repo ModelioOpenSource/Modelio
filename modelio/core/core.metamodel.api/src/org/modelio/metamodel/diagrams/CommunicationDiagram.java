@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Communication diagrams are used to illustrate architecture and its functioning principles, by presenting, for example, which associations are used to transmit certain messages between different elements.</p><p>They partially cover the capacities provided by sequence diagrams, but are less relevant when detailing event sequences and messages occurring between several participants.</p><p>They are most often created in collaborations, operations or internal class structures to describe the principles of the dynamic.</p>
+ * 
+ * 
+ * 
  */
 @objid ("006cae9e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CommunicationDiagram extends BehaviorDiagram {
@@ -46,5 +49,5 @@ public interface CommunicationDiagram extends BehaviorDiagram {
      */
     @objid ("831ee965-ae32-4165-a752-0edcf97338e9")
     public static final String MQNAME = "Standard.CommunicationDiagram";
-
 }
+

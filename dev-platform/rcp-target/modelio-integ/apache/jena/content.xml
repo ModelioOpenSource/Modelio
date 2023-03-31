@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='jena/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541774017557'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='com.modeliosoft.modelio.jena' version='3.0.1'>
+      <update id='com.modeliosoft.modelio.jena' range='[0.0.0,3.0.1)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='jena'/>
+      </properties>
+      <provides size='83'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.modeliosoft.modelio.jena' version='3.0.1'/>
+        <provided namespace='osgi.bundle' name='com.modeliosoft.modelio.jena' version='3.0.1'/>
+        <provided namespace='java.package' name='etc' version='0.0.0'/>
+        <provided namespace='java.package' name='jena' version='0.0.0'/>
+        <provided namespace='java.package' name='jena.cmd' version='0.0.0'/>
+        <provided namespace='java.package' name='org' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.assembler' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.assembler.assemblers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.assembler.exceptions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.iterator' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.lib' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.lib.cache' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.lib.persistent' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.atlas.logging.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.base' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.datatypes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.datatypes.xsd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.datatypes.xsd.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.enhanced' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.annotations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.base' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.base.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.cache' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.collect' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.escape' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.eventbus' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.hash' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.html' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.math' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.net' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.primitives' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.reflect' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.util.concurrent' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.common.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.thirdparty' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ext.com.google.thirdparty.publicsuffix' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.graph' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.graph.compose' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.graph.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.iri' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.iri.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.mem' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.n3' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.n3.turtle' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.n3.turtle.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ontology' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.ontology.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdf' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdf.listeners' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdf.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdf.model.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml.xmlinput' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml.xmlinput.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml.xmlinput.states' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml.xmloutput' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.rdfxml.xmloutput.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.reasoner' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.reasoner.rulesys' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.reasoner.rulesys.builtins' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.reasoner.rulesys.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.reasoner.transitiveReasoner' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.shared' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.shared.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.shared.uuid' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.shared.wg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.system' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.util.iterator' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.jena.vocabulary' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='com.modeliosoft.modelio.jena' version='3.0.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='135'>
+        <required namespace='java.package' name='etc' range='0.0.0'/>
+        <required namespace='java.package' name='jena' range='0.0.0'/>
+        <required namespace='java.package' name='jena.cmd' range='0.0.0'/>
+        <required namespace='java.package' name='org' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.assembler' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.assembler.assemblers' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.assembler.exceptions' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.io' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.iterator' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.lib' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.lib.cache' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.lib.persistent' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.atlas.logging.java' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.base' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.datatypes' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.datatypes.xsd' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.datatypes.xsd.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.enhanced' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.annotations' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.base' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.base.internal' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.cache' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.collect' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.escape' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.eventbus' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.hash' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.html' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.io' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.math' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.net' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.primitives' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.reflect' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.util.concurrent' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.common.xml' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.thirdparty' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ext.com.google.thirdparty.publicsuffix' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.graph' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.graph.compose' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.graph.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.iri' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.iri.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.mem' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.n3' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.n3.turtle' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.n3.turtle.parser' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ontology' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.ontology.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdf' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdf.listeners' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdf.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdf.model.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml.xmlinput' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml.xmlinput.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml.xmlinput.states' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml.xmloutput' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.rdfxml.xmloutput.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.reasoner' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.reasoner.rulesys' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.reasoner.rulesys.builtins' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.reasoner.rulesys.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.reasoner.transitiveReasoner' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.shared' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.shared.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.shared.uuid' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.shared.wg' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.system' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.util.iterator' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.jena.vocabulary' range='0.0.0'/>
+        <required namespace='java.package' name='org.slf4j' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom3' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom3.as' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dtd' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dtd.models' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.dtd' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.io' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.msg' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xpath.regex' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.identity' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.models' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.opti' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.traversers' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xinclude' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni.grammars' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni.parser' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xpointer' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xs.datatypes' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xml' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xmlcommons' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xml.serialize' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.css' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.bootstrap' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.css' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.html' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.ls' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.ranges' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.stylesheets' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.traversal' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.views' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.ext' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.jena' version='3.0.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.modeliosoft.modelio.jena;singleton:=true&#xA;Bundle-Version: 3.0.1&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

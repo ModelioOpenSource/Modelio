@@ -37,6 +37,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * (In the latter case, outgoing transitions whose guard conditions evaluate to false are disabled. 
  * A predefined guard denoted "else" may be defined for at most one outgoing transition. This transition is enabled if all the guards labeling the other transitions are false.) 
  * Static conditional branches are distinct from dynamic conditional branches that are realized by choice vertices (described below).
+ * 
+ * 
  */
 @objid ("00525fe4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface JunctionPseudoState extends AbstractPseudoState {
@@ -51,5 +53,5 @@ public interface JunctionPseudoState extends AbstractPseudoState {
      */
     @objid ("b8104bf0-9195-4876-9f28-0d54f2301f57")
     public static final String MQNAME = "Standard.JunctionPseudoState";
-
 }
+

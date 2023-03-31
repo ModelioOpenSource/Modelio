@@ -35,10 +35,10 @@ public class CheckProgram {
     private int nPostedChecks = 0;
 
     @objid ("84874193-426f-4d7b-bbb2-02fc922cc161")
-    public Map<String, CheckBatch> controls = new HashMap<>();
+    private final Map<String, CheckBatch> controls = new HashMap<>();
 
     @objid ("4d44ee16-620f-4d19-b458-37b55fdee3d6")
-    public LinkedList<MObject> lifo = new LinkedList<>();
+    private final LinkedList<MObject> lifo = new LinkedList<>();
 
     @objid ("605c460b-e9c6-48c5-b40b-035920fd9f1e")
     public synchronized void postControl(IControl controlToAdd, MObject elementTocheck, String jobId) {
@@ -72,13 +72,11 @@ public class CheckProgram {
         while (!this.lifo.isEmpty()) {
             // Fetch the next LIFO element
             MObject element = this.lifo.removeFirst();
-        
-            if (!element.isDeleted()) {
-                CheckBatch batch = this.controls.get(element.getUuid().toString());
-                if (batch != null) {
-                    // found the batch to return
-                    this.nPostedChecks = this.nPostedChecks - batch.size();
-                    this.controls.remove(element.getUuid().toString());
+            CheckBatch batch = this.controls.remove(element.getUuid().toString());
+            if (batch != null) {
+                // found the batch to return
+                this.nPostedChecks = this.nPostedChecks - batch.size();
+                if (!element.isDeleted()) {
                     return batch;
                 }
             }
@@ -92,14 +90,21 @@ public class CheckProgram {
         return null;
     }
 
+    /**
+     * @return the number of {@link IControl} waiting to be run.
+     */
     @objid ("e54963bf-4a15-4aff-8d95-5b053d11152a")
     public synchronized int size() {
         return this.nPostedChecks;
     }
 
+    /**
+     * Remove all scheduled checks.
+     */
     @objid ("5339f61e-d383-43a5-8bac-eeae2db90009")
-    public synchronized void clearCleck() {
+    public synchronized void clearChecks() {
         this.lifo.clear();
+        this.controls.clear();
         this.nPostedChecks = 0;
         
     }

@@ -29,10 +29,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.data.project.AuthDescriptor;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.InheritedAuthData;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.auth.AuthDescriptor;
+import org.modelio.gproject.data.project.auth.InheritedAuthData;
 import org.modelio.platform.model.ui.dialogs.auth.AuthDataPanel;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.vbasic.auth.IAuthData;
@@ -165,17 +165,18 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
      * @param fragmentDescriptor the fragment to update.
      */
     @objid ("143fc66d-8989-4f2e-9ad2-efbc6c4038f7")
-    public void updateFragmentDescriptor(FragmentDescriptor fragmentDescriptor) {
+    public void updateFragmentDescriptor(GProjectPartDescriptor fragmentDescriptor) {
         IAuthData newData = getInput();
         if (newData == null) {
-            if (this.allowUseProjectAuth)
-                fragmentDescriptor.setAuthDescriptor(new AuthDescriptor(new InheritedAuthData(), DefinitionScope.LOCAL));
-            else
-                fragmentDescriptor.setAuthDescriptor(new AuthDescriptor(new NoneAuthData(), DefinitionScope.LOCAL));
+            if (this.allowUseProjectAuth) {
+                fragmentDescriptor.setAuth(new AuthDescriptor(new InheritedAuthData(), DefinitionScope.LOCAL));
+            } else {
+                fragmentDescriptor.setAuth(new AuthDescriptor(new NoneAuthData(), DefinitionScope.LOCAL));
+            }
         } else {
-            AuthDescriptor authDesc = fragmentDescriptor.getAuthDescriptor();
+            AuthDescriptor authDesc = fragmentDescriptor.getAuth();
             DefinitionScope authScope = authDesc==null ? DefinitionScope.LOCAL : authDesc.getScope();
-            fragmentDescriptor.setAuthDescriptor(new AuthDescriptor(newData, authScope));
+            fragmentDescriptor.setAuth(new AuthDescriptor(newData, authScope));
         }
         
     }

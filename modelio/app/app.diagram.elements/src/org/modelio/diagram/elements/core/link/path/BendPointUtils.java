@@ -67,7 +67,7 @@ public class BendPointUtils {
      * @param routingConstraint an object usually used as connection routing constraint.
      * @return true if it looks like a MPoint list else false.
      */
-    @objid ("f96a8618-4cd4-4831-aad5-80b32d1a7259")
+    @objid ("f760d9b1-0780-4353-b081-b35e0d0ccb33")
     public static boolean isMPointList(Object routingConstraint) {
         if (! (routingConstraint instanceof List))
             return false;
@@ -75,7 +75,7 @@ public class BendPointUtils {
         List<?> l = (List<?>) routingConstraint;
         
         if (l.isEmpty()) {
-            // le doute beneficie a l'accusé
+            // le doute beneficie a l'accuse
             return true;
         }
         
@@ -248,7 +248,7 @@ public class BendPointUtils {
      * @param connection a connection
      * @return a MPoint list routing constraint.
      */
-    @objid ("112077ed-009a-4fff-9cf0-bafb7bd9ca33")
+    @objid ("81c6e371-7325-4c5d-8a33-509796f30cb4")
     public static List<MPoint> connectionPointsToMPointsConstraint(Connection connection) {
         PointList pts = connection.getPoints();
         ArrayList<MPoint> ret = new ArrayList<>(pts.size()-2);

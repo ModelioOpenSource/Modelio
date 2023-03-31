@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1460]]
 
-[[r1460]]
+
+
 = R1460
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A public association oriented from a public Classifier cannot be linked to a private or protected Classifier.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Making a public association to a private class usually means that the user of the association won't be able to use it.
 
 Java or C++ code generated from this kind of association will usually result in compilation error.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 You can:

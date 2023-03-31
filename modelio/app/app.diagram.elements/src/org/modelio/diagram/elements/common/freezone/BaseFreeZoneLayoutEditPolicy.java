@@ -48,7 +48,9 @@ import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagramStyl
 import org.modelio.diagram.elements.common.abstractdiagram.LayoutAssistantStyleKeys;
 import org.modelio.diagram.elements.core.commands.DefaultCloneElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultSelectElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.commands.NodeChangeLayoutCommand;
 import org.modelio.diagram.elements.core.commands.PostLayoutCommand;
@@ -60,6 +62,7 @@ import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 import org.modelio.diagram.elements.drawings.core.GmDrawing;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
@@ -90,16 +93,16 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      */
     @objid ("459ba26d-b74f-4506-a2a1-61d0ed308424")
     private Object intersectionsRemoverKey = new Object() {
-                            @Override
-                            public String toString() {
-                                return "Intersection remover for " + BaseFreeZoneLayoutEditPolicy.this.toString();
-                            }
-                        };
+                    @Override
+                    public String toString() {
+                        return "Intersection remover for " + BaseFreeZoneLayoutEditPolicy.this.toString();
+                    }
+                };
 
     @objid ("7e333790-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void eraseTargetFeedback(Request request) {
-        if (RequestConstants.REQ_ADD.equals(request.getType()) || RequestConstants.REQ_CREATE.equals(request.getType())) {
+        if (RequestConstants.REQ_ADD.equals(request.getType()) || RequestConstants.REQ_CREATE.equals(request.getType()) || RequestTypes.UNMASK_OR_CREATE_CHILDREN.equals(request.getType())) {
         
             if (this.highlight != null) {
                 removeFeedback(this.highlight);
@@ -119,7 +122,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     @objid ("7e333796-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public EditPart getTargetEditPart(Request request) {
-        if (RequestConstants.REQ_CREATE.equals(request.getType())) {
+        if (RequestConstants.REQ_CREATE.equals(request.getType()) || RequestTypes.UNMASK_OR_CREATE_CHILDREN.equals(request.getType())) {
             final CreateRequest createRequest = (CreateRequest) request;
             return getTargetEditPart(createRequest);
         }
@@ -143,7 +146,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     @objid ("7e3337a0-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void showTargetFeedback(Request request) {
-        if (RequestConstants.REQ_ADD.equals(request.getType()) || RequestConstants.REQ_CREATE.equals(request.getType())) {
+        if (RequestConstants.REQ_ADD.equals(request.getType()) || RequestConstants.REQ_CREATE.equals(request.getType()) || RequestTypes.UNMASK_OR_CREATE_CHILDREN.equals(request.getType())) {
         
             // compute highlight type
             final Command c = getHost().getCommand(request);
@@ -237,7 +240,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
         ChangeBoundsRequest request = (ChangeBoundsRequest) genericReq;
         List<GraphicalEditPart> editParts = request.getEditParts();
         CompoundCommand command = new CompoundCommand();
-        command.setDebugLabel("Add in "+getClass().getSimpleName());//$NON-NLS-1$
+        command.setDebugLabel("Add in " + getClass().getSimpleName());//$NON-NLS-1$
         
         for (GraphicalEditPart child : editParts) {
             if (child instanceof ConnectionEditPart) {
@@ -284,7 +287,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * @return the created command or null.
      * @since 5.1.0
      */
-    @objid ("ecde8689-6412-467c-a82a-f3d2fdee5797")
+    @objid ("8d17c9ea-b686-4f8c-a34c-018b17e4b0b1")
     protected Command createCloneChildCommand(ChangeBoundsRequest request, MExpert metaUtils, MObject hostElement, final GmCompositeNode hostModel, final GraphicalEditPart copiedEPart, final MObject copiedElement) {
         if (hostElement instanceof BpmnLane && copiedElement instanceof BpmnFlowElement) {
             // TODO : move this in a sub class
@@ -333,7 +336,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
             if (elementToUnmask != null) {
                 if (gmParentNode.canUnmask(elementToUnmask)) {
                     final Object requestConstraint = getConstraintFor(request);
-                    return new DefaultCreateElementCommand(hostElement, gmParentNode, ctx, requestConstraint);
+                    return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(hostElement, gmParentNode, ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                 } else {
                     return null;
                 }
@@ -344,7 +347,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
                     MExpert expert = metaclassToCreate.getMetamodel().getMExpert();
                     if (expert.canCompose(hostElement.getMClass(), metaclassToCreate, ctx.getDependencyName())) {
                         final Object requestConstraint = getConstraintFor(request);
-                        return new DefaultCreateElementCommand(hostElement, gmParentNode, ctx, requestConstraint);
+                        return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(hostElement, gmParentNode, ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                     }
                 }
             }
@@ -628,7 +631,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
             layoutCommand.setConstraint(constraint);
             command.add(layoutCommand);
         
-        
             return new PostLayoutCommand(command, request);
         }
         return null;
@@ -729,6 +731,44 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     @objid ("3747901a-8367-4ae2-8517-fdef8c35365c")
     protected boolean isLayoutAssistantDisabledInViewer() {
         return Boolean.FALSE.equals(getHost().getViewer().getProperty(ILayoutAssistant.VIEWPROP_ENABLED));
+    }
+
+    @objid ("53cf6cc2-1b33-4de5-8383-b40da8dfd3a9")
+    @Override
+    public Command getCommand(Request request) {
+        if (RequestTypes.UNMASK_OR_CREATE_CHILDREN.equals(request.getType())) {
+            return getUnamskOrCreateCommand((CreateRequest) request);
+        }
+        return super.getCommand(request);
+    }
+
+    @objid ("62e273e0-b62f-43e2-a200-732ac830381c")
+    protected Command getUnamskOrCreateCommand(CreateRequest request) {
+        final MObject hostElement = getHostElement();
+        final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
+        if (ctx != null) {
+            final MObject elementToUnmask = ctx.getElementToUnmask();
+            final GmCompositeNode gmParentNode = getHostCompositeNode();
+            if (elementToUnmask != null) {
+                if (gmParentNode.canUnmask(elementToUnmask)) {
+                    final Object requestConstraint = getConstraintFor(request);
+                    return new DefaultSelectElementCommand(hostElement, gmParentNode, ctx, requestConstraint);
+                } else {
+                    return null;
+                }
+            } else if (hostElement != null) {
+                MClass metaclassToCreate = ctx.getMetaclass();
+        
+                if (gmParentNode.canCreate(metaclassToCreate.getJavaInterface())) {
+                    MExpert expert = metaclassToCreate.getMetamodel().getMExpert();
+                    if (expert.canCompose(hostElement.getMClass(), metaclassToCreate, ctx.getDependencyName())) {
+                        final Object requestConstraint = getConstraintFor(request);
+                        return new DefaultSelectElementCommand(hostElement, gmParentNode, ctx, requestConstraint);
+                    }
+                }
+            }
+        }
+        return null;
     }
 
 }

@@ -43,7 +43,7 @@ public class GmBpmnIntermediateThrowEventStructuredStyleKeys extends BpmnAbstrac
 
     @objid ("71a2d72a-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERMEDIATTHROWEVENT_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("71a2d72c-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("INTERMEDIATTHROWEVENT_SHOWTAGS", MetaKey.SHOWTAGS);

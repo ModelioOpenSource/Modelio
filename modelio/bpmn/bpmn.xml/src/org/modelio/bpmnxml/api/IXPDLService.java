@@ -22,5 +22,5 @@ package org.modelio.bpmnxml.api;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("45d4be84-8b27-46c9-b384-9d52ac99d81a")
-public interface IXPDLService {
-}
+public interface IXPDLService {}
+

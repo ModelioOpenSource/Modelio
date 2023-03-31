@@ -265,7 +265,7 @@ public interface IDiagramLink extends IDiagramGraphic {
      * To apply changes, call {@link #setPath(ILinkPath)} with the modified path as parameter.
      * @return The LinkPath that represent the path of the current link.
      */
-    @objid ("f6970744-1b1d-4629-82da-579a5130b838")
+    @objid ("efbae0b6-e31a-4af3-bb84-977c4622d2db")
     ILinkRoute getRoute();
 
     /**
@@ -275,21 +275,21 @@ public interface IDiagramLink extends IDiagramGraphic {
      * @throws InvalidPointsPathException If the given path is invalid with the router type associated with the current link.
      * @throws InvalidDestinationPointException If the destination point is invalid.
      */
-    @objid ("ac436ac8-7f4c-4076-8282-44a78ed3ec5f")
+    @objid ("0b5a4159-2891-4247-843c-663a9bcbb505")
     void setRoute(final ILinkRoute linkPath) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException;
 
     /**
      * Get a route building helper to build the connection path from scratch.
      * @return a connection route builder.
      */
-    @objid ("a160fc8c-0092-4a20-b2d9-7d825a0bf7b6")
+    @objid ("deb5aa95-b5b7-4f4d-949a-2554dc51692a")
     ILinkRouteBuilder buildRoute();
 
     /**
      * Available connection routers.
      */
     @objid ("00d00e5c-0000-1bfa-0000-000000000000")
-    public enum LinkRouterKind {
+    enum LinkRouterKind {
         /**
          * Direct from source to destination.
          */
@@ -314,7 +314,7 @@ public interface IDiagramLink extends IDiagramGraphic {
      * @since 3.5
      */
     @objid ("c5011fea-dd4b-41d8-8823-2745254b4235")
-    public enum ExtensionRole {
+    enum ExtensionRole {
         /**
          * Diagram link main label.
          */
@@ -405,5 +405,5 @@ public interface IDiagramLink extends IDiagramGraphic {
         EXTENSIONPOINT;
 
     }
-
 }
+

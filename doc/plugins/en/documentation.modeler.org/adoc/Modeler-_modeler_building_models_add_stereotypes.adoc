@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Adding-stereotypes-to-elements]]
 
-[[adding-stereotypes-to-elements]]
+
+
 = Adding stereotypes to elements
 
 There are two ways to add stereotypes to elements:

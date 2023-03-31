@@ -39,6 +39,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
  * 
  * Ownership:
  * A Lane belongs to a LaneSet
+ * 
+ * 
  */
 @objid ("00746c56-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnLane extends BpmnBaseElement {
@@ -59,6 +61,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8620b169-360c-45f3-8e65-603d2505cb1b")
     BpmnLaneSet getChildLaneSet();
@@ -68,6 +71,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b057df60-99fc-4edd-b545-7b26a6b3a3fe")
     void setChildLaneSet(BpmnLaneSet value);
@@ -78,6 +82,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * Metamodel description:
      * <i><p>The list of FlowNodes partitioned into this Lane according to the&nbsp;partitionElement defined as part of the Lane element.</p>
      * </i>
+     * 
      */
     @objid ("721e1077-2aa6-4591-94f8-6d35bc01e96e")
     EList<BpmnFlowElement> getFlowElementRef();
@@ -88,6 +93,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * Metamodel description:
      * <i><p>The list of FlowNodes partitioned into this Lane according to the&nbsp;partitionElement defined as part of the Lane element.</p>
      * </i>
+     * 
      */
     @objid ("1b03a39b-d266-40ed-a36f-f239fbbbe56f")
     <T extends BpmnFlowElement> List<T> getFlowElementRef(java.lang.Class<T> filterClass);
@@ -97,6 +103,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3219f4e6-fc6f-4ed5-bfc8-a5003c195a95")
     BpmnLaneSet getLaneSet();
@@ -106,6 +113,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d297e393-8620-47a8-b6bf-3cfb5ae48f01")
     void setLaneSet(BpmnLaneSet value);
@@ -116,6 +124,7 @@ public interface BpmnLane extends BpmnBaseElement {
      * Metamodel description:
      * <i><p>A reference to a BaseElement that specifies the partition value and partition&nbsp;type. Using this partition element a BPMN compliant tool can determine the&nbsp;FlowElements that have to be partitioned in this Lane.</p>
      * </i>
+     * 
      */
     @objid ("aafb336c-450d-4f04-a16e-2192aab76706")
     BpmnBaseElement getBpmnPartitionElementRef();
@@ -126,8 +135,9 @@ public interface BpmnLane extends BpmnBaseElement {
      * Metamodel description:
      * <i><p>A reference to a BaseElement that specifies the partition value and partition&nbsp;type. Using this partition element a BPMN compliant tool can determine the&nbsp;FlowElements that have to be partitioned in this Lane.</p>
      * </i>
+     * 
      */
     @objid ("8ebf1c58-bbca-4cab-a1f2-64a35877af89")
     void setBpmnPartitionElementRef(BpmnBaseElement value);
-
 }
+

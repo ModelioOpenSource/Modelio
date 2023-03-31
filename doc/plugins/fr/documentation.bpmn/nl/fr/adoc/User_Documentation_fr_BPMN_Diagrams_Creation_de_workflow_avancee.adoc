@@ -7,12 +7,12 @@
 
 == Création de sequence flow
 
-[[HModelien]]
+
 === Mode lien
 
 L'outil de création de _BpmnSequenceFlow_ conserve le fonctionnement actuel lorsque il est utilisé entre deux éléments de workflow. Par exemple, d'un tâche à une autre, la création est directe.
 
-[[HModeE9lE9ment]]
+
 === Mode élément
 
 Si l'outil de création est utilisé entre un élément origine et le fond du diagramme ou le fond d'une _BpmnLane_, un menu s'ouvre pour créer un nouvel élément ( _BpmnTask_, _BpmnEvent_...) en tant que cible du nouveau lien.
@@ -23,7 +23,7 @@ Par exemple : en partant d'une tâche faisant partie d'une Lane, et en faisant u
 image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Creation_de_workflow_avancee/NodeCreation1.png[NodeCreation1.png]
 
 
-[[HInsertionden153uddeworkflow]]
+
 == Insertion de nœud de workflow
 
 Créer un élément de workflow ( _BpmnTask_, _BpmnGateway_...) sur un _BpmnSequenceFlow_ *F* va intercaler le nœud créé dans la séquence :
@@ -37,7 +37,7 @@ image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Creation_de_
 image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Creation_de_workflow_avancee/TaskInsertion2.png[TaskInsertion2.png]
 
 
-[[HInsertiondeDataObject]]
+
 == Insertion de Data Object
 
 Créer un _BpmnDataObject_ sur un _BpmnSequenceFlow_ *F* va créer le modèle correspondant à une transmission de données supportée par ce flux :
@@ -52,7 +52,7 @@ image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Creation_de_
 image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Creation_de_workflow_avancee/DataAssociation2.png[DataAssociation2.png]
 
 
-[[HCrE9ationdepairesd27E9vE9nementsThrow2FCatch]]
+
 == Création de paires d'événements Throw/Catch
 
 Créer un _BpmnIntermediateCatchEvent_ ou un _BpmnIntermediateThrowEvent_ sur un _BpmnSequenceFlow_ *F* va insérer une rupture dans la séquence, souvent utilisée pour faciliter la lisibilité d'un processus :

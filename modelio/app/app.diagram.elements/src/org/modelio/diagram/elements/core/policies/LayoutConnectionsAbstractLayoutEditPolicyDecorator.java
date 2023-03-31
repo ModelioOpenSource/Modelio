@@ -50,38 +50,38 @@ import org.modelio.diagram.elements.plugin.DiagramElements;
  * @see LayoutEditPolicy
  * @since 5.1.0
  */
-@objid ("9872cbf9-dd7f-4d7c-8797-7488a1a25329")
+@objid ("166f7c73-f97d-4e44-93f6-9c90bd4f44de")
 public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends AbstractEditPolicy {
-    @objid ("2524f0fa-b618-4933-a7b8-021959371d21")
+    @objid ("de3ff6c7-608b-4f68-b6b0-757940a71610")
     private final EditPolicy decorated;
 
     /**
      * @param decorated the initial layout edit policy.
      */
-    @objid ("5dc2b416-8162-4371-b18d-16578d994d81")
+    @objid ("6734377f-734d-4356-9f68-5636690f64bd")
     protected  LayoutConnectionsAbstractLayoutEditPolicyDecorator(LayoutEditPolicy decorated) {
         this.decorated = decorated;
     }
 
-    @objid ("8439d3d3-3e4c-418c-b61c-28305d8458c7")
+    @objid ("27e42272-a6e5-4184-a8f8-2785c381bf85")
     @Override
     public void activate() {
         this.decorated.activate();
     }
 
-    @objid ("709c5ec1-4f21-42ee-bd6c-271e6bcf92fd")
+    @objid ("0923beda-a994-420c-b483-23a849cde5fa")
     @Override
     public void deactivate() {
         this.decorated.deactivate();
     }
 
-    @objid ("8e1133ad-0b91-499c-a1f6-dc92f1e30131")
+    @objid ("8e21640d-321e-4413-9597-723720c24793")
     @Override
     public void eraseSourceFeedback(Request request) {
         this.decorated.eraseSourceFeedback(request);
     }
 
-    @objid ("8e02152d-0592-406f-82ab-d008a048d62e")
+    @objid ("b972df30-6c2c-4e3b-8214-58dd2e9e04eb")
     @Override
     public void eraseTargetFeedback(Request request) {
         this.decorated.eraseTargetFeedback(request);
@@ -91,7 +91,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * Factors incoming requests into various specific methods.
      * @see org.eclipse.gef.EditPolicy#getCommand(Request)
      */
-    @objid ("1a477fcd-b2d9-4d82-82a8-a7f8c69f3a52")
+    @objid ("9e08bce9-6039-4d42-999d-0535156ac3cc")
     @Override
     public Command getCommand(Request request) {
         Command mainCommand = this.decorated.getCommand(request);
@@ -149,7 +149,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
         return command.unwrap();
     }
 
-    @objid ("d769b2db-ce84-4250-b6e3-bac62f6e76e0")
+    @objid ("453a472b-ecb8-4fef-847f-d4d29aec7df0")
     @Override
     public GraphicalEditPart getHost() {
         return (GraphicalEditPart) super.getHost();
@@ -159,13 +159,13 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * Forwards call to the decorated policy.
      * @see org.eclipse.gef.EditPolicy#getTargetEditPart(Request)
      */
-    @objid ("b7d387f3-40ed-42cb-b3be-4064eef0105c")
+    @objid ("06ca0967-fc46-4397-965f-6aa7971d5321")
     @Override
     public EditPart getTargetEditPart(Request request) {
         return this.decorated.getTargetEditPart(request);
     }
 
-    @objid ("5bbecab5-ad86-42c2-9c70-a0394fc76c1a")
+    @objid ("25af0780-6c51-4219-b064-d59ec63fd3fb")
     @Override
     public void setHost(EditPart host) {
         super.setHost(host);
@@ -173,7 +173,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
         
     }
 
-    @objid ("c8d7b712-0e3e-4529-960a-28b7f8d5fb74")
+    @objid ("766e202c-8408-4d0d-9517-d5dedf4d0a89")
     @Override
     public void showSourceFeedback(Request request) {
         this.decorated.showSourceFeedback(request);
@@ -183,7 +183,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * Factors feedback requests into two more specific methods.
      * @see org.eclipse.gef.EditPolicy#showTargetFeedback(Request)
      */
-    @objid ("5908815b-ec78-4214-bb99-ae4824c9344f")
+    @objid ("35e01809-a8d4-41c2-a45b-def8cf177e47")
     @Override
     public void showTargetFeedback(Request request) {
         this.decorated.showTargetFeedback(request);
@@ -207,7 +207,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
         
     }
 
-    @objid ("476abe3f-9eca-4139-bc9e-94c8885bbf3f")
+    @objid ("abd02dc4-8c8e-43ad-b0cc-a52eea62c3bb")
     @Override
     public boolean understandsRequest(Request req) {
         return this.decorated.understandsRequest(req);
@@ -218,7 +218,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the CreateRequest
      */
-    @objid ("d2de53dd-b9ab-4e83-b6ce-5ea8bf29c5ed")
+    @objid ("6a2d29bf-7b4d-4fb1-aa19-38e3fe53b489")
     protected abstract void addAddCommand(CompoundCommand command, Request request);
 
     /**
@@ -226,7 +226,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the clone ChangeBoundsRequest
      */
-    @objid ("787e8909-1d76-4df5-88fb-fe74b829b223")
+    @objid ("f85f4153-651f-4462-bae5-b801e98b06ce")
     protected abstract void addCloneCommand(CompoundCommand command, ChangeBoundsRequest request);
 
     /**
@@ -234,7 +234,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the CreateRequest
      */
-    @objid ("4fc0c9c5-6e11-4563-b303-731803c67ad0")
+    @objid ("26f3c523-ad6f-4568-8abd-88a351d6a368")
     protected abstract void addCreateCommand(CompoundCommand command, CreateRequest request);
 
     /**
@@ -245,7 +245,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the Request
      */
-    @objid ("01dca2bd-b7e1-4b37-aa68-07ad948d1d07")
+    @objid ("af868612-26f3-4f9e-bc4e-aa2d24538ec0")
     protected abstract void addDeleteDependantCommand(CompoundCommand command, GroupRequest request);
 
     /**
@@ -253,7 +253,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the ChangeBoundsRequest
      */
-    @objid ("abdd6274-0cdb-4603-be04-82c6c4fe81ab")
+    @objid ("f0d375a5-4953-4fc7-9c37-948b0aec1b04")
     protected abstract void addMoveChildrenCommand(CompoundCommand command, ChangeBoundsRequest request);
 
     /**
@@ -261,7 +261,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * @param command the compound command where to add new commands
      * @param request the Request
      */
-    @objid ("e4926393-f9c2-45d9-9564-5444bc64ff53")
+    @objid ("00fa9d7a-24d8-4a86-b57f-fea5b24f9caa")
     protected abstract void addOrphanChildrenCommand(CompoundCommand command, GroupRequest request);
 
     /**
@@ -272,7 +272,7 @@ public abstract class LayoutConnectionsAbstractLayoutEditPolicyDecorator extends
      * EditPolicy. All operations should be interpreted with respect to this figure.
      * @return the Figure that owns the corresponding <code>LayoutManager</code>
      */
-    @objid ("8b3ee674-b5b2-4ca9-9edd-2741275a1c5a")
+    @objid ("917149f6-8e18-4616-98c4-6eebaf485119")
     protected IFigure getLayoutContainer() {
         return getHost().getContentPane();
     }

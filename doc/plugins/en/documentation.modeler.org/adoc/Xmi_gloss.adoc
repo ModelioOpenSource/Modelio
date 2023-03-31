@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Glossary]]
 
-[[glossary]]
+
+
 = Glossary
 
 * *Ecore*: Ecore is the EMF metamodel, almost identical to EMOF (Essential MOF).

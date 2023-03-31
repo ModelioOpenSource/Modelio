@@ -44,7 +44,7 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_S7rOIA2DEeeafdZgTE3EFw" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_S7rOIQ2DEeeafdZgTE3EFw" elementId="org.modelio.linkeditor.placeholder" ref="_KNbroQ2DEeeafdZgTE3EFw"/>
+    <elements xsi:type="advanced:Placeholder" xmi:id="_S7rOIQ2DEeeafdZgTE3EFw" elementId="org.modelio.linkeditor.placeholder" ref="_KNbroQ2DEeeafdZgTE3EFw" closeable="true"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_TxrpEA2DEeeafdZgTE3EFw" featurename="bindingTables" parentElementId="org.modelio.app.application">
     <elements xsi:type="commands:BindingTable" xmi:id="_TxrpEQ2DEeeafdZgTE3EFw" elementId="org.modelio.linkeditor.bindings.table" bindingContext="_UnPYEQ2DEeeafdZgTE3EFw">

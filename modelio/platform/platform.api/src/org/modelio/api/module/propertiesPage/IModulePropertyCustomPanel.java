@@ -20,6 +20,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.platform.ui.panel.IPanelProvider;
 
 @objid ("49bf46d9-ee90-4c47-ab7c-9c5721524c33")
-public interface IModulePropertyCustomPanel extends IModulePropertyPanel, IPanelProvider {// Empty
-    
-}
+public interface IModulePropertyCustomPanel extends IModulePropertyPanel, IPanelProvider {
+// Empty
+    }
+

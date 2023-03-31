@@ -70,5 +70,5 @@ public interface IModelFactoryService extends IModelFactory {
      */
     @objid ("96f9893c-1851-44ee-ab49-42e5426bde2b")
     IModelFactory getFactory(MClass mc);
-
 }
+

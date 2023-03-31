@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("003a2bfe-91e1-1f74-804b-001ec947cd2a")
 public enum OptionalBoolean {
@@ -38,6 +40,7 @@ public enum OptionalBoolean {
     OTRUE(1, "OTrue", "OTrue"),
     @objid ("67eb233c-bbca-4ded-b5ca-94e874c13b72")
     OUNDEFINED(2, "OUndefined", "OUndefined");
+
 public static final int OFALSE_VALUE = 0;
     public static final int OTRUE_VALUE = 1;
     public static final int OUNDEFINED_VALUE = 2;

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1830]]
 
-[[r1830]]
+
+
 = R1830
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _PartDecomposition_ cannot receive 'create' or 'destroy' _Messages_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A _PartDecomposition_ is the description of the internal interactions of one _Lifeline_ relative to an _Interaction_.
@@ -26,9 +26,9 @@ A _Lifeline_ has a _Class_ associated as the type of the _Instance_ that the _Li
 
 _PartDecomposition_ is an _Interaction_ that describes the behavior of that internal structure relative to the _Interaction_ where the decomposition is referenced.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you encounter an R1830 error, delete the incriminated Messages.

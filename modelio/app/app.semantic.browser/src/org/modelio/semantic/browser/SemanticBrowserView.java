@@ -28,8 +28,9 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Composite;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.semantic.browser.panel.SmBrowserPanelProvider;
@@ -45,7 +46,10 @@ public class SemanticBrowserView {
 
     @objid ("3cf26590-f9d2-44c2-b97b-94f67a4f0a2a")
     @PostConstruct
-    public void postConstruct(Composite parent) {
+    public void postConstruct(Composite parent, final MPart part) {
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        part.getToolbar().setVisible(true);
+        
         this.panel = new SmBrowserPanelProvider();
         ContextInjectionFactory.inject(this.panel, this.eclipseContext);
         this.panel.createPanel(parent);
@@ -53,7 +57,7 @@ public class SemanticBrowserView {
         // The view might be instantiated when a project is already opened
         IProjectService projectService = this.eclipseContext.get(IProjectService.class);
         if (projectService != null) {
-            GProject project = projectService.getOpenedProject();
+            IGProject project = projectService.getOpenedProject();
         
             if (project != null) {
                 onProjectOpened(project);
@@ -81,14 +85,14 @@ public class SemanticBrowserView {
     @objid ("927dbf00-20bb-476a-a260-4bc9ff3c5c4f")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
+    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject) {
         this.panel.setInput(openedProject);
     }
 
     @objid ("e711c201-04ca-49f0-9ff9-b0f9dca196e7")
     @Inject
     @Optional
-    void onProjectClosed(@UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         this.panel.setInput(null);
     }
 

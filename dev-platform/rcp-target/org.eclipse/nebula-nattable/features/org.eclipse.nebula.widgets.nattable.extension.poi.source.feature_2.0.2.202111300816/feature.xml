@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.nattable.extension.poi.source.feature"
+      label="%featureName"
+      version="2.0.2.202111300816"
+      provider-name="%providerName">
+
+   <description url="https://projects.eclipse.org/projects/technology.nebula.nattable">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.nattable.extension.poi.source"
+         download-size="17"
+         install-size="44"
+         version="2.0.2.202111300816"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.poi.source"
+         download-size="2498"
+         install-size="7776"
+         version="4.1.1.v20200604-1524"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.math3.source"
+         download-size="2560"
+         install-size="8869"
+         version="3.6.1.v20200817-1830"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.collections4.source"
+         download-size="733"
+         install-size="2595"
+         version="4.4.0.v20200420-1700"
+         unpack="false"/>
+
+</feature>

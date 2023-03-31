@@ -33,6 +33,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * Enumeration literal for properties. A PropertyEnumerationLitteral belongs to an EnumeratedPropertyType. Its Name attribute gives the literal value.
+ * 
+ * 
  */
 @objid ("00726262-ec87-1098-b22e-001ec947cd2a")
 public interface PropertyEnumerationLitteral extends ModelElement {
@@ -62,6 +64,7 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("00280604-7678-440b-9ac7-958206b7b120")
     EnumeratedPropertyType getOwner();
@@ -71,8 +74,9 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("43155574-367a-4713-bae7-0d8841d954df")
     void setOwner(EnumeratedPropertyType value);
-
 }
+

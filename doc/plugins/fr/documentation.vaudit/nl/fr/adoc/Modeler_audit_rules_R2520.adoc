@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2520]]
 
-[[r2520]]
+
+
 = R2520
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si un _Port_ a une délégation vers une part, il doit fournir au moins une _Interface_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une délégation est un type de _Connector_ d'un _Port_ vers une part de la _Class_ ou du _Component_ possédant le _Port_.
 
 Le _Port_ doit alors fournir une _Interface_ par l'intermédiaire d'une _ProvidedInterface_ pour avoir quelque chose à déléguer.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Ajoutez une interface fournie (_ProvidedInterface_) par votre _Port_.

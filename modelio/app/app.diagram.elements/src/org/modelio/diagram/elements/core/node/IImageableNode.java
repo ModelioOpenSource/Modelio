@@ -35,5 +35,5 @@ public interface IImageableNode {
      */
     @objid ("80a17d85-1dec-11e2-8cad-001ec947c8cc")
     Image getImage();
-
 }
+

@@ -51,5 +51,5 @@ public interface IMemoryEventListener {
      */
     @objid ("6b917eca-57b6-465e-b027-c492047a6f10")
     void onFreeMemoryEnd(int swappedObjects, MemoryUsage memState);
-
 }
+

@@ -26,5 +26,5 @@ import org.eclipse.swt.events.VerifyEvent;
 public interface ITextVerifier {
     @objid ("8e485b89-f7c2-4ca3-9be3-11a90869cc8d")
     boolean isValid(String text, VerifyEvent e);
-
 }
+

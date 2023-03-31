@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Project Configurator
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.modelio.app.project.conf;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.app.project.conf.plugin.AppProjectConf
 Bundle-Vendor: modelio.org
 Require-Bundle: org.modelio.platform.ui,
@@ -28,7 +28,7 @@ Require-Bundle: org.modelio.platform.ui,
  org.modelio.core.project.data,
  org.modelio.platform.rcp,
  org.modelio.core.kernel
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: res/,
  .

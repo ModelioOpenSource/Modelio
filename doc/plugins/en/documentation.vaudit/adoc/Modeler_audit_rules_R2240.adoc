@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2240]]
 
-[[r2240]]
+
+
 = R2240
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 There can be no inter-package/inter-component dependency cycle.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Dependency cycles between _Packages_ and _Components_ should be avoided as these are not good design practice.
 
 For example, a Package P1 depends on another one P2 if one class on P1 derives, imports, or has an association towards a class of P2.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have dependency cycles between packages or components, you should review your design.

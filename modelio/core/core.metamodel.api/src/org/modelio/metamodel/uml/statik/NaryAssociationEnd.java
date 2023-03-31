@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00209ca2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface NaryAssociationEnd extends StructuralFeature {
@@ -52,6 +54,7 @@ public interface NaryAssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("712f826a-1344-4afa-a744-03ade442ac48")
     NaryAssociation getNaryAssociation();
@@ -61,6 +64,7 @@ public interface NaryAssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("102edf47-8af0-4321-b4b8-7bf0b3dc1ea8")
     void setNaryAssociation(NaryAssociation value);
@@ -70,6 +74,7 @@ public interface NaryAssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("64b2c945-cc89-4ab0-9d9d-beb5db28e249")
     Classifier getOwner();
@@ -79,8 +84,9 @@ public interface NaryAssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("71fc2d52-49b5-478d-8995-85c8afb00f40")
     void setOwner(Classifier value);
-
 }
+

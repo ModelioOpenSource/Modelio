@@ -213,5 +213,5 @@ public interface IModelingSession {
      */
     @objid ("65e2d38e-4c45-43ce-957e-9e0b95a925f1")
     MObject findByRef(MRef ref);
-
 }
+

@@ -339,8 +339,7 @@ public class ImportServices {
         
                 visitEcoreModel.doSwitch(profileToImport);
         
-                if(progressBar != null)  progressBar.setLabel(Xmi.I18N
-                        .getString("progressBar.content.import.checkConsistency"));
+                if(progressBar != null)  progressBar.setLabel(Xmi.I18N.getString("progressBar.content.import.checkConsistency"));
         
                 revProp.clean();
         
@@ -356,8 +355,7 @@ public class ImportServices {
                         messageBox.open();
                     }
                 });
-                Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N
-                        .getString("info.import.result_failed.notProfile"));
+                Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.import.result_failed.notProfile"));
             }
         
         }

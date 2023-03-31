@@ -1,0 +1,16 @@
+freemarker.cache
+freemarker.core
+freemarker.debug
+freemarker.ext.ant
+freemarker.ext.beans
+freemarker.ext.dom
+freemarker.ext.jdom
+freemarker.ext.jsp
+freemarker.ext.jython
+freemarker.ext.rhino
+freemarker.ext.servlet
+freemarker.ext.util
+freemarker.ext.xml
+freemarker.log
+freemarker.template
+freemarker.template.utility

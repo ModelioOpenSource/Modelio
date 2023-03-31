@@ -29,6 +29,7 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IPersistent;
 import org.modelio.diagram.persistence.IPersistentMigrator;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -57,7 +58,7 @@ public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
         
     }
 
-    @objid ("bcbea324-90d9-4a21-bbe3-6151326f73ed")
+    @objid ("d09cb95d-409d-43fc-8073-fe747b97a73d")
     private boolean isLinkMetaclass(final MObject toUnmask) {
         return toUnmask.getMClass().isLinkMetaclass()
                 || toUnmask instanceof BpmnDataAssociation; // BpmnDataAssociation is a mess: it is considered as a link in diagrams despite the metaclass not being tagged as a link

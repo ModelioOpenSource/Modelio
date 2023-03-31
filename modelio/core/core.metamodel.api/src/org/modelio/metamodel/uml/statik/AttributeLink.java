@@ -37,6 +37,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * In UML 2.0, attribute links are called slots. 
  * 
  * In Modelio, an AttributeLink belongs to an Instance.
+ * 
+ * 
+ * 
  */
 @objid ("009893c4-c4be-1fd8-97fe-001ec947cd2a")
 public interface AttributeLink extends UmlModelElement {
@@ -57,6 +60,7 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Current value of the Attribute's Slot for the Instance.</i>
+     * 
      */
     @objid ("3b52c931-5c0c-419d-8527-2ee8aaed783c")
     String getValue();
@@ -66,6 +70,7 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Current value of the Attribute's Slot for the Instance.</i>
+     * 
      */
     @objid ("95242cdd-14e2-487e-bf47-a6192c3e2eee")
     void setValue(String value);
@@ -75,6 +80,7 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cb9d6796-615e-469c-a192-bf29c6d2b917")
     Instance getAttributed();
@@ -84,6 +90,7 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("249632be-2c71-4832-ab98-9c4eb17ce914")
     void setAttributed(Instance value);
@@ -93,6 +100,7 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the optional Attribute that specifies the AttributeLink.</i>
+     * 
      */
     @objid ("477ca386-f13f-4c62-873f-a6908afe9d77")
     Attribute getBase();
@@ -102,8 +110,9 @@ public interface AttributeLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the optional Attribute that specifies the AttributeLink.</i>
+     * 
      */
     @objid ("0afee4ce-79d4-412c-a70e-13ba7e8013ec")
     void setBase(Attribute value);
-
 }
+

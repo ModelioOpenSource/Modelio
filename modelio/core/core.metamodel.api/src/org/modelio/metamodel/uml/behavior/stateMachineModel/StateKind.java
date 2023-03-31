@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("000d61fa-91e1-1f74-804b-001ec947cd2a")
 public enum StateKind {
@@ -52,6 +54,7 @@ public enum StateKind {
     SIGNALSENDINGSTATE(8, "SignalSendingState", "SignalSendingState"),
     @objid ("d18732cc-50a4-4f37-b5ff-b6ce24fff9d7")
     SYNCHRONIZATIONSTATE(9, "SynchronizationState", "SynchronizationState");
+
 public static final int INITIALSTATE_VALUE = 0;
     public static final int DEEPHISTORYSTATE_VALUE = 1;
     public static final int SHALLOWHISTORYSTATE_VALUE = 2;

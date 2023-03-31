@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.browser.model.AllDiagramsNode;
 import org.modelio.diagram.browser.model.core.DiagramRef;
 import org.modelio.diagram.browser.model.core.VirtualFolder;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
 
@@ -49,13 +49,13 @@ public class CommandVisiblePropertyTester extends PropertyTester {
             return false;
         }
         
-        final IStructuredSelection selection = (IStructuredSelection) receiver;        
+        final IStructuredSelection selection = (IStructuredSelection) receiver;
         Object[] elements = selection.toArray();
         switch (property) {
             case "createfolder":
                 for (Object element : elements) {
-                    if (!(element instanceof DiagramRef) && !(element instanceof AbstractDiagram) 
-                            && !(element instanceof VirtualFolder) && !(element instanceof IProjectFragment)) {
+                    if (!(element instanceof DiagramRef) && !(element instanceof AbstractDiagram)
+                            && !(element instanceof VirtualFolder) && !(element instanceof IGModelFragment)) {
                         return true;
                     }
                 }
@@ -67,8 +67,8 @@ public class CommandVisiblePropertyTester extends PropertyTester {
                             return false;
                         }
                     }
-                    if (!(element instanceof DiagramSet) && !(element instanceof AllDiagramsNode) 
-                            && !(element instanceof IProjectFragment)) {
+                    if (!(element instanceof DiagramSet) && !(element instanceof AllDiagramsNode)
+                            && !(element instanceof IGModelFragment)) {
                         return true;
                     }
                 }
@@ -76,7 +76,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
             case "rename":
             case "delete":
                 for (Object element : elements) {
-                    if (!(element instanceof VirtualFolder) && !(element instanceof IProjectFragment)) {
+                    if (!(element instanceof VirtualFolder) && !(element instanceof IGModelFragment)) {
                         return true;
                     }
                 }
@@ -85,8 +85,8 @@ public class CommandVisiblePropertyTester extends PropertyTester {
             case "copy":
             case "paste":
                 for (Object element : elements) {
-                    if (!(element instanceof DiagramRef) && !(element instanceof AbstractDiagram) 
-                            && !(element instanceof VirtualFolder) && !(element instanceof IProjectFragment)) {
+                    if (!(element instanceof DiagramRef) && !(element instanceof AbstractDiagram)
+                            && !(element instanceof VirtualFolder) && !(element instanceof IGModelFragment)) {
                         return true;
                     }
                 }

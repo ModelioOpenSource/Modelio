@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.IModelioElementLabelProvider;
 import org.modelio.platform.ui.UIImages;
 
@@ -39,10 +39,10 @@ public class StereotypeChooserLabelProvider extends LabelProvider implements IMo
     public Image getImage(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            return ModuleI18NService.getModuleImage(moduleComponent);
+            return MdaResources.getModuleImage(moduleComponent);
         } else if (element instanceof Stereotype) {
             Stereotype stereotype = (Stereotype) element;
-            Image image = ModuleI18NService.getIcon(stereotype);
+            Image image = MdaResources.getIcon(stereotype);
             if (image != null) {
                 return image;
             }
@@ -56,13 +56,13 @@ public class StereotypeChooserLabelProvider extends LabelProvider implements IMo
     public String getText(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            return ModuleI18NService.getLabel(moduleComponent);
+            return MdaResources.getLabel(moduleComponent);
         } else if (element instanceof Stereotype) {
             StringBuffer noteTypeLabel = new StringBuffer();
             Stereotype stereotype = (Stereotype) element;
         
             noteTypeLabel.append("<<");
-            String label = ModuleI18NService.getLabel(stereotype);
+            String label = MdaResources.getLabel(stereotype);
             if (!"".equals(label)) {
                 noteTypeLabel.append(label);
             } else {
@@ -82,7 +82,7 @@ public class StereotypeChooserLabelProvider extends LabelProvider implements IMo
     public String getToolTipText(Object element) {
         if (element instanceof Stereotype) {
             Stereotype stereotype = (Stereotype) element;
-            return ModuleI18NService.getDescription(stereotype);
+            return MdaResources.getDescription(stereotype);
         } else {
             return null;
         }

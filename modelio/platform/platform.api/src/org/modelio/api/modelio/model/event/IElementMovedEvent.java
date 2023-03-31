@@ -54,5 +54,5 @@ public interface IElementMovedEvent {
      */
     @objid ("a41f07af-0ecc-11e2-96c4-002564c97630")
     MObject getOldParent();
-
 }
+

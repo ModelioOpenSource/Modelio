@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * In Modelio, an AssociationEnd is also a Feature. The name of a Feature corresponds to the name of the role of the opposite related Class. 
  * 
  * In Modelio, a Feature belongs to its Classifier.
+ * 
+ * 
  */
 @objid ("000b00cc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Feature extends UmlModelElement {
@@ -57,6 +59,7 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Member visibility (public, protected, private, or package).</i>
+     * 
      */
     @objid ("ae2b8bbe-1e6a-443e-8aa5-8a51a3086f2f")
     VisibilityMode getVisibility();
@@ -66,6 +69,7 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Member visibility (public, protected, private, or package).</i>
+     * 
      */
     @objid ("fcadaacd-c43d-44b8-abd2-9c1f40b3a602")
     void setVisibility(VisibilityMode value);
@@ -75,6 +79,7 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies a Class member that is shared by all instances of the Class.</i>
+     * 
      */
     @objid ("cc614d20-6479-4a40-91f8-3773f4af99f7")
     boolean isIsClass();
@@ -84,6 +89,7 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies a Class member that is shared by all instances of the Class.</i>
+     * 
      */
     @objid ("74f4e8e8-aa78-4475-802e-47238ed65b98")
     void setIsClass(boolean value);
@@ -93,6 +99,7 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Determines abstract features, that is to say, those not implemented at this level.</i>
+     * 
      */
     @objid ("8c8a3ffa-9370-4590-9f55-bb5a4290470f")
     boolean isIsAbstract();
@@ -102,8 +109,9 @@ public interface Feature extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Determines abstract features, that is to say, those not implemented at this level.</i>
+     * 
      */
     @objid ("31b22e7f-0efe-453b-a64d-81f7e908d8f9")
     void setIsAbstract(boolean value);
-
 }
+

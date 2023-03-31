@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2510]]
 
-[[r2510]]
+
+
 = R2510
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Il ne peut y avoir de lien entre deux port de classe.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 La modélisation suivante est interdite :
@@ -28,9 +28,9 @@ La norme UML spécifie :
 
 The ConnectableElements attached as roles to each ConnectorEnd owned by a Connector must be roles of the Classifier that owned the Connector, or they must be ports of such roles.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Modélisez la liaison comme suit:

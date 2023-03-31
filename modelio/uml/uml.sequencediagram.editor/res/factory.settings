@@ -5,14 +5,14 @@ VERSION = 1
 #
 
 
-$WHITE = 255 255 255
+$WHITE = 255 255 255 
 $BLACK = 0 0 0
 $DEFAULTFONT = Arial, 9, 0
 
 
 
 ################################################################################
-###
+###  
 ###  Properties for Sequence Diagram elements
 ###
 
@@ -38,6 +38,7 @@ EXECUTIONSPECIFICATION_LINEWIDTH = 1
 
 EXECUTIONOCCURENCESPECIFICATION_FILLCOLOR = 0 0 0
 EXECUTIONOCCURENCESPECIFICATION_FILLMODE = TRANSPARENT
+
 
 GATE_FILLCOLOR = 210 200 185
 GATE_FILLMODE = GRADIENT

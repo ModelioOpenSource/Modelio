@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-des-éléments-dans-les-diagrammes]]
 
-[[créer-des-éléments-dans-les-diagrammes]]
+
+
 = Créer des éléments dans les diagrammes
 
 Dans les diagrammes Modelio, vous pouvez créer des éléments en vous servant des icônes dans la palette à gauche du diagramme.

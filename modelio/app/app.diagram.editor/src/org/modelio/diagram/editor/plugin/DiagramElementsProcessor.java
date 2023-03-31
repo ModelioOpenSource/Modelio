@@ -30,7 +30,9 @@ import org.modelio.diagram.elements.common.genericlink.GmGenericLinkStyleKeys;
 import org.modelio.diagram.elements.common.genericnode.GmGenericNodeStyleKeys;
 import org.modelio.diagram.elements.core.model.factory.DiagramFactoryRegistry;
 import org.modelio.diagram.elements.drawings.ellipse.GmEllipseStyleKeys;
+import org.modelio.diagram.elements.drawings.image.GmImageDrawingStyleKeys;
 import org.modelio.diagram.elements.drawings.line.GmLineStyleKeys;
+import org.modelio.diagram.elements.drawings.note.GmNoteDrawingStyleKeys;
 import org.modelio.diagram.elements.drawings.rectangle.GmRectangleStyleKeys;
 import org.modelio.diagram.elements.drawings.text.GmTextStyleKeys;
 import org.modelio.diagram.elements.plugin.DiagramElements;
@@ -90,6 +92,8 @@ public class DiagramElementsProcessor extends AbstractDiagramInitializationProce
         factoryStyle.declareProvider(GmEllipseStyleKeys.class);
         factoryStyle.declareProvider(GmEllipseStyleKeys.Label.class);
         factoryStyle.declareProvider(GmTextStyleKeys.class);
+        factoryStyle.declareProvider(GmNoteDrawingStyleKeys.class);
+        factoryStyle.declareProvider(GmImageDrawingStyleKeys.class);
         factoryStyle.declareProvider(GmLineStyleKeys.class);
         factoryStyle.declareProvider(GmLineStyleKeys.SourceDeco.class);
         factoryStyle.declareProvider(GmLineStyleKeys.TargetDeco.class);

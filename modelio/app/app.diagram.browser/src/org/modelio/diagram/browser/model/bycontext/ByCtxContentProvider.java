@@ -27,7 +27,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelio.diagram.browser.model.core.DiagramRef;
 import org.modelio.diagram.browser.model.core.VirtualFolder;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -45,7 +45,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
     Map<Element, VirtualFolder> elementFolders = new HashMap<>();
 
     @objid ("003f18f8-e065-10ce-896b-001ec947cd2a")
-    private GProject project;
+    private IGProject project;
 
     @objid ("002d0230-0d4f-10c6-842f-001ec947cd2a")
     @Override
@@ -110,7 +110,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
     }
 
     @objid ("002e0a04-0d4f-10c6-842f-001ec947cd2a")
-    public  ByCtxContentProvider(GProject project) {
+    public  ByCtxContentProvider(IGProject project) {
         this.project = project;
     }
 

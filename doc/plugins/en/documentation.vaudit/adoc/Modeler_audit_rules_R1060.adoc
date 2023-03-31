@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1060]]
 
-[[r1060]]
+
+
 = R1060
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An ActivityParameterNode can only have an outgoing ActivityEdge if it represents a BehaviorParameter whose passing mode is "in" or "inout".
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An ActivityParameterNode that has at least one outgoing ActivityEdge must represent a BehaviorParameter whose passing mode is "in" or "inout".
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1060 error, you should check that:

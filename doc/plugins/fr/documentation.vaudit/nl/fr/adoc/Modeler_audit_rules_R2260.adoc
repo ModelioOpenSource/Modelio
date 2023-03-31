@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2260]]
 
-[[r2260]]
+
+
 = R2260
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Chaque _Opération_ d'un _Classifier_ doit avoir une signature différente.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Opération_ est identifiée grâce à sa signature, elle doit donc être unique dans un _Classifier_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Renommez l'une des _Operations_.

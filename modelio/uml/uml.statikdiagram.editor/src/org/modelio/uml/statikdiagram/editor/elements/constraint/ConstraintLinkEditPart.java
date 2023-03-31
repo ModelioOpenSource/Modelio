@@ -28,6 +28,7 @@ import org.modelio.diagram.elements.core.link.LinkEditPart;
  * @author fpoyer
  */
 @objid ("811650ad-1dec-11e2-8cad-001ec947c8cc")
-public class ConstraintLinkEditPart extends LinkEditPart {// Nothing to do
+public class ConstraintLinkEditPart extends LinkEditPart {
+// Nothing to do
     
 }

@@ -3,7 +3,7 @@ Bundle-Localization: plugin
 Bundle-ManifestVersion: 2
 Bundle-Name: Browser View
 Bundle-SymbolicName: org.modelio.app.model.browser.view;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Vendor: Modeliosoft
 Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.workbench,
@@ -25,8 +25,10 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.core.expressions,
  org.modelio.platform.module.browser.commands,
  org.modelio.platform.mda.infra,
- org.modelio.core.project.data
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ org.modelio.core.project.data,
+ org.eclipse.e4.ui.workbench,
+ org.modelio.core.utils
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy

@@ -32,5 +32,5 @@ public interface IErrorReport {
 
     @objid ("0051b260-524f-1036-812a-001ec947cd2a")
     boolean isFailed();
-
 }
+

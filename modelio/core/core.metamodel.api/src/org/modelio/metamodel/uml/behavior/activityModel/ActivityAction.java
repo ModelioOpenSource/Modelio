@@ -38,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  * An action may have sets of incoming and outgoing activity edges that specify control flow and data flow to and from other nodes. An action will not begin execution until all of its input conditions are satisfied. The completion of the execution of an action may enable the execution of a set of successor nodes and actions that take their inputs from the outputs of the action.
  * 
  * Action can have pre- and post-conditions (using constraints).
+ * 
+ * 
  */
 @objid ("002688d8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityAction extends ActivityNode {
@@ -58,6 +60,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>BPMN: Expresses if several action instances can be run in parallel.</i>
+     * 
      */
     @objid ("904572c3-0f61-41a4-8dbc-e3e6278323b3")
     boolean isIsMultipleInstance();
@@ -67,6 +70,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>BPMN: Expresses if several action instances can be run in parallel.</i>
+     * 
      */
     @objid ("5774d5a3-aadf-4cab-ae70-0498929916b6")
     void setIsMultipleInstance(boolean value);
@@ -77,6 +81,7 @@ public interface ActivityAction extends ActivityNode {
      * Metamodel description:
      * <i>BPMN : Some activities produce complex effects or specific outputs. If the outcome is determined to be undesirable by some specified criteria (such as an order being cancelled), then it will be necessary to "undo" the activities. Compensation activities are activities that "undo" the effect of other activities, in reaction to a compensation event.
      * The Compensation Activity is special in that it does not follow the normal Sequence Flow rules--as mentioned, it is outside the Normal Flow of the Process. This activity cannot have any incoming or outgoing Sequence Flows. The Compensation marker (as is in the Compensation Intermediate Event) will be displayed in the bottom center of the Activity to show this status of the activity.</i>
+     * 
      */
     @objid ("c420fd97-f6f1-451b-b366-37c49a649091")
     boolean isIsCompensation();
@@ -87,6 +92,7 @@ public interface ActivityAction extends ActivityNode {
      * Metamodel description:
      * <i>BPMN : Some activities produce complex effects or specific outputs. If the outcome is determined to be undesirable by some specified criteria (such as an order being cancelled), then it will be necessary to "undo" the activities. Compensation activities are activities that "undo" the effect of other activities, in reaction to a compensation event.
      * The Compensation Activity is special in that it does not follow the normal Sequence Flow rules--as mentioned, it is outside the Normal Flow of the Process. This activity cannot have any incoming or outgoing Sequence Flows. The Compensation marker (as is in the Compensation Intermediate Event) will be displayed in the bottom center of the Activity to show this status of the activity.</i>
+     * 
      */
     @objid ("4f4ea145-5af7-442d-baa7-cfb2e2fe3b77")
     void setIsCompensation(boolean value);
@@ -96,6 +102,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Output pins connected to the Action. The action places its results onto pins in this set.</i>
+     * 
      */
     @objid ("ebfa8633-b257-4839-9f31-a9d885cd2e49")
     EList<OutputPin> getOutput();
@@ -105,6 +112,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Output pins connected to the Action. The action places its results onto pins in this set.</i>
+     * 
      */
     @objid ("27b09494-f0bd-4e21-9b64-dc7dfae6297b")
     <T extends OutputPin> List<T> getOutput(java.lang.Class<T> filterClass);
@@ -114,6 +122,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Input pins connected to the Action. These are among the total set of inputs. </i>
+     * 
      */
     @objid ("5c4a7dd9-d8d5-4c53-a7bd-f9bb026078cf")
     EList<InputPin> getInput();
@@ -123,6 +132,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Input pins connected to the Action. These are among the total set of inputs. </i>
+     * 
      */
     @objid ("d1fb1dbf-7c61-47a6-842c-9c508d2f7a81")
     <T extends InputPin> List<T> getInput(java.lang.Class<T> filterClass);
@@ -132,6 +142,7 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("466ae311-7dda-4cff-bf2c-901516b00f5a")
     EList<ExceptionHandler> getHandler();
@@ -141,8 +152,9 @@ public interface ActivityAction extends ActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("db6f5bd2-7fd8-46fb-ae93-d173dd31fe3b")
     <T extends ExceptionHandler> List<T> getHandler(java.lang.Class<T> filterClass);
-
 }
+

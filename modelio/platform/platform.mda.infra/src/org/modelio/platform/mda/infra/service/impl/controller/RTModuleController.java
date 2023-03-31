@@ -20,18 +20,21 @@
 package org.modelio.platform.mda.infra.service.impl.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
-import org.modelio.metamodel.mda.ModuleComponent;
+import org.modelio.gproject.parts.module.GModule;
+import org.modelio.platform.mda.infra.IMdaResourceProviderRegistry;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModuleController;
 import org.modelio.platform.mda.infra.service.IRTModuleListener;
 import org.modelio.platform.mda.infra.service.impl.IModuleRegistryAccess;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
+import org.modelio.platform.mda.infra.service.impl.ModuleResolutionHelper;
+import org.modelio.platform.mda.infra.service.impl.RTModule;
 import org.modelio.platform.mda.infra.service.impl.controller.load.ModuleLoader;
 import org.modelio.platform.mda.infra.service.impl.controller.remove.ModuleRemover;
 import org.modelio.platform.mda.infra.service.impl.controller.states.States;
@@ -55,15 +58,84 @@ public class RTModuleController implements IRTModuleController {
     @objid ("a158f372-2bca-4179-b609-8a63c3c74607")
     private final States states;
 
+    @objid ("8c6b6a94-eeef-431b-87ff-138f4d03eca9")
+    private final IMdaResourceProviderRegistry mdaResourceProviderRegistry;
+
     /**
      * @param rtModule the controlled module
      * @param moduleRegistry the module registry
      */
     @objid ("b56c08a9-5edd-4da4-9b0a-619c183376dd")
-    public  RTModuleController(IRTModuleAccess rtModule, IModuleRegistryAccess moduleRegistry) {
+    public  RTModuleController(IRTModuleAccess rtModule, IModuleRegistryAccess moduleRegistry, IMdaResourceProviderRegistry mdaResourceProviderRegistry) {
         this.rtModule = rtModule;
         this.moduleRegistry = moduleRegistry;
+        this.mdaResourceProviderRegistry = mdaResourceProviderRegistry;
         this.states = new States(this.rtModule);
+        
+    }
+
+    @objid ("dc35235c-a2bf-4cb1-bd1b-2ca318c7ae5b")
+    @Override
+    public void initModuleUses() {
+        ArrayList<IRTModule> newRequired = new ArrayList<>();
+        ArrayList<IRTModule> newOptional = new ArrayList<>();
+        
+        for (IRTModule m : new ArrayList<>(this.moduleRegistry.getModules())) {
+            // Note: calling m.getRequiredDependencies() may result of this.resetModuleUsers() being called
+        
+            if (m.getMandatoryRequiredModules().contains(this.rtModule)) {
+                newRequired.add(m);
+            }
+        
+            if (m.getOptionalRequiredModules().contains(this.rtModule)) {
+                newOptional.add(m);
+            }
+        }
+        
+        // Set fields last to avoid concurrent field reset by resetModuleUsers()
+        this.rtModule.setModuleMandatoryUses(newRequired);
+        this.rtModule.setModuleOptionalUses(newOptional);
+        
+    }
+
+    /**
+     * Compute required & optional dependencies from the GModule underneath.
+     */
+    @objid ("9d505c0d-6149-48ad-8306-74cd00600290")
+    @Override
+    public void initRequiredModules() {
+        // Recompute required and used modules
+        GModule gModule = this.rtModule.getGModule();
+        List<GModule> requiredGModules = ModuleResolutionHelper.getRequiredGModules(gModule, gModule.getProject());
+        List<GModule> optionalGModules = ModuleResolutionHelper.getWeakDependenciesGModules(gModule, gModule.getProject());
+        
+        List<IRTModule> newRequired = new ArrayList<>(requiredGModules.size());
+        List<IRTModule> newOptional = new ArrayList<>(optionalGModules.size());
+        
+        for (GModule strongDependency : requiredGModules) {
+            IRTModule rtDep = this.moduleRegistry.getModule(strongDependency);
+            if (rtDep == null) {
+                rtDep = new RTModule(gModule, this.moduleRegistry, this.mdaResourceProviderRegistry);
+                // Add loaded module to the registry
+                this.moduleRegistry.addModule(rtDep);
+            }
+            newRequired.add(rtDep);
+            rtDep.resetModuleUsers();
+        }
+        
+        for (GModule weakDependency : optionalGModules) {
+            IRTModule rtDep = this.moduleRegistry.getModule(weakDependency);
+            if (rtDep == null) {
+                rtDep = new RTModule(gModule, this.moduleRegistry, this.mdaResourceProviderRegistry);
+                // Add loaded module to the registry
+                this.moduleRegistry.addModule(rtDep);
+            }
+            newOptional.add(rtDep);
+            rtDep.resetModuleUsers();
+        }
+        
+        this.rtModule.setMandatoryRequiredModules(newRequired);
+        this.rtModule.setOptionalRequiredModules(newOptional);
         
     }
 
@@ -136,7 +208,7 @@ public class RTModuleController implements IRTModuleController {
         MdaInfra.LOG.indent();
         
         try {
-            if (this.rtModule.getGModule().isActivated()) {
+            if (this.rtModule.getGModule().isActive()) {
                 this.states.handleMessage(States.MSGLOADACTIVATED);
             } else {
                 this.states.handleMessage(States.MSGLOADDISABLED);
@@ -155,16 +227,7 @@ public class RTModuleController implements IRTModuleController {
         try {
             IRTModuleListener.Poster.moduleRemoving(this.rtModule);
         
-            // Remove the module MDA annotations and the ModuleComponent itself
-            if (deleteAnnotations) {
-                ModuleComponent comp = this.rtModule.getModel();
-                ModuleRemover.remove(comp);
-            }
-        
-            // Remove from project.conf
-            GModule gModule = this.rtModule.getGModule();
-            GProject gProject = gModule.getProject();
-            gProject.removeModule(gModule);
+            ModuleRemover.remove(this.rtModule, deleteAnnotations);
         
             // Call unselect(), and unload definitively
             this.states.handleMessage(States.MSGDELETE);
@@ -249,6 +312,12 @@ public class RTModuleController implements IRTModuleController {
             MdaInfra.LOG.dedent();
         }
         
+    }
+
+    @objid ("d68ada9f-4dbb-4542-b1c7-31d1db9df03f")
+    @Override
+    public IMdaResourceProviderRegistry getMdaResourceProviderRegistry() {
+        return this.mdaResourceProviderRegistry;
     }
 
 }

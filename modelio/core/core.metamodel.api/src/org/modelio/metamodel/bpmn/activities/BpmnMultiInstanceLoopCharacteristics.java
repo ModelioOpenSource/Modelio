@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0080f732-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteristics {
@@ -61,6 +63,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * If the multi-instance instances are set to be performed in parallel rather than sequential (the isSequential attribute set to false), then the lines of the marker will vertical.
      * 
      * If the multi-instance instances are set to be performed in sequence rather than parallel (the isSequential attribute set to true), then the marker will be horizontal</i>
+     * 
      */
     @objid ("6512aa65-0ef7-4e3b-a772-5eff6b32f448")
     boolean isIsSequencial();
@@ -74,6 +77,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * If the multi-instance instances are set to be performed in parallel rather than sequential (the isSequential attribute set to false), then the lines of the marker will vertical.
      * 
      * If the multi-instance instances are set to be performed in sequence rather than parallel (the isSequential attribute set to true), then the marker will be horizontal</i>
+     * 
      */
     @objid ("8a125115-7443-49d4-a6c2-9d0c177b9012")
     void setIsSequencial(boolean value);
@@ -91,6 +95,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * For the behaviors of none and one, a default SignalEventDefinition will be thrown which automatically carries the current runtime attributes of the MI Activity.
      * 
      * Any thrown Events can be caught by boundary Events on the MultiInstance Activity.</i>
+     * 
      */
     @objid ("cf341d15-c773-4ee8-b76d-4572b0ebfe34")
     MultiInstanceBehavior getBehavior();
@@ -108,6 +113,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * For the behaviors of none and one, a default SignalEventDefinition will be thrown which automatically carries the current runtime attributes of the MI Activity.
      * 
      * Any thrown Events can be caught by boundary Events on the MultiInstance Activity.</i>
+     * 
      */
     @objid ("292ae5b8-0f3a-43a3-a4bf-1f53a024e9e2")
     void setBehavior(MultiInstanceBehavior value);
@@ -120,6 +126,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * This MAY be underspecified, meaning that the modeler MAY simply document the condition. In such a case the loop cannot be formally executed.
      * 
      * In order to initialize a valid multi-instance, either the loopCardinality Expression or the loopDataInput MUST be specified.</i>
+     * 
      */
     @objid ("6935734e-8031-4eb1-85ba-7acab30039ee")
     String getLoopCardinality();
@@ -132,6 +139,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * This MAY be underspecified, meaning that the modeler MAY simply document the condition. In such a case the loop cannot be formally executed.
      * 
      * In order to initialize a valid multi-instance, either the loopCardinality Expression or the loopDataInput MUST be specified.</i>
+     * 
      */
     @objid ("1677071b-eda3-464a-a440-629bc30762b5")
     void setLoopCardinality(String value);
@@ -141,6 +149,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>This attribute defines a boolean Expression that when evaluated to true, cancels the remaining Activity instances and produces a token.</i>
+     * 
      */
     @objid ("6c862373-e948-4b4c-b1ea-151d4acca2f4")
     String getCompletionCondition();
@@ -150,6 +159,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>This attribute defines a boolean Expression that when evaluated to true, cancels the remaining Activity instances and produces a token.</i>
+     * 
      */
     @objid ("7af92715-9765-4384-a484-66b3dc17e5ba")
     void setCompletionCondition(String value);
@@ -159,6 +169,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2d7a6880-173a-4bc5-9f0a-82f235971564")
     BpmnDataInput getLoopDataInput();
@@ -168,6 +179,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3f86ed46-5407-4f0a-9367-77c83079766b")
     void setLoopDataInput(BpmnDataInput value);
@@ -177,6 +189,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b368488d-5a4e-4584-a02b-f544d72b73a7")
     BpmnDataOutput getLoopDataOutputRef();
@@ -186,6 +199,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("34d9b277-f3b5-411a-b611-5b49125c90b4")
     void setLoopDataOutputRef(BpmnDataOutput value);
@@ -197,6 +211,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * <i>The EventDefinition which is thrown when:
      * -  behavior is set to one and the first internal Activity instance has completed,
      * - or the behavior is set to none and an internal Activity instance has completed.</i>
+     * 
      */
     @objid ("c210eb61-1a65-4a51-a779-58924fbc9fc3")
     BpmnEventDefinition getCompletionEventRef();
@@ -208,6 +223,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * <i>The EventDefinition which is thrown when:
      * -  behavior is set to one and the first internal Activity instance has completed,
      * - or the behavior is set to none and an internal Activity instance has completed.</i>
+     * 
      */
     @objid ("f3ed9826-aa42-4241-b64d-ac52146c0559")
     void setCompletionEventRef(BpmnEventDefinition value);
@@ -217,6 +233,7 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("124fa85e-a3ed-4fe0-87a9-46503a2fa144")
     EList<BpmnComplexBehaviorDefinition> getComplexBehaviorDefinition();
@@ -226,8 +243,9 @@ public interface BpmnMultiInstanceLoopCharacteristics extends BpmnLoopCharacteri
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2289a103-de38-4dda-a168-f5e043ced302")
     <T extends BpmnComplexBehaviorDefinition> List<T> getComplexBehaviorDefinition(java.lang.Class<T> filterClass);
-
 }
+

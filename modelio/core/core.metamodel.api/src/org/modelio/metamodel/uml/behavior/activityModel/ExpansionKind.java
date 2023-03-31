@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007f0dd2-91e0-1f74-804b-001ec947cd2a")
 public enum ExpansionKind {
@@ -38,6 +40,7 @@ public enum ExpansionKind {
     ITERATIVE(1, "Iterative", "Iterative"),
     @objid ("4ceefecd-5d08-4937-a4bd-333c1f34c84d")
     STREAM(2, "Stream", "Stream");
+
 public static final int PARALLEL_VALUE = 0;
     public static final int ITERATIVE_VALUE = 1;
     public static final int STREAM_VALUE = 2;

@@ -25,7 +25,7 @@ import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.modelio.api.modelio.pattern.IPatternService.PatternException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.patterns.api.IPatternService;
 import org.modelio.patterns.exporter.impl.PatternExporter;
 import org.modelio.patterns.model.RuntimePattern;
@@ -57,7 +57,7 @@ class PatternService implements IPatternService {
     @objid ("cd77fe80-0796-44ac-bea1-9c0708119dc0")
     @Inject
     @Optional
-    public void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    public void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         if (project != null) {
             this.patternCatalog = null;
         }
@@ -71,7 +71,7 @@ class PatternService implements IPatternService {
     @objid ("5a58cde4-dd24-495b-ad96-c7457c85970a")
     @Inject
     @Optional
-    public void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project) {
+    public void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject project) {
         if (project != null) {
             this.patternCatalog = new PatternRepository(
                     project.getName(),

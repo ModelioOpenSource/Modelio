@@ -124,5 +124,5 @@ public interface IModelerModuleTagTypes {
 
     @objid ("53452355-a999-404a-ab28-0896a979e71c")
     public static final String UML2VARIABLE_UNIQUE = "Unique";
-
 }
+

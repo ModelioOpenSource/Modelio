@@ -58,5 +58,5 @@ public interface IDocumentInput extends IInput {
      */
     @objid ("202c375f-a2ae-423e-bdb0-21d1a748082d")
     void setCharsetName(String charsetName);
-
 }
+

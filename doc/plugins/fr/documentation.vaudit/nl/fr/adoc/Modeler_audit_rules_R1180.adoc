@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1180]]
 
-[[r1180]]
+
+
 = R1180
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _ControlFlow_ ne peut pas avoir d'_ObjectNode_ à ses extrémités.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Tous les flux entrants et sortants d'un _ObjectNode_ doivent être des _ObjectFlow_.
 
 Néanmoins, un _ObjectNode_ peut être spécifié comme " étant de type "_control_" ", dans ce cas, il peut avoir des flux entrants et sortants de type _ControlFlow_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 La propriété " est de type "_control_" " d'un _ObjectNode_ peut être modifiée via la vue " Elément " lorsque cet _ObjectNode_ est sélectionné.

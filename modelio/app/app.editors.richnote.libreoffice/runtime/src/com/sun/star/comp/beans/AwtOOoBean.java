@@ -52,6 +52,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      */
     @objid ("9ae1b102-94c9-40f1-af50-2124b9dc2d05")
     private boolean bIgnoreVisibility = false; // to show even if already visible
+    
 
     @objid ("e20d966c-6f4f-466f-9213-c57c40c187b0")
     private boolean bMenuBarVisible = true;
@@ -1431,6 +1432,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         }
         
     }
+
 {
             setLayout(new java.awt.BorderLayout());
         }

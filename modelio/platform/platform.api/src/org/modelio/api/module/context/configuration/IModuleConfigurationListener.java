@@ -33,5 +33,5 @@ public interface IModuleConfigurationListener {
      */
     @objid ("94f6cf51-eff9-4678-ab10-210daaa5f489")
     void parameterChanged(String pName, String oldValue, String newValue);
-
 }
+

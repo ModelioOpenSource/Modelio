@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2720]]
 
-[[r2720]]
+
+
 = R2720
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _TemplateBinding_ doit être entre deux éléments de même méta-classe ou bien entre une _Class_ et un _DataType_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Lorsque vous instanciez des templates, vous devez relier des éléments avec les mêmes propriétés pour être compatibles.
 
 Vous ne pouvez pas demander à un _Package_ d'instancier une _Class_ template.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Changez la source ou la destination du _TemplateBinding_.

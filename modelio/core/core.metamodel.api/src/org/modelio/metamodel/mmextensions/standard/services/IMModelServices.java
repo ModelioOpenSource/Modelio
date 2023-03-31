@@ -216,5 +216,5 @@ public interface IMModelServices {
      */
     @objid ("0087b040-030f-1035-9f91-001ec947cd2a")
     List<TagType> findTagTypes(String moduleName, String ownerName, String tagTypeName, MClass metaclass);
-
 }
+

@@ -22,7 +22,7 @@ package org.modelio.diagram.browser.model.flat;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.modelio.diagram.browser.model.core.AbstractModel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 @objid ("0026cc44-0d4f-10c6-842f-001ec947cd2a")
 public class FlatModel extends AbstractModel {
@@ -36,7 +36,7 @@ public class FlatModel extends AbstractModel {
     }
 
     @objid ("7229b289-b3c6-477e-a30b-263d06a427aa")
-    public  FlatModel(GProject project) {
+    public  FlatModel(IGProject project) {
         this.contentProvider = new FlatContentProvider(project);
     }
 

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1720]]
 
-[[r1720]]
+
+
 = R1720
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _NameSpace_ abstrait ne devrait hériter que d'un _NameSpace_ abstrait.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _NameSpace_ abstrait ne peut pas être instancié, il ne devrait donc pas hériter d'un _NameSpace_ instanciable puisqu'il récupérera ses propriétés instanciables.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Rendez ce _NameSpace_ concret.

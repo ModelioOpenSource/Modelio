@@ -51,7 +51,7 @@ public class OUseCaseDependency extends OModelElement {
            return UMLFactory.eINSTANCE.createExtend();
         } else if (this.isInclude) {
             return UMLFactory.eINSTANCE.createInclude();
-        } else {            
+        } else {
             throw new NotFoundException("UseCaseDependency type not found");
         }
         
@@ -65,11 +65,9 @@ public class OUseCaseDependency extends OModelElement {
     public  OUseCaseDependency(final UseCaseDependency param) {
         super(param);
         this.objingElement = param;
-        if (AbstractObjingModelNavigation.isStereotyped(this.objingElement, Xmi.I18N
-                .getString("objing.java.stereotype.extend")))
+        if (AbstractObjingModelNavigation.isStereotyped(this.objingElement, Xmi.I18N.getString("objing.java.stereotype.extend")))
             this.isExtend = true;
-        else if (AbstractObjingModelNavigation.isStereotyped(this.objingElement, Xmi.I18N
-                .getString("objing.java.stereotype.include")))
+        else if (AbstractObjingModelNavigation.isStereotyped(this.objingElement, Xmi.I18N.getString("objing.java.stereotype.include")))
             this.isInclude = true;
         else{
             throw new NotFoundException("UseCaseDependency type not found");

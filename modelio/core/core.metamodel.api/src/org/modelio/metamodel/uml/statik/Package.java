@@ -39,6 +39,8 @@ import org.modelio.metamodel.mda.Project;
  * Packages can contain Packages, Classifiers, and so on. 
  * 
  * A Package belongs to its parent Package, represented as a NameSpace in the metamodel, except for the rootPackage, which belongs to a Project.
+ * 
+ * 
  */
 @objid ("001529ee-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Package extends NameSpace {
@@ -59,6 +61,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>This attribute should be discarded. It remains for backward compatibility reasons. A package is not instanciable in UML 2.0.</i>
+     * 
      */
     @objid ("fbb52665-83fe-4c33-85c2-24b3432d5677")
     boolean isIsInstantiable();
@@ -68,6 +71,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>This attribute should be discarded. It remains for backward compatibility reasons. A package is not instanciable in UML 2.0.</i>
+     * 
      */
     @objid ("e0b51a34-dbf1-4e2c-8a88-f118c0cd78b2")
     void setIsInstantiable(boolean value);
@@ -77,6 +81,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5b8fa925-d690-4b67-80b8-dbfeb5da1f82")
     EList<PackageMerge> getReceivingMerge();
@@ -86,6 +91,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6aacb1d3-fa69-49b3-8026-2cbfddd6f7ef")
     <T extends PackageMerge> List<T> getReceivingMerge(java.lang.Class<T> filterClass);
@@ -95,6 +101,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3d174b4a-964b-4370-8c10-8c573f08a5e0")
     Project getRepresented();
@@ -104,6 +111,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d3f923cc-b256-428d-8a53-8c4e7b5a42cb")
     void setRepresented(Project value);
@@ -113,6 +121,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>Merge relation between Packages. Corresponds to UML 2.0 merge semantics.</i>
+     * 
      */
     @objid ("cd2353a3-bfcf-4116-baa3-141092cfabcb")
     EList<PackageMerge> getMerge();
@@ -122,6 +131,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>Merge relation between Packages. Corresponds to UML 2.0 merge semantics.</i>
+     * 
      */
     @objid ("bf3df55a-7ac8-4dfb-b425-94eeadffdd77")
     <T extends PackageMerge> List<T> getMerge(java.lang.Class<T> filterClass);
@@ -131,6 +141,7 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3353e559-a290-4405-a4b1-7abc40f30249")
     EList<PackageImport> getPackageImporting();
@@ -140,8 +151,9 @@ public interface Package extends NameSpace {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a55ff977-4973-4572-9984-3cc947e3d5ed")
     <T extends PackageImport> List<T> getPackageImporting(java.lang.Class<T> filterClass);
-
 }
+

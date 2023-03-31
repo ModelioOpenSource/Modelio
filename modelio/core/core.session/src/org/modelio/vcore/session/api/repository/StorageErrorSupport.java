@@ -21,6 +21,7 @@ package org.modelio.vcore.session.api.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.log.Log;
 
@@ -33,10 +34,10 @@ import org.modelio.vbasic.log.Log;
 @objid ("23da3a1b-d660-11e1-adbb-001ec947ccaf")
 public class StorageErrorSupport {
     @objid ("aaf3e32a-cb41-4790-81c0-1d063c275b47")
-    private IRepository repository;
+    private final IRepository repository;
 
     @objid ("bab22e6f-cb35-4e82-8cba-ce6ad07cf892")
-    private List<IRepositoryErrorListener> errorListeners = new ArrayList<>();
+    private final List<IRepositoryErrorListener> errorListeners = new CopyOnWriteArrayList<>();
 
     /**
      * Creates a storage monitor support.

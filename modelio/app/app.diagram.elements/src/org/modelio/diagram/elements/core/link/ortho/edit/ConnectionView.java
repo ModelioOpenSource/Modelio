@@ -121,7 +121,7 @@ public class ConnectionView {
      * To call after having modified anchors in {@link #getState()} .
      * @return this instance
      */
-    @objid ("dd976064-4138-43a2-ae25-2ad3b19fc107")
+    @objid ("4ec1a790-22a8-42fa-9c6e-d4feb32e5443")
     public ConnectionView refreshAnchorBounds() {
         this.anchorBounds.fromAnchors(
                 this.connectionState.getSourceAnchor(), getPoint(TMP1, 1, true),
@@ -192,7 +192,7 @@ public class ConnectionView {
      * @param index the index to test
      * @throws IndexOutOfBoundsException if the index matches an anchor index
      */
-    @objid ("3f1f503b-d89a-41b4-be0d-5a347cb4aae4")
+    @objid ("95b2e083-2a71-461d-b8e1-08358c54b77d")
     private void checkIndexIsNotAnchor(int index) throws IndexOutOfBoundsException {
         if (index <= 0 || index >= getTargetAnchorIndex())
             throw new IndexOutOfBoundsException(String.format("%d is an anchor index.",index));
@@ -422,7 +422,7 @@ public class ConnectionView {
     }
 
     /**
-     * @return the connected node bounds, in coordinates relative to the connection.
+     * @return the connected node bounds, in absolute coordinates .
      */
     @objid ("261a691d-53fb-48b8-9b46-095bba9f3e75")
     public AnchorBounds getAnchorBounds() {
@@ -434,7 +434,7 @@ public class ConnectionView {
      */
     @objid ("9b3f2176-0380-47e6-84e2-92247edb1b15")
     public static class Validator {
-        @objid ("3ca1197b-23fb-4ec7-b9ec-2ab669aef084")
+        @objid ("9b159fe5-8256-4d50-89e8-2f57627448aa")
         private static final PointList allPoints = new PointList();
 
         @objid ("5ef4deb5-5f0c-4e1d-b152-ef83aefd4b05")
@@ -485,7 +485,7 @@ public class ConnectionView {
             return true;
         }
 
-        @objid ("b9871424-3c3f-47d3-963e-b2306614908e")
+        @objid ("90f63304-9fa7-450a-a9fd-61c8ddc0c9f8")
         private static boolean firstSegIntersectSource(ConnectionView connectionFig) {
             final PrecisionRectangle bounds = connectionFig.getAnchorBounds().source;
             if (bounds.width() < 5 && bounds.height() < 5)
@@ -497,7 +497,7 @@ public class ConnectionView {
             
         }
 
-        @objid ("ba1495ee-430d-4fc7-8687-886bdb785209")
+        @objid ("23655cb2-1d8d-4ef0-8291-21c1cb65adbf")
         private static boolean lastSegIntersectTarget(ConnectionView connectionFig) {
             final PrecisionRectangle bounds = connectionFig.getAnchorBounds().target;
             if (bounds.width() < 5 && bounds.height() < 5)
@@ -573,7 +573,7 @@ public class ConnectionView {
             
         }
 
-        @objid ("eb33cb99-77c7-4425-a307-d5ce90bc9ddb")
+        @objid ("b67c964a-497f-49b2-b118-f224a3caf591")
         private static void dumpNodeIntersections(StringBuilder s, PrecisionRectangle bounds, final PointList pointList, String name) {
             final Point p = new Point();
             final Point prev = new Point();

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2760]]
 
-[[r2760]]
+
+
 = R2760
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A fork segment must always target a state, not a pseudo state.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A fork node is a control node that splits a flow into multiple concurrent flows towards concurrent states.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Transitions leaving from a fork and targeting pseudo states should be removed.

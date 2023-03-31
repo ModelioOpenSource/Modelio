@@ -196,5 +196,5 @@ public interface IStyle {
      */
     @objid ("d311d8aa-6c59-4341-a322-6e94c0ffbf46")
     void dispose();
-
 }
+

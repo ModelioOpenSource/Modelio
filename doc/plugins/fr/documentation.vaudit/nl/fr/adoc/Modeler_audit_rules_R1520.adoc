@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1520]]
 
-[[r1520]]
+
+
 = R1520
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom d'une _BindableInstance_ doit être unique dans son _Classifier_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Avoir plusieurs Parts avec le même nom dans un même _Classifier_ est interdit par la spécification du langage UML.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Assurez vous que toutes les Parts ont un nom unique dans leur _Classifier_.

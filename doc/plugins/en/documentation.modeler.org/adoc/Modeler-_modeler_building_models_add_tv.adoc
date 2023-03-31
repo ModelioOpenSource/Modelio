@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Adding-tagged-values-to-elements]]
 
-[[adding-tagged-values-to-elements]]
+
+
 = Adding tagged values to elements
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Tagged values are added in the <<Modeler-_modeler_interface_properties_view.adoc#,Properties>> or <<Modeler-_modeler_interface_uml_prop_view.adoc#,Element>> view to elements selected in the "Model" view.
@@ -23,9 +23,9 @@ There are three kinds of tagged value:
 * Tagged values which have one parameter
 * Tagged values which can have several parameters
 
-[[Adding-a-tagged-value-which-has-no-parameters]]
 
-[[adding-a-tagged-value-which-has-no-parameters]]
+
+
 ===== Adding a tagged value which has no parameters
 
 .Adding a tagged value which has no parameters to a package
@@ -37,9 +37,9 @@ image::images/Modeler-_modeler_building_models_add_tv_modifelements_004.png[2]
 2.  Open the "Element" view and then the appropriate group.
 3.  Tagged values which have no parameters are added or removed simply by checking or unchecking their associated tickbox.
 
-[[Adding-a-tagged-value-which-takes-one-parameter]]
 
-[[adding-a-tagged-value-which-takes-one-parameter]]
+
+
 ===== Adding a tagged value which takes one parameter
 
 .Adding a tagged value which has one parameter to a class
@@ -51,9 +51,9 @@ image::images/Modeler-_modeler_building_models_add_tv_modifelements_005.png[3]
 2.  Open the "Element" view and then the appropriate group.
 3.  Tagged values which have one parameter are added to the selected element when you enter a value for the parameter. Click on the "Value column" field for the tagged value you want to add and enter a value for the parameter. Confirm by pressing Enter.
 
-[[Adding-a-tagged-value-which-can-take-several-parameters]]
 
-[[adding-a-tagged-value-which-can-take-several-parameters]]
+
+
 ===== Adding a tagged value which can take several parameters
 
 .Adding a tagged value which has several parameters to a class

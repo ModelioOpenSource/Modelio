@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Model Shield
 Bundle-SymbolicName: org.modelio.core.modelshield;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.eclipse.osgi,
  org.modelio.core.kernel,
  org.modelio.core.session
@@ -16,4 +16,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.modelio.core.modelshield.plugin.ModelShield
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11

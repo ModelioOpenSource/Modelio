@@ -70,5 +70,5 @@ public interface IModelComponentDescriptor {
         }
         return Collections.unmodifiableList(ret);
     }
-
 }
+

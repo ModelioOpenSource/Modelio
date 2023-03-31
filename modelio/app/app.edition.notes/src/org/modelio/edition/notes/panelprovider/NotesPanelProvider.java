@@ -30,7 +30,8 @@ import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.mmextensions.standard.services.MModelServices;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
@@ -263,7 +264,7 @@ public class NotesPanelProvider implements IPanelProvider {
         if (this.controller == null) {
             if (me != null) {
                 // Activate the controller
-                activatePanel(GProject.getProject(me));
+                activatePanel(AbstractGProject.getProject(me));
                 this.controller.setInputs(me, null);
             }
         } else {
@@ -305,7 +306,7 @@ public class NotesPanelProvider implements IPanelProvider {
      * @param project the edited project
      */
     @objid ("891e9a63-b807-4914-bf0a-887f7045de2b")
-    private void activatePanel(GProject project) {
+    private void activatePanel(IGProject project) {
         // Deactivate for previous project if needed
         if (this.session != null) {
             deactivatePanel();

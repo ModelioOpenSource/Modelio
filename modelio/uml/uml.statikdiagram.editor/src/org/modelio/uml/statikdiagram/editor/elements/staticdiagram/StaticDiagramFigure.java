@@ -30,6 +30,7 @@ import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramFigure
  * @author phv
  */
 @objid ("36b7929c-55b7-11e2-877f-002564c97630")
-public class StaticDiagramFigure extends AbstractDiagramFigure {// Nothing to do
+public class StaticDiagramFigure extends AbstractDiagramFigure {
+// Nothing to do
     
 }

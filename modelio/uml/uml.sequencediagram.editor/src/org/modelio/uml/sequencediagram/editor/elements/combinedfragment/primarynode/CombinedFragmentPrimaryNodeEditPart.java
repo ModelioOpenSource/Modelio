@@ -37,12 +37,12 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEdi
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmObject;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.AutoFitToContentEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
+import org.modelio.uml.sequencediagram.editor.elements.common.node.AbstractSequenceNodeEditPart;
 
 /**
  * EditPart for primary node of InteractionUse.
@@ -50,7 +50,7 @@ import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
  * @author fpoyer
  */
 @objid ("d8c98d3a-55b6-11e2-877f-002564c97630")
-public class CombinedFragmentPrimaryNodeEditPart extends AbstractNodeEditPart {
+public class CombinedFragmentPrimaryNodeEditPart extends AbstractSequenceNodeEditPart {
     @objid ("be98c9d4-d1f4-401b-91fc-30d9be86a83a")
     private FigureUpdater figureUpdater = new FigureUpdater(this);
 

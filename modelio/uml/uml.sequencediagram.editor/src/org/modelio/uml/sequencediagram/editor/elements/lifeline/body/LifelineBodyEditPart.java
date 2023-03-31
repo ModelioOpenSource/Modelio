@@ -37,9 +37,9 @@ import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.GmMessageEndAnchor;
 import org.modelio.uml.sequencediagram.editor.elements.MessageEndAnchor;
+import org.modelio.uml.sequencediagram.editor.elements.common.node.AbstractSequenceNodeEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.lifeline.CreateLinkEditPolicy;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.IPlacementConstraintProvider;
 
@@ -49,7 +49,7 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.IPlacemen
  * @author fpoyer
  */
 @objid ("d92e42b0-55b6-11e2-877f-002564c97630")
-public class LifelineBodyEditPart extends AbstractNodeEditPart {
+public class LifelineBodyEditPart extends AbstractSequenceNodeEditPart {
     @objid ("d92e42b4-55b6-11e2-877f-002564c97630")
     @Override
     public ConnectionAnchor getSourceConnectionAnchor(final Request req) {

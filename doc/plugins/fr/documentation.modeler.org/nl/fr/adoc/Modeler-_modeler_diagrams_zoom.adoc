@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Utiliser-le-ldquozoomrdquo]]
 
-[[utiliser-le-zoom]]
+
+
 = Utiliser le "zoom"
 
 Le "zoom" est utilisé pour effectuer un zoom avant ou un zoom arrière sur l'intégralité d'un diagramme.

@@ -68,5 +68,5 @@ public interface IModelioContext {
      */
     @objid ("6c3c5a2f-cd3b-4242-8c68-99e433983f44")
     File getInstallPath();
-
 }
+

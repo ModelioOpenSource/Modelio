@@ -23,11 +23,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.spi.IElementImageProvider;
 import org.modelio.platform.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.DeadObjectException;
-import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -80,7 +79,7 @@ public class ElementImageService {
     public static QualifiedImage getQualifiedIcon(MObject element) {
         try {
             // Only model elements can have stereotypes
-            QualifiedImage icon = element instanceof ModelElement ? ModuleI18NService.getQualifiedIcon((ModelElement) element, null) : null;
+            QualifiedImage icon = element instanceof ModelElement ? MdaResources.getQualifiedIcon((ModelElement) element, null) : null;
             if (icon != null) {
                 return icon;
             }
@@ -101,7 +100,7 @@ public class ElementImageService {
     public static QualifiedImage getQualifiedImage(MObject element) {
         try {
             // Only model elements can have stereotypes
-            QualifiedImage image = element instanceof ModelElement ? ModuleI18NService.getQualifiedImage((ModelElement) element, null) : null;
+            QualifiedImage image = element instanceof ModelElement ? MdaResources.getQualifiedImage((ModelElement) element, null) : null;
             if (image != null) {
                 return image;
             }

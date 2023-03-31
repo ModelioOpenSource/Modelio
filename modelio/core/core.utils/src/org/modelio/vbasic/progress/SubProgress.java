@@ -44,8 +44,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * <ul>
  * <li>At the start of your method, use <code>SubProgress.convert(...).</code> to convert the IModelioProgress
  * into a SubProgress. </li>
- * <li>Use <code>SubProgress.newChild(...)</code> whenever you need to call another method that
- * accepts an IModelioProgress.</li>
+ * <li>Use <code>SubProgress.newChild(...)</code> or <code>SubProgress.newOptionalChild(...)</code> whenever
+ * you need to call another method that accepts an IModelioProgress.</li>
  * </ul>
  * <p></p>
  * <p><b>DEFAULT BEHAVIOR:</b></p>
@@ -83,23 +83,23 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * necessary to call <code>monitor.done()</code>. The JavaDoc contract makes this the responsibility of the caller.</p>
  * 
  * <pre>
- * // param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
- * //        to call done() on the given monitor. Accepts <code>null</code>, indicating that no progress should be
- * //        reported and that the operation cannot be cancelled.
- * //
- * void doSomething(IModelioProgress monitor) {
- * // Convert the given monitor into a progress instance
- * SubProgress progress = SubProgress.convert(monitor, 100);
- * 
- * // Use 30% of the progress to do some work
- * doSomeWork(progress.newChild(30));
- * 
- * // Advance the monitor by another 30%
- * progress.worked(30);
- * 
- * // Use the remaining 40% of the progress to do some more work
- * doSomeWork(progress.newChild(40));
- * }
+ * &nbsp; // param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
+ * &nbsp; //        to call done() on the given monitor. Accepts <code>null</code>, indicating that no progress should be
+ * &nbsp; //        reported and that the operation cannot be cancelled.
+ * &nbsp; //
+ * &nbsp; void doSomething(IModelioProgress monitor) {
+ * &nbsp;   // Convert the given monitor into a progress instance
+ * &nbsp;   SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp;
+ * &nbsp;   // Use 30% of the progress to do some work
+ * &nbsp;   doSomeWork(progress.newChild(30));
+ * &nbsp;
+ * &nbsp;   // Advance the monitor by another 30%
+ * &nbsp;   progress.worked(30);
+ * &nbsp;
+ * &nbsp;   // Use the remaining 40% of the progress to do some more work
+ * &nbsp;   doSomeWork(progress.newChild(40));
+ * &nbsp; }
  * </pre>
  * 
  * 
@@ -110,27 +110,27 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * of the caller. In this case, you should use the following pattern:</p>
  * 
  * <pre>
- * // param monitor the progress monitor to use for reporting progress to the user, or <code>null</code> indicating
+ * <// param monitor the progress monitor to use for reporting progress to the user, or <code>null</code> indicating
  * //        that no progress should be reported and the operation cannot be cancelled.
  * //
  * void doSomething(IModelioProgress monitor) {
- * // Convert the given monitor into a progress instance
- * SubProgress progress = SubProgress.convert(monitor, 100);
- * try {
- * // Use 30% of the progress to do some work
- * doSomeWork(progress.newChild(30));
- * 
- * // Advance the monitor by another 30%
- * progress.worked(30);
- * 
- * // Use the remaining 40% of the progress to do some more work
- * doSomeWork(progress.newChild(40));
- * 
- * } finally {
- * if (monitor != null) {
- * monitor.done();
- * }
- * }
+ * &nbsp; // Convert the given monitor into a progress instance
+ * &nbsp; SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp; try {
+ * &nbsp;   // Use 30% of the progress to do some work
+ * &nbsp;   doSomeWork(progress.newChild(30));
+ * &nbsp;
+ * &nbsp;   // Advance the monitor by another 30%
+ * &nbsp;   progress.worked(30);
+ * &nbsp;
+ * &nbsp;   // Use the remaining 40% of the progress to do some more work
+ * &nbsp;   doSomeWork(progress.newChild(40));
+ * &nbsp;
+ * &nbsp; } finally {
+ * &nbsp;   if (monitor != null) {
+ * &nbsp;     monitor.done();
+ * &nbsp;   }
+ * &nbsp; }
  * }
  * </pre>
  * 
@@ -140,36 +140,59 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * <p>This example demonstrates how to smoothly report progress in situations where some of the work is optional.</p>
  * 
  * <pre>
- * void doSomething(IModelioProgress monitor) {
- * SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp; void doSomething(IModelioProgress monitor) {
+ * &nbsp;   SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp;
+ * &nbsp;   if (condition) {
+ * &nbsp;     // Use 50% of the progress to do some work
+ * &nbsp;     doSomeWork(progress.newChild(50));
+ * &nbsp;  }
+ * &nbsp;
+ * &nbsp;   // Don't report any work, but ensure that we have 50 ticks remaining on the progress monitor.
+ * &nbsp;   // If we already consumed 50 ticks in the above branch, this is a no-op. Otherwise, the remaining
+ * &nbsp;   // space in the monitor is redistributed into 50 ticks.
+ * &nbsp;
+ * &nbsp;   progress.setWorkRemaining(50);
+ * &nbsp;
+ * &nbsp;   // Use the remainder of the progress monitor to do the rest of the work
+ * &nbsp;   doSomeWork(progress.newChild(50));
+ * &nbsp; }
+ * </pre>
  * 
- * if (condition) {
- * // Use 50% of the progress to do some work
- * doSomeWork(progress.newChild(50));
- * }
+ * <p><b>Example: optional child</b></p>
+ * <p>This example demonstrates how to smoothly report progress in situations where some
+ * methods may not use the passed progress monitor.</p>
  * 
- * // Don't report any work, but ensure that we have 50 ticks remaining on the progress monitor.
- * // If we already consumed 50 ticks in the above branch, this is a no-op. Otherwise, the remaining
- * // space in the monitor is redistributed into 50 ticks.
- * 
- * progress.setWorkRemaining(50);
- * 
- * // Use the remainder of the progress monitor to do the rest of the work
- * doSomeWork(progress.newChild(50));
- * }
+ * <pre>
+ * &nbsp; void doSomething(IModelioProgress monitor) {
+ * &nbsp;   SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp;
+ * &nbsp;   // Allow child to use 50% of the progress to do some work
+ * &nbsp;   // If doSomeWork does not use the progress monitor, no tick will be consumed.
+ * &nbsp;   doSomeWork(progress.newOptionalChild(50));
+ * &nbsp;
+ * &nbsp;   // Don't report any work, but ensure that we have 50 ticks remaining on the progress monitor.
+ * &nbsp;   // If we already consumed 50 ticks in the above branch, this is a no-op. Otherwise, the remaining
+ * &nbsp;   // space in the monitor is redistributed into 50 ticks.
+ * &nbsp;
+ * &nbsp;   progress.setWorkRemaining(50);
+ * &nbsp;
+ * &nbsp;   // Use the remainder of the progress monitor to do the rest of the work
+ * &nbsp;   doSomeWork(progress.newChild(50));
+ * &nbsp; }
  * </pre>
  * 
  * <p>Please beware of the following anti-pattern:</p>
  * 
  * <pre>
- * if (condition) {
- * // Use 50% of the progress to do some work
- * doSomeWork(progress.newChild(50));
- * } else {
- * // Bad: Causes the progress monitor to appear to start at 50%, wasting half of the
- * // space in the monitor.
- * progress.worked(50);
- * }
+ * &nbsp; if (condition) {
+ * &nbsp;   // Use 50% of the progress to do some work
+ * &nbsp;   doSomeWork(progress.newChild(50));
+ * &nbsp; } else {
+ * &nbsp;   // Bad: Causes the progress monitor to appear to start at 50%, wasting half of the
+ * &nbsp;   // space in the monitor.
+ * &nbsp;   progress.worked(50);
+ * &nbsp; }
  * </pre>
  * 
  * 
@@ -179,22 +202,22 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * <p>This example demonstrates how to report progress in a loop.</p>
  * 
  * <pre>
- * void doSomething(IModelioProgress monitor, Collection someCollection) {
- * SubProgress progress = SubProgress.convert(monitor, 100);
- * 
- * // Create a new progress monitor that uses 70% of the total progress and will allocate one tick
- * // for each element of the given collection.
- * SubProgress loopProgress = progress.newChild(70).setWorkRemaining(someCollection.size());
- * 
- * for (Iterator iter = someCollection.iterator(); iter.hasNext();) {
- * Object next = iter.next();
- * 
- * doWorkOnElement(next, loopProgress.newChild(1));
- * }
- * 
- * // Use the remaining 30% of the progress monitor to do some work outside the loop
- * doSomeWork(progress.newChild(30));
- * }
+ * &nbsp; void doSomething(IModelioProgress monitor, Collection someCollection) {
+ * &nbsp;   SubProgress progress = SubProgress.convert(monitor, 100);
+ * &nbsp;
+ * &nbsp;   // Create a new progress monitor that uses 70% of the total progress and will allocate one tick
+ * &nbsp;   // for each element of the given collection.
+ * &nbsp;   SubProgress loopProgress = progress.newChild(70).setWorkRemaining(someCollection.size());
+ * &nbsp;
+ * &nbsp;   for (Iterator iter = someCollection.iterator(); iter.hasNext();) {
+ * &nbsp;     Object next = iter.next();
+ * &nbsp;
+ * &nbsp;     doWorkOnElement(next, loopProgress.newChild(1));
+ * &nbsp;   }
+ * &nbsp;
+ * &nbsp;   // Use the remaining 30% of the progress monitor to do some work outside the loop
+ * &nbsp;   doSomeWork(progress.newChild(30));
+ * &nbsp; }
  * </pre>
  * 
  * 
@@ -205,26 +228,24 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * cannot be easily computed in advance.</p>
  * 
  * <pre>
- * void doSomething(IModelioProgress monitor, LinkedListNode node) {
- * SubProgress progress = SubProgress.convert(monitor);
- * 
- * while (node != null) {
- * // Regardless of the amount of progress reported so far,
- * // use 0.01% of the space remaining in the monitor to process the next node.
- * progress.setWorkRemaining(10000);
- * 
- * doWorkOnElement(node, progress.newChild(1));
- * 
- * node = node.next;
- * }
- * }
+ * &nbsp; void doSomething(IModelioProgress monitor, LinkedListNode node) {
+ * &nbsp;   SubProgress progress = SubProgress.convert(monitor);
+ * &nbsp;
+ * &nbsp;   while (node != null) {
+ * &nbsp;     // Regardless of the amount of progress reported so far,
+ * &nbsp;     // use 0.01% of the space remaining in the monitor to process the next node.
+ * &nbsp;     progress.setWorkRemaining(10000);
+ * &nbsp;
+ * &nbsp;     doWorkOnElement(node, progress.newChild(1));
+ * &nbsp;
+ * &nbsp;     node = node.next;
+ * &nbsp;   }
+ * &nbsp; }
  * </pre>
  * 
  * <p>
- * This class can be used without OSGi running.
+ * This class is independent of OSGI.
  * </p>
- * 
- * @since org.eclipse.equinox.common 3.3
  */
 @objid ("c98f517a-a5a3-11e1-aa98-001ec947ccaf")
 public final class SubProgress implements IModelioProgress {
@@ -405,6 +426,8 @@ public final class SubProgress implements IModelioProgress {
         if (monitor instanceof SubProgress) {
             monitor.beginTask(taskName, work);
             return (SubProgress) monitor;
+        } else if (monitor instanceof OptionalProgress) {
+            return convert(((OptionalProgress)monitor).getWrapped(), taskName, work);
         }
         
         monitor.beginTask(taskName, MINIMUM_RESOLUTION);
@@ -510,8 +533,8 @@ public final class SubProgress implements IModelioProgress {
     }
 
     /* (non-Javadoc)
-         * @see org.eclipse.core.runtime.IModelioProgress#done()
-         */
+                         * @see org.eclipse.core.runtime.IModelioProgress#done()
+                         */
     @objid ("c991b3fc-a5a3-11e1-aa98-001ec947ccaf")
     @Override
     public void done() {
@@ -529,8 +552,8 @@ public final class SubProgress implements IModelioProgress {
     }
 
     /* (non-Javadoc)
-         * @see org.eclipse.core.runtime.IModelioProgress#internalWorked(double)
-         */
+                         * @see org.eclipse.core.runtime.IModelioProgress#internalWorked(double)
+                         */
     @objid ("c991b3ff-a5a3-11e1-aa98-001ec947ccaf")
     @Override
     public void internalWorked(final double work) {
@@ -544,8 +567,8 @@ public final class SubProgress implements IModelioProgress {
     }
 
     /* (non-Javadoc)
-         * @see org.eclipse.core.runtime.IModelioProgress#subTask(java.lang.String)
-         */
+                         * @see org.eclipse.core.runtime.IModelioProgress#subTask(java.lang.String)
+                         */
     @objid ("c991b403-a5a3-11e1-aa98-001ec947ccaf")
     @Override
     public void subTask(final String name) {
@@ -556,8 +579,8 @@ public final class SubProgress implements IModelioProgress {
     }
 
     /* (non-Javadoc)
-         * @see org.eclipse.core.runtime.IModelioProgress#worked(int)
-         */
+                         * @see org.eclipse.core.runtime.IModelioProgress#worked(int)
+                         */
     @objid ("c991b407-a5a3-11e1-aa98-001ec947ccaf")
     @Override
     public void worked(final int work) {
@@ -565,8 +588,8 @@ public final class SubProgress implements IModelioProgress {
     }
 
     /* (non-Javadoc)
-         * @see org.eclipse.core.runtime.IModelioProgress#setCanceled(boolean)
-         */
+                         * @see org.eclipse.core.runtime.IModelioProgress#setCanceled(boolean)
+                         */
     @objid ("c991b40b-a5a3-11e1-aa98-001ec947ccaf")
     @Override
     public void setCanceled(final boolean b) {
@@ -704,9 +727,9 @@ public final class SubProgress implements IModelioProgress {
         
         // Compute the flags for the child. We want the net effect to be as though the child is
         // delegating to its parent, even though it is actually talking directly to the root.
-        // This means that we need to compute the flags such that - even if a label isn't 
+        // This means that we need to compute the flags such that - even if a label isn't
         // suppressed by the child - if that same label would have been suppressed when the
-        // child delegated to its parent, the child must explicitly suppress the label. 
+        // child delegated to its parent, the child must explicitly suppress the label.
         int childFlags = SUPPRESS_NONE;
         
         if ((this.flags & SUPPRESS_SETTASKNAME) != 0) {
@@ -751,12 +774,89 @@ public final class SubProgress implements IModelioProgress {
      */
     @objid ("1468d7da-2ca2-4776-a2a1-b747f79cbe72")
     public Supplier<SubProgress> newChildSupplier(final int totalWork, int suppressFlags) {
+        ChildSupplier childSupplier = createChildSupplier(totalWork, suppressFlags);
+        return childSupplier;
+    }
+
+    @objid ("b6c9f755-5255-4896-b6bb-e8b6b0ba1ada")
+    private ChildSupplier createChildSupplier(final int totalWork, int suppressFlags) {
         ChildSupplier childSupplier = new ChildSupplier(this, totalWork, suppressFlags);
         if (this.lastChildSupplier != null) {
             this.lastChildSupplier.invalidate();
         }
         this.lastChildSupplier = childSupplier;
         return childSupplier;
+    }
+
+    /**
+     * Create an optional sub progress monitor.
+     * <p>
+     * This method allows giving to another process the optional possibility to use the progress monitor.
+     * If the user choose to not use the returned progress monitor, no work ticks will be allocated.
+     * <p>
+     * The call to {@link SubProgress#newChild(int, int)} is deferred until any mutative
+     * method is called on the returned child. If the child progress is never used the
+     * work ticks will never be allocated and are available next work.
+     * <p>
+     * The caller is urged to use {@link SubProgress#setWorkRemaining(int)} after having
+     * passed the supplier to the process that may have or not used it.
+     * <p>
+     * The returned monitor is valid until this sub progress finishes
+     * or another child progress is created.
+     * 
+     * <code><pre>
+     * ////////////////////////////////////////////////////////////////////////////
+     * // Example : Typical usage of newOptionalChild
+     * void myMethod(IModelioProgress parent) {
+     * SubProgress progress = SubProgress.convert(parent, 100);
+     * doSomething(progress.newOptionalChild(50));
+     * progress.setWorkRemaining(50);
+     * doSomethingElse(progress.newChild(50));
+     * }
+     * </pre></code>
+     * @param totalWork number of ticks to consume from the receiver if the returned progress monitor is used.
+     * @param suppressFlags a bitwise combination of the SUPPRESS_* constants
+     * @return an optional sub progress monitor.
+     * @since Modelio 5.3.1
+     */
+    @objid ("24791100-727b-4c59-8d37-f3c37f70f2ca")
+    public IModelioProgress newOptionalChild(final int totalWork, final int suppressFlags) {
+        return new OptionalProgress(this, createChildSupplier(totalWork, suppressFlags));
+    }
+
+    /**
+     * Create an optional sub progress monitor.
+     * <p>
+     * This method allows giving to another process the optional possibility to use the progress monitor.
+     * If the user choose to not use the returned progress monitor, no work ticks will be allocated.
+     * <p>
+     * The call to {@link SubProgress#newChild(int, int)} is deferred until any mutative
+     * method is called on the returned child. If the child progress is never used the
+     * work ticks will never be allocated and are available next work.
+     * <p>
+     * The caller is urged to use {@link SubProgress#setWorkRemaining(int)} after having
+     * passed the supplier to the process that may have or not used it.
+     * <p>
+     * The returned monitor is valid until this sub progress finishes
+     * or another child progress is created.
+     * 
+     * <code><pre>
+     * ////////////////////////////////////////////////////////////////////////////
+     * // Example : Typical usage of newOptionalChild
+     * void myMethod(IModelioProgress parent) {
+     * SubProgress progress = SubProgress.convert(parent, 100);
+     * doSomething(progress.newOptionalChild(50));
+     * progress.setWorkRemaining(50);
+     * doSomethingElse(progress.newChild(50));
+     * }
+     * </pre></code>
+     * @param totalWork number of ticks to consume from the receiver if the returned progress monitor is used.
+     * @return an optional sub progress monitor.
+     * @since Modelio 5.3.1
+     */
+    @objid ("3aefefb0-e062-4a79-bf2b-b777567e91aa")
+    public IModelioProgress newOptionalChild(final int totalWork) {
+        return newOptionalChild(totalWork, SUPPRESS_BEGINTASK);
     }
 
     /**

@@ -50,7 +50,7 @@ public class AutoOrthogonalRouterSynchronizeConstraintCommand extends Command {
     public void execute() {
         AutoOrthogonalRouter router = new AutoOrthogonalRouter()
                 .setCleanupManualPoints(true)
-                .setIgnoreAutomaticPoints(false);
+                .setRerouteWrongSectionFromPreviousManualPoint(true);
         
         Connection c = (Connection) this.connectionEP.getFigure();
         Object initConstraint = c.getRoutingConstraint();

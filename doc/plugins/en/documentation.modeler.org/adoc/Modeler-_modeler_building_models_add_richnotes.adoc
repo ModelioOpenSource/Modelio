@@ -3,16 +3,16 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Adding-rich-notes-to-elements]]
 
-[[adding-rich-notes-to-elements]]
+
+
 = Adding rich notes to elements
 
 Modelio lets you create rich notes. These rich notes can be MS Office documents or OpenDocuments (LibreOffice or OpenOffice).
 
-[[Creating-a-rich-note]]
 
-[[creating-a-rich-note]]
+
+
 == Creating a rich note
 
 .The rich note creation process
@@ -30,9 +30,9 @@ image::images/Modeler-_modeler_building_models_add_richnotes_modifelements_009_1
 
 *Note:* In case Modelio cannot find automatically the OpenDocuments editor (LibreOffice or OpenOffice), check the <<Modeler-_modeler_modelio_settings_preferences.adoc#,LibreOffice/OpenOffice Rich Notes settings>> in Modelio settings.
 
-[[The-rich-note-editor]]
 
-[[the-rich-note-editor]]
+
+
 == The rich note editor
 
 .The rich note editor
@@ -40,9 +40,9 @@ image::images/Modeler-_modeler_building_models_add_richnotes_modifelements_010.p
 
 *Note:* MS Office rich notes are saved using the second image:images/Modeler-_modeler_building_models_add_richnotes_save_16.png[4] button in the Modelio toolbar
 
-[[Create-a-template-for-new-rich-notes]]
 
-[[create-a-template-for-new-rich-notes]]
+
+
 == Create a template for new rich notes
 
 You can create a default file for each role name. These files should be stored in the .projectdata/admin/documents directory.

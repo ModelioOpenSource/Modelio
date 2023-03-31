@@ -56,5 +56,5 @@ public interface IMultiElementNatValue extends IMultiNatValue {
      */
     @objid ("79c2e589-f852-4316-89b9-513d6642f430")
     void setElementFilter(IMObjectFilter elementFilter);
-
 }
+

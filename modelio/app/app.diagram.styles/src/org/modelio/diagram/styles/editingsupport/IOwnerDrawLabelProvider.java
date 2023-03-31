@@ -52,5 +52,5 @@ public interface IOwnerDrawLabelProvider {
      */
     @objid ("2964f052-b788-481b-966e-75bee8221641")
     void paint(Event event, Object element);
-
 }
+

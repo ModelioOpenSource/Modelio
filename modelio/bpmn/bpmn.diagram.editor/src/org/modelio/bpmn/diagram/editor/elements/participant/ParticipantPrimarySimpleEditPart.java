@@ -31,8 +31,6 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
-import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
@@ -50,12 +48,6 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
     @Override
     public boolean isSelectable() {
         return false;
-    }
-
-    @objid ("c5ac54c6-49d3-4a81-bb69-31db305762c2")
-    @Override
-    protected INodeAnchorProvider getNodeAnchorProvider() {
-        return RectangleNodeAnchorProvider.getNonSlidable();
     }
 
     @objid ("631cb44e-b541-4173-ae09-e007a075cdfa")

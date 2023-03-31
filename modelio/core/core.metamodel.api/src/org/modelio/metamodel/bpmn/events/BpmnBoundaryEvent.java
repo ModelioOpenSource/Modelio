@@ -33,6 +33,8 @@ import org.modelio.metamodel.bpmn.activities.BpmnActivity;
  * 
  * 
  * Event attached to the boundary of an activity. 
+ * 
+ * 
  */
 @objid ("00875c94-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnBoundaryEvent extends BpmnCatchEvent {
@@ -54,6 +56,7 @@ public interface BpmnBoundaryEvent extends BpmnCatchEvent {
      * Metamodel description:
      * <i>Denotes whether the Activity should be cancelled or not, i.e., whether the boundary catch Event acts as an Error or an Escalation. If the Activity is not cancelled, multiple instances of that handler can run concurrently.
      * This attribute cannot be applied to Error Events (where it?s always true), or Compensation Events (where it doesn?t apply).</i>
+     * 
      */
     @objid ("2fe95ba2-9e9f-46e0-9d86-b5a15123d12c")
     boolean isCancelActivity();
@@ -64,6 +67,7 @@ public interface BpmnBoundaryEvent extends BpmnCatchEvent {
      * Metamodel description:
      * <i>Denotes whether the Activity should be cancelled or not, i.e., whether the boundary catch Event acts as an Error or an Escalation. If the Activity is not cancelled, multiple instances of that handler can run concurrently.
      * This attribute cannot be applied to Error Events (where it?s always true), or Compensation Events (where it doesn?t apply).</i>
+     * 
      */
     @objid ("c711f866-fd24-4244-ba87-72bbd30a220a")
     void setCancelActivity(boolean value);
@@ -73,6 +77,7 @@ public interface BpmnBoundaryEvent extends BpmnCatchEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7fec0734-e0d6-47ec-aa60-3b97ba344c86")
     BpmnActivity getAttachedToRef();
@@ -82,8 +87,9 @@ public interface BpmnBoundaryEvent extends BpmnCatchEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("afe57390-a26b-4a18-bbbb-51cc23a7a04f")
     void setAttachedToRef(BpmnActivity value);
-
 }
+

@@ -262,5 +262,5 @@ public interface IImageService {
     default Image getUmlImage(MObject element, final boolean useCmsDecoration) {
         return getIcon(element);
     }
-
 }
+

@@ -253,5 +253,5 @@ public interface UIColor {
      */
     @objid ("bbecf573-3b14-435d-8db1-d869ed1dbab0")
     public static final Color UNKNOWN_METACLASS_FG = new Color(Display.getCurrent(), 255, 128, 128);
-
 }
+

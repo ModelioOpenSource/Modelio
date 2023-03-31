@@ -81,5 +81,5 @@ interface SchemaConstants {
 
     @objid ("ebcaf322-186f-11e2-92d2-001ec947c8cc")
     public static final String TAG_VALUE = "Value";
-
 }
+

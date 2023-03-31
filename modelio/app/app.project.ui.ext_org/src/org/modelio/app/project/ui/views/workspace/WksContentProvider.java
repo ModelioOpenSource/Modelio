@@ -24,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelio.app.project.ui.views.workspace.WorkspaceTreeView.ProjectCache;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 /**
  * Workspace tree view content provider.
@@ -40,9 +40,9 @@ public class WksContentProvider implements ITreeContentProvider {
     @objid ("6558d770-7dbb-4539-b53d-696126d0e1f8")
     @Override
     public Object[] getChildren(final Object parent) {
-        if (parent instanceof GProject) {
-            GProject project = (GProject) parent;
-            return project.getFragments().toArray();
+        if (parent instanceof IGProject) {
+            IGProject project = (IGProject) parent;
+            return project.getParts().toArray();
         }
         return Collections.EMPTY_LIST.toArray();
     }

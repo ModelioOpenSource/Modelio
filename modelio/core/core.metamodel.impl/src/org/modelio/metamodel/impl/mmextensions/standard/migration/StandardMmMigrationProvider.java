@@ -26,13 +26,16 @@ import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.InfrastructureMetamodel;
 import org.modelio.metamodel.StandardMetamodel;
-import org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36.BpmnMigratorFrom36;
+import org.modelio.metamodel.impl.mmextensions.standard.migration.from_35.StandardMm9022Migrator;
+import org.modelio.metamodel.impl.mmextensions.standard.migration.from_36.StandardMm200Migrator;
+import org.modelio.metamodel.impl.mmextensions.standard.migration.from_37.StandardMm210Migrator;
+import org.modelio.metamodel.impl.mmextensions.standard.migration.from_37.StandardMm220Migrator;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.model.spi.mm.AbstractMofRepositoryMigrator;
-import org.modelio.vcore.model.spi.mm.IMigrationProvider;
 import org.modelio.vcore.model.spi.mm.IMofRepositoryMigrator;
+import org.modelio.vcore.model.spi.mm.IMofRepositoryMigratorProvider;
 import org.modelio.vcore.model.spi.mm.MetamodelChangeDescriptor;
 import org.modelio.vcore.model.spi.mm.MofMigrationException;
 import org.modelio.vcore.model.spi.mm.NoopMofRepositoryMigrator;
@@ -52,98 +55,100 @@ import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
  * @since 3.6
  */
 @objid ("3514fe74-6cdc-4082-9ad3-fe484b7ad0f2")
-public class StandardMmMigrationProvider implements IMigrationProvider {
+public class StandardMmMigrationProvider implements IMofRepositoryMigratorProvider {
+    @objid ("542dfcbb-9fb3-4c88-b0fc-cae961b6b6fd")
+    private static final Version MODELIO36X_MM200 = new Version(2, 0, 00);
+
+    @objid ("f13c2bf2-18a1-4e16-8166-4417e57eab42")
+    private static final Version MODELIO37X_MM210 = new Version(2, 1, 00);
+
+    @objid ("b96cd377-028b-4ba2-b510-69c73665431f")
+    private static final Version MODELIO37X_MM220 = new Version(2, 2, 00);
+
+    @objid ("441d2909-095e-47e2-9409-d1c63871e793")
+    private static final Version MODELIO38X_MM230 = new Version(2, 3, 00);
+
+    @objid ("3abc5669-1bb3-4ccb-8d26-9c84e34809b7")
+    private static final Version MODELIO35X_MM9022 = new Version(1, 0, 9022);
+
+    @objid ("7b2b9aed-36dc-4b88-a851-2bce0eb9bbdc")
+    private static final Version LASTSTANDARDVERSION = new Version(StandardMetamodel.VERSION);
+
     @objid ("cf9e4a6f-afa5-49f6-88d3-1a6b3535265c")
     @Override
     public IMofRepositoryMigrator getMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor toMetamodel) {
-        /*
-         * last incompatible version: 9016 (Modelio 3.0) first compatible version: 9017 (Modelio 3.0) 9022 (Modelio 3.2): # BusinessRule, Goal, Requirement, Term, GenericAnalystElement are now CMS nodes 9024 (Modelio 3.3 - 28/10/2014) :
-         * 
-         * -ModuleParameter.Type #ModuleParameter.AssociatedType -> ModuleParameter.Type
-         * 
-         * #ModuleParameter.SetName -> ModuleParameter.GroupName +ModuleParameter.EnumType : Enumeration +ModuleParameter.DefaultValue : String -ModuleParameterType.TYPE_PARAM_FILE_OPEN -ModuleParameterType.TYPE_PARAM_FILE_SAVE
-         * +ModuleParameterType.TYPE_PARAM_INTEGER
-         * 
-         * 1.1.0 : no problem
-         * 
-         * 
-         */
-        
-        final Version lastStandardVersion = new Version(StandardMetamodel.VERSION); // to be changed at each implemented migration
-        final Version V3_6 = new Version(2, 0, 00);
-        final Version V3_7_210 = new Version(2, 1, 00);
-        final Version V3_7_220 = new Version(2, 2, 00);
-        final Version V3_8 = new Version(2, 3, 00);
-        
         Version fromVersion = fromMetamodel.getVersion(StandardMetamodel.NAME);
         
         if (fromVersion == null) {
             // standard metamodel absent, we are not involved
             return null;
-        } else if (fromVersion.isNewerOrSameThan(lastStandardVersion)) {
+        } else if (fromVersion.isNewerOrSameThan(LASTSTANDARDVERSION)) {
             // Same or Future version: no retro migration.
             return null;
-        } else if (lastStandardVersion.isNewerBuildOf(fromVersion)) {
+        } else if (LASTSTANDARDVERSION.isNewerBuildOf(fromVersion)) {
             // Older but build compatible
             return new NoopMofRepositoryMigrator(fromMetamodel, fromMetamodel
                     .copy()
-                    .put(StandardMetamodel.NAME, lastStandardVersion));
-        } else if (fromVersion.isNewerOrSameThan(V3_7_220)) {
+                    .put(StandardMetamodel.NAME, LASTSTANDARDVERSION));
+        } else if (fromVersion.isNewerOrSameThan(MODELIO37X_MM220)) {
             // Migrate BPMN from 3.7 mm 2.2.0 to 3.8 mm 2.2.02
-            return new BpmnMigratorFromV220(fromMetamodel, fromMetamodel
+            return new StandardMm220Migrator(fromMetamodel, fromMetamodel
                     .copy()
-                    .put(StandardMetamodel.NAME, V3_8));
-        } else if (fromVersion.isNewerOrSameThan(V3_7_210)) {
+                    .put(StandardMetamodel.NAME, MODELIO38X_MM230));
+        } else if (fromVersion.isNewerOrSameThan(MODELIO37X_MM210)) {
             // Migrate BPMN from 3.7 mm 2.1.0 to 3.7 mm 2.2.0
-            return new BpmnMigratorFromV210(fromMetamodel, fromMetamodel
+            return new StandardMm210Migrator(fromMetamodel, fromMetamodel
                     .copy()
-                    .put(StandardMetamodel.NAME, V3_7_220));
-        } else if (fromVersion.isNewerOrSameThan(V3_6)) {
+                    .put(StandardMetamodel.NAME, MODELIO37X_MM220));
+        } else if (fromVersion.isNewerOrSameThan(MODELIO36X_MM200)) {
             // Migrate BPMN to 3.7 mm 2.1.0
-            return new BpmnMigratorFrom36(
+            return new StandardMm200Migrator(
                     fromMetamodel,
                     fromMetamodel
                             .copy()
-                            .put(StandardMetamodel.NAME, V3_7_210));
+                            .put(StandardMetamodel.NAME, MODELIO37X_MM210));
         } else if (fromMetamodel.getVersion(InfrastructureMetamodel.NAME) != null) {
             // At this point there should not be Infrastructure metamodel, we should be Modelio < 3.6
             // Put Modelio > 3.6 migrations before this block.
             // Put Modelio < 3.6 migrations after this block.
             // assert (false) : fromMetamodel.toString();
-            Log.error(new IllegalStateException(String.format("No migrator to migrate from %s v%s to v%s ", StandardMetamodel.NAME, fromVersion, lastStandardVersion)));
+            Log.error(new IllegalStateException(String.format("No migrator to migrate from %s v%s to v%s ", StandardMetamodel.NAME, fromVersion, LASTSTANDARDVERSION)));
             return null;
-        } else if (fromVersion.isNewerOrSameThan(new Version(1, 0, 9022))) {
-            // Migrate to 3.6
-            return new MigratorFrom35(fromMetamodel, fromMetamodel
-                    .copy()
-                    .put(StandardMetamodel.NAME, V3_6)
-                    .put(InfrastructureMetamodel.NAME, V3_6)
-                    .put("Analyst", V3_6));
-        
-        } else if (fromVersion.isNewerOrSameThan(new Version(1, 0, 9016))) {
-            /*
-             * Migrate to 9022 (Modelio 3.2): # BusinessRule, Goal, Requirement, Term, GenericAnalystElement are now CMS nodes
-             */
-            return new BasicMigrator(fromMetamodel,
-                    fromMetamodel
-                            .copy()
-                            .put(StandardMetamodel.NAME, new Version(1, 0, 9022))).setMetamodelChanges(
-                                    new MetamodelChangeDescriptor()
-                                            .newCmsNode(StandardMetamodel.NAME, "BusinessRule")
-                                            .newCmsNode(StandardMetamodel.NAME, "Goal")
-                                            .newCmsNode(StandardMetamodel.NAME, "Requirement")
-                                            .newCmsNode(StandardMetamodel.NAME, "Term")
-                                            .newCmsNode(StandardMetamodel.NAME, "GenericAnalystElement"));
         } else {
-            // older: Not supported, a migrator is probably missing here
-            Log.trace("No migrator to migrate from %s v%s to v%s ", StandardMetamodel.NAME, fromVersion, lastStandardVersion);
-            return null;
+        
+            if (fromVersion.isNewerOrSameThan(MODELIO35X_MM9022)) {
+                // Migrate to 3.6
+                return new StandardMm9022Migrator(fromMetamodel, fromMetamodel
+                        .copy()
+                        .put(StandardMetamodel.NAME, MODELIO36X_MM200)
+                        .put(InfrastructureMetamodel.NAME, MODELIO36X_MM200)
+                        .put("Analyst", MODELIO36X_MM200));
+        
+            } else if (fromVersion.isNewerOrSameThan(new Version(1, 0, 9016))) {
+                /*
+                 * Migrate to 9022 (Modelio 3.2): # BusinessRule, Goal, Requirement, Term, GenericAnalystElement are now CMS nodes
+                 */
+                return new BasicMigrator(fromMetamodel,
+                        fromMetamodel
+                                .copy()
+                                .put(StandardMetamodel.NAME, MODELIO35X_MM9022)).setMetamodelChanges(
+                                        new MetamodelChangeDescriptor()
+                                                .newCmsNode(StandardMetamodel.NAME, "BusinessRule")
+                                                .newCmsNode(StandardMetamodel.NAME, "Goal")
+                                                .newCmsNode(StandardMetamodel.NAME, "Requirement")
+                                                .newCmsNode(StandardMetamodel.NAME, "Term")
+                                                .newCmsNode(StandardMetamodel.NAME, "GenericAnalystElement"));
+            } else {
+                // older: Not supported, a migrator is probably missing here
+                Log.trace("No migrator to migrate from %s v%s to v%s ", StandardMetamodel.NAME, fromVersion, LASTSTANDARDVERSION);
+                return null;
+            }
         }
         
     }
 
     @objid ("46379912-9c7d-458c-b35a-bece4192d919")
-    static MetamodelDescriptor loadMetamodel(MetamodelVersionDescriptor fromMetamodel) throws MofMigrationException {
+    public static MetamodelDescriptor loadMetamodel(MetamodelVersionDescriptor fromMetamodel) throws MofMigrationException {
         Version fromVersion = fromMetamodel.getVersion(StandardMetamodel.NAME);
         
         // The version to load is the same or next version for which we have a descriptor file.

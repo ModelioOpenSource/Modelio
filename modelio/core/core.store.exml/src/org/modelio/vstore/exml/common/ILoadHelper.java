@@ -184,5 +184,5 @@ public interface ILoadHelper {
      */
     @objid ("b154b872-c4e7-462d-b861-2137d1d16877")
     ObjIdName withNameFromIndex(ObjId id);
-
 }
+

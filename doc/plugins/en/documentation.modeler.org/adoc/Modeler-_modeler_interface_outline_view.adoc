@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-Outline-view]]
 
-[[the-outline-view]]
+
+
 = The Outline view
 
 .The Outline view

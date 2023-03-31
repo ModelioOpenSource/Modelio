@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Adding-notesconstraints-to-elements]]
 
-[[adding-notesconstraints-to-elements]]
+
+
 = Adding notes/constraints to elements
 
 There are two ways to add notes or constraints to elements:
@@ -23,9 +23,9 @@ image::images/Modeler-_modeler_building_models_add_notes_modifelements_003.png[2
 3. In the "Add note(s)" window, select the type of note(s) you want to add and click OK.
 4. The new note then appears, and you can enter its contents in the dedicated zone.
 
-[[HTML-editor-for-Description-notes]]
 
-[[html-editor-for-description-notes]]
+
+
 == HTML editor for Description notes
 
 .Description Notes can be edited in HTML

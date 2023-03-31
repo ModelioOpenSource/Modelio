@@ -34,6 +34,7 @@ import org.eclipse.draw2d.UpdateManager;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartListener;
 import org.eclipse.gef.EditPolicy;
@@ -131,7 +132,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
      * Get the edit part for the main node.
      * @return an edit part, might be <code>null</code>.
      */
-    @objid ("77c16f01-43c0-4cfe-9d0b-95627d30b134")
+    @objid ("ef9d422f-575d-47b8-a4cb-62059f0dfc2b")
     public AbstractNodeEditPart getMainNodeEditPart() {
         GraphicalEditPart mainNodeEditPart = null;
         GmPortContainer gmPortContainer = (GmPortContainer) getModel();
@@ -206,6 +207,13 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
      */
     @objid ("bcbc430d-7050-47b8-8fe6-85c2bd65450f")
     void autoResize() {
+        if (getParent() instanceof ConnectionEditPart) {
+            // Mantis 0014507: Linked Data Object which represent an element becomes invisible when unchecking their "Show label" tickbox in the Symbol view.
+            // The default code does not work because the drag policy is not AutosizeEditPolicy2
+            new LastMinuteContainerAutoResizeCommand(this).execute();
+            return;
+        }
+        
         // Request a "fake" resize of container, so that it can adapts
         // itself to its new child.
         ChangeBoundsRequest resizeContainerRequest = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
@@ -442,9 +450,13 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("43cfea38-4515-4556-b5e5-9c3ad04fb2c6")
+    @objid ("20ba15f8-0dce-4388-8294-57715ca035e1")
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        if (true)
+            return layoutPolicy;
+        else
         return new LayoutConnectionsPortContainerPolicyDecorator((PortContainerEditPolicy) layoutPolicy);
+        
     }
 
     /**

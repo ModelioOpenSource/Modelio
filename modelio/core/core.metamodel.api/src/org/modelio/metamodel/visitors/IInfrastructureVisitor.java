@@ -183,5 +183,5 @@ public interface IInfrastructureVisitor extends MVisitor {
 
     @objid ("26d8f7b4-12eb-4258-9a5b-2486191866ec")
     Object visitTypedPropertyTable(TypedPropertyTable obj);
-
 }
+

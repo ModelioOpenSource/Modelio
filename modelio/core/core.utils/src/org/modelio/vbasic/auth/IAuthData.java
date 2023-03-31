@@ -72,5 +72,5 @@ public interface IAuthData {
     @objid ("ca817ec4-18a6-4fb0-8308-56e561ab3995")
     @Override
     int hashCode();
-
 }
+

@@ -42,7 +42,7 @@ public interface ILinkEditorConfiguration {
     ILinkEditorFilter getLinkFilter();
 
     @objid ("36873e42-9943-4563-b41e-883ad44f4e8d")
-    public enum Orientation {
+    enum Orientation {
         @objid ("c31eee05-5dd9-4e11-8a78-f69ea729d63c")
         Horizontal,
         @objid ("50ea612c-909f-4a3d-a776-cb10d31a44a8")
@@ -51,5 +51,5 @@ public interface ILinkEditorConfiguration {
         Auto;
 
     }
-
 }
+

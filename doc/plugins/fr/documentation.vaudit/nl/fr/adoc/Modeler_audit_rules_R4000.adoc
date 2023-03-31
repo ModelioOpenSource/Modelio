@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R4000]]
 
-[[r4000]]
+
+
 = R4000
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les relations doivent respecter la norme ArchiMate.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les relations ne doivent être créées qu'entre certains types d'éléments. Ces règles de création sont décrites dans la norme ArchiMate. +

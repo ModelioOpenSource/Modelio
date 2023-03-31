@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.paperclips.feature"
+      label="%featureName"
+      version="2.1.0.202106201019"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="%copyrightURL">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.paperclips.core"
+         download-size="189"
+         install-size="376"
+         version="2.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.paperclips.widgets"
+         download-size="25"
+         install-size="46"
+         version="2.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.paperclips.core.source"
+         download-size="142"
+         install-size="420"
+         version="2.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.paperclips.widgets.source"
+         download-size="17"
+         install-size="42"
+         version="2.1.0.202106201019"
+         unpack="false"/>
+
+</feature>

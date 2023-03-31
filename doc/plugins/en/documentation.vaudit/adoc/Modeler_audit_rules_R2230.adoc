@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2230]]
 
-[[r2230]]
+
+
 = R2230
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A root _NameSpace_ cannot inherit from any other _NameSpace_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 By definition a root namespace is the top level namespace, so it cannot inherit from another _NameSpace_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Make the parent NameSpace root instead of this one.

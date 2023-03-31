@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005a96aa-91e0-1f74-804b-001ec947cd2a")
 public enum VisibilityMode {
@@ -42,6 +44,7 @@ public enum VisibilityMode {
     VISIBILITYUNDEFINED(3, "VisibilityUndefined", "VisibilityUndefined"),
     @objid ("47b0e9b7-38b6-4694-bf0e-0db232f4bbb2")
     PACKAGEVISIBILITY(4, "PackageVisibility", "PackageVisibility");
+
 public static final int PUBLIC_VALUE = 0;
     public static final int PROTECTED_VALUE = 1;
     public static final int PRIVATE_VALUE = 2;

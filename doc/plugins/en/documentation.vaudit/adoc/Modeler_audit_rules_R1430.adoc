@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1430]]
 
-[[r1430]]
+
+
 = R1430
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Multiplicities of an _AssociationEnd_ must be consistent. _MultiplicityMin_ cannot be '*' and _MultiplicityMin_ must be inferior to _MultiplicityMax_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 From a logical point of view, it makes sense that a minimum value cannot be higher than a maximum value. Furthermore, if the minimum value is '*' which means infinity, the maximum value cannot possibly be higher.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a minimum multiplicity inferior to the maximum multiplicity or equal to '*', you must change one of these values in order for the minimum multiplicity to be inferior to the maximum multiplicity.

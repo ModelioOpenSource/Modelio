@@ -37,6 +37,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0007a24c-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnItemDefinition extends BpmnSharedElement {
@@ -58,6 +60,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * Metamodel description:
      * <i>This defines the nature of the Item. Possible values are physical or 
      * information. The default value is information.</i>
+     * 
      */
     @objid ("238a4f1c-bcf4-48c9-b47f-3ed12ec1d7eb")
     BpmnItemKind getItemKind();
@@ -68,6 +71,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * Metamodel description:
      * <i>This defines the nature of the Item. Possible values are physical or 
      * information. The default value is information.</i>
+     * 
      */
     @objid ("4ca12486-02fd-4a7a-af55-050ecdeb9907")
     void setItemKind(BpmnItemKind value);
@@ -78,6 +82,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * Metamodel description:
      * <i>Setting this flag to true indicates that the actual data type is a 
      * collection.</i>
+     * 
      */
     @objid ("90ba3b78-cbc9-42a1-b7cb-c5accbd9355e")
     boolean isIsCollection();
@@ -88,6 +93,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * Metamodel description:
      * <i>Setting this flag to true indicates that the actual data type is a 
      * collection.</i>
+     * 
      */
     @objid ("65577bf1-2650-4a9b-b99d-84e346e1fc1d")
     void setIsCollection(boolean value);
@@ -97,6 +103,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c7ebe1bc-3c06-4e56-a593-405050a6a92b")
     EList<BpmnMessage> getTypedMessage();
@@ -106,6 +113,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4b8f735b-1e49-48a8-8b4b-8bb0ca8a59d0")
     <T extends BpmnMessage> List<T> getTypedMessage(java.lang.Class<T> filterClass);
@@ -115,6 +123,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ce195094-1e86-445f-91e1-e44c5dce605c")
     EList<BpmnItemAwareElement> getTypedItem();
@@ -124,6 +133,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("00ec090b-87fd-4147-9360-b5919816af4b")
     <T extends BpmnItemAwareElement> List<T> getTypedItem(java.lang.Class<T> filterClass);
@@ -133,6 +143,7 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cff966a9-f468-46ac-93d4-56aeff862ca6")
     EList<BpmnResourceParameter> getTypedResourceParameter();
@@ -142,8 +153,9 @@ public interface BpmnItemDefinition extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1dd8cf38-dd0b-4dbb-a5e8-2cb205c835f4")
     <T extends BpmnResourceParameter> List<T> getTypedResourceParameter(java.lang.Class<T> filterClass);
-
 }
+

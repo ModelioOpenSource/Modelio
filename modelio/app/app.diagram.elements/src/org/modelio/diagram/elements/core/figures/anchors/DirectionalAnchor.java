@@ -42,13 +42,13 @@ public class DirectionalAnchor extends XYAnchor {
         return this.direction;
     }
 
-    @objid ("4bfe5407-22e0-44b3-8049-35d0a52f56ba")
+    @objid ("11275579-46dd-493a-b133-d03f3f78165a")
     @Override
     public int hashCode() {
         return Objects.hash(this.direction, getOwner(), getReferencePoint());
     }
 
-    @objid ("3fb776b6-e516-42e1-b80e-e54190bc8d4a")
+    @objid ("30d8cd2d-c138-4950-865c-6423d9cd6591")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

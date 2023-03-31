@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
  * Line or column query definition.
  * 
  * Uses an external processor to execute the query.
+ * 
+ * 
  */
 @objid ("1b70521e-83b3-42a8-a6ca-a0b86b8dc3ea")
 public interface QueryDefinition extends Element {
@@ -59,6 +61,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5affaafb-76f1-499c-a1d2-615bde499d20")
     boolean isUsingAdditions();
@@ -68,6 +71,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7a2f33e4-e3cc-4f2b-a90d-fae03f2d8dd2")
     void setUsingAdditions(boolean value);
@@ -77,6 +81,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Elements manually added to the lines or columns.</i>
+     * 
      */
     @objid ("8e519d87-9316-4a14-a9fb-1f2afa4b9d3a")
     EList<Element> getAdded();
@@ -86,6 +91,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Elements manually added to the lines or columns.</i>
+     * 
      */
     @objid ("94925c15-c30a-4d60-9b8a-ccc03732f575")
     <T extends Element> List<T> getAdded(java.lang.Class<T> filterClass);
@@ -95,6 +101,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>External processor used to execute the query.</i>
+     * 
      */
     @objid ("299f0126-a60f-41f3-bf7c-feb8f3dfb0fd")
     ExternProcessor getProcessor();
@@ -104,6 +111,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>External processor used to execute the query.</i>
+     * 
      */
     @objid ("18e4988f-af75-4e6e-9453-ada6b9967e6c")
     void setProcessor(ExternProcessor value);
@@ -113,6 +121,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
+     * 
      */
     @objid ("0af13d8e-69f9-4bd1-83b1-60d4cc99c859")
     PropertyTable getParameters();
@@ -122,6 +131,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
+     * 
      */
     @objid ("607ac3cf-f65b-4ffd-a5b4-470319a05a20")
     void setParameters(PropertyTable value);
@@ -131,6 +141,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("dacad759-a5d6-4015-897e-f61f24cc6197")
     MatrixDefinition getOwnerAsLine();
@@ -140,6 +151,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2128b5a2-7370-468d-aa19-a2c5a8cf7246")
     void setOwnerAsLine(MatrixDefinition value);
@@ -149,6 +161,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c9391643-bbbc-462b-80fb-8489c2780df9")
     MatrixDefinition getOwnerAsCol();
@@ -158,6 +171,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1d6d80d0-36b0-4606-9449-cdc2924b250e")
     void setOwnerAsCol(MatrixDefinition value);
@@ -167,6 +181,7 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4c97504a-6d8d-40c0-b5d4-777bc98869a0")
     MatrixDefinition getOwnerAsDepth();
@@ -176,8 +191,9 @@ public interface QueryDefinition extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ac52db70-4ff2-48ec-843a-f663c15fe9f2")
     void setOwnerAsDepth(MatrixDefinition value);
-
 }
+

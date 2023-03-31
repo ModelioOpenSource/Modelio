@@ -62,5 +62,5 @@ public interface IGMetamodelExtension {
      */
     @objid ("86d1877f-af07-4fb1-b662-fca6022dfb1e")
     <T> T createExtension(Class<T> service, ICoreSession session);
-
 }
+

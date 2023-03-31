@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1780]]
 
-[[r1780]]
+
+
 = R1780
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom d'une _Instance_ doit être unique dans son _NameSpace_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _Instances_ sont des objets uniques dans leur _NameSpace_ et donc leur nom doit être unique également.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Renommez vos _Instances_ afin qu'elles aient chacune un nom unique dans leur _NameSpace_.

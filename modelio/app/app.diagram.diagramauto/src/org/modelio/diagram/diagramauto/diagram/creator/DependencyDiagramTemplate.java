@@ -22,7 +22,6 @@ package org.modelio.diagram.diagramauto.diagram.creator;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
@@ -32,6 +31,7 @@ import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.layout.FourGroupStructuralLayout;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
@@ -56,6 +56,12 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
     public List<IDiagramNode> _rightDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("911de682-94c0-4ad6-87dd-21c5e2d5ace1")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("b2f35d46-bdf0-4b35-af54-f7d51b948ff7")
@@ -64,6 +70,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         
         this._leftDgs = new ArrayList<>();
         this._rightDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -87,60 +94,75 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         
     }
 
-    @objid ("a0d02b05-a85b-4782-9fe7-c3ecf4d2235c")
+    @objid ("c6761c35-0916-4fc1-b117-718a0f936235")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof NameSpace) {
-            initialUnmasking(dh, (NameSpace) main);
-        }
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement elt) {
+        // Get rid of dumb case
+        if (!(elt instanceof NameSpace))
+            return;
         
-    }
-
-    @objid ("400f8ae7-913e-475e-b1cf-b0825a66b1f7")
-    private void initialUnmasking(final IDiagramHandle dh, final NameSpace main) {
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
-        }
+        NameSpace main = (NameSpace) elt;
         
         // the main element
-        this._mainDG = (IDiagramNode) dh.unmask(main, 400, 400).get(0);
-        this._mainDG.setSize(100, 100);
-        this._mainDG.setRepresentationMode(1);
-        initStyle(main, main, this._mainDG);
+        this._mainDG = this._unmasker.unmask(dh, main, 100, 100);
+        if (_mainDG != null) {
+            this._mainDG.setRepresentationMode(1);
+            initStyle(main, main, this._mainDG);
+        }
         
         // Unmask incoming blue links
         for (ImpactLink blueLink : main.getImpactImpacted()) {
-            // Unmask user node
-            ModelElement parent = blueLink.getImpacted();
-            List<IDiagramGraphic> nodes = dh.unmask(parent, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
-                // Add intern/extern style
-                initStyle(main, parent, node);
-        
-                this._leftDgs.add(node);
+            // Unmask user node unless it belongs to main
+            ModelElement impactedElement = blueLink.getImpacted();
+            if (!impactedElement.getCompositionOwner().equals(main)) {
+                IDiagramNode node = this._unmasker.unmask(dh, impactedElement);
+                if (node != null) {
+                    // Add intern/extern style
+                    initStyle(main, impactedElement, node);
+                    this._leftDgs.add(node);
+                }
             }
-        
-            dh.unmask(blueLink, 0, 0);
         }
         
         // Unmask outgoing blue links
         for (ImpactLink blueLink : main.getImpactDependsOn()) {
-            // Unmask used node
-            ModelElement parent = blueLink.getDependsOn();
-            List<IDiagramGraphic> nodes = dh.unmask(parent, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
-                // Add intern/extern style
-                initStyle(main, parent, node);
-        
-                this._rightDgs.add(node);
+            // Unmask used node unless it belongs to main
+            ModelElement dependsOn = blueLink.getDependsOn();
+            if (!dependsOn.getCompositionOwner().equals(main)) {
+                IDiagramNode node = this._unmasker.unmask(dh, dependsOn);
+                if (node != null) {
+                    // Add intern/extern style
+                    initStyle(main, dependsOn, node);
+                    this._rightDgs.add(node);
+                }
             }
         
-            dh.unmask(blueLink, 0, 0);
+        }
+        
+    }
+
+    @objid ("a950b10a-e17a-4b2e-9e8f-9e32a93a0ad0")
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement elt) {
+        // Get rid of dumb case
+        if (!(elt instanceof NameSpace))
+            return;
+        
+        NameSpace main = (NameSpace) elt;
+        
+        // Unmask incoming blue links unless source belongs to main (inner)
+        for (ImpactLink blueLink : main.getImpactImpacted()) {
+            ModelElement impactedElement = blueLink.getImpacted();
+            if (!impactedElement.getCompositionOwner().equals(main)) {
+                dh.unmask(blueLink, 0, 0);
+            }
+        }
+        
+        // Unmask outgoing blue links unless target belongs to main (inner)
+        for (ImpactLink blueLink : main.getImpactDependsOn()) {
+            ModelElement dependsOn = blueLink.getDependsOn();
+            if (!dependsOn.getCompositionOwner().equals(main)) {
+                dh.unmask(blueLink, 0, 0);
+            }
         }
         
     }
@@ -161,8 +183,8 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
 
     @objid ("b257d36c-39d5-454c-b926-655b901448a9")
     private boolean isInSamePackage(final ModelElement elt1, final ModelElement elt2) {
-        ModelTree parent1 = getOwnerPackage (elt1);
-        ModelTree parent2 = getOwnerPackage (elt2);
+        ModelTree parent1 = getOwnerPackage(elt1);
+        ModelTree parent2 = getOwnerPackage(elt2);
         return parent1 != null && parent2 != null && parent1.equals(parent2);
     }
 
@@ -183,7 +205,16 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
 
     @objid ("7fa6ffe7-4fff-4737-bb83-b49de80f67d4")
     @Override
-    protected void layout(final IDiagramHandle dh) {
+    protected void layoutNodes(final IDiagramHandle dh) {
+        // The 'FourGroupNodeLayout' used here implies that the node layout depends on the unmasked links (in order to place the nodes where links can be correctly routed).
+        // At this stage the links are not unmasked yet and their DGs not existing,
+        // therefore the node layout is postponed to the layoutLinks() call where we are sure that the link DGs are unmasked and accessible.
+        
+    }
+
+    @objid ("a99c731b-44b7-40e1-8e51-c491ae2202a8")
+    @Override
+    protected void layoutLinks(final IDiagramHandle dh) {
         if (this._mainDG != null) {
             FourGroupStructuralLayout layout = new FourGroupStructuralLayout();
             try {
@@ -249,6 +280,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         this._mainDG = null;
         this._leftDgs.clear();
         this._rightDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 

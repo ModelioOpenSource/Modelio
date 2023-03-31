@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R4010]]
 
-[[r4010]]
+
+
 = R4010
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les relations entrantes et/ou sortantes d'une Junction doivent être de même type.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les Junctions ne peuvent joindre que des relations de même type. +

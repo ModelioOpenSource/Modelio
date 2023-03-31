@@ -39,13 +39,13 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
  * <p>
  * Links that go from/to a node not included are filtered out.
  */
-@objid ("106967a8-0881-422a-bad7-56786432f0eb")
+@objid ("0c1beb8e-ce2d-4796-8144-4904d8ee2e3e")
 class GmLinksFinder {
     /**
      * @param nodes a collection containing node models
      * @return the set that will be filled with found links
      */
-    @objid ("34af130d-895b-44fe-bd0d-c8ec70f7680b")
+    @objid ("562b934a-53e0-4d1b-b561-7be811ed79a2")
     public static Set<IGmLinkable> computeAllLinksFor(final Collection<? extends IGmLinkable> nodes) {
         final Set<IGmLinkable> linksToAdd = new HashSet<IGmLinkable>();
         BiConsumer<IGmLinkable, Consumer<IGmLinkable> > transitions = (ep, graphWalker)
@@ -54,7 +54,7 @@ class GmLinksFinder {
         return linksToAdd;
     }
 
-    @objid ("12e01c53-8d6a-4773-937d-fee1938fd7bd")
+    @objid ("cd296e33-3fba-41bf-8af4-a6cb57d6d0a0")
     private static void walkConnectedLinks(Consumer<IGmLinkable> graphWalker, IGmLinkable ep, Collection<? extends IGmLinkable> operationSet, Collection<IGmLinkable> linkEditParts) {
         if (ep instanceof GmCompositeNode) {
             for (GmNodeModel child : ((GmCompositeNode)ep).getChildren()) {
@@ -79,7 +79,7 @@ class GmLinksFinder {
         
     }
 
-    @objid ("aba728c1-b850-45ee-915e-e852c32905bf")
+    @objid ("9ac2f239-ab88-4424-8ac9-7266b290b739")
     private static <A> void traverseGraph2(final Collection<? extends A> roots, BiConsumer<A, Consumer<A>> transitions) {
         // initialize a current roots list from the passed root elements
         final Set<A> traversed = new HashSet<>();
@@ -98,7 +98,7 @@ class GmLinksFinder {
         
     }
 
-    @objid ("21511320-7cef-4888-bf45-3cacc2c6091d")
+    @objid ("978fe165-44ed-453a-8a21-1c0c2e528146")
     private static boolean isLinkToInclude(IGmLink link, final Collection<? extends IGmLinkable> operationSet) {
         if (!operationSet.contains(link)) {
             IGmLink linkEditPart = link;
@@ -116,7 +116,7 @@ class GmLinksFinder {
         return false;
     }
 
-    @objid ("16a12977-0faf-455a-861d-ac65eaabce9e")
+    @objid ("e680781f-6f71-41d2-bb3e-fbdce2c5bbe9")
     private static boolean isAncestorContainedIn(Collection<? extends IGmLinkable> operationSet, IGmLinkable linkTarget) {
         if (operationSet.contains(linkTarget))
             return true;

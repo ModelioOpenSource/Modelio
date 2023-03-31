@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3190]]
 
-[[r3190]]
+
+
 = R3190
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un lien _DataAssociation_ ne peut pas cibler un _DataInput_ ni venir d'un _DataOutput_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les nœuds de type _DataInput_ envoient des données tandis que les nœuds de type _DataOutput_ reçoivent des données.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un lien _DataAssociation_ entrant sur un _DataInput_ ou sortant d'un _DataOutput_, vous devriez changer la source ou la destination de votre lien.

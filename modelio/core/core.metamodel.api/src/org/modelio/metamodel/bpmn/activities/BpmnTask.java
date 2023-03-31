@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * A Task is an atomic Activity within a Process flow. A Task is used when the work in the Process cannot be broken down to a finer level of detail. Generally, an end-user and/or applications are used to perform the Task when it is executed.
+ * 
+ * 
  */
 @objid ("0084bb4c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnTask extends BpmnActivity {
@@ -54,6 +56,7 @@ public interface BpmnTask extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>A Global Task is a reusable, atomic Task definition that can be called from within any Process by a Call Activity.</i>
+     * 
      */
     @objid ("530cb6be-8c2f-4c25-bc21-eb29f4abd4ba")
     boolean isIsGlobal();
@@ -63,6 +66,7 @@ public interface BpmnTask extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>A Global Task is a reusable, atomic Task definition that can be called from within any Process by a Call Activity.</i>
+     * 
      */
     @objid ("04b0aeb4-94fb-49d5-9f23-ef15b83e121f")
     void setIsGlobal(boolean value);
@@ -72,6 +76,7 @@ public interface BpmnTask extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b60e4f0b-3b4d-42d5-ba69-9ae7e06c34bd")
     EList<BpmnCallActivity> getCaller();
@@ -81,8 +86,9 @@ public interface BpmnTask extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cc227ebc-4811-463a-8dab-68d45de7b20f")
     <T extends BpmnCallActivity> List<T> getCaller(java.lang.Class<T> filterClass);
-
 }
+

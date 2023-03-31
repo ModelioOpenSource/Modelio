@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1700]]
 
-[[r1700]]
+
+
 = R1700
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The 'Instantiated signal' field for a _Signal_-type _Event_ must be defined, whereas the 'Called operation' and 'Expression' fields must be empty.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _Event_ is the specification of a specific occurrence at a specific point in space and time.
 
 A _Signal_-type _Event_ is meant to define a _Signal_, and cannot trigger an _Operation_ at the same time.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Add a reference to a _Signal_, if the _Event_ doesn't have one.

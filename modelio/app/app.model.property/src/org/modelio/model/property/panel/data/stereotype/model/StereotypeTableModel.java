@@ -37,7 +37,7 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.model.property.plugin.ModelProperty;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
 import org.modelio.platform.model.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
 import org.modelio.platform.model.ui.nattable.parts.data.string.multi.DefaultMultiStringNatValue;
@@ -118,7 +118,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 return getPropertyI18n(AbstractPropertyModel.PROPERTY_ID);
             } else if (isTaggedValue(row)) {
                 TagType type = this.tagModel.getTagTypes().get(row - 1);
-                String label = ModuleI18NService.getLabel(type);
+                String label = MdaResources.getLabel(type);
                 if (label == null || label.isEmpty()) {
                     label = "!" + type.getName() + "!";
                 }
@@ -132,7 +132,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else if (isProperty(row)) {
                 // Row Header
                 final PropertyDefinition pdef = this.tableModel.getProperties().get(row - this.tagModel.getTagTypes().size() - 1);
-                String label = ModuleI18NService.getLabel(pdef);
+                String label = MdaResources.getLabel(pdef);
                 if (label == null || label.isEmpty()) {
                     label = "!" + pdef.getName() + "!";
                 }

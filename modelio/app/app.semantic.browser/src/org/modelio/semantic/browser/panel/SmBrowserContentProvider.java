@@ -28,9 +28,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
@@ -49,7 +49,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * This implementation is basically a standard BrowserModelContentProvider where redefined methods return semantic features as SmNode instances. Semantic features of a MObject represents the SmAttribute and SmDependendy of the object metaclass.
  * </p>
  * <p>
- * The {@link #getElements(Object)} method returns the tree roots, from the "local roots" if defined, or from the GProject itself.
+ * The {@link #getElements(Object)} method returns the tree roots, from the "local roots" if defined, or from the IGProject itself.
  * </p>
  */
 @objid ("29743854-5936-42d5-a8c2-687e04073541")
@@ -67,13 +67,13 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
         
         if (child instanceof SmNode) {
             parent = ((SmNode) child).getObj();
-        }  else if (child instanceof MObject) {
+        } else if (child instanceof MObject) {
             SmDepVal depVal = ((ISmMeta) child).getCompositionRelation();
-            
+        
             if (depVal != null) {
                 parent = new SmNode(depVal.value, depVal.dep.getSymetric());
             } else {
-                parent = ((GProject) this.viewer.getInput()).getFragment((MObject) child);
+                parent = ((IGProject) this.viewer.getInput()).getFragment((MObject) child);
             }
         }
         return parent;
@@ -94,8 +94,8 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
             return getChildren((MObject) parent).toArray();
         }
         
-        if (parent instanceof IProjectFragment) {
-            return getChildren((IProjectFragment) parent).toArray();
+        if (parent instanceof IGModelFragment) {
+            return getChildren((IGModelFragment) parent).toArray();
         }
         
         if (parent instanceof SmNode) {
@@ -130,22 +130,22 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
     }
 
     /**
-     * Get elements, viewer input is a GProject => return the fragments
+     * Get elements, viewer input is a IGProject => return the fragments
      */
     @objid ("e1da3110-e83a-46b9-ae72-9aeb7a488545")
     @Override
     public Object[] getElements(Object parent) {
-        if (parent != null && parent instanceof GProject) {
-            return getFragments((GProject) parent).toArray();
+        if (parent != null && parent instanceof IGProject) {
+            return getFragments((IGProject) parent).toArray();
         }
         // Nothing to return yet
         return new Object[0];
     }
 
     @objid ("dfe9cbd5-b2ca-45d1-86d1-e75b829eb46b")
-    private List<IProjectFragment> getFragments(GProject project) {
-        List<IProjectFragment> fragments = new ArrayList<>();
-        for (IProjectFragment iProjectFragment : project.getFragments()) {
+    private List<IGModelFragment> getFragments(IGProject project) {
+        List<IGModelFragment> fragments = new ArrayList<>();
+        for (IGModelFragment iProjectFragment : project.getParts(IGModelFragment.class)) {
             fragments.add(iProjectFragment);
         }
         Collections.sort(fragments, new FragmentComparator());
@@ -158,8 +158,8 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
         this.viewer = currentViewer;
         
         // Unregister model change listener on the old input
-        if (oldInput != null && oldInput instanceof GProject) {
-            ICoreSession session = ((GProject) oldInput).getSession();
+        if (oldInput != null && oldInput instanceof IGProject) {
+            ICoreSession session = ((IGProject) oldInput).getSession();
             if (session != null) {
                 session.getModelChangeSupport().removeModelChangeListener(this);
                 session.getModelChangeSupport().removeStatusChangeListener(this);
@@ -171,8 +171,8 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
         }
         
         // Register model change listener on the new input
-        if (newInput != null && newInput instanceof GProject) {
-            IModelChangeSupport changeSupport = ((GProject) newInput).getSession().getModelChangeSupport();
+        if (newInput != null && newInput instanceof IGProject) {
+            IModelChangeSupport changeSupport = ((IGProject) newInput).getSession().getModelChangeSupport();
             changeSupport.addModelChangeListener(this);
             changeSupport.addStatusChangeListener(this);
         
@@ -220,12 +220,12 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
     }
 
     @objid ("9720acbc-517e-420c-8d3b-53ecc9c3b312")
-    private Collection<MObject> getChildren(IProjectFragment fragment) {
+    private Collection<MObject> getChildren(IGModelFragment fragment) {
         return fragment.getRoots();
     }
 
     @objid ("df256539-dff8-4066-8046-0b1ebf23a3e9")
-    private static class FragmentComparator implements Comparator<IProjectFragment> {
+    private static class FragmentComparator implements Comparator<IGModelFragment> {
         @objid ("172e9dbc-6aab-4e10-a80a-45038685c198")
         public  FragmentComparator() {
             // Empty constructor
@@ -233,7 +233,7 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
 
         @objid ("ebca4474-e779-4c18-8e2c-01551d0593ed")
         @Override
-        public int compare(IProjectFragment f1, IProjectFragment f2) {
+        public int compare(IGModelFragment f1, IGModelFragment f2) {
             if (f1.getType() == f2.getType()) {
                 return f1.getId().compareTo(f2.getId());
             } else {
@@ -243,18 +243,18 @@ public class SmBrowserContentProvider implements ITreeContentProvider, IModelCha
         }
 
         @objid ("42fe47c4-f945-4d7e-9a15-a084aca456b5")
-        private static int getTypeWeight(FragmentType type) {
+        private static int getTypeWeight(GProjectPartType type) {
             switch (type) {
-            case EXML:
+            case EXMLFRAGMENT:
                 return 0;
-            case EXML_SVN:
+            case SVNFRAGMENT:
                 return 1;
             case RAMC:
                 return 2;
-            case EXML_URL:
+            case HTTPFRAGMENT:
                 return 3;
-            case MDA:
-                return 4;
+            // case MDA:
+            // return 4;
             default:
                 return 99;
             }

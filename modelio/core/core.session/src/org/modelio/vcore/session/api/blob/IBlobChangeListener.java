@@ -39,5 +39,5 @@ public interface IBlobChangeListener {
      */
     @objid ("9e15860a-7366-483b-8f26-2732d1fe658b")
     void blobsChanged(IBlobChangeEvent ev);
-
 }
+

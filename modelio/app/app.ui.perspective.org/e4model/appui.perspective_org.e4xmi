@@ -18,8 +18,8 @@
         <children xsi:type="advanced:Placeholder" xmi:id="_C7gL40uZEeeQEZ4NNskkVg" elementId="org.eclipse.ui.editorss" containerData="70" ref="_A0YuYEuZEeeQEZ4NNskkVg" closeable="true"/>
         <children xsi:type="basic:PartSashContainer" xmi:id="_C7gL5EuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partsashcontainer.0" containerData="30" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_C7gL5UuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.left" containerData="">
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL5kuZEeeQEZ4NNskkVg" elementId="diagram.browser.placeholder" ref="_A0uFkEuZEeeQEZ4NNskkVg"/>
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL50uZEeeQEZ4NNskkVg" elementId="diagram.outline.placeholder" ref="_A0mw0EuZEeeQEZ4NNskkVg"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL5kuZEeeQEZ4NNskkVg" elementId="diagram.browser.placeholder" ref="_A0uFkEuZEeeQEZ4NNskkVg" closeable="true"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL50uZEeeQEZ4NNskkVg" elementId="diagram.outline.placeholder" ref="_A0mw0EuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_C7gL6EuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.right">
             <tags>MODULE_STACK</tags>
@@ -35,11 +35,11 @@
       <children xsi:type="basic:PartSashContainer" xmi:id="_C7gL60uZEeeQEZ4NNskkVg" elementId="" horizontal="true">
         <children xsi:type="basic:PartSashContainer" xmi:id="_C7gL7EuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partsashcontainer.0" containerData="30">
           <children xsi:type="basic:PartStack" xmi:id="_C7gL7UuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.top" containerData="">
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL7kuZEeeQEZ4NNskkVg" elementId="model.browser.placeholder" ref="_A00MMEuZEeeQEZ4NNskkVg"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL7kuZEeeQEZ4NNskkVg" elementId="model.browser.placeholder" ref="_A00MMEuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_C7gL70uZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.bottom" containerData="">
             <tags>MODULE_STACK</tags>
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL8EuZEeeQEZ4NNskkVg" elementId="properties.placeholder" ref="_A09WIEuZEeeQEZ4NNskkVg"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL8EuZEeeQEZ4NNskkVg" elementId="properties.placeholder" ref="_A09WIEuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
         </children>
         <children xsi:type="advanced:Placeholder" xmi:id="_C7gL8UuZEeeQEZ4NNskkVg" elementId="org.eclipse.ui.editorss" containerData="70" ref="_A0YuYEuZEeeQEZ4NNskkVg" closeable="true"/>
@@ -58,14 +58,14 @@
             <children xsi:type="advanced:Placeholder" xmi:id="_8kQmgGYyEeelAqjSKjNv_A" elementId="diagram.outline.placeholder" ref="_A0qbMEuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_C7gL-UuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.bottomleft" containerData="30">
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL-kuZEeeQEZ4NNskkVg" elementId="notesview.placeholder" ref="_A0xI4EuZEeeQEZ4NNskkVg"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL-kuZEeeQEZ4NNskkVg" elementId="notesview.placeholder" ref="_A0xI4EuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
         </children>
         <children xsi:type="basic:PartSashContainer" xmi:id="_C7gL-0uZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partsashcontainer.0" containerData="50">
           <children xsi:type="advanced:Placeholder" xmi:id="_C7gL_EuZEeeQEZ4NNskkVg" elementId="org.eclipse.ui.editorss" containerData="70" ref="_A0YuYEuZEeeQEZ4NNskkVg" closeable="true"/>
           <children xsi:type="basic:PartStack" xmi:id="_C7gL_UuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partstack.bottom" containerData="30">
             <tags>MODULE_STACK</tags>
-            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL_0uZEeeQEZ4NNskkVg" elementId="linkeditor.placeholder" ref="_A06S0EuZEeeQEZ4NNskkVg"/>
+            <children xsi:type="advanced:Placeholder" xmi:id="_C7gL_0uZEeeQEZ4NNskkVg" elementId="linkeditor.placeholder" ref="_A06S0EuZEeeQEZ4NNskkVg" closeable="true"/>
           </children>
         </children>
         <children xsi:type="basic:PartSashContainer" xmi:id="_C7gMAEuZEeeQEZ4NNskkVg" elementId="app.ui.ext_com.partsashcontainer.0" containerData="25">

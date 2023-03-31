@@ -29,5 +29,5 @@ public interface IAuditExtension {
 
     @objid ("d0063ac9-d75a-43ba-8e7d-acde80a7c40d")
     IAuditConfigurationPlan getConfigurationPlan();
-
 }
+

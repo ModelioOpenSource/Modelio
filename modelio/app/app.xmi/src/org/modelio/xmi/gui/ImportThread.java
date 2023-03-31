@@ -49,8 +49,7 @@ public class ImportThread extends AbstractXMIThread implements IRunnableWithProg
         Resource resource = null;
         revProp.setReportModel(ReportManager.getNewReport());
         
-        this.progressBar.setLabel(Xmi.I18N
-                .getString("progressBar.content.import.XMIFileLoading"));
+        this.progressBar.setLabel(Xmi.I18N.getString("progressBar.content.import.XMIFileLoading"));
         
         try {
         

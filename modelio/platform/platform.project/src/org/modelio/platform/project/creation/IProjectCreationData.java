@@ -21,6 +21,9 @@ package org.modelio.platform.project.creation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
+/**
+ * Project creation data describing the project to be created by {@link IProjectCreator}
+ */
 @objid ("36de2f06-f070-44ad-90e8-884804b7cdeb")
-public interface IProjectCreationData {
-}
+public interface IProjectCreationData {}
+

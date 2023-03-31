@@ -47,7 +47,9 @@ import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.drawings.core.IGmDrawing;
 import org.modelio.diagram.elements.drawings.ellipse.GmEllipseDrawing;
+import org.modelio.diagram.elements.drawings.image.GmImageDrawing;
 import org.modelio.diagram.elements.drawings.line.GmLineDrawing;
+import org.modelio.diagram.elements.drawings.note.GmNoteDrawing;
 import org.modelio.diagram.elements.drawings.rectangle.GmRectangleDrawing;
 import org.modelio.diagram.elements.drawings.text.GmTextDrawing;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -121,6 +123,22 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
     @Override
     public IDiagramDrawingNode createDrawingText(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h) {
         IDiagramDrawingNode node = createDrawingNode(GmTextDrawing.class, layer, drawingIdentifier, x, y, w, h);
+        node.setLabel(label);
+        return node;
+    }
+
+    @objid ("b9d61b59-249a-4e6a-a5f8-846522d7d5c6")
+    @Override
+    public IDiagramDrawingNode createDrawingNote(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h) {
+        IDiagramDrawingNode node = createDrawingNode(GmNoteDrawing.class, layer, drawingIdentifier, x, y, w, h);
+        node.setLabel(label);
+        return node;
+    }
+
+    @objid ("be0dde73-77d9-4943-a3a0-e71b6174303f")
+    @Override
+    public IDiagramDrawingNode createDrawingImage(IDiagramDrawingsLayer layer, String drawingIdentifier, String label, int x, int y, int w, int h) {
+        IDiagramDrawingNode node = createDrawingNode(GmImageDrawing.class, layer, drawingIdentifier, x, y, w, h);
         node.setLabel(label);
         return node;
     }

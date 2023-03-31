@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2180]]
 
-[[r2180]]
+
+
 = R2180
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Il ne peut y avoir de cycle d'héritage entre _NameSpaces_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Si deux _NameSpaces_ héritent chacun l'un de l'autre, il y a un cycle d'héritage. Ce type de cycle est une erreur de conception et est interdit.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez un des liens, ou changez sa source ou sa destination afin de rompre le cycle.

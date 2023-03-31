@@ -29,15 +29,13 @@ import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.ModelioEnv;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.vcore.session.api.memory.IMemoryEventListener;
 
 /**
- * This class is in charge of updating the application shell title label. The
- * displayed label integrates the current project name (if some) the user login
- * name (if some) and Modelio version.
+ * This class is in charge of updating the application shell title label. The displayed label integrates the current project name (if some) the user login name (if some) and Modelio version.
  */
 @objid ("00448928-cc35-1ff2-a7f4-001ec947cd2a")
 @Creatable
@@ -71,19 +69,19 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
     @objid ("004044b2-4082-1ff4-9ac8-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectOpened(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_OPENED) GProject project) {
+    void onProjectOpened(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_OPENED) IGProject project) {
         updateShellTitle(application, project);
     }
 
     @objid ("004080ee-4082-1ff4-9ac8-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectClosed(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_CLOSED) GProject project) {
+    void onProjectClosed(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_CLOSED) IGProject project) {
         updateShellTitle(application, null);
     }
 
     @objid ("36b09344-f211-409c-a8cf-72b5baac18ce")
-    private void updateShellTitle(final MApplication application, GProject project) {
+    private void updateShellTitle(final MApplication application, IGProject project) {
         final MWindow appShell = getApplicationShellWindow(application);
         if (appShell == null) {
             return;

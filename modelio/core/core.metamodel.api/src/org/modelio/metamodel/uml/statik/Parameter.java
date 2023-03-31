@@ -43,6 +43,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * The return value of an Operation is a specific case managed by a specific Association between Operation and Parameter. 
  * 
  * In Modelio, a Parameter belongs to its Operation.
+ * 
+ * 
  */
 @objid ("0017c640-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Parameter extends UmlModelElement {
@@ -63,6 +65,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the passing mode (in, out or inout) of the Parameter.</i>
+     * 
      */
     @objid ("2fdf6169-df67-4915-a591-f104acddee89")
     PassingMode getParameterPassing();
@@ -72,6 +75,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the passing mode (in, out or inout) of the Parameter.</i>
+     * 
      */
     @objid ("8665f067-62e7-4802-81ff-95bcc1ba1313")
     void setParameterPassing(PassingMode value);
@@ -81,6 +85,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Minimum value of the association's multiplicity. When placed on a target end, the multiplicity specifies the number of target instances that may be associated with a single source instance via the given Association.</i>
+     * 
      */
     @objid ("3f77cdff-e0c1-41a0-b069-dde589e882c2")
     String getMultiplicityMin();
@@ -90,6 +95,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Minimum value of the association's multiplicity. When placed on a target end, the multiplicity specifies the number of target instances that may be associated with a single source instance via the given Association.</i>
+     * 
      */
     @objid ("a1c67c52-b25e-4965-b84b-924c793b4b89")
     void setMultiplicityMin(String value);
@@ -99,6 +105,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Maximum value of the multiplicity.</i>
+     * 
      */
     @objid ("f44268e6-3c0e-4ea6-9078-9b96ee36244e")
     String getMultiplicityMax();
@@ -108,6 +115,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Maximum value of the multiplicity.</i>
+     * 
      */
     @objid ("8f07ddb5-98d2-4762-9f38-38af158cf2bb")
     void setMultiplicityMax(String value);
@@ -117,6 +125,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Construction parameter of the Parameter's class (for example, the size of a characters string).</i>
+     * 
      */
     @objid ("6459f3bb-bb49-445d-8016-2aacee02bddd")
     String getTypeConstraint();
@@ -126,6 +135,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Construction parameter of the Parameter's class (for example, the size of a characters string).</i>
+     * 
      */
     @objid ("8651ff43-470e-4476-8e14-089b2c3bbf88")
     void setTypeConstraint(String value);
@@ -135,6 +145,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Default value of the Parameter. When the caller does not specify a value, then the default value is applied.</i>
+     * 
      */
     @objid ("03e9d8f6-5402-4b6c-981b-4230212179a9")
     String getDefaultValue();
@@ -144,6 +155,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Default value of the Parameter. When the caller does not specify a value, then the default value is applied.</i>
+     * 
      */
     @objid ("20d5c3ad-7547-4756-af51-b516f4fca9a8")
     void setDefaultValue(String value);
@@ -153,6 +165,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c73b556a-ee0a-4f0d-bd07-6cedb34606bb")
     boolean isIsOrdered();
@@ -162,6 +175,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("62ff3912-124a-4ce7-a280-6bb37f3f4dea")
     void setIsOrdered(boolean value);
@@ -171,6 +185,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d1c913e9-b52b-4c2f-a1ba-2e344ee232a5")
     boolean isIsUnique();
@@ -180,6 +195,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8485c83a-414a-4c8b-84cb-0ad0b6786123")
     void setIsUnique(boolean value);
@@ -189,6 +205,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6718adaf-39ae-4369-b0ac-273c4a00c52f")
     boolean isIsException();
@@ -198,6 +215,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b85073f7-8d4f-49a1-b003-ae7290c68554")
     void setIsException(boolean value);
@@ -207,6 +225,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b27ce6aa-9291-4713-b30d-710a00a87cf5")
     boolean isIsStream();
@@ -216,6 +235,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7b0c8692-2556-4abb-a32c-134558f9cf5d")
     void setIsStream(boolean value);
@@ -225,6 +245,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9b298f41-d747-4bc4-a48a-9169a1971be9")
     ParameterEffectKind getEffect();
@@ -234,6 +255,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4983ee09-d10b-496f-85f9-ef2128168f1b")
     void setEffect(ParameterEffectKind value);
@@ -243,6 +265,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the Class to which the Parameter belongs.</i>
+     * 
      */
     @objid ("f68fb7ca-1559-49d3-9c97-4506b580e7e6")
     GeneralClass getType();
@@ -252,6 +275,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the Class to which the Parameter belongs.</i>
+     * 
      */
     @objid ("2cd4d8c9-5030-4a6c-a552-ce39cb6b2dc4")
     void setType(GeneralClass value);
@@ -261,6 +285,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("94fee6ea-8534-4d87-9a72-4448a437a026")
     Operation getComposed();
@@ -270,6 +295,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2a185fd8-b071-4998-b754-35727e93e35c")
     void setComposed(Operation value);
@@ -279,6 +305,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("a7dcdabe-2acb-435f-92ba-c95c2f4659b5")
     EList<Pin> getMatching();
@@ -288,6 +315,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("eb0bf696-7407-4e3e-9815-88a9fa51e2c1")
     <T extends Pin> List<T> getMatching(java.lang.Class<T> filterClass);
@@ -297,6 +325,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("05552ccb-8cf2-43aa-baee-e44a1e9da684")
     EList<Signal> getSRepresentation();
@@ -306,6 +335,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b21050ad-68e2-440f-980a-8f85e0f2b4dd")
     <T extends Signal> List<T> getSRepresentation(java.lang.Class<T> filterClass);
@@ -315,6 +345,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("23f722e7-bf67-4eb0-a9c4-9fa5b7fec01a")
     Operation getReturned();
@@ -324,6 +355,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b1cfc41b-368b-4b7f-b95b-1c0d9257128c")
     void setReturned(Operation value);
@@ -333,6 +365,7 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e552605b-359f-4f90-afc6-0541eb90ee2f")
     EList<BehaviorParameter> getBehaviorParam();
@@ -342,8 +375,9 @@ public interface Parameter extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("99ab1f4a-7734-4463-9324-a08bdc10e6df")
     <T extends BehaviorParameter> List<T> getBehaviorParam(java.lang.Class<T> filterClass);
-
 }
+

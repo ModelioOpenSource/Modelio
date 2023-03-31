@@ -38,5 +38,5 @@ public interface ISlidableAnchor extends ConnectionAnchor {
      */
     @objid ("7f5151f8-1dec-11e2-8cad-001ec947c8cc")
     void setLocation(Point newlocation);
-
 }
+

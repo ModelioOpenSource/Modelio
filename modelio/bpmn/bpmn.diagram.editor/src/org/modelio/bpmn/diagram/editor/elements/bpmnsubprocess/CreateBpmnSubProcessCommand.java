@@ -20,7 +20,6 @@
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
@@ -91,35 +90,6 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
      */
     @objid ("c09d0edf-609e-4a25-9df0-ca580d437fe5")
     private void populateDiagram(BpmnSubProcess subProcess, IStandardModelFactory modelFactory, IElementNamerService namer, BpmnSubProcessDiagram diagram) {
-        // Create a Start event
-        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
-        startEvent.setSubProcess(subProcess);
-        startEvent.setName(namer.getUniqueName(startEvent));
-        
-        // Create an End event
-        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
-        endEvent.setSubProcess(subProcess);
-        endEvent.setName(namer.getUniqueName(endEvent));
-        
-        // Create a dumb task
-        BpmnTask task = modelFactory.createBpmnTask();
-        task.setSubProcess(subProcess);
-        task.setName(namer.getUniqueName(task));
-        
-        // Create a flow between start and task
-        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
-        flow1.setSourceRef(startEvent);
-        flow1.setTargetRef(task);
-        flow1.setSubProcess(subProcess);
-        
-        // Create a flow between task and end
-        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
-        flow2.setSourceRef(task);
-        flow2.setTargetRef(endEvent);
-        flow2.setSubProcess(subProcess);
-        
-        // Layout diagram
-        new BpmnLayouter(diagram).run();
         
     }
 

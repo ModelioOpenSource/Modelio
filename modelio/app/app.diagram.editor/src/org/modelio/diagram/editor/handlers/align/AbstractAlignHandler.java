@@ -24,6 +24,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Named;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -32,6 +33,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.handles.HandleBounds;
 import org.eclipse.jface.viewers.ISelection;
+import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 
@@ -49,7 +51,7 @@ public abstract class AbstractAlignHandler {
         GraphicalEditPart primarySelection = parseAndFilterSelection(selection, otherSelections);
         
         // Align the elements
-        if (primarySelection != null && ! otherSelections.isEmpty()) {            
+        if (primarySelection != null && ! otherSelections.isEmpty()) {
             align(primarySelection, otherSelections);
         }
         return null;
@@ -64,9 +66,16 @@ public abstract class AbstractAlignHandler {
      * @return a copy of the effective bounds of the figure
      */
     @objid ("65ad5378-33f7-11e2-95fe-001ec947c8cc")
-    protected Rectangle getEffectiveBounds(IFigure figure) {
-        return (figure instanceof HandleBounds) ? ((HandleBounds) figure).getHandleBounds().getCopy()
-                                                                        : figure.getBounds().getCopy();
+    protected PrecisionRectangle getEffectiveBounds(IFigure figure) {
+        Rectangle handleBounds = (figure instanceof HandleBounds) ? ((HandleBounds) figure).getHandleBounds()
+                                                                        : figure.getBounds();
+        PrecisionRectangle preciseBounds = new PrecisionRectangle(handleBounds);
+        
+        if (true) {
+            // Align rectangle center location with SnapGeometry algorithm to avoid differences in midpoint locations.
+            GeomUtils.alignRectangleWithSnapToGeometry(preciseBounds);
+        }
+        return preciseBounds;
     }
 
     /**
@@ -88,7 +97,7 @@ public abstract class AbstractAlignHandler {
             if (isToRemove) {
                 otherSelections.remove(editPart);
             }
-            
+        
             while (editPart != null && !isToRemove) {
                 if (otherSelectionsCopy.contains(editPart.getParent())) {
                     otherSelections.remove(editPart);

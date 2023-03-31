@@ -81,5 +81,5 @@ public interface IMetaclassSelector {
      */
     @objid ("ef91aa87-211c-4415-a3b4-beddd7de9a24")
     void setSelected(MClass mClass);
-
 }
+

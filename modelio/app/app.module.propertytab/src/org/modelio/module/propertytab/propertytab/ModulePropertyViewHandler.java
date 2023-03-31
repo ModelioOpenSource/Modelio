@@ -57,13 +57,10 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Control;
 import org.modelio.api.module.command.ActionLocation;
 import org.modelio.api.module.command.IModuleAction;
 import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.module.propertytab.plugin.ModulePropertyTab;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.mda.infra.service.IModuleService;
@@ -204,7 +201,7 @@ public class ModulePropertyViewHandler {
     @objid ("ab2f056c-98a7-4597-af3a-e09aed007640")
     @Inject
     @Optional
-    void onProjectClosing(@EventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject project, IProjectService projectService, final EModelService modelService, IModuleService moduleService) {
+    void onProjectClosing(@EventTopic(ModelioEventTopics.PROJECT_CLOSING) final IGProject project, IProjectService projectService, final EModelService modelService, IModuleService moduleService) {
         for (IRTModule module : moduleService.getStartedModules()) {
             // Get the shared mParts from the window
             MTrimmedWindow trimmedWindow = modelService.findElements(this.mApplication, ModulePropertyViewHandler.WINDOW_ID, MTrimmedWindow.class, null).get(0);
@@ -409,29 +406,6 @@ public class ModulePropertyViewHandler {
         return modelService.findElements(trimmedWindow, null, MPart.class, Arrays.asList(ModulePropertyViewHandler.MODULE_MPART_TAG, module.getName()));
     }
 
-    /**
-     * A very nice and elegant ugly hack to force a layout of this f...g CTabFolder, a very well-known failure in Eclipse/SWT,
-     * which does not layout toolbar properly unless you force it to believe it has been resized !
-     */
-    @objid ("c9f4f230-5549-4cbd-b3f3-ea6c1fe07044")
-    private void refreshLayoutHack(final MToolBar toolbar) {
-        Control c = (Control) toolbar.getWidget();
-        while (c != null && !(c instanceof CTabFolder)) {
-            c = c.getParent();
-        }
-        if (c != null) {
-            final CTabFolder tabFolder = (CTabFolder) c;
-            c.getDisplay().asyncExec(() -> {
-                if (!tabFolder.isDisposed()) {
-                    Rectangle r = tabFolder.getBounds();
-                    r.height += -1;
-                    tabFolder.setBounds(r);
-                }
-            });
-        }
-        
-    }
-
     @objid ("71222a89-ccd7-43fb-a95a-0552a97c6eb1")
     private void refreshToolbar(final EModelService modelService, final MToolBar toolbar) {
         List<MHandledToolItem> toolItems = modelService.findElements(toolbar, null, MHandledToolItem.class, Arrays.asList(ModulePropertyViewHandler.MODULE_MTOOLITEM_TAG));
@@ -454,7 +428,7 @@ public class ModulePropertyViewHandler {
             }
         }
         
-        refreshLayoutHack(toolbar);
+        toolbar.setVisible(!toolItems.isEmpty());
         
     }
 

@@ -890,7 +890,7 @@ public abstract class SmClass extends SmElement implements MClass {
          */
         @objid ("6f78ada3-5a8e-4f44-a59a-4da6dd48c35f")
         void remake();
-
-    }
+}
+    
 
 }

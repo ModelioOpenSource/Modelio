@@ -17,9 +17,9 @@ image::images/Modeler-_modeler_interface_annot_view_NotesAndConstraints.png[imag
 5. A constraint.
 6. Note & constraint editing zone.
 
-[[Main-notes-amp-constraints-view-commands]]
 
-[[main-notes-constraints-view-commands]]
+
+
 ===== Main notes & constraints view commands
 
 *From the Notes & Constraints contextual menu:*

@@ -43,5 +43,5 @@ public interface ISslUntrustedServerFixer {
      */
     @objid ("48f32ca7-9353-4774-8de8-41c4d5b7e14e")
     boolean fixUntrustedServer(final URI uri, X509Certificate[] chain, Throwable ex);
-
 }
+

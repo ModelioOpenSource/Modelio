@@ -5,9 +5,9 @@
 
 = Les perspectives
 
-[[Quest-ce-que-les-perspectives-]]
 
-[[quest-ce-que-les-perspectives]]
+
+
 === Qu'est-ce que les perspectives ?
 
 Une perspective définit les vues affichées dans Modelio, ainsi que leur disposition, fournissant ainsi un moyen d'organisation supplémentaire lors de l'interaction avec un modèle. Les utilisateurs peuvent changer de perspectives selon la tâche en cours. Modelio propose plusieurs perspectives, chacune élaborée pour répondre aux besoins d'un ensemble de tâches particulier.
@@ -17,54 +17,54 @@ Une perspective définit les vues affichées dans Modelio, ainsi que leur dispos
 .Changer de perspective
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveChoose.png[1]
 
-[[Perspective-Complète]]
 
-[[perspective-complète]]
+
+
 === Perspective Complète
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveFull.png[3]
 
 Cette perspective affiche la plupart des vues, fournissant ainsi une vue globale de toutes les fonctionnalités disponibles.
 
-[[Perspective-Modèle]]
 
-[[perspective-modèle]]
+
+
 === Perspective Modèle
 
 image::images/Modeler-_modeler_interface_perspectives_PerpectiveModel.png[4]
 
 La perspective modèle a été conçue pour la modélisation pure et détaillée. Les propriétés et annotations d'un élément sont rapidement accessibles, ainsi que la vue "Audit", qui vous aidera à construire un meilleur modèle. Dans cette perspective, les diagrammes sont un moyen de créer et de visualiser les éléments de modèle, mais ils ne sont pas l'élément principal.
 
-[[Perspective-Diagramme]]
 
-[[perspective-diagramme]]
+
+
 === Perspective Diagramme
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveDiagram.png[5]
 
 Cette perspective présente une zone d'édition de diagrammes de taille importante, afin de faciliter la création et l'édition des diagrammes. Utilisez la explorateurs de diagrammes ou de modèle pour trouver les diagrammes qui vous intéressent, puis regardez une vue globale de leur contenu dans la vue "Outline". La vue "Symbole" joue également un rôle important dans cette perspective, vous permettant d'éditer facilement les propriétés graphiques des éléments de vos diagrammes.
 
-[[Perspective-Trace]]
 
-[[perspective-trace]]
+
+
 === Perspective Trace
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveTrace.png[6]
 
 Cette perspective se concentre sur le parcours rapide de liens. Vous vous interrogez sur l'arbre d'héritage d'un élément, ou bien vous voulez savoir quels cas d'utilisation sont tracés ? Et bien, la perspective trace est la perspective qu'il vous faut !
 
-[[Perspective-Développement]]
 
-[[perspective-développement]]
+
+
 === Perspective Développement
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveDevelopment.png[7]
 
 La perspective développement se concentre sur le travail avec des modules, tels que des générateurs de code. Les éditeurs occupent une large partie de l'application, ainsi que les propriétés des éléments et des propriétés spécifiques aux modules.
 
-[[Perspective-Projets]]
 
-[[perspective-projets]]
+
+
 === Perspective Projets
 
 image::images/Modeler-_modeler_interface_perspectives_PerspectiveWorkspace.png[2]

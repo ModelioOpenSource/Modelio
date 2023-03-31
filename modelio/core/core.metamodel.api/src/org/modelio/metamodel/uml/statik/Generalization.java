@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Each instance of the specific Classifier is also an instance of the general Classifier. Thus, the specific Classifier indirectly has Features of the more general Classifier. Generalization corresponds to the usual Inheritance concept.  
  * 
  * In Modelio, a Generalization belongs to its SpecializationNameSpace.
+ * 
+ * 
  */
 @objid ("000c7bb4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Generalization extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates a family of sub-classes with the same parent Class. The name appears graphically, by linking the Generalizations belonging to this family.</i>
+     * 
      */
     @objid ("c55732ed-f8ae-4307-94b7-51936780e20f")
     String getDiscriminator();
@@ -64,6 +67,7 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Designates a family of sub-classes with the same parent Class. The name appears graphically, by linking the Generalizations belonging to this family.</i>
+     * 
      */
     @objid ("af730096-3765-42f2-9413-8d02f68cf9c7")
     void setDiscriminator(String value);
@@ -73,6 +77,7 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the parent element.</i>
+     * 
      */
     @objid ("1b207654-b85e-4131-92de-6da41edc92b8")
     NameSpace getSuperType();
@@ -82,6 +87,7 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Defines the parent element.</i>
+     * 
      */
     @objid ("642446fc-f69a-40a9-a4ae-951d7401b9c2")
     void setSuperType(NameSpace value);
@@ -91,6 +97,7 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a60ed23d-121d-4c9e-a184-6ca53283bc76")
     NameSpace getSubType();
@@ -100,8 +107,9 @@ public interface Generalization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1aafc575-9817-4f74-a30c-6295af5c6fda")
     void setSubType(NameSpace value);
-
 }
+

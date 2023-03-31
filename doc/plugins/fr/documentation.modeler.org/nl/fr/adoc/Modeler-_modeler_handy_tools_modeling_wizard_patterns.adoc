@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Les-assistants-de-modélisation]]
 
-[[les-assistants-de-modélisation]]
+
+
 = Les assistants de modélisation
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 Les assistants de modélisation créent des éléments par déduction à partir d'autres éléments, vous permettant ainsi de faire des gains significatifs de productivité, de cohérence et de traçabilité.
@@ -22,9 +22,9 @@ Les assistants de modélisation sont activés depuis le menu contextuel "Modeler
 .Exemple d'assistant de modélisation sur une Instance
 image::images/Modeler-_modeler_handy_tools_modeling_wizard_patterns_ModelingPatterns-fr.png[2]
 
-[[Assistants-disponibles]]
 
-[[assistants-disponibles]]
+
+
 ===== Assistants disponibles
 
 La liste suivante présente les assistants qui sont disponibles sur les différents éléments de modèle.

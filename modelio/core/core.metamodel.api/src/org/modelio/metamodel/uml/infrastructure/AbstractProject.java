@@ -33,6 +33,9 @@ import org.modelio.metamodel.diagrams.DiagramSet;
  * 
  * 
  * <p>An abstract project in Modelio corresponds to a composition tree root.&nbsp;<span style="line-height:1.6">&nbsp;A Project does not belong to any other element.&nbsp;</span><span style="line-height:1.6">There is at most one instance of each concreate sub metaclass in a model repository.&nbsp;</span></p>
+ * 
+ * 
+ * 
  */
 @objid ("cc0b1f9b-020c-4c62-b6b2-186cd42daa2b")
 public interface AbstractProject extends ModelElement {
@@ -53,6 +56,7 @@ public interface AbstractProject extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("870d3c07-b00d-4c38-ae76-79475024e525")
     DiagramSet getDiagramRoot();
@@ -62,8 +66,9 @@ public interface AbstractProject extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a79de47d-acd7-4839-a3b9-230bcef4a0f4")
     void setDiagramRoot(DiagramSet value);
-
 }
+

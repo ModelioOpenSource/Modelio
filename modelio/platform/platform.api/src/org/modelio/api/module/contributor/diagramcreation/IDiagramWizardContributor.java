@@ -29,5 +29,5 @@ public interface IDiagramWizardContributor extends IWizardContributor {
     @objid ("d94e0d2a-5b07-11e2-9c97-002564c97630")
     @Override
     AbstractDiagram actionPerformed(final ModelElement diagramContext, final String diagramName, final String diagramDescription);
-
 }
+

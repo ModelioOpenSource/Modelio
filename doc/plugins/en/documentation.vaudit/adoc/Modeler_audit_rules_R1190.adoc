@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1190]]
 
-[[r1190]]
+
+
 = R1190
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A DecisionMerge node should be used either as a Decision node or as a Merge node.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Although Modelio uses the same symbol to represent a Decision node and a Merge node, this DecisionMerge node should not be used in both configurations at the same time.
@@ -32,9 +32,9 @@ image::images/Modeler_audit_rules_R1190_modeler_fig_1190_2.gif[image]
 
 In the second diagram, we can easily express that the first DecisionMerge node is selecting the largest Batch, while the second DecisionMerge node is making a decision based on the analysis of the selected batch. This would have been hard to express in the first diagram.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1190 warning, break your DecisionMerge node into two different DecisionMerge nodes, one node being a Decision node and another node being a Merge node.

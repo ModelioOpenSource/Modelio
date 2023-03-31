@@ -147,13 +147,13 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
         return getClass().getSimpleName()+"[location="+getLocation()+", "+this.links.size()+" listener(s) ]";
     }
 
-    @objid ("a3deecb9-97fb-4381-9a3c-b1bfdddd11a4")
+    @objid ("285cf665-9f2e-4a2f-8fbf-9e2c8973dc94")
     @Override
     public int hashCode() {
         return Objects.hash(getClass(), this.location);
     }
 
-    @objid ("f0ab53f2-57b5-47d7-bbf1-f050798d912b")
+    @objid ("2f658747-1994-456c-b875-4b7a739a8029")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

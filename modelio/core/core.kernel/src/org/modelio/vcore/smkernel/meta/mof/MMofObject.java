@@ -57,5 +57,5 @@ public interface MMofObject extends MObject {
      */
     @objid ("7ff4e2b1-3c6d-4311-a54d-1f22806bd25d")
     List<MofSmObjectImpl> getDep(String depName);
-
 }
+

@@ -80,12 +80,12 @@ public interface IModelComponentContributor {
      * Since 3.8, the <i>fileToExport</i> may be a path relative to the project directory.
      */
     @objid ("8b102bf7-bb62-4faa-a047-e44f0d0c134a")
-    public static class ExportedFileEntry implements Comparable<ExportedFileEntry> {
-        @objid ("10ea84ab-79cd-44b5-a86c-75a0505cb935")
-        private Path fileToExport;
-
+    static class ExportedFileEntry implements Comparable<ExportedFileEntry> {
         @objid ("31729165-c3aa-4d0a-9f1d-86642d9bb51f")
         private String exportPath;
+
+        @objid ("10ea84ab-79cd-44b5-a86c-75a0505cb935")
+        private Path fileToExport;
 
         /**
          * @return the path to export to, relative to the project path.
@@ -189,5 +189,5 @@ public interface IModelComponentContributor {
         }
 
     }
-
 }
+

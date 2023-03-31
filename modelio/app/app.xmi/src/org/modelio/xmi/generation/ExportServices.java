@@ -198,8 +198,7 @@ public class ExportServices {
             }
         
         } else {
-            genProp.addError(Xmi.PLUGIN_ID, Xmi.I18N
-                    .getString("info.export.result_failed.root_null"));
+            genProp.addError(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.export.result_failed.root_null"));
         
         }
         
@@ -256,8 +255,7 @@ public class ExportServices {
         
         if (ecoreRootNull) {
         
-            Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N
-                    .getString("info.export.result_failed.root_null"));
+            Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.export.result_failed.root_null"));
         
         }
         return ecoreModel;
@@ -316,8 +314,7 @@ public class ExportServices {
                 resource.save(null);
             } catch (Exception ioe) {
                 Xmi.LOG.error(ioe);
-                Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N
-                        .getString("info.export.result_failed"));
+                Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.export.result_failed"));
             }
         
             //Empty model
@@ -328,8 +325,7 @@ public class ExportServices {
                         genProp.getRootElements().get(0),
                         Xmi.I18N.getString("info.export.emptyProfile.description"));
         
-            Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N
-                    .getString("info.export.result_done"));
+            Xmi.LOG.error(Xmi.PLUGIN_ID, Xmi.I18N.getString("info.export.result_done"));
         
             if(progressBar!= null)
                 progressBar.addFinalValue();

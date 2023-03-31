@@ -70,6 +70,18 @@ public class FontBuilder {
     }
 
     /**
+     * Copy constructor.
+     * @param other the font builder to copy.
+     * @since 5.2.1 Alouette
+     */
+    @objid ("a39cebf6-130a-4f8f-a4b1-1cf96e68be2b")
+    public  FontBuilder(FontBuilder other) {
+        this.fontdatas = FontDescriptor.copy(other.fontdatas);
+        this.rm = other.rm;
+        
+    }
+
+    /**
      * Add style bits to the font.
      * @param styleToAdd the given style flags added (use SWT.NONE for no flags change)
      * @return this builder to chain calls.
@@ -105,6 +117,11 @@ public class FontBuilder {
         return FontDescriptor.createFrom(this.fontdatas);
     }
 
+    /**
+     * Initialize the font builder given a font.
+     * @param font describes the desired font (must not be null)
+     * @return this instance
+     */
     @objid ("02f2e0cf-33eb-44ce-bd04-b2a0a5c98a45")
     public FontBuilder from(Font font) {
         FontData[] afontdatas = font.getFontData();
@@ -114,8 +131,9 @@ public class FontBuilder {
     /**
      * Initialize the font builder given a font data which describes the desired font's appearance.
      * <p>
-     * {@link #FontBuilder(FontData[])} should better be used to be fully compatible on Unix.
-     * @param fontdata describes the desired font (must not be null)
+     * {@link #from(FontData[])} should better be used to be fully compatible on Unix.
+     * @param f describes the desired font (must not be null)
+     * @return this instance
      */
     @objid ("734b4cd9-ed9c-41b1-b520-3b12e28d91de")
     public FontBuilder from(FontData f) {
@@ -123,6 +141,13 @@ public class FontBuilder {
         return from(new FontData[] {f});
     }
 
+    /**
+     * Initialize the font builder given a font data which describes the desired font's appearance.
+     * <p>
+     * Use this method to be fully compatible on Unix.
+     * @param initFontDatas describes the desired font (must not be null)
+     * @return this instance
+     */
     @objid ("e4cb0dc4-c84e-4842-b5c6-20ba8aa6d577")
     public FontBuilder from(FontData[] initFontDatas) {
         this.fontdatas = Objects.requireNonNull(initFontDatas);
@@ -146,7 +171,7 @@ public class FontBuilder {
 
     /**
      * Apply a custom modification on the stored font datas.
-     * @param modifier the modifier to apply
+     * @param modifier the modifier to apply to each FontData .
      * @return this builder to chain calls.
      */
     @objid ("d6207230-98aa-47f6-98a9-bd25a976ec82")
@@ -183,9 +208,26 @@ public class FontBuilder {
         return this;
     }
 
+    /**
+     * Make and return a copy this instance.
+     * @return a copy of the builder.
+     * @since 5.2.1 Alouette
+     */
+    @objid ("633f4c16-8908-417a-bd85-c6f55b71b6e1")
+    public FontBuilder copy() {
+        FontBuilder ret = new FontBuilder(this);
+        return ret;
+    }
+
+    /**
+     * Set the ResourceManager used to allocate the font.
+     * @see org.eclipse.jface.resource.JFaceResources
+     * @param arm a resources manager
+     * @return this instance.
+     */
     @objid ("f9506ff0-3b95-4a1d-bbce-f846dd48b105")
-    public FontBuilder withAllocator(ResourceManager rm) {
-        this.rm = rm;
+    public FontBuilder withAllocator(ResourceManager arm) {
+        this.rm = arm;
         return this;
     }
 

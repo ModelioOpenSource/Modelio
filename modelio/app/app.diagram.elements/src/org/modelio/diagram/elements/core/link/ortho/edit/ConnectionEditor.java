@@ -33,12 +33,10 @@ import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
-import org.modelio.diagram.elements.core.figures.anchors.PointAnchor;
 import org.modelio.diagram.elements.core.figures.routers.AutoOrthogonalRouter;
 import org.modelio.diagram.elements.core.figures.routers.ConnectionState;
 import org.modelio.diagram.elements.core.link.MPoint;
 import org.modelio.diagram.elements.core.link.MPrecisionPoint;
-import org.modelio.diagram.elements.core.link.path.BendPointUtils;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 
@@ -82,7 +80,7 @@ public class ConnectionEditor {
         
         // Last resort check
         if (!getView().isValidPath()) {
-            fixWithRouter();
+            fixWithRouter(true);
         }
         
         this.getView().getState().applyTo(this.getView().getConnection());
@@ -94,7 +92,7 @@ public class ConnectionEditor {
      * @param c a Connection
      * @return true always true. Made to be put in "assert" statement.
      */
-    @objid ("477c08bb-319b-4371-a3d7-66fdc0bd30f6")
+    @objid ("bd7b929a-4342-4e1c-9e75-37d6c0d1632d")
     public static boolean assertValidPath(Connection c) {
         String r = ConnectionView.Validator.validate(new ConnectionView().init(c));
         if (r != null) {
@@ -107,9 +105,14 @@ public class ConnectionEditor {
      * Make the connection orthogonal if it is not and remove useless points.
      * <p>
      * It calls the full router if anything is wrong.
+     * @param cleanManualPoints ignored, it a disabled experiment and manual points are still cleaned.
+     * To be deleted if no value is confirmed.
      */
     @objid ("e85b15a0-24b5-49b2-9701-d45b46701e88")
-    public void fixWithRouter() {
+    public void fixWithRouter(boolean cleanManualPoints) {
+        // Ignore the parameter, it seems it is best to always clean fixed points.
+        cleanManualPoints = true;
+        
         // refresh anchor bounds in case of they were changed
         this.view.refreshAnchorBounds();
         
@@ -122,14 +125,14 @@ public class ConnectionEditor {
         List<MPoint> initConstraint = connState.getMPoints();
         List<MPoint> newConstraint;
         
-        if (!getView().isValidPath()) {
+        if ( !getView().isValidPath()) {
             AutoOrthogonalRouter router = new AutoOrthogonalRouter()
-                    .setCleanupManualPoints(true)
-                    .setIgnoreAutomaticPoints(false);
+                    .setCleanupManualPoints(cleanManualPoints)
+                    .setRerouteWrongSectionFromPreviousManualPoint(true);
             newConstraint = router.computeMPointRoute(dummy, initConstraint);
             AutoOrthogonalRouter.routeToConstraint(newConstraint);
         } else {
-            newConstraint = AutoOrthogonalRouter.getCleanedConstraint(dummy, connState, true);
+            newConstraint = AutoOrthogonalRouter.getCleanedConstraint(dummy, connState, cleanManualPoints);
         }
         
         if (!newConstraint.equals(initConstraint)) {
@@ -144,7 +147,7 @@ public class ConnectionEditor {
     /**
      * @return the edited connection edit part
      */
-    @objid ("47eecbfd-16e8-4b68-89ab-da3911083c99")
+    @objid ("aff83e3b-0657-4312-8407-da5596cab473")
     public ConnectionEditPart getConnectionEditPart() {
         return this.editPart;
     }
@@ -175,7 +178,7 @@ public class ConnectionEditor {
      * @param state the initial state
      * @return this instance
      */
-    @objid ("f404ecea-597c-491f-a5b8-928f678275d2")
+    @objid ("b42960fc-f339-461b-ba5a-6dacda48fe04")
     public ConnectionEditor init(ConnectionEditPart anEditPart, ConnectionState state) {
         this.editPart = anEditPart;
         this.view.init((Connection) anEditPart.getFigure(), state);
@@ -267,29 +270,15 @@ public class ConnectionEditor {
      * @param nodeFig a figure to copy
      * @return a dummy figure with same bounds as the original.
      */
-    @objid ("4a73f0b4-2f95-448d-8a37-c7f9a593183f")
+    @objid ("be23c766-8fd5-4d1b-a23d-c4ec60894dc6")
     private IFigure createDummyFigure(IFigure nodeFig) {
         if (nodeFig instanceof Connection) {
-            // Create a PolylineConnection with same points
+            // Create a PolylineConnection with same points.
+            // Don't initialize anchors to avoid the router being run.
             Connection orig = (Connection) nodeFig;
             PolylineConnection dummy = new PolylineConnection();
             dummy.setParent(orig.getParent());
             dummy.setPoints(orig.getPoints().getCopy());
-        
-            // don't copy anchor so that router is never run
-            if (false) {
-                // Make snapshot of the anchor
-                Point p = orig.getPoints().getPoint(TMP, 0);
-                dummy.setSourceAnchor(new PointAnchor(dummy, p));
-        
-                // Make snapshot of the anchor
-                p = orig.getPoints().getPoint(TMP, orig.getPoints().size()-1);
-                dummy.setTargetAnchor(new PointAnchor(dummy, p));
-        
-                // If anchors are needed you need to copy the constraint too
-                dummy.setRoutingConstraint(BendPointUtils.copyConstraint((List<MPoint>) orig.getRoutingConstraint()));
-                dummy.setConnectionRouter(orig.getConnectionRouter());
-            }
         
             return dummy;
         } else {
@@ -315,7 +304,7 @@ public class ConnectionEditor {
      * leaking the figure or ancestor listeners.
      * @return a "frozen" copy of the edited connection state.
      */
-    @objid ("861cda71-a633-40db-b473-ce2c40c45d6e")
+    @objid ("af218f76-e81b-4926-94ad-b03fed136faf")
     public ConnectionState createFrozenState() {
         ConnectionView aview = getView();
         ConnectionState frozen = new ConnectionState();
@@ -348,7 +337,7 @@ public class ConnectionEditor {
      * The returned builder is a shared instance that must be used immediately then discarded.
      * @return a connection anchor request builder.
      */
-    @objid ("970df594-13f7-40d7-a241-f12fc84222cd")
+    @objid ("c21125da-0221-4668-a4ca-3c720c42abf1")
     public AnchorReqBuilder requestTargetAnchor() {
         NodeEditPart targetEditPart = (NodeEditPart) this.editPart.getTarget();
         return AnchorReqBuilder.SHARED.initTarget(this.editPart, targetEditPart);
@@ -360,7 +349,7 @@ public class ConnectionEditor {
      * The returned builder is a shared instance that must be used immediately then discarded.
      * @return a connection anchor request builder.
      */
-    @objid ("7df64b62-7fce-4caf-b004-d4ebdc9de625")
+    @objid ("ec88be48-611b-4db3-9fac-4b9f314c5a49")
     public AnchorReqBuilder requestSourceAnchor() {
         NodeEditPart targetEditPart = (NodeEditPart) this.editPart.getSource();
         return AnchorReqBuilder.SHARED.initSource(this.editPart, targetEditPart);
@@ -370,15 +359,15 @@ public class ConnectionEditor {
      * Helper to build {@link ReconnectRequest} to ask for connection anchors.
      * @author cma
      */
-    @objid ("1ef1701c-97ee-48ee-818f-90b3acbe1490")
+    @objid ("486e18fb-2ec9-45fc-87c9-08f725944f52")
     public static class AnchorReqBuilder {
         /**
          * A reusable shared instance for short usages.
          */
-        @objid ("88a00086-479d-4fac-8483-c028bfeecb4d")
+        @objid ("9882667c-405c-4273-a8f8-c39d7d87c84f")
         public static final AnchorReqBuilder SHARED = new AnchorReqBuilder();
 
-        @objid ("4e7101d2-1e52-49c6-8053-705435523ed8")
+        @objid ("7d772a2f-c173-45f9-889f-4fa8250ddc2d")
         private ReconnectRequest reconnectRequest;
 
         /**
@@ -386,7 +375,7 @@ public class ConnectionEditor {
          * @param absLoc the desired anchor location in absolute coordinates
          * @return this instance to chain calls.
          */
-        @objid ("f80428ab-c728-4dbf-b9c7-26555cdde030")
+        @objid ("7d4efdb5-9c00-4301-9af2-58d8319fc42c")
         public AnchorReqBuilder withLocation(Point absLoc) {
             this.reconnectRequest.setLocation(absLoc);
             return this;
@@ -398,7 +387,7 @@ public class ConnectionEditor {
          * @param nodeEditPart the new source edit part
          * @return this instance
          */
-        @objid ("6d68f3d8-626f-4af1-8ccb-bada8538d308")
+        @objid ("2cf198f5-f669-4a11-a8fe-afc372549362")
         public AnchorReqBuilder initSource(ConnectionEditPart connEp, NodeEditPart nodeEditPart) {
             this.reconnectRequest = new ReconnectRequest(RequestConstants.REQ_RECONNECT_SOURCE);
             this.reconnectRequest.setTargetEditPart(nodeEditPart);
@@ -412,7 +401,7 @@ public class ConnectionEditor {
          * @param nodeEditPart the new source edit part
          * @return this instance
          */
-        @objid ("493780b9-b19a-4a21-99dd-aa8817093ff8")
+        @objid ("49132668-9832-40fc-8c4b-b470071eeb5d")
         public AnchorReqBuilder initTarget(ConnectionEditPart connEp, NodeEditPart nodeEditPart) {
             this.reconnectRequest = new ReconnectRequest(RequestConstants.REQ_RECONNECT_TARGET);
             this.reconnectRequest.setTargetEditPart(nodeEditPart);
@@ -427,7 +416,7 @@ public class ConnectionEditor {
          * @param sameFace a connection anchor
          * @return this instance
          */
-        @objid ("16ce2c99-ed71-47d2-bce9-96980894b9f2")
+        @objid ("80be40dd-248f-488d-a5d6-5808f7929a1e")
         public AnchorReqBuilder withSameFaceAs(ConnectionAnchor sameFace) {
             this.reconnectRequest.getExtendedData().put(CreateLinkConstants.PROP_RECONNECT_ON_SAME_FACE, sameFace);
             return this;
@@ -438,7 +427,7 @@ public class ConnectionEditor {
          * @param discrete true to request a discrete anchor
          * @return this instance.
          */
-        @objid ("3a946b1e-6cc4-4a80-bab4-636aba2fcb68")
+        @objid ("5567081e-4d73-4be8-9ecb-2ec95a360121")
         public AnchorReqBuilder withSliding(boolean discrete) {
             this.reconnectRequest.getExtendedData().put(CreateLinkConstants.PROP_NEED_SLIDABLE_ANCHOR, discrete);
             return this;
@@ -451,7 +440,7 @@ public class ConnectionEditor {
          * @param as true to request a discrete anchor
          * @return this instance.
          */
-        @objid ("5d578039-404f-469c-a24f-b7dc298ac0b9")
+        @objid ("769b65ec-f42b-4b80-81a1-f7d86dd1dd31")
         public AnchorReqBuilder withSameSliding(ConnectionAnchor as) {
             if (as != null && ! (as instanceof FixedAnchor))
                 withSliding(true);
@@ -465,7 +454,7 @@ public class ConnectionEditor {
          * @param nodeFigure a node figure
          * @return this instance
          */
-        @objid ("319c0886-becd-48be-b136-4fc3183f6f4e")
+        @objid ("8a4cfd87-9b44-4565-bd5a-e839428f217a")
         public AnchorReqBuilder withNodeFigure(IFigure nodeFigure) {
             if (nodeFigure != null) {
                 this.reconnectRequest.getExtendedData().put(CreateLinkConstants.PROP_RECONNECT_ON_FIGURE, nodeFigure);
@@ -478,7 +467,7 @@ public class ConnectionEditor {
         /**
          * @return request a {@link ConnectionAnchor} for the wrapped request.
          */
-        @objid ("fa0fe438-bf4d-46ac-8d36-f449d7962f99")
+        @objid ("cd41934d-f791-4840-a234-03796516cca6")
         public ConnectionAnchor requestAnchor() {
             NodeEditPart nodeEditPart = (NodeEditPart) this.reconnectRequest.getTarget();
             if (this.reconnectRequest.getType() == RequestConstants.REQ_RECONNECT_TARGET) {

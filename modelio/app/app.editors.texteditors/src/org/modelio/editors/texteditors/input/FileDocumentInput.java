@@ -51,6 +51,7 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
 
     @objid ("ab520472-2a77-11e2-9fb9-bc305ba4815c")
     private static final String DEFAULT_CHARSET_NAME = "UTF-8"; // $NON-NLS-1$
+    
 
     @objid ("cfa4aa8b-6b95-42e6-a023-c9d0b517dd6c")
     private String charsetName;

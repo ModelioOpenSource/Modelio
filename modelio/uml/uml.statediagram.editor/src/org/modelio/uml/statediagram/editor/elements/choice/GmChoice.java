@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f4eff91f-55b6-11e2-877f-002564c97630")
 public class GmChoice extends GmPortContainer {
+    @objid ("f4eff923-55b6-11e2-877f-002564c97630")
+    private ChoicePseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmChoice extends GmPortContainer {
 
     @objid ("f4eff92f-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f4eff923-55b6-11e2-877f-002564c97630")
-    private ChoicePseudoState element;
 
     @objid ("f4eff926-55b6-11e2-877f-002564c97630")
     static final GmChoiceStructuredStyleKeys STRUCTURED_KEYS = new GmChoiceStructuredStyleKeys();

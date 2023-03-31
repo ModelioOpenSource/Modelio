@@ -350,22 +350,22 @@ public class ReportDialog extends ModelioDialog {
     private static class HTMLReport {
         @objid ("23b00d41-7428-4b0d-9a19-4541ee7b1e2a")
         private final String CSS = "<style>\n"
-                        + "body          {background-color: #F8F8FB; /*Docaposte Light Grey */ color: #666D92; /* Docaposte Lynch */; font-family: \"Barlow\", \"Barlow-Regular\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;}\n"
-                        + ".title        {font-size:1.5em;font-weight:bold;color:#00008C; /* ultramarine */}\n"
-                        + ".summary      {font-size:0.8em;margin-bottom:12px;color:#00008C; /* ultramarine */}\n"
-                        + "#diagnostics  {width:100%;font-size:0.90em;overflow-x:auto;border-collapse:collapse;}\n"
-                        + ".ERROR        {color:red;}\n"
-                        + ".WARNING      {color:darkorange;}\n"
-                        + ".TIP          {color:green;}\n"
-                        + ".INFO         {font-weight:bold;color:#00008C; /* ultramarine */}\n"
-                        + "#code         {width:4em;text-align:left;}\n"
-                        + "#message      {word-break:white-space:-o-pre-wrap;word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;}\n"
-                        + "#category     {width:5%;}\n"
-                        + "#links        {width:20%;word-break:white-space:-o-pre-wrap;word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;}\n"
-                        + "#help         {width:1em;text-align:right;}\n"
-                        + "#info         {padding-top:12px; padding-bottom:2px;border-bottom: 1px solid #00008C; /* ultramarine */}\n"
-                        + "td            {vertical-align: top; border-bottom: 1px dotted #666D92; /* Docaposte Lynch */}\n"
-                        + "</style>\n";
+                                + "body          {background-color: #F8F8FB; /*Docaposte Light Grey */ color: #666D92; /* Docaposte Lynch */; font-family: \"Barlow\", \"Barlow-Regular\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;}\n"
+                                + ".title        {font-size:1.5em;font-weight:bold;color:#00008C; /* ultramarine */}\n"
+                                + ".summary      {font-size:0.8em;margin-bottom:12px;color:#00008C; /* ultramarine */}\n"
+                                + "#diagnostics  {width:100%;font-size:0.90em;overflow-x:auto;border-collapse:collapse;}\n"
+                                + ".ERROR        {color:red;}\n"
+                                + ".WARNING      {color:darkorange;}\n"
+                                + ".TIP          {color:green;}\n"
+                                + ".INFO         {font-weight:bold;color:#00008C; /* ultramarine */}\n"
+                                + "#code         {width:4em;text-align:left;}\n"
+                                + "#message      {word-break:white-space:-o-pre-wrap;word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;}\n"
+                                + "#category     {width:5%;}\n"
+                                + "#links        {width:20%;word-break:white-space:-o-pre-wrap;word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;}\n"
+                                + "#help         {width:1em;text-align:right;}\n"
+                                + "#info         {padding-top:12px; padding-bottom:2px;border-bottom: 1px solid #00008C; /* ultramarine */}\n"
+                                + "td            {vertical-align: top; border-bottom: 1px dotted #666D92; /* Docaposte Lynch */}\n"
+                                + "</style>\n";
 
         @objid ("eae94003-761b-4fe4-b4dd-f8ef1235d0a4")
         private String text;

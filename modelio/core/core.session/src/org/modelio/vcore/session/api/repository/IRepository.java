@@ -293,5 +293,5 @@ public interface IRepository {
      */
     @objid ("63f22129-706b-4e42-bbf9-0d7a8c8634f2")
     Optional<MetamodelDescriptor> getMetamodelDescriptor();
-
 }
+

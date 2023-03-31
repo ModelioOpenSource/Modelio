@@ -34,6 +34,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * ShallowHistoryPseudoState represents the most recent active substate of its containing state (but not the substates of that substate). 
  * 
  * A composite state can have at most one shallow history vertex. A transition coming into the shallow history vertex is equivalent to a transition coming into the most recent active substate of a state. At most one transition may originate from the history connector to the default shallow history state. This transition is taken in case the composite state had never been active before. Entry actions of states entered on the path to the state represented by a shallow history are performed.
+ * 
+ * 
+ * 
  */
 @objid ("0052e8a6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ShallowHistoryPseudoState extends AbstractPseudoState {
@@ -48,5 +51,5 @@ public interface ShallowHistoryPseudoState extends AbstractPseudoState {
      */
     @objid ("17a74418-0650-4c84-bf47-60d189ab4877")
     public static final String MQNAME = "Standard.ShallowHistoryPseudoState";
-
 }
+

@@ -157,5 +157,5 @@ public interface IExmlBase extends IRepository {
      */
     @objid ("ef33536b-3ce1-43eb-afde-6c1dc1fa4f57")
     void unloadObject(SmObjectImpl obj);
-
 }
+

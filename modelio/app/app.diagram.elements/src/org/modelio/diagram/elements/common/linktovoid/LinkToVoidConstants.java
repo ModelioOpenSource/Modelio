@@ -33,6 +33,7 @@ public interface LinkToVoidConstants {
      */
     @objid ("9191fce2-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKTOVOID_START = "Link to void start"; // $NON-NLS-1$
+    
 
     /**
      * Indicates the end of creation of a new connection. Creating a connection involves both the source node and target
@@ -40,6 +41,7 @@ public interface LinkToVoidConstants {
      */
     @objid ("9191fce9-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKTOVOID_END = "Link to void end"; // $NON-NLS-1$
+    
 
     /**
      * Constant used to indicate that the <i>source</i> end of an existing connection is being reconnected to a new
@@ -47,6 +49,7 @@ public interface LinkToVoidConstants {
      */
     @objid ("9191fcf0-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKTOVOID_RECONNECT_SOURCE = "Link to void reconnection source"; // $NON-NLS-1$
+    
 
     /**
      * Constant used to indicate that the <i>target</i> end of an existing connection is being reconnected to a new
@@ -54,5 +57,6 @@ public interface LinkToVoidConstants {
      */
     @objid ("9191fcf7-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKTOVOID_RECONNECT_TARGET = "Link to void reconnection target"; // $NON-NLS-1$
-
+    
 }
+

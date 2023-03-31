@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.compositetable.feature"
+      label="Nebula CompositeTable Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://www.eclipse.org/nebula/widgets/compositetable/compositetable.php">
+      Nebula CompositeTable Widget
+   </description>
+
+   <copyright>
+      Copyright (c) David Orme
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.compositetable"
+         download-size="212"
+         install-size="440"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.compositetable.source"
+         download-size="141"
+         install-size="491"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

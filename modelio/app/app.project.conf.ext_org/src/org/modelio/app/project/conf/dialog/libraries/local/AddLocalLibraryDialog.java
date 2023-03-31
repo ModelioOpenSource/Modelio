@@ -44,11 +44,11 @@ import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.libraries.local.property.RamcPropertyComposite;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.data.project.FragmentDescriptor;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.data.ramc.ModelComponentArchive;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.UIImages;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.vbasic.files.FileUtils;
@@ -77,7 +77,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
     private ModelComponentArchive modelComponentArchive;
 
     @objid ("b4ec2dca-3184-4fe1-8a86-5c59eaaa7239")
-    private FragmentDescriptor fragmentDescriptor;
+    private GProjectPartDescriptor fragmentDescriptor;
 
     @objid ("184b9a28-6eda-40e8-96e1-f51c29757b90")
     private RamcPropertyComposite propertyComposite;
@@ -132,7 +132,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
         layout2.verticalSpacing = 1;
         parametersGroup.setLayout(layout2);
         parametersGroup.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        parametersGroup.setFont(CoreFontRegistry.getModifiedFont(parametersGroup.getFont(), SWT.BOLD, 1.f));
+        parametersGroup.setFont(UIFont.NORMALB);
         this.propertyComposite = new RamcPropertyComposite(parametersGroup, SWT.NONE, this.fragmentInfos, this.projectAdapter);
         this.propertyComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         return this.area;
@@ -191,7 +191,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
     }
 
     @objid ("7d53580a-3adc-11e2-916e-002564c97630")
-    public FragmentDescriptor getFragmentDescriptor() {
+    public GProjectPartDescriptor getFragmentDescriptor() {
         return this.fragmentDescriptor;
     }
 
@@ -317,8 +317,8 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
         }
 
         @objid ("7d55b972-3adc-11e2-916e-002564c97630")
-        public void setEdited(final IProjectFragment fragment) {
-            this.text.setText(fragment.getUri().toString());
+        public void setEdited(final IGModelFragment fragment) {
+            this.text.setText(fragment.getDescriptor().getLocation().toString());
         }
 
     }

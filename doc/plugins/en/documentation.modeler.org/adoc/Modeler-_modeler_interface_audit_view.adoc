@@ -30,9 +30,9 @@ image::images/Modeler-_modeler_interface_audit_view_audit_view.png[2]
 9. Current Audit summary. This indicates how many error, warning and advice violations currently are open for a session.
 10. Audit status. A green light indicates that the audit is not currently running, while a red light indicates that the audit is currently running.
 
-[[Main-audit-view-commands]]
 
-[[main-audit-view-commands]]
+
+
 ===== Main audit view commands
 
 *From the audit view toolbar:*
@@ -52,9 +52,9 @@ image::images/Modeler-_modeler_interface_audit_view_audit_view.png[2]
 * *Change severity* : The three "Change severity" commands ("Change severity to advice", "Change severity to warning" and "Change severity to error") enable you to change the severity of the selected audit rule.
 * *Disable rule* : This command is used to deactivate the selected rule. The rule in question will no longer be run. If you subsequently decide you want to reactivate the rule, this can be done in the "Audit configurator".
 
-[[The-ldquoAudit-reportrdquo-dialog]]
 
-[[the-audit-report-dialog]]
+
+
 ===== The "Audit report" dialog
 
 .The Audit report dialog

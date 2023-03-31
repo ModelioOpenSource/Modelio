@@ -37,5 +37,5 @@ public interface IVersionStatusInitializer {
      */
     @objid ("fbf296a7-1e83-11e2-90db-001ec947ccaf")
     void loadStatus(SmObjectImpl obj, IModelLoader modelLoader);
-
 }
+

@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3130]]
 
-[[r3130]]
+
+
 = R3130
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A MessageFlow cannot target an EndEvent or an IntermediateThrowEvent, or have a StartEvent or an IntermediateCatchEvent as its source.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A _StartEvent_ begins a sequence and cannot have outgoing message flows. Similarly, an _EndEvent_ ends a sequence and cannot have any incoming message flows.
 
 A _CatchEvent_ node catches messages but cannot send them, while a _ThrowEvent_ sends messages but cannot catch them.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have outgoing flows from a _StartEvent_ or incoming flows on an _EndEvent_, you must remove them. If you have incoming message flows on a _ThrowEvent_, you should consider changing them to a _CatchEvent_ instead. Similarly, if you have outgoing message flows from a CatchEvent, you should consider making them _ThrowEvents_ instead.

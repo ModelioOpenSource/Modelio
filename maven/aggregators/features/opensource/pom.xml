@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../../modelio-parent</relativePath>
+	</parent>
+
+	<artifactId>aggregator-feature-opensource</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../../features/opensource/org.modelio.application.core</module>
+		<module>../../../../features/opensource/org.modelio.application.perspective</module>
+		<module>../../../../features/opensource/org.modelio.application.plugdule</module>
+		<module>../../../../features/opensource/org.modelio.application.preferences</module>
+		<module>../../../../features/opensource/org.modelio.application.project</module>
+		<module>../../../../features/opensource/org.modelio.application.services</module>
+		<module>../../../../features/opensource/org.modelio.application.ui</module>
+		<module>../../../../features/opensource/org.modelio.application.welcome</module>
+		<module>../../../../features/opensource/org.modelio.diagrams.auto</module>
+		<module>../../../../features/opensource/org.modelio.diagrams.core</module>
+		<module>../../../../features/opensource/org.modelio.documentation.modeler</module>
+		<module>../../../../features/opensource/org.modelio.e4.rcp</module>
+		<module>../../../../features/opensource/org.modelio.formalism.archimate</module>
+		<module>../../../../features/opensource/org.modelio.formalism.bpmn</module>
+		<module>../../../../features/opensource/org.modelio.formalism.uml</module>
+		<module>../../../../features/opensource/org.modelio.functions.admintool</module>
+		<module>../../../../features/opensource/org.modelio.functions.audit</module>
+		<module>../../../../features/opensource/org.modelio.functions.bundlefiles</module>
+		<module>../../../../features/opensource/org.modelio.functions.editors</module>
+		<module>../../../../features/opensource/org.modelio.functions.elementedition</module>
+		<module>../../../../features/opensource/org.modelio.functions.fle</module>
+		<module>../../../../features/opensource/org.modelio.functions.modelbrowser</module>
+		<module>../../../../features/opensource/org.modelio.functions.modelimport</module>
+		<module>../../../../features/opensource/org.modelio.functions.modelviewtemplate</module>
+		<module>../../../../features/opensource/org.modelio.functions.modules</module>
+		<module>../../../../features/opensource/org.modelio.functions.patterns</module>
+		<module>../../../../features/opensource/org.modelio.functions.script</module>
+		<module>../../../../features/opensource/org.modelio.functions.search</module>
+		<module>../../../../features/opensource/org.modelio.functions.update</module>
+		<module>../../../../features/opensource/org.modelio.functions.xmi</module>
+		<module>../../../../features/opensource/org.modelio.platform.feature</module>
+		<module>../../../../features/opensource/org.modelio.platform.libraries</module>
+		<module>../../../../features/opensource/org.modelio.rcp</module>
+	</modules>
+</project>

@@ -99,5 +99,5 @@ public interface IUMLTypes {
      */
     @objid ("a3d7005b-0ecc-11e2-96c4-002564c97630")
     DataType getUNDEFINED();
-
 }
+

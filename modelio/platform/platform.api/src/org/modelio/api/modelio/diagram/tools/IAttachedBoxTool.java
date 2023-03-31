@@ -110,5 +110,5 @@ public interface IAttachedBoxTool extends IDiagramTool {
      */
     @objid ("01ec00d8-0000-5d0a-0000-000000000000")
     void actionPerformedInDiagram(final IDiagramHandle diagramHandle, Rectangle rect);
-
 }
+

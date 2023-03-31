@@ -79,5 +79,5 @@ public interface IRichNoteFileRepository {
 
     @objid ("be65d41b-e8b1-4cb7-93b7-d5487bbb94ed")
     void initRichNoteFromFile(AbstractResource doc, Path fileToSave) throws IOException;
-
 }
+

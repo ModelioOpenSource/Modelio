@@ -28,7 +28,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.ui.application.saveproject.SaveProjectHandler;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.progress.IModelioProgressService;
 
@@ -40,7 +40,7 @@ public class QuitHandler {
     @objid ("abd856bd-485b-11e2-ae30-002564c97630")
     @Execute
     static void execute(final IWorkbench workbench, Shell shell, IProjectService projectService, IModelioProgressService progressService, StatusReporter statusReporter) {
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         if (openedProject == null) {
             workbench.close();
         } else if (QuitHandler.canClose(shell, projectService, openedProject, progressService, statusReporter)) {
@@ -53,7 +53,7 @@ public class QuitHandler {
     }
 
     @objid ("22452f5c-486b-11e2-820c-002564c97630")
-    private static boolean canClose(Shell shell, IProjectService projectService, GProject openedProject, IModelioProgressService progressService, StatusReporter statusReporter) {
+    private static boolean canClose(Shell shell, IProjectService projectService, IGProject openedProject, IModelioProgressService progressService, StatusReporter statusReporter) {
         AppProjectUi.LOG.info("Quit project '%s'", openedProject.getName());
         
         if (projectService.isDirty()) {

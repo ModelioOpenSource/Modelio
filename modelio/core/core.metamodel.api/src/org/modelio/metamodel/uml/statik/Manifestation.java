@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * An Artifact owns Manifestations, each of which represents the utilization of a packageable element. Specific profiles are expected to stereotype the Manifestation relationship to indicate particular forms of Manifestation, for example, <<tool generated>> and <<custom code>> might be two Manifestations for different Classes embodied in an Artifact.  
  * 
  * In Modelio, Manifestation derives directly from ModelElement, because Manifestations can only start from Artifact.
+ * 
+ * 
  */
 @objid ("00108470-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Manifestation extends UmlModelElement {
@@ -57,6 +59,7 @@ public interface Manifestation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Elements that are rendered by the Artifact.</i>
+     * 
      */
     @objid ("d4c848d4-b9e2-49c1-981d-59149a5b8dca")
     UmlModelElement getUtilizedElement();
@@ -66,6 +69,7 @@ public interface Manifestation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Elements that are rendered by the Artifact.</i>
+     * 
      */
     @objid ("06f88701-2f91-4988-8866-4626962223e4")
     void setUtilizedElement(UmlModelElement value);
@@ -75,6 +79,7 @@ public interface Manifestation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("337422cf-fe10-4a4b-836a-7d371b42e4fe")
     Artifact getOwner();
@@ -84,8 +89,9 @@ public interface Manifestation extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("cda0e544-66a4-4d42-a62f-5bbc4454396e")
     void setOwner(Artifact value);
-
 }
+

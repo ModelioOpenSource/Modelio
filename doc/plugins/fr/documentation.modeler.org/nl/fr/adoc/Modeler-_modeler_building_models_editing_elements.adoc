@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Editer-des-éléments-via-les-boites-dédition]]
 
-[[editer-des-éléments-via-les-boites-dédition]]
+
+
 = Editer des éléments via les boites d'édition
 
 Les éléments peuvent être édités via une boite d'édition en utilisant le double-clic ou la commande contextuelle 'image:images/Modeler-_modeler_building_models_editing_elements_openproperties.png[1] Editer l'élément...'.
@@ -21,16 +21,16 @@ image::images/Modeler-_modeler_building_models_editing_elements_EditElement_fr.p
 4.  Onglets Modules, apparaissant lorsqu'ils sont pertinents.
 5.  Zone d'édition rapide pour la note "Description".
 
-[[Boites-dédition-spécifiques]]
 
-[[boites-dédition-spécifiques]]
+
+
 == Boites d'édition spécifiques
 
 Certains éléments disposent de boites d'édition spécifiques :
 
-[[Opérations]]
 
-[[opérations]]
+
+
 ===== Opérations
 
 .Boite d'édition d'une opération
@@ -41,9 +41,9 @@ image::images/Modeler-_modeler_building_models_editing_elements_EditOperation_fr
 1.  Onglet dédié pour l'opération.
 2.  Zone de gestion des paramètres de l'opération.
 
-[[Use-Case]]
 
-[[use-case]]
+
+
 ===== Use Case
 
 .Boite d'édition d'un use Case

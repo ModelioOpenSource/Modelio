@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.modelio</groupId>
+	<artifactId>app.model.merge.svg-rasterizer</artifactId>
+	<version>5.3.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>
+		This is a try to automate SVG rasterization using Maven and Apache BATIK.
+		The result is not satisfactory: it works but generated PNGs are not pretty.
+		Inkspace export gives better results, with sharper image.
+	</description>
+
+	<build>
+    <plugins>
+        <plugin>
+            <groupId>uk.co.bithatch</groupId>
+		    <artifactId>svg-rasterizer-maven-plugin</artifactId>
+		    <version>1.2</version>
+		    <dependencies>
+			    <dependency>
+				    <groupId>org.apache.xmlgraphics</groupId>
+				    <artifactId>batik-rasterizer</artifactId>
+				    <version>1.16</version>
+				</dependency>
+		    </dependencies>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>rasterize-directory</goal>
+                    </goals>
+                </execution>
+            </executions>
+			<configuration>
+				<defaults>
+				<quality>0.2</quality>
+				</defaults>
+			    <!-- Input directory path.  Must exist.[Required] -->
+			    <inputDir>icons</inputDir>
+			    <!-- Output directory path [Required] -->
+			    <destDir>output/</destDir>
+			    <!-- Quality (Optional, default 0.99) -->
+			    <outputs>
+			        <output>
+			            <!-- output-path [Optional, default: {name}-{width}-{height}{ext}] -->
+			            <path>{width}x{height}/{name}{ext}</path>
+			            <width>24</width>
+			            <height>24</height>
+			            <format>png</format>
+			        </output>
+			        <output>
+			            <!-- output-path [Optional, default: {name}-{width}-{height}{ext}] -->
+			            <path>{width}x{height}/{name}{ext}</path>
+			            <width>16</width>
+			            <height>16</height>
+			            <format>png</format>
+			        </output>
+			        <output>
+			            <path>{width}x{height}/{name}{ext}</path>
+			            <width>48</width>
+			            <height>48</height>
+			            <format>png</format>
+			        </output>
+			    </outputs>
+			</configuration>
+        </plugin>
+    </plugins>
+</build>
+
+</project>

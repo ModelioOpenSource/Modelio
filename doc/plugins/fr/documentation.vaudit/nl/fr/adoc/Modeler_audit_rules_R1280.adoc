@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1280]]
 
-[[r1280]]
+
+
 = R1280
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _Object Flows_ ne peuvent pas connecter des _Actions_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _ObjectFlow_ est un lien d'activité qui ne passe que des objets et des jetons de données.
 
-[[Astuces]]
 
-[[astuces]]
+
+
 ===== Astuces
 
 Si vous avez un avertissement concernant la règle R1280, vérifiez que l'_ObjectFlow_ n'est pas connecté à une _Action_. Les _Actions_ peuvent recevoir des objets et des jetons de données via les _InputPin._

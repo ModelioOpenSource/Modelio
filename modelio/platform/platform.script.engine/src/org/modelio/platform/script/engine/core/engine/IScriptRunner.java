@@ -61,5 +61,5 @@ public interface IScriptRunner {
 
     @objid ("00799c58-99aa-10ed-8812-001ec947cd2a")
     void addClassLoader(ClassLoader base);
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3050]]
 
-[[r3050]]
+
+
 = R3050
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «part» _Dependency_ must be between two _Requirements_ or between two _Goals_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «part» _Dependency_ defines a sub-_Goal_ or sub-_Requirement_ of a higher- level _Goal_ or _Requirement_ (for example, strategic to operational).
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «part» _Dependency_ which is not between two _Requirements_ or two _Goals_, you should delete it.

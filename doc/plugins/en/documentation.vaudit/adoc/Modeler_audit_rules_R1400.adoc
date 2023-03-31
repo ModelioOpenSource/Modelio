@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1400]]
 
-[[r1400]]
+
+
 = R1400
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _ActivityParameterNode_ can only belong to an _Activity_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _ActivityParameterNode_ cannot belong to _ActivityPartition_, a _StructuredActivityNode_ or a _Clause_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1400 error, move the incriminated _ActivityParameterNode_ in an _Activity_.

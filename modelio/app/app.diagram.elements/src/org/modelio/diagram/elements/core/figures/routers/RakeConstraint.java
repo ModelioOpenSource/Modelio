@@ -66,7 +66,7 @@ public class RakeConstraint implements IPersistent {
      * Used to synchronize source and target anchors.
      * @since 5.1.0
      */
-    @objid ("6b6c8c2d-b805-4055-8d27-cace1d3245eb")
+    @objid ("b494993f-e3f1-44b7-8dc6-d195cc8551f0")
     private final transient Collection<Connection> rakedConnections = new ArrayList<>();
 
     /**
@@ -87,7 +87,7 @@ public class RakeConstraint implements IPersistent {
      * Change the source anchor of all raked connections.
      * @param newAnchor the new source anchor.
      */
-    @objid ("ea7f03f8-61f4-414d-af46-a7c892d0d153")
+    @objid ("d210d306-9f0d-479c-be4a-a3839e8802f6")
     public void setSharedSourceAnchor(ConnectionAnchor newAnchor) {
         for (Connection c : this.rakedConnections) {
             c.setSourceAnchor(newAnchor);
@@ -99,7 +99,7 @@ public class RakeConstraint implements IPersistent {
      * Change the target anchor of all raked connections.
      * @param newAnchor the new target anchor.
      */
-    @objid ("a25ace3e-7d21-45eb-b263-66d4021ca334")
+    @objid ("d4023364-639f-4d26-9106-a9e56e085495")
     public void setSharedTargetAnchor(ConnectionAnchor newAnchor) {
         for (Connection c : this.rakedConnections) {
             c.setTargetAnchor(newAnchor);

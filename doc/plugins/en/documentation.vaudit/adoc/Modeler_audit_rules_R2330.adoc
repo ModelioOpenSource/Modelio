@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2330]]
 
-[[r2330]]
+
+
 = R2330
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 All an _Operation_'s _Parameters_ must have a different name.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _Parameters_ are uniquely identified by their name.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Rename the _Parameters_.

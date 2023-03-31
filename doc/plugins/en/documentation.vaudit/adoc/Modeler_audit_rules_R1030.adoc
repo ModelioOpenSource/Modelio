@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1030]]
 
-[[r1030]]
+
+
 = R1030
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The source and the target of an ActivityEdge must be owned by the same Activity.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 image::images/Modeler_audit_rules_R1030_modeler_fig_1030.gif[image]
 
 In this example, the ControlFlow is invalid because it has its source in the "Recruitment" Activity and its target in the "Development" Activity.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1030 error, you can fix it by:

@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A control node is an activity node used to coordinate the flows between other nodes. It covers initial node, final node and its children, fork node, join node, decision node, and merge node.
+ * 
+ * 
  */
 @objid ("002e8592-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ControlNode extends ActivityNode {
@@ -46,5 +48,5 @@ public interface ControlNode extends ActivityNode {
      */
     @objid ("dfd6e6b8-9729-4f5d-955a-6dac1384af8d")
     public static final String MQNAME = "Standard.ControlNode";
-
 }
+

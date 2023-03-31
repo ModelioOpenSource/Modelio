@@ -21,6 +21,7 @@ package org.modelio.uml.sequencediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
 
 @objid ("d8bd584a-55b6-11e2-877f-002564c97630")
 public class SequenceDiagramEditor extends AbstractDiagramEditor {
@@ -34,6 +35,15 @@ public class SequenceDiagramEditor extends AbstractDiagramEditor {
     @Override
     protected String getPopupId() {
         return SequenceDiagramEditor.POPUP_ID;
+    }
+
+    @objid ("1dda4d3d-a9c0-4dc1-9561-f34c227ba099")
+    @Override
+    protected ConnectionRoutingServices initializeConnectionRoutingServices() {
+        return ConnectionRoutingServices.builder()
+                .withLegacyDefaults()
+                .build();
+        
     }
 
 }

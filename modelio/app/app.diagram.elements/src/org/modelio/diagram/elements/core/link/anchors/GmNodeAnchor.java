@@ -118,7 +118,7 @@ public class GmNodeAnchor implements IPersistent {
         return getClass().getSimpleName()+"[difference="+getDifference()+"]";
     }
 
-    @objid ("46373b2a-28d1-4539-9f3c-d51f1b0c8f8c")
+    @objid ("37444664-698e-428c-a3e5-0939c56559e2")
     @Override
     public boolean equals(Object obj) {
         // Automatically generated method.Please delete this comment before entering specific code.
@@ -129,10 +129,9 @@ public class GmNodeAnchor implements IPersistent {
         GmNodeAnchor other = (GmNodeAnchor)obj;
         if (!Objects.equals(this.difference, other.difference)) return false;
         return true;
-        
     }
 
-    @objid ("8d1c37fc-c7aa-4d31-902b-68b594bc9881")
+    @objid ("4af44a85-65e1-415f-a9bb-a661e8a24991")
     @Override
     public int hashCode() {
         // Automatically generated method.Please delete this comment before entering specific code.

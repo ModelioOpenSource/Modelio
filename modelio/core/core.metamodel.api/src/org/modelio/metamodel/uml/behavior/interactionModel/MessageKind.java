@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00965cbc-91e0-1f74-804b-001ec947cd2a")
 public enum MessageKind {
@@ -40,6 +42,7 @@ public enum MessageKind {
     FOUNDKIND(2, "FoundKind", "FoundKind"),
     @objid ("f2150c13-60fa-449b-a2c0-61b557639655")
     UNKNOWNKIND(3, "UnknownKind", "UnknownKind");
+
 public static final int COMPLETEKIND_VALUE = 0;
     public static final int LOSTKIND_VALUE = 1;
     public static final int FOUNDKIND_VALUE = 2;

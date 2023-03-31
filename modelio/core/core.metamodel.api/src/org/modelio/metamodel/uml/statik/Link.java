@@ -40,6 +40,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Links can be used as Connectors between Parts or Ports in UML 2.0, or they can be Links between Instances. 
  * 
  * In Modelio, a Link belongs to no element.  When a Link acts as a Connector between Parts and/or Ports, these Parts or Ports should belong to the same context (be inside the same Collaboration, Classifier, and so on).
+ * 
+ * 
  */
 @objid ("815acdf3-5af8-48c5-894b-85d62dbe2e9b")
 public interface Link extends UmlModelElement {
@@ -60,6 +62,7 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("efe68851-8aa5-421b-ad95-641ac110695f")
     Association getModel();
@@ -69,6 +72,7 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3b30d21f-673e-4ab3-9912-ea61c01e99cc")
     void setModel(Association value);
@@ -78,6 +82,7 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("32305df9-93b3-4623-bdb9-f9cadaa34e07")
     EList<LinkEnd> getLinkEnd();
@@ -87,6 +92,7 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f8dbc259-5086-4563-9974-dd3239879456")
     <T extends LinkEnd> List<T> getLinkEnd(java.lang.Class<T> filterClass);
@@ -96,6 +102,7 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f5acb5e4-1c27-47c9-8150-ec35416559a5")
     CommunicationChannel getSent();
@@ -105,8 +112,9 @@ public interface Link extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f7d5be72-8cee-4a7d-8f52-c7dbd31456de")
     void setSent(CommunicationChannel value);
-
 }
+

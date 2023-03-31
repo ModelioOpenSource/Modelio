@@ -31,7 +31,7 @@ public class DiagnosticCollector implements IDiagnosticCollector {
     private String jobId;
 
     @objid ("09ec3f95-daa3-48ef-b9e1-c2fc40492e30")
-    public List<IAuditEntry> entries;
+    private List<IAuditEntry> entries;
 
     @objid ("e01e0421-bfe8-4021-9163-9e36dcd63b95")
     @Override

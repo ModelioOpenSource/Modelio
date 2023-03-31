@@ -26,5 +26,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IProduction {
     @objid ("5d9fac72-6b4f-42c0-97e5-04b4413d0924")
     void setElements(Map<String, Object> elementsMap);
-
 }
+

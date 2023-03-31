@@ -26,8 +26,8 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.styles.core.IStyle;
+import org.modelio.uml.sequencediagram.editor.elements.common.node.AbstractSequenceNodeEditPart;
 
 /**
  * Editpart for the container of lifeline header.
@@ -35,7 +35,7 @@ import org.modelio.diagram.styles.core.IStyle;
  * @author fpoyer
  */
 @objid ("d946acab-55b6-11e2-877f-002564c97630")
-public class LifelineHeaderContainerEditPart extends AbstractNodeEditPart {
+public class LifelineHeaderContainerEditPart extends AbstractSequenceNodeEditPart {
     @objid ("d946acaf-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isSelectable() {

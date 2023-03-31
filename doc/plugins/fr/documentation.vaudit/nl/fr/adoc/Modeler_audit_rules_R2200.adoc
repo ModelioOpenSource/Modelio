@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2200]]
 
-[[r2200]]
+
+
 = R2200
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _NameSpace_ ne devrait pas à la fois dériver et importer un autre _NameSpace_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Lorsqu'un _NameSpace_ dérive d'un autre _NameSpace_, tout son contenu est accessible, il n'y a donc aucun intérêt à l'importer en plus.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vous pouvez supprimer le lien d'import.

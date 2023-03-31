@@ -62,6 +62,9 @@ public abstract class AbstractMethodologicalLink {
     @objid ("4c5a0346-2ec7-4cef-a4cc-4acc548cdad0")
     protected final MethodologicalLink elt;
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("b363c12d-c3db-4447-b55b-4eac5f014866")
     public static ModelElement getTarget(ModelElement source, Stereotype ste) {
         return source.getDependsOnDependency(MethodologicalLink.class).stream()
@@ -73,6 +76,9 @@ public abstract class AbstractMethodologicalLink {
         
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("a3549f13-e461-42c4-8a00-3fe6e693a60d")
     public static Collection<ModelElement> getTargets(ModelElement source, Stereotype ste) {
         return source.getDependsOnDependency(MethodologicalLink.class).stream()
@@ -83,6 +89,9 @@ public abstract class AbstractMethodologicalLink {
         
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("38fbc225-054b-4cdd-b435-8acaa0764e7c")
     public static void setTarget(ModelElement source, Stereotype ste, ModelElement target) {
         boolean found = false;
@@ -106,6 +115,9 @@ public abstract class AbstractMethodologicalLink {
         
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("7401357b-8d1b-4525-9010-496766911b3b")
     public static void setTargets(ModelElement source, Stereotype ste, Collection<ModelElement> targets) {
         // remove obsolete deps
@@ -190,6 +202,7 @@ public abstract class AbstractMethodologicalLink {
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
             
         }
+
 	static {
         		if(ModelerModuleModule.getInstance() != null) {
         			init(ModelerModuleModule.getInstance().getModuleContext());

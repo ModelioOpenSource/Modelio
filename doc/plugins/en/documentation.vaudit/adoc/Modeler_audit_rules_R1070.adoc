@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1070]]
 
-[[r1070]]
+
+
 = R1070
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An ActivityParameterNode can only have incoming ActivityEdges if it represents a BehaviorParameter whose passing mode is "out" or "inout".
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An ActivityParameterNode that has at least one incoming ActivityEdge must represent a BehaviorParameter whose passing mode is "out" or "inout".
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get an R1070 error, you should check that:

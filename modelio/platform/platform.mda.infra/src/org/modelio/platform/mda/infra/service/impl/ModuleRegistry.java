@@ -26,8 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.ModuleId;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.vbasic.version.VersionedItem;
@@ -85,7 +85,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
         final GModule model = module.getGModule();
         if (model != null) {
             assert (this.deployedModules.get(model) == module) : String.format("this.deployedModules.get(%s) = %s , should be %s)", model, this.deployedModules.get(model), module);
-            
+        
             this.startedModules.put(model, module);
         }
         
@@ -189,21 +189,6 @@ class ModuleRegistry implements IModuleRegistryAccess {
     public Collection<IRTModule> getModules() {
         checkOpen();
         return this.deployedModules.values();
-    }
-
-    @objid ("3db8f327-96bd-499e-995f-72f61c33fb10")
-    @Override
-    public IRTModule loadRTModule(GModule gModule) {
-        IRTModule rtModule = getModule(gModule);
-        
-        // Return the module if already loaded
-        if (rtModule == null) {
-            rtModule = new RTModule(gModule, this);
-        
-            // Add loaded module to the registry
-            addModule(rtModule);
-        }
-        return rtModule;
     }
 
     @objid ("b38fca35-b681-4adf-a7a0-711bef4734fe")

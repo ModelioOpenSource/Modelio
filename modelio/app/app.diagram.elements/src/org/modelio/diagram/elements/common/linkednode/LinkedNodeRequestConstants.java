@@ -33,6 +33,7 @@ public interface LinkedNodeRequestConstants {
      */
     @objid ("90b44234-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKEDNODE_START = "Linked node start"; // $NON-NLS-1$
+    
 
     /**
      * Indicates the end of creation of a new connection. Creating a connection involves both the source node and target
@@ -40,5 +41,6 @@ public interface LinkedNodeRequestConstants {
      */
     @objid ("90b4423b-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_LINKEDNODE_END = "Linked node end"; // $NON-NLS-1$
-
+    
 }
+

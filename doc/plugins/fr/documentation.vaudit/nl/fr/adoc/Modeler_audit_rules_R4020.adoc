@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+
+
+= R4020
+
+
+
+===== Résumé
+
+Les éléments ArchiMate de même type doivent porter des noms différents.
+
+
+===== Détails
+
+
+Dans un projet ArchiMate, les éléments ArchiMate de même type doivent porter des noms différents de manière à faciliter l'identification sans ambigüité de ces derniers.
+Si vous avez deux éléments portant le même nom, vous pouvez soit renommer l’un des deux, soit, s’il s’agit des mêmes concepts fusionner ces éléments avec l'outil de merge proposé par Modelio.
+
+

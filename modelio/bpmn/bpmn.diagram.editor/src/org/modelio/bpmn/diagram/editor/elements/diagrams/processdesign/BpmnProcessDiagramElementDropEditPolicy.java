@@ -26,11 +26,13 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnDiagramElementDropEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration.GmBpmnProcessCollaborationDiagram;
+import org.modelio.bpmn.diagram.editor.elements.workflow.WorkflowEditPart;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.vcore.smkernel.mapi.MExpert;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -70,7 +72,7 @@ class BpmnProcessDiagramElementDropEditPolicy extends BpmnDiagramElementDropEdit
         if (ret != null) {
             MExpert mExpert = diagram.getModelManager().getMetamodel().getMExpert();
             for (final MObject toUnmask : request.getDroppedElements()) {
-                if (toUnmask.getMClass().isLinkMetaclass() || toUnmask instanceof BpmnDataAssociation) {
+                if (toUnmask.getMClass().isLinkMetaclass() || toUnmask instanceof BpmnDataAssociation || toUnmask instanceof BpmnSequenceFlowDataAssociation) {
                     // Links between workflow elements must be managed by the diagram itself
                     if (isInWorkflow(diagram, mExpert.getSource(toUnmask)) && isInWorkflow(diagram, mExpert.getTarget(toUnmask))) {
                         continue;
@@ -78,7 +80,10 @@ class BpmnProcessDiagramElementDropEditPolicy extends BpmnDiagramElementDropEdit
                 }
         
                 if (isInWorkflow(diagram, toUnmask)) {
-                    return null;
+                    // The element must be handled by the WorkflowEditPart or nobody.
+                    // Fixes 0013736: [BPMN] Context menu - unmask notes and constraint doesnt work
+                    // UnmaskManager creates drop requests outside WorkflowEditPart bounds.
+                    return getDropInWorkflowTargetEditPart(request);
                 } else if (diagram.getDiagramOwner() instanceof GmBpmnProcessCollaborationDiagram) {
                     // No generic unmask when the process is displayed in a collaboration diagram
                     return null;
@@ -86,6 +91,37 @@ class BpmnProcessDiagramElementDropEditPolicy extends BpmnDiagramElementDropEdit
             }
         }
         return ret;
+    }
+
+    /**
+     * Asks the owned WorkflowEditPart whether it accepts the drop request.
+     * @param request a drop request
+     * @return whatever {@link WorkflowEditPart#getTargetEditPart(org.eclipse.gef.Request)} answered or null.
+     */
+    @objid ("9f300823-8936-4939-bedc-c2ab233e0a4b")
+    private EditPart getDropInWorkflowTargetEditPart(ModelElementDropRequest request) {
+        IGmDiagram diagram = (IGmDiagram) getHost().getModel();
+        
+        // Look for our WorkflowEditPart
+        WorkflowEditPart wep = null;
+        for (Object childEp : getHost().getChildren()) {
+            if (childEp instanceof WorkflowEditPart) {
+                wep = (WorkflowEditPart) childEp;
+            }
+        }
+        
+        // Abort if no WorkflowEditPart
+        if (wep == null)
+            return null;
+        
+        // Abort if any element is not in the workflow
+        for (final MObject toUnmask : request.getDroppedElements()) {
+            if (! isInWorkflow(diagram, toUnmask))
+                return null;
+        }
+        
+        // Asks the WorkflowEditPart
+        return wep.getTargetEditPart(request);
     }
 
 }

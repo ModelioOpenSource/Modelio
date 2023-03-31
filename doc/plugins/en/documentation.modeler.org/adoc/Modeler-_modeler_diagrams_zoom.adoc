@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Using-the-zoom-function]]
 
-[[using-the-zoom-function]]
+
+
 = Using the zoom function
 
 The "Zoom" function is used to zoom in or out on the entire contents of a diagram.

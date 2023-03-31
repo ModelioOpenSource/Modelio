@@ -10,7 +10,7 @@ Modelio 2.2.1 and 2.2.2 projects can be migrated to Modelio 3.
 To migrate pre-Modelio 2.2.1 projects, it is necessary to first migrate them to Modelio 2.2.1 using the proper migration procedure.
 
 
-[[prerequisites]]
+
 ===== Prerequisites
 
 * An operational installation of Modelio 2.2.1 or 2.2.2
@@ -18,7 +18,7 @@ To migrate pre-Modelio 2.2.1 projects, it is necessary to first migrate them to 
 * The migration module *M2toM3* which can be downloaded from https://store.modelio.org/resource/modules/migration-modelio-2-2-1-to-3-0.html[Modelio store].
 
 
-[[launching-the-migration-procedure]]
+
 ===== Launching the migration procedure
 
 The following screenshot shows how to launch the procedure for migrating a Modelio 2.2.1 project to Modelio 4.
@@ -26,7 +26,7 @@ The following screenshot shows how to launch the procedure for migrating a Model
 image::images/Modeler-_modeler_managing_projects_migration_M22M3Migration.png[2]
 
 
-[[in-modelio-2.2.1-ou-2.2.2]]
+
 ===== In Modelio 2.2.1 ou 2.2.2
 
 1.  Start Modelio 2 and open the project to migrate.
@@ -39,7 +39,7 @@ image::images/Modeler-_modeler_managing_projects_migration_M22M3Migration.png[2]
 That's all for Modelio 2!
 
 
-[[in-modelio-3]]
+
 ===== In Modelio 4
 
 1.  Start Modelio 4.
@@ -52,7 +52,7 @@ That's all for Modelio 2!
 *Note:* The very first opening of a migrated project might take a while, due to Modelio 4's different storage technology which requires some first-time initialization of the migrated project.
 
 
-[[final-steps]]
+
 ===== Final steps
 
 The new migrated project in Modelio 4 should contain all the data from the Modelio 2 project without any loss. However, the newly migrated project is still referencing modules from Modelio 2 and these modules are obsolete.

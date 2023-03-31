@@ -26,5 +26,5 @@ import org.modelio.gproject.ramc.core.packaging.filters.IModelFilterConfigurer;
 public interface IRamcContentHandler {
     @objid ("ac6e87ed-a419-11e1-aa98-001ec947ccaf")
     void configure(final IModelFilterConfigurer packager);
-
 }
+

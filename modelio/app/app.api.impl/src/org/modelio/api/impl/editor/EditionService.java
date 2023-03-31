@@ -45,7 +45,7 @@ import org.modelio.editors.richnote.api.SupportLevel;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.management.RichNotesSession;
 import org.modelio.editors.service.EditionManager;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -106,7 +106,7 @@ public class EditionService implements IEditionService {
     @objid ("27bc191b-9185-4002-b6bd-6dbf7efe4341")
     @Override
     public Path editRichNote(final Document doc, final IExternDocumentChangeListener listener) throws IOException {
-        final IRichNoteFileRepository fileRepository = RichNotesSession.get(GProject.getProject(doc)).getFileRepository();
+        final IRichNoteFileRepository fileRepository = RichNotesSession.get(AbstractGProject.getProject(doc)).getFileRepository();
         
         if (listener != null) {
             // Store proxy editor in the map
@@ -169,6 +169,12 @@ public class EditionService implements IEditionService {
         this.eventService.postAsyncEvent(this.modelioSvc, ModelioEvent.EDIT_ELEMENT, document);
     }
 
+    @objid ("8bcfe35c-c1bf-4458-89c8-cdd9e68f4dc5")
+    @Override
+    public void editElement(ModelElement me) {
+        this.eventService.postAsyncEvent(this.modelioSvc, ModelioEvent.EDIT_ELEMENT, me);
+    }
+
     @objid ("40eca5da-da7f-4c2e-825b-ab45ca36d990")
     @Override
     public IMDATextEditor openEditor(ModelElement modelElement, File file, EditorType editorTypeID, boolean readonly, String charsetName, String askedTitle, String askedTooltip) {
@@ -190,7 +196,7 @@ public class EditionService implements IEditionService {
     @objid ("cd3dc372-aa67-4cdc-b2c3-7b711e77bbc9")
     @Override
     public void saveRichNote(final Document doc, Path fileToSave) throws IOException {
-        final IRichNoteFileRepository fileRepository = RichNotesSession.get(GProject.getProject(doc)).getFileRepository();
+        final IRichNoteFileRepository fileRepository = RichNotesSession.get(AbstractGProject.getProject(doc)).getFileRepository();
         
         fileRepository.saveRichNote(doc, fileToSave);
         
@@ -218,7 +224,7 @@ public class EditionService implements IEditionService {
     public void unregisterListener(final IExternDocumentChangeListener editor) {
         final MdaRichNoteEditor mdaRichNoteEditor = this.richNoteEditors.get(editor);
         
-        final IRichNoteFileRepository fileRepository = RichNotesSession.get(GProject.getProject(mdaRichNoteEditor.getDoc())).getFileRepository();
+        final IRichNoteFileRepository fileRepository = RichNotesSession.get(AbstractGProject.getProject(mdaRichNoteEditor.getDoc())).getFileRepository();
         fileRepository.removeEditor(mdaRichNoteEditor);
         
     }

@@ -42,23 +42,41 @@ import org.osgi.framework.wiring.BundleWiring;
 
 @objid ("6088c346-5cf2-4c2c-97ee-bda6f52eaa13")
 public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
-    @objid ("371c846b-105e-4a49-87cf-e94a9266fb88")
-    private final boolean isMandatory;
+    @objid ("bdaaf025-0e1c-41ad-a92b-c335fa0f5a86")
+    private final Path resourcesPath;
+
+    @objid ("caaabcb0-778e-4f40-ab79-78c3530bc19e")
+    private final Bundle plugin;
 
     @objid ("0a721414-2da0-48d3-8a6b-234b0eab82f9")
     private final IModuleHandle fileHandle;
 
-    @objid ("e73d4ea9-c9c1-45e5-83e9-5d4eaf4be38c")
-    private final Path resourcesPath;
-
-    @objid ("6add9965-ae4c-44eb-a8cc-b5d5b3028ed0")
-    private final Bundle plugin;
-
     @objid ("2b1ec1e5-d03a-4357-a261-b892a3bcbc26")
+    @Deprecated
     public  PluginModuleHandle(Bundle plugin, IModuleHandle fileHandle, boolean isMandatory) throws IOException {
         this.plugin = plugin;
         this.fileHandle = fileHandle;
-        this.isMandatory = isMandatory;
+        
+        
+        try {
+            URL pluginURL = plugin.getEntry("/");
+            URL entryURL = FileLocator.toFileURL(pluginURL);
+            String entryStr = entryURL.toString();
+            entryStr = entryStr.replace(" ", "%20");
+            URL entryURLfixed = new URL(entryStr);
+            URI entryURI = entryURLfixed.toURI();
+            this.resourcesPath = Paths.get(entryURI);
+        } catch (URISyntaxException e) {
+            throw (MalformedURLException) new MalformedURLException(e.getMessage()).initCause(e);
+        }
+        
+    }
+
+    @objid ("149592c8-67cd-4b63-a6bb-b4e9f27fdb59")
+    public  PluginModuleHandle(Bundle plugin, IModuleHandle fileHandle) throws IOException {
+        this.plugin = plugin;
+        this.fileHandle = fileHandle;
+        
         
         try {
             URL pluginURL = plugin.getEntry("/");
@@ -171,12 +189,6 @@ public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
         return this.fileHandle.getMetamodelFragments();
     }
 
-    @objid ("8efd3168-0a8c-4643-8566-ffd19adb5c65")
-    @Override
-    public boolean isMandatory() {
-        return this.isMandatory;
-    }
-
     @objid ("4bed11f6-6e93-46ef-a1de-e5a57a7ccfa0")
     @Override
     public ClassLoader getProvidedClassLoader() {
@@ -193,7 +205,7 @@ public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
         final int prime = 31;
         int result = 1;
         result = prime * result + (this.fileHandle == null ? 0 : this.fileHandle.hashCode());
-        result = prime * result + (this.isMandatory ? 1231 : 1237);
+        
         result = prime * result + (this.plugin == null ? 0 : this.plugin.hashCode());
         result = prime * result + (this.resourcesPath == null ? 0 : this.resourcesPath.hashCode());
         return result;
@@ -219,9 +231,7 @@ public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
         } else if (!this.fileHandle.equals(other.fileHandle)) {
             return false;
         }
-        if (this.isMandatory != other.isMandatory) {
-            return false;
-        }
+        
         if (this.plugin == null) {
             if (other.plugin != null) {
                 return false;

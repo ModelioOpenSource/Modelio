@@ -47,5 +47,5 @@ public interface ProjectPreferencesKeys {
 
     @objid ("520c0c8c-edf0-4179-bfb8-5a89b70580b8")
     public static final String DIAGRAM_DEFAULT_THEME_PREFKEY = "ProjectPrefs.DiagramDefTheme";
-
 }
+

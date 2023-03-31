@@ -41,7 +41,7 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -118,6 +118,7 @@ public class GmNote extends GmSimpleNode {
                         GmNote.this.getRepresentedElement().setContent(text);
                     }
                 };
+        
     }
 
     @objid ("81865f23-1dec-11e2-8cad-001ec947c8cc")
@@ -170,7 +171,7 @@ public class GmNote extends GmSimpleNode {
         if (model == null) {
             result.append("<none>");
         } else {
-            result.append(ModuleI18NService.getLabel(model));
+            result.append(MdaResources.getLabel(model));
         }
         
         // Mime type

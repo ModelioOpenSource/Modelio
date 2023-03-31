@@ -20,6 +20,8 @@
 package org.modelio.vcore.smkernel.mapi;
 
 import java.io.Serializable;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Objects;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -30,8 +32,7 @@ import org.modelio.vcore.smkernel.DeadObjectException;
 /**
  * Model object reference.
  * <p>
- * Allows to reference a model object that may or not be known. The reference is made of the object metaclass name, the object
- * identifier and optionally the object name.
+ * Allows to reference a model object that may or not be known. The reference is made of the object metaclass name, the object identifier and optionally the object name.
  */
 @objid ("7852f43e-13ae-11e2-8f8e-001ec947ccaf")
 public class MRef implements Serializable {
@@ -62,13 +63,17 @@ public class MRef implements Serializable {
      * 'nnnn' {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx} mmmmm
      * 
      * 
-     * 'nnnn' = name,  {xxx...xx} = uuid,  mmmm = metaclass
+     * 'nnnn' = name, {xxx...xx} = uuid, mmmm = metaclass
      */
     @objid ("79a0f2d3-200a-4bfb-8095-16620edd6336")
     private static final Pattern pattern = Pattern.compile("(?:'(.*)')?\\s?\\{(.*)\\} (.*)");
 
+    @objid ("36d78b3d-fd3f-4dea-9c4d-5ed24e59378e")
+    private static final Pattern uripattern = Pattern.compile("mref?:(.*)/(.*)/(.*)");
+
     /**
-     * Creates a reference for the given element.
+     * Creates a reference for the given element.<br/>
+     * Beware that thes C'Tor accesses to the object name meaning that it might cause the effective 'loading in memory' of the whole MObject. To avoid this 'loading' see {@link MRef#withoutName(MObject)}.
      * @param element The element to reference.
      */
     @objid ("dcadb00c-13af-11e2-8f8e-001ec947ccaf")
@@ -177,34 +182,34 @@ public class MRef implements Serializable {
     @objid ("21533303-0310-4e06-a1fb-2155b29b8684")
     public static void main(String[] args) {
         MRef ref = new MRef("'Validation de l'EG' {c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name,"Validation de l'EG"));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, "Validation de l'EG"));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
         ref = new MRef("'' {c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name, null));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, null));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
         ref = new MRef(" {c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name, null));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, null));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
         ref = new MRef("{c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name, null));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, null));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
         ref = new MRef("'aaa aa' {c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name, "aaa aa"));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, "aaa aa"));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
         ref = new MRef("'Validation de l'EG d'abord' {c14066e5-015a-45af-8b4e-1aa27aadbac8} Standard.BpmnBehavior");
-        assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
-        assert(Objects.equals(ref.name,"Validation de l'EG d'abord"));
-        assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        assert (Objects.equals(ref.mc, "Standard.BpmnBehavior"));
+        assert (Objects.equals(ref.name, "Validation de l'EG d'abord"));
+        assert (Objects.equals(ref.uuid, "c14066e5-015a-45af-8b4e-1aa27aadbac8"));
         
     }
 
@@ -213,8 +218,11 @@ public class MRef implements Serializable {
      * 
      * 'nnnn' {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx} mmmmm
      * 
-     * 
-     * 'nnnn' = name {xxx...xx} = uuid mmmm = metaclass
+     * where:
+     * <ul>
+     * <li>'nnnn' = name</li>
+     * <li>{xxx...xx} = uuid</li>
+     * <li>mmmm = metaclass</li>
      */
     @objid ("dcadb02c-13af-11e2-8f8e-001ec947ccaf")
     @Override
@@ -251,6 +259,41 @@ public class MRef implements Serializable {
             return e.toString();
         } catch (RuntimeException e) {
             return e.toString();
+        }
+        
+    }
+
+    /**
+     * Return a "mref:" opaque URI like string for this MRef.<br/>
+     * An opaque URI is an absolute URI whose scheme-specific part does not begin with a slash character ('/').
+     * 
+     * The build URI String is "mref:metaclass/uuid/name"
+     * @return an opaque URI or <code>null</code> in case of syntax error.
+     * @since 5.2.0
+     */
+    @objid ("786ea70f-94ef-45f6-8369-f450fa48abf6")
+    public String toURIString() {
+        return String.format("mref:%s/%s/%s", this.mc, this.uuid, this.name != null ? this.name : "");
+    }
+
+    /**
+     * Builds an MRef from an URI-like string that conforms to {@link #toURIString()} method specification.
+     * @return a MRef
+     * @since 5.2.0
+     */
+    @objid ("9137107b-4476-4763-8c92-479320ed46dc")
+    public static MRef fromURIString(String uriString) {
+        final Matcher m = uripattern.matcher(uriString);
+        
+        if (m.matches()) {
+            final MatchResult r = m.toMatchResult();
+            if (r.groupCount() == 3) {
+                return new MRef(r.group(1),r.group(2), (r.group(3)!=null||r.group(3).isEmpty()) ? r.group(3) : null);
+            } else {
+                throw new IllegalArgumentException("Invalid MRef uri string: " + uriString);
+            }
+        } else {
+            throw new IllegalArgumentException("Invalid MRef uri string: " + uriString);
         }
         
     }

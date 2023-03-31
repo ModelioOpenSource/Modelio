@@ -35,5 +35,5 @@ public interface IJdbmRepositoryMaintenance {
      */
     @objid ("e18c3549-1221-4689-ac5f-93740a88d5a9")
     void defragment(IModelioProgress monitor) throws IOException;
-
 }
+

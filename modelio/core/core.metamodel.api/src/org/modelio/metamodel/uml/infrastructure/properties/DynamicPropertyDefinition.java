@@ -34,6 +34,9 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * <p>Property definition for typed property tables.<br />
  * Dynamic values are not stored in the property table istself, but rather calculated.</p>
+ * 
+ * 
+ * 
  */
 @objid ("a8ec075a-7c60-4d39-9a40-9e889fd66104")
 public interface DynamicPropertyDefinition extends PropertyDefinition {
@@ -81,7 +84,7 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
      * @since 3.8
      */
     @objid ("f64aa10f-d083-4cd7-bcd2-7dd9d1b81396")
-    public interface IDynamicPropertyResolver {
+    interface IDynamicPropertyResolver {
         /**
          * Convert a value from a string, using the property definition's base type.
          * <p>
@@ -107,7 +110,7 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
          */
         @objid ("78442a92-fbaa-46f2-994a-1c3830b5f211")
         String convertToString(DynamicPropertyDefinition pdef, Object value, ModelElement object);
-
-    }
-
 }
+    
+}
+

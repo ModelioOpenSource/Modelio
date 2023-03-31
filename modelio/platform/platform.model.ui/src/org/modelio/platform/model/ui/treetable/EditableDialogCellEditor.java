@@ -71,6 +71,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
      */
     @objid ("13f0fee8-1c55-4395-96a6-b40620a3917a")
     public static final String CELL_EDITOR_IMG_DOTS_BUTTON = "cell_editor_dots_button_image"; // $NON-NLS-1$
+    
 
     /**
      * Default EditableDialogCellEditor style
@@ -413,6 +414,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
 
     @objid ("2c5470a4-8984-430f-8ac0-b330d43d2f39")
     protected abstract String getTextRepresentation(Object value);
+
 static {
             ImageRegistry reg = JFaceResources.getImageRegistry();
             reg.put(CELL_EDITOR_IMG_DOTS_BUTTON,

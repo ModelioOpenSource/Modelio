@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-des-éléments-dans-lexplorateur-de-modèle]]
 
-[[créer-des-éléments-dans-lexplorateur-de-modèle]]
+
+
 = Créer des éléments dans l'explorateur de modèle
 
 Dans la vue "Modèle" et la vue d'édition des diagrammes, vous pouvez créer des éléments de modèle en utilisant la commande "Créer un élément".

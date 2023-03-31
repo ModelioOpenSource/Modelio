@@ -45,6 +45,7 @@ import org.modelio.diagram.elements.core.figures.ShapedFigure;
 import org.modelio.diagram.elements.core.figures.ToolbarLayoutWithGrab;
 import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
+import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.figures.html.flyingsaucer.FsHtmlFigure;
 import org.modelio.platform.model.ui.MimeServices;
 import org.modelio.platform.model.ui.MimeServices.MimeType;
@@ -58,6 +59,12 @@ import org.modelio.platform.model.ui.MimeServices.MimeType;
  */
 @objid ("818d863e-1dec-11e2-8cad-001ec947c8cc")
 public class NoteFigure extends ShapedFigure {
+    @objid ("70dc1d0f-8f54-4436-9f3e-6c0d63df687a")
+    private boolean lightRepresentation = false;
+
+    @objid ("338b35b8-a10c-4922-b0e4-8afd29a157d9")
+    private Direction anchoringBorderPosition = Direction.NORTH;
+
     @objid ("687af5c9-1e83-11e2-8cad-001ec947c8cc")
     private Label title;
 
@@ -74,30 +81,45 @@ public class NoteFigure extends ShapedFigure {
     private FsHtmlFigure fsHtmlFigure;
 
     @objid ("510ae984-1387-4cfd-b5ea-1fabb598f12b")
-    private static final NoteShaper NOTE_SHAPER = new NoteShaper();
+    private final UMLNoteShaper umlNoteShaper = new UMLNoteShaper();
+
+    @objid ("f2d89939-255b-494c-9fb9-3148f7a7a7b4")
+    private final LightNoteShaper lightNoteShaper = new LightNoteShaper();
+
+    @objid ("c7eb501c-14ae-4db1-8f75-1151134e0e08")
+    private final LightNoteBorderShaper lightNoteBorderShaper = new LightNoteBorderShaper();
+
+    @objid ("c20ff303-5a66-4f22-a441-36cd76561c4f")
+    public void setAnchoringBorderPosition(Direction direction) {
+        this.anchoringBorderPosition = direction;
+        this.lightNoteBorderShaper.setAnchoringSide(direction);
+        setGradientDirection(direction);
+        
+    }
+
+    @objid ("ad6525b7-46dd-4b45-95c4-705035408e2c")
+    public boolean isLightRepresentation() {
+        return this.lightRepresentation;
+    }
 
     /**
      * Creates a note figure.
-     * @param aCompo a SWT composite
      */
     @objid ("818d8652-1dec-11e2-8cad-001ec947c8cc")
-    public  NoteFigure() {
-        super(NoteFigure.NOTE_SHAPER);
+    public  NoteFigure(boolean lightRepresentation) {
+        super();
         
-        // this.swtComposite = aCompo;
-        // The note figure is a container layouted as a vertical toolbar
-        // Children are transparent without borders
+        this.lightRepresentation = lightRepresentation;
+        
         ToolbarLayout layout = new NoteLayout();
         layout.setStretchMinorAxis(true);
         setLayoutManager(layout);
-        
-        setBorder(new ShapedBorder(getLineColor(), getLineWidth(), NoteFigure.NOTE_SHAPER));
         
         // First child: the title area
         this.title = new Label();
         TLBRBorder tlbrBorder = new TLBRBorder(getLineColor(), 1, false, false, true, false);
         tlbrBorder.setStyle(Graphics.LINE_DOT);
-        this.title.setBorder(new CompoundBorder(tlbrBorder, new MarginBorder(2)));
+        this.title.setBorder(new CompoundBorder(tlbrBorder, new MarginBorder(1)));
         this.add(this.title);
         
         // The note text figure list is placed in a TRANSPARENT scroll pane
@@ -107,7 +129,7 @@ public class NoteFigure extends ShapedFigure {
         this.scrollPane.setLayoutManager(new ScrollPaneLayout());
         this.scrollPane.setVerticalScrollBarVisibility(ScrollPane.AUTOMATIC);
         this.scrollPane.setHorizontalScrollBarVisibility(ScrollPane.AUTOMATIC);
-        this.scrollPane.setBorder(new MarginBorder(2, 2, 2, 2));
+        this.scrollPane.setBorder(new MarginBorder(1));
         
         FlowPage page = createPlainTextFigure("");
         this.contentFigure = page;
@@ -115,6 +137,43 @@ public class NoteFigure extends ShapedFigure {
         this.scrollPane.setContents(this.contentFigure);
         
         this.add(this.scrollPane);
+        
+        configure(this.lightRepresentation);
+        
+    }
+
+    @objid ("ca168ab4-a279-4985-aa4e-39bbbbe6da1e")
+    private void configure(boolean light) {
+        if (light) {
+            setShaper(this.lightNoteShaper);
+            setBorder(new ShapedBorder(getLineColor(), getLineWidth(), this.lightNoteBorderShaper));
+            this.title.setVisible(false);
+            this.remove(this.title);
+        } else {
+            setShaper(this.umlNoteShaper);
+            setBorder(new ShapedBorder(getLineColor(), getLineWidth(), this.umlNoteShaper));
+            this.title.setVisible(true);
+            this.add(this.title, 0);
+        }
+        
+    }
+
+    @objid ("685d8437-b1e4-4681-9605-3fd27b78beff")
+    @Override
+    public void setLineColor(Color lineColor) {
+        super.setLineColor(lineColor);
+        ((ShapedBorder) getBorder()).setColor(lineColor);
+        if (!this.lightRepresentation) {
+            ((TLBRBorder) ((CompoundBorder) this.title.getBorder()).getOuterBorder()).setColor(lineColor);
+        }
+        
+    }
+
+    @objid ("4ee668cd-6e08-47d7-95f8-77fa10f7d9b2")
+    @Override
+    public void setLineWidth(int lineWidth) {
+        super.setLineWidth(lineWidth);
+        ((ShapedBorder) getBorder()).setWidth(lineWidth);
         
     }
 
@@ -237,10 +296,16 @@ public class NoteFigure extends ShapedFigure {
         this.contentsText = new TextFlow();
         this.contentsText.setText(content);
         page.add(this.contentsText);
-        page.setBorder(new MarginBorder(2));
         page.setOpaque(false);
         page.setHorizontalAligment(PositionConstants.LEFT);
         return page;
+    }
+
+    @objid ("c819463a-a821-4c08-bc0e-fd965fe29178")
+    public void setLightRepresentation(boolean b) {
+        this.lightRepresentation = b;
+        configure(b);
+        
     }
 
     /**
@@ -271,7 +336,7 @@ public class NoteFigure extends ShapedFigure {
             if (ret.width == 0) {
                 ret.width = -1;
             }
-            return calculateMinSize(container, Math.max(wHint, ret.width), Math.max(ret.height, hHint));
+            return calculateMinSize((NoteFigure) container, Math.max(wHint, ret.width), Math.max(ret.height, hHint));
         }
 
         /**
@@ -284,7 +349,7 @@ public class NoteFigure extends ShapedFigure {
         public Dimension calculateMinimumSize(final IFigure container, final int wHint, final int hHint) {
             // Called by 'fit to content' command.
             // But super.calculateMinimumSize() does not take the content into account.
-            return calculateIdealSize(container, wHint, hHint);
+            return calculateIdealSize((NoteFigure) container, wHint, hHint);
         }
 
         /**
@@ -295,11 +360,14 @@ public class NoteFigure extends ShapedFigure {
          * @return the minimum size a note should be.
          */
         @objid ("818fe897-1dec-11e2-8cad-001ec947c8cc")
-        private Dimension calculateMinSize(final IFigure container, final int wHint, final int hHint) {
+        private Dimension calculateMinSize(final NoteFigure container, final int wHint, final int hHint) {
             @SuppressWarnings ("synthetic-access")
-            Dimension ret = ((NoteFigure) container).title.getPreferredSize(wHint, -1).getCopy();
-            ret.width += NoteShaper.FOLDSIZE * 2;
             
+            Dimension ret = new Dimension(0, 0);
+            if (!container.isLightRepresentation()) {
+                ret = container.title.getPreferredSize(wHint, -1).getCopy();
+                ret.width += UMLNoteShaper.FOLDSIZE * 2;
+            }
             ret.union(super.calculateMinimumSize(container, wHint, hHint));
             
             if (ret.width < 120) {
@@ -324,17 +392,14 @@ public class NoteFigure extends ShapedFigure {
          * @return the ideal size.
          */
         @objid ("818fe8a6-1dec-11e2-8cad-001ec947c8cc")
-        private Dimension calculateIdealSize(final IFigure container, final int wHint, final int hHint) {
+        private Dimension calculateIdealSize(final NoteFigure container, final int wHint, final int hHint) {
             Dimension ret = super.calculatePreferredSize(container, wHint, hHint);
-            
             if (ret.height < 60) {
                 ret.height = 60;
             }
-            
             if (ret.width < 40) {
                 ret.width = 40;
             }
-            
             if (ret.width / ret.height > 4) {
                 ret = super.calculatePreferredSize(container, ret.height * 4, hHint);
             }
@@ -365,8 +430,11 @@ public class NoteFigure extends ShapedFigure {
 
     }
 
+    /**
+     * Shaper for a UML note. Draws a rectangle with a folded top right corner.
+     */
     @objid ("320f478c-872e-44f3-affe-65d73965adcc")
-    public static class NoteShaper implements IShaper {
+    public static class UMLNoteShaper implements IShaper {
         @objid ("44036049-f9db-44e9-92f7-0bdf6f313953")
         private static final int FOLDSIZE = 12;
 
@@ -402,30 +470,175 @@ public class NoteFigure extends ShapedFigure {
          * |          |
          * 5----------4
          * </pre>
-         * @param p an array of 6 points. If null a new array with 6 points will be allocated.
          * @param r the bounding box rectangle
          * @return the passed array or a new one
          */
         @objid ("7e78fa9d-3872-4c69-8392-f67dde7e8ad3")
         private Point[] computeShape(Rectangle r) {
             Point[] ret = new Point[6];
-            for (int i = 0; i < 6; i++) {
-                ret[i] = new Point();
-            }
             
             int right = r.right();
             int bottom = r.bottom();
             
-            ret[0].setLocation(r.x, r.y);
-            ret[1].setLocation(right - NoteShaper.FOLDSIZE, r.y);
-            ret[2].setLocation(right - NoteShaper.FOLDSIZE, r.y + NoteShaper.FOLDSIZE);
-            ret[3].setLocation(right, r.y + NoteShaper.FOLDSIZE);
-            ret[4].setLocation(right, bottom);
-            ret[5].setLocation(r.x, bottom);
+            ret[0] = new Point(r.x, r.y);
+            ret[1] = new Point(right - UMLNoteShaper.FOLDSIZE, r.y);
+            ret[2] = new Point(right - UMLNoteShaper.FOLDSIZE, r.y + UMLNoteShaper.FOLDSIZE);
+            ret[3] = new Point(right, r.y + UMLNoteShaper.FOLDSIZE);
+            ret[4] = new Point(right, bottom);
+            ret[5] = new Point(r.x, bottom);
             return ret;
         }
 
         @objid ("c8e793c4-e116-4431-895f-3b051bf33d3f")
+        @Override
+        public Insets getShapeInsets(Rectangle rect) {
+            return IFigure.NO_INSETS;
+        }
+
+    }
+
+    /**
+     * Shaper for a 'light' note background. Draws a shape that is a rectangle.
+     */
+    @objid ("e9596ff0-0076-499f-923f-07997d1dd1df")
+    public static class LightNoteShaper implements IShaper {
+        @objid ("bc382792-f0aa-46d1-a8e9-37e2d95ca185")
+        @Override
+        public Path createShapePath(Rectangle rect) {
+            Path path = new Path(Display.getCurrent());
+            Point[] points = computeShape(rect);
+            path.moveTo(points[0].x, points[0].y);
+            path.lineTo(points[1].x, points[1].y);
+            path.lineTo(points[2].x, points[2].y);
+            path.lineTo(points[3].x, points[3].y);
+            return path;
+        }
+
+        /**
+         * Compute the shape of the note figure in an array of Points.
+         * 
+         * <pre>
+         * NORTH
+         * 0--------1
+         * |        |
+         * 3--------2
+         * 
+         * </pre>
+         * @param r the bounding box rectangle
+         * @return the points array or a new one
+         */
+        @objid ("4dd58967-eff8-463c-8af0-07d822c93843")
+        private Point[] computeShape(Rectangle r) {
+            Point[] ret = new Point[4];
+            
+            ret[0] = new Point(r.x, r.y);
+            ret[1] = new Point(r.right(), r.y);
+            ret[2] = new Point(r.right(), r.bottom());
+            ret[3] = new Point(r.x, r.bottom());
+            return ret;
+        }
+
+        @objid ("6fc0d83d-fe76-414c-8b69-6edf5aa02268")
+        @Override
+        public Insets getShapeInsets(Rectangle rect) {
+            return IFigure.NO_INSETS;
+        }
+
+    }
+
+    /**
+     * Shaper for the border of a 'light' note.
+     */
+    @objid ("7332f5ee-b2d6-4980-8688-9f7a21e81237")
+    public static class LightNoteBorderShaper implements IShaper {
+        @objid ("b92caa5d-511d-4376-a294-4c378fd06d9c")
+        private static final int BRACKETSIZE = 12;
+
+        @objid ("04e6cd24-266b-4c19-9fbf-ee1170e4aab1")
+        private Direction anchoringSide = Direction.NORTH;
+
+        @objid ("6c54bd4e-1528-4931-99dc-cce220c7a709")
+        @Override
+        public Path createShapePath(Rectangle rect) {
+            Path path = new Path(Display.getCurrent());
+            Point[] points = computeShape(rect);
+            path.moveTo(points[0].x, points[0].y);
+            path.lineTo(points[1].x, points[1].y);
+            path.lineTo(points[2].x, points[2].y);
+            path.lineTo(points[3].x, points[3].y);
+            return path;
+        }
+
+        @objid ("1e38e80f-8e3d-4369-89e0-2e50daedb3d4")
+        public void setAnchoringSide(Direction direction) {
+            this.anchoringSide = direction;
+        }
+
+        /**
+         * Compute the shape of the note figure in an array of Points.
+         * 
+         * <pre>
+         * NORTH
+         * 1--------2
+         * |        |
+         * 0        3
+         * 
+         * EAST
+         * 0--1
+         * |
+         * |
+         * 3--2
+         * 
+         * WEST
+         * 1--0
+         * |
+         * |
+         * 2--3
+         * 
+         * SOUTH
+         * 0        3
+         * |        |
+         * 1 ------ 2
+         * </pre>
+         * @param r the bounding box rectangle
+         * @return the passed array or a new one
+         */
+        @objid ("93384c33-a2af-4fc2-8804-1e6d30521e7e")
+        private Point[] computeShape(Rectangle r) {
+            Point[] ret = new Point[4];
+            
+            switch (this.anchoringSide) {
+            case WEST:
+                ret[0] = new Point(r.x() + BRACKETSIZE, r.y);
+                ret[1] = new Point(r.x(), r.y);
+                ret[2] = new Point(r.x, r.bottom());
+                ret[3] = new Point(r.x() + BRACKETSIZE, r.bottom());
+                break;
+            case SOUTH:
+                ret[0] = new Point(r.x, r.bottom() - BRACKETSIZE);
+                ret[1] = new Point(r.x, r.bottom());
+                ret[2] = new Point(r.right(), r.bottom());
+                ret[3] = new Point(r.right(), r.bottom() - BRACKETSIZE);
+                break;
+            case EAST:
+                ret[0] = new Point(r.right() - BRACKETSIZE, r.y);
+                ret[1] = new Point(r.right(), r.y);
+                ret[2] = new Point(r.right(), r.bottom());
+                ret[3] = new Point(r.right() - BRACKETSIZE, r.bottom());
+                break;
+            case NORTH:
+            default:
+                ret[0] = new Point(r.x, r.y + BRACKETSIZE);
+                ret[1] = new Point(r.x, r.y);
+                ret[2] = new Point(r.right(), r.y);
+                ret[3] = new Point(r.right(), r.y + BRACKETSIZE);
+                break;
+            
+            }
+            return ret;
+        }
+
+        @objid ("30d12455-528c-4365-9282-b5412621d084")
         @Override
         public Insets getShapeInsets(Rectangle rect) {
             return IFigure.NO_INSETS;

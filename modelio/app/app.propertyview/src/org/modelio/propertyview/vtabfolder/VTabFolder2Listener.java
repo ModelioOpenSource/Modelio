@@ -115,5 +115,5 @@ public interface VTabFolder2Listener extends SWTEventListener {
      */
     @objid ("ca58b2d5-67c7-4444-a7e1-bcbbfeff9cc8")
     void showList(VTabFolderEvent event);
-
 }
+

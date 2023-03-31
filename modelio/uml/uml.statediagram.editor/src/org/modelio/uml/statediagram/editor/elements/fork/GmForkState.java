@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5300f76-55b6-11e2-877f-002564c97630")
 public class GmForkState extends GmPortContainer {
+    @objid ("f53195dc-55b6-11e2-877f-002564c97630")
+    private ForkPseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmForkState extends GmPortContainer {
 
     @objid ("f53195e8-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f53195dc-55b6-11e2-877f-002564c97630")
-    private ForkPseudoState element;
 
     @objid ("fd7dc2e9-5a5b-11e2-9e33-00137282c51b")
     static final GmForkStateStructuredStyleKeys STRUCTURED_KEYS = new GmForkStateStructuredStyleKeys();

@@ -166,5 +166,5 @@ public interface IGmObject extends IStyleProvider, IPersistent {
      */
     @objid ("9096a68a-de99-48dc-adc5-7039607cddfd")
     boolean isUserEditable();
-
 }
+

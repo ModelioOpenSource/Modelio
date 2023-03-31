@@ -21,10 +21,12 @@ package org.modelio.diagram.elements.core.figures.geometry;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Geometry;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.draw2d.geometry.Translatable;
 
@@ -36,10 +38,60 @@ import org.eclipse.draw2d.geometry.Translatable;
 @objid ("7f7e9e76-1dec-11e2-8cad-001ec947c8cc")
 public class GeomUtils {
     /**
-     * No instance
+     * Align rectangle center location with SnapToGeometry algorithm to avoid differences in midpoint locations.
+     * @see org.eclipse.gef.SnapToGeometry#getCorrectionFor(Entry[], Map, boolean, double, double)
+     * @since 5.3.1
+     * @param rect the rectangle to align
      */
-    @objid ("2894b6f9-26c1-4875-a1d8-e1c6d0a9b511")
-    private  GeomUtils() {
+    @objid ("a4430f6e-c879-448c-be99-742498e0b74d")
+    @SuppressWarnings ("javadoc")
+    public static void alignRectangleWithSnapToGeometry(PrecisionRectangle rect) {
+        rect.resize( -1.0, -1.0);
+        
+        // If the width is even (i.e., odd right now because we have reduced one pixel from
+        // far) there is no middle pixel so favor the left-most/top-most pixel
+        // (which is what SnapToGeometry.populateRowsAndCols() does by using int precision).
+        if ((int) (rect.preciseWidth()) % 2 != 0)
+            rect.resize( -1.0, 0);
+        
+        if ((int) (rect.preciseHeight()) % 2 != 0)
+            rect.resize(0, -1.0);
+        
+    }
+
+    /**
+     * Align rectangle center location with SnapToGeometry algorithm to avoid differences in midpoint locations.
+     * @see org.eclipse.gef.SnapToGeometry#getCorrectionFor(Entry[], Map, boolean, double, double)
+     * @since 5.3.1
+     * @param rect the rectangle to align
+     */
+    @objid ("c6319cab-01c9-44d4-b305-49a8014c9a81")
+    @SuppressWarnings ("javadoc")
+    public static void alignRectangleWithSnapToGeometry(Rectangle rect) {
+        rect.resize( -1, -1);
+        
+        // If the width is even (i.e., odd right now because we have reduced one pixel from
+        // far) there is no middle pixel so favor the left-most/top-most pixel
+        // (which is what SnapToGeometry.populateRowsAndCols() does by using int precision).
+        if ((rect.width()) % 2 != 0)
+            rect.resize( -1, 0);
+        
+        if ((rect.height()) % 2 != 0)
+            rect.resize(0, -1);
+        
+    }
+
+    /**
+     * Correct the point position so that it is inside or touches the given rectangle.
+     * @param p a point
+     * @param r the point location limits.
+     */
+    @objid ("7f5adb31-1dec-11e2-8cad-001ec947c8cc")
+    public static void forcePointInside(final Point p, final Rectangle r) {
+        p.x = Math.max(p.x(), r.x());
+        p.x = Math.min(p.x(), r.right());
+        p.y = Math.max(p.y(), r.y());
+        p.y = Math.min(p.y(), r.bottom());
         
     }
 
@@ -78,35 +130,6 @@ public class GeomUtils {
                 return Direction.SOUTH;
             else
                 return Direction.NORTH;
-        }
-        
-    }
-
-    /**
-     * Translate a point/rectangle/... toward a given direction.
-     * @param t a translatable thing
-     * @param dir the direction
-     * @param distance the distance
-     */
-    @objid ("cb44b62b-ab23-40e3-a7d2-78a238f06101")
-    public static void translate(Translatable t, Direction dir, int distance) {
-        switch (dir) {
-        case EAST:
-            t.performTranslate(distance, 0);
-            break;
-        case NONE:
-            return;
-        case NORTH:
-            t.performTranslate(0, -distance);
-            break;
-        case SOUTH:
-            t.performTranslate(0, distance);
-            break;
-        case WEST:
-            t.performTranslate(-distance, 0);
-            break;
-        default:
-            throw new UnsupportedOperationException(dir.toString());
         }
         
     }
@@ -171,6 +194,18 @@ public class GeomUtils {
     }
 
     /**
+     * Convert the given direction to horizontal or vertical
+     * @param anchorRelativeLocation PositionConstants.NORTH, PositionConstants.SOUTH, PositionConstants.EAST or PositionConstants.WEST
+     * @return PositionConstants.HORIZONTAL or PositionConstants.VERTICAL.
+     * @deprecated use {@link Direction#orientation()}.
+     */
+    @objid ("7f81011d-1dec-11e2-8cad-001ec947c8cc")
+    @Deprecated
+    public static Orientation getOrientation(final Direction anchorRelativeLocation) {
+        return anchorRelativeLocation.orientation();
+    }
+
+    /**
      * Get the intersection between the rectangle and the line formed by the 2 given points
      * @param p1 first point of the line
      * @param p2 last point of the line. Also used as reference to choose the nearest intersection point.
@@ -201,7 +236,7 @@ public class GeomUtils {
      * segments represented by the two points
      * @since 5.1.0
      */
-    @objid ("385cc8e3-125d-445d-939e-054c7ee7d0dc")
+    @objid ("f9dd8e15-99d9-46da-ad8a-5aaf05bc411e")
     public static boolean segmentIntersects(Point p1, Point p2, Rectangle r) {
         if (r.isEmpty())
             return false;
@@ -218,6 +253,59 @@ public class GeomUtils {
         int diagonal2y2 = r.y + r.height - 1;
         return (Geometry.linesIntersect(diagonal1x1, diagonal1y1, diagonal1x2, diagonal1y2, p1.x(), p1.y(), p2.x(), p2.y())
                 || Geometry.linesIntersect(diagonal2x1, diagonal2y1, diagonal2x2, diagonal2y2, p1.x(), p1.y(), p2.x(), p2.y()));
+        
+    }
+
+    /**
+     * Return equivalent of {@link Rectangle#toString()} with topleft and bottom right points
+     * instead of top left and size.
+     * @param r a rectangle
+     * @return a dump of the rectangle
+     */
+    @objid ("500a42e1-7297-48db-bf19-a8f61e1d2074")
+    public static String toString(Rectangle r) {
+        return r.getClass().getSimpleName() + "["
+                + r.preciseX()
+                + ", " + r.preciseY()
+                + " --> " + (r.preciseX() + r.preciseWidth())
+                + ", " + (r.preciseY() + r.preciseHeight()) + "]";
+        
+    }
+
+    /**
+     * Translate a point/rectangle/... toward a given direction.
+     * @param t a translatable thing
+     * @param dir the direction
+     * @param distance the distance
+     */
+    @objid ("cb44b62b-ab23-40e3-a7d2-78a238f06101")
+    public static void translate(Translatable t, Direction dir, int distance) {
+        switch (dir) {
+        case EAST:
+            t.performTranslate(distance, 0);
+            break;
+        case NONE:
+            return;
+        case NORTH:
+            t.performTranslate(0, -distance);
+            break;
+        case SOUTH:
+            t.performTranslate(0, distance);
+            break;
+        case WEST:
+            t.performTranslate(-distance, 0);
+            break;
+        default:
+            throw new UnsupportedOperationException(dir.toString());
+        }
+        
+    }
+
+    /**
+     * No instance
+     */
+    @objid ("2894b6f9-26c1-4875-a1d8-e1c6d0a9b511")
+    private  GeomUtils() {
         
     }
 
@@ -325,48 +413,6 @@ public class GeomUtils {
         num = a2 * c1 - a1 * c2;
         ret.y = (int) ((num < 0 ? num - offset : num + offset) / denom);
         return ret;
-    }
-
-    /**
-     * Convert the given direction to horizontal or vertical
-     * @param anchorRelativeLocation PositionConstants.NORTH, PositionConstants.SOUTH, PositionConstants.EAST or PositionConstants.WEST
-     * @return PositionConstants.HORIZONTAL or PositionConstants.VERTICAL.
-     * @deprecated use {@link Direction#orientation()}.
-     */
-    @objid ("7f81011d-1dec-11e2-8cad-001ec947c8cc")
-    @Deprecated
-    public static Orientation getOrientation(final Direction anchorRelativeLocation) {
-        return anchorRelativeLocation.orientation();
-    }
-
-    /**
-     * Return equivalent of {@link Rectangle#toString()} with topleft and bottom right points
-     * instead of top left and size.
-     * @param r a rectangle
-     * @return a dump of the rectangle
-     */
-    @objid ("705e774e-77b7-48b5-894d-13a3d8a45c77")
-    public static String toString(Rectangle r) {
-        return r.getClass().getSimpleName() + "["
-                + r.preciseX()
-                + ", " + r.preciseY()
-                + " --> " + (r.preciseX() + r.preciseWidth())
-                + ", " + (r.preciseY() + r.preciseHeight()) + "]";
-        
-    }
-
-    /**
-     * Correct the point position so that it is inside or touches the given rectangle.
-     * @param p a point
-     * @param r the point location limits.
-     */
-    @objid ("7f5adb31-1dec-11e2-8cad-001ec947c8cc")
-    public static void forcePointInside(final Point p, final Rectangle r) {
-        p.x = Math.max(p.x(), r.x());
-        p.x = Math.min(p.x(), r.right());
-        p.y = Math.max(p.y(), r.y());
-        p.y = Math.min(p.y(), r.bottom());
-        
     }
 
 }

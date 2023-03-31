@@ -31,8 +31,8 @@ import java.util.Collection;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.mda.Project;
@@ -103,7 +103,7 @@ public class StereotypeEditor {
      * @return the created stereotype.
      */
     @objid ("6c877053-f95d-4575-9418-5c3a5fc37495")
-    public Stereotype create(Profile profile, List<ModelElement> selectedElements, IProjectFragment fragment, boolean showApplyStereotype) {
+    public Stereotype create(Profile profile, List<ModelElement> selectedElements, IGModelFragment fragment, boolean showApplyStereotype) {
         // Prompt the user for the new note type data
         StereotypeEditionDataModel dataModel = promptUserBeforeCreate(selectedElements, showApplyStereotype);
         Stereotype stereotype = null;
@@ -126,8 +126,7 @@ public class StereotypeEditor {
     }
 
     /**
-     * @param elements
-     * @param showApplyStereotype @return
+     * @return
      */
     @objid ("3c8af456-467f-45d3-bd09-99a8124ea874")
     private StereotypeEditionDataModel promptUserBeforeCreate(List<ModelElement> elements, boolean showApplyStereotype) {
@@ -169,7 +168,7 @@ public class StereotypeEditor {
             }
         }
         
-        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(metaclassName, null, this.projectService.getOpenedProject().getProjectFileStructure().getProjectRuntimePath());
+        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(metaclassName, null, this.projectService.getOpenedProject().getPfs().getProjectRuntimePath());
         dataModel.setApplyStereotype(show);
         StereotypeEditionDialog dialog = new StereotypeEditionDialog(null, dataModel, this.projectService, this.mmServices, elements);
         
@@ -185,15 +184,15 @@ public class StereotypeEditor {
     }
 
     /**
-     * @param editedStereotype @return
+     * @return
      */
     @objid ("dd96b3de-549f-4875-bb12-f029d69c138c")
     private StereotypeEditionDataModel promptUserBeforeEdit(Stereotype editedStereotype) {
         ICoreSession session = this.projectService.getSession();
         // Local module path
-        GProject openedProject = this.projectService.getOpenedProject();
+        IGProject openedProject = this.projectService.getOpenedProject();
         
-        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(editedStereotype.getBaseClassName(), editedStereotype, openedProject.getProjectFileStructure().getProjectRuntimePath());
+        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(editedStereotype.getBaseClassName(), editedStereotype, openedProject.getPfs().getProjectRuntimePath());
         dataModel.setStereotypeName(editedStereotype.getName());
         
         IRepository repository = session.getRepositorySupport().getRepository(editedStereotype);
@@ -225,10 +224,6 @@ public class StereotypeEditor {
         return null;
     }
 
-    /**
-     * @param stereotype
-     * @param dataModel
-     */
     @objid ("ea52d560-a260-4de5-aa9a-f836e88d224d")
     private void addStereotypeOnSelectedElements(Stereotype stereotype, List<ModelElement> selectedElements, StereotypeEditionDataModel dataModel) {
         Class<? extends MObject> metaclass = stereotype.getMClass().getMetamodel().getMClass(dataModel.getMetaclassName()).getJavaInterface();
@@ -247,13 +242,9 @@ public class StereotypeEditor {
 
     /**
      * Create a stereotype.
-     * @param projectService
-     * @param profile
-     * @param fragment
-     * @param dataModel
      */
     @objid ("cb85f3e9-1dbf-43d1-a79d-fd58fd8be78a")
-    private Stereotype createStereotype(Profile profile, List<ModelElement> selectedElements, IProjectFragment fragment, StereotypeEditionDataModel dataModel) {
+    private Stereotype createStereotype(Profile profile, List<ModelElement> selectedElements, IGModelFragment fragment, StereotypeEditionDataModel dataModel) {
         ICoreSession session = this.projectService.getSession();
         IInfrastructureModelFactory factory = this.mmServices.getModelFactory().getFactory(IInfrastructureModelFactory.class);
         Profile ownerProfile = profile;
@@ -281,8 +272,6 @@ public class StereotypeEditor {
 
     /**
      * Edit a stereotype.
-     * @param stereotype
-     * @param dataModel
      */
     @objid ("74d9f5eb-3c8a-40b0-8f85-6f209a05d37f")
     private void editStereotype(Stereotype stereotype, StereotypeEditionDataModel dataModel) {
@@ -298,9 +287,6 @@ public class StereotypeEditor {
 
     /**
      * Set stereotype values(name, icon, image...).
-     * @param session
-     * @param stereotype
-     * @param dataModel
      */
     @objid ("0d02c9ea-c6c1-4806-b5ac-107c6d337068")
     private void setStereotypeValues(ICoreSession session, Stereotype stereotype, StereotypeEditionDataModel dataModel) {
@@ -321,9 +307,6 @@ public class StereotypeEditor {
 
     /**
      * Process the explorer icon blob of a stereotype
-     * @param stereotype
-     * @param dataModel
-     * @param repository
      */
     @objid ("eb3eb151-f1d6-424d-8fd8-e268d02c6f17")
     private void processStereotypeIconBlob(Stereotype stereotype, StereotypeEditionDataModel dataModel, IRepository repository) {
@@ -351,9 +334,6 @@ public class StereotypeEditor {
 
     /**
      * Process the diagram image blob of a stereotype
-     * @param stereotype
-     * @param dataModel
-     * @param repository
      */
     @objid ("3f12b33f-2105-4006-bf24-b1f8b36afc06")
     private void processStereotypeImageBlob(Stereotype stereotype, StereotypeEditionDataModel dataModel, IRepository repository) {
@@ -398,9 +378,7 @@ public class StereotypeEditor {
 
     /**
      * Write the given blob.
-     * @param repository
-     * @param file
-     * @param blob @return
+     * @return
      */
     @objid ("087430e0-c507-4f52-aaa8-13edc98cc47e")
     private boolean writeStereotypeBlob(IRepository repository, File file, IBlobInfo blob) {
@@ -416,9 +394,6 @@ public class StereotypeEditor {
 
     /**
      * Add the given blob to createdBlobs collection if write it successfully.
-     * @param repository
-     * @param file
-     * @param blob
      */
     @objid ("b5aa69e2-70c9-4da6-aebd-ddcb26dbf41e")
     private void createStereotypeBlob(IRepository repository, File file, IBlobInfo blob) {
@@ -431,9 +406,6 @@ public class StereotypeEditor {
 
     /**
      * Add the given blob to updatedBlobs collection if write it successfully.
-     * @param repository
-     * @param file
-     * @param blob
      */
     @objid ("abeb0cb6-a446-4a41-9181-6f5eda1a93c5")
     private void updateStereotypeBlob(IRepository repository, File file, IBlobInfo blob) {
@@ -446,8 +418,6 @@ public class StereotypeEditor {
 
     /**
      * Delete given stereotype blob.
-     * @param repository
-     * @param blob
      */
     @objid ("0357aec6-474c-44f9-b855-bbd87da0f3b8")
     private void deleteStereotypeBlob(IRepository repository, IBlobInfo blob) {

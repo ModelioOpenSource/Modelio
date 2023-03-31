@@ -25,11 +25,12 @@ import java.util.Comparator;
 import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.InfrastructureMetamodel;
+import org.modelio.metamodel.impl.mmextensions.infrastructure.migration.from_36.InfrastructureMigratorFrom36;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vbasic.version.Version;
-import org.modelio.vcore.model.spi.mm.IMigrationProvider;
 import org.modelio.vcore.model.spi.mm.IMofRepositoryMigrator;
+import org.modelio.vcore.model.spi.mm.IMofRepositoryMigratorProvider;
 import org.modelio.vcore.model.spi.mm.MofMigrationException;
 import org.modelio.vcore.model.spi.mm.NoopMofRepositoryMigrator;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
@@ -44,7 +45,7 @@ import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptorReader;
  * @since 3.6
  */
 @objid ("43ebc7c7-52b9-4143-bfcf-93349261851e")
-public class InfrastructureMmMigrationProvider implements IMigrationProvider {
+public class InfrastructureMmMigrationProvider implements IMofRepositoryMigratorProvider {
     @objid ("89328fd7-22d8-4c2f-bda7-a2d3de0d57ed")
     @Override
     public IMofRepositoryMigrator getMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor toMetamodel) {
@@ -55,16 +56,16 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
          *    + Resource ^AbstractResource
          *    # ExternDocument renamed Document, inherit from AbstractResource
          *    # ExternDocumentType renamed ResourceType
-         *    # ExternDocument.Type : ExternDocumentType --> AbstractResource.Type : ResourceType 
+         *    # ExternDocument.Type : ExternDocumentType --> AbstractResource.Type : ResourceType
          *    # ExternDocument.MimeType --> AbstractResource.MimeType
          *    # ExternDocument.Path --> AbstractResource.storageInfo
          *    # ExternDocumentType.TypedDoc : ExternDocument --> ResourceType.TypedResource : AbstractResource
          *    # ModelElement.Document : ExternDocument --> Modelelement.Attached : AbstractResource
-         *    # Stereotype.DefinedExternDocumentType : ExternDocumentType --> Stereotype.DefinedResourceType : ResourceType 
+         *    # Stereotype.DefinedExternDocumentType : ExternDocumentType --> Stereotype.DefinedResourceType : ResourceType
          *    # MetaclassReference.DefinedExternDocumentType : ExternDocumentType --> MetaclassReference.DefinedResourceType : ResourceType
-         *     
-         * 
-         */        
+         *
+         *
+         */
         
         final Version lastInfraMmVersion = new Version(InfrastructureMetamodel.VERSION);
         final Version V3_6 = new Version(2,0,00);
@@ -94,7 +95,7 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
             }
         } else if (fromVersion.isNewerOrSameThan(V3_6)) {
             // Migrate to 3.6
-            return new MigratorFrom36(fromMetamodel, fromMetamodel
+            return new InfrastructureMigratorFrom36(fromMetamodel, fromMetamodel
                     .copy()
                     .put(InfrastructureMetamodel.NAME, new Version(InfrastructureMetamodel.VERSION)));
         
@@ -107,7 +108,7 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
     }
 
     @objid ("36991b97-d759-47da-bab3-52db83ee7343")
-    static MetamodelDescriptor loadMetamodel(MetamodelVersionDescriptor fromMetamodel) throws MofMigrationException {
+    public static MetamodelDescriptor loadMetamodel(MetamodelVersionDescriptor fromMetamodel) throws MofMigrationException {
         Version fromVersion = fromMetamodel.getVersion(InfrastructureMetamodel.NAME);
         
         // The version to load is the same or next version for which we have a descriptor file.
@@ -115,7 +116,7 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
                 Stream.of("2.0.00")
                 .map(s -> new Version(s))
                 .sorted(Comparator.reverseOrder())
-                .filter(v -> v.isOlderOrSameThan(fromVersion)) 
+                .filter(v -> v.isOlderOrSameThan(fromVersion))
                 .findFirst()
                 .orElseThrow(() -> new MofMigrationException(String.format("No metamodel descriptor for version '%s'", fromVersion)));
         

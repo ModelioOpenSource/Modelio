@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3030]]
 
-[[r3030]]
+
+
 = R3030
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «refine» _Dependency_ must be between either:
@@ -19,16 +19,16 @@ A «refine» _Dependency_ must be between either:
 2.  A _BusinessRule_, an _Activity_ or an _Operation_ and a _BusinessRule_.
 3.  A _ModelElement_ and an _Archimate_ element.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «refine» _Dependency_ describes how a _ModelElement_ can be used to further refine a _Requirement_ or a _BusinessRule_. For example, a _UseCase_ or _Activity_ diagram may be used to refine a text-based functional _Requirement_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «refine» _Dependency_ which is not between two compatible elements, you should delete it.

@@ -3,23 +3,23 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1200]]
 
-[[r1200]]
+
+
 = R1200
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The edges coming into and leaving from a DecisionMergeNode must be either all
 
 object flows or all control flows.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _UML constraint_:
@@ -27,9 +27,9 @@ _UML constraint_:
 * The edges coming into and going out of a decision node, other than the decision input flow (if this exists), must be either all object flows or all control flows.
 * The edges coming into and going out of a merge node must be either all object flows or all control flows.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1200 warning on a DecisionMergeNode, remove all the flows of a specific type in order to have only one type of flow going in or out of the DecisionMergeNode.

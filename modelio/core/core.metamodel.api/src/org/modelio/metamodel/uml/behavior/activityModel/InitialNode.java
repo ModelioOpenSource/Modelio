@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * For convenience, initial nodes are an exception to the rule that control nodes cannot hold tokens if they are blocked from moving downstream, for example, by guards (see Activity). This is equivalent to interposing a CentralBufferNode between the initial node and its outgoing edges.
  * 
  * Note that flows can also start at other nodes, see ActivityParameterNode and AcceptEventAction, so initial nodes are not required for an activity to start execution. In addition, when an activity starts, a control token is placed at each action or structured node that has no incoming edges, except if it is a handler body (see "ExceptionHandler (from ExtraStructuredActivities), it is the fromAction of an action input pin (see "ActionInputPin (as specialized)" ), or it is contained in a structured node.
+ * 
+ * 
  */
 @objid ("00345b3e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InitialNode extends ControlNode {
@@ -50,5 +52,5 @@ public interface InitialNode extends ControlNode {
      */
     @objid ("3ac806ea-46cf-47d8-a222-44c43db0ecd6")
     public static final String MQNAME = "Standard.InitialNode";
-
 }
+

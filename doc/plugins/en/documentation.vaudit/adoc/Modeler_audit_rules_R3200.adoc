@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3200]]
 
-[[r3200]]
+
+
 = R3200
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _LinkThrowEvent_ should have the same name as the targeted _LinkCatchEvent_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Pairing a _LinkThrowEvent_ and a _LinkCatchEvent_ is a powerful construction in BPMN that helps simplifying large diagrams and increasing their readability. The construction is similar to a _"Goto / Label"_ in programming. For full details about BPMN link throw/catch event pairs, please see rule <<Modeler_audit_rules_R3120.adoc#,R3120>>.
@@ -26,9 +26,9 @@ The increased readability of the link throw/catch events construction is improve
 
 The R3200 rules monitors pairs of link throw and catch events and checks that their names match.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Fixing the rule R3200 report is simple, simply rename one of the events so that its name matches the other event name.

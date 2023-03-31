@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Le-catalogue-de-modules-Modelio]]
 
-[[le-catalogue-de-modules-modelio]]
+
+
 = Le catalogue de modules Modelio
 
-[[Présentation-du-catalogue-de-modules-Modelio]]
 
-[[présentation-du-catalogue-de-modules-modelio]]
+
+
 ===== Présentation du catalogue de modules Modelio
 
 Le catalogue de modules Modelio est une liste de tous les modules Modelio connus par votre installation locale de Modelio. Par défaut, les modules figurant dans le catalogue de modules sont ceux fournis avec votre installation Modelio, mais vous pouvez également y rajouter d'autres modules que vous avez téléchargés ou créés vous-même, afin de pouvoir les utiliser dans les projets Modelio.
@@ -32,9 +32,9 @@ La case à cocher *N'afficher que les dernières versions* est utile lorsque plu
 
 De même, la case à cocher *N'afficher que les versions compatibles* vous permet de n'afficher que la liste de modules qui sont compatibles avec votre version courante de Modelio.
 
-[[Ajouter-ou-retirer-un-module-du-catalogue-de-modules]]
 
-[[ajouter-ou-retirer-un-module-du-catalogue-de-modules]]
+
+
 ===== Ajouter ou retirer un module du catalogue de modules
 
 Si vous souhaitez ajouter un module au catalogue de modules ou bien en retirer un, il suffit d'utiliser les boutons "Ajouter un module au catalogue..." et "Retirer le module du catalogue".

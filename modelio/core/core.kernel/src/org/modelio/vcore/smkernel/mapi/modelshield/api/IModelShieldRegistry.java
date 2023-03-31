@@ -25,10 +25,11 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.IChecker;
 
 /**
  * <p>Audit plan to use to register checkers.</p>
+ * 
  */
 @objid ("2af09f27-850a-46ab-a037-d438d1123eaf")
 public interface IModelShieldRegistry {
     @objid ("5b5b11a6-6f2c-4149-9301-bfd01ed74582")
     void registerChecker(final IChecker checker, final MClass mc, final TriggerType trigger, final String feature);
-
 }
+

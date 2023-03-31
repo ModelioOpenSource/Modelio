@@ -39,5 +39,5 @@ public interface IElementChoiceNatValue extends IElementNatValue {
      */
     @objid ("2ad65caa-e816-40e6-bcd2-ebcb71965799")
     List<? extends MObject> getValueChoices();
-
 }
+

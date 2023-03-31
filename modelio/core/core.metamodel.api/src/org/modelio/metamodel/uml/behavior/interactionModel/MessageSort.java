@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("009676e8-91e0-1f74-804b-001ec947cd2a")
 public enum MessageSort {
@@ -44,6 +46,7 @@ public enum MessageSort {
     CREATEMESSAGE(4, "CreateMessage", "CreateMessage"),
     @objid ("f81acb23-94af-4304-8004-0fb61cc24524")
     RETURNMESSAGE(5, "ReturnMessage", "ReturnMessage");
+
 public static final int SYNCCALL_VALUE = 0;
     public static final int ASYNCCALL_VALUE = 1;
     public static final int ASYNCSIGNAL_VALUE = 2;

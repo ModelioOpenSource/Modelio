@@ -25,7 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.platform.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
@@ -86,8 +86,8 @@ public class Patterns implements BundleActivator {
      * @return the directory where project patterns are stored.
      */
     @objid ("3c15529a-aded-4757-83da-099f5c8b059c")
-    public static Path getProjectPatternsDirectory(GProject openedProject) {
-        return openedProject.getProjectFileStructure().getProjectDataConfigPath().resolve(Patterns.PATTERN_SUBDIR);
+    public static Path getProjectPatternsDirectory(IGProject openedProject) {
+        return openedProject.getPfs().getProjectDataConfigPath().resolve(Patterns.PATTERN_SUBDIR);
     }
 
 }

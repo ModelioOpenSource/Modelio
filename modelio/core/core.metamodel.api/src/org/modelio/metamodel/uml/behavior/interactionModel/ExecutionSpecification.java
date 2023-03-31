@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * An ExecutionSpecification is a specification of the execution of a unit of behavior or action within the Lifeline. The duration of an ExecutionSpecification is represented by two ExecutionOccurrenceSpecifications, the start ExecutionOccurrenceSpecification and the finish ExecutionOccurrenceSpecification.
+ * 
+ * 
  */
 @objid ("0044c988-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExecutionSpecification extends InteractionFragment {
@@ -52,6 +54,7 @@ public interface ExecutionSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>References the OccurrenceSpecification that designates the completion of the execution.</i>
+     * 
      */
     @objid ("d461367e-99eb-4f6d-8cf4-69580c24c61b")
     ExecutionOccurenceSpecification getFinish();
@@ -61,6 +64,7 @@ public interface ExecutionSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>References the OccurrenceSpecification that designates the completion of the execution.</i>
+     * 
      */
     @objid ("f64439ac-5975-4780-a575-a71e7a852c53")
     void setFinish(ExecutionOccurenceSpecification value);
@@ -70,6 +74,7 @@ public interface ExecutionSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>References the OccurrenceSpecification that designates the start of the execution.</i>
+     * 
      */
     @objid ("6c58ec82-beec-4c88-bbd9-b188620a511b")
     ExecutionOccurenceSpecification getStart();
@@ -79,8 +84,9 @@ public interface ExecutionSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>References the OccurrenceSpecification that designates the start of the execution.</i>
+     * 
      */
     @objid ("38b7057f-a850-438f-9725-d9bb8872ebbf")
     void setStart(ExecutionOccurenceSpecification value);
-
 }
+

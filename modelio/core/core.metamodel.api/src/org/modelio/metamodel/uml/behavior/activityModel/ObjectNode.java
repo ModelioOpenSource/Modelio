@@ -43,6 +43,8 @@ import org.modelio.metamodel.uml.statik.Instance;
  * 
  * Modelio extension:
  * An object node can represent an attribute, a parameter, an association role or an instance.
+ * 
+ * 
  */
 @objid ("003940c2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ObjectNode extends ActivityNode {
@@ -63,6 +65,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the type of the object node is to be treated as control.</i>
+     * 
      */
     @objid ("81fe4a86-f4d1-4283-bc97-9b9f6fd567aa")
     boolean isIsControlType();
@@ -72,6 +75,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Indicates whether the type of the object node is to be treated as control.</i>
+     * 
      */
     @objid ("2a4bfb19-1c1d-4cdf-8a25-4bb35ad64705")
     void setIsControlType(boolean value);
@@ -81,6 +85,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Indicates if and how the tokens in the object node are ordered for selection to traverse edges outgoing from the object node.</i>
+     * 
      */
     @objid ("5289a3d2-ad5d-43b9-bbeb-7b590f1f6779")
     ObjectNodeOrderingKind getOrdering();
@@ -90,6 +95,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Indicates if and how the tokens in the object node are ordered for selection to traverse edges outgoing from the object node.</i>
+     * 
      */
     @objid ("9d8126bd-9dda-4b84-8646-1293bd59f103")
     void setOrdering(ObjectNodeOrderingKind value);
@@ -99,6 +105,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Selects tokens for outgoing edges.</i>
+     * 
      */
     @objid ("91a4a899-ac9a-493a-9426-7e3cbf2db0ce")
     String getSelectionBehavior();
@@ -108,6 +115,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Selects tokens for outgoing edges.</i>
+     * 
      */
     @objid ("07cb7104-c275-4650-a074-1b7397c76011")
     void setSelectionBehavior(String value);
@@ -117,6 +125,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The maximum number of tokens allowed in the node. Objects cannot flow into the node if the upper bound is reached.</i>
+     * 
      */
     @objid ("f9dd7386-eabb-4273-9156-302b69035236")
     String getUpperBound();
@@ -126,6 +135,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The maximum number of tokens allowed in the node. Objects cannot flow into the node if the upper bound is reached.</i>
+     * 
      */
     @objid ("1bbc00db-7042-43a0-9a3b-0e5c9cd9fa7d")
     void setUpperBound(String value);
@@ -135,6 +145,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Instance that is represented by the ObjectNode.</i>
+     * 
      */
     @objid ("2ae08ec2-678f-447f-8f04-c046658e043a")
     Instance getRepresented();
@@ -144,6 +155,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Instance that is represented by the ObjectNode.</i>
+     * 
      */
     @objid ("22aed1c7-49a6-42f0-80e4-9998eb409913")
     void setRepresented(Instance value);
@@ -153,6 +165,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The represented parameter. For a Pin on a CallOperationAction or a CallBehaviorAction, links to the matched parameter of the called operation or behavior.</i>
+     * 
      */
     @objid ("f6a1c9f8-1798-4733-96df-14755bb3bed4")
     BehaviorParameter getRepresentedRealParameter();
@@ -162,6 +175,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The represented parameter. For a Pin on a CallOperationAction or a CallBehaviorAction, links to the matched parameter of the called operation or behavior.</i>
+     * 
      */
     @objid ("fe1f7503-142e-48b3-9747-2bf80ab8a514")
     void setRepresentedRealParameter(BehaviorParameter value);
@@ -171,6 +185,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Type of the object node.</i>
+     * 
      */
     @objid ("d154c61d-8ba1-45ea-9a0b-243506de23e3")
     GeneralClass getType();
@@ -180,6 +195,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Type of the object node.</i>
+     * 
      */
     @objid ("b779334a-0c45-4f72-b0cf-2200b7d264d2")
     void setType(GeneralClass value);
@@ -189,6 +205,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Shortcut to directly represent an association end by the node. This replaces the normal way: representing an instance bound to the associationEnd.</i>
+     * 
      */
     @objid ("64ac734f-bf5c-455a-8d3f-e0794921a6d1")
     AssociationEnd getRepresentedRole();
@@ -198,6 +215,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Shortcut to directly represent an association end by the node. This replaces the normal way: representing an instance bound to the associationEnd.</i>
+     * 
      */
     @objid ("7630abcc-8457-492e-8c6d-629ef1d17530")
     void setRepresentedRole(AssociationEnd value);
@@ -207,6 +225,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Represented attribute. Shortcut to directly represent an attribute, instead of representing an instance bound to the attribute.</i>
+     * 
      */
     @objid ("3f9a9955-32d0-44d7-b757-7bf0d2f72523")
     Attribute getRepresentedAttribute();
@@ -216,6 +235,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>Represented attribute. Shortcut to directly represent an attribute, instead of representing an instance bound to the attribute.</i>
+     * 
      */
     @objid ("53e9efa2-a890-482c-bf37-786a2662dd4f")
     void setRepresentedAttribute(Attribute value);
@@ -225,6 +245,7 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The required state of the object available at this point in the activity. This state must belong to the type of the objectNode, or of the represented element. </i>
+     * 
      */
     @objid ("754338f1-5283-4643-960a-aca891cad987")
     State getInState();
@@ -234,8 +255,9 @@ public interface ObjectNode extends ActivityNode {
      * 
      * Metamodel description:
      * <i>The required state of the object available at this point in the activity. This state must belong to the type of the objectNode, or of the represented element. </i>
+     * 
      */
     @objid ("ccca42b5-eef3-4f03-bf68-d4a5512924dd")
     void setInState(State value);
-
 }
+

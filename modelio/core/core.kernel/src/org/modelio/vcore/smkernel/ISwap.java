@@ -47,5 +47,5 @@ public interface ISwap {
      */
     @objid ("561eeffc-84b6-11e1-b644-001ec947ccaf")
     void close();
-
 }
+

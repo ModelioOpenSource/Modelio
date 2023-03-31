@@ -104,7 +104,7 @@ public class GmXYAnchor implements IPersistent {
         return getClass().getSimpleName()+"[reference="+getReferencePoint()+"]";
     }
 
-    @objid ("9a9e52dd-f17e-4d91-a102-c38f5e4d20fd")
+    @objid ("ab2817a5-1798-478a-837e-4c0b96d36208")
     @Override
     public boolean equals(Object obj) {
         // Automatically generated method.Please delete this comment before entering specific code.
@@ -115,10 +115,9 @@ public class GmXYAnchor implements IPersistent {
         GmXYAnchor other = (GmXYAnchor)obj;
         if (!Objects.equals(this.ref, other.ref)) return false;
         return true;
-        
     }
 
-    @objid ("8af82f6b-4bff-42ee-90c2-c3a9055f29e3")
+    @objid ("902b0bdb-c787-47eb-8e5c-2a2d31af0620")
     @Override
     public int hashCode() {
         // Automatically generated method.Please delete this comment before entering specific code.

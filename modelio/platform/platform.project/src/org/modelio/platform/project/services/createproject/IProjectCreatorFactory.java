@@ -21,11 +21,11 @@ package org.modelio.platform.project.services.createproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.platform.project.creation.IProjectCreationData;
-import org.modelio.platform.project.creation.IProjectCreator;
+import org.modelio.platform.project.creation.IProjectCreatorDelegate;
 
 @objid ("10b3dd5f-369b-44fa-8afb-734bda685867")
 public interface IProjectCreatorFactory {
     @objid ("8a661c8e-2858-4ca9-b436-82653eb083ae")
-    IProjectCreator getProjectCreator(IProjectCreationData data);
-
+    IProjectCreatorDelegate getProjectCreator(IProjectCreationData data);
 }
+

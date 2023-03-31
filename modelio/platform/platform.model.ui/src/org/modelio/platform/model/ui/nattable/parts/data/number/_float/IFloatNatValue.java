@@ -31,5 +31,5 @@ public interface IFloatNatValue extends INumberNatValue {
     @objid ("d3e371e5-a9c0-4f57-a850-aaa96c2b6dfa")
     @Override
     Float getValue();
-
 }
+

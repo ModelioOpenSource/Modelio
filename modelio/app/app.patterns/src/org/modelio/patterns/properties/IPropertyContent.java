@@ -30,5 +30,5 @@ public interface IPropertyContent {
 
     @objid ("f93dcf82-f17e-45e6-b4c0-20f7e7cb8676")
     void update(ModelElement element, IModulePropertyTable table);
-
 }
+

@@ -46,6 +46,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f568845a-55b6-11e2-877f-002564c97630")
 public class GmRegion extends GmFreeZone {
+    @objid ("f568845e-55b6-11e2-877f-002564c97630")
+    private Region element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -54,9 +57,6 @@ public class GmRegion extends GmFreeZone {
 
     @objid ("f5688465-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f568845e-55b6-11e2-877f-002564c97630")
-    private Region element;
 
     @objid ("fdfe81d9-5a5b-11e2-9e33-00137282c51b")
     private static GmRegionStructuredStyleKeys STRUCTKEYS = new GmRegionStructuredStyleKeys();

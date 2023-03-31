@@ -24,11 +24,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
+import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -147,6 +149,7 @@ public class ExmlFileAccess {
                                 .stream()
                                 .map(p -> new File(this.repositoryRoot,p))
                                 .collect(Collectors.toList());
+        
     }
 
     /**
@@ -183,11 +186,27 @@ public class ExmlFileAccess {
      */
     @objid ("5e6084ce-93df-498a-a288-243776ee199a")
     public MRef getObRef(final File exmlFile) {
+        // Guess with potential errors in the metaclass, depending on the geometry implementation
+        MRef obRef = this.geometry.getObRef(exmlFile.getPath());
+        if (obRef.mc.indexOf('.') > 0) {
+            // Assume the metaclass name is qualified
+            try {
+                UUID.fromString(obRef.uuid);
+                // good UUID
+                return obRef;
+            } catch (@SuppressWarnings ("unused") IllegalArgumentException e) {
+                // Not a UUID, read the identifier from file.
+            }
+        }
+        
+        // Short metaclass name, we need to read the file
         try {
             return readRefFromFile(exmlFile);
         } catch (IOException e) {
-            // Guess with errors in the metaclass
-            return this.geometry.getObRef(exmlFile.getPath());
+            Log.warning("Failed reading identifier in '%': %s", exmlFile, FileUtils.getLocalizedMessage(e));
+            Log.trace(e);
+            // Return with error in the metaclass
+            return obRef;
         }
         
     }
@@ -198,8 +217,9 @@ public class ExmlFileAccess {
      */
     @objid ("a35fb18c-4e2a-42c5-9b3e-bc0f8b7cd519")
     public boolean isBlobFile(File file) {
-        return !file.isDirectory() 
+        return !file.isDirectory()
                                 && this.geometry.isBlobPath(toRelativePath(file));
+        
     }
 
     /**
@@ -212,8 +232,9 @@ public class ExmlFileAccess {
      */
     @objid ("e47353a9-65aa-4ee7-854f-0e1632c06ca2")
     public boolean isModelFile(File file) {
-        return !file.isDirectory() 
+        return !file.isDirectory()
                                 && this.geometry.isModelPath(toRelativePath(file));
+        
     }
 
     /**
@@ -229,7 +250,7 @@ public class ExmlFileAccess {
             XMLStreamReader reader = this.xmlInputFactory.createXMLStreamReader(exmlFile.toString(), is);
         
             try {
-                while (! (reader.getEventType() == XMLStreamReader.START_ELEMENT 
+                while (! (reader.getEventType() == XMLStreamReader.START_ELEMENT
                         && reader.getLocalName().equals(ExmlTags.TAG_ID))) {
                     reader.next();
                 }

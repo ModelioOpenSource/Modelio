@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IModuleRegistry;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -58,8 +58,8 @@ public class ModuleResolutionHelper {
      * @return the first found GModule in the project which name match the passed name or <code>null</code> if none found.
      */
     @objid ("fd69ce1d-5d5a-46c8-990a-f54f45d0dad7")
-    private static GModule getGModuleByName(GProject gProject, String moduleName) {
-        for (GModule module : gProject.getModules()) {
+    private static GModule getGModuleByName(IGProject gProject, String moduleName) {
+        for (GModule module : gProject.getParts(GModule.class)) {
             if (module.getName().equals(moduleName)) {
                 return module;
             }
@@ -75,7 +75,7 @@ public class ModuleResolutionHelper {
      * @return the list of GModule of the passed project that the passed GModule depends on.
      */
     @objid ("fd87f63b-bb23-480b-aadf-420aa68f28a4")
-    public static List<GModule> getRequiredGModules(GModule gModule, GProject gProject) {
+    public static List<GModule> getRequiredGModules(GModule gModule, IGProject gProject) {
         return getRequiredGModules(gModule.getModuleHandle(), gProject);
     }
 
@@ -87,7 +87,7 @@ public class ModuleResolutionHelper {
      * @return the list of GModule of the passed project that the passed ModuleComponent depends on.
      */
     @objid ("2c1e14ee-3d75-4ad4-8bd8-31adc2a3103e")
-    private static List<GModule> getRequiredGModules(IModuleHandle moduleHandle, GProject gProject) {
+    private static List<GModule> getRequiredGModules(IModuleHandle moduleHandle, IGProject gProject) {
         // Read info in the model and find the corresponding GModules in the project.
         List<GModule> dependsOn = new ArrayList<>();
         // Read the list from administrative informations
@@ -111,7 +111,7 @@ public class ModuleResolutionHelper {
      * @return the list of GModule of the passed project that the passed GModule have weak dependencies on.
      */
     @objid ("9fdad231-2763-4a01-b254-e598c065f305")
-    public static List<GModule> getWeakDependenciesGModules(GModule gModule, GProject gProject) {
+    public static List<GModule> getWeakDependenciesGModules(GModule gModule, IGProject gProject) {
         return getWeakDependenciesGModules(gModule.getModuleHandle(), gProject);
     }
 
@@ -122,7 +122,7 @@ public class ModuleResolutionHelper {
      * @return the list of GModule of the passed project that the passed GModule have weak dependencies on.
      */
     @objid ("cb822355-ec0a-4192-9dde-6e68b15467cc")
-    private static List<GModule> getWeakDependenciesGModules(IModuleHandle moduleHandle, GProject gProject) {
+    private static List<GModule> getWeakDependenciesGModules(IModuleHandle moduleHandle, IGProject gProject) {
         // Read info in the model and find the corresponding GModules in the project.
         List<GModule> weakDependencies = new ArrayList<>();
         // Read the list from administrative informations
@@ -150,7 +150,7 @@ public class ModuleResolutionHelper {
      * @throws ModuleException if a dependency is missing or the module would break another one.
      */
     @objid ("f51019ab-0358-4a08-ad63-d38979b5fc87")
-    public static void checkCanInstall(IModuleHandle moduleHandle, GProject gProject) throws ModuleException {
+    public static void checkCanInstall(IModuleHandle moduleHandle, IGProject gProject) throws ModuleException {
         StringBuilder detailMsg = new StringBuilder();
         boolean hasMissingDep = false;
         boolean hasBrokenDep = false;
@@ -158,7 +158,7 @@ public class ModuleResolutionHelper {
         // Check for missing or outdated dependencies
         for (VersionedItem<?> moduleId : moduleHandle.getDependencies()) {
             boolean moduleFoundInProject = false;
-            for (GModule gModuleInProject : gProject.getModules()) {
+            for (GModule gModuleInProject : gProject.getParts(GModule.class)) {
                 if (gModuleInProject.getName().equals(moduleId.getName())
                         && isVersionCompatible(gModuleInProject.getVersion(), moduleId.getVersion())) {
                     moduleFoundInProject = true;
@@ -181,7 +181,7 @@ public class ModuleResolutionHelper {
         }
         
         // Check for modules requiring a newer version than moduleHandle
-        for (GModule gModuleInProject : gProject.getModules()) {
+        for (GModule gModuleInProject : gProject.getParts(GModule.class)) {
             for (VersionedItem<?> requiredModuleId : gModuleInProject.getModuleHandle().getDependencies()) {
                 if (requiredModuleId.getName().equals(moduleHandle.getName())
                         && !isVersionCompatible(moduleHandle.getVersion(), requiredModuleId.getVersion())) {
@@ -222,12 +222,12 @@ public class ModuleResolutionHelper {
      * @return a list containing all modules that depend on <i>moduleHandle</i>
      */
     @objid ("0f380173-9925-4d1a-8e58-2fc0f6dc1fe9")
-    private static List<GModule> getDependentGModules(IModuleHandle moduleHandle, GProject gProject) {
+    private static List<GModule> getDependentGModules(IModuleHandle moduleHandle, IGProject gProject) {
         List<GModule> dependents = new ArrayList<>();
         
         // Go through each module in the project and look at its dependencies in case it contains the passed
         // module...
-        for (GModule gModuleInProject : gProject.getModules()) {
+        for (GModule gModuleInProject : gProject.getParts(GModule.class)) {
             // Weak dependencies
             for (VersionedItem<?> moduleId : gModuleInProject.getModuleHandle().getWeakDependencies()) {
                 if (moduleHandle.getName().equals(moduleId.getName())
@@ -248,9 +248,9 @@ public class ModuleResolutionHelper {
      * @return the first found GModule in the project which matches the passed handle or <code>null</code> if none found.
      */
     @objid ("695d0090-f3bb-43dc-b5b1-b55e11433fcd")
-    public static GModule getGModuleByHandle(GProject gProject, IModuleHandle handle) {
+    public static GModule getGModuleByHandle(IGProject gProject, IModuleHandle handle) {
         GModule sameName = null;
-        for (GModule module : gProject.getModules()) {
+        for (GModule module : gProject.getParts(GModule.class)) {
             if (module.getModuleHandle().getUid().equals(handle.getUid())) {
                 return module;
             } else if (module.getName().equals(handle.getName())) {
@@ -290,12 +290,12 @@ public class ModuleResolutionHelper {
      * @return a list containing all modules that depend weakly on <i>moduleHandle</i>
      */
     @objid ("ead2fe7c-43ab-494c-ae89-458163ec87b4")
-    private static List<GModule> getWeakDependentGModules(IModuleHandle moduleHandle, GProject gProject) {
+    private static List<GModule> getWeakDependentGModules(IModuleHandle moduleHandle, IGProject gProject) {
         List<GModule> dependents = new ArrayList<>();
         
         // Go through each module in the project and look at its dependencies in case it contains the passed
         // module...
-        for (GModule gModuleInProject : gProject.getModules()) {
+        for (GModule gModuleInProject : gProject.getParts(GModule.class)) {
             // Weak dependencies
             for (VersionedItem<?> moduleId : gModuleInProject.getModuleHandle().getWeakDependencies()) {
                 if (moduleHandle.getName().equals(moduleId.getName())

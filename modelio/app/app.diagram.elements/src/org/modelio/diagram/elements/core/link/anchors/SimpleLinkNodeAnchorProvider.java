@@ -29,7 +29,6 @@ import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.modelio.diagram.elements.core.figures.anchors.LinkAnchor;
-import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
 import org.modelio.diagram.elements.core.link.extensions.GmFractionalConnectionLocator;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
@@ -41,59 +40,57 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  * @author cma
  * @since 5.1.0
  */
-@objid ("dd5e9896-1c9e-454b-82c0-ec9d7de459ad")
-public class SimpleLinkNodeAnchorProvider implements INodeAnchorProvider, IFixedConnectionAnchorFactory {
-    @objid ("d1699ee1-8e35-49a0-8e4d-141623d60bec")
+@objid ("77b8f08e-e453-4a3e-9368-7daebfd5c4a7")
+public class SimpleLinkNodeAnchorProvider implements INodeAnchorProvider {
+    @objid ("562a3bf9-0845-4a1d-8702-d40af4a21b49")
     public static final SimpleLinkNodeAnchorProvider INSTANCE = new SimpleLinkNodeAnchorProvider();
 
-    @objid ("9413f5e0-674c-4fd1-8818-e08dcf455d25")
+    @objid ("bc01b2af-6e62-4635-8bba-4e3ae7a2b93c")
     @Override
     public Object createAnchorModel(ConnectionAnchor anchor) {
         return null;
     }
 
-    @objid ("40ab1293-02bb-4409-8491-7e5b45194df0")
-    @Override
+    @objid ("fb7b9b9c-957e-4727-bcd2-1db006a142fc")
     public ConnectionAnchor createFromModel(IFigure nodeFigure, GmFixedAnchor gmLinkAnchor) {
         return createAnchorFor(nodeFigure);
     }
 
-    @objid ("e77ac0f9-cab8-400d-a45f-16a7fb07de48")
+    @objid ("602ce84b-8642-47ca-ade9-b902844387ee")
     private LinkAnchor createAnchorFor(IFigure nodeFigure) {
         return new LinkAnchor((Connection) nodeFigure, new GmFractionalConnectionLocator(0.5, 0, 0));
     }
 
-    @objid ("513be3ef-a76e-4656-93a9-9dbd9f44271e")
-    @Override
+    @objid ("d7f2a356-fb4d-475d-b1ee-89879ba73ab1")
     public Collection<ConnectionAnchor> getAllAnchors(IFigure nodeFig, ConnectionRouterId routerId, Integer face) {
         return Collections.singletonList(createAnchorFor(nodeFig));
     }
 
-    @objid ("3196e69f-1f25-418c-9a61-f440f62c6be9")
+    @objid ("e872c6b2-0354-48db-b563-e956fbc7c492")
     @Override
     public ConnectionAnchor getSourceConnectionAnchor(GraphicalEditPart nodeEditPart, ConnectionEditPart connEditpart) {
         return createAnchorFor(getConnectionFigure(nodeEditPart));
     }
 
-    @objid ("3d50bf5c-3a46-4ec7-929d-2709c06804a3")
+    @objid ("694e1a4d-0a0e-4d73-852e-025969c88232")
     @Override
     public ConnectionAnchor getSourceConnectionAnchor(GraphicalEditPart nodeEditPart, Request request) {
         return getConnectionAnchor(nodeEditPart, request, true);
     }
 
-    @objid ("5b174961-283a-4783-b595-7784cc0da396")
+    @objid ("a60bd56e-6ee9-416f-b1cc-143c8cbb77f6")
     @Override
     public ConnectionAnchor getTargetConnectionAnchor(GraphicalEditPart nodeEditPart, ConnectionEditPart connEditpart) {
         return createAnchorFor(getConnectionFigure(nodeEditPart));
     }
 
-    @objid ("64894842-ac7e-4061-846f-347e682294d0")
+    @objid ("dac04c33-8c0a-4476-b685-cc38d9e7e979")
     @Override
     public ConnectionAnchor getTargetConnectionAnchor(GraphicalEditPart nodeEditPart, Request request) {
         return getConnectionAnchor(nodeEditPart, request, false);
     }
 
-    @objid ("6d2d7762-8f80-4083-8a02-0a27faa6bd41")
+    @objid ("a169ae33-7472-4b6e-a671-7a529f5b7444")
     protected ConnectionAnchor getConnectionAnchor(GraphicalEditPart nodeEditPart, Request request, boolean source) {
         IFigure nodeFigure = (IFigure) request.getExtendedData().get(CreateLinkConstants.PROP_RECONNECT_ON_FIGURE);
         if (nodeFigure == null) {
@@ -107,7 +104,7 @@ public class SimpleLinkNodeAnchorProvider implements INodeAnchorProvider, IFixed
      * {@link Connection}
      * @return the Figure as a Connection
      */
-    @objid ("3ada75b0-b677-4a27-a0b2-54106e9f07c3")
+    @objid ("0ce41440-3323-49c1-872b-4a4aeee66e1c")
     protected static Connection getConnectionFigure(GraphicalEditPart nodeEditPart) {
         return (Connection) nodeEditPart.getFigure();
     }

@@ -36,6 +36,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.Location;
 import javax.xml.stream.XMLEventFactory;
@@ -199,19 +200,21 @@ public class MigratorFrom1To2 {
         Collection<File> newDirs = this.to.getInitialDirectories(this.metamodel);
         
         Path modelDir = this.repositoryPath.resolve(this.from.getGeometry().getModelPath());
-        Collection<Path> oldDirs = Files.list(modelDir).collect(Collectors.toList());
+        try (Stream<Path> entries = Files.list(modelDir)) {
+            Collection<Path> oldDirs = entries.collect(Collectors.toList());
         
-        SubProgress mon = SubProgress.convert(monitor, oldDirs.size());
+            SubProgress mon = SubProgress.convert(monitor, oldDirs.size());
         
-        int i = 0;
-        int count = oldDirs.size();
-        for (Path oldDir : oldDirs) {
-            monitor.subTask(VStoreExml.I18N.getMessage("MigratorFrom1To2.deletingDirectories.progress", i, count));
+            int i = 0;
+            int count = oldDirs.size();
+            for (Path oldDir : oldDirs) {
+                monitor.subTask(VStoreExml.I18N.getMessage("MigratorFrom1To2.deletingDirectories.progress", i, count));
         
-            if (!newDirs.contains(oldDir.toFile()) && !this.createdDirectories.contains(oldDir)) {
-                deleteDirectory(oldDir);
+                if (!newDirs.contains(oldDir.toFile()) && !this.createdDirectories.contains(oldDir)) {
+                    deleteDirectory(oldDir);
+                }
+                mon.worked(1);
             }
-            mon.worked(1);
         }
         
     }
@@ -228,8 +231,8 @@ public class MigratorFrom1To2 {
             return Files.deleteIfExists(oldDir);
         } catch (DirectoryNotEmptyException e) {
             // Add debugging infos
-            try {
-                String content = Files.list(oldDir).map(d -> "   - " + d.toString()).collect(Collectors.joining("\n", "Directory content:\n", ""));
+            try (Stream<Path> entries = Files.list(oldDir)) {
+                String content = entries.map(d -> "   - " + d.toString()).collect(Collectors.joining("\n", "Directory content:\n", ""));
                 e.addSuppressed(new Throwable(content));
             } catch (IOException e2) {
                 e.addSuppressed(e2);
@@ -376,12 +379,12 @@ public class MigratorFrom1To2 {
 
         @objid ("4d5e034d-0b46-4fbe-8d37-b94250c307de")
         private static final Collection<String> tagsToConvert = new HashSet<>(Arrays.asList(
-            			ExmlTags.TAG_COMPID, 
-            			ExmlTags.TAG_CMSNODE_PID,
-            			ExmlTags.TAG_DEPS_EXTID, 
-            			ExmlTags.TAG_FOREIGNID, 
-            			ExmlTags.TAG_ID, 
-            			ExmlTags.TAG_PID));
+                        ExmlTags.TAG_COMPID,
+                        ExmlTags.TAG_CMSNODE_PID,
+                        ExmlTags.TAG_DEPS_EXTID,
+                        ExmlTags.TAG_FOREIGNID,
+                        ExmlTags.TAG_ID,
+                        ExmlTags.TAG_PID));
 
         @objid ("d0f9465b-1aaf-42f6-b36a-a7c57635a2e4")
         private final ExmlFileAccess exmlAccess;
@@ -416,12 +419,12 @@ public class MigratorFrom1To2 {
                 Path tmpFile = Files.createTempFile("", ".exml");
             
                 try(InputStream is = Files.newInputStream(exmlFile);
-                        OutputStream os = Files.newOutputStream(tmpFile);) 
+                        OutputStream os = Files.newOutputStream(tmpFile);)
                 {
                     XMLEventReader evReader = inputFactory.createXMLEventReader(exmlFile.toString(), is);
                     XMLEventWriter evWriter = outputFactory.createXMLEventWriter(os, StandardCharsets.UTF_8.name());
-                    
-                    try (XmlCloser c1 = evReader::close; XmlCloser c2 = evWriter::close;) 
+            
+                    try (XmlCloser c1 = evReader::close; XmlCloser c2 = evWriter::close;)
                     {
                         rewriteResourceContent(evReader, evWriter);
                     }
@@ -446,7 +449,7 @@ public class MigratorFrom1To2 {
         private void rewriteResourceContent(XMLEventReader reader, XMLEventWriter writer) throws XMLStreamException {
             while(reader.hasNext()) {
                 XMLEvent event = (XMLEvent) reader.next();
-                if (event.getEventType() == XMLStreamConstants.START_ELEMENT 
+                if (event.getEventType() == XMLStreamConstants.START_ELEMENT
                         && tagsToConvert.contains(event.asStartElement().getName().getLocalPart())) {
                     event = convertIdTag(event.asStartElement());
                 }
@@ -488,8 +491,8 @@ public class MigratorFrom1To2 {
     public interface IFileOp {
         @objid ("3fd2242c-72f4-433e-bcdc-ebebb5b96eb9")
         void run(Path p) throws IOException;
-
-    }
+}
+    
 
     /**
      * {@link AutoCloseable} function to close an {@link XMLEventReader} or {@link XMLEventWriter}.
@@ -502,7 +505,7 @@ public class MigratorFrom1To2 {
         @objid ("817f247d-79a6-43b8-8b61-cef1cab25303")
         @Override
         void close() throws XMLStreamException;
-
-    }
+}
+    
 
 }

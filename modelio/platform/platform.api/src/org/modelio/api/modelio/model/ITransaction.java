@@ -53,5 +53,5 @@ public interface ITransaction extends AutoCloseable {
     @objid ("f2e1f466-0e28-11e2-baba-001ec947c8cc")
     @Override
     void close() throws RuntimeException;
-
 }
+

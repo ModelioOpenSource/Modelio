@@ -25,6 +25,7 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.AggregationKind;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -51,73 +52,132 @@ public class ClassArchitectureDiagramTemplate extends ClassStructureDiagramTempl
 
     @objid ("fe4a48c0-8e49-463d-b010-2086b5dc5c86")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final Classifier main) {
-        super.generateContent(dh, main);
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        super.generateNodesContent(dh, main);
+        
+        // Get rid of dumb case
+        if (!(main instanceof Classifier))
+            return;
+        
+        Classifier classifier = (Classifier) main;
         // Unmask incoming associations
-        for (AssociationEnd a : main.getTargetingEnd()) {
+        for (AssociationEnd a : classifier.getTargetingEnd()) {
             if (a.getAggregation() == AggregationKind.KINDISASSOCIATION) {
                 // Unmask right node
                 Classifier owner = a.getSource();
-                List<IDiagramGraphic> nodes = dh.unmask(owner, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
-                    // Add intern/extern style
-                    initStyle(main, owner, node);
-                    this._leftDgs.add(node);
-                }
-                // Unmask outgoing link
-                List<IDiagramGraphic> links = dh.unmask(a.getAssociation(), 0, 0);
-                if ((links != null) && (links.size() > 0)) {
-                    IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                    if (link.getFrom().equals(link.getTo())) {
-                        this._reflexiveLinksDgs.add(link);
+                if (!owner.getCompositionOwner().equals(classifier)
+                        && !classifier.getCompositionOwner().equals(owner)) {
+                    IDiagramNode node = this._unmasker.unmask(dh, owner);
+                    if (node != null) {
+                        // Add intern/extern style
+                        initStyle(classifier, owner, node);
+                        this._leftDgs.add(node);
                     }
                 }
             }
         }
         
         // unmask generalizations
-        for (Generalization g : main.getSpecialization()) {
+        for (Generalization g : classifier.getSpecialization()) {
             // Unmask parent node
             NameSpace child = g.getSubType();
-            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
+            IDiagramNode node = this._unmasker.unmask(dh, child);
+            if (node != null) {
                 // Add intern/extern style
-                initStyle(main, child, node);
-        
+                initStyle(classifier, child, node);
                 this._bottomDgs.add(node);
+            }
+        }
         
-                // Unmask link
-                List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
-                if ((links != null) && (links.size() > 0)) {
-                    IDiagramLink link = (IDiagramLink) links.get(0);
+        // unmask realizations
+        if (classifier instanceof Interface) {
+            for (InterfaceRealization ir : ((Interface) classifier).getImplementedLink()) {
+                // Unmask parent node
+                NameSpace child = ir.getImplementer();
+                IDiagramNode node = this._unmasker.unmask(dh, child);
+                if (node != null) {
+                    // Add intern/extern style
+                    initStyle(classifier, child, node);
+                    this._bottomDgs.add(node);
+                }
+            }
+        }
         
-                    if (link.getFrom().equals(link.getTo())) {
-                        this._reflexiveLinksDgs.add(link);
+    }
+
+    @objid ("d00b35f2-7c11-40a4-b307-3f066abd880c")
+    @Override
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        super.generateLinksContent(dh, main);
+        
+        // Get rid of dumb case
+        if (!(main instanceof Classifier))
+            return;
+        
+        Classifier classifier = (Classifier) main;
+        
+        // Unmask incoming associations
+        for (AssociationEnd a : classifier.getTargetingEnd()) {
+            if (a.getAggregation() == AggregationKind.KINDISASSOCIATION) {
+                Classifier source = a.getSource();
+                // Unmask outgoing link
+                if (!source.getCompositionOwner().equals(classifier)
+                        && !classifier.getCompositionOwner().equals(source)) {
+                    List<IDiagramGraphic> links = dh.unmask(a.getAssociation(), 0, 0);
+                    if (!links.isEmpty()) {
+                        IDiagramLink link = (IDiagramLink) links.get(0);
+        
+                        if (link.getFrom().equals(link.getTo())) {
+                            this._reflexiveLinksDgs.add(link);
+                        }
                     }
                 }
             }
         }
         
-        // unmask realizations
-        if (main instanceof Interface) {
-            for (InterfaceRealization ir : ((Interface) main).getImplementedLink()) {
-                // Unmask parent node
-                NameSpace child = ir.getImplementer();
-                List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
-                    // Add intern/extern style
-                    initStyle(main, child, node);
-                    this._bottomDgs.add(node);
+        // unmask generalizations
+        for (Generalization g : classifier.getSpecialization()) {
+            // Unmask parent node
+            NameSpace child = g.getSubType();
+            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
+            // if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
+            // IDiagramNode node = (IDiagramNode) nodes.get(0);
+            //
+            // // Add intern/extern style
+            // initStyle(classifier, child, node);
+            //
+            // this._bottomDgs.add(node);
+            // }
+        
+            // Unmask link
+            List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
+            if (!links.isEmpty()) {
+                IDiagramLink link = (IDiagramLink) links.get(0);
+        
+                if (link.getFrom().equals(link.getTo())) {
+                    this._reflexiveLinksDgs.add(link);
                 }
+            }
+        }
+        
+        // unmask realizations
+        if (classifier instanceof Interface)
+        
+        {
+            for (InterfaceRealization ir : ((Interface) classifier).getImplementedLink()) {
+                // Unmask parent node
+                // NameSpace child = ir.getImplementer();
+                // List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
+                // if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
+                // IDiagramNode node = (IDiagramNode) nodes.get(0);
+                // // Add intern/extern style
+                // initStyle(classifier, child, node);
+                // this._bottomDgs.add(node);
+                // }
         
                 // Unmask link
                 List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
-                if ((links != null) && (links.size() > 0)) {
+                if (!links.isEmpty()) {
                     IDiagramLink link = (IDiagramLink) links.get(0);
         
                     if (link.getFrom().equals(link.getTo())) {

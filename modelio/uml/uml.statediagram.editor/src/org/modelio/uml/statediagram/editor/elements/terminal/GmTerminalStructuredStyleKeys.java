@@ -47,7 +47,7 @@ public class GmTerminalStructuredStyleKeys extends StateAbstractStyleKeyProvider
 
     @objid ("81b4cdab-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("TERMINAL_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("81b4cdad-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("TERMINAL_SHOWTAGS", MetaKey.SHOWTAGS);

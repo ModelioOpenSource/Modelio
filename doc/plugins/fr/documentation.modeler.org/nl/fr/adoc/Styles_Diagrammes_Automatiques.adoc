@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Styles-dans-les-diagrammes-automatiques]]
 
-[[styles-dans-les-diagrammes-automatiques]]
+
+
 = Styles dans les diagrammes automatiques
 
 Tous les éléménts apparaissant dans les diagrammes automatiques ont un style spécifique indiquant leur placement au sein du projet :

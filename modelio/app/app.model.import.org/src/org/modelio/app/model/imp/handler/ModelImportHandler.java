@@ -34,10 +34,10 @@ import org.modelio.app.model.imp.impl.ModelImportDataModel;
 import org.modelio.app.model.imp.impl.ModelImporter;
 import org.modelio.app.model.imp.impl.ui.ImportModelDialog;
 import org.modelio.app.model.imp.plugin.AppModelImportOrg;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.gproject.GProjectEnvironment;
-import org.modelio.gproject.gproject.IGProjectEnv;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.env.GProjectEnvironment;
+import org.modelio.gproject.env.IGProjectEnv;
 import org.modelio.platform.core.ModelioEnv;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -65,12 +65,12 @@ public class ModelImportHandler {
     @objid ("8269f820-4e0c-4406-9a27-dd7757ce9197")
     @Execute
     public void execute(IProjectService projectService, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Named(IServiceConstants.ACTIVE_SHELL) Shell activeShell, IProgressService progressService, IModelioNavigationService navigator) {
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         
         GProjectEnvironment projectEnv = new GProjectEnvironment()
-                .setModulesCache(openedProject.getModuleCache())
+                .setModulesCache(openedProject.getProjectEnvironment().getModulesCache())
                 .addMetamodelExtensions(openedProject.getMetamodelExtensions())
-                .setRamcCache(modelioEnv.getRamcCachePath());
+                .setRamcCache(this.modelioEnv.getRamcCachePath());
         
         try (ModelImportDataModel dataModel = new ModelImportDataModel()) {
             if (promptUser(activeShell, projectEnv, dataModel) && dataModel.getElementsToImport().size() > 0) {
@@ -105,13 +105,13 @@ public class ModelImportHandler {
     @objid ("1fc787a6-0741-4477-ba75-b336379b5e8a")
     @CanExecute
     public boolean isEnabled(IProjectService projectService, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        final GProject openedProject = projectService.getOpenedProject();
+        final IGProject openedProject = projectService.getOpenedProject();
         if (openedProject == null) {
             return false;
         }
         
         List<MObject> selObjs = SelectionHelper.toList(selection, MObject.class);
-        List<IProjectFragment> selFrags = SelectionHelper.toList(selection, IProjectFragment.class);
+        List<IGModelFragment> selFrags = SelectionHelper.toList(selection, IGModelFragment.class);
         
         // - Only one fragment must be selected
         // - One fragment or some model objects must be selected.
@@ -132,7 +132,7 @@ public class ModelImportHandler {
         // - all elements must be in the same fragment
         // - the fragment must be editable.
         if (!selObjs.isEmpty()) {
-            IProjectFragment f = openedProject.getFragment(selObjs.get(0));
+            IGModelFragment f = openedProject.getFragment(selObjs.get(0));
             for (MObject obj : selObjs) {
                 // - all elements must be in the same fragment
                 if (openedProject.getFragment(obj) != f) {

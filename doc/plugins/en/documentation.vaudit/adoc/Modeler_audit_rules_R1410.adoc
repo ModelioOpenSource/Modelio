@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1410]]
 
-[[r1410]]
+
+
 = R1410
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Only one role of an _Association_ can be aggregate or composite.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The composition and aggregation concepts illustrate a responsibility role, from the element that owns the _AssociationEnd_ towards the target element. Therefore, this kind of responsibility cannot be both ways, and only one _AssociationEnd_ may be composite or aggregate.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have an association with both ends composite or aggregate or a mix of these two, you should change one of its ends or create a second association.

@@ -24,7 +24,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
@@ -53,7 +53,7 @@ public class CommonLabelProvider extends LabelProvider {
             final StringBuffer stereotypeLabel = new StringBuffer();
             final Stereotype stereotype = (Stereotype) element;
             stereotypeLabel.append("\u00AB "); // "? " : ' <<'
-            String label = ModuleI18NService.getLabel(stereotype);
+            String label = MdaResources.getLabel(stereotype);
             if (!label.isEmpty()) {
                 stereotypeLabel.append(label);
             } else {
@@ -65,7 +65,7 @@ public class CommonLabelProvider extends LabelProvider {
         
         // Module
         if (element instanceof ModuleComponent) {
-            return ModuleI18NService.getLabel((ModuleComponent) element);
+            return MdaResources.getLabel((ModuleComponent) element);
         }
         
         // Others (Element)
@@ -83,7 +83,7 @@ public class CommonLabelProvider extends LabelProvider {
         
         // If it is valid, get the module image
         if (moduleComponent.isValid()) {
-            image = ModuleI18NService.getModuleImage(moduleComponent);
+            image = MdaResources.getModuleImage(moduleComponent);
         }
         return image;
     }
@@ -94,7 +94,7 @@ public class CommonLabelProvider extends LabelProvider {
         
         // If it is valid, get the stereotype image
         if (stereotype.isValid()) {
-            image = ModuleI18NService.getIcon(stereotype);
+            image = MdaResources.getIcon(stereotype);
         }
         return image;
     }

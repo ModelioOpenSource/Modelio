@@ -140,5 +140,5 @@ public interface IField {
 
     @objid ("70a9c4c0-736b-4aeb-8f63-439becf48f08")
     void setModel(IFormFieldData data);
-
 }
+

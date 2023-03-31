@@ -38,7 +38,7 @@ public interface IAuditExecutionPlan {
     void disableRule(IRule rule);
 
     @objid ("b16595a2-f678-4826-ad25-b24f67b06292")
-    public final class AuditTrigger {
+    final class AuditTrigger {
         @objid ("aefdcfab-7a65-4544-af6a-a7611c122622")
         public static final int CREATE = 1;
 
@@ -83,5 +83,5 @@ public interface IAuditExecutionPlan {
         }
 
     }
-
 }
+

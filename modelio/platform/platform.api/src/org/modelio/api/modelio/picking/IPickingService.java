@@ -82,5 +82,5 @@ public interface IPickingService {
      */
     @objid ("8956584f-7585-11e0-8651-001ec947cd2a")
     void endPickingSession(final IPickingSession session);
-
 }
+

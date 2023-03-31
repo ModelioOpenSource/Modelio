@@ -26,19 +26,12 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.draw2d.geometry.Transposer;
 
 /**
  * Factory of {@link SidedConnectionEndpointLocator}.
  */
 @objid ("800b492b-1dec-11e2-8cad-001ec947c8cc")
 class SidedConnectionEndpointLocatorFactory {
-    /**
-     * Transposes the location if the connection point is along the top or bottom of its owner figure.
-     */
-    @objid ("675cdb97-1e83-11e2-8cad-001ec947c8cc")
-    private Transposer transposer = new Transposer();
-
     @objid ("800b4932-1dec-11e2-8cad-001ec947c8cc")
     public  SidedConnectionEndpointLocatorFactory() {
         
@@ -93,25 +86,12 @@ class SidedConnectionEndpointLocatorFactory {
         }
         
         int cos = 1;
-        this.transposer.setEnabled(false);
-        
-        /*
-         * Label placement calculations are done as if the connection point is along the left or right side of the figure. If
-         * the connection point is along the top or bottom, values are transposed.
-         */
-        if (quadrant == 1 || quadrant == 3) {
-            this.transposer.setEnabled(true);
-        }
         
         if (quadrant == 3 || quadrant == 4) {
             cos = -1;
         }
         
-        final Dimension figureSize = this.transposer.t(extension.getPreferredSize());
-        startPoint = this.transposer.t(startPoint);
-        endPoint = this.transposer.t(endPoint);
-        delta = this.transposer.t(delta);
-        mousePosition = this.transposer.t(mousePosition);
+        final Dimension figureSize = extension.getPreferredSize();
         final double tan = calculateTan(startPoint, endPoint);
         
         Point initialLocation = getLocation(currentLocator.getUDistance(), currentLocator.getVDistance(), startPoint,
@@ -123,31 +103,31 @@ class SidedConnectionEndpointLocatorFactory {
         int vDistance = uvDistance[1];
         
         
-        // int[] mouseUVDistance = getUVDistance(mousePosition, startPoint, new Dimension(0, 0), cos, tan);
-        // int mouseV = mouseUVDistance[1];
+         int[] mouseUVDistance = getUVDistance(mousePosition, startPoint, new Dimension(0, 0), cos, tan);
+         int mouseV = mouseUVDistance[1];
         
-        // if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
-        //    vDistance = 0;
-        // } else
-        //   if ((mouseV > 0 && currentLocator.getVDistance() < 0) ||
-        //      (mouseV < 0 && currentLocator.getVDistance() > 0)) {
-        //      int sign = currentLocator.getVDistance() > 0 ? 1 : -1;
-        //      location.y += figureSize.height * sign;
-        //      uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
-        //      vDistance = uvDistance[1];
-        //   if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
-        //     vDistance = 0;
-        //   }
-        // } else if (currentLocator.getVDistance() == 0) {
-        //    if (Math.abs(delta.height) < figureSize.height / 2) {
-        //    vDistance = 100;
-        // } else {
-        //    int sign = vDistance < 0 ? 1 : -1;
-        //    location.y += figureSize.height / 2 * sign;
-        //    uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
-        //    vDistance = uvDistance[1];
-        //  }
-        // }
+         if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
+            vDistance = 0;
+         } else
+           if ((mouseV > 0 && currentLocator.getVDistance() < 0) ||
+              (mouseV < 0 && currentLocator.getVDistance() > 0)) {
+              int sign = currentLocator.getVDistance() > 0 ? 1 : -1;
+              location.y += figureSize.height * sign;
+              uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
+              vDistance = uvDistance[1];
+           if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
+             vDistance = 0;
+           }
+         } else if (currentLocator.getVDistance() == 0) {
+            if (Math.abs(delta.height) < figureSize.height / 2) {
+            vDistance = 100;
+         } else {
+            int sign = vDistance < 0 ? 1 : -1;
+            location.y += figureSize.height / 2 * sign;
+            uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
+            vDistance = uvDistance[1];
+          }
+         }
         
         SidedConnectionEndpointLocator ret = new SidedConnectionEndpointLocator(conn, isTargetSide);
         ret.setUDistance(uDistance);

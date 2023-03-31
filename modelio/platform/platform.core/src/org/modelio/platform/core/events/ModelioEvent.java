@@ -24,9 +24,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 /**
  * This enumeration defines the topics that can be used to post Modelio event on
  * ModelioEventService.
- * 
- * 
- * @author phv
  */
 @objid ("0011b764-fd67-103d-8282-001ec947cd2a")
 public enum ModelioEvent {
@@ -54,6 +51,11 @@ public enum ModelioEvent {
     @objid ("05485796-e03b-4a99-9ae4-95b17fcfac60")
     WORKSPACE_NAVIGATE(ModelioEventTopics.WORKSPACE_NAVIGATE),
     /**
+     * MDA_SESSION_UP is fired while a project is being opened and the MDA shared session becomes available.<br>
+     * At this stage, the core session is setup, the shared modeling session is created however modules are not started yet.
+     * This event is ONLY expected to be caught by API implementation for initialization and configuration purposes.
+     * 
+     * Event data: GProject the available session
      * PROJECT_OPENING is fired while a project is being opened.<br>
      * At this stage, its core session is setup but modules are not started yet.
      * 
@@ -203,7 +205,44 @@ public enum ModelioEvent {
      * Event data: A List of MObject
      */
     @objid ("002a0832-a721-10ac-8258-001ec947cd2a")
-    NAVIGATE_ELEMENT(ModelioEventTopics.NAVIGATE_ELEMENT);
+    NAVIGATE_ELEMENT(ModelioEventTopics.NAVIGATE_ELEMENT),
+    /**
+     * FEATURE_DEACTIVATE: fired to request a plugin to deactivate one of its registered features
+     * 
+     * Event data: GFeature the de-activated feature
+     */
+    @objid ("243db7a9-a78c-44cd-b79d-1a5486022811")
+    FEATURE_DEACTIVATE(ModelioEventTopics.FEATURE_DEACTIVATE),
+    /**
+     * FEATURE_ACTIVATE: fired to request a plugin to activate one of its registered features
+     * 
+     * Event data: GFeature the activated feature
+     */
+    @objid ("eabe314b-3c2c-418a-b368-1adb01818a6a")
+    FEATURE_ACTIVATE(ModelioEventTopics.FEATURE_ACTIVATE),
+    /**
+     * MDA_SESSION_UP is fired while a project is being opened and the MDA shared session becomes available.<br>
+     * At this stage, the core session is setup, the shared modeling session is created however modules are not started yet.
+     * This event is ONLY expected to be caught by API implementation for initialization and configuration purposes.
+     * To later on retrieve the shared modeling session see ModelingSessionRegistry.
+     * Event data: GProject the project being opened.
+     */
+    @objid ("95709637-7ee0-42ee-88a9-53576b814489")
+    PROJECT_OPENING_MDA_SESSION_UP(ModelioEventTopics.PROJECT_OPENING_MDA_SESSION_UP),
+    /**
+     * FEATURE_STARTED: fired by a feature  to indicate that it just started whatever the reason (configuration change  or project opening).
+     * 
+     * Event data: The feature Id
+     */
+    @objid ("8cd16228-1b08-45d2-bc22-0f337320fb01")
+    FEATURE_STARTED(ModelioEventTopics.FEATURE_STARTED),
+    /**
+     * FEATURE_STOPPED: fired by a feature to indicate that it just stopped  whatever the reason  (configuration change  or project opening).
+     * 
+     * Event data: The feature Id
+     */
+    @objid ("49f25d70-b204-4a38-9ffc-92d411cada1c")
+    FEATURE_STOPPED(ModelioEventTopics.FEATURE_STOPPED);
 
     @objid ("0002f4d6-0276-103e-8282-001ec947cd2a")
     private String topic;

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1750]]
 
-[[r1750]]
+
+
 = R1750
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _AttributeLink_ doit avoir un nom unique dans son _Instance_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _AttributeLink_ correspond à la valeur d'un _Attribute_, et doit avoir le même nom que l'attribut qu'il instancie. Ce nom doit être unique dans le _Classifier_ instancié aussi bien que dans _l'Instance_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Vérifiez que les noms de chaque _AttributeLink_ correspondent bien aux noms des attributs qu'ils instancient, et si c'est le cas, vérifiez que les attributs du _Classifier_ instancié sont unique.

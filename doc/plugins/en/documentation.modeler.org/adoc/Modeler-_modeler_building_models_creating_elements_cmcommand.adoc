@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-elements-using-the-contextual-menu-commands]]
 
-[[creating-elements-using-the-contextual-menu-commands]]
+
+
 = Creating elements using the contextual menu commands
 
 In the explorer and diagram edition views, you can create model elements using the "Create an element" command.

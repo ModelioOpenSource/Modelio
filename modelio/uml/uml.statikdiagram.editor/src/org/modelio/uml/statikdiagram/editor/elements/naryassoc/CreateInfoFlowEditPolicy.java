@@ -31,6 +31,7 @@ import org.modelio.uml.statikdiagram.editor.elements.informationflowgroup.GmInfo
  * @author cmarin
  */
 @objid ("35bedac7-55b7-11e2-877f-002564c97630")
-public class CreateInfoFlowEditPolicy extends DefaultCreateInfoFlowOnLinkEditPolicy {// Nothing to do
+public class CreateInfoFlowEditPolicy extends DefaultCreateInfoFlowOnLinkEditPolicy {
+// Nothing to do
     
 }

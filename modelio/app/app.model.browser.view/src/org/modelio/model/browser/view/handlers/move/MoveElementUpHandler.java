@@ -36,7 +36,10 @@ import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
+import org.modelio.model.browser.view.BrowserView;
+import org.modelio.model.browser.view.content.IModelioTreeContentProvider;
 import org.modelio.model.browser.view.plugin.BrowserViewActivator;
+import org.modelio.platform.core.metamodel.MetamodelExtensionPoint;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -53,6 +56,14 @@ public class MoveElementUpHandler {
     @objid ("25481852-43a4-11e2-b513-002564c97630")
     @Inject
     protected IProjectService projectService;
+
+    @objid ("7e61b5d3-14b7-4db8-b09c-4969361f8cf2")
+    private MetamodelExtensionPoint<IModelioTreeContentProvider> contentProviderExtensions;
+
+    @objid ("2bff050e-8cd3-4737-bf04-ea81ef096cb6")
+    public  MoveElementUpHandler() {
+        this.contentProviderExtensions = new MetamodelExtensionPoint<>(BrowserView.CONTENTPROVIDER_EXTENSION_POINT_ID);
+    }
 
     /**
      * Available only when the selection contains only one modifiable element.
@@ -73,6 +84,13 @@ public class MoveElementUpHandler {
         SmObjectImpl dest = MoveElementUpHandler.getPasteTarget(toClone);
         if (dest == null) {
             return false;
+        }
+        
+        
+        for(IModelioTreeContentProvider tp : this.contentProviderExtensions.getAll()) {
+            if(!tp.canReorder(toClone.get(0))) {
+                return false;
+            }
         }
         
         List<? extends MObject> listToReorder = getListToMove(toClone.get(0), dest);

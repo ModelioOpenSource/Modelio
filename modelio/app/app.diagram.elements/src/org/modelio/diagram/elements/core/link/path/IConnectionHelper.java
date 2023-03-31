@@ -79,5 +79,5 @@ public interface IConnectionHelper {
      */
     @objid ("7c519ac1-f42a-4b27-9ac8-7d112ddaa595")
     boolean isUsable();
-
 }
+

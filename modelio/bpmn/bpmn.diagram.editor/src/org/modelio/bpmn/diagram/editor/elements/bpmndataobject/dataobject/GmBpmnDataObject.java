@@ -35,6 +35,7 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.bpmn.objects.BpmnDataObject;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -139,6 +140,12 @@ public class GmBpmnDataObject extends GmPortContainer {
             return Collections.emptyList();
         }
         
+    }
+
+    @objid ("c466b15d-20d6-4038-a63c-461e50199cc8")
+    @Override
+    public ISymbolViewModel getSymbolViewModel() {
+        return GmBpmnDataObjectStyleKeys.createSymbolviewModel(getPersistedStyle(), this);
     }
 
     @objid ("60bbe8fb-55b6-11e2-877f-002564c97630")

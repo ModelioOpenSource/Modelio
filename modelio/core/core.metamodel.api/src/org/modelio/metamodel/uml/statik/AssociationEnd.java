@@ -42,6 +42,8 @@ import org.modelio.metamodel.uml.informationFlow.InformationFlow;
  * An Association is linked to several Classes via AssociationEnds, which determine roles, multiplicities and navigabilities. The connected Classifier is defined by the usual composition link from Classifier to Feature. 
  * 
  * In Modelio, an AssociationEnd is a Feature of a Class.
+ * 
+ * 
  */
 @objid ("00974ea6-c4be-1fd8-97fe-001ec947cd2a")
 public interface AssociationEnd extends StructuralFeature {
@@ -99,6 +101,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>This attribute is used to distinguish between normal Associations (KindIsAssociation), shared aggregation (KindIsAggregation) and strong aggregations (KindIsComposition)</i>
+     * 
      */
     @objid ("87741b8d-1e3d-4aa5-8e96-8666083cf5d9")
     AggregationKind getAggregation();
@@ -108,6 +111,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>This attribute is used to distinguish between normal Associations (KindIsAssociation), shared aggregation (KindIsAggregation) and strong aggregations (KindIsComposition)</i>
+     * 
      */
     @objid ("40217ab0-dab1-40f4-9e4d-baa1ebdb156b")
     void setAggregation(AggregationKind value);
@@ -117,6 +121,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>When placed on a target end, specifies whether an instance of the Association may be modified from the source end.</i>
+     * 
      */
     @objid ("c08974e7-9a1e-4663-b3af-9deafd6dcf44")
     boolean isIsChangeable();
@@ -126,6 +131,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>When placed on a target end, specifies whether an instance of the Association may be modified from the source end.</i>
+     * 
      */
     @objid ("847010d2-c7d6-47b5-81bb-db745f935350")
     void setIsChangeable(boolean value);
@@ -135,6 +141,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6813f71e-350e-41f9-a529-487cdca630ad")
     Classifier getTarget();
@@ -144,6 +151,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("20c02c9e-3dc8-48c0-85e9-de0f7a64895a")
     void setTarget(Classifier value);
@@ -153,6 +161,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("43c827e2-35f1-4817-a11a-82686ba5f8dd")
     AssociationEnd getOppositeOwner();
@@ -162,6 +171,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2663416c-3111-4114-aada-1cbda5c55380")
     void setOppositeOwner(AssociationEnd value);
@@ -171,6 +181,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7047f72d-7ff3-489c-a675-b75b57c2da97")
     Classifier getSource();
@@ -180,6 +191,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c4b8f790-eb89-4a89-952a-fddeaedf1481")
     void setSource(Classifier value);
@@ -189,6 +201,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a337ff12-42d6-497e-bb04-75062a4fc946")
     EList<LinkEnd> getOccurence();
@@ -198,6 +211,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ac5b1c1a-16f9-49f5-83ff-944e50077fb4")
     <T extends LinkEnd> List<T> getOccurence(java.lang.Class<T> filterClass);
@@ -207,6 +221,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("30bf9d82-cede-484c-9198-a1537e7f6ed4")
     EList<InformationFlow> getSent();
@@ -216,6 +231,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e36b3678-15a2-460e-9881-f76e3fea2dc6")
     <T extends InformationFlow> List<T> getSent(java.lang.Class<T> filterClass);
@@ -225,6 +241,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>Defines a Qualifier on the AssociationEnd. </i>
+     * 
      */
     @objid ("50df1c3c-404c-4a9a-85f9-8d294689e65b")
     EList<Attribute> getQualifier();
@@ -234,6 +251,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>Defines a Qualifier on the AssociationEnd. </i>
+     * 
      */
     @objid ("9bbf9cdc-b75c-4714-a637-be5010f27ed9")
     <T extends Attribute> List<T> getQualifier(java.lang.Class<T> filterClass);
@@ -243,6 +261,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("afc3e08a-638a-4290-a142-ab7892638663")
     AssociationEnd getOpposite();
@@ -252,6 +271,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d77aa88e-9717-46ad-bd9d-805fa39aa962")
     void setOpposite(AssociationEnd value);
@@ -261,6 +281,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1bfede1d-c1d7-4abd-ad36-83584578fe7c")
     EList<ObjectNode> getRepresentingObjectNode();
@@ -270,6 +291,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e6be6ac9-94f3-45cd-a58b-794947bedf80")
     <T extends ObjectNode> List<T> getRepresentingObjectNode(java.lang.Class<T> filterClass);
@@ -279,6 +301,7 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("358308e4-f83d-4a62-8bb4-5c3c6adc3c3c")
     Association getAssociation();
@@ -288,8 +311,9 @@ public interface AssociationEnd extends StructuralFeature {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6aaae33f-2390-46eb-9b76-4b4c14beec9b")
     void setAssociation(Association value);
-
 }
+

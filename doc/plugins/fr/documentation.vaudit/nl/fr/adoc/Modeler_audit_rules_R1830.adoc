@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1830]]
 
-[[r1830]]
+
+
 = R1830
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une _PartDecompoistion_ ne peut pas recevoir de _Messages_ de type 'create' ou 'destroy'.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _PartDecomposition_ est la description des interactions internes d'une _Lifeline_ relativement à une _Interaction_.
 
 Une _Lifeline_ a une _Class_ associée par le type de l'_Instance_ que la _Lifeline_ représente. Cette _Class_ peut avoir une structure interne, et la _PartDecomposition_ est une _Interaction_ qui décrit le comportement de cette structure interne relativement à l'_Interaction_ où la décomposition est référencée.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez l'erreur R1830, supprimez le ou les Messages incriminés.

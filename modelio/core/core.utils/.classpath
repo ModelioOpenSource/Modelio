@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry excluding=".svn/" kind="src" path="src"/>
 	<classpathentry kind="lib" path="/compilation-env/javadesigner.jar"/>
+	<classpathentry kind="lib" path="lib/deps/accessors-smart-2.4.8.jar"/>
+	<classpathentry kind="lib" path="lib/deps/asm-9.1.jar"/>
+	<classpathentry kind="lib" path="lib/deps/content-type-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/deps/jcip-annotations-1.0-1.jar"/>
+	<classpathentry kind="lib" path="lib/deps/json-smart-2.4.8.jar"/>
+	<classpathentry kind="lib" path="lib/deps/lang-tag-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/deps/nimbus-jose-jwt-9.22.jar"/>
+	<classpathentry kind="lib" path="lib/deps/oauth2-oidc-sdk-9.35.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

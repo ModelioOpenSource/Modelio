@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2060]]
 
-[[r2060]]
+
+
 = R2060
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom d'un _NameSpace_ doit être unique dans le _NameSpace_ le contenant.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Tous les _NameSpaces_ d'un _NameSpace_ doivent avoir un nom différent pour pouvoir les distinguer.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Pour résoudre ce problème :

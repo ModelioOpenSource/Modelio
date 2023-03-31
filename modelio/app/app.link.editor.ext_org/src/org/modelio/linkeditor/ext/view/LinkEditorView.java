@@ -40,7 +40,7 @@ import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Composite;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.linkeditor.ext.LinkEditorConfigurationParameters;
 import org.modelio.linkeditor.handlers.leftdepth.LeftDepthSpinner;
 import org.modelio.linkeditor.handlers.rightdepth.RightDepthSpinner;
@@ -130,7 +130,7 @@ public class LinkEditorView implements ILinkEditorView {
     @objid ("1ba90f74-5e33-11e2-b81d-002564c97630")
     @Inject
     @Optional
-    void onProjectClosing(@EventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject project, ESelectionService selectionService) {
+    void onProjectClosing(@EventTopic(ModelioEventTopics.PROJECT_CLOSING) final IGProject project, ESelectionService selectionService) {
         // Make the view listening to model changes, the panel itself can be used as a IModelChnageListener
         // Unregister as a model change listener.
         if (project != null) {
@@ -147,7 +147,7 @@ public class LinkEditorView implements ILinkEditorView {
     @objid ("1249df2f-9ab2-4dfd-baa3-0b4bc8152bff")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project) {
+    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject project) {
         // Make the view listening to model changes, the panel itself can be used as a IodelChnageListener
         project.getSession().getModelChangeSupport().addModelChangeListener(this.linkEditorPanel);
         refreshFromCurrentSelection();
@@ -168,6 +168,9 @@ public class LinkEditorView implements ILinkEditorView {
         // get the view toolbar and view menu for future updates
         this.toolbar = part.getToolbar();
         
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        this.toolbar.setVisible(true);
+        
         // Create the GUI controls
         this.linkEditorPanel = ContextInjectionFactory.make(LinkEditorPanelProvider.class, ctx);
         this.linkEditorPanel.createPanel(composite);
@@ -180,7 +183,7 @@ public class LinkEditorView implements ILinkEditorView {
         
         // Sometimes, the view is instantiated only after the project is opened
         // project preferences maybe null if there is no opened project
-        GProject project = theProjectService.getOpenedProject();
+        IGProject project = theProjectService.getOpenedProject();
         if (project != null) {
             onProjectOpened(project);
         }

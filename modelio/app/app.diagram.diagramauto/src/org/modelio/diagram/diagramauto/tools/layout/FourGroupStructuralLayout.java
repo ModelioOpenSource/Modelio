@@ -33,6 +33,27 @@ import org.modelio.api.modelio.diagram.InvalidPointsPathException;
 import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.diagramauto.tools.DgUtils;
 
+/**
+ * Layout Four groups of DG's around a center (main) Dg.
+ * 
+ * <pre>
+ * .-----------------.
+ * |    Top group    |
+ * .-----------------.
+ * 
+ * .-------.    .------------------.    .-------.
+ * |       |    |                  |    |       |
+ * | Left  |    |       Main       |    | Right |
+ * | Group |    |                  |    | Group |
+ * |       |    |                  |    |       |
+ * .-------.    .------------------.    .-------.
+ * 
+ * .-----------------.
+ * |   Bottom group  |
+ * .-----------------.
+ * 
+ * </pre>
+ */
 @objid ("29b85026-6983-4b73-9e5e-975e5d8bc938")
 public class FourGroupStructuralLayout {
     @objid ("8c7d3be1-120c-496b-ac65-597a76d7d492")
@@ -54,112 +75,68 @@ public class FourGroupStructuralLayout {
     private static final int REFLECT_SPACING = 20;
 
     @objid ("6364f1c3-162e-4042-a2fd-2a5930e1f0d7")
-    private int _centerX = 0; /* // x for center
-     */
+    private int _centerX = 0; // x for center
+    
 
     @objid ("0762b9c1-0adf-4c8c-bfc2-26d2594adb08")
-    private int _centerY = 0; /* // y for center
-     */
+    private int _centerY = 0; // y for center
+    
 
     @objid ("408a20ff-2777-45fe-ace7-daafc200cb34")
-    private int _mainX = 0; /* // x for main
-     */
+    private int _mainX = 0; // x for main
+    
 
     @objid ("16c73402-e9e6-41a5-afc6-92c44e37edb4")
-    private int _mainY = 0; /* // y for main
-     */
+    private int _mainY = 0; // y for main
+    
 
     @objid ("174d49de-2a83-4a78-ab99-65792eb21318")
-    private int _mainW = 0; /* // width for main
-     */
+    private int _mainW = 0; // width for main
+    
 
     @objid ("ec9d77bb-d3c1-468f-a4f2-81ce0d98491d")
-    private int _mainH = 0; /* // height for main
-     */
+    private int _mainH = 0; // height for main
+    
 
     @objid ("556e6e06-f2ac-4227-b179-9d88d8badc52")
-    private int _topgW = 0; /* // top group width
-     */
+    private int _topgW = 0; // top group width
+    
 
     @objid ("e510c663-8479-4593-8163-9f88a3fb19de")
-    private int _topgH = 0; /* // top group height
-     */
+    private int _topgH = 0; // top group height
+    
 
     @objid ("1b9f69e8-c11d-4c7f-83ec-57959c7cd846")
-    private int _leftgW = 0; /* // left group width
-     */
+    private int _leftgW = 0; // left group width
+    
 
     @objid ("9dd3f482-30d0-4df1-938f-98436144745b")
-    private int _leftgH = 0; /* // left group height
-     */
+    private int _leftgH = 0; // left group height
+    
 
     @objid ("5389f160-9008-451a-9930-3d69eb10f1a7")
-    private int _rightgW = 0; /* // right group width
-     */
+    private int _rightgW = 0; // right group width
+    
 
     @objid ("ebbd996f-8f91-482b-89a4-7157b9a1141b")
-    private int _rightgH = 0; /* // right group height
-     */
+    private int _rightgH = 0; // right group height
+    
 
     @objid ("35dbf30b-d886-4dfa-8d26-7c96450e078d")
-    private int _bottomgW = 0; /* // top group width
-     */
+    private int _bottomgW = 0; // top group width
+    
 
     @objid ("bc032f6d-6bf2-49d0-991c-618dd465cced")
-    private int _bottomgH = 0; /* // top group height
-     */
+    private int _bottomgH = 0; // top group height
+    
 
     @objid ("35886851-121b-4a11-9872-3954a2d9df4c")
-    private int _reflexivegH = 0; /* // reflexive group width
-     */
+    private int _reflexivegH = 0; // reflexive group width
+    
 
     @objid ("08d88f8d-be78-464b-9067-e3b9ce8f25a1")
-    private int _reflexivegW = 0; /* // reflexive group height
-     */
-
-    /**
-     * Compute the size of an horizontal group
-     */
-    @objid ("54708814-3e3d-448d-bd87-8981f336965f")
-    private Dimension computeHgroupSize(final List<IDiagramNode> dgs) {
-        int width = 0;
-        int height = 0;
-        
-        for (IDiagramNode node : dgs) {
-            // TODO node.fitToContent();
-        
-            Rectangle r = node.getOverallBounds();
-            width = width + r.width + HSPACING;
-            height = Math.max(height, r.height);
-        }
-        
-        if (width > 0) {
-            width = width - HSPACING;
-        }
-        return new Dimension(width, height);
-    }
-
-    /**
-     * Compute the size of a vertical group
-     */
-    @objid ("9456a656-487b-4c36-8594-d0d079ea73b8")
-    private Dimension computeVerticalSize(final List<IDiagramNode> dgs) {
-        int width = 0;
-        int height = 0;
-        
-        for (IDiagramNode node : dgs) {
-            // TODO node.fitToContent();
-        
-            Rectangle r = node.getOverallBounds();
-            width = Math.max(width, r.width);
-            height = height + r.height + VSPACING;
-        }
-        
-        if (height > 0) {
-            height = height - VSPACING;
-        }
-        return new Dimension(width, height);
-    }
+    private int _reflexivegW = 0; // reflexive group height
+    
 
     @objid ("6d1e8590-1144-45e1-a227-b644ec070f7a")
     public void layout(final IDiagramNode mainDG, final List<IDiagramNode> topDgs, final List<IDiagramNode> bottomDgs, final List<IDiagramNode> leftDgs, final List<IDiagramNode> rightDgs, final List<IDiagramLink> linkDgs) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
@@ -169,7 +146,6 @@ public class FourGroupStructuralLayout {
         Dimension size = computeHgroupSize(topDgs);
         this._topgW = size.width;
         this._topgH = size.height;
-        // System.out.println("top " + size);
         
         // compute bottom group width, horizontal group
         size = computeHgroupSize(bottomDgs);
@@ -187,7 +163,6 @@ public class FourGroupStructuralLayout {
         size = computeVerticalSize(leftDgs);
         this._leftgW = size.width;
         this._leftgH = size.height;
-        // System.out.println("left " + size);
         
         // compute right group height
         for (IDiagramNode right : rightDgs) {
@@ -429,6 +404,50 @@ public class FourGroupStructuralLayout {
             offset = offset + REFLECT_SPACING;
         }
         
+    }
+
+    /**
+     * Compute the size of an horizontal group
+     */
+    @objid ("54708814-3e3d-448d-bd87-8981f336965f")
+    private Dimension computeHgroupSize(final List<IDiagramNode> dgs) {
+        int width = 0;
+        int height = 0;
+        
+        for (IDiagramNode node : dgs) {
+            // TODO node.fitToContent();
+        
+            Rectangle r = node.getOverallBounds();
+            width = width + r.width + HSPACING;
+            height = Math.max(height, r.height);
+        }
+        
+        if (width > 0) {
+            width = width - HSPACING;
+        }
+        return new Dimension(width, height);
+    }
+
+    /**
+     * Compute the size of a vertical group
+     */
+    @objid ("9456a656-487b-4c36-8594-d0d079ea73b8")
+    private Dimension computeVerticalSize(final List<IDiagramNode> dgs) {
+        int width = 0;
+        int height = 0;
+        
+        for (IDiagramNode node : dgs) {
+            // TODO node.fitToContent();
+        
+            Rectangle r = node.getOverallBounds();
+            width = Math.max(width, r.width);
+            height = height + r.height + VSPACING;
+        }
+        
+        if (height > 0) {
+            height = height - VSPACING;
+        }
+        return new Dimension(width, height);
     }
 
     @objid ("c8f432b6-9db9-4b54-b7fc-5929b673dd57")

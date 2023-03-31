@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1560]]
 
-[[r1560]]
+
+
 = R1560
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Sub-classes of an active class must be active.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An active class can be seen as a process or a thread. Therefore, if a class is active, all its sub-classes should also be active, since they inherit the process/thread aspect from it.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have non-active sub-classes of an active class:

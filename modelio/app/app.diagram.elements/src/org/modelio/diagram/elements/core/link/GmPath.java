@@ -40,9 +40,6 @@ public class GmPath implements IGmPath {
     @objid ("f0fc94ed-6818-4309-be4f-2582161fe7dc")
     private static final int MINOR_VERSION = 1;
 
-    @objid ("91d25c63-1e83-11e2-8cad-001ec947c8cc")
-    private ConnectionRouterId routerKind = null;
-
     /**
      * The suffix of the minor version property to use to read and write the minor version.
      * <p>
@@ -51,11 +48,17 @@ public class GmPath implements IGmPath {
     @objid ("60b9b327-15b9-4767-9334-ab2b5e263e34")
     private static final String MINOR_VERSION_PROPERTY = "version";
 
+    @objid ("91d25c63-1e83-11e2-8cad-001ec947c8cc")
+    private ConnectionRouterId routerKind = null;
+
     @objid ("8027e569-1dec-11e2-8cad-001ec947c8cc")
     private Object pathData = null;
 
     @objid ("8027e56a-1dec-11e2-8cad-001ec947c8cc")
     private Object sourceAnchor;
+
+    @objid ("8027e56e-1dec-11e2-8cad-001ec947c8cc")
+    private IGmLinkRake sourceRake;
 
     @objid ("8027e56b-1dec-11e2-8cad-001ec947c8cc")
     private Object targetAnchor;
@@ -63,8 +66,70 @@ public class GmPath implements IGmPath {
     @objid ("8027e56d-1dec-11e2-8cad-001ec947c8cc")
     private IGmLinkRake targetRake;
 
-    @objid ("8027e56e-1dec-11e2-8cad-001ec947c8cc")
-    private IGmLinkRake sourceRake;
+    /**
+     * Default constructor.
+     */
+    @objid ("8027e5a0-1dec-11e2-8cad-001ec947c8cc")
+    public  GmPath() {
+        
+    }
+
+    /*
+         * C'tor for a DIRECT link, no layout data, anchors undefined
+         */
+    @objid ("7a872343-a799-45f1-b6a8-4365dc0d57da")
+    public  GmPath(ConnectionRouterId routerKind, Object layoutData) {
+        this.routerKind = routerKind;
+        this.pathData = layoutData;
+        this.sourceAnchor = null;
+        this.targetAnchor = null;
+        this.sourceRake = null;
+        this.targetRake = null;
+        
+    }
+
+    /**
+     * Copy constructor.
+     * @param path the path to copy.
+     */
+    @objid ("8027e5a3-1dec-11e2-8cad-001ec947c8cc")
+    public  GmPath(final IGmPath path) {
+        this.pathData = path.getPathData();
+        this.routerKind = path.getRouterKind();
+        this.sourceAnchor = path.getSourceAnchor();
+        this.targetAnchor = path.getTargetAnchor();
+        this.sourceRake = path.getSourceRake();
+        this.targetRake = path.getTargetRake();
+        
+    }
+
+    @objid ("8343611c-cf69-45b7-a999-49428d5f89e2")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        GmPath other = (GmPath) obj;
+        return Objects.equals(this.pathData, other.pathData)
+                && this.routerKind == other.routerKind
+                && Objects.equals(this.sourceAnchor, other.sourceAnchor)
+                && Objects.equals(this.sourceRake, other.sourceRake)
+                && Objects.equals(this.targetAnchor, other.targetAnchor)
+                && Objects.equals(this.targetRake, other.targetRake);
+        
+    }
+
+    @objid ("802a47dd-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public int getMajorVersion() {
+        return GmPath.MAJOR_VERSION;
+    }
 
     @objid ("8027e571-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -72,10 +137,15 @@ public class GmPath implements IGmPath {
         return this.pathData;
     }
 
-    @objid ("8027e576-1dec-11e2-8cad-001ec947c8cc")
+    /**
+     * Get the link connection routing mode.
+     * @return The link connection routing mode.
+     */
+    @objid ("802a47bb-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public void setPathData(final Object pathData) {
-        this.pathData = pathData;
+    public ConnectionRouterId getRouterKind() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.routerKind;
     }
 
     @objid ("8027e57b-1dec-11e2-8cad-001ec947c8cc")
@@ -84,10 +154,15 @@ public class GmPath implements IGmPath {
         return this.sourceAnchor;
     }
 
-    @objid ("8027e580-1dec-11e2-8cad-001ec947c8cc")
+    /**
+     * Get the source side rake if the link is raked on its source side.
+     * @return the source side rake or <code>null</code>.
+     */
+    @objid ("802a47d2-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public void setSourceAnchor(final Object sourceAnchor) {
-        this.sourceAnchor = sourceAnchor;
+    public IGmLinkRake getSourceRake() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.sourceRake;
     }
 
     @objid ("8027e585-1dec-11e2-8cad-001ec947c8cc")
@@ -96,10 +171,21 @@ public class GmPath implements IGmPath {
         return this.targetAnchor;
     }
 
-    @objid ("8027e58a-1dec-11e2-8cad-001ec947c8cc")
+    /**
+     * Get the target side rake if the link is raked.
+     * @return the target side rake or <code>null</code>.
+     */
+    @objid ("802a47c7-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public void setTargetAnchor(final Object targetAnchor) {
-        this.targetAnchor = targetAnchor;
+    public IGmLinkRake getTargetRake() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.targetRake;
+    }
+
+    @objid ("f493b908-bb99-49a5-806b-cc6ca35b8bdd")
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.pathData, this.routerKind, this.sourceAnchor, this.sourceRake, this.targetAnchor, this.targetRake);
     }
 
     @objid ("8027e58f-1dec-11e2-8cad-001ec947c8cc")
@@ -132,25 +218,57 @@ public class GmPath implements IGmPath {
         
     }
 
-    @objid ("83a62403-1a6a-4608-93bf-856f33039dcd")
-    @SuppressWarnings ("unchecked")
-    private void read_0(final IDiagramReader in) {
-        read_1(in);
-        if (this.routerKind == ConnectionRouterId.ORTHOGONAL && this.pathData instanceof List) {
-            ((List<Point>) this.pathData).replaceAll(point -> new MPoint(point.x, point.y, true));
-        }
+    @objid ("8027e576-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setPathData(final Object pathData) {
+        this.pathData = pathData;
+    }
+
+    /**
+     * Set the link connection routing mode.
+     * @param routerKind The new link connection routing mode.
+     */
+    @objid ("802a47c1-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setRouterKind(final ConnectionRouterId routerKind) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        assert routerKind != null;
+        this.routerKind = routerKind;
         
     }
 
-    @objid ("46a2bea3-6bcd-4339-941d-de9662a4c517")
-    private void read_1(final IDiagramReader in) {
-        this.sourceAnchor = in.readProperty("SourceAnchor");
-        this.targetAnchor = in.readProperty("DestAnchor");
-        this.pathData = in.readProperty("PathData");
-        this.routerKind = (ConnectionRouterId) in.readProperty("RouterKind");
-        this.sourceRake = (IGmLinkRake) in.readProperty("sourceRake");
-        this.targetRake = (IGmLinkRake) in.readProperty("targetRake");
+    @objid ("8027e580-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setSourceAnchor(final Object sourceAnchor) {
+        this.sourceAnchor = sourceAnchor;
+    }
+
+    @objid ("802a47d8-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setSourceRake(final IGmLinkRake value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.sourceRake = value;
         
+    }
+
+    @objid ("8027e58a-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setTargetAnchor(final Object targetAnchor) {
+        this.targetAnchor = targetAnchor;
+    }
+
+    @objid ("802a47cd-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public void setTargetRake(final IGmLinkRake value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.targetRake = value;
+        
+    }
+
+    @objid ("0d5b8ff4-c629-4513-ad68-76900628cdc0")
+    @Override
+    public String toString() {
+        return "GmPath [routerKind=" + this.routerKind + ", pathData=" + this.pathData + ", sourceAnchor=" + this.sourceAnchor + ", targetAnchor=" + this.targetAnchor + ", targetRake=" + this.targetRake + ", sourceRake=" + this.sourceRake + "]";
     }
 
     @objid ("8027e59b-1dec-11e2-8cad-001ec947c8cc")
@@ -182,6 +300,27 @@ public class GmPath implements IGmPath {
         return readVersion;
     }
 
+    @objid ("83a62403-1a6a-4608-93bf-856f33039dcd")
+    @SuppressWarnings ("unchecked")
+    private void read_0(final IDiagramReader in) {
+        read_1(in);
+        if (this.routerKind == ConnectionRouterId.ORTHOGONAL && this.pathData instanceof List) {
+            ((List<Point>) this.pathData).replaceAll(point -> new MPoint(point.x, point.y, true));
+        }
+        
+    }
+
+    @objid ("46a2bea3-6bcd-4339-941d-de9662a4c517")
+    private void read_1(final IDiagramReader in) {
+        this.sourceAnchor = in.readProperty("SourceAnchor");
+        this.targetAnchor = in.readProperty("DestAnchor");
+        this.pathData = in.readProperty("PathData");
+        this.routerKind = (ConnectionRouterId) in.readProperty("RouterKind");
+        this.sourceRake = (IGmLinkRake) in.readProperty("sourceRake");
+        this.targetRake = (IGmLinkRake) in.readProperty("targetRake");
+        
+    }
+
     /**
      * Helper method to write the graphic model minor version.
      * @param out the writer to use
@@ -194,131 +333,6 @@ public class GmPath implements IGmPath {
         if (theMinorVersion != 0) {
             out.writeProperty(prefix + MINOR_VERSION_PROPERTY, Integer.valueOf(theMinorVersion));
         }
-        
-    }
-
-    /**
-     * Default constructor.
-     */
-    @objid ("8027e5a0-1dec-11e2-8cad-001ec947c8cc")
-    public  GmPath() {
-        
-    }
-
-    /**
-     * Copy constructor.
-     * @param path the path to copy.
-     */
-    @objid ("8027e5a3-1dec-11e2-8cad-001ec947c8cc")
-    public  GmPath(final IGmPath path) {
-        this.pathData = path.getPathData();
-        this.routerKind = path.getRouterKind();
-        this.sourceAnchor = path.getSourceAnchor();
-        this.targetAnchor = path.getTargetAnchor();
-        this.sourceRake = path.getSourceRake();
-        this.targetRake = path.getTargetRake();
-        
-    }
-
-    /**
-     * Get the link connection routing mode.
-     * @return The link connection routing mode.
-     */
-    @objid ("802a47bb-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public ConnectionRouterId getRouterKind() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.routerKind;
-    }
-
-    /**
-     * Set the link connection routing mode.
-     * @param routerKind The new link connection routing mode.
-     */
-    @objid ("802a47c1-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public void setRouterKind(final ConnectionRouterId routerKind) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        assert routerKind != null;
-        this.routerKind = routerKind;
-        
-    }
-
-    /**
-     * Get the target side rake if the link is raked.
-     * @return the target side rake or <code>null</code>.
-     */
-    @objid ("802a47c7-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public IGmLinkRake getTargetRake() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.targetRake;
-    }
-
-    @objid ("802a47cd-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public void setTargetRake(final IGmLinkRake value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.targetRake = value;
-        
-    }
-
-    /**
-     * Get the source side rake if the link is raked on its source side.
-     * @return the source side rake or <code>null</code>.
-     */
-    @objid ("802a47d2-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public IGmLinkRake getSourceRake() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.sourceRake;
-    }
-
-    @objid ("802a47d8-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public void setSourceRake(final IGmLinkRake value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.sourceRake = value;
-        
-    }
-
-    @objid ("802a47dd-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public int getMajorVersion() {
-        return GmPath.MAJOR_VERSION;
-    }
-
-    @objid ("0d5b8ff4-c629-4513-ad68-76900628cdc0")
-    @Override
-    public String toString() {
-        return "GmPath [routerKind=" + this.routerKind + ", pathData=" + this.pathData + ", sourceAnchor=" + this.sourceAnchor + ", targetAnchor=" + this.targetAnchor + ", targetRake=" + this.targetRake + ", sourceRake=" + this.sourceRake + "]";
-    }
-
-    @objid ("5c4edefc-fd67-47ef-97c0-bfb3853301c9")
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.pathData, this.routerKind, this.sourceAnchor, this.sourceRake, this.targetAnchor, this.targetRake);
-    }
-
-    @objid ("4ae8f9ab-5ceb-41b4-b54a-0d418c5575d2")
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        GmPath other = (GmPath) obj;
-        return Objects.equals(this.pathData, other.pathData)
-                && this.routerKind == other.routerKind
-                && Objects.equals(this.sourceAnchor, other.sourceAnchor)
-                && Objects.equals(this.sourceRake, other.sourceRake)
-                && Objects.equals(this.targetAnchor, other.targetAnchor)
-                && Objects.equals(this.targetRake, other.targetRake);
         
     }
 

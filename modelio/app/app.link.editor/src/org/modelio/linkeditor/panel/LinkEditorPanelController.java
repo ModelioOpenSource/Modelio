@@ -20,6 +20,7 @@
 package org.modelio.linkeditor.panel;
 
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -51,6 +52,7 @@ import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.core.picking.IPickingSession;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.UIThreadRunner;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -96,6 +98,9 @@ class LinkEditorPanelController {
 
     @objid ("e10d573c-b307-4f90-a496-1a4887676421")
     private IStructuredSelection deferredAppSelection;
+
+    @objid ("e96e7950-2c5a-4703-8f06-8eeb8d0e7d81")
+    private AtomicBoolean refreshScheduled = new AtomicBoolean(false);
 
     @objid ("f7ce722c-6527-4414-a51f-410d1dc1836c")
     LinkEditorPanelUi createUi(Composite parent) {
@@ -224,7 +229,6 @@ class LinkEditorPanelController {
 
     /**
      * Called when the selection changes in the graphical viewer.
-     * @param selection
      */
     @objid ("7a41f43e-7660-4db2-a901-1844ce1d95e5")
     void onEditorSelectionChanged(ISelection selection) {
@@ -264,7 +268,6 @@ class LinkEditorPanelController {
 
     /**
      * Called on selection change (at the application level)
-     * @param selection
      * @see org.modelio.linkeditor.others.edge.EdgeEditPart
      * @see org.modelio.linkeditor.gef.edge.EdgeEditPart
      * @see org.modelio.linkeditor.gef.edge.EdgeEditPart 
@@ -301,17 +304,28 @@ class LinkEditorPanelController {
 
     @objid ("33a1dafa-5b97-47bb-a342-e99e7442b392")
     private void refreshView() {
-        if (this.ui != null) {
-            // When input element dies, cancel edit mode
-            MObject input = this.backgroundModel.getInput();
-            if (isEditMode() && input != null && !input.isValid()) {
-                setEditMode(false);
-            }
+        if (this.ui==null || this.ui.getComposite().isDisposed())
+            return;
         
-            this.ui.setInput(this.backgroundModel);
-            // Notifies the view to display new content
-            this.ui.getComposite().getDisplay().asyncExec(() -> this.backgroundModel.fireContentChanged());
-        }
+        if (! this.refreshScheduled.compareAndSet(false, true))
+            return;
+        
+        UIThreadRunner.asynExec(this.ui.getComposite(), () -> {
+            this.refreshScheduled.set(false);
+        
+            if (this.ui != null) {
+                // When input element dies, cancel edit mode
+                MObject input = this.backgroundModel.getInput();
+                if (isEditMode() && input != null && !input.isValid()) {
+                    setEditMode(false);
+                }
+        
+                this.ui.setInput(this.backgroundModel);
+        
+                // Notifies the view to display new content
+                this.backgroundModel.fireContentChanged();
+            }
+        });
         
     }
 

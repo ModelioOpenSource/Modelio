@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2010]]
 
-[[r2010]]
+
+
 = R2010
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Dans un _Dictionary_, le nom de chaque élément doit être unique.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Avoir plusieurs éléments portant le même nom dans un même _Dictionary_ peut être déroutant.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Renommez chaque élément ayant un nom dupliqué, ou déplacez les homonymes dans un autre _Dictionary_.

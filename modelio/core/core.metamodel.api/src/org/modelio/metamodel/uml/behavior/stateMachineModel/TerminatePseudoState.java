@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * Entering a TerminatePseudoState implies that the execution of this state machine by means of its context object is terminated. The state machine does not exit any states nor does it perform any exit actions other than those associated with the transition leading to the terminate pseudostate. Entering a terminate pseudostate is equivalent to invoking a DestroyObjectAction.
+ * 
+ * 
  */
 @objid ("0055240e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface TerminatePseudoState extends AbstractPseudoState {
@@ -46,5 +48,5 @@ public interface TerminatePseudoState extends AbstractPseudoState {
      */
     @objid ("e2122eea-3a53-4d54-8322-688308e893b0")
     public static final String MQNAME = "Standard.TerminatePseudoState";
-
 }
+

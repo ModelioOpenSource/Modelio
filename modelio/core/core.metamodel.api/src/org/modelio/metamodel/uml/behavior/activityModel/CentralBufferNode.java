@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A central buffer node accepts tokens from upstream object nodes and passes them along to downstream object nodes. 
  * 
  * Central buffer nodes act as a buffer for multiple in flows and out flows from other object nodes. 
+ * 
+ * 
  */
 @objid ("002c1492-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CentralBufferNode extends ObjectNode {
@@ -48,5 +50,5 @@ public interface CentralBufferNode extends ObjectNode {
      */
     @objid ("18cb56c2-aa8b-4f4a-9338-e624db1e50a9")
     public static final String MQNAME = "Standard.CentralBufferNode";
-
 }
+

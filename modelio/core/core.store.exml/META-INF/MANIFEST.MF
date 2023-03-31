@@ -2,11 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Exml
 Bundle-SymbolicName: org.modelio.core.store.exml;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.modelio.core.kernel,
  org.modelio.core.session,
  org.modelio.core.utils,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.modelio.jaxb;bundle-version="1.0.0"
 Export-Package: org.modelio.vstore.exml.common,
  org.modelio.vstore.exml.common.model;x-friends:="com.modeliosoft.modelio.core.project.svn",
  org.modelio.vstore.exml.common.utils;x-friends:="com.modeliosoft.modelio.core.project.svn",

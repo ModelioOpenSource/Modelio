@@ -26,5 +26,5 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IBPMNImportProcessor {
     @objid ("89c2c774-9d95-4541-99e9-8df9a35035e3")
     MObject process(MObject context, Object jaxbElement);
-
 }
+

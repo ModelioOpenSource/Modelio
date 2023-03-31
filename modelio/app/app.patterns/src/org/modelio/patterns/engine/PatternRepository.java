@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.Modelio;
 import org.modelio.api.modelio.pattern.IPatternService.PatternException;
@@ -185,19 +186,18 @@ class PatternRepository implements IPatternRepository {
         this.patterns = new TreeSet<>();
         this.categoryMap = new HashMap<>();
         
-        try {
-            Files
-            .walk(this.repositoryPath)
+        try (Stream<Path> fileWalker = Files.walk(this.repositoryPath)) {
+            fileWalker
             .filter(Files::isRegularFile)
             .filter(sub -> sub.toString().endsWith(".umlt"))
-                    .forEach(sub -> {
-                        try {
-                            loadPattern(sub);
-                        } catch (PatternException e) {
-                            Patterns.LOG.error("Invalid '%s' pattern: %s" ,sub.getFileName(), e.getCause() instanceof IOException ? FileUtils.getLocalizedMessage((IOException) e.getCause()) : e.getMessage());
-                            Patterns.LOG.debug(e);
-                        }
-                    });
+            .forEach(sub -> {
+                try {
+                    loadPattern(sub);
+                } catch (PatternException e) {
+                    Patterns.LOG.error("Invalid '%s' pattern: %s" ,sub.getFileName(), e.getCause() instanceof IOException ? FileUtils.getLocalizedMessage((IOException) e.getCause()) : e.getMessage());
+                    Patterns.LOG.debug(e);
+                }
+            });
         } catch (IOException e1) {
             Patterns.LOG.error("Unable to load pattern catalog from '%s': %s" , this.repositoryPath, FileUtils.getLocalizedMessage(e1));
             Patterns.LOG.debug(e1);

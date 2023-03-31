@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbstractConnectionAnchor;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.diagram.elements.core.figures.geometry.Direction;
@@ -33,7 +34,13 @@ import org.modelio.diagram.elements.core.figures.geometry.Direction;
  * The reference point and the anchor location computation is delegated to a {@link IFixedAnchorLocator} {@link #locator}.
  */
 @objid ("dc699008-39b9-42a7-bcd1-754216ff22c8")
-public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAnchor {
+public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAnchor, IAnchorHandleProvider {
+    /**
+     * Anchor feedback figures radius.
+     */
+    @objid ("01ffb530-d794-41f0-8574-c038704789bd")
+    public static final int ANCHOR_RADIUS = 5;
+
     
     @mdl.prop
     @objid ("932b78fd-d298-4902-85d4-8b6822dd34b0")
@@ -95,7 +102,7 @@ public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAn
      * Copy constructor
      * @param other the anchor to copy
      */
-    @objid ("bd5320ae-f39e-46a8-b96b-bbcb6aecbf1a")
+    @objid ("08156730-2227-42d7-bc5a-9b9d4b975657")
     public  FixedAnchor(FixedAnchor other) {
         this(other.getOwner(), other.getFace(), other.getRank(), other.getTotalOnFace(), other.getLocator());
     }
@@ -141,7 +148,7 @@ public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAn
     /**
      * @return Algorithm the anchor delegates to to compute its position.
      */
-    @objid ("590c022b-236f-44c2-8f74-8f40d485b7a4")
+    @objid ("162ad2f4-0319-443f-a620-fcc47e9c2458")
     public IFixedAnchorLocator getLocator() {
         return this.locator;
     }
@@ -173,7 +180,7 @@ public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAn
         
     }
 
-    @objid ("25cfe4d0-ac03-4775-a21f-77b158e8f843")
+    @objid ("97d5b33c-e28f-4c5d-aacc-96335d334d8c")
     @Override
     public Direction getDirection() {
         return this.locator.getDirection(this);
@@ -189,6 +196,36 @@ public class FixedAnchor extends AbstractConnectionAnchor implements IOrientedAn
     @Override
     public String toString() {
         return String.format("%s [face=%s, rank=%d/%d]", getClass().getSimpleName(), getFaceName(), getRank(), getTotalOnFace());
+    }
+
+    @objid ("d16765f0-a7fe-4134-bddf-56b06897be09")
+    @Override
+    public IFigure createAnchorHandleFigure(ConnectionAnchor anchor) {
+        return this.locator.createAnchorHandleFigure(this);
+    }
+
+    /**
+     * Overwrite all fields with new values.
+     * <p>
+     * <h2>Warning</h2>
+     * To be used only for temporary anchors involved in small computations.
+     * @param owner a rectangular figure
+     * @param newFace the face number
+     * @param newRank the anchor number on the face
+     * @param count the number of possible anchors on the face
+     * @param newLocator the algorithm to position the anchor
+     */
+    @objid ("28b2df86-e5a2-4b8b-b5e7-97b145cb2b16")
+    public void overwrite(final IFigure owner, final int newFace, final int newRank, final int count, IFixedAnchorLocator newLocator) {
+        assert newRank >= 0 && newRank <= count;
+        setOwner(owner);
+        
+        this.locator = newLocator;
+        
+        this.face = newFace;
+        this.rank = newRank;
+        this.totalOnFace = count;
+        
     }
 
 }

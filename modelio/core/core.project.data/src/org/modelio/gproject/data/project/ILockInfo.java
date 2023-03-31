@@ -65,5 +65,5 @@ public interface ILockInfo {
      */
     @objid ("33474b60-af50-44aa-ba35-dc44f41631fc")
     String getJvmIdentifier();
-
 }
+

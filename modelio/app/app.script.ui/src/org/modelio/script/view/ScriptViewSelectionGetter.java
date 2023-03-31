@@ -31,7 +31,7 @@ import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.platform.core.events.ModelioEventTopics;
 
@@ -75,7 +75,7 @@ public class ScriptViewSelectionGetter {
                 } else if (selectionElement instanceof IAdaptable) {
                     el = ((IAdaptable) selectionElement).getAdapter(Element.class);
                 }
-                
+        
                 if (el != null) {
                     this.selectedElements.add(el);
                 }
@@ -88,7 +88,7 @@ public class ScriptViewSelectionGetter {
     @Optional
     @SuppressWarnings("unused")
     @Inject
-    void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
+    void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) IGProject project) {
         this.selectedElements = new ArrayList<>();
         this.selection = null;
         

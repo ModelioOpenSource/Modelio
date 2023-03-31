@@ -168,5 +168,5 @@ public interface IOperationPropertyModel {
 
     @objid ("35d47dac-ded8-4c8d-bad6-2f50a3e5bebb")
     void addReturnParameter();
-
 }
+

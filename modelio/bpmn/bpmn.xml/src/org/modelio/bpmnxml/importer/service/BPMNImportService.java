@@ -42,7 +42,7 @@ import org.modelio.bpmnxml.importer.service.processor.update.FinilizeProcessorUp
 import org.modelio.bpmnxml.importer.service.processor.update.UpdateElementProcessorUpdate;
 import org.modelio.bpmnxml.importer.service.walker.JaxbWalker;
 import org.modelio.bpmnxml.model.TDefinitions;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
@@ -56,14 +56,14 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("157a5f40-d6fd-40de-81e6-7aa093a3ca6a")
 public class BPMNImportService {
+    @objid ("e7b4766e-69b8-4eff-a437-95a897fc7c21")
+    private IProgressMonitor progress;
+
     @objid ("77e76602-274f-496d-af55-4d7bbb9988b1")
     private IDiagramService diagramService;
 
     @objid ("3f9178c5-6d91-4e74-a1b8-453a301bc894")
     private ICoreSession session;
-
-    @objid ("4d08c359-8737-4d88-b9bc-2008b5b684c3")
-    private IProgressMonitor progress;
 
     @objid ("02d23fcc-3b92-4ff8-9db7-db4fcb51ec61")
     public  BPMNImportService(ICoreSession session, IDiagramService diagramService) {
@@ -201,7 +201,7 @@ public class BPMNImportService {
 
     @objid ("0a24fb62-2b92-4f1e-96ec-022cd9bb7007")
     private TDefinitions readXPDLFile(Path xpdlFile) throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance("org.modelio.bpmnxml.model");
+        JAXBContext jc = JAXBContext.newInstance("org.modelio.bpmnxml.model", TDefinitions.class.getClassLoader());
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         Source source = new StreamSource(xpdlFile.toFile());
         JAXBElement<TDefinitions> root = unmarshaller.unmarshal(source, TDefinitions.class);
@@ -209,7 +209,7 @@ public class BPMNImportService {
     }
 
     @objid ("661f400c-1861-44cb-a733-d0b2c364de08")
-    public void importBPMN(Path filePath, IProjectFragment context, boolean keepId) throws FileNotFoundException, JAXBException {
+    public void importBPMN(Path filePath, IGModelFragment context, boolean keepId) throws FileNotFoundException, JAXBException {
         Package packageContext = null;
         
         for (MObject root : context.getRoots()) {

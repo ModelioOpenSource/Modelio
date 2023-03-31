@@ -41,12 +41,12 @@ import org.modelio.diagram.elements.core.link.ortho.edit.AxisAccessor;
  * 
  * @since 5.1.0
  */
-@objid ("c6e3d120-1ecf-43ed-97f9-04a6008e4390")
+@objid ("0d91b73f-cded-49ea-85e6-c8c1b435a3be")
 public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
-    @objid ("ba96a852-d477-4e78-9ba7-ddc0621e762c")
+    @objid ("78887675-9588-4b8e-ab92-90c016df200c")
     private static final AutoOrthoState sharedState = new AutoOrthoState();
 
-    @objid ("419a70e4-8c7b-4ac4-be56-3118169a3413")
+    @objid ("b59bd96b-5e63-4330-9c36-589433932c9d")
     @Override
     public void route(Connection connection) {
         if (Arrays.equals(connection.getPoints().toIntArray(), LinkFigure.DEFAULT_POINTS)) {
@@ -81,7 +81,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         
     }
 
-    @objid ("3064a58b-8d03-4e07-b79d-869eeca72998")
+    @objid ("178f1c62-c322-4f5e-a6d5-b47659b00d51")
     private void computeMPointRoute(AutoOrthoState state) {
         // Ask the anchors to align with 2nd and n-2 points to allow deletion of first and last bend points
         state.simplifyStartBendPoints(state.allPoints.size() - 1);
@@ -102,7 +102,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         
     }
 
-    @objid ("dfd5eee1-e2b3-4f15-8979-bc977180d0c0")
+    @objid ("3d3a3caa-cbfb-41e8-a0ce-534cb5ebbfb2")
     private void computeMPointRoute2(AutoOrthoState state) {
         if (state.allPoints.size() <= 2) {
             // If there is no intermediary bend point, check whether the anchors location are aligned, and add bend point(s) if not.
@@ -116,7 +116,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         
     }
 
-    @objid ("6abe45fe-5308-4b45-bf42-00714760b230")
+    @objid ("e4370456-3afb-4d64-8ca4-1ee06a462eae")
     private void fixBeforeLastSegment(List<MPoint> allPoints, Direction targetAnchorDir) {
         int lastBendpointIndex = allPoints.size() - 2;
         Point fixedPoint = allPoints.get(lastBendpointIndex);
@@ -165,7 +165,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         
     }
 
-    @objid ("05cf5892-b8ec-4158-89d2-07badf4eadb6")
+    @objid ("bbbbc145-9ad0-4870-9ab1-334e12ae2e27")
     private void fixSecondSegment(List<MPoint> allPoints, Direction sourceAnchorDir) {
         // If there are at least 1 intermediary bend points, fix them to get orthogonal segments
         MPoint sourceLocation = allPoints.get(0);
@@ -210,7 +210,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         
     }
 
-    @objid ("8ed2f5e9-3722-4e01-bbe0-652a78abd80e")
+    @objid ("f9a891e7-02da-425b-89a5-9fbcb17cdfdb")
     private void fixSingleSegment(List<MPoint> allPoints, Direction sourceAnchorDir, Direction targetAnchorDir) {
         MPoint sourceLocation = allPoints.get(0);
         MPoint targetLocation = allPoints.get(allPoints.size() - 1);
@@ -256,13 +256,13 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
      * @param connection a connection figure
      * @return The list of bend points.
      */
-    @objid ("dbeb1495-bffb-4dc8-916b-23533a48204a")
+    @objid ("e917b8b4-3347-455e-929f-a5ac5ca182e1")
     @SuppressWarnings ("unchecked")
     private List<MPoint> getBendpoints(Connection connection) {
         return (List<MPoint>) getConstraint(connection);
     }
 
-    @objid ("632e1ff6-ef82-429c-b538-0624413e3a8e")
+    @objid ("fb9e9f17-fc94-4f85-9252-5840d86182c7")
     private boolean isValid(AutoOrthoState state) {
         MPoint sourceLocation = state.allPoints.get(0);
         MPoint targetLocation = state.allPoints.get(state.allPoints.size() - 1);
@@ -302,7 +302,7 @@ public class OrthogonalRectifierRouter extends BendpointConnectionRouter {
         return true;
     }
 
-    @objid ("1337ae61-2f4a-4c36-b714-9c976364acf0")
+    @objid ("f023298d-5b5d-400d-bf40-d3b1ed6ba908")
     private static boolean removeIf(final List<MPoint> points, IntPredicate test) {
         boolean pointRemoved = false;
         for (int i = 1; i < points.size() - 1; ++i) {

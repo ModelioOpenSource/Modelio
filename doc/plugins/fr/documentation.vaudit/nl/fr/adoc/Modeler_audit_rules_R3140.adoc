@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3140]]
 
-[[r3140]]
+
+
 = R3140
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les flux sortant d'un _EventBasedGateway_ ou d'un _ParallelGateway_ ne doivent pas avoir de garde.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _ParallelGateway_ fonctionnent comme des ET logiques, et toutes les directions sortantes doivent être suivies, elles ne peuvent donc pas être conditionnées par des gardes.
 
 Dans le cas des _EventBasedGateway_, tous les flux sortant mènent à des nœuds de type Event, et ce sont ces nœuds qui conditionnent la suite de la séquence en fonction duquel reçoit un message en premier.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des gardes sur des flux sortant d'un _EventBasedGateway_ ou d'un _ParallelGateway_, vous devez supprimer la garde.

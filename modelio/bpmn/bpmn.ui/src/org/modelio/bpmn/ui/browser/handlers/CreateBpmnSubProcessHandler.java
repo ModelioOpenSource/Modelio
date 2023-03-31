@@ -25,11 +25,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
-import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
-import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
-import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
-import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -71,10 +67,6 @@ public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
         IStandardModelFactory modelFactory = mmServices.getModelFactory().getFactory(IStandardModelFactory.class);
         IElementNamer namer = mmServices.getElementNamer();
         
-        if (!(createdElement instanceof BpmnAdHocSubProcess)) {
-            populateDiagram(subProcess, modelFactory, namer);
-        }
-        
         // Create a diagram
         BpmnSubProcessDiagram diagram = modelFactory.createBpmnSubProcessDiagram();
         diagram.setOrigin(subProcess);
@@ -114,47 +106,6 @@ public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
     @Override
     protected boolean doCanExecute(MObject owner, MClass metaclass, MDependency dependency, Stereotype stereotype) {
         return super.doCanExecute(owner, metaclass, dependency, stereotype);
-    }
-
-    /**
-     * Create an initial diagram contents:
-     * <ul>
-     * <li>A {@link BpmnStartEvent}</li>
-     * <li>A {@link BpmnEndEvent}</li>
-     * <li>A {@link BpmnTask}</li>
-     * <li>A {@link BpmnSequenceFlow} from the start event to the task.</li>
-     * <li>A {@link BpmnSequenceFlow} from the task to the end event.</li>
-     * </ul>
-     */
-    @objid ("60a4031a-85a4-42b3-ae5a-fed1566846a2")
-    private void populateDiagram(BpmnSubProcess subProcess, IStandardModelFactory modelFactory, IElementNamer namer) {
-        // Create a Start event
-        BpmnStartEvent startEvent = modelFactory.createBpmnStartEvent();
-        startEvent.setSubProcess(subProcess);
-        startEvent.setName(namer.getUniqueName(startEvent));
-        
-        // Create an End event
-        BpmnEndEvent endEvent = modelFactory.createBpmnEndEvent();
-        endEvent.setSubProcess(subProcess);
-        endEvent.setName(namer.getUniqueName(endEvent));
-        
-        // Create a dumb task
-        BpmnTask task = modelFactory.createBpmnTask();
-        task.setSubProcess(subProcess);
-        task.setName(namer.getUniqueName(task));
-        
-        // Create a flow between start and task
-        BpmnSequenceFlow flow1 = modelFactory.createBpmnSequenceFlow();
-        flow1.setSourceRef(startEvent);
-        flow1.setTargetRef(task);
-        flow1.setSubProcess(subProcess);
-        
-        // Create a flow between task and end
-        BpmnSequenceFlow flow2 = modelFactory.createBpmnSequenceFlow();
-        flow2.setSourceRef(task);
-        flow2.setTargetRef(endEvent);
-        flow2.setSubProcess(subProcess);
-        
     }
 
 }

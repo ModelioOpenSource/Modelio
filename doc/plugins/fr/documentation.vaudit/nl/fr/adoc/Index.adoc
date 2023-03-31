@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Liste-des-règles-daudit]]
 
-[[liste-des-règles-daudit]]
+
+
 = Liste des règles d'audit
 
 * *<<Modeler_audit_rules_R1000.adoc#,R1000>>* : Un Model Element ne peut pas s'abstraire lui-même.

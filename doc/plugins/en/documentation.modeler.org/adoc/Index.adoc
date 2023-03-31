@@ -3,14 +3,8 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modelio-Modeler]]
-
-[[modelio-modeler]]
 = Modelio Modeler
 
-[[Modelio-Modeler-interface]]
-
-[[modelio-modeler-interface]]
 == Modelio Modeler interface
 
 * *<<Modeler-_modeler_interface_main_window.adoc#,Main window>>*
@@ -26,10 +20,8 @@
 * *<<Modeler-_modeler_interface_linkeditor_view.adoc#,Links Editor view>>*
 * *<<Modeler-_modeler_interface_audit_view.adoc#,Audit view>>*
 * *<<Modeler-_modeler_interface_script_view.adoc#,Script view>>*
+* *<<Modeler-_modeler_interface_status_bar.adoc#,Status bar>>*
 
-[[Managing-your-Modelio-projects]]
-
-[[managing-your-modelio-projects]]
 == Managing your Modelio projects
 
 * *<<Modeler-_modeler_managing_projects_migration.adoc#,Migrating earlier Modelio projects>>*
@@ -42,9 +34,6 @@
 * *<<Modeler-_modeler_managing_projects_configuring_project_URL.adoc#,Configuring project URLs>>*
 * *<<Modeler-_modeler_managing_projects_subprojects.adoc#,Projects, work models and sub-projects>>*
 
-[[Building-your-models]]
-
-[[building-your-models]]
 == Building your models
 
 * *<<Modeler-_modeler_building_models_creating_elements.adoc#,Creating elements>>*
@@ -63,9 +52,6 @@
 * *<<Modeler-_modeler_building_models_editing_elements.adoc#,Editing elements using edition boxes>>*
 * *<<Modeler-_modeler_building_models_shortcuts.adoc#,Using shortcuts>>*
 
-[[Modelio-diagrams]]
-
-[[modelio-diagrams]]
 == Modelio diagrams
 
 * *<<Modeler-_modeler_diagrams_creating_diagram.adoc#,Creating a diagram>>*
@@ -86,9 +72,6 @@
 * *<<Modeler-_modeler_diagrams_copying.adoc#,Copying a diagram as an image>>*
 * *<<Modeler-_modeler_diagrams_saving_diagram_in_file.adoc#,Saving a diagram in a file>>*
 
-[[ImportExport]]
-
-[[importexport]]
 == Import/Export
 
 * *<<Modeler-_modeler_managing_projects_importing_elements.adoc#,Import from Modelio projects>>*
@@ -101,9 +84,6 @@
 ** *<<Xmi_config.adoc#,Modelio XMI Import/Export options>>*
 ** *<<Xmi_coverage.adoc#,Coverage of UML2>>*
 
-[[Modelio-settings]]
-
-[[modelio-settings]]
 == Modelio settings
 
 * *<<Modeler-_modeler_modelio_settings_modules_catalog.adoc#,Modules catalog>>*
@@ -111,9 +91,6 @@
 * *<<Modeler-_modeler_modelio_settings_preferences.adoc#,Preferences>>*
 * *<<Modeler-_modeler_modelio_settings_diagram_styles.adoc#,Diagrams styles>>*
 
-[[Local-libraries]]
-
-[[local-libraries]]
 == Local libraries
 
 * *<<Modeler-_modeler_local_libraries_model_components_presentation.adoc#,Introducing model components>>*
@@ -121,26 +98,17 @@
 * *<<Modeler-_modeler_local_libraries_model_components_development.adoc#,Developing and packaging model components>>*
 * *<<Modeler-_modeler_local_libraries_model_components_deployment.adoc#,Deploying model components>>*
 
-[[Remote-libraries]]
-
-[[remote-libraries]]
 == Remote libraries
 
 * *<<Modeler-_modeler_remote_libraries_distant_libraries_presentation.adoc#,Introducing remote libraries>>*
 * *<<Modeler-_modeler_remote_libraries_distant_libraries_lifecycle.adoc#,Creating and publishing a remote library>>*
 
-[[MDA-services]]
-
-[[mda-services]]
 == MDA services
 
 * *<<Modeler-_modeler_mda_services_mda_modeling.adoc#,MDA modeling in Modelio Modeler>>*
 * *<<Modeler-_modeler_mda_services_basic.adoc#,Basic level – Creating a stereotype>>*
 * *<<Modeler-_modeler_mda_services_advanced.adoc#,Advanced level – Working in the MDA model>>*
 
-[[Handy-tools]]
-
-[[handy-tools]]
 == Handy tools
 
 * *<<Modeler-_modeler_handy_tools_advanced_search.adoc#,Modelio search tool>>*
@@ -152,10 +120,7 @@
 * *<<Modeler-_modeler_maven_plugin.adoc#,Modelio Maven plugin>>*
 * *<<Modeler-_modeler_patterns.adoc#,Model patterns>>*
 
-[[Appendix-1-Unmasking-shortcuts-in-diagrams]]
-
-[[appendix-1-unmasking-shortcuts-in-diagrams]]
-== Appendix 1 Unmasking shortcuts in diagrams
+== Appendix 1 - Unmasking shortcuts in diagrams
 
 * *<<Modeler-_modeler_shortcuts_actors.adoc#,Unmasking shortcuts on actors>>*
 * *<<Modeler-_modeler_shortcuts_artifacts.adoc#,Unmasking shortcuts on artifacts>>*
@@ -177,10 +142,7 @@
 * *<<Modeler-_modeler_shortcuts_ports.adoc#,Unmasking shortcuts on ports>>*
 * *<<Modeler-_modeler_shortcuts_signals.adoc#,Unmasking shortcuts on signals>>*
 
-[[Appendix-2-Creation-shortcuts-in-diagrams]]
-
-[[appendix-2-creation-shortcuts-in-diagrams]]
-== Appendix 2 Creation shortcuts in diagrams
+== Appendix 2 - Creation shortcuts in diagrams
 
 * *<<Modeler-_modeler_shortcuts_activity_diagram.adoc#,Creation shortcuts in Activity diagrams>>*
 * *<<Modeler-_modeler_shortcuts_class_diagram.adoc#,Creation shortcuts in Class diagrams>>*
@@ -191,11 +153,6 @@
 * *<<Modeler-_modeler_shortcuts_state_diagram.adoc#,Creation shortcuts in State diagrams>>*
 * *<<Modeler-_modeler_shortcuts_usecase_diagram.adoc#,Creation shortcuts in Use Case diagrams>>*
 
-[[Appendix-3-Diagrams-specificities]]
-
-[[appendix-3-diagrams-specificities]]
-== Appendix 3 Diagrams specificities
+== Appendix 3 - Diagrams specificities
 
 * *<<Modeler-_modeler_usecase_diagram_system_boundaries.adoc#,Use Case diagram System Boundaries>>*
-
-

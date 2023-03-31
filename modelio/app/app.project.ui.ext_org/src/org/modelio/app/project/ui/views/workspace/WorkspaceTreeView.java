@@ -56,9 +56,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.gproject.GProjectFactory;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
+import org.modelio.gproject.project.GProjectDescriptorFactory;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
 
@@ -238,7 +238,7 @@ public class WorkspaceTreeView {
         this.viewer.getTree().getDisplay().asyncExec(new Runnable() {
             @Override
             public void run() {
-                final ProjectDescriptor project = WorkspaceTreeView.this.cache.findProjectByName(projectName);
+                final GProjectDescriptor project = WorkspaceTreeView.this.cache.findProjectByName(projectName);
                 if (project != null && !WorkspaceTreeView.this.viewer.getControl().isDisposed()) {
                     setFocus();
                     getViewer().setSelection(new StructuredSelection(project), true);
@@ -273,7 +273,7 @@ public class WorkspaceTreeView {
     @Inject
     @Optional
     private void onProjectOpened(@SuppressWarnings ("unused")
-    @UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project) {
+    @UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject project) {
         asyncRefreshTree();
     }
 
@@ -284,7 +284,7 @@ public class WorkspaceTreeView {
     @objid ("12a4a585-6877-4f9f-8ffd-a2e2225d5cc9")
     @Inject
     @Optional
-    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         AppProjectUi.LOG.debug("onProjectClosed() %s", project);
         // fire a whole workspace contents refresh (reloading the cache) to
         // ensure that project descriptors are "re-read" from disc
@@ -301,7 +301,7 @@ public class WorkspaceTreeView {
     @objid ("2812c2d1-fd94-448c-b8fe-47f4d64de83a")
     @Inject
     @Optional
-    void onProjectSaved(@UIEventTopic (ModelioEventTopics.PROJECT_SAVED) final GProject project) {
+    void onProjectSaved(@UIEventTopic (ModelioEventTopics.PROJECT_SAVED) final IGProject project) {
         if (isValid()) {
             refreshContents();
             selectProject(project.getName());
@@ -419,7 +419,7 @@ public class WorkspaceTreeView {
         public Path cachePath;
 
         @objid ("47a54307-d0d6-45d1-90ad-06f8be86ce35")
-        ArrayList<ProjectDescriptor> cachedProjects = new ArrayList<>();
+        ArrayList<GProjectDescriptor> cachedProjects = new ArrayList<>();
 
         @objid ("8fcfc271-9cd7-41ac-a846-a9b65247e1df")
         public  ProjectCache() {
@@ -427,8 +427,8 @@ public class WorkspaceTreeView {
         }
 
         @objid ("da4708e5-6cd8-4954-8428-d1eb3c5d3c3e")
-        public ProjectDescriptor[] getProjects() {
-            return this.cachedProjects.toArray(new ProjectDescriptor[this.cachedProjects.size()]);
+        public GProjectDescriptor[] getProjects() {
+            return this.cachedProjects.toArray(new GProjectDescriptor[this.cachedProjects.size()]);
         }
 
         @objid ("fad5f01b-f984-49af-9e72-d22dbf312588")
@@ -444,8 +444,8 @@ public class WorkspaceTreeView {
         }
 
         @objid ("3ce93b62-146c-429d-aa54-4daa87f9b38f")
-        public ProjectDescriptor findProjectByName(final String projectName) {
-            for (ProjectDescriptor projectDescriptor : this.cachedProjects) {
+        public GProjectDescriptor findProjectByName(final String projectName) {
+            for (GProjectDescriptor projectDescriptor : this.cachedProjects) {
                 if (projectDescriptor.getName().equals(projectName)) {
                     return projectDescriptor;
                 }
@@ -461,9 +461,9 @@ public class WorkspaceTreeView {
             if (Files.isDirectory(aWorkspacePath)) {
                 try (DirectoryStream<Path> dirList = Files.newDirectoryStream(aWorkspacePath);) {
                     for (Path entry : dirList) {
-                        if (GProjectFactory.isProjectSpace(entry)) {
+                        if (GProjectDescriptorFactory.isProjectSpace(entry)) {
                             try {
-                                ProjectDescriptor projectDescriptor = GProjectFactory.readProjectDirectory(entry);
+                                GProjectDescriptor projectDescriptor = GProjectDescriptorFactory.readProjectDirectory(entry);
                                 this.cachedProjects.add(projectDescriptor);
                             } catch (IOException e) {
                                 AppProjectUi.LOG.error("Invalid project found : " + entry);

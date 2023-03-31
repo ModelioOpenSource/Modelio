@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * This Transition is related to a State. It can be triggered when entering or exiting the State, or can describe an activity that is performed whilst in the State (do Transitions).  
  * 
  * A Transition belongs to its origin StateVertex.
+ * 
+ * 
  */
 @objid ("005151a8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InternalTransition extends Transition {
@@ -54,6 +56,7 @@ public interface InternalTransition extends Transition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("59cfc1b9-f5ea-4e23-887d-3bc9488de694")
     State getSComposed();
@@ -63,8 +66,9 @@ public interface InternalTransition extends Transition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("66029b7a-26f2-4d92-a63e-a7443328ff22")
     void setSComposed(State value);
-
 }
+

@@ -35,12 +35,10 @@ import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
 import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.fragment.FragmentState;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.module.IMetamodelFragmentHandle;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
@@ -58,8 +56,7 @@ import org.modelio.version.ModelioVersion;
  * <p>
  * Does not call any module class method except the constructor.
  * <p>
- * If the module cannot be loaded a {@link BrokenIModule} is returned. Then
- * {@link IRTModule#getDownError()} returns the failure cause.
+ * If the module cannot be loaded a {@link BrokenIModule} is returned. Then {@link IRTModule#getDownError()} returns the failure cause.
  */
 @objid ("8a81c9bc-f34b-11e1-9458-001ec947c8cc")
 public class ModuleLoader {
@@ -67,7 +64,7 @@ public class ModuleLoader {
     private static final String FAKE_MODULE_CLASS_NAME = "<FAKE>";
 
     @objid ("b91d1222-f3cf-44b4-99a9-138b18328063")
-    private final GProject gProject;
+    private final IGProject gProject;
 
     @objid ("1e16235d-f378-4c00-8938-4e6b5b3f2ccb")
     private final IRTModuleAccess rtModule;
@@ -95,7 +92,6 @@ public class ModuleLoader {
      * @throws ModuleException on failure, if sanity checks fail
      */
     @objid ("8a81c9ac-f34b-11e1-9458-001ec947c8cc")
-    @SuppressWarnings ("resource")
     public IModule loadModule() throws ModuleException {
         // Sanity checks
         checkModule();
@@ -131,10 +127,6 @@ public class ModuleLoader {
 
     /**
      * Perform sanity checks on the module before loading it
-     * @param gModule
-     * the GModule
-     * @param rtModuleHandle
-     * the IModuleHandle
      * @throws ModuleException if the module cannot be loaded.
      */
     @objid ("9aa1c953-f84d-40b5-97e0-0a3a110c5815")
@@ -145,23 +137,11 @@ public class ModuleLoader {
             throw new ModuleException("No module handle found.");
         }
         
-        final IProjectFragment modelFragment = this.gModule.getModelFragment();
-        if (modelFragment == null) {
-            throw new ModuleException("The module has no MDA model fragment.");
-        } else if (modelFragment.getState() != FragmentState.UP_FULL) {
-            // The fragment must be up
-            if (modelFragment.getDownError() != null) {
-                throw ModuleLoader.toModuleException(modelFragment.getDownError());
-            } else {
-                throw new ModuleException("The module fragment is in '"
-                        + modelFragment.getState() + "' state.");
-            }
-        } else if (this.gModule.getModuleElement() == null) {
-            throw new ModuleException(
-                    String.format(
-                            "The '%s' module has no RAMC model element with {%s} UUID.",
-                            this.gModule.getName(), this.gModule
-                                    .getModuleHandle().getUid()));
+        // Make sure the Module's MDA model is here
+        final ModuleComponent module = this.gModule.getModuleElement();
+        if (module == null) {
+            throw new ModuleException(String.format("The '%s' module has no RAMC model element with {%s} UUID.",
+                    this.gModule.getId(), this.gModule.getModuleHandle().getUid()));
         }
         
     }
@@ -296,8 +276,7 @@ public class ModuleLoader {
     /**
      * Check the module version is compatible with the current Modelio
      * @param rtModuleHandle the module to check.
-     * @return <code>true</code> if this module is not compatible with the
-     * current Modelio.
+     * @return <code>true</code> if this module is not compatible with the current Modelio.
      */
     @objid ("6fd59629-2f29-11e2-9ab7-002564c97630")
     private static boolean isCompatibleWithModelio(IModuleHandle rtModuleHandle) {
@@ -308,8 +287,7 @@ public class ModuleLoader {
     }
 
     /**
-     * Convert any exception to a {@link ModuleException} by wrapping it if
-     * needed.
+     * Convert any exception to a {@link ModuleException} by wrapping it if needed.
      * @param cause an exception
      * @return a ModuleException.
      */
@@ -350,8 +328,7 @@ public class ModuleLoader {
     }
 
     /**
-     * Call the static install(String projectPath, String moduleResourcesPath)
-     * method on the module main class using a temporary class loader.
+     * Call the static install(String projectPath, String moduleResourcesPath) method on the module main class using a temporary class loader.
      * @throws ModuleException on failure
      */
     @objid ("1abed92c-5371-41c4-9d85-9f38627e4d9b")
@@ -370,10 +347,7 @@ public class ModuleLoader {
     }
 
     /**
-     * @param moduleUserConfiguration
-     * @param moduleApiConfiguration
-     * @throws ModuleException
-     * @param mainClass @return
+     * @return
      */
     @objid ("cc67ab5e-5029-4893-9fc4-b8b9bb37f07e")
     private IModule callConstructorV34(IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration, Class<?> mainClass) throws ModuleException {
@@ -475,13 +449,6 @@ public class ModuleLoader {
         
     }
 
-    /**
-     * @param moduleUserConfiguration
-     * @param moduleApiConfiguration
-     * @throws ModuleException
-     * @throws NoSuchMethodException
-     * @param mainClass @return
-     */
     @objid ("d6d9254f-efa7-4906-b679-03a408796b61")
     private IModule callConstructorV35(IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration, Class<?> mainClass) throws ModuleException, NoSuchMethodException {
         try {
@@ -597,7 +564,7 @@ public class ModuleLoader {
         try {
             // Declare the parameters of the install method.
             Class<?>[] classParamArray = { String.class, String.class };
-            Object[] initParamArray = { this.gProject.getProjectFileStructure().getProjectPath(), this.moduleHandle.getResourcePath() };
+            Object[] initParamArray = { this.gProject.getPfs().getProjectPath(), this.moduleHandle.getResourcePath() };
         
             Method installMethod = mainClass.getMethod("install", classParamArray);
         
@@ -689,7 +656,7 @@ public class ModuleLoader {
         
                 // Declare the parameters of the install method.
                 Class<?>[] classParamArray = { String.class, String.class };
-                Object[] initParamArray = { this.gProject.getProjectFileStructure().getProjectPath(), this.moduleHandle.getResourcePath() };
+                Object[] initParamArray = { this.gProject.getPfs().getProjectPath(), this.moduleHandle.getResourcePath() };
         
                 Method installMethod = mainClass.getMethod("install", classParamArray);
         

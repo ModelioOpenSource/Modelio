@@ -26,11 +26,11 @@ import org.eclipse.gef.Request;
 /**
  * Request that forwards another request with another type.
  */
-@objid ("472b1f61-fab7-4217-98d3-c5ebc2add462")
+@objid ("22465844-0f7b-4065-a8b5-a1254f98108a")
 public class WrappedRequest extends Request {
     
     @mdl.prop
-    @objid ("1d603291-66a4-4cf1-8758-edfea5a14774")
+    @objid ("911d60f2-e8bc-49f4-9b40-506a452dd298")
     private Request request;
 
     @mdl.propgetter
@@ -45,7 +45,7 @@ public class WrappedRequest extends Request {
         this.request = value;
     }
 
-    @objid ("a963b04a-c7f1-4c7b-9861-4241167dc0bc")
+    @objid ("5a8d9aea-ab11-4324-86d9-80f1d211d53b")
     public  WrappedRequest(Object type, Request request) {
         super(type);
         this.request = request;

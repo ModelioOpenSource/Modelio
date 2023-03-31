@@ -45,5 +45,5 @@ interface IErrorEntry {
 
     @objid ("7cbc1391-a99e-4755-999a-b7649c48613e")
     String getPlanId();
-
 }
+

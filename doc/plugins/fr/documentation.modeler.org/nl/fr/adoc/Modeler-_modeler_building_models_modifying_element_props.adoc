@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Modifier-des-propriétés-dun-élément]]
 
-[[modifier-des-propriétés-dun-élément]]
+
+
 = Modifier des propriétés d'un élément
 
 Les propriétés d'un élément peuvent être modifiées dans les vues <<Modeler-_modeler_interface_properties_view.adoc#,Propriétés>> ou <<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>>.

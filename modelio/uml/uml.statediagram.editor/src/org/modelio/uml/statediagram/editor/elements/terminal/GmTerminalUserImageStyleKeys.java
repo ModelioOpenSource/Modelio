@@ -40,7 +40,7 @@ public class GmTerminalUserImageStyleKeys extends StateAbstractStyleKeyProvider 
 
     @objid ("a2a69474-113e-4f15-a896-35091eb09968")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TERMINAL_SHOWSTEREOTYPES",
-                                                                          MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("481e23c6-5c0a-4b12-b5c9-3a639ca862ac")
     public static final StyleKey SHOWTAGS = createStyleKey("TERMINAL_SHOWTAGS", MetaKey.SHOWTAGS);

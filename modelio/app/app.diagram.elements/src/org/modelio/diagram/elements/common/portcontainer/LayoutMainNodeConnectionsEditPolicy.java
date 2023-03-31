@@ -39,23 +39,23 @@ import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolic
  * @since 5.0.2
  * @see LayoutNodeConnectionsEditPolicy
  */
-@objid ("7e95bd2f-f96f-4d88-8d42-6539207c8b2b")
+@objid ("32cc4ddc-503e-4619-a8c5-297009203a40")
 public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
     /**
      * The role to use to register this policy.
      * <p>
      * It is NOT the main role as {@link LayoutNodeConnectionsEditPolicy} so that this policy is not overriden the other.
      */
-    @objid ("8c4aad79-7d16-4b39-b512-559a4204c547")
+    @objid ("da508802-9811-4c4b-b456-9419c546ac19")
     public static final Object ROLE = LayoutMainNodeConnectionsEditPolicy.class.getSimpleName();
 
     /**
      * The main node edit policy
      */
-    @objid ("b2b3ef36-73bf-4d3a-98e7-d861361740ab")
+    @objid ("6c5f48df-da4d-46ec-bde3-0d478e1bd7ec")
     private GraphicalEditPolicy delegate;
 
-    @objid ("fc65225a-ccc9-4abb-b069-0fd515ad3f7f")
+    @objid ("ba42c81f-ae47-44ce-9047-587bf9f5646a")
     private GraphicalEditPolicy getDelegate() {
         if (this.delegate== null || ! isValid(this.delegate)) {
             if (this.delegate != null) {
@@ -73,7 +73,7 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         return this.delegate;
     }
 
-    @objid ("8bbd39a6-94bb-4fd4-90b6-536d9db2c488")
+    @objid ("b7e0bf3f-1eb6-44f6-b2e1-e1ee3af2c282")
     private boolean isValid(GraphicalEditPolicy pol) {
         EditPart polHost = pol.getHost();
         if (polHost==null)
@@ -85,7 +85,7 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         return true;
     }
 
-    @objid ("65618da2-89be-4cef-9d90-8949c97fe20c")
+    @objid ("be5307ce-9dfb-4c5e-93eb-9a70d7ac36c0")
     @Override
     public void deactivate() {
         if (this.delegate != null) {
@@ -97,7 +97,7 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("c0d94849-cae6-4ed4-a509-034779e3b648")
+    @objid ("817ee49f-4af5-4d9f-a7ed-1de2c3f625ba")
     @Override
     public void showSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -109,7 +109,7 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("57b4b773-405c-4d58-9a0a-4c9142739ee0")
+    @objid ("3593be2d-e1a2-4b10-a2e6-a9363e880c11")
     @Override
     public void eraseSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -121,7 +121,7 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("aa381ffe-8c75-4e86-8d6c-29382097880a")
+    @objid ("6489ca2a-bf87-49cf-bef4-c221b2d291a2")
     @Override
     public Command getCommand(Request request) {
         if (! isHandled(request))
@@ -133,13 +133,13 @@ public class LayoutMainNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         return d.getCommand(request);
     }
 
-    @objid ("10619f1b-036e-4892-9289-af58a676d286")
+    @objid ("e75c7641-ff1a-46bc-aace-53b536cf95b2")
     private boolean isHandled(Request req) {
         Object type = req.getType();
         return REQ_ADD.equals(type) || REQ_MOVE.equals(type) || REQ_RESIZE.equals(type);
     }
 
-    @objid ("817ea012-4814-4bcf-a875-8349511e2303")
+    @objid ("8a630cfa-8446-4e8b-b1ba-fefc9bf4d2cf")
     protected AbstractNodeEditPart getMainNodeEditPart() {
         GraphicalEditPart mainNodeEditPart = null;
         GmPortContainer gmPortContainer = (GmPortContainer) getHost().getModel();

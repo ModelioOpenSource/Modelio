@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A TemplateParameterSubstitution associates one or more actual Parameters with a formal template Parameter within the context of a TemplateBinding.  
  * 
  * In Modelio, a TemplateParameterSubstitution cannot own its actual value. The actual value can be referenced by the Actual dependency or defined by the StringValue attribute.
+ * 
+ * 
  */
 @objid ("001dff92-c4bf-1fd8-97fe-001ec947cd2a")
 public interface TemplateParameterSubstitution extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The value that is the actual parameter for this substitution. It is used for value template parameters.</i>
+     * 
      */
     @objid ("e44a6286-80c4-4608-ac42-73c7515c04f8")
     String getValue();
@@ -64,6 +67,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The value that is the actual parameter for this substitution. It is used for value template parameters.</i>
+     * 
      */
     @objid ("16ec43a5-1072-4206-bed9-83cb77d6a934")
     void setValue(String value);
@@ -73,6 +77,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d5acb8a6-de1a-4741-af00-16fdbf222057")
     TemplateBinding getOwner();
@@ -82,6 +87,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("43218a7e-b513-4fdf-942c-92f4bc228e98")
     void setOwner(TemplateBinding value);
@@ -91,6 +97,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The elements that are the actual parameters for this substitution.</i>
+     * 
      */
     @objid ("8809dd57-f9a6-4d01-b2e0-38866a9defc5")
     UmlModelElement getActual();
@@ -100,6 +107,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The elements that are the actual parameters for this substitution.</i>
+     * 
      */
     @objid ("61194abf-e5f3-49cf-9757-cbc1a3de1392")
     void setActual(UmlModelElement value);
@@ -109,6 +117,7 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The formal template parameter that is associated with this substitution.</i>
+     * 
      */
     @objid ("7486bd00-2dc5-46fc-bec5-93550ca5f2c4")
     TemplateParameter getFormalParameter();
@@ -118,8 +127,9 @@ public interface TemplateParameterSubstitution extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The formal template parameter that is associated with this substitution.</i>
+     * 
      */
     @objid ("0483c38b-1d4d-4920-b3fe-1fa7f57dbad0")
     void setFormalParameter(TemplateParameter value);
-
 }
+

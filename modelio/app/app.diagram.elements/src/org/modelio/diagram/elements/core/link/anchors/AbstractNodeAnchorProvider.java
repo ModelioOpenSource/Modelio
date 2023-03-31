@@ -51,17 +51,9 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
     @objid ("7f8a3d2f-2b2d-4900-80e6-94f2668277db")
     @Override
     public Object createAnchorModel(final ConnectionAnchor anchor) {
-        Object gmAnchor = null; // AnchorRegistry.getGmAnchor(anchor);
         if (anchor instanceof BorderAnchor) {
             BorderAnchor a = (BorderAnchor) anchor;
-            if (gmAnchor instanceof GmBorderAnchor) {
-                GmBorderAnchor gmBorder = (GmBorderAnchor) gmAnchor;
-                gmBorder.setBorder(a.getBorder());
-                gmBorder.setOffset(a.getOffset());
-                return gmBorder;
-            } else {
-                return new GmBorderAnchor(a.getBorder(), a.getOffset());
-            }
+            return new GmBorderAnchor(a.getBorder(), a.getOffset());
         } else if (anchor instanceof ChopboxAnchor) {
             return null;
         } else if (anchor instanceof RaySlidableAnchor) {
@@ -73,13 +65,7 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
             Dimension difference = anchorPoint.getDifference(figureLocation);
             a.getOwner().translateToRelative(difference);
         
-            if (gmAnchor instanceof GmRaySlidableAnchor) {
-                GmRaySlidableAnchor gmRay = (GmRaySlidableAnchor) gmAnchor;
-                gmRay.setDifference(difference);
-                return gmRay;
-            } else {
-                return new GmRaySlidableAnchor(difference);
-            }
+            return new GmRaySlidableAnchor(difference);
         } else if (anchor instanceof NodeAnchor) {
             NodeAnchor a = (NodeAnchor) anchor;
             Point anchorPoint = a.getReferencePoint().getCopy();
@@ -89,36 +75,18 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
             Dimension difference = anchorPoint.getDifference(figureLocation);
             a.getOwner().translateToRelative(difference);
         
-            if (gmAnchor instanceof GmNodeAnchor) {
-                GmNodeAnchor gmNodeAnchor = (GmNodeAnchor) gmAnchor;
-                gmNodeAnchor.setDifference(difference);
-                return gmNodeAnchor;
-            } else {
-                return new GmNodeAnchor(difference);
-            }
+            return new GmNodeAnchor(difference);
         } else if (anchor instanceof XYAnchor) {
             XYAnchor xy = (XYAnchor) anchor;
-            if (gmAnchor instanceof GmXYAnchor) {
-                GmXYAnchor gmXy = (GmXYAnchor) gmAnchor;
-                gmXy.setReferencePoint(xy.getReferencePoint());
-                return gmXy;
-            } else {
-                return new GmXYAnchor(xy.getReferencePoint());
-            }
+            return new GmXYAnchor(xy.getReferencePoint());
         } else if (anchor instanceof DelegateAnchor) {
             DelegateAnchor a = (DelegateAnchor) anchor;
             return createAnchorModel(a.getDelegate());
         } else if (anchor instanceof SatelliteAnchor) {
             SatelliteAnchor sa = (SatelliteAnchor) anchor;
-            if (gmAnchor instanceof GmSourceSatelliteAnchor) {
-                GmSourceSatelliteAnchor ret = (GmSourceSatelliteAnchor) gmAnchor;
-                ret.setLocation(sa.getDistance());
-                return ret;
-            } else {
-                GmSourceSatelliteAnchor ret = new GmSourceSatelliteAnchor();
-                ret.setLocation(sa.getDistance());
-                return ret;
-            }
+            GmSourceSatelliteAnchor ret = new GmSourceSatelliteAnchor();
+            ret.setLocation(sa.getDistance());
+            return ret;
         } else {
             throw new IllegalArgumentException(anchor + " not handled");
         }
@@ -129,6 +97,14 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
      * Returns the <i>source</i> <code>ConnectionAnchor</code> for the specified Request on the given node. The returned
      * ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a
      * {@link org.eclipse.gef.requests.LocationRequest}, which provides the current mouse location.
+     * <p>
+     * The default implementation dispatch the request to one of these methods:
+     * <ul>
+     * <li> {@link #getAnchorForCreateBendedConnectionRequest(GraphicalEditPart, CreateBendedConnectionRequest, boolean)}
+     * <li> {@link #getAnchorForReconnectRequest(GraphicalEditPart, ReconnectRequest, boolean)}
+     * <li> {@link #getAnchorForCreateRequest(GraphicalEditPart, CreateRequest, boolean)}
+     * </ul>
+     * Sub classes should implement these 3 methods instead before redefining this one.
      * @param nodeEditPart The rectangular node to anchor from
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
@@ -145,15 +121,23 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
             return getAnchorForCreateRequest(nodeEditPart, (CreateRequest) request, true);
         } else {
             throw new IllegalArgumentException(request + " not handled.");
-        
         }
         
     }
 
     /**
-     * Returns the <i>target</i> <code>ConnectionAnchor</code> for the specified Request on the given node. The returned
-     * ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a
-     * {@link org.eclipse.gef.requests.LocationRequest}, which provides the current mouse location.
+     * Returns the <i>target</i> <code>ConnectionAnchor</code> for the specified Request on the given node.
+     * <p>
+     * The returned ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a
+     * {@link org.eclipse.gef.requests.LocationRequest} subclass, which provides the current mouse location.
+     * <p>
+     * The default implementation dispatch the request to one of these methods:
+     * <ul>
+     * <li> {@link #getAnchorForCreateBendedConnectionRequest(GraphicalEditPart, CreateBendedConnectionRequest, boolean)}
+     * <li> {@link #getAnchorForReconnectRequest(GraphicalEditPart, ReconnectRequest, boolean)}
+     * <li> {@link #getAnchorForCreateRequest(GraphicalEditPart, CreateRequest, boolean)}
+     * </ul>
+     * Sub classes should implement these 3 methods instead before redefining this one.
      * @param nodeEditPart The rectangular node to anchor from
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
@@ -176,21 +160,22 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
     }
 
     /**
-     * Returns the <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only
-     * when displaying <i>feedback</i>.
-     * @throws IllegalArgumentException if the request has no location.
+     * Returns the <code>ConnectionAnchor</code> for the specified {@link CreateBendedConnectionRequest}.
+     * <p>
+     * The returned ConnectionAnchor is used only when displaying <i>feedback</i>.
      * @param nodeEditPart the node on which an anchor is requested
      * @param request a Request describing the current interaction
      * @param isSourceAnchor Whether an anchor is needed for a source or a target side.
      * @return the ConnectionAnchor to use during feedback
+     * @throws IllegalArgumentException if the request has no location.
      */
     @objid ("d914f84d-c3d5-42d2-979f-568d0248feec")
-    protected abstract ConnectionAnchor getAnchorForCreateBendedConnectionRequest(final GraphicalEditPart nodeEditPart, CreateBendedConnectionRequest request, boolean isSourceAnchor);
+    protected abstract ConnectionAnchor getAnchorForCreateBendedConnectionRequest(final GraphicalEditPart nodeEditPart, CreateBendedConnectionRequest request, boolean isSourceAnchor) throws IllegalArgumentException;
 
     /**
-     * Returns the <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only
-     * when displaying <i>feedback</i>. The Request is usually a {@link org.eclipse.gef.requests.LocationRequest} ,
-     * which provides the current mouse location.
+     * Returns the <code>ConnectionAnchor</code> for the specified {@link ReconnectRequest}.
+     * <p>
+     * The returned ConnectionAnchor is used only when displaying <i>feedback</i>.
      * @param nodeEditPart the node on which an anchor is requested
      * @param request a Request describing the current interaction
      * @param source Whether an anchor is needed for a source or a target side.
@@ -201,8 +186,9 @@ public abstract class AbstractNodeAnchorProvider implements INodeAnchorProvider 
     protected abstract ConnectionAnchor getAnchorForReconnectRequest(final GraphicalEditPart nodeEditPart, final ReconnectRequest request, final boolean source) throws IllegalArgumentException;
 
     /**
-     * Returns the <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only
-     * when displaying <i>feedback</i>.
+     * Returns the <code>ConnectionAnchor</code> for the specified {@link CreateRequest}.
+     * <p>
+     * The returned ConnectionAnchor is used only when displaying <i>feedback</i>.
      * @param nodeEditPart the node on which an anchor is requested
      * @param request a Request describing the current interaction
      * @param source Whether an anchor is needed for a source or a target side.

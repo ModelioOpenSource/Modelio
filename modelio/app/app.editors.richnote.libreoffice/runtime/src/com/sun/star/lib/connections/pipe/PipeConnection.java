@@ -250,6 +250,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
     public String getDescription() throws com.sun.star.uno.RuntimeException {
         return this._aDescription;
     }
+
 static {
             // load shared library for JNI code
             NativeLibraryLoader.loadLibrary(PipeConnection.class.getClassLoader(), "jpipe");

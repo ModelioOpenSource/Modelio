@@ -60,5 +60,5 @@ public interface IDefaultNameService {
      */
     @objid ("a4309451-0ecc-11e2-96c4-002564c97630")
     void setDefaultName(ModelElement element, String baseName);
-
 }
+

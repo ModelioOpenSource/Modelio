@@ -31,5 +31,5 @@ public interface IElementFilter {
      */
     @objid ("5bf0d9e1-911c-11e0-9de7-002564c97630")
     boolean accept(final MObject element);
-
 }
+

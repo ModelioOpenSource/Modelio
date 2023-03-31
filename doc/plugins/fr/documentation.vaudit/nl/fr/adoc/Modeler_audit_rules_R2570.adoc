@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2570]]
 
-[[r2570]]
+
+
 = R2570
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Si un _Port_ est un _Port_ behavior, le type du _Port_ doit être le _Classifier_ auquel il appartient ou bien non défini.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les demandes arrivant sur un _Port_ behavior sont traitées par le _Classifier_ qui le contient.
@@ -26,9 +26,9 @@ Cela revient à dire que le _Port_ est une instance du _Classifier_ lui-même.
 
 Si le type du _Port_ est défini, il doit donc être typé par le _Classifier_ lui-même pour que le modèle ait un sens.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Changez le type du _Port_ pour qu'il soit typé par son _Classifier_ ou par rien.

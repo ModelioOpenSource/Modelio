@@ -68,5 +68,5 @@ public interface IGmLinkable extends IGmModelRelated {
      */
     @objid ("80801ca1-1dec-11e2-8cad-001ec947c8cc")
     void removeEndingLink(IGmLink gmLink);
-
 }
+

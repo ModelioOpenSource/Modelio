@@ -22,8 +22,13 @@ package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.dataobject.GmBpmnDataObject;
 import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
+import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
+import org.modelio.diagram.styles.core.IStyle;
+import org.modelio.diagram.styles.core.IStyleProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 
 /**
  * Style key provider for {@link GmBpmnDataObject}.
@@ -67,5 +72,29 @@ public class GmBpmnDataObjectStyleKeys extends BpmnAbstractStyleKeyProvider {
 
     @objid ("7168db60-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWREPRESENTED = createStyleKey("DATA_SHOWREPRESENTED", Boolean.class);
+
+    @objid ("559b0d39-f2d8-4350-8f15-b316e86d7e26")
+    public static final StyleKey SHOWNAME = createStyleKey("DATA_SHOWNAME", Boolean.class);
+
+    @objid ("b3e531d8-926d-4a7c-ba05-913f22f05bb5")
+    @Override
+    public ISymbolViewModel getSymbolViewModel(IStyle style) {
+        return createSymbolviewModel(style, null);
+    }
+
+    @objid ("c3cc38f8-aee7-4df4-abe3-4446f0fc32dd")
+    public static ISymbolViewModel createSymbolviewModel(IStyle style, IStyleProvider input) {
+        SymbolViewContentBuilder b = new SymbolViewContentBuilder(DiagramEditorBpmn.I18N.getMessage("$StyleKey.DATA_FILLCOLOR.category"));
+               b.add(b.createStyleChooserItem())
+               .add(b.createStyleItem(REPMODE))
+               .add(b.createPenAndBrushSection(LINEWIDTH, LINECOLOR, FILLMODE, FILLCOLOR, TEXTCOLOR, FONT))
+               .add(b.createStyleItem(SHOWSTEREOTYPES))
+               .add(b.createStyleItem(SHOWTAGS))
+               .add(b.createStyleItem(SHOWLABEL)
+               .setNextChildrenFilter(b.filterEquals(SHOWLABEL, true))
+               .add(b.createStyleItem(SHOWNAME))
+               .add(b.createStyleItem(SHOWREPRESENTED)));
+        return b.build(style, input);
+    }
 
 }

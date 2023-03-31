@@ -1,5 +1,0 @@
-Bundle-Name: Modelio Modeler documentation (toc)
-Bundle-Vendor: Modeliosoft
-Bundle-SymbolicName: org.modelio.documentation.modeliomodeler.toc
-Bundle-Version: 5.1.0.qualifier
-Fragment-Host: org.modelio.documentation.modeliomodeler

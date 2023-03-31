@@ -36,14 +36,16 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.IModelioService;
 import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.model.ui.MimeServices;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.rcp.inputpart.IInputPartService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -139,7 +141,14 @@ public class DiagramEditorsManager {
         
             String label = diagram.getName();
             openedPart.setLabel(label);
-            openedPart.setTooltip(diagram.getNoteContent("ModelerModule", ModelElement.MQNAME, "description"));
+        
+            Note descNote = diagram.getNote("ModelerModule", ModelElement.MQNAME, "description");
+            if (descNote != null) {
+                String desc = descNote.getContent();
+                if (descNote.getMimeType().equals(MimeServices.MimeType.HTML.toEncodingString()))
+                    desc = MimeServices.html2text(desc);
+                openedPart.setTooltip(desc);
+            }
         });
         return;
     }
@@ -147,7 +156,7 @@ public class DiagramEditorsManager {
     @objid ("86dead11-89b7-41ba-b6e9-6b7241d5b7de")
     @Inject
     @Optional
-    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project, final IProjectService projectService, final IInputPartService inputPartService) {
+    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject project, final IProjectService projectService, final IInputPartService inputPartService) {
         // Save opened diagrams list
         IPreferenceStore statePrefs = projectService.getStatePreferences();
         StatePersistenceHelper.saveState(statePrefs, this);
@@ -164,7 +173,7 @@ public class DiagramEditorsManager {
     @objid ("6f12a531-b16a-428a-b079-a86c9bc0f687")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, IProjectService projectService, IModelioEventService eventService) {
+    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, IProjectService projectService, IModelioEventService eventService) {
         // Reload saved opened diagrams
         IPreferenceStore statePrefs = projectService.getStatePreferences();
         StatePersistenceHelper.restoreState(statePrefs, openedProject, eventService);
@@ -180,7 +189,7 @@ public class DiagramEditorsManager {
         private static final String OPENED_DIAGRAM_CONFIG_KEY = DiagramEditor.PLUGIN_ID + ".OpenedDiagrams";
 
         @objid ("eefa215f-5259-4c17-b0ae-35ac44c1b66a")
-        public static void restoreState(IPreferenceStore savedPrefs, GProject openedProject, IModelioEventService eventService) {
+        public static void restoreState(IPreferenceStore savedPrefs, IGProject openedProject, IModelioEventService eventService) {
             // Read opened diagram list and open the diagrams
             int i = 0;
             while (true) {
@@ -219,7 +228,7 @@ public class DiagramEditorsManager {
         }
 
         @objid ("bbf0855d-eef7-49f7-8ae4-aeef80fb6dc0")
-        private static void openDiagram(GProject openedProject, IModelioEventService eventService, MRef mref) {
+        private static void openDiagram(IGProject openedProject, IModelioEventService eventService, MRef mref) {
             AbstractDiagram diagram = (AbstractDiagram) openedProject.getSession().getModel().findByRef(mref);
             // Make sure the diagram is still here and belongs to a valid parent
             if (diagram != null && diagram.getCompositionOwner() != null && diagram.getCompositionOwner().isValid()) {

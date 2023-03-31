@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2470]]
 
-[[r2470]]
+
+
 = R2470
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A maximum of one _PackageImport_ link should exist between a _NameSpace_ and a _Package_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 It is usually useless to import the same _Package_ more than once.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove all spare import links.

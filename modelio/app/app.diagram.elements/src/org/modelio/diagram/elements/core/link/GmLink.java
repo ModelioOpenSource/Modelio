@@ -629,29 +629,33 @@ public abstract class GmLink extends GmModel implements IGmLink {
         // FIXME: Update anchors connected links
         Object oldSrcAnchor = null;
         Object oldDestAnchor = null;
+        Object newSrcAnchor = null;
+        Object newDestAnchor = null;
         
         if (oldPath != null) {
             oldSrcAnchor = oldPath.getSourceAnchor();
             oldDestAnchor = oldPath.getTargetAnchor();
+        }
+        if (newPath != null) {
+            newSrcAnchor = newPath.getSourceAnchor();
+            newDestAnchor = newPath.getTargetAnchor();
+        }
         
+        if (newSrcAnchor != oldSrcAnchor) {
             if (oldSrcAnchor instanceof GmAbstractLinkAnchor) {
                 ((GmAbstractLinkAnchor) oldSrcAnchor).removeLink(this);
             }
-        
-            if (oldDestAnchor instanceof GmAbstractLinkAnchor) {
-                ((GmAbstractLinkAnchor) oldDestAnchor).removeLink(this);
+            if (newSrcAnchor instanceof GmAbstractLinkAnchor) {
+                ((GmAbstractLinkAnchor) newSrcAnchor).addLink(this);
             }
         }
         
-        if (newPath != null) {
-            final Object newSrcAnchor = newPath.getSourceAnchor();
-            final Object newDestAnchor = newPath.getTargetAnchor();
-        
-            if (newSrcAnchor instanceof GmAbstractLinkAnchor && newSrcAnchor != oldSrcAnchor) {
-                ((GmAbstractLinkAnchor) newSrcAnchor).addLink(this);
+        if (newDestAnchor != oldDestAnchor) {
+            if (oldDestAnchor instanceof GmAbstractLinkAnchor) {
+                ((GmAbstractLinkAnchor) oldDestAnchor).removeLink(this);
             }
         
-            if (newDestAnchor instanceof GmAbstractLinkAnchor && newDestAnchor != oldDestAnchor) {
+            if (newDestAnchor instanceof GmAbstractLinkAnchor ) {
                 ((GmAbstractLinkAnchor) newDestAnchor).addLink(this);
             }
         }

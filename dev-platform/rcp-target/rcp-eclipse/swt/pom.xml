@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001 XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>swt-4-24-p2-site</artifactId>
+	<packaging>pom</packaging>
+	<version>5.3.1-SNAPSHOT</version>
+
+	<properties>
+		<rcp.group>org.eclipse.platform</rcp.group>
+		<rcp.version>3.120.0</rcp.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.reficio</groupId>
+				<artifactId>p2-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<executions>
+					<!--  documentation: https://github.com/reficio/p2-maven-plugin -->
+					<execution>
+						<id>default-cli</id>
+						<phase>generate-resources</phase>
+						<goals><goal>site</goal></goals>
+						<configuration>
+							<artifacts>
+								<!-- specify your depencies here -->
+								<!-- groupId:artifactId:version -->
+								<artifact><id>${rcp.group}:org.eclipse.swt.win32.win32.x86_64:${rcp.version}</id><source>true</source></artifact>
+								<artifact><id>${rcp.group}:org.eclipse.swt.gtk.linux.x86_64:${rcp.version}</id><source>true</source></artifact>
+								<artifact><id>${rcp.group}:org.eclipse.swt.cocoa.macosx.x86_64:${rcp.version}</id><source>true</source></artifact>
+								<artifact><id>${rcp.group}:org.eclipse.swt.cocoa.macosx.aarch64:${rcp.version}</id><source>true</source></artifact>
+								<artifact><id>${rcp.group}:org.eclipse.swt:${rcp.version}</id><source>true</source></artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

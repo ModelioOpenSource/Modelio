@@ -27,5 +27,5 @@ import org.eclipse.gef.requests.CreateConnectionRequest;
 public interface ICreationActionProvider {
     @objid ("6134cd7f-aa60-4105-bc70-c66717decf1a")
     Stream<ICreationActionDescriptor> getPaletteActions(CreateConnectionRequest req);
-
 }
+

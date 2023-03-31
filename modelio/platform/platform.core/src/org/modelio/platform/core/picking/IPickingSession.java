@@ -32,5 +32,5 @@ public interface IPickingSession {
 
     @objid ("007e0630-e423-1076-aae0-001ec947cd2a")
     void abort();
-
 }
+

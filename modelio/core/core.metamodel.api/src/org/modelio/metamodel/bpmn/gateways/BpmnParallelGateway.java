@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A Parallel Gateway is used to synchronize (combine) parallel flows and to create parallel flows.
+ * 
+ * 
  */
 @objid ("000247b6-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnParallelGateway extends BpmnGateway {
@@ -46,5 +48,5 @@ public interface BpmnParallelGateway extends BpmnGateway {
      */
     @objid ("21bd7873-5fa8-44fa-a285-bd7f604a8688")
     public static final String MQNAME = "Standard.BpmnParallelGateway";
-
 }
+

@@ -20,9 +20,8 @@
 package org.modelio.bpmn.diagram.editor.elements.common.editpart;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.IFigure;
-import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.FixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 
 /**
  * Base edit part for small BPMN nodes for which we want only 4 anchors for cardinal directions.
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.link.anchors.fixed.FixedNodeAnchorProvi
 public class AbstractBpmnSmallNodeEditPart extends AbstractBpmnNodeEditPart {
     @objid ("5ee2b836-4423-4665-b1bd-98906a3c4a39")
     @Override
-    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
-        return new FixedNodeAnchorProvider(1, 1);
+    protected IFixedNodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.onePerSideFor(this);
     }
 
 }

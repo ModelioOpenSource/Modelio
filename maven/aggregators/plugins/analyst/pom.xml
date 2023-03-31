@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../../modelio-parent</relativePath>
+	</parent>
+
+	<artifactId>aggregator-modelio.analyst</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../../modelio/analyst/analyst</module>
+		<module>../../../../modelio/analyst/analyst.api</module>
+		<module>../../../../modelio/analyst/analyst.diagram</module>
+		<module>../../../../modelio/analyst/analyst.metamodel.api</module>
+		<module>../../../../modelio/analyst/analyst.metamodel.contribution</module>
+		<module>../../../../modelio/analyst/analyst.metamodel.impl</module>
+		<module>../../../../modelio/analyst/analyst.reqif.engine</module>
+		<module>../../../../modelio/analyst/analyst.reqif.ui</module>
+		<module>../../../../modelio/analyst/analyst.ui</module>
+		<module>../../../../modelio/analyst/analyst.xmi</module>
+	</modules>
+</project>

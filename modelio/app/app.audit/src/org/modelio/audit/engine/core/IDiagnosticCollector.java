@@ -32,5 +32,5 @@ public interface IDiagnosticCollector {
 
     @objid ("8bea0b62-0576-42ab-9bd7-fe9b0412baf3")
     void addEntries(List<IAuditEntry> entries);
-
 }
+

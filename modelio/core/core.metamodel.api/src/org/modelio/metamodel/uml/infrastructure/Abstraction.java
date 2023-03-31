@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.Dependency;
  * An Abstraction is a relationship that relates two Elements or sets of Elements that represent the same concept at different levels of abstraction or from different viewpoints. 
  * 
  * An Abstraction is a Dependency in which the supplier and the client are mapped.
+ * 
+ * 
  */
 @objid ("00849680-c4be-1fd8-97fe-001ec947cd2a")
 public interface Abstraction extends Dependency {
@@ -55,6 +57,7 @@ public interface Abstraction extends Dependency {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("77fd934a-81fd-4c8d-9ed5-35507433649e")
     String getMapping();
@@ -64,8 +67,9 @@ public interface Abstraction extends Dependency {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("18aef41f-23f5-4155-8a6d-c1c5897e18a7")
     void setMapping(String value);
-
 }
+

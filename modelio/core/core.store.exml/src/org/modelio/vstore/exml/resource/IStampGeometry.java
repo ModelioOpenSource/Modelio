@@ -45,5 +45,5 @@ public interface IStampGeometry {
      */
     @objid ("99ba1c9d-548b-40b9-b04b-225260317d55")
     public static final String STAMP_FILE_NAME = "stamp.dat";
-
 }
+

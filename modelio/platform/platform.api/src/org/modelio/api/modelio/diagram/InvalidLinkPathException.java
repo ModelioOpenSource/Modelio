@@ -23,9 +23,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * @since 5.1.0, now derives from RuntimeException instead of Exception
  */
-@objid ("aa3117fb-c616-4455-914e-728501287f76")
+@objid ("92688298-c386-45af-8633-09071d0fc333")
 public class InvalidLinkPathException extends RuntimeException {
-    @objid ("b9630c03-bc52-4113-a8b1-d9852bd777c2")
+    @objid ("0773bae3-4421-4072-8e12-4bb5f3f8f713")
     private static final long serialVersionUID = 1L;
 
     /**
@@ -35,7 +35,7 @@ public class InvalidLinkPathException extends RuntimeException {
      * @param   message   the detail message. The detail message is saved for
      * later retrieval by the {@link #getMessage()} method.
      */
-    @objid ("424a231b-1850-4f6c-9f4b-5658aecf84c2")
+    @objid ("c3c5cb0c-e782-4c9f-ab54-77b7b67f8c83")
     public  InvalidLinkPathException(String message) {
         super(message);
     }

@@ -91,5 +91,5 @@ public interface IDiagramDG extends IDiagramNode {
      */
     @objid ("499c80fc-3f7a-404d-a2df-4a512c3d897d")
     IDiagramElementsLayer getElementsLayer(String layerIdentifier);
-
 }
+

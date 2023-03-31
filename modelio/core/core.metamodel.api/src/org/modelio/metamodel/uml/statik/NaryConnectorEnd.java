@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007726d0-17e8-10a1-88a0-001ec947cd2a")
 public interface NaryConnectorEnd extends NaryLinkEnd {
@@ -46,5 +48,5 @@ public interface NaryConnectorEnd extends NaryLinkEnd {
      */
     @objid ("876174fd-7985-4550-9727-f83bb6165acd")
     public static final String MQNAME = "Standard.NaryConnectorEnd";
-
 }
+

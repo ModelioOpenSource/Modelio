@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * TaggedValues are a powerful mechanism in Modelio. They can have Parameters that must conform to the TagType structure. 
  * 
  * TagParameters belong to their TaggedValue.
+ * 
+ * 
  */
 @objid ("008e8d34-c4be-1fd8-97fe-001ec947cd2a")
 public interface TagParameter extends Element {
@@ -54,6 +56,7 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>Parameter value.</i>
+     * 
      */
     @objid ("70e774e4-492a-4775-b94b-ddb2b0df05e0")
     String getValue();
@@ -63,6 +66,7 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>Parameter value.</i>
+     * 
      */
     @objid ("88eae0bc-e11f-4eee-8de8-f6c3d97020cc")
     void setValue(String value);
@@ -72,6 +76,7 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("39b31746-59ef-4716-bbb8-0581999842ee")
     TaggedValue getAnnoted();
@@ -81,6 +86,7 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e91753f3-5b81-4f89-9b0e-33ec46ed3840")
     void setAnnoted(TaggedValue value);
@@ -90,6 +96,7 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("85f056c8-135f-4568-a5c8-e579d752ae51")
     TaggedValue getQualified();
@@ -99,8 +106,9 @@ public interface TagParameter extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("805d490f-1297-4269-a330-684e1c431315")
     void setQualified(TaggedValue value);
-
 }
+

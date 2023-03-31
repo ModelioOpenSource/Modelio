@@ -53,7 +53,7 @@ public class GmDeepHistoryStructuredStyleKeys extends StateAbstractStyleKeyProvi
 
     @objid ("8158f219-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("DEEPHISTORY_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8158f21b-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("DEEPHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);

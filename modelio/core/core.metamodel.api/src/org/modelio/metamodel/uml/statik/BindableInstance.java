@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * The RepresentedFeature is used for every case where Elements need to be represented under a different and more specific configuration. For example, a Port on a Part is bound to the same Port on the Classifier of that Part.  When Attributes are represented as Parts inside a Class and its internal structure, the Part is bound to its representing Attribute.  
  * 
  * In Modelio, a BindableInstance belongs to an instance, a Classifier internal structure or a Collaboration declared instance.
+ * 
+ * 
  */
 @objid ("0000aa6e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BindableInstance extends Instance {
@@ -59,6 +61,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7f2168f5-e9a1-492e-a2b0-f24d960db5e7")
     Instance getCluster();
@@ -68,6 +71,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f8d8c797-0368-400a-b192-3ccc33075a2c")
     void setCluster(Instance value);
@@ -77,6 +81,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("950bc150-13af-455b-8b3d-e13d5fbff507")
     Classifier getInternalOwner();
@@ -86,6 +91,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4c23dfd0-dd57-4dd5-ad10-a484ce3cb46b")
     void setInternalOwner(Classifier value);
@@ -95,6 +101,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>Binding between Parts, from a CollaborationUse.</i>
+     * 
      */
     @objid ("bd2986f9-55ca-4ea1-8257-d09fe8df8c90")
     EList<Binding> getRepresentation();
@@ -104,6 +111,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>Binding between Parts, from a CollaborationUse.</i>
+     * 
      */
     @objid ("2c0a17be-ad3b-43ff-92f7-7b711027f980")
     <T extends Binding> List<T> getRepresentation(java.lang.Class<T> filterClass);
@@ -113,6 +121,7 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>Expresses that the Part or Port represents an element from within a more accurate context (such as within an instance or a class internal structure). </i>
+     * 
      */
     @objid ("bd97e264-d4fa-4b9b-853e-37086f7962fc")
     UmlModelElement getRepresentedFeature();
@@ -122,8 +131,9 @@ public interface BindableInstance extends Instance {
      * 
      * Metamodel description:
      * <i>Expresses that the Part or Port represents an element from within a more accurate context (such as within an instance or a class internal structure). </i>
+     * 
      */
     @objid ("8373f772-eae1-4363-99e2-b839b2dd9cfa")
     void setRepresentedFeature(UmlModelElement value);
-
 }
+

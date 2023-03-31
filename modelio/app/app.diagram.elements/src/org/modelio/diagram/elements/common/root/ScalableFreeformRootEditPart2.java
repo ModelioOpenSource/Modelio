@@ -72,7 +72,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
     @objid ("6692352c-33f7-11e2-95fe-001ec947c8cc")
     public  ScalableFreeformRootEditPart2() {
         this.gridAndBackgroundListener = evt -> {
-              
+        
             String property = evt.getPropertyName();
             if (property.equals(AbstractDiagramEditPart.PROPERTY_GRID_ALPHA) ||
                 property.equals(AbstractDiagramEditPart.PROPERTY_GRID_COLOR)) {
@@ -132,7 +132,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
         // instantiate our better layer pane
         ScalableFreeformLayeredPane2 layers = new ScalableFreeformLayeredPane2();
         
-        // create children the same way as super() 
+        // create children the same way as super()
         layers.add(createGridLayer(), GRID_LAYER);
         layers.add(getPrintableLayers(), PRINTABLE_LAYERS);
         layers.add(new FeedbackLayer(), SCALED_FEEDBACK_LAYER);
@@ -173,12 +173,12 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
                     backgroundLayer.setImage(id);
                 } catch (MalformedURLException e) {
                     // Handle as file path
-                    
+        
                     ImageDescriptor id = ImageDescriptor.createFromFile(null, fillImage);
                     backgroundLayer.setImage(id);
                 }
             } else {
-                backgroundLayer.setImage(null);    
+                backgroundLayer.setImage(null);
             }
         
             // page boundaries size (in pixels)
@@ -259,7 +259,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
             throw new ExceptionInInitializerError(e);
         }
         
-        // same as super.createFigure() 
+        // same as super.createFigure()
         createLayers(innerLayers);
         viewport.setContents(innerLayers);
         return viewport;

@@ -27,7 +27,7 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.vbasic.files.FileUtils;
 
@@ -52,16 +52,16 @@ public class ColumnHelper {
         nameColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                if (element instanceof IProjectFragment) {
-                    return ((IProjectFragment) element).getId();
+                if (element instanceof IGModelFragment) {
+                    return ((IGModelFragment) element).getId();
                 }
                 return ""; //$NON-NLS-1$
             }
         
             @Override
             public Image getImage(Object element) {
-                if (element instanceof IProjectFragment) {
-                    return FragmentImageService.getImage((IProjectFragment) element);
+                if (element instanceof IGModelFragment) {
+                    return FragmentImageService.getImage((IGModelFragment) element);
                 }
                 return null;
             }
@@ -84,8 +84,8 @@ public class ColumnHelper {
         scopeColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                if (element instanceof IProjectFragment) {
-                    return ScopeHelper.getText(((IProjectFragment) element).getScope());
+                if (element instanceof IGModelFragment) {
+                    return ScopeHelper.getText(((IGModelFragment) element).getDefinitionScope());
                 }
                 return ""; //$NON-NLS-1$
             }
@@ -108,9 +108,9 @@ public class ColumnHelper {
         mmVer.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                if (element instanceof IProjectFragment) {
+                if (element instanceof IGModelFragment) {
                     try {
-                        return ((IProjectFragment) element).getRequiredMetamodelDescriptor().toString();
+                        return ((IGModelFragment) element).getRequiredMetamodelDescriptor().toString();
                     } catch (IOException e) {
                         return FileUtils.getLocalizedMessage(e);
                     }
@@ -119,9 +119,9 @@ public class ColumnHelper {
             }
             @Override
             public String getToolTipText(Object element) {
-                if (element instanceof IProjectFragment) {
+                if (element instanceof IGModelFragment) {
                     try {
-                        return AppProjectConf.I18N.getMessage("Column.fragmentMmVersion.val.tooltip", ((IProjectFragment) element).getRequiredMetamodelDescriptor().toString());
+                        return AppProjectConf.I18N.getMessage("Column.fragmentMmVersion.val.tooltip", ((IGModelFragment) element).getRequiredMetamodelDescriptor().toString());
                     } catch (IOException e) {
                         return FileUtils.getLocalizedMessage(e);
                     }

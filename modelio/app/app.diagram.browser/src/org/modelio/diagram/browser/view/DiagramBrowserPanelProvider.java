@@ -51,7 +51,7 @@ import org.modelio.diagram.browser.model.byset.BySetModel;
 import org.modelio.diagram.browser.model.bytype.ByTypeModel;
 import org.modelio.diagram.browser.model.flat.FlatModel;
 import org.modelio.diagram.browser.model.related.RelatedModel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -68,7 +68,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
     private IBrowserModel currentModel;
 
     @objid ("85b73aae-54b9-11e2-85c1-002564c97630")
-    private GProject project;
+    private IGProject project;
 
     @objid ("cd4213ed-54c7-11e2-ae63-002564c97630")
     private DiagramBrowserActivationStrategy actSupport;
@@ -95,7 +95,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
     private RelatedModel relatedModel;
 
     @objid ("85b73aaf-54b9-11e2-85c1-002564c97630")
-    public  DiagramBrowserPanelProvider(GProject project, IModelioNavigationService navigationService) {
+    public  DiagramBrowserPanelProvider(IGProject project, IModelioNavigationService navigationService) {
         this.project = project;
         this.navigationService = navigationService;
         

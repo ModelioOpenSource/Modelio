@@ -64,6 +64,7 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 /**
  * This class is an implementation of {@link IInfrastructureVisitor} whose default strategy consists in transmitting the visit call to the super class visit method.
  * <p>On root metaclasses, the visitor tries to delegate to the configured delegation visitor if available.If not available, <code>null</code> is returned.
+ * 
  */
 @objid ("953b0ad0-d247-4625-b010-7a7588706101")
 public class DefaultInfrastructureVisitor implements IInfrastructureVisitor {

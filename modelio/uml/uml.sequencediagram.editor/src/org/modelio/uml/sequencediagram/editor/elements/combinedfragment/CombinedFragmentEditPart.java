@@ -98,7 +98,7 @@ public class CombinedFragmentEditPart extends PortContainerEditPart implements I
         return command;
     }
 
-    @objid ("ecf639e3-49d3-47ea-9c2b-2a5d747f3555")
+    @objid ("91d2b0b9-f306-46a6-86a8-eeeac241f7b5")
     @Override
     protected void createEditPolicies() {
         super.createEditPolicies();
@@ -106,7 +106,7 @@ public class CombinedFragmentEditPart extends PortContainerEditPart implements I
         
     }
 
-    @objid ("28c30607-f18b-4000-a881-50f630a49823")
+    @objid ("34db2d77-f3aa-4fd0-abed-7ea443fe0e7c")
     @Override
     public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
         return new AutoSizeEditPolicy2() {
@@ -121,7 +121,7 @@ public class CombinedFragmentEditPart extends PortContainerEditPart implements I
         
     }
 
-    @objid ("417d02ef-f823-48e5-887a-a88b419cdf79")
+    @objid ("9b59821c-76f8-4f8a-9415-cde757d528bd")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);

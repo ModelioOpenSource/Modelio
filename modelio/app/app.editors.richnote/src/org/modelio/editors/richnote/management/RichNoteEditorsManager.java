@@ -44,7 +44,8 @@ import org.modelio.editors.richnote.api.RichNoteFormatRegistry;
 import org.modelio.editors.richnote.editor.IRichNoteEditor;
 import org.modelio.editors.richnote.management.EditorsRegistry.RichNoteToken;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.rcp.inputpart.IInputPartService;
@@ -101,7 +102,7 @@ public class RichNoteEditorsManager {
      * @param partService Eclipse parts service
      */
     @objid ("9f6cbf3f-1a38-4ddd-addd-6866888f2b3f")
-    void closeAll(GProject project, EPartService partService) {
+    void closeAll(IGProject project, EPartService partService) {
         RichNotesSession richNotesSession = RichNotesSession.get(project);
         
         if (richNotesSession == null) {
@@ -127,7 +128,7 @@ public class RichNoteEditorsManager {
     @objid ("b00da0fc-bce8-4481-abaf-822606c57aef")
     @Inject
     @Optional
-    void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project, final EPartService partService) {
+    void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject project, final EPartService partService) {
         // close all diagram editors when closing the project
         closeAll(project, partService);
         
@@ -136,7 +137,7 @@ public class RichNoteEditorsManager {
     @objid ("4408ac9a-bd17-4985-b950-42c08044997b")
     @Inject
     @Optional
-    void onProjectOpen(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project) {
+    void onProjectOpen(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject project) {
         // Instantiate a new rich note modeling session
         @SuppressWarnings ("unused")
         RichNotesSession richNotesSession = new RichNotesSession(project);
@@ -157,7 +158,7 @@ public class RichNoteEditorsManager {
     @objid ("cdb2b5e9-a439-43a5-880b-113da6fab0d0")
     private boolean editEmbeddedResource(AbstractResource resource, final IInputPartService inputPartService, final EPartService partService) {
         // If there is already an opened editor for the container, bring it to top
-        final GProject project = GProject.getProject(resource);
+        final IGProject project = AbstractGProject.getProject(resource);
         final RichNotesSession session = RichNotesSession.get(project);
         final IRichNoteEditor editor = session.getEditorRegistry().getEditor(resource);
         if (editor != null) {

@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Sauvegarder-un-diagramme-dans-un-fichier]]
 
-[[sauvegarder-un-diagramme-dans-un-fichier]]
+
+
 = Sauvegarder un diagramme dans un fichier
 
 Pour sauvegarder le contenu d'un diagramme dans un fichier, il suffit de suivre les étapes suivantes :

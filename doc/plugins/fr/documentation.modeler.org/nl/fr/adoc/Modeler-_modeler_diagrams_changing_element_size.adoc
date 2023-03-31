@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Retailler-un-élément]]
 
-[[retailler-un-élément]]
+
+
 = Retailler un élément
 
-[[Modifier-la-taille-dun-élément-dans-un-diagramme]]
 
-[[modifier-la-taille-dun-élément-dans-un-diagramme]]
+
+
 ===== Modifier la taille d'un élément dans un diagramme
 
 Pour modifier la taille d'un élément dans un diagramme, il suffit de sélectionner l'un des points de contrôle qui l'entourent et de le glisser jusqu'à ce l'élément atteigne la taille souhaitée.
@@ -18,9 +18,9 @@ Pour modifier la taille d'un élément dans un diagramme, il suffit de sélectio
 .Modification de la taille d'une classe
 image::images/Modeler-_modeler_diagrams_changing_element_size_modeler_fig_41.gif[2]
 
-[[La-commande-Retaillage-automatique]]
 
-[[la-commande-retaillage-automatique]]
+
+
 ===== La commande "Retaillage automatique"
 
 La commande image:images/Modeler-_modeler_diagrams_changing_element_size_auto_size.png[3] *"Retaillage automatique"* (accessible dans la barre d'outils de la vue d'édition des diagrammes, et dans le menu contextuel "Alignement" sur un élément dans un diagramme) permet d'ajuster la taille de l'élément sélectionné à son contenu : nom, attributs, opérations, éléments qu'il contient, et ainsi de suite.

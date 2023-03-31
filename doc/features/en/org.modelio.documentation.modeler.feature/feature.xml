@@ -2,7 +2,7 @@
 <feature
       id="org.modelio.documentation.modeler.feature"
       label="%featureName"
-      version="5.1.0.qualifier"
+      version="5.3.1.qualifier"
       provider-name="modelio.org">
 
    <description url="">
@@ -31,12 +31,6 @@
 
    <plugin
          id="org.modelio.documentation.modeliomodeler"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.modelio.documentation.modeliomodeler.toc"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

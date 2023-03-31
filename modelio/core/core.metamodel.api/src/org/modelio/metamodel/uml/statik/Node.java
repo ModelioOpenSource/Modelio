@@ -38,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  * Nodes may have an internal structure defined in terms of the Parts and Connectors associated with them, which is used to model the deployment of Artifact on Nodes, and also the imbrications of Nodes.  
  * 
  * In Modelio, Nodes belong to their owner NameSpace, which can be a Package, a Class or a Node.
+ * 
+ * 
  */
 @objid ("0012fb88-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Node extends Classifier {
@@ -58,6 +60,7 @@ public interface Node extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1058f12e-96b3-47de-8d5a-c811fa3dcc47")
     EList<Artifact> getResident();
@@ -67,8 +70,9 @@ public interface Node extends Classifier {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7717620d-a8d1-4448-833a-8c90cdbedd43")
     <T extends Artifact> List<T> getResident(java.lang.Class<T> filterClass);
-
 }
+

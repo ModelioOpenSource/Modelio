@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2940]]
 
-[[r2940]]
+
+
 = R2940
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Toutes les transitions arrivant sur un nœud de jointure doivent venir de régions différentes.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les régions d'un état orthogonal sont concurrentes et donc chaque transition arrivant sur un nœud de jointure doit partir d'une région différente.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez plusieurs transitions partant d'une même région, supprimez une des transitions ou créez une nouvelle région.

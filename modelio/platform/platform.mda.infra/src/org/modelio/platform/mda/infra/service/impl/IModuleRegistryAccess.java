@@ -20,7 +20,6 @@
 package org.modelio.platform.mda.infra.service.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleRegistry;
 import org.modelio.platform.mda.infra.service.IRTModule;
 
@@ -58,17 +57,6 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
     void removeModule(IRTModule module);
 
     /**
-     * Get the {@link IRTModule} corresponding to the given
-     * {@link GModule}.
-     * <p>
-     * Creates a new IRTModule if none is found.
-     * @param model the module model.
-     * @return the matching <code>IRTModule</code>.
-     */
-    @objid ("0d308e9c-e633-4505-bb8c-a3c8f9c5794b")
-    IRTModule loadRTModule(GModule model);
-
-    /**
      * Makes the registry unusable and release resources.
      */
     @objid ("06971dbd-5b21-4076-950e-c1e4ff743ec0")
@@ -80,5 +68,5 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
      */
     @objid ("8dea9875-0273-4e2d-81f1-66b880c3ddba")
     void setProjectName(String name);
-
 }
+

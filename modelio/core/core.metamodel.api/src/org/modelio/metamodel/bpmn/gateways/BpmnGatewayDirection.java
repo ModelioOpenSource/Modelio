@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00654c58-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnGatewayDirection {
@@ -40,6 +42,7 @@ public enum BpmnGatewayDirection {
     DIVERGINGDIRECTION(2, "DivergingDirection", "DivergingDirection"),
     @objid ("8e27738b-aace-4bb0-ade5-699bfcbce94b")
     MIXEDDIRECTION(3, "MixedDirection", "MixedDirection");
+
 public static final int UNSPECIFIEDDIRECTION_VALUE = 0;
     public static final int CONVERGINGDIRECTION_VALUE = 1;
     public static final int DIVERGINGDIRECTION_VALUE = 2;

@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("000d140c-91e1-1f74-804b-001ec947cd2a")
 public enum KindOfControl {
@@ -36,6 +38,7 @@ public enum KindOfControl {
     IF(0, "If", "If"),
     @objid ("43c546f5-6382-45f9-852e-cb5fa74f618c")
     CASE(1, "Case", "Case");
+
 public static final int IF_VALUE = 0;
     public static final int CASE_VALUE = 1;
     private static final KindOfControl[] VALUES_ARRAY =

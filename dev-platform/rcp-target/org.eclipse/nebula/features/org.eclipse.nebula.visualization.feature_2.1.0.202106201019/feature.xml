@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.visualization.feature"
+      label="%featureName"
+      version="2.1.0.202106201019"
+      provider-name="%provider">
+
+   <description url="%featureDescriptionURL">
+      %featureDescriptionText
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.widgets"
+         download-size="244"
+         install-size="505"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.widgets.source"
+         download-size="111"
+         install-size="343"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.xygraph"
+         download-size="366"
+         install-size="755"
+         version="3.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.xygraph.source"
+         download-size="234"
+         install-size="671"
+         version="3.1.0.202106201019"
+         unpack="false"/>
+
+</feature>

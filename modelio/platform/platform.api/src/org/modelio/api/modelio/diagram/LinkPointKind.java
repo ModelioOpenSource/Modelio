@@ -34,30 +34,30 @@ import org.eclipse.draw2d.geometry.Point;
  * {@link ILinkPoint#setLocation(Point)} will not move the anchor. Instead it will select the nearest anchor from the requested location.
  * </ul>
  */
-@objid ("d74b33b8-b584-4063-8167-482135f9dee8")
+@objid ("03ea3183-7587-4d24-8bb8-8e034875dc84")
 public enum LinkPointKind {
     /**
      * Bend point that will not move unless the connection route is not consistent.
      */
-    @objid ("99b50dcb-2def-4869-9b82-8bf06d959153")
+    @objid ("008d2043-3d2e-49e6-9cfc-7f17ed5e5aff")
     BENDPOINT_FIXED,
     /**
      * Bend point that may be freely modified or deleted by the connection router.
      */
-    @objid ("dcc27e70-096f-47be-9b26-badd41356c93")
+    @objid ("5e62fb7c-6f5a-4dfe-b792-d1c628064cb8")
     BENDPOINT,
     /**
      * Predefined anchors whose location is determined by the node.
      * {@link ILinkPoint#setLocation(Point)} will not move the anchor.
      * Instead it will select the nearest anchor from the requested location.
      */
-    @objid ("10238cb8-f6fb-4098-ba47-7dfc1678fc5d")
+    @objid ("ba89733e-df3d-479f-85dd-9202a7c05d60")
     ANCHOR_DISCRETE,
     /**
      * Anchor point that may be located anywhere on the node. They may move to align with
      * the adjacent bend point or the opposite anchor if no bend point.
      */
-    @objid ("dab5725e-9875-4568-9c78-5ad567f10717")
+    @objid ("5640182f-1784-4f9e-b995-1b8aed69b197")
     ANCHOR_SLIDING;
 
 }

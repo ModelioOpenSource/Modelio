@@ -37,15 +37,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 
 @objid ("8b183257-3424-413c-9856-f0469d59f5ca")
 public class EditPartView {
-    @objid ("67ff7527-1899-4fe4-a465-a8ad27d2c4fe")
+    @objid ("cdbc8eca-f749-4e30-a7e3-857021a091e2")
     private TableViewer figureProps;
-
-    @objid ("bc186c24-2870-44d5-8835-72bd814e9cae")
-    private Font boldFont;
 
     @objid ("f511834e-db1e-4c7a-8c59-25eef5b3f206")
     public  EditPartView(Composite parent) {
@@ -55,7 +52,7 @@ public class EditPartView {
         table.setHeaderVisible(true);
         table.setLinesVisible(true);
         
-        this.boldFont = CoreFontRegistry.getModifiedFont(table.getFont(), SWT.BOLD, 1.0f);
+        
         
         TableViewerColumn colKey = new TableViewerColumn(this.figureProps, SWT.NONE);
         colKey.getColumn().setWidth(200);
@@ -69,7 +66,7 @@ public class EditPartView {
         
             @Override
             public Font getFont(Object element) {
-                return getText(element).startsWith(" ") ? null : EditPartView.this.boldFont;
+                return getText(element).startsWith(" ") ? null : UIFont.NORMALB;
             }
         });
         
@@ -85,7 +82,7 @@ public class EditPartView {
         
             @Override
             public Font getFont(Object element) {
-                return ((Entry<String, String>) element).getKey().startsWith(" ") ? null : EditPartView.this.boldFont;
+                return ((Entry<String, String>) element).getKey().startsWith(" ") ? null : UIFont.NORMALB;
             }
         });
         

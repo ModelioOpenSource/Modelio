@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("001fd6aa-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BehavioralFeature extends Feature {
@@ -46,5 +48,5 @@ public interface BehavioralFeature extends Feature {
      */
     @objid ("cdd31f27-fd5d-4c7f-9c3f-d6116fb466fe")
     public static final String MQNAME = "Standard.BehavioralFeature";
-
 }
+

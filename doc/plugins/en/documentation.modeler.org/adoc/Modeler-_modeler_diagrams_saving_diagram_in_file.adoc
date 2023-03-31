@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Saving-a-diagram-in-a-file]]
 
-[[saving-a-diagram-in-a-file]]
+
+
 = Saving a diagram in a file
 
 To save the contents of a diagram in a file, just carry out the following steps:

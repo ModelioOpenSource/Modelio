@@ -29,8 +29,8 @@ import org.eclipse.jface.viewers.Viewer;
 import org.modelio.diagram.browser.model.AllDiagramsNode;
 import org.modelio.diagram.browser.model.core.DiagramRef;
 import org.modelio.diagram.browser.model.core.VirtualFolder;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
@@ -51,7 +51,7 @@ public class BySetContentProvider implements ITreeContentProvider {
     private AllDiagramsNode allDiagramsFolder;
 
     @objid ("0079fdc4-1f1a-10c7-842f-001ec947cd2a")
-    private GProject project;
+    private IGProject project;
 
     @objid ("0045b406-0d4f-10c6-842f-001ec947cd2a")
     @Override
@@ -71,7 +71,7 @@ public class BySetContentProvider implements ITreeContentProvider {
         Set<Object> fragments = new HashSet<>();
         
         for (DiagramSet p : this.project.getSession().getModel().findByClass(DiagramSet.class, IModel.NODELETED)) {
-            IProjectFragment fragment = this.project.getFragment(p);
+            IGModelFragment fragment =  this.project.getFragment(p);
             if (fragment != null) {
                 fragments.add(fragment);
             }
@@ -119,10 +119,10 @@ public class BySetContentProvider implements ITreeContentProvider {
         } else if (parent instanceof AllDiagramsNode) {
             // the 'all diagrams' pseudo node knows about its children
             return ((VirtualFolder) parent).getChildren(parent);
-        } else if (parent instanceof IProjectFragment) {
+        } else if (parent instanceof IGModelFragment) {
             List<DiagramSet> diagramSets = new ArrayList<>();
         
-            for (MObject root : ((IProjectFragment) parent).getRoots()) {
+            for (MObject root : ((IGModelFragment) parent).getRoots()) {
                 if (root instanceof AbstractProject) {
                     DiagramSet diagramRoot = ((AbstractProject) root).getDiagramRoot();
                     if (diagramRoot != null) {
@@ -151,7 +151,7 @@ public class BySetContentProvider implements ITreeContentProvider {
         } else if (parent instanceof AllDiagramsNode) {
             // the 'all diagrams' pseudo node knows about its children
             return ((VirtualFolder) parent).hasChildren(parent);
-        } else if (parent instanceof IProjectFragment) {
+        } else if (parent instanceof IGModelFragment) {
             return true;
         } else if (parent instanceof AbstractProject) {
             return ((AbstractProject) parent).getDiagramRoot() != null;
@@ -163,11 +163,10 @@ public class BySetContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the project.
-     * @param showFragments
      * @param project an opened GProject.
      */
     @objid ("0046b8ce-0d4f-10c6-842f-001ec947cd2a")
-    public  BySetContentProvider(GProject project) {
+    public  BySetContentProvider(IGProject project) {
         this.project = project;
         this.allDiagramsFolder = new AllDiagramsNode(this.project, null);
         

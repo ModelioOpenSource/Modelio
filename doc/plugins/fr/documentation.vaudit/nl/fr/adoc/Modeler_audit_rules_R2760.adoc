@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2760]]
 
-[[r2760]]
+
+
 = R2760
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un ForkPseudoState doit toujours cibler des états, pas des pseudo-états.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un ForkPseudoState est un nœud de contrôle qui divise un flux en plusieurs flux concurrents vers des états concurrents.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Les transitions qui viennent d'un ForkPseudoState et qui ciblent des pseudo- états doivent être supprimées.

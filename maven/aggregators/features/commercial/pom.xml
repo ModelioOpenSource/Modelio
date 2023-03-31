@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../../modelio-parent</relativePath>
+	</parent>
+
+	<artifactId>aggregator-feature-commercial</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.core</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.perspective</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.plugdule</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.preferences</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.project</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.services</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.ui</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.application.welcome</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.diagrams.auto</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.diagrams.core</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.documentation.modeler</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.e4.rcp</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.formalism.analyst</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.formalism.archimate</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.formalism.bpmn</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.formalism.uml</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.admintool</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.audit</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.bundlefiles</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.documents</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.editors</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.elementedition</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.expertise</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.fle</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.impact</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.license</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.matrix</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.methodology</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.modelbrowser</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.modelimport</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.modelviewtemplate</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.modules</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.patterns</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.refine</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.script</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.search</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.studio</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.svn</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.templatefiles</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.update</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.workflow</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.functions.xmi</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.platform.feature</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.platform.libraries</module>
+		<module>../../../../features/commercial/com.modeliosoft.modelio.rcp</module>
+	</modules>
+</project>

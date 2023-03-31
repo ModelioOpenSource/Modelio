@@ -35,6 +35,9 @@ import org.modelio.metamodel.uml.infrastructure.Dependency;
  * A Usage is a relationship in which one element requires another element (or set of elements) for its full implementation or operation. 
  * 
  * In the metamodel, a Usage is a Dependency in which the client requires the presence of the supplier.
+ * 
+ * 
+ * 
  */
 @objid ("0090bf1e-c4be-1fd8-97fe-001ec947cd2a")
 public interface Usage extends Dependency {
@@ -49,5 +52,5 @@ public interface Usage extends Dependency {
      */
     @objid ("0a023f8c-e40b-42c3-8c5e-72005cc0a96f")
     public static final String MQNAME = "Standard.Usage";
-
 }
+

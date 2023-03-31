@@ -35,6 +35,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
@@ -194,8 +195,10 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
         RepositoryVersions v = super.readRepositoryVersion();
         if (v == null) {
             // guess version
-            List<String> cmsNodes = Files.list(this.modelPath).map(p -> p.getFileName().toString()).collect(Collectors.toList());
-            return new RepositoryVersions(0, cmsNodes);
+            try (Stream<Path> entries = Files.list(this.modelPath)) {
+                List<String> cmsNodes = entries.map(p -> p.getFileName().toString()).collect(Collectors.toList());
+                return new RepositoryVersions(0, cmsNodes);
+            }
         }
         return v;
     }

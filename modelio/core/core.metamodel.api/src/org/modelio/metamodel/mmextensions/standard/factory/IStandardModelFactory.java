@@ -2300,5 +2300,5 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     @objid ("935759a9-18cd-4a35-b0e1-57b911dd8891")
     MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, String moduleName, String stereotypeName);
-
 }
+

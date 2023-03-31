@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * The semantics of the behavior are determined by the implementation.
  * 
  * MDA components have to provide notes types and tag types to define the semantics.
+ * 
+ * 
  */
 @objid ("00419286-c4bf-1fd8-97fe-001ec947cd2a")
 public interface OpaqueBehavior extends Behavior {
@@ -54,6 +56,7 @@ public interface OpaqueBehavior extends Behavior {
      * 
      * Metamodel description:
      * <i>Specifies the behavior in one language.</i>
+     * 
      */
     @objid ("a2cb63ec-e7a5-4df3-8486-f72abbb3bee2")
     String getBody();
@@ -63,8 +66,9 @@ public interface OpaqueBehavior extends Behavior {
      * 
      * Metamodel description:
      * <i>Specifies the behavior in one language.</i>
+     * 
      */
     @objid ("8bc41105-4a48-4b2c-80fc-130720d53ee0")
     void setBody(String value);
-
 }
+

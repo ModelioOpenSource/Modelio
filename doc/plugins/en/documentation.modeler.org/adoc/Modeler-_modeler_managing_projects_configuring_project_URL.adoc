@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configuring-project-URLs]]
 
-[[configuring-project-urls]]
+
+
 = Configuring project URLs
 
 In Modelio, custom information pages can be associated with each project. +

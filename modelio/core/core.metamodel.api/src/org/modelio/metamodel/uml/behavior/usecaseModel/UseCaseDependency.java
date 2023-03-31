@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * Two predefined Stereotypes are defined for this link: <extends>> and <<includes>>. 
  * 
  * UseCaseDependencies belong to their origin UseCase.
+ * 
+ * 
  */
 @objid ("0058fd18-c4bf-1fd8-97fe-001ec947cd2a")
 public interface UseCaseDependency extends UmlModelElement {
@@ -59,6 +61,7 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9f2fdcbe-c7ff-46c8-937b-981334ea199a")
     UseCase getOrigin();
@@ -68,6 +71,7 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("92a322f2-75ae-46f0-9573-ce773223ac78")
     void setOrigin(UseCase value);
@@ -77,6 +81,7 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>An ordered list of extension points belonging to the extended use case, specifying where the respective behavioral fragments of the extending use case are to be inserted. The first fragment in the extending use case is associated with the first extension point in the list, the second fragment with the second point, and so on. (Note that, in most practical cases, the extending use case has just a single behavior fragment, so that the list of extension points is trivial.)</i>
+     * 
      */
     @objid ("bb4fd0f9-90db-4b6e-9523-8cd2a35fea0c")
     EList<ExtensionPoint> getExtensionLocation();
@@ -86,6 +91,7 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>An ordered list of extension points belonging to the extended use case, specifying where the respective behavioral fragments of the extending use case are to be inserted. The first fragment in the extending use case is associated with the first extension point in the list, the second fragment with the second point, and so on. (Note that, in most practical cases, the extending use case has just a single behavior fragment, so that the list of extension points is trivial.)</i>
+     * 
      */
     @objid ("80208307-e679-45d7-af8d-41d2ec0961e2")
     <T extends ExtensionPoint> List<T> getExtensionLocation(java.lang.Class<T> filterClass);
@@ -95,6 +101,7 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>In a dependency between UseCases, this defines the link to the target UseCase.</i>
+     * 
      */
     @objid ("a07b3c1d-4102-46fa-89df-a9bd36e9dcf8")
     UseCase getTarget();
@@ -104,8 +111,9 @@ public interface UseCaseDependency extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>In a dependency between UseCases, this defines the link to the target UseCase.</i>
+     * 
      */
     @objid ("ee66410c-36d1-4c6a-890c-d223e23613e2")
     void setTarget(UseCase value);
-
 }
+

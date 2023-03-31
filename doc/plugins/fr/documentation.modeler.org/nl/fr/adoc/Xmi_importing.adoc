@@ -5,9 +5,9 @@
 
 = Importer un modèle au format XMI
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 L'opération d'import XMI de Modelio importe un modèle UML2 dans Modelio à partir d'un fichier XMI.
@@ -22,9 +22,9 @@ image::images/Xmi_importing_xmiimport.png[3]
 1. Cliquez droit sur un package pour ouvrir le menu contextuel.
 2. Lancez la commande "Import/Export \ Import \ Import XMI".
 
-[[La-fenêtre-dimport-XMI]]
 
-[[la-fenêtre-dimport-xmi]]
+
+
 ===== La fenêtre d'import XMI
 
 .La fenêtre d'import XMI

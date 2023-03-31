@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2250]]
 
-[[r2250]]
+
+
 = R2250
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 All _Operations_ in a _Classifier_ must have a different signature from inherited public and protected operations, except for constructor, destructor and redefined operations.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An _Operation_ is identified by its signature, so it must be unique within all the inherited operations in a classifier. Redefined methods are exempt since their job is to actually override another inherited method with the same signature.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Rename one of the _Operations_ or change its parameters.

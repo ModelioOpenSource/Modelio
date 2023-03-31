@@ -26,7 +26,7 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.ui.UIImages;
 
@@ -40,12 +40,12 @@ public class NoteChooserLabelProvider extends LabelProvider {
     public Image getImage(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            return ModuleI18NService.getModuleImage(moduleComponent);
+            return MdaResources.getModuleImage(moduleComponent);
         } else if (element instanceof NoteType) {
             return MetamodelImageService.getIcon(Note.MQNAME);
         } else if (element instanceof Stereotype) {
             Stereotype stereotype = (Stereotype) element;
-            Image image = ModuleI18NService.getIcon(stereotype);
+            Image image = MdaResources.getIcon(stereotype);
             if (image != null) {
                 return image;
             }
@@ -59,7 +59,7 @@ public class NoteChooserLabelProvider extends LabelProvider {
     public String getText(Object element) {
         if (element instanceof ModuleComponent) {
             ModuleComponent moduleComponent = (ModuleComponent) element;
-            String label = ModuleI18NService.getLabel(moduleComponent);
+            String label = MdaResources.getLabel(moduleComponent);
             if (label.isEmpty()) {
                 return moduleComponent.getName();
             } else {
@@ -69,7 +69,7 @@ public class NoteChooserLabelProvider extends LabelProvider {
             StringBuilder noteTypeLabel = new StringBuilder();
             NoteType noteType = (NoteType) element;
         
-            String label = ModuleI18NService.getLabel(noteType);
+            String label = MdaResources.getLabel(noteType);
             if (label.isEmpty()) {
                 noteTypeLabel.append(noteType.getName());
             } else {
@@ -82,7 +82,7 @@ public class NoteChooserLabelProvider extends LabelProvider {
             Stereotype stereotype = (Stereotype) element;
         
             noteTypeLabel.append("<<");
-            String label = ModuleI18NService.getLabel(stereotype);
+            String label = MdaResources.getLabel(stereotype);
             if (label.isEmpty()) {
                 noteTypeLabel.append(stereotype.getName());
             } else {

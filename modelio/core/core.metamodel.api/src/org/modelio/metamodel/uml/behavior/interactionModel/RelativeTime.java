@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0096910a-91e0-1f74-804b-001ec947cd2a")
 public enum RelativeTime {
@@ -40,6 +42,7 @@ public enum RelativeTime {
     AFTER(2, "After", "After"),
     @objid ("7c115d99-fb46-4d44-822f-b89c4b7856e2")
     ON(3, "On", "On");
+
 public static final int BEFORE_VALUE = 0;
     public static final int DURING_VALUE = 1;
     public static final int AFTER_VALUE = 2;

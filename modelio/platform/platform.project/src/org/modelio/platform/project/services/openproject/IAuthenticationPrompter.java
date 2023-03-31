@@ -50,5 +50,5 @@ public interface IAuthenticationPrompter {
      */
     @objid ("cf52baac-b4b1-4e20-9cd7-c3b78a83a63f")
     IAuthData promptAuthentication(IAuthData authData, String name, String location, String errorMessage);
-
 }
+

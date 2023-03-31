@@ -22,7 +22,7 @@ package org.modelio.diagram.browser.model.bycontext;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.modelio.diagram.browser.model.core.AbstractModel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 @objid ("002b53f4-0d4f-10c6-842f-001ec947cd2a")
 public class ByCtxModel extends AbstractModel {
@@ -36,7 +36,7 @@ public class ByCtxModel extends AbstractModel {
     }
 
     @objid ("a2907aff-fb26-48de-948b-1148a24c6ab3")
-    public  ByCtxModel(GProject project) {
+    public  ByCtxModel(IGProject project) {
         this.byCtxContentProvider = new ByCtxContentProvider(project);
     }
 

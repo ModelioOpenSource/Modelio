@@ -39,5 +39,5 @@ public interface IModelLinkFactory {
      */
     @objid ("80a8a46e-1dec-11e2-8cad-001ec947c8cc")
     MObject createLink(MClass metaclass, MObject source, MObject target) throws IllegalArgumentException, ClassCastException;
-
 }
+

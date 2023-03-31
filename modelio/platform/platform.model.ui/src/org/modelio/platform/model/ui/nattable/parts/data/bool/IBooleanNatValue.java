@@ -31,5 +31,5 @@ public interface IBooleanNatValue extends ISingleNatValue {
     @objid ("432d0af4-ea27-49bf-a7c1-0ced6b83b6c1")
     @Override
     Boolean getValue();
-
 }
+

@@ -81,8 +81,9 @@ public class VTabFolderRenderer {
 
     @objid ("cdf0b542-7827-4281-8cc4-823c148b15e1")
     private static final String ELLIPSIS = "..."; // $NON-NLS-1$
+    
 
-    // Part constants
+     // // Part constants
     /**
      * Part constant indicating the body of the tab folder. The body is the underlying container for all of the tab folder and all other parts are drawn on top of it. (value is -1).
      * 
@@ -165,6 +166,7 @@ public class VTabFolderRenderer {
 
     @objid ("01d35b3c-e0ac-47f3-9826-dce06d4b6e8d")
     public static final int MINIMUM_SIZE = 1 << 24; // TODO: Should this be a state?
+    
 
     @objid ("7bacabfb-5c59-4154-9672-e650e2c08b22")
     protected VTabFolder parent;

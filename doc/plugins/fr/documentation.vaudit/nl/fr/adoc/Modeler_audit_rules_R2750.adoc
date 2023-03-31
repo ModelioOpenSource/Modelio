@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2750]]
 
-[[r2750]]
+
+
 = R2750
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une transition sortant d'un état de type Fork ou Join, ne doit pas avoir de guard ou de trigger définis.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les pseudos états de type Fork ou Join sont des états de décision, et donc les transitions qui en sortent ne doivent pas avoir de propriétés de condition (comme guard et trigger) définies.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez les triggers ou guards de votre transition.

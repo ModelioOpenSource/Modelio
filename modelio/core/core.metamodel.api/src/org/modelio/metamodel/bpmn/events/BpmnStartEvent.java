@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>the Start Event indicates where a particular Process will start. In terms of Sequence Flow, the Start Event starts the flow of the Process, and thus, will not have any incoming Sequence Flow.</p><p>No Sequence Flow can connect to a Start Event.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00924686-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnStartEvent extends BpmnCatchEvent {
@@ -53,6 +56,7 @@ public interface BpmnStartEvent extends BpmnCatchEvent {
      * Metamodel description:
      * <i><p>This attribute only applies to Start Events of Event Sub-Processes; it is ignored for other Start Events. This attribute denotes whether the Sub-Process encompassing the Event Sub-Process should be cancelled or not, If the encompassing Sub-Process is not cancelled, multiple instances of the Event Sub-Process can run concurrently. This attribute cannot be applied to Error Events (where it?s always true), or Compensation Events (where it doesn?t apply).</p>
      * </i>
+     * 
      */
     @objid ("dc3b66bc-c6c3-4b98-97c3-6524f8a97e34")
     boolean isIsInterrupting();
@@ -63,8 +67,9 @@ public interface BpmnStartEvent extends BpmnCatchEvent {
      * Metamodel description:
      * <i><p>This attribute only applies to Start Events of Event Sub-Processes; it is ignored for other Start Events. This attribute denotes whether the Sub-Process encompassing the Event Sub-Process should be cancelled or not, If the encompassing Sub-Process is not cancelled, multiple instances of the Event Sub-Process can run concurrently. This attribute cannot be applied to Error Events (where it?s always true), or Compensation Events (where it doesn?t apply).</p>
      * </i>
+     * 
      */
     @objid ("323c7a48-3513-424f-8f04-f67ea5061287")
     void setIsInterrupting(boolean value);
-
 }
+

@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005a03ac-91e0-1f74-804b-001ec947cd2a")
 public enum AggregationKind {
@@ -38,6 +40,7 @@ public enum AggregationKind {
     KINDISAGGREGATION(1, "KindIsAggregation", "KindIsAggregation"),
     @objid ("06e91cdf-4ddd-4b1d-a2a8-8a73c5d47af4")
     KINDISCOMPOSITION(2, "KindIsComposition", "KindIsComposition");
+
 public static final int KINDISASSOCIATION_VALUE = 0;
     public static final int KINDISAGGREGATION_VALUE = 1;
     public static final int KINDISCOMPOSITION_VALUE = 2;

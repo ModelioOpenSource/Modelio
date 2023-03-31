@@ -268,6 +268,7 @@ import org.modelio.metamodel.visitors.IInfrastructureVisitor;
 /**
  * This interface is an implementation of {@link IModelVisitor} whose default strategy consists in transmitting the visit() call to the super class visit method.
  * <p>On root metaclasses, the visitor tries to delegate the parent metaclass metamodel visitor if available.If not available, <code>null</code> is returned.
+ * 
  */
 @objid ("f3891086-541e-4b45-aa3f-564ccb1cb308")
 public interface IDefaultModelVisitor extends IModelVisitor {
@@ -2011,5 +2012,5 @@ public interface IDefaultModelVisitor extends IModelVisitor {
         return visitInputPin(obj);
         
     }
-
 }
+

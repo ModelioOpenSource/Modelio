@@ -127,12 +127,12 @@ public class CompositionGetter {
          */
         @objid ("134d92a5-5bcb-11e1-a296-001ec947ccaf")
         boolean accept(final MObject child);
+}
+    
 
-    }
-
-    @objid ("1f70ed90-5772-4532-a71f-c8c4195f94b5")
+    @objid ("ce04bc46-8993-41c6-8dbb-6d7e64608734")
     private static class CompositionDepWalker {
-        @objid ("90124e6f-8903-4ef8-bf39-ebb38db3203d")
+        @objid ("b4f5a92a-b44d-4715-937f-576b4481a1b5")
         private Map<MClass, Collection<MDependency>> compositionDeps = new HashMap<>();
 
         /**
@@ -140,7 +140,7 @@ public class CompositionGetter {
          * @param srcObject an object
          * @return the relations to use as composition.
          */
-        @objid ("6c876406-5cb7-491b-841e-ad79a89b16bc")
+        @objid ("32b0d395-f124-4cc9-8333-f5a378a46c7a")
         public Collection<MDependency> getCompositionDeps(MObject srcObject) {
             Collection<MDependency> ret = this.compositionDeps.get(srcObject.getMClass());
             if (ret != null) {

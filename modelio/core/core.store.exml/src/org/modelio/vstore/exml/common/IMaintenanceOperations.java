@@ -71,5 +71,5 @@ public interface IMaintenanceOperations {
      */
     @objid ("a719e924-a65d-4593-ae11-4aafd631e64b")
     void writeMetamodelDescriptor() throws IOException;
-
 }
+

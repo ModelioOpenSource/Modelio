@@ -33,9 +33,14 @@ import org.modelio.audit.service.AuditSeverity;
 import org.modelio.bpmn.ui.plugin.BpmnUi;
 import org.modelio.metamodel.bpmn.activities.BpmnReceiveTask;
 import org.modelio.metamodel.bpmn.activities.BpmnSendTask;
+import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
+import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
+import org.modelio.metamodel.bpmn.events.BpmnEvent;
+import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
-import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
+import org.modelio.metamodel.bpmn.events.BpmnMessageEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
@@ -141,30 +146,27 @@ public class R3320 extends AbstractBpmnRule {
             boolean isFromExternalParticipant = source instanceof BpmnParticipant && ((BpmnParticipant) source).getProcess() == null;
             boolean isToExternalParticipant = target instanceof BpmnParticipant && ((BpmnParticipant) target).getProcess() == null;
             
-            // 
-            // source                      -> recommended targets
-            // ExternalParticipant         -> BpmnIntermediateCatchEvent | BpmnReceiveTask | ExternalParticipant
-            // BpmnIntermediateThrowEvent  -> BpmnIntermediateCatchEvent | ExternalParticipant
-            // BpmnSendTask                -> BpmnReceiveTask | BpmnIntermediateCatchEvent | ExternalParticipant
-            // 
-            
-            BpmnThrowEvent n;
-            BpmnIntermediateThrowEvent b;
-            
-            boolean isOk;
-            if (isFromExternalParticipant) {
-                isOk = target instanceof BpmnIntermediateCatchEvent || target instanceof BpmnReceiveTask || isToExternalParticipant;
-                
-            } else if (source instanceof BpmnIntermediateThrowEvent) {
-                isOk = target instanceof BpmnIntermediateCatchEvent || target instanceof BpmnReceiveTask || isToExternalParticipant;
-                
-            } else if (source instanceof BpmnSendTask) {
-                isOk = target instanceof BpmnReceiveTask || target instanceof BpmnIntermediateCatchEvent || isToExternalParticipant;
-            } else {
-                isOk = false;
+            boolean isSourceOk = isFromExternalParticipant || source instanceof BpmnIntermediateThrowEvent || source instanceof BpmnSendTask;
+            if (source instanceof BpmnEndEvent ||source instanceof BpmnBoundaryEvent ) {
+                for (BpmnEventDefinition definition : ((BpmnEvent) source).getEventDefinitions()) {
+                    if (definition instanceof BpmnMessageEventDefinition) {
+                        isSourceOk = true;
+                    }
+                }
             }
             
-            if (!isOk) {
+            
+            
+            boolean isTargetOk = target instanceof BpmnIntermediateCatchEvent || target instanceof BpmnReceiveTask || isToExternalParticipant;
+            if (target instanceof BpmnStartEvent) {
+                for (BpmnEventDefinition definition : ((BpmnStartEvent) target).getEventDefinitions()) {
+                    if (definition instanceof BpmnMessageEventDefinition) {
+                        isTargetOk = true;
+                    }
+                }
+            }
+            
+            if (!(isSourceOk && isTargetOk)) {
                 auditEntry.setSeverity(this.rule.getSeverity());
                 List<Object> linkedObjects = new ArrayList<>();
                 linkedObjects.add(messageFlow);

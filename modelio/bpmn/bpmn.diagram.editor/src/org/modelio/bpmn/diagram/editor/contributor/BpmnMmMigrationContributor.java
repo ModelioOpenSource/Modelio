@@ -31,9 +31,9 @@ import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.ModelManager;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.migration.MigrationFailedException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.MigrationFailedException;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.StandardMetamodel;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
@@ -66,7 +66,7 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
 public class BpmnMmMigrationContributor implements IFragmentMigrationContributor {
     @objid ("d73a0a67-3d04-4821-8b2d-b2f289ee0f1e")
     @Override
-    public void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, GProject gproject, IProjectFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException {
+    public void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, IGProject gproject, IGModelFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException {
         if (!fromVersion.contains(StandardMetamodel.NAME, new Version(0, 0, 0), new Version(2, 1, 0))) {
             // No migration needed
             return;
@@ -78,7 +78,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         IStandardModelFactory factory = MTools.get(coreSession).getModelFactory(IStandardModelFactory.class);
         
         // Force the style manager to load now
-        DiagramStyles.getStyleManager().reloadStylesIn(gproject.getProjectFileStructure().getProjectPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
+        DiagramStyles.getStyleManager().reloadStylesIn(gproject.getPfs().getProjectPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
         
         try (ITransaction t = coreSession.getTransactionSupport().createTransaction("BPMN diagrams migration")) {
             migrateTo2_1_0(reporter, eclipseContext, mon, coreSession, f, factory);
@@ -92,7 +92,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
      * Migration from Modelio 3.6 to Modelio 3.7.
      */
     @objid ("b095972f-9777-4ff9-b137-6bcff398ec16")
-    private void migrateTo2_1_0(IMigrationReporter reporter, IEclipseContext eclipseContext, SubProgress mon, ICoreSession coreSession, IProjectFragment f, IStandardModelFactory factory) {
+    private void migrateTo2_1_0(IMigrationReporter reporter, IEclipseContext eclipseContext, SubProgress mon, ICoreSession coreSession, IGModelFragment f, IStandardModelFactory factory) {
         Collection<MObject> created = new HashSet<>();
         IRepository repo = f.getRepository();
         SmMetamodel mm = coreSession.getMetamodel();

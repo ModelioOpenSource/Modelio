@@ -71,7 +71,7 @@ public interface ILayoutableLink {
     double getSlope();
 
     @objid ("89d9a76c-6205-4dd8-8140-ca0f85487ced")
-    public enum Shape {
+    enum Shape {
         @objid ("cda9827c-c2eb-44c8-9679-2395fcfd68f5")
         HorizontalDirect,
         @objid ("0da54419-e424-4f94-b0b1-b6b66aea97cf")
@@ -90,7 +90,7 @@ public interface ILayoutableLink {
     }
 
     @objid ("75bebaac-9029-4568-a8c7-c055907cfb9b")
-    public enum AnchorDirection {
+    enum AnchorDirection {
         @objid ("34f74dec-5d7e-48ff-a155-e72e3ae7681b")
         North,
         @objid ("bd24de54-2780-439f-b64d-f388d8f66263")
@@ -101,5 +101,5 @@ public interface ILayoutableLink {
         East;
 
     }
-
 }
+

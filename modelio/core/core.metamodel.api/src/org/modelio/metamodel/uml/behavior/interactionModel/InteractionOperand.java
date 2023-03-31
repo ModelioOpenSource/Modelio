@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * An InteractionOperand is contained in a CombinedFragment and contains an ordered set of InteractionFragments. It represents one operand of the expression given by the enclosing CombinedFragment. 
  * 
  * An InteractionOperand has an optional guard expression. Only InteractionOperands with a guard that evaluates to true at this point in the interaction will be considered for the production of the traces for the enclosing CombinedFragment.
+ * 
+ * 
  */
 @objid ("00479758-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InteractionOperand extends InteractionFragment {
@@ -56,6 +58,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Constraint of the operand.</i>
+     * 
      */
     @objid ("ff3cf201-da4c-4d54-85ad-a5962dc364fc")
     String getGuard();
@@ -65,6 +68,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Constraint of the operand.</i>
+     * 
      */
     @objid ("ec47bd7c-7001-4abe-8c87-2ee74eefb83a")
     void setGuard(String value);
@@ -74,6 +78,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2210701a-3897-4df8-bbdb-849e2e551f66")
     int getEndLineNumber();
@@ -83,6 +88,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e3d72fc6-1398-4f10-8c86-882304f6fb21")
     void setEndLineNumber(int value);
@@ -92,6 +98,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The fragments of the operand.</i>
+     * 
      */
     @objid ("b2abf493-ae34-4f80-9e7f-3ad4ed84c977")
     EList<InteractionFragment> getFragment();
@@ -101,6 +108,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The fragments of the operand.</i>
+     * 
      */
     @objid ("865e78e0-49bc-45e6-bc8a-036dcf312658")
     <T extends InteractionFragment> List<T> getFragment(java.lang.Class<T> filterClass);
@@ -110,6 +118,7 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a7d44265-3643-416b-98b0-85d159fffe61")
     CombinedFragment getOwnerFragment();
@@ -119,8 +128,9 @@ public interface InteractionOperand extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("00044f20-5627-4f10-bbe0-cd3dccc9302c")
     void setOwnerFragment(CombinedFragment value);
-
 }
+

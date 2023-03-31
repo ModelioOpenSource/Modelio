@@ -319,7 +319,7 @@ class ModelExporter {
                 if (valRepoId != objRepoId // target is in another repository, keep the dep
                         || this.objectsToExternalize.contains(val) // target is already exported, keep the dep
                         || this.modelFilter.accept(val) // make sure the target is not filtered
-                        ) {
+                ) {
                     MObject targetVal = getTargetObject(val);
                     if (!smDep.isCompositionOpposite() || targetVal.isValid()) {
                         targetObj.mGet(smDep).add(targetVal);

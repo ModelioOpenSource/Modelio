@@ -33,5 +33,5 @@ public interface INoteContent {
 
     @objid ("21eb54e3-8998-460d-bfb8-15eb524245b9")
     ModelElement getNoteElement();
-
 }
+

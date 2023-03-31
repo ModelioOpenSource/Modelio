@@ -25,6 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Defines an {@link INatValue} which associated Object value has a cardinality of <i>0..1</i> or <i>1..1</i>.
  */
 @objid ("ef275076-5e56-4473-a36e-380c8ad17054")
-public interface ISingleNatValue extends INatValue {// empty
-    
-}
+public interface ISingleNatValue extends INatValue {
+// empty
+    }
+

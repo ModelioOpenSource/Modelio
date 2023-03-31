@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Diagrams used for&nbsp;processes design.</p><p>This diagram kind can show any element of the BPMN&nbsp;metamodel.</p><p>Process design diagrams are owned by a BpmnProcess.</p><p>&nbsp;</p>
+ * 
+ * 
+ * 
  */
 @objid ("3c66c8c9-a647-4abb-a216-bbe6d1bcb82c")
 public interface BpmnProcessDesignDiagram extends BpmnProcessCollaborationDiagram {
@@ -46,5 +49,5 @@ public interface BpmnProcessDesignDiagram extends BpmnProcessCollaborationDiagra
      */
     @objid ("07d81fe5-82d6-42d3-9125-70ea64f23e38")
     public static final String MQNAME = "Standard.BpmnProcessDesignDiagram";
-
 }
+

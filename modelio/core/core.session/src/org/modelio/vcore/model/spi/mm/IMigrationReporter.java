@@ -40,5 +40,5 @@ public interface IMigrationReporter {
      */
     @objid ("eb687b13-f5dc-4641-9545-11afdc51bec0")
     PrintWriter getResultReporter();
-
 }
+

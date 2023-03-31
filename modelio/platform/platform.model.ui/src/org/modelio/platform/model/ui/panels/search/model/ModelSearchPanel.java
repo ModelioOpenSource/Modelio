@@ -19,12 +19,16 @@
  */
 package org.modelio.platform.model.ui.panels.search.model;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.TraverseListener;
 import org.eclipse.swt.layout.GridData;
@@ -35,28 +39,41 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
+import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.platform.model.ui.panels.search.ISearchController;
 import org.modelio.platform.model.ui.panels.search.ISearchPanel;
 import org.modelio.platform.model.ui.plugin.CoreUi;
-import org.modelio.platform.model.ui.swt.selectmetaclass.MetaclassSelector;
+import org.modelio.platform.model.ui.swt.selectmetaclass.multiple.IMultipleMetaclassSelectorListener;
+import org.modelio.platform.model.ui.swt.selectmetaclass.multiple.MultipleMetaclassSelector;
 import org.modelio.platform.search.engine.ISearchCriteria;
 import org.modelio.platform.search.engine.searchers.model.ModelSearchCriteria;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.vcore.session.api.ICoreSession;
+import org.modelio.vcore.smkernel.mapi.MClass;
+import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
 
 /**
  * Model search criteria panel. It is composed of:
  * <ul>
  * <li>a name pattern field</li>
- * <li>a metaclass selection table</li>
- * <li>a checkbox to include or not the 'ramc' elements</li<
- * <li>a text field to enter a (unique) stereotype name</li>
+ * <li>a multiple metaclass selector</li>
+ * <li>a checkbox to include or not the 'ramc' elements</li<<li>a text field to enter a (unique) stereotype name</li>
  * </ul>
  */
 @objid ("53e74d23-1a1a-44df-ab92-66cdaf9960f0")
 public class ModelSearchPanel implements ISearchPanel {
+    @objid ("a123d982-779a-4e25-ba64-86999a4b5fc6")
+    public static final String[] DEFAULT_SEARCH_METACLASSES = {
+                "Archimate.Element",
+                NameSpace.MQNAME,
+                BpmnFlowNode.MQNAME,
+                BpmnProcess.MQNAME,
+                "Analyst.AnalystElement"
+        };
+
     @objid ("04129e46-96eb-4214-ad65-13e56836cd25")
     private Group topGroup;
 
@@ -79,7 +96,7 @@ public class ModelSearchPanel implements ISearchPanel {
     protected ISearchController searchController;
 
     @objid ("9270f8ab-7da1-4484-8926-ef3078bf6b99")
-    private MetaclassSelector metaclassSelector;
+    private MultipleMetaclassSelector metaclassSelector;
 
     @objid ("7c80a2ea-df62-4629-9fe0-48077daeabac")
     private SmMetamodel metamodel;
@@ -92,7 +109,7 @@ public class ModelSearchPanel implements ISearchPanel {
         
         this.topGroup = new Group(parent, SWT.NONE);
         this.topGroup.setText(CoreUi.I18N.getString("ModelSearch.CriteriaGroup.label")); //$NON-NLS-1$
-        this.topGroup.setFont(CoreFontRegistry.getModifiedFont(topGroup.getFont(), SWT.BOLD, 1.0f));
+        this.topGroup.setFont(UIFont.NORMALB);
         
         final GridLayout gridLayout = new GridLayout();
         gridLayout.verticalSpacing = 1;
@@ -153,14 +170,40 @@ public class ModelSearchPanel implements ISearchPanel {
         gridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false);
         this.caseSensitiveCheckBox.setLayoutData(gridData);
         
+        this.caseSensitiveCheckBox.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                // TODO Auto-generated method stub
+                super.widgetSelected(e);
+                ModelSearchPanel.this.searchController.runSearch();
+            }
+        });
+        
         // The metaclass selector
         final Label metaclassLabel = new Label(this.topGroup, SWT.NONE);
         metaclassLabel.setText(CoreUi.I18N.getString("ModelSearch.MetaclassSelector.label")); //$NON-NLS-1$
         
-        this.metaclassSelector = new MetaclassSelector(this.topGroup, SWT.BORDER, this.metamodel);
+        this.metaclassSelector = new MultipleMetaclassSelector(this.topGroup, SWT.BORDER, this.metamodel);
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
-        gridData.horizontalSpan = 2;
         this.metaclassSelector.getControl().setLayoutData(gridData);
+        this.metaclassSelector.addListener(new IMultipleMetaclassSelectorListener() {
+            @Override
+            public void selectMetaclasses(List<MClass> mClasses) {
+                ModelSearchPanel.this.searchController.runSearch();
+            }
+        });
+        new Label(this.topGroup, SWT.NONE).setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
+        
+        // The 'stereotype' criterion
+        final Label stereotypeLabel = new Label(this.topGroup, SWT.NONE);
+        stereotypeLabel.setText(CoreUi.I18N.getString("ModelSearch.Stereotype.label")); //$NON-NLS-1$
+        
+        this.stereotypeText = new Text(this.topGroup, SWT.SINGLE | SWT.BORDER);
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        this.stereotypeText.setLayoutData(gridData);
+        this.stereotypeText.setToolTipText(CoreUi.I18N.getString("ModelSearch.Stereotype.tooltip"));
+        
+        new Label(this.topGroup, SWT.NONE).setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
         
         // The 'include ramc' option
         final Label includeRamcLabel = new Label(this.topGroup, SWT.NONE);
@@ -169,25 +212,29 @@ public class ModelSearchPanel implements ISearchPanel {
         this.includeRamcCheckBox = new Button(this.topGroup, SWT.CHECK);
         this.includeRamcCheckBox.setToolTipText(CoreUi.I18N.getString("ModelSearch.IncludeRamc.tooltip")); //$NON-NLS-1$
         gridData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-        gridData.horizontalSpan = 2;
         this.includeRamcCheckBox.setLayoutData(gridData);
         
-        // The 'stereotype' criterion
-        final Label stereotypeLabel = new Label(this.topGroup, SWT.NONE);
-        stereotypeLabel.setText(CoreUi.I18N.getString("ModelSearch.Stereotype.label")); //$NON-NLS-1$
+        new Label(this.topGroup, SWT.NONE).setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
         
-        this.stereotypeText = new Text(this.topGroup, SWT.SINGLE | SWT.BORDER);
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        gridData.horizontalSpan = 2;
-        this.stereotypeText.setLayoutData(gridData);
-        this.stereotypeText.setToolTipText(CoreUi.I18N.getString("ModelSearch.Stereotype.tooltip"));
+        this.includeRamcCheckBox.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                super.widgetSelected(e);
+                ModelSearchPanel.this.searchController.runSearch();
+            }
+        });
         
         // Setup default values for criteria
         final ModelSearchCriteria defaultCriteria = new ModelSearchCriteria();
         defaultCriteria.setExpression(".*");
         defaultCriteria.setStereotype("");
         defaultCriteria.setIncludeRamc(false);
-        defaultCriteria.addMetaclass(this.metamodel.getMClass(NameSpace.class));
+        
+        for (String smcName : ModelSearchPanel.DEFAULT_SEARCH_METACLASSES) {
+            SmClass mc = metamodel.getMClass(smcName);
+            if (mc != null)
+                defaultCriteria.addMetaclass(mc);
+        }
         setCriteria(defaultCriteria);
         
     }
@@ -204,7 +251,10 @@ public class ModelSearchPanel implements ISearchPanel {
         this.searchCriteria.reset();
         this.searchCriteria.setExpression(this.textfield.getText());
         this.searchCriteria.setIncludeRamc(this.includeRamcCheckBox.getSelection());
-        this.searchCriteria.addMetaclass(this.metaclassSelector.getSelected());
+        
+        for (MClass mc : this.metaclassSelector.getSelected())
+            this.searchCriteria.addMetaclass(mc);
+        
         this.searchCriteria.setStereotype(this.stereotypeText.getText().trim());
         this.searchCriteria.setCaseSensitive(this.caseSensitiveCheckBox.getSelection());
         return this.searchCriteria;
@@ -215,14 +265,12 @@ public class ModelSearchPanel implements ISearchPanel {
     public void setCriteria(ISearchCriteria searchCriteria) {
         assert (searchCriteria instanceof ModelSearchCriteria);
         final ModelSearchCriteria criteria = (ModelSearchCriteria) searchCriteria;
-        
         this.searchCriteria = criteria;
-        
         this.textfield.setText(criteria.getExpression());
         this.includeRamcCheckBox.setSelection(criteria.isIncludeRamc());
-        
-        this.metaclassSelector.setSelected(this.metamodel.getMClass(criteria.getMetaclasses().get(0)));
-        
+        this.metaclassSelector.setSelected(criteria.getMetaclasses().stream()
+                .map(o -> metamodel.getMClass(o))
+                .collect(Collectors.toList()));
         this.stereotypeText.setText(criteria.getStereotype() != null ? criteria.getStereotype() : "");
         this.caseSensitiveCheckBox.setSelection(this.searchCriteria.isCaseSensitive());
         

@@ -49,5 +49,5 @@ public interface IModelTransformer {
      */
     @objid ("4ce3f725-c370-4701-b388-9d5365606a2f")
     boolean canExecute(AbstractDiagram diagram, ISelection selection);
-
 }
+

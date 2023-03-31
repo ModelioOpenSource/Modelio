@@ -45,15 +45,15 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * @author cma
  * @since 5.1.0
  */
-@objid ("cf3e7d15-a30b-4ee5-af19-6740d675321f")
+@objid ("5c246bf9-2b77-4525-907e-08cc3cba40ba")
 public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPolicy implements PropertyChangeListener {
     /**
      * The role to use for this edit policy
      */
-    @objid ("41159117-658a-404d-af5d-07ffd3371eae")
+    @objid ("7ab69808-3f7b-46b4-8fa8-aa92d7954403")
     public static final Object ROLE = "Refresh from Ob model";
 
-    @objid ("a8d0f5eb-46fc-441e-a7f0-85335041a7ec")
+    @objid ("93ab6a00-4e44-4901-ae82-bd5164274214")
     @Override
     public void activate() {
         super.activate();
@@ -63,7 +63,7 @@ public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPo
         
     }
 
-    @objid ("2fbaf8b5-c8e1-4013-8224-e38e53352b75")
+    @objid ("991f189a-3a15-4a97-b437-c4f8d46fdbfe")
     @Override
     public void deactivate() {
         IGmModelRelated grp = getModel();
@@ -73,7 +73,7 @@ public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPo
         
     }
 
-    @objid ("4ac42e48-8398-4c7e-9625-65d2849ee97f")
+    @objid ("5c928369-6eef-4b1d-a6f2-b25a161d4f45")
     @SuppressWarnings ("unchecked")
     protected <T extends IGmModelRelated> T getModel() {
         return (T) getHost().getModel();
@@ -88,7 +88,7 @@ public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPo
      * When executing commands do not use the command stack: it would use a transaction and potentially break the undo/redo.
      * Call {@link Command#execute()} directly.
      */
-    @objid ("32da470f-853c-486f-a92e-07b8586eaec5")
+    @objid ("96230dbe-a840-4a2b-9360-89c0dd1b3237")
     @Override
     public void propertyChange(PropertyChangeEvent ev) {
         String propertyName = ev.getPropertyName();
@@ -121,7 +121,7 @@ public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPo
      * @param ev the property change event, in case it contains useful informations
      * @return a command to run when the related model element is deleted.
      */
-    @objid ("85d654c4-9af0-4212-aa15-55f9ab4122e6")
+    @objid ("4253f0c1-5eaa-4042-a68f-58341d59aa26")
     protected Command getObElementDeletedCommand(PropertyChangeEvent ev) {
         GroupRequest req = new GroupRequest(RequestConstants.REQ_DELETE);
         EditPart host = getHost();
@@ -159,7 +159,7 @@ public abstract class AbstractRefreshFromModelEditPolicy extends GraphicalEditPo
      * @param ev the property change event, in case it contains useful informations
      * @return a command or null.
      */
-    @objid ("459e5657-d119-4a27-a2b5-35e462b3730f")
+    @objid ("724de16e-0a97-424f-a94a-3e8c968cf054")
     protected abstract Command getRefreshFromModelCommand(PropertyChangeEvent ev);
 
 }

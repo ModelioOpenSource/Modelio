@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Locale;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyBaseType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
@@ -327,6 +328,13 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
             return value;
         }
         
+    }
+
+    @objid ("100cb02f-748f-44b4-a86c-20c2b912d9e1")
+    @Override
+    public ModuleComponent getModule() {
+        final PropertyTableDefinition tableDef = getOwner();
+        return (tableDef != null)? tableDef.getModule() : null;
     }
 
 }

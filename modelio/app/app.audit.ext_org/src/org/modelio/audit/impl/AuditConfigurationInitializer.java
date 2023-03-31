@@ -26,7 +26,7 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.modelio.audit.service.IAuditService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 
 /**
@@ -49,9 +49,9 @@ public class AuditConfigurationInitializer {
     @objid ("0eb17856-34bc-4678-bac6-4375b6c81170")
     @Inject
     @Optional
-    void onProjectOpening(@UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject openedProject, IAuditService auditService) {
+    void onProjectOpening(@UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject openedProject, IAuditService auditService) {
         // Set project configuration file
-        final File projFile = openedProject.getProjectFileStructure().getProjectDataPath().resolve(AuditConfigurationInitializer.PROJECT_AUDIT_CONF_PATH).toFile();
+        final File projFile = openedProject.getPfs().getProjectDataPath().resolve(AuditConfigurationInitializer.PROJECT_AUDIT_CONF_PATH).toFile();
         auditService.setConfigurationFile(projFile);
         
     }
@@ -74,7 +74,7 @@ public class AuditConfigurationInitializer {
     @SuppressWarnings ("unused")
     @Inject
     @Optional
-    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject closingProject, IAuditService auditService) {
+    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject closingProject, IAuditService auditService) {
         auditService.setConfigurationFile(null);
     }
 

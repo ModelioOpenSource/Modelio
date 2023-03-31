@@ -20,6 +20,7 @@
 package org.modelio.platform.model.ui.swt.images;
 
 import java.net.URL;
+import java.util.function.Function;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
@@ -30,7 +31,6 @@ import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.TableItem;
@@ -49,6 +49,18 @@ import org.modelio.vcore.smkernel.mapi.MStatus;
  */
 @objid ("00872c2e-b6e9-100f-85b1-001ec947cd2a")
 public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider {
+    @objid ("cd68c80d-5a72-4854-8557-96f72cb8a162")
+    private static final int ICON_WIDTH = 24;
+
+    @objid ("5b37aa19-5ef6-4281-af35-69d17d5b2d49")
+    private static final int ICON_HEIGHT = 24;
+
+    @objid ("376f0b6b-e6c9-4a9c-b5b9-5412a04d36ff")
+    private static final int DECO_WIDTH = 8;
+
+    @objid ("8fbdf0a7-2d5a-4284-ac14-76c7b94c97e9")
+    private static final int DECO_HEIGHT = 8;
+
     @objid ("0086f33a-b6e9-100f-85b1-001ec947cd2a")
     private boolean showCms;
 
@@ -58,26 +70,32 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
     @objid ("0086fe3e-b6e9-100f-85b1-001ec947cd2a")
     private static final String IMAGES_PATH = "images/";
 
+    /**
+     * Used when the element to display is not directly an MObject
+     */
+    @objid ("0afe3c8a-be7e-4ffa-a654-a992059daa49")
+    private Function<Object, MObject> mObjectConverter;
+
     @objid ("009482fc-f04f-100f-85b1-001ec947cd2a")
     private final IModelioElementLabelProvider baseProvider;
 
     @objid ("a979a3d0-e6c0-4c89-9e7a-d2c307a8ea49")
-    private static final Image reference = ElementDecoratedStyledLabelProvider.loadImage("refoverlay6x7.png");
+    private static final Image reference = ElementDecoratedStyledLabelProvider.loadImage("refoverlay8x8.png");
 
     @objid ("d6b5d719-73f4-42b9-a0b2-4f727db0aed6")
-    private static final Image cmsReadWrite = ElementDecoratedStyledLabelProvider.loadImage("CMS_READWRITE6x7.png");
+    private static final Image cmsReadWrite = ElementDecoratedStyledLabelProvider.loadImage("cms_readwrite8x8.png");
 
     @objid ("2ae5ea08-17d2-4b76-8c98-1e914a2641df")
-    private static final Image cmsReadOnly = ElementDecoratedStyledLabelProvider.loadImage("CMS_READONLY6x7.png");
+    private static final Image cmsReadOnly = ElementDecoratedStyledLabelProvider.loadImage("cms_readonly8x8.png");
 
     @objid ("546e75b4-9842-4548-81b2-6be3e14b6459")
-    private static final Image cmsToAdd = ElementDecoratedStyledLabelProvider.loadImage("CMS_TOADD6x7.png");
+    private static final Image cmsToAdd = ElementDecoratedStyledLabelProvider.loadImage("cms_toadd8x8.png");
 
     @objid ("0c7d1c0b-0a00-4cad-a928-efede1f8b96b")
-    private static final Image cmsConflict = ElementDecoratedStyledLabelProvider.loadImage("CMS_CONFLICT6x7.png");
+    private static final Image cmsConflict = ElementDecoratedStyledLabelProvider.loadImage("cms_conflict8x8.png");
 
     @objid ("526953da-2a03-42a0-8254-b208f8263cec")
-    private static final Image cmsModified = ElementDecoratedStyledLabelProvider.loadImage("CMS_MODIFIED6x7.png");
+    private static final Image cmsModified = ElementDecoratedStyledLabelProvider.loadImage("cms_modified8x8.png");
 
     @objid ("b90d1082-6099-4939-891b-05188d5eaa6f")
     private static final Image placeholder = ElementDecoratedStyledLabelProvider.loadImage("placeholder36x24.png");
@@ -92,31 +110,25 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
     private static final Image auditAdvice = ElementDecoratedStyledLabelProvider.loadImage("auditadvice8x8.png");
 
     @objid ("3b106793-d28c-4511-8af2-0e8842bccb6d")
-    private static final Image cmsReadWriteNoLock = ElementDecoratedStyledLabelProvider.loadImage("CMS_READWRITE.nolock6x6.png");
+    private static final Image cmsReadWriteNoLock = ElementDecoratedStyledLabelProvider.loadImage("cms_readwrite.nolock8x8.png");
 
     @objid ("16af6b27-274c-4872-9f73-542e3a05448b")
-    private static final Image cmsModifiedNoLock = ElementDecoratedStyledLabelProvider.loadImage("CMS_MODIFIED.nolock6x6.png");
+    private static final Image cmsModifiedNoLock = ElementDecoratedStyledLabelProvider.loadImage("cms_modified.nolock8x8.png");
 
     @objid ("3c30b31e-6852-4dbb-a569-b1384f9dcc70")
-    private static final Image userReadOnly = ElementDecoratedStyledLabelProvider.loadImage("USER_READONLY6x7.png");
+    private static final Image userReadOnly = ElementDecoratedStyledLabelProvider.loadImage("user_readonly8x8.png");
 
     @objid ("09200b06-2bf8-42d5-8c88-de8a005dd5bc")
-    private static final Image cmsToDelete = ElementDecoratedStyledLabelProvider.loadImage("CMS_TODELETE6x7.png");
+    private static final Image cmsToDelete = ElementDecoratedStyledLabelProvider.loadImage("cms_todelete8x8.png");
 
     @objid ("92698eb5-27cd-443a-9b8c-e26613ab0186")
-    private static final Image invalidDeleted = ElementDecoratedStyledLabelProvider.loadImage("invalid_deleted6x7.png");
+    private static final Image invalidDeleted = ElementDecoratedStyledLabelProvider.loadImage("invalid_deleted8x8.png");
 
     @objid ("9a74f864-7076-4b27-9b6c-20c77735a679")
     private static final Image invalidBeingDeleted = ElementDecoratedStyledLabelProvider.loadImage("invalid_beingdeleted8x8.png");
 
     @objid ("138de558-8057-4f3f-8728-f7f3c1b36a70")
     private static final Image invalidDead = ElementDecoratedStyledLabelProvider.loadImage("invalid_dead10x10.png");
-
-    @objid ("aa3cca2f-f20c-4ebf-8bc0-6aa5f7d28436")
-    private final Point cmsSize;
-
-    @objid ("2bd7bc70-4d6f-406d-a470-9fa87df67fbe")
-    private final Point referenceSize;
 
     // ------------------------------------------------------------------------------------
     /**
@@ -140,9 +152,6 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
         
         configure(showCms, showAudit);
         
-        this.cmsSize = new Point(ElementDecoratedStyledLabelProvider.cmsReadWrite.getImageData().width, ElementDecoratedStyledLabelProvider.cmsReadWrite.getImageData().height);
-        this.referenceSize = new Point(ElementDecoratedStyledLabelProvider.reference.getImageData().width, ElementDecoratedStyledLabelProvider.reference.getImageData().height);
-        
     }
 
     /**
@@ -157,106 +166,117 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
         
     }
 
+    /**
+     * Set the converter to use to convert a tree content provider object to a MObject.
+     * <p>
+     * Used when the displayed elements are not directly MObjects.
+     * <p>
+     * This converter is used to get the element status and audit status.
+     * It is <b>not</b> used when delegating to the {@link #baseProvider} .
+     * @param mObjectConverter a conversion function
+     * @return this instance to chain calls
+     */
+    @objid ("1c4faf81-2d30-48b8-b85b-790c0d889382")
+    public ElementDecoratedStyledLabelProvider setMObjectConverter(Function<Object, MObject> mObjectConverter) {
+        this.mObjectConverter = mObjectConverter;
+        return this;
+    }
+
+    @objid ("e5167dab-d42a-405e-8283-ea29e5a30414")
+    protected MObject convertToMObject(Object object) {
+        if (this.mObjectConverter != null)
+            return this.mObjectConverter.apply(object);
+        
+        if (object instanceof MObject)
+            return (MObject) object;
+        return null;
+    }
+
+    /**
+     * Paint the cell.
+     * 
+     * There are four decorations which are DECO_WIDTH x DECO_HEIGHT pixels images, laid around the main icon image.<br/>
+     * The main icon is a ICON_WIDTH x ICON_WIDTH pixels image.
+     * 
+     * The decoration are laid out as described here:
+     * <ol>
+     * <li>the 'CMS' indicator at north-west position</li>
+     * <li>the 'reference' indicator at south-west position</li>
+     * <li>the 'audit' indicator at north-east position</li>
+     * <li>the 'invalid object' indicator at south-easy position</li>
+     * </ol>
+     */
     @objid ("0086fb28-b6e9-100f-85b1-001ec947cd2a")
     @Override
     protected final void paint(final Event event, final Object obj) {
         super.paint(event, obj);
-        
-        int curX;
-        
         Rectangle cellImageBounds = getCellImageBounds(event);
-        if (cellImageBounds != null) {
-            curX = cellImageBounds.x;
-        } else {
-            // hope this does not happen : event.x is not the same on Windows or Linux since Eclipse 4.11 .
-            CoreUi.LOG.debug("ElementDecoratedStyledLabelProvider.paint(...) : imageBounds==null, set curX=%d", event.x);
-            curX = event.x;
         
-        }
-        
+        // Hope this does not happen : event.x is not the same on Windows or Linux since Eclipse 4.11 .
+        int curX = (cellImageBounds != null) ? cellImageBounds.x : event.x;
         final int curY = event.y;
         
-        // Draw reference
+        // Draw reference decorator
         if (this.baseProvider.showAsReference(obj)) {
-            event.gc.drawImage(getReferenceDecoration(obj), curX, curY + event.height - this.referenceSize.y - 2);
+            final Image refDecoration = getReferenceDecoration(obj);
+            if (refDecoration != null) {
+                event.gc.drawImage(refDecoration, 0, 0, refDecoration.getBounds().width, refDecoration.getBounds().height, curX, curY + event.height - DECO_HEIGHT - 1, DECO_WIDTH, DECO_HEIGHT);
+            }
         }
         
-        // Draw CMS
-        if (this.showCms) {
-            if (obj instanceof MObject) {
-                final Image cmsDecoration = getCmsDecoration((MObject) obj);
-                if (cmsDecoration != null) {
-                    event.gc.drawImage(cmsDecoration, curX, curY + 1);
-                }
-            }
+        MObject modelObject = convertToMObject(obj);
         
-            curX += this.cmsSize.x + 1;
+        // Draw CMS
+        if (this.showCms && (modelObject != null)) {
+            final Image cmsDecoration = getCmsDecoration(modelObject);
+            if (cmsDecoration != null) {
+                event.gc.drawImage(cmsDecoration, 0, 0, cmsDecoration.getBounds().width, cmsDecoration.getBounds().height, curX, curY + 1, DECO_WIDTH, DECO_HEIGHT);
+            }
+            curX += DECO_WIDTH + 1;
         }
         
         // Draw icon
         final Image icon = this.baseProvider.getImage(obj);
-        
         if (icon != null && !icon.isDisposed()) {
-            int iconHeight = icon.getImageData().height;
-            int iconWidth = icon.getImageData().width;
-            int offset = (event.height - iconHeight)/2;
-            event.gc.drawImage(icon, curX, curY + offset);
-            curX += iconWidth;
+            event.gc.drawImage(icon, 0, 0, icon.getImageData().width, icon.getImageData().height, curX, curY, ICON_WIDTH, ICON_HEIGHT);
+            curX += ICON_WIDTH;
         }
         
         // Draw audit
-        if (this.showAudit) {
-            if (obj instanceof SmObjectImpl) {
-                try {
-                    final ISmObjectData data = ((SmObjectImpl) obj).getData();
-                    int audit = 0;
-                    if (data.hasAllStatus(IRStatus.AUDIT1) == StatusState.TRUE) {
-                        audit += 1;
-                    }
-                    if (data.hasAllStatus(IRStatus.AUDIT2) == StatusState.TRUE) {
-                        audit += 2;
-                    }
-        
-                    switch (audit) {
-                    case 1:
-                        event.gc.drawImage(ElementDecoratedStyledLabelProvider.auditAdvice, curX - 2, curY + 2);
-                        break;
-                    case 2:
-                        event.gc.drawImage(ElementDecoratedStyledLabelProvider.auditWarning, curX - 2, curY + 2);
-                        break;
-                    case 3:
-                        event.gc.drawImage(ElementDecoratedStyledLabelProvider.auditError, curX - 2, curY + 2);
-                        break;
-                    case 0:
-                    default:
-                        break;
-                    } // end switch
-                } catch (@SuppressWarnings ("unused") DeadObjectException e) {
-                    // Do not add audit flag for dead elements
-                }
+        if (this.showAudit && (modelObject instanceof SmObjectImpl)) {
+            Image auditDecoration = getAuditDecoration((SmObjectImpl) modelObject);
+            if (auditDecoration != null) {
+                event.gc.drawImage(auditDecoration, 0, 0, auditDecoration.getBounds().width, auditDecoration.getBounds().height, curX - 1, curY + 1, DECO_WIDTH, DECO_HEIGHT);
             }
         }
         
         // Draw invalid objects
-        if (obj instanceof SmObjectImpl) {
+        if (modelObject instanceof SmObjectImpl) {
             try {
-                final ISmObjectData data = ((SmObjectImpl) obj).getData();
+                final ISmObjectData data = ((SmObjectImpl) modelObject).getData();
                 if (data.hasAllStatus(IRStatus.DELETED) == StatusState.TRUE) {
-                    event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidDeleted, curX - 2, curY + 5);
+                    event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidDeleted, 0, 0, ElementDecoratedStyledLabelProvider.invalidDeleted.getBounds().width, ElementDecoratedStyledLabelProvider.invalidDeleted.getBounds().height, curX - 1,
+                            curY + event.height - DECO_HEIGHT - 1, DECO_WIDTH, DECO_HEIGHT);
+        
                     event.gc.setForeground(event.display.getSystemColor(SWT.COLOR_DARK_RED));
-                    event.gc.drawString("deleted", curX + ElementDecoratedStyledLabelProvider.invalidDeleted.getBounds().width, curY + 8, true);
-                }
+                    event.gc.drawString("deleted", curX + DECO_WIDTH, curY + event.height/2 , true);
+                    }
                 if (data.hasAllStatus(IRStatus.BEINGDELETED) == StatusState.TRUE) {
-                    event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidBeingDeleted, curX - 2, curY + 3);
+                    event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidBeingDeleted, 0, 0, ElementDecoratedStyledLabelProvider.invalidBeingDeleted.getBounds().width, ElementDecoratedStyledLabelProvider.invalidBeingDeleted.getBounds().height,
+                            curX - 1, curY + event.height - DECO_HEIGHT - 1, DECO_WIDTH, DECO_HEIGHT);
+        
                     event.gc.setForeground(event.display.getSystemColor(SWT.COLOR_DARK_RED));
-                    event.gc.drawString("being deleted", curX + ElementDecoratedStyledLabelProvider.invalidBeingDeleted.getBounds().width, curY + 8, true);
+                    event.gc.drawString("being deleted", curX + DECO_WIDTH, curY + event.height/2 , true);
                 }
+        
+        
             } catch (@SuppressWarnings ("unused") DeadObjectException e) {
                 // Draw dead elements with a specific style
                 event.gc.setAlpha(200);
-                event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidDead, curX - 2, curY + 8);
+                event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidDead, 0, 0, ElementDecoratedStyledLabelProvider.invalidDead.getBounds().width, ElementDecoratedStyledLabelProvider.invalidDead.getBounds().height, curX - 1,
+                        curY + event.height - DECO_HEIGHT - 1, DECO_WIDTH, DECO_HEIGHT);
                 event.gc.setForeground(event.display.getSystemColor(SWT.COLOR_DARK_RED));
-                event.gc.drawString("dead", curX + ElementDecoratedStyledLabelProvider.invalidDead.getBounds().width, curY + 8, true);
+                event.gc.drawString("dead", curX + DECO_WIDTH, curY + event.height/2 , true);
             }
         }
         
@@ -358,17 +378,48 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
         return ElementDecoratedStyledLabelProvider.reference;
     }
 
+    @objid ("b0b4c062-dba9-4424-85f0-e8188615029e")
+    private Image getAuditDecoration(SmObjectImpl mObj) {
+        try {
+        
+            final ISmObjectData data = mObj.getData();
+            int audit = 0;
+            if (data.hasAllStatus(IRStatus.AUDIT1) == StatusState.TRUE) {
+                audit += 1;
+            }
+            if (data.hasAllStatus(IRStatus.AUDIT2) == StatusState.TRUE) {
+                audit += 2;
+            }
+        
+            switch (audit) {
+            case 1:
+                return ElementDecoratedStyledLabelProvider.auditAdvice;
+            case 2:
+                return ElementDecoratedStyledLabelProvider.auditWarning;
+            case 3:
+                return ElementDecoratedStyledLabelProvider.auditError;
+            case 0:
+            default:
+                return null;
+            } // end switch
+        } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+            // Do not add audit flag for dead elements
+            return null;
+        }
+        
+    }
+
     @objid ("e00c44e8-345a-44ea-8869-4d999c5166d8")
     private Rectangle getCellImageBounds(final Event event) {
         Rectangle cellImageBounds = null;
         if (event.item instanceof TableItem) {
-            TableItem tableItem = (TableItem)event.item;
+            TableItem tableItem = (TableItem) event.item;
             // check the item has an image if you don't want an async JVM crash
             if (tableItem.getImage(event.index) != null) {
                 cellImageBounds = tableItem.getImageBounds(event.index);
             }
         } else {
-            TreeItem treeItem = (TreeItem)event.item;
+            TreeItem treeItem = (TreeItem) event.item;
             // check the item has an image if you don't want an async JVM crash
             if (treeItem.getImage(event.index) != null) {
                 cellImageBounds = treeItem.getImageBounds(event.index);

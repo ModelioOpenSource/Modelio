@@ -65,5 +65,5 @@ public interface ILinkEditorConfigurator {
 
     @objid ("4f06fadb-f5c5-43a1-bd8c-adc47606ec5e")
     void removePropertyChangeListener(PropertyChangeListener listener);
-
 }
+

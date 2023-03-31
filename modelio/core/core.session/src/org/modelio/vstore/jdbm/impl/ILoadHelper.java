@@ -32,5 +32,5 @@ public interface ILoadHelper {
 
     @objid ("6cf63e09-6ddf-4587-a553-49ab66156f56")
     SmClass getClass(String clsid);
-
 }
+

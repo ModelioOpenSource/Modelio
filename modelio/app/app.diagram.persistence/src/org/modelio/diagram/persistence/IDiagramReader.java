@@ -100,5 +100,5 @@ public interface IDiagramReader {
      */
     @objid ("cb6b8520-186f-11e2-92d2-001ec947c8cc")
     <T> List<T> readListProperty(String listName) throws PersistenceException;
-
 }
+

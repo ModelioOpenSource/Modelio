@@ -55,5 +55,5 @@ public interface IModuleRTCache {
      */
     @objid ("1b45cedd-a3b8-4a89-9749-76d3c844ddeb")
     IModuleHandle findModule(String moduleName, String moduleVersion, IModelioProgress monitor) throws IOException;
-
 }
+

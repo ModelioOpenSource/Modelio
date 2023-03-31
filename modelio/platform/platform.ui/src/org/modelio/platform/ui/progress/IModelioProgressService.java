@@ -38,5 +38,5 @@ public interface IModelioProgressService extends IProgressService {
      */
     @objid ("04326d24-45fa-439e-82bb-d27ab2e0cba1")
     void run(String title, boolean fork, boolean cancelable, IRunnableWithProgress runnable) throws InvocationTargetException, InterruptedException;
-
 }
+

@@ -28,7 +28,7 @@ import org.modelio.editors.richnote.api.RichNoteFormat;
 import org.modelio.editors.richnote.editor.IRichNoteEditor;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.helper.RichNoteFilesGeometry;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.IResourceHandle;
 import org.modelio.metamodel.uml.statik.Artifact;
@@ -57,7 +57,7 @@ class FileRepository implements IRichNoteFileRepository {
      * @param editorsRegistry the editors registry.
      */
     @objid ("4d46a9b7-81d1-4a24-8a24-83173f1d32d5")
-    public  FileRepository(GProject project, EditorsRegistry editorsRegistry) {
+    public  FileRepository(IGProject project, EditorsRegistry editorsRegistry) {
         this.session = project.getSession();
         this.geometry = new RichNoteFilesGeometry(project);
         this.editorsRegistry = editorsRegistry;

@@ -64,8 +64,7 @@ public class Version implements Comparable<Version>, Serializable {
     }
 
     /**
-     * Instantiate a new Version from a String. The standard format is
-     * <b>Major.Minor.Build</b>.
+     * Instantiate a new Version from a String. The standard format is <b>Major.Minor.Build</b>.
      * @param versionString The String to parse to create the version.
      * @throws NumberFormatException thrown when the parameter doesn't have a valid format.
      */
@@ -73,19 +72,19 @@ public class Version implements Comparable<Version>, Serializable {
     public  Version(String versionString) throws NumberFormatException {
         String[] versionNumbers = versionString.trim().split("\\.", 4);
         
-        if ((versionNumbers.length > 0) && (versionNumbers[0].length() != 0)) {
+        if (versionNumbers.length > 0 && versionNumbers[0].length() != 0) {
             this.majorVersion = Integer.parseInt(versionNumbers[0]);
         } else {
             this.majorVersion = 0;
         }
         
-        if ((versionNumbers.length > 1) && (versionNumbers[1].length() != 0)) {
+        if (versionNumbers.length > 1 && versionNumbers[1].length() != 0) {
             this.minorVersion = Integer.parseInt(versionNumbers[1]);
         } else {
             this.minorVersion = 0;
         }
         
-        if ((versionNumbers.length > 2) && (versionNumbers[2].length() != 0)) {
+        if (versionNumbers.length > 2 && versionNumbers[2].length() != 0) {
             this.buildVersion = parseRevision(versionNumbers[2]);
         } else {
             this.buildVersion = 0;
@@ -124,14 +123,11 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Compares this Version to the specified object.
      * <p>
-     * The result is true if and only if the argument is not null and is a
-     * Version object that represents the same version object as this object.
+     * The result is true if and only if the argument is not null and is a Version object that represents the same version object as this object.
      * <p>
-     * Two Versions are considered equal if the only difference is one of their
-     * metamodel version being zero.
+     * Two Versions are considered equal if the only difference is one of their metamodel version being zero.
      * @param anObject The object to compare this Version against.
-     * @return true if the given object represents a Version equivalent to this
-     * Version, false otherwise.
+     * @return true if the given object represents a Version equivalent to this Version, false otherwise.
      */
     @objid ("063d7a25-c9cc-11e1-8052-001ec947ccaf")
     @Override
@@ -141,9 +137,9 @@ public class Version implements Comparable<Version>, Serializable {
         }
         if (anObject instanceof Version) {
             Version other = (Version) anObject;
-            return ((this.majorVersion == other.majorVersion)
-                    && (this.minorVersion == other.minorVersion)
-                    && (this.buildVersion == other.buildVersion));
+            return this.majorVersion == other.majorVersion
+                    && this.minorVersion == other.minorVersion
+                    && this.buildVersion == other.buildVersion;
         }
         return false;
     }
@@ -180,24 +176,23 @@ public class Version implements Comparable<Version>, Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = (prime * result) + this.buildVersion;
-        result = (prime * result) + this.majorVersion;
-        result = (prime * result) + this.minorVersion;
+        result = prime * result + this.buildVersion;
+        result = prime * result + this.majorVersion;
+        result = prime * result + this.minorVersion;
         return result;
     }
 
     /**
-     * Tells whether the only difference between this version and the other
-     * is that this version build is newer than the other.
+     * Tells whether the only difference between this version and the other is that this version build is newer than the other.
      * @param other another version to compare to.
      * @return true only if this version has just a newer build.
      */
     @objid ("5fd47d20-e3a8-480d-8411-78cb3046bf50")
     public boolean isNewerBuildOf(Version other) {
-        return (other != null
+        return other != null
                 && this.majorVersion == other.majorVersion
                 && this.minorVersion == other.minorVersion
-                && this.buildVersion > other.buildVersion);
+                && this.buildVersion > other.buildVersion;
         
     }
 
@@ -273,16 +268,14 @@ public class Version implements Comparable<Version>, Serializable {
      * <UL>
      * <LI>V means 'prints the major version number' (one or more digits)</LI>
      * <LI>R means 'prints the minor version number (one or more digits)</LI>
-     * <LI>C means 'print the correction level (0-padded to 2 digits) </LI>
-     * <LI>other chars are just inserted in the resulting string.
-     * There is no way of escaping characters VRC
+     * <LI>C means 'print the correction level (0-padded to 2 digits)</LI>
+     * <LI>other chars are just inserted in the resulting string. There is no way of escaping characters VRC
      * </UL>
      * </P>
      * 
      * example: if version is 3.0.01
      * 
-     * version.toString("V.R") will produce 3.0
-     * version.toString("V.R-C") will produce 3.0-01
+     * version.toString("V.R") will produce 3.0 version.toString("V.R-C") will produce 3.0-01
      * @return the formatted string representation of the version.
      */
     @objid ("5de000a8-66df-4b8a-9095-015af24b6505")
@@ -309,9 +302,7 @@ public class Version implements Comparable<Version>, Serializable {
     }
 
     /**
-     * Parse the revision number. It may be a decimal number or for ascendant
-     * compatibility a letter. In the second case it is parsed as a base 36
-     * number.
+     * Parse the revision number. It may be a decimal number or for ascendant compatibility a letter. In the second case it is parsed as a base 36 number.
      * @param revision revision number
      * @return the parsed revision number
      * @throws NumberFormatException if the revision cannot be parsed.

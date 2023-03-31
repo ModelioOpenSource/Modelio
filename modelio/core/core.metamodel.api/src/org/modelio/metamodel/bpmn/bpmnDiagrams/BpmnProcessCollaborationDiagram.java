@@ -33,6 +33,9 @@ import org.modelio.metamodel.diagrams.BehaviorDiagram;
  * 
  * 
  * <p>Diagrams used for collaborations and processes.</p><p>This metaclass was concrete in previous Modelio versions,&nbsp;now use a sub metaclass instead.</p>
+ * 
+ * 
+ * 
  */
 @objid ("000bed02-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnProcessCollaborationDiagram extends BehaviorDiagram {
@@ -47,5 +50,5 @@ public interface BpmnProcessCollaborationDiagram extends BehaviorDiagram {
      */
     @objid ("4c0d0e16-c0ff-4005-b613-7d868ea59d71")
     public static final String MQNAME = "Standard.BpmnProcessCollaborationDiagram";
-
 }
+

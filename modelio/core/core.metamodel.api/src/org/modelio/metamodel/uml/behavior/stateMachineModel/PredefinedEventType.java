@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("000d47b0-91e1-1f74-804b-001ec947cd2a")
 public enum PredefinedEventType {
@@ -38,6 +40,7 @@ public enum PredefinedEventType {
     DOEVENT(1, "DoEvent", "DoEvent"),
     @objid ("fb4ee899-9493-4c72-b561-c0c2662f572b")
     EXITEVENT(2, "ExitEvent", "ExitEvent");
+
 public static final int ENTRYEVENT_VALUE = 0;
     public static final int DOEVENT_VALUE = 1;
     public static final int EXITEVENT_VALUE = 2;

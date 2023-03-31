@@ -437,7 +437,7 @@ public class MacroDialog extends ModelioDialog {
             if (dlg.open() == IDialogConstants.OK_ID) {
                 MacroDialog.this.metaclassList.removeAll();
                 for (MClass s : dlg.getSelection()) {
-                    addMetaclass(s.getName());
+                    addMetaclass(s.getQualifiedName());
                 }
             }
             

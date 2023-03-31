@@ -129,5 +129,5 @@ public interface IResourceBuilder {
      */
     @objid ("51e9618c-14ea-44ec-bf7b-71d7a52a3445")
     IResourceBuilder withAuthData(IAuthData auth);
-
 }
+

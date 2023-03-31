@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoEspace-de-travailrdquo]]
 
-[[la-vue-espace-de-travail]]
+
+
 = La vue "Espace de travail"
 
 .La vue "Espace de travail"
@@ -21,9 +21,9 @@ image::images/Modeler-_modeler_interface_workspace_view_vue_espace_de_travail.pn
 6. Les bibliothèques présentes dans le projet sélectionné.
 7. Les modules présents dans le projet sélectionné.
 
-[[Principales-commandes-disponibles-dans-la-vue-ldquoEspace-de-travailrdquo]]
 
-[[principales-commandes-disponibles-dans-la-vue-espace-de-travail]]
+
+
 ===== Principales commandes disponibles dans la vue "Espace de travail"
 
 *Depuis le menu "Fichier" :*

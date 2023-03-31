@@ -61,13 +61,13 @@ public class SilentDiagramEditor implements IDiagramEditor {
     @objid ("0a8adc09-0fb0-40dd-9716-8f16ab6a4ad8")
     private static final String DROPPOLICYEXTENSION_ID = "org.modelio.app.diagram.editor.droppolicy.extensions";
 
-    @objid ("2e5aa8a1-d914-402f-b6f6-79bec22b8b3d")
+    @objid ("66995c55-33f7-11e2-95fe-001ec947c8cc")
     private final RootEditPart rootEditPart = new ScalableFreeformRootEditPart2();
 
-    @objid ("661973e9-e9ab-45e3-9994-27aa8f6f8a66")
+    @objid ("66995c58-33f7-11e2-95fe-001ec947c8cc")
     private GraphicalViewer graphicalViewer;
 
-    @objid ("c4c77120-f36d-456d-b5d2-eaafaa7ff1c1")
+    @objid ("66995c57-33f7-11e2-95fe-001ec947c8cc")
     private EditDomain editDomain;
 
     @objid ("66995c59-33f7-11e2-95fe-001ec947c8cc")
@@ -209,14 +209,27 @@ public class SilentDiagramEditor implements IDiagramEditor {
     @objid ("332eba48-4b24-401f-b6c9-bd441bf87787")
     protected ConnectionRoutingServices initializeConnectionRoutingServices() {
         // No specialization for the Silent editor, deal with BPMN routers being different right here
+        // 24/02/2023 5.3.1 : switch off legacy router
         final String mcName = this.input.getDiagram().getMClass().getName();
-        if (mcName.startsWith("Bpmn") ||
-                mcName.equals("ArchimateView") ||
-                //mcName.equals("ViewPointDiagram") ||
-                mcName.equals("StateMachineDiagram")) {
-            return ConnectionRoutingServices.builder().withAutoOrthogonalDefaults().build();
+        
+        if (true) {
+            // since 5.3.1
+            if (mcName.startsWith("SequenceDiagram")) {
+                // new auto-ortho links don't work well with sequence diagrams
+                return ConnectionRoutingServices.builder().withLegacyDefaults().build();
+            } else {
+                return ConnectionRoutingServices.builder().withAutoOrthogonalDefaults().build();
+            }
         } else {
-            return ConnectionRoutingServices.builder().withLegacyDefaults().build();
+            // 5.3.0 and before
+            if (mcName.startsWith("Bpmn") ||
+                    mcName.equals("ArchimateView") ||
+                    //mcName.equals("ViewPointDiagram") ||
+                    mcName.equals("StateMachineDiagram")) {
+                return ConnectionRoutingServices.builder().withAutoOrthogonalDefaults().build();
+            } else {
+                return ConnectionRoutingServices.builder().withLegacyDefaults().build();
+            }
         }
         
     }

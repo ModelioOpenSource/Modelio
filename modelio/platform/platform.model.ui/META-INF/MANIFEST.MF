@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Model ui components
 Bundle-SymbolicName: org.modelio.platform.model.ui;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.platform.model.ui.plugin.CoreUi
 Bundle-Vendor: modelio.org
 Require-Bundle: org.eclipse.core.runtime,
@@ -23,7 +23,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.nebula.widgets.cdatetime,
  org.eclipse.core.expressions,
  org.modelio.platform.mda.infra,
- org.modelio.platform.ui,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.forms,
@@ -31,7 +30,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.di,
  org.eclipse.e4.ui.di,
  org.eclipse.e4.ui.services,
- org.eclipse.nebula.widgets.pgroup;bundle-version="1.0.0"
+ org.eclipse.nebula.widgets.pgroup,
+ org.modelio.platform.ui
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  res/
@@ -65,13 +65,16 @@ Export-Package: org.modelio.platform.model.ui,
  org.modelio.platform.model.ui.nattable.viewer,
  org.modelio.platform.model.ui.nattable.viewer.config.body,
  org.modelio.platform.model.ui.nattable.viewer.model,
+ org.modelio.platform.model.ui.panels.scope,
  org.modelio.platform.model.ui.panels.search,
  org.modelio.platform.model.ui.panels.search.model,
  org.modelio.platform.model.ui.panels.search.note,
  org.modelio.platform.model.ui.panels.selectelements,
+ org.modelio.platform.model.ui.panels.thindialog,
  org.modelio.platform.model.ui.plugin,
  org.modelio.platform.model.ui.popupmenu,
  org.modelio.platform.model.ui.swt,
+ org.modelio.platform.model.ui.swt.cell,
  org.modelio.platform.model.ui.swt.contribitem,
  org.modelio.platform.model.ui.swt.copy,
  org.modelio.platform.model.ui.swt.dnd,
@@ -94,6 +97,6 @@ Export-Package: org.modelio.platform.model.ui,
  org.modelio.platform.model.ui.treetable.linepattern,
  org.modelio.platform.model.ui.treetable.number,
  org.modelio.platform.model.ui.treetable.percentscale
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"

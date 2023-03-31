@@ -48,6 +48,9 @@ public class ModelioEventTopics {
     @objid ("00762564-0ab6-103e-8282-001ec947cd2a")
     public static final String WORKSPACE_CONTENTS = ModelioEventTopics.WORKSPACE + "contents";
 
+    @objid ("e119b564-a489-4920-945e-d142f783c5bd")
+    public static final String PROJECT_OPENING_MDA_SESSION_UP = PROJECT + "sessionup";
+
     @objid ("0022c3e2-002b-106f-bbdd-001ec947cd2a")
     public static final String PROJECT_OPENING = PROJECT + "opening";
 
@@ -89,6 +92,24 @@ public class ModelioEventTopics {
 
     @objid ("00780910-0ab6-103e-8282-001ec947cd2a")
     public static final String MODULE_STOPPED = MODULE + "stopped";
+
+    @objid ("d398fb6a-d89d-4022-99e9-3f0069b49ae3")
+    private static final String FEATURE = "org/modelio/app/feature/";
+
+    @objid ("9103286d-5ab3-4211-99eb-12cbd6926666")
+    public static final String FEATURE_ACTIVATE = FEATURE + "activate";
+
+    @objid ("6f10e46a-5668-48c8-8843-4b0d251dc800")
+    public static final String FEATURE_STARTED = FEATURE + "started";
+
+    @objid ("b44714a1-dbb4-4dd6-bb3e-1ec9c56e3337")
+    public static final String FEATURE_DEACTIVATE = FEATURE + "deactivate";
+
+    @objid ("e91a754b-4fec-4474-9184-dea03cef6d3e")
+    public static final String FEATURE_STOPPED = FEATURE + "stopped";
+
+    @objid ("3229f5c2-4aac-4eb9-96de-4cda4c9e3ef2")
+    public static final String FEATURE_EVENTS = FEATURE + "*";
 
     /**
      * Used to listen to any 'PROJECT' related event

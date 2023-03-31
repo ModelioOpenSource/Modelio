@@ -32,5 +32,5 @@ public interface IRepositoryContentInitializerService extends IRepositoryContent
      */
     @objid ("6b480d6f-4f85-4124-9396-922946d3c60b")
     MetamodelExtensionPoint<IRepositoryContentInitializer> getMetamodelExtensionPoint();
-
 }
+

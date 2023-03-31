@@ -29,7 +29,7 @@ import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Composite;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("b6cb8b83-cd3c-4575-8b24-55536fd47bff")
@@ -54,12 +54,12 @@ public class SmBrowserController {
     }
 
     @objid ("4284d48e-3ed3-4974-88da-24cd888480cf")
-    public void onProjectOpened(GProject openedProject) {
+    public void onProjectOpened(IGProject openedProject) {
         this.ui.setInput(openedProject);
     }
 
     @objid ("c40cfb91-e7fb-4264-abef-61f4536f05ba")
-    public void onProjectClosed(GProject project) {
+    public void onProjectClosed(IGProject project) {
         if (this.ui != null && !this.ui.getComposite().isDisposed()) {
             this.ui.setSelection(new StructuredSelection());
             this.ui.setInput(null);
@@ -78,7 +78,6 @@ public class SmBrowserController {
 
     /**
      * Called when the selection change in the tree viewer => propagates selection to application
-     * @param selection
      */
     @objid ("dfd5a7fb-46a5-4e31-b913-8aa8aef4ff58")
     void onSelectionChanged(ISelection selection) {

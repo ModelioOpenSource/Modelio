@@ -29,5 +29,5 @@ public interface IParameterEditionModel {
 
     @objid ("6ad2c40a-42ef-48cf-abab-28c59220de06")
     void removeGroup(IParameterGroupModel group);
-
 }
+

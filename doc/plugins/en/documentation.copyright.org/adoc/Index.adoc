@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Copyright-agreement]]
 
-[[copyright-agreement]]
+
+
 = Copyright agreement
 
 © Copyright Modelio.org community and others 2020. +

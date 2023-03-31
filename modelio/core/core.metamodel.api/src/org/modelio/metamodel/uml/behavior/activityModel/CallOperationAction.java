@@ -34,6 +34,8 @@ import org.modelio.metamodel.uml.statik.Operation;
  * 
  * CallOperationAction is an action that transmits an operation call request to the target object, where it may cause the invocation of associated behavior. The argument values of the action are available to the execution of the invoked behavior. If the action is marked synchronous, the execution of the call operation action waits until the execution of the invoked behavior completes and a reply transmission is returned to the caller; otherwise execution of the action is complete when the invocation of the operation is established and the execution of the invoked operation proceeds 
  * concurrently with the execution of the calling behavior. Any values returned as part of the reply transmission are put on the result output pins of the call operation action. Upon receipt of the reply transmission, execution of the call operation action is complete.
+ * 
+ * 
  */
 @objid ("002b8324-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CallOperationAction extends CallAction {
@@ -54,6 +56,7 @@ public interface CallOperationAction extends CallAction {
      * 
      * Metamodel description:
      * <i>The Operation to be invoked by the action execution.</i>
+     * 
      */
     @objid ("6dd3cada-effd-483c-94b7-96656365559a")
     Operation getCalled();
@@ -63,8 +66,9 @@ public interface CallOperationAction extends CallAction {
      * 
      * Metamodel description:
      * <i>The Operation to be invoked by the action execution.</i>
+     * 
      */
     @objid ("a518850d-9b6c-4637-8924-e3f6d4195c13")
     void setCalled(Operation value);
-
 }
+

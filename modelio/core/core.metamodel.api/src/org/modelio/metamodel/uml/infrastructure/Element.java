@@ -39,6 +39,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * 
  * 
  * <p>Element de mod&eacute;lisation.</p><p>Element repr&eacute;sente tous les &eacute;l&eacute;ments s&eacute;mantiques d&#39;une mod&eacute;lisation, au niveau le plus abstrait. Les Element sont structur&eacute;s par projet, qui constitue pour eux un espace clos de d&eacute;finition.</p><p>Son utilisation est surtout apparente lors de la r&eacute;daction de r&egrave;gles H, pour procurer des r&egrave;gles g&eacute;n&eacute;rales.</p><p>V&eacute;rifie si l&#39;&eacute;l&eacute;ment est bien rattach&eacute; &agrave; son composant.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00867d60-c4be-1fd8-97fe-001ec947cd2a")
 public interface Element extends EObject, MObject {
@@ -59,6 +62,7 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f172fb8b-0de2-4060-aa50-6a80ea0b0fee")
     EList<AbstractDiagram> getDiagramElement();
@@ -68,6 +72,7 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ea8db136-0314-417b-a1b4-0c8df0e06029")
     <T extends AbstractDiagram> List<T> getDiagramElement(java.lang.Class<T> filterClass);
@@ -77,6 +82,7 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a528d3d8-3134-49b7-a31f-ac514bcccb53")
     EList<QueryDefinition> getAddedToQuery();
@@ -86,6 +92,7 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b8dc9001-b60f-47e9-9ab6-4605ef580815")
     <T extends QueryDefinition> List<T> getAddedToQuery(java.lang.Class<T> filterClass);
@@ -95,6 +102,7 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b679a7d4-7fe8-432c-9804-84f8a6b6565d")
     EList<ImpactLink> getCausedImpact();
@@ -104,8 +112,9 @@ public interface Element extends EObject, MObject {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("146467da-dca9-46fc-a67a-1e80090bebf0")
     <T extends ImpactLink> List<T> getCausedImpact(java.lang.Class<T> filterClass);
-
 }
+

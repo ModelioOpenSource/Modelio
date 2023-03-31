@@ -32,6 +32,7 @@ import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.layout.DiagonalLayout;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -40,7 +41,6 @@ import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Generalization;
-import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Package;
@@ -51,12 +51,18 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
     public List<IDiagramNode> _contentDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("bb5998a1-c342-4f9c-a3d5-83f4c018d444")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("f0acf05c-f837-4cca-b24f-2945ec08b40f")
     public  PackageContentStructureDiagramTemplate() {
         super();
-        
+        this._unmasker = new NodeRollingUnmasker();
         this._contentDgs = new ArrayList<>();
         
     }
@@ -78,112 +84,177 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
         
     }
 
-    @objid ("f3c9db29-c938-47bf-9093-e09f2ef0d4eb")
+    @objid ("a4bfe413-0605-4a86-9d37-b2830f18d9ec")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof Package) {
-            initialUnmasking(dh, (ModelTree) main);
-        }
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof Package))
+            return;
         
-    }
-
-    @objid ("be7be4b6-123d-417a-a2aa-2eadf505ccce")
-    private void initialUnmasking(final IDiagramHandle dh, final ModelTree main) {
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
-        }
+        Package pack = (Package) main;
         
         // unmask content
-        for (ModelTree child : main.getOwnedElement()) {
+        for (ModelTree child : pack.getOwnedElement()) {
             // Ignore packages
             if (child instanceof Package) {
                 continue;
             }
         
-            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
+            IDiagramNode node = this._unmasker.unmask(dh, child);
+            if (node != null) {
                 node.setRepresentationMode(1);
-        
                 // Add intern/extern style
-                initStyle(main, node);
-        
+                initStyle(pack, node);
                 this._contentDgs.add(node);
             }
         }
         
+        // Unmask generalizations, realizations & associations nodes
+        // for (ModelTree child : pack.getOwnedElement()) {
+        // if (child instanceof NameSpace) {
+        // Unmask generalizations
+        // for (Generalization g : ((NameSpace) child).getParent()) {
+        // // Get already unmasked parent node only
+        // NameSpace parent = g.getSuperType();
+        // List<IDiagramGraphic> nodes = dh.getDiagramGraphics(parent);
+        // if ((nodes == null) || (nodes.isEmpty())) {
+        // continue;
+        // }
+        //
+        // // Unmask link
+        // List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
+        // if ((links != null) && (links.size() > 0)) {
+        // IDiagramLink link = (IDiagramLink) links.get(0);
+        //
+        // // Ignore reflexive links
+        // if (link.getFrom().equals(link.getTo())) {
+        // link.mask();
+        // }
+        // }
+        // }
+        
+        // Unmask realizations
+        // for (InterfaceRealization ir : ((NameSpace) child).getRealized()) {
+        // // Get already unmasked parent node only
+        // Interface parent = ir.getImplemented();
+        // List<IDiagramGraphic> nodes = dh.getDiagramGraphics(parent);
+        // if ((nodes == null) || (nodes.isEmpty())) {
+        // continue;
+        // }
+        //
+        // // Unmask link
+        // List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
+        // if ((links != null) && (links.size() > 0)) {
+        // IDiagramLink link = (IDiagramLink) links.get(0);
+        //
+        // // Ignore reflexive links
+        // if (link.getFrom().equals(link.getTo())) {
+        // link.mask();
+        // }
+        //
+        // // TODO layout ?
+        // }
+        // }
+        // }
+        
+        // if (child instanceof Classifier) {
+        // // unmask associations
+        // for (AssociationEnd a : ((Classifier) child).getOwnedEnd()) {
+        // AssociationEnd other = a.getOpposite();
+        //
+        // // Ignore nodes that are not unmasked
+        // Classifier owner = other.getSource() != null ? other.getSource() : a.getTarget();
+        // List<IDiagramGraphic> nodes = dh.getDiagramGraphics(owner);
+        // if ((nodes == null) || (nodes.isEmpty())) {
+        // continue;
+        // }
+        //
+        // // Unmask link
+        // List<IDiagramGraphic> links = dh.unmask(other.getAssociation(), 0, 0);
+        // if ((links != null) && (links.size() > 0)) {
+        // IDiagramLink link = (IDiagramLink) links.get(0);
+        //
+        // // Ignore reflexive links
+        // if (link.getFrom().equals(link.getTo())) {
+        // link.mask();
+        // }
+        //
+        // // TODO layout ?
+        // }
+        // }
+        // }
+        // }
+        
+    }
+
+    @objid ("817a0f47-56e3-4423-97a9-180e9024fad2")
+    @Override
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof Package))
+            return;
+        
+        Package pack = (Package) main;
+        
         // Unmask generalizations, realizations & associations
-        for (ModelTree child : main.getOwnedElement()) {
+        for (ModelTree child : pack.getOwnedElement()) {
             if (child instanceof NameSpace) {
                 // Unmask generalizations
-                for (Generalization g : ((NameSpace)child).getParent()) {
+                for (Generalization g : ((NameSpace) child).getParent()) {
                     // Get already unmasked parent node only
-                    NameSpace parent = g.getSuperType();
-                    List<IDiagramGraphic> nodes = dh.getDiagramGraphics(parent);
-                    if ((nodes == null) || (nodes.isEmpty())) {
-                        continue;
-                    }
-        
-                    // Unmask link
-                    List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
-                    if ((links != null) && (links.size() > 0)) {
-                        IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                        // Ignore reflexive links
-                        if (link.getFrom().equals(link.getTo())) {
-                            link.mask();
+                    if (isUnmasked(dh, g.getSuperType())) {
+                        // Unmask link
+                        List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
+                        if (!links.isEmpty()) {
+                            IDiagramLink link = (IDiagramLink) links.get(0);
+                            // Ignore reflexive links
+                            if (link.getFrom().equals(link.getTo())) {
+                                link.mask();
+                            }
                         }
                     }
                 }
         
                 // Unmask realizations
-                for (InterfaceRealization ir : ((NameSpace)child).getRealized()) {
+                for (InterfaceRealization ir : ((NameSpace) child).getRealized()) {
                     // Get already unmasked parent node only
-                    Interface parent = ir.getImplemented();
-                    List<IDiagramGraphic> nodes = dh.getDiagramGraphics(parent);
-                    if ((nodes == null) || (nodes.isEmpty())) {
-                        continue;
-                    }
+                    if (isUnmasked(dh, ir.getImplemented())) {
+                        // Unmask link
+                        List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
+                        if (!links.isEmpty()) {
+                            IDiagramLink link = (IDiagramLink) links.get(0);
+                            // Ignore reflexive links
+                            if (link.getFrom().equals(link.getTo())) {
+                                link.mask();
+                            }
         
-                    // Unmask link
-                    List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
-                    if ((links != null) && (links.size() > 0)) {
-                        IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                        // Ignore reflexive links
-                        if (link.getFrom().equals(link.getTo())) {
-                            link.mask();
+                            // TODO layout ?
                         }
-        
-                        // TODO layout ?
                     }
                 }
             }
         
             if (child instanceof Classifier) {
                 // unmask associations
-                for (AssociationEnd a : ((Classifier)child).getOwnedEnd()) {
+                for (AssociationEnd a : ((Classifier) child).getOwnedEnd()) {
                     AssociationEnd other = a.getOpposite();
         
                     // Ignore nodes that are not unmasked
-                    Classifier owner = other.getSource() != null ?  other.getSource() : a.getTarget();
-                    List<IDiagramGraphic> nodes = dh.getDiagramGraphics(owner);
-                    if ((nodes == null) || (nodes.isEmpty())) {
-                        continue;
-                    }
-        
-                    // Unmask link
-                    List<IDiagramGraphic>  links = dh.unmask(other.getAssociation(), 0, 0);
-                    if ((links != null) && (links.size() > 0)) {
-                        IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                        // Ignore reflexive links
-                        if (link.getFrom().equals(link.getTo())) {
-                            link.mask();
+                    Classifier owner = other.getSource() != null ? other.getSource() : a.getTarget();
+                    if (isUnmasked(dh, owner)
+                            && ! owner.getCompositionOwner().equals(child)
+                            && ! child.getCompositionOwner().equals(owner)
+                            ) {
+                        // Unmask link
+                        List<IDiagramGraphic> links = dh.unmask(other.getAssociation(), 0, 0);
+                        if (! links.isEmpty()) {
+                            IDiagramLink link = (IDiagramLink) links.get(0);
+                            // Ignore reflexive links
+                            if (link.getFrom().equals(link.getTo())) {
+                                link.mask();
+                            }
+                            // TODO layout ?
                         }
-        
-                        // TODO layout ?
                     }
                 }
             }
@@ -203,12 +274,34 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
         
     }
 
-    @objid ("e2d8e1ba-0e37-4486-8db1-7f08860e44d6")
+    /**
+     * Layout all nodes in the diagram.
+     * @param dh the edited diagram.
+     * @since 5.1.1
+     */
+    @objid ("b504d567-f4b5-4144-b2ac-5df968ea6ea3")
     @Override
-    protected void layout(final IDiagramHandle dh) {
+    protected void layoutNodes(final IDiagramHandle dh) {
         DiagonalLayout layout = new DiagonalLayout();
         try {
-            layout.layout(dh, this._contentDgs);
+            layout.layoutNodes(dh, this._contentDgs);
+        } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
+            // Should never happen
+            DiagramAuto.LOG.debug(e);
+        }
+        
+    }
+
+    /**
+     * Layout all links in the diagram.
+     * @param dh the edited diagram.
+     * @since 5.1.1
+     */
+    @objid ("17a0ab43-cda4-4d0c-a5e3-c78237f7a41f")
+    protected void layoutLinks(final IDiagramHandle dh) {
+        DiagonalLayout layout = new DiagonalLayout();
+        try {
+            layout.layoutLinks(dh, this._contentDgs);
         } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
             // Should never happen
             DiagramAuto.LOG.debug(e);
@@ -236,6 +329,8 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
     @Override
     protected void reset() {
         this._contentDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
+        
     }
 
 }

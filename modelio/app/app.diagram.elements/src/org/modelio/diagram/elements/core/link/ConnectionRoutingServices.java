@@ -92,7 +92,7 @@ public class ConnectionRoutingServices {
      * @return a builder to create new {@link ConnectionRoutingServices}.
      * @since 5.1.0
      */
-    @objid ("18175d8f-1e93-4a78-be21-f828da292745")
+    @objid ("f181ee1b-a0b4-4591-9fca-626a2ef9f35e")
     public static Builder builder() {
         return new Builder();
     }
@@ -123,7 +123,7 @@ public class ConnectionRoutingServices {
         return getEditionRouter(id);
     }
 
-    @objid ("e51c7c40-1dbe-4c86-8f5c-7bb684300ba9")
+    @objid ("51de57fb-5ba8-4c41-9a01-6119baf5f76b")
     private ConnectionRouters getRouters(ConnectionRouterId id) {
         final ConnectionRouters ret = this.routers.get(id);
         if (ret != null) {
@@ -139,7 +139,7 @@ public class ConnectionRoutingServices {
      * @param id the routing mode
      * @return the router to use to display the Connection.
      */
-    @objid ("6efeadc9-55e9-472b-b467-4df3d8dc4092")
+    @objid ("b489398f-d35f-4080-b131-cd24157ff2e6")
     public ConnectionRouter getDisplayRouter(ConnectionRouterId id) {
         final ConnectionRouter ret = getRouters(id).display;
         if (ret != null) {
@@ -155,7 +155,7 @@ public class ConnectionRoutingServices {
      * @param id the routing mode
      * @return the router to use by link editors
      */
-    @objid ("59420690-14c5-40f3-88cb-9ea10f72522a")
+    @objid ("1ce3de65-e0da-43e4-b6b9-ae66059e2687")
     public ConnectionRouter getEditionRouter(ConnectionRouterId id) {
         final ConnectionRouter ret = getRouters(id).edition;
         if (ret != null) {
@@ -171,7 +171,7 @@ public class ConnectionRoutingServices {
      * @param id the routing mode
      * @return the router to use in creation mode
      */
-    @objid ("37e97922-b62f-41f0-9d7e-20ba51d5ac05")
+    @objid ("1868c370-8307-42f3-b1a4-241da17bc4f6")
     public ConnectionRouter getCreationRouter(ConnectionRouterId id) {
         final ConnectionRouter ret = getRouters(id).creation;
         if (ret != null) {
@@ -200,26 +200,26 @@ public class ConnectionRoutingServices {
          */
         @objid ("a46c8c4e-f235-468e-b573-c6296adcbb65")
         EditPolicy createEndPointsPolicy(RoutingMode mode);
-
-    }
+}
+    
 
     /**
      * Connection routers for a single routing mode.
      * 
      * @since 5.1.0
      */
-    @objid ("9c1820fe-f386-4870-ac6a-e4b7acd381b0")
+    @objid ("7239c281-11a8-45d2-ac76-64c6176ba4f2")
     public static class ConnectionRouters {
-        @objid ("21859ff1-09a3-4140-ba00-86e471ae0333")
+        @objid ("6b631511-069e-4729-bb8d-b18749dbe9df")
         ConnectionRouter display;
 
-        @objid ("0b749a0a-9600-4d85-b7ae-770c41034b57")
+        @objid ("24590964-867c-4ab4-bb51-5e24e10cd947")
         ConnectionRouter edition;
 
-        @objid ("90707a71-ce0c-4c57-9e18-efcfe2ce88a2")
+        @objid ("92a53d95-0c5f-4be8-9c9c-36939f4a1848")
         ConnectionRouter creation;
 
-        @objid ("73430830-a13d-40dd-a60e-2d645abbe56d")
+        @objid ("b5ae35e2-1041-4926-b917-89c3c80353f0")
         public  ConnectionRouters(ConnectionRouter display, ConnectionRouter edition, ConnectionRouter creation) {
             super();
             this.display = display;
@@ -228,7 +228,7 @@ public class ConnectionRoutingServices {
             
         }
 
-        @objid ("e34be5ed-a1f6-4520-bd9a-b13a210a8680")
+        @objid ("68c4ad4d-26a9-4da5-875a-63e792f7dd56")
         public  ConnectionRouters(ConnectionRouter router) {
             super();
             this.display = router;
@@ -237,25 +237,25 @@ public class ConnectionRoutingServices {
             
         }
 
-        @objid ("c0ae3007-1abf-4b14-aa13-979f260ab44e")
+        @objid ("d2965dcc-bf88-49f7-b159-ca172f9450d5")
         public ConnectionRouters withDisplay(ConnectionRouter router) {
             this.display = router;
             return this;
         }
 
-        @objid ("b36e14e9-875a-47e6-a694-f6a50b64c9a9")
+        @objid ("5cfc2c9b-45cc-4d2d-96d6-f13f9fe9caaf")
         public ConnectionRouters withEdition(ConnectionRouter router) {
             this.edition = router;
             return this;
         }
 
-        @objid ("80d93e3c-642c-4d9b-800f-c18630df8154")
+        @objid ("54ff9e8b-3816-4dec-99ac-00aca53019de")
         public ConnectionRouters withCreation(ConnectionRouter router) {
             this.creation = router;
             return this;
         }
 
-        @objid ("0e954fcb-e68a-4406-8baa-22675227fc35")
+        @objid ("db8840c1-5fef-4656-aa4b-cc27e335749e")
         public ConnectionRouters withEditionCreation(ConnectionRouter router) {
             this.edition = router;
             this.creation = router;
@@ -269,25 +269,25 @@ public class ConnectionRoutingServices {
      * 
      * @since 5.1.0
      */
-    @objid ("46fab740-60e5-41c1-8df3-d457b23ce89a")
+    @objid ("a66afb87-be78-4a3c-b4b3-87b3445a9d9f")
     public static class Builder {
-        @objid ("c1c08ec3-5389-4b09-bbf3-44c1d4c1137f")
+        @objid ("bb1df452-0550-4264-a63a-8d32ec215e3d")
         private IConnectionHelperFactory connectionHelperFactory;
 
-        @objid ("b8539703-dd18-4cfc-80db-bf061eaf4c5d")
+        @objid ("80121c39-91a4-4db1-a00e-f1fea07c0b9c")
         private IRouterDependentEditPolicyFactory editPoliciesFactory;
 
-        @objid ("8600c6b5-38ce-46a8-b9e4-d52e8d6d37c6")
+        @objid ("f12dcd3f-fc42-484b-957e-2b63e963d708")
         private final Map<org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId, ConnectionRouters> routers = new EnumMap<>(StyleKey.ConnectionRouterId.class);
 
-        @objid ("2a687212-4f51-4d19-88bf-539299c87efb")
+        @objid ("dc0a3d1d-89f5-4004-a9aa-11c42954a001")
         private final Map<ConnectionRouterId, ILinkPathEditorFactory> linkPathEditors = new EnumMap<>(StyleKey.ConnectionRouterId.class);
 
         /**
          * initialize with Modelio <= 5.0 diagrams defaults.
          * @return this instance
          */
-        @objid ("5c9c31ea-a83f-42ac-80d5-e7ade4444925")
+        @objid ("a180502c-077c-4f0c-8f4a-4801675609b7")
         public Builder withLegacyDefaults() {
             this.routers.put(StyleKey.ConnectionRouterId.DIRECT, new ConnectionRouters(ConnectionRouter.NULL));
             this.routers.put(StyleKey.ConnectionRouterId.BENDPOINT, new ConnectionRouters(new BendpointConnectionRouter()));
@@ -301,7 +301,7 @@ public class ConnectionRoutingServices {
          * Initialize with defaults for diagrams that support new auto orthogonal routers.
          * @return this instance.
          */
-        @objid ("687ff74b-4755-4f0e-84f7-ecff53748463")
+        @objid ("61a549b2-3b41-41ec-b032-bef54f59269c")
         public Builder withAutoOrthogonalDefaults() {
             this.routers.put(StyleKey.ConnectionRouterId.DIRECT, new ConnectionRouters(ConnectionRouter.NULL));
             this.routers.put(StyleKey.ConnectionRouterId.BENDPOINT, new ConnectionRouters(new BendpointConnectionRouter()));
@@ -317,7 +317,7 @@ public class ConnectionRoutingServices {
         /**
          * @return a new {@link ConnectionRoutingServices}.
          */
-        @objid ("dcd86423-a899-40be-a1b8-26d6de7f3537")
+        @objid ("550c4a3a-dd96-456a-a2f3-7acc449b4739")
         public ConnectionRoutingServices build() {
             return new ConnectionRoutingServices(
                     this.routers,

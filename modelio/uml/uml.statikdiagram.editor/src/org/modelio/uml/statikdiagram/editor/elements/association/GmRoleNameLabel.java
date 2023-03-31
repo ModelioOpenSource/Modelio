@@ -95,16 +95,16 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmRoleNameLabel.");
         switch (readVersion) {
-        case 0: {
-            read_0(in);
-            break;
-        }
-        default: {
+            case 0: {
+                read_0(in);
+                break;
+            }
+            default: {
             assert false : "version number not covered!";
-            // reading as last handled version: 0
-            read_0(in);
-            break;
-        }
+                // reading as last handled version: 0
+                read_0(in);
+                break;
+            }
         }
         
     }
@@ -146,20 +146,20 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
     private String computeVisibility(final AssociationEnd att) {
         String svis;
         switch (att.getVisibility()) {
-        case PUBLIC:
-            svis = "+";
-            break;
-        case PROTECTED:
-            svis = "#";
-            break;
-        case PRIVATE:
-            svis = "-";
-            break;
-        case PACKAGEVISIBILITY:
-            svis = "~";
-            break;
-        default:
-            svis = "";
+            case PUBLIC:
+                svis = "+";
+                break;
+            case PROTECTED:
+                svis = "#";
+                break;
+            case PRIVATE:
+                svis = "-";
+                break;
+            case PACKAGEVISIBILITY:
+                svis = "~";
+                break;
+            default:
+                svis = "";
         }
         return svis;
     }

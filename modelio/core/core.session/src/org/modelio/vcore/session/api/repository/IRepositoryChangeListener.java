@@ -34,5 +34,5 @@ public interface IRepositoryChangeListener {
      */
     @objid ("4b690a37-faf3-4672-94d8-904708131bb1")
     void repositoryChanged(IRepositoryChangeEvent event);
-
 }
+

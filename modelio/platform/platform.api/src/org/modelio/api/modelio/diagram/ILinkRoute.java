@@ -25,17 +25,17 @@ import org.eclipse.draw2d.geometry.Point;
  * Interface for a connection route.
  * @since 5.1.0
  */
-@objid ("f04ee740-7de7-4574-8fcf-cf19b84db964")
+@objid ("b09b857b-914c-43f7-abdf-9fe5009063f9")
 public interface ILinkRoute {
     /**
      * Create and add a new bend point link point as last bend point.
      * @param loc the point location
      * @return a new ILinkPoint.
      */
-    @objid ("ed6610e9-b1b8-4119-b4cb-5049b76b9506")
+    @objid ("764a87b9-6fb8-459c-aa65-fd1c1f6fec14")
     ILinkRoute addBendPoint(Point loc);
 
-    @objid ("ad619e42-cc79-4028-8578-788e4dec2bbc")
+    @objid ("b76beb65-ca21-468b-aaac-c6b9b6005041")
     default ILinkRoute addBendPoints(Collection<Point> points) {
         for (Point p : points) {
             addBendPoint(p);
@@ -48,10 +48,10 @@ public interface ILinkRoute {
      * @param loc the point location
      * @return a new ILinkPoint.
      */
-    @objid ("b9bccd68-3033-4094-8bfc-a0613a80e79f")
+    @objid ("fb1d1f73-19d4-4b28-a7d7-2a7e78c58227")
     ILinkRoute addFixedPoint(Point loc);
 
-    @objid ("457441eb-5d0c-493d-8196-1ad41afea11c")
+    @objid ("34f28cdd-a310-474c-9999-d6c530ad499a")
     default ILinkRoute addFixedPoints(Collection<Point> points) {
         for (Point p : points) {
             addFixedPoint(p);
@@ -65,7 +65,7 @@ public interface ILinkRoute {
      * It is added to the path, you have to add it to {@link #getLinkPoints()}.
      * @return a new ILinkPoint.
      */
-    @objid ("a3491fa4-575c-4260-b799-dac2a48d8c53")
+    @objid ("ecf96b0b-9a1b-421f-97a5-bdbd41344257")
     ILinkRoute clearBendPoints();
 
     /**
@@ -77,7 +77,7 @@ public interface ILinkRoute {
      * @param location the link point location. This location is copied.
      * @return a new link point.
      */
-    @objid ("73a2adaa-8f1e-499d-8fa8-fc25f95eace0")
+    @objid ("5539e70b-de34-40ef-8c64-8043585ec2aa")
     ILinkPoint createLinkPoint(LinkPointKind kind, Point location);
 
     /**
@@ -88,7 +88,7 @@ public interface ILinkRoute {
      * The route must be applied to the {@link IDiagramLink#setRoute(ILinkRoute)}.
      * @return the points in coordinates relative to the diagram...
      */
-    @objid ("0ebe52fc-72c3-4712-8383-a8ff1c781607")
+    @objid ("3ba8b5ba-25b2-4fa1-a34b-f9a0f7c0c456")
     List<ILinkPoint> getAllPoints();
 
     /**
@@ -99,20 +99,20 @@ public interface ILinkRoute {
      * The route must be applied to the {@link IDiagramLink#setRoute(ILinkRoute)}.
      * @return the points in coordinates relative to the diagram...
      */
-    @objid ("745bf13a-b492-4d78-b5cb-96e54fe5954b")
+    @objid ("78e3d989-4ab8-4bca-84b6-9d4adfb55a09")
     List<ILinkPoint> getBendPoints();
 
     /**
      * Get the source anchor link point.
      * @return the source anchor link point
      */
-    @objid ("5be18acc-b9a4-4f97-9199-108d32b5fdf8")
+    @objid ("5887ee72-2361-45c0-9c23-628c7f16242e")
     ILinkPoint getSourceAnchor();
 
     /**
      * @return the target anchor link point
      */
-    @objid ("5adae244-097b-47c6-ba1b-6d6e0861d59f")
+    @objid ("57012ae9-2cca-429e-ad15-98ef3eb23bb9")
     ILinkPoint getTargetAnchor();
 
     /**
@@ -121,7 +121,7 @@ public interface ILinkRoute {
      * Shifts any subsequent elements to the left (subtracts one from their indices).
      * @param index the index of the element to be removed.
      */
-    @objid ("d75d0d2e-5b0b-450f-a084-f7adb3971653")
+    @objid ("5edd9efa-532e-4767-8478-1de9930ddba0")
     void removePoint(final int index);
 
     /**
@@ -135,7 +135,7 @@ public interface ILinkRoute {
      * @param sliding true to request a sliding anchor, false for a fixed anchor
      * @return this instance.
      */
-    @objid ("be120c1a-8607-4b5d-87f3-0f642e92521d")
+    @objid ("5290dd49-8ba6-4e25-95a6-e0863afb2bfb")
     ILinkRoute setSourceAnchor(Point loc, boolean sliding);
 
     /**
@@ -149,7 +149,7 @@ public interface ILinkRoute {
      * @param sliding true to request a sliding anchor, false for a fixed anchor
      * @return this instance.
      */
-    @objid ("d7ddd986-5717-4b4e-b3a1-47a658221a1a")
+    @objid ("8d0f8920-c395-4329-918d-9d2d740067f8")
     ILinkRoute setTargetAnchor(Point loc, boolean sliding);
-
 }
+

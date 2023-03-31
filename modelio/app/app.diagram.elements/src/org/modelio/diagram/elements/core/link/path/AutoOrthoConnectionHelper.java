@@ -48,7 +48,7 @@ public class AutoOrthoConnectionHelper implements IConnectionHelper {
     @objid ("b438605d-a813-46fb-ac1a-0f41ad1fe13f")
     private final Connection connection;
 
-    @objid ("86076d59-bc75-45e1-b342-ecc205bb9abb")
+    @objid ("8c7c0b45-be34-42d4-9bd7-2017e7976ea0")
     private final ConnectionView view = new ConnectionView();
 
     /**
@@ -153,7 +153,6 @@ public class AutoOrthoConnectionHelper implements IConnectionHelper {
     private void readRawPoints(final List<Point> path) {
         AutoOrthogonalRouter router = new AutoOrthogonalRouter()
                 .setCleanupManualPoints(false)
-                .setIgnoreAutomaticPoints(true)
                 .setSimplifyEnds(false);
         if (path.isEmpty()) {
             List<MPoint> newRoute = router.computeMPointRoute(this.connection, Collections.emptyList());
@@ -172,7 +171,7 @@ public class AutoOrthoConnectionHelper implements IConnectionHelper {
         
     }
 
-    @objid ("f995a390-7611-45fc-a761-7e3d60d2a986")
+    @objid ("4d57c366-9c24-4b90-8279-9ae495296e26")
     private List<MPoint> convertToRelativeConstraint(final List<Point> absPath) {
         List<MPoint> userBendPoints = new ArrayList<>(absPath.size());
         for (int i = 0; i < absPath.size(); ++i) {
@@ -194,14 +193,14 @@ public class AutoOrthoConnectionHelper implements IConnectionHelper {
      * 
      * @author cma
      */
-    @objid ("75c21782-7a44-49f3-910b-6f0fa9134a72")
+    @objid ("a7d36ff7-8205-4396-96ef-ec3f980f1edb")
     private static class OrthoSnapAnchor extends XYAnchor {
-        @objid ("2e76f324-2341-4cd3-add3-04596a6dbd6b")
+        @objid ("6c55df6c-5e64-4546-a47c-ea4a8040c4fc")
         public  OrthoSnapAnchor(Point p) {
             super(p);
         }
 
-        @objid ("452e4f2e-8fac-4fc8-8b2c-57f07bb02adf")
+        @objid ("bcd72433-c55a-4947-a792-323417126487")
         @Override
         public Point getLocation(Point prev) {
             Point p = getReferencePoint().getCopy();

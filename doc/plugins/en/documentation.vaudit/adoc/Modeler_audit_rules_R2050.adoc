@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2050]]
 
-[[r2050]]
+
+
 = R2050
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Some elements cannot be anonymous.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 In UML, elements of the following metaclasses must always have a name:
@@ -66,9 +66,9 @@ In UML, elements of the following metaclasses must always have a name:
 *	ObjectDiagram
 *	UseCaseDiagram
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Edit the name property of the element.

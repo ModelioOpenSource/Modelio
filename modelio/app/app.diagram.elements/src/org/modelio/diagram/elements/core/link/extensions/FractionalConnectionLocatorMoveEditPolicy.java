@@ -27,7 +27,9 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PolylineConnection;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
@@ -80,6 +82,67 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         final FractionalConnectionLocator newLoc = FractionalConnectionLocator.createFromXyPoint(connection,
                 oldLoc.getFraction(),
                 figLocation,
+                oldLoc.isTowardTarget());
+        
+        final GmNodeModel gmExtension = (GmNodeModel) getHost().getModel();
+        final IGmLocator oldGmLoc = gmExtension.getParentLink().getLayoutContraint(gmExtension);
+        final GmFractionalConnectionLocator newconstraint = new GmFractionalConnectionLocator();
+        
+        newconstraint.setFraction(oldLoc.getFraction());
+        newconstraint.setTowardTarget(oldLoc.isTowardTarget());
+        newconstraint.setUDistance(newLoc.getUDistance());
+        newconstraint.setVDistance(newLoc.getVDistance());
+        
+        newconstraint.setWidthConstraint(oldGmLoc.getWidthConstraint());
+        newconstraint.setHeightConstraint(oldGmLoc.getHeightConstraint());
+        
+        cmd.setConstraint(newconstraint);
+        
+        cmd.setModel(gmExtension);
+        return cmd;
+    }
+
+    @objid ("74b62902-ca04-42ba-980b-011c409d8aac")
+    @Override
+    protected Command getResizeCommand(ChangeBoundsRequest request) {
+        if (request.getMoveDelta().equals(0, 0)) {
+            // Simple resize
+            return super.getResizeCommand(request);
+        } else {
+            // Move and resize : center must be recomputed
+            // Mantis 0014507: Linked Data Object which represent an element becomes invisible when unchecking their "Show label" tickbox in the Symbol view.
+            return getMoveResizeCommand(request);
+        }
+        
+    }
+
+    /**
+     * @param request a move and resize request
+     * @return the created command
+     */
+    @objid ("a2ea5135-cf0b-406a-92ce-4dddb66e49b9")
+    protected Command getMoveResizeCommand(ChangeBoundsRequest request) {
+        // Mantis 0014507: Linked Data Object which represent an element becomes invisible when unchecking their "Show label"
+        // tickbox in the Symbol view.
+        final IFigure extension = ((GraphicalEditPart) getHost()).getFigure();
+        final Connection connection = (Connection) extension.getParent();
+        final Point moveDelta0 = request.getMoveDelta();
+        final Dimension sizeDelta0 = request.getSizeDelta();
+        
+        final FractionalConnectionLocator oldLoc = (FractionalConnectionLocator) connection.getLayoutManager()
+                .getConstraint(extension);
+        
+        final ChangeExtensionLocationCommand cmd = new ChangeExtensionLocationCommand();
+        
+        final Rectangle figBounds = oldLoc.computeBounds(extension);
+        extension.translateToAbsolute(figBounds);
+        figBounds.translate(moveDelta0);
+        figBounds.resize(sizeDelta0);
+        connection.translateToRelative(figBounds);
+        
+        final FractionalConnectionLocator newLoc = FractionalConnectionLocator.createFromXyPoint(connection,
+                oldLoc.getFraction(),
+                figBounds.getCenter(),
                 oldLoc.isTowardTarget());
         
         final GmNodeModel gmExtension = (GmNodeModel) getHost().getModel();

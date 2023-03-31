@@ -116,6 +116,8 @@ public final class FileUtils {
 
     /**
      * Decode a string from a file name encoded with {@link #encodeFileName(String, StringBuilder)}.
+     * <p>
+     * FIXME Limitation : this method does not support non ASCII characters !!
      * @param fileName a file name with/without extension
      * @param sb the string builder to use to build the decoded string. The decoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -127,15 +129,12 @@ public final class FileUtils {
         int len  = fileName.length();
         sb.ensureCapacity(len);
         
-        char[] hex = new char[2];
-        
         for (int i=0; i<len; ++i) {
             char ch = fileName.charAt(i);
             if ( ch == escape) {
-                hex[1] = fileName.charAt(++i);
-                hex[2] = fileName.charAt(++i);
-                ch = (char) Integer.parseInt(new String(hex), 16);
-            } 
+                ch = (char) Integer.parseInt(fileName.substring(i+1, i+3), 16);
+                i += 2;
+            }
             sb.append(ch);
         }
         return sb;
@@ -229,6 +228,9 @@ public final class FileUtils {
      * Encode any string to a legal file name.
      * <p>
      * Illegal characters are encoded by '%' followed by the hex value of the character.
+     * <p>
+     * FIXME Limitation : this method does not support supplementary code points (UTF > 16).
+     * @see #decodeFileName(String, StringBuilder) to decode the file name
      * @param s a string to encode
      * @param sb the string builder to use to build the encoded string. The encoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -241,7 +243,7 @@ public final class FileUtils {
         int len = s.length();
         for (int i = 0; i < len; i++) {
             char ch = s.charAt(i);
-            if (ch < ' ' || ch >= 0x7F 
+            if (ch < ' ' || ch >= 0x7F
                 || ch == '/' || ch=='\\' // add other illegal chars
                 || (ch == '.' && i == 0) // we don't want to collide with "." or ".."!
                 || ch == escape) {
@@ -277,7 +279,7 @@ public final class FileUtils {
             if (e.getMessage().equals("handshake alert:  unrecognized_name")) {
                 return CoreUtils.I18N.getString("javax.net.ssl.SSLProtocolException_handshake_alert_unrecognized_name");
             }
-        } 
+        }
         
         if (e instanceof java.io.SyncFailedException && e.getMessage().equals("sync failed")) {
             String pattern = CoreUtils.I18N.getString("$"+e.getClass().getName());
@@ -327,14 +329,12 @@ public final class FileUtils {
      * @param is an input stream
      * @param charset The encoding type used to convert bytes from the stream into characters.
      * @return the read string
-     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
-     * get the error cause.
-     * @throws FileSystemException if a file system exception occurs.
+     * @throws IOException if an I/O error occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not return a user friendly message.
-     * Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user friendly error message.
+     * Call {@linkplain #getLocalizedMessage(IOException)} to get a user friendly error message.
      */
     @objid ("40ad1e4c-87b4-4514-9d05-50754dc3eb15")
-    public static String readWhole(InputStream is, String charset) throws IOException, FileSystemException {
+    public static String readWhole(InputStream is, String charset) throws IOException {
         // see http://stackoverflow.com/questions/309424/read-convert-an-inputstream-to-a-string
         try (Scanner s = new java.util.Scanner(is, charset)){
             s.useDelimiter("\\A");
@@ -407,16 +407,16 @@ public final class FileUtils {
             /*
              * Handles Apache exceptions where ClientProtocolException has no message
              * and each cause has a part of the message like below:
-             * 
-             * org.apache.http.client.ClientProtocolException: null 
-             *   at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:188) 
+             *
+             * org.apache.http.client.ClientProtocolException: null
+             *   at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:188)
              *   at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-             *    
-             * Caused by: org.apache.http.HttpException: Cannot convert host to URI: http://www.m<odeliosoft.com 
-             *   at org.apache.http.impl.conn.SystemDefaultRoutePlanner.determineProxy(SystemDefaultRoutePlanner.java:77) 
+             *
+             * Caused by: org.apache.http.HttpException: Cannot convert host to URI: http://www.m<odeliosoft.com
+             *   at org.apache.http.impl.conn.SystemDefaultRoutePlanner.determineProxy(SystemDefaultRoutePlanner.java:77)
              *   at org.apache.http.impl.conn.DefaultRoutePlanner.determineRoute(DefaultRoutePlanner.java:73)
-             *    
-             * Caused by: java.net.URISyntaxException: Illegal character in authority at index 7: http://www.m<odeliosoft.com 
+             *
+             * Caused by: java.net.URISyntaxException: Illegal character in authority at index 7: http://www.m<odeliosoft.com
              *   at java.net.URI$Parser.fail(URI.java:2848)
              *   at java.net.URI$Parser.parseAuthority(URI.java:3186)
              */

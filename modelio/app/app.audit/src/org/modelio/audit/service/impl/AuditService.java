@@ -22,6 +22,7 @@ package org.modelio.audit.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystemException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,18 +32,25 @@ import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.modelio.audit.engine.AuditEngine;
 import org.modelio.audit.engine.AuditJobRunner;
 import org.modelio.audit.engine.core.IAuditExecutionPlan;
 import org.modelio.audit.engine.core.IAuditMonitor;
 import org.modelio.audit.plugin.Audit;
 import org.modelio.audit.preferences.AuditModelController;
+import org.modelio.audit.preferences.AuditPreferencePage;
 import org.modelio.audit.preferences.model.AuditConfigurationModel;
 import org.modelio.audit.service.IAuditService;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.smkernel.meta.SmClass;
 
 /**
  * Audit service implementation.
@@ -51,11 +59,14 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @SuppressWarnings ("restriction")
 @Creatable
 public class AuditService implements IAuditService {
+    @objid ("7c5545c3-1b66-4212-8dc8-742cd4f8d9b1")
+    private static final String START_JOB_ID = "audit.job.start";
+
     @objid ("7ddbb11a-45fb-11e2-9b4d-bc305ba4815c")
     private final AuditEngine auditEngine;
 
     @objid ("7ddbb11b-45fb-11e2-9b4d-bc305ba4815c")
-    private GProject openedProject;
+    private IGProject openedProject;
 
     @objid ("4fd2d0ed-357f-45c7-b763-e7d91f4f80e5")
     private AuditModelController modelController;
@@ -64,13 +75,12 @@ public class AuditService implements IAuditService {
     private final Geometry geometry;
 
     /**
-     * Thread map for audit jobs.
-     * The key is an audit job identifier. The value is an AuditJobRunner thread.
+     * Thread map for audit jobs. The key is an audit job identifier. The value is an AuditJobRunner thread.
      */
-    @objid ("b6a751a4-21ce-40e3-9008-7f0cc6c56b36")
+    @objid ("8cbe1403-afe5-4135-a683-2a64bc832a10")
     private final Map<String, Thread> auditJobsMap;
 
-    @objid ("a2074a57-6c23-4efe-93d3-40a66a407105")
+    @objid ("c5c5a1af-0e3d-4d9c-a583-dd7349b4bbef")
     @Inject
     private StatusReporter errReporter;
 
@@ -130,7 +140,7 @@ public class AuditService implements IAuditService {
     @objid ("7ddbb12d-45fb-11e2-9b4d-bc305ba4815c")
     @Inject
     @Optional
-    void onProjectOpening(@UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project) {
+    void onProjectOpening(@UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject project, IProjectService projectService) {
         this.openedProject = project;
         this.geometry.initForProject(project);
         
@@ -145,6 +155,15 @@ public class AuditService implements IAuditService {
             this.auditEngine.setPlan(auditPlan);
             this.auditEngine.start(this.openedProject.getSession());
         
+            IPreferenceStore prefs = projectService.getProjectPreferences(Audit.PLUGIN_ID);
+            Boolean runAtStartup = prefs.getBoolean(AuditPreferencePage.RUN_AT_STARTUP);
+            if (runAtStartup) {
+                boolean valid = analyseAllModel(project);
+                if (!valid) {
+                    prefs.setValue(AuditPreferencePage.RUN_AT_STARTUP, false);
+                }
+            }
+        
         } catch (final FileSystemException e) {
             this.errReporter.show(StatusReporter.ERROR, FileUtils.getLocalizedMessage(e), e);
         } catch (final IOException e) {
@@ -155,13 +174,36 @@ public class AuditService implements IAuditService {
     }
 
     /**
+     * Run Audit on all model fragments
+     */
+    @objid ("5b9b2a97-e466-4375-a7cc-d897c1968214")
+    private boolean analyseAllModel(final IGProject project) {
+        long projectSize = 0;
+        SmClass melement = project.getSession().getMetamodel().getMClass(ModelElement.class);
+        List<MObject> roots = new ArrayList<MObject>();
+        for (IGModelFragment iProjectFragment : project.getParts(IGModelFragment.class)) {
+            if (iProjectFragment.getType().equals(GProjectPartType.EXMLFRAGMENT) || iProjectFragment.getType().equals(GProjectPartType.SVNFRAGMENT)) {
+                roots.addAll(iProjectFragment.getRoots());
+                projectSize = projectSize + iProjectFragment.getRepository().findByClass(melement, true).size();
+            }
+            if (projectSize > AuditPreferencePage.MAX_MODEL_SIZE) {
+                return false;
+            }
+        }
+        checkElementTree(roots, START_JOB_ID);
+        return true;
+    }
+
+    /**
      * Called when a project is closed. On session close un-reference the modeling session and model services.
      */
     @objid ("7dde127a-45fb-11e2-9b4d-bc305ba4815c")
     @Optional
     @Inject
-    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject closedProject) {
+    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject closedProject) {
         if (closedProject != null) {
+            interuptCheck(START_JOB_ID);
+        
             // Standard audit
             this.auditEngine.stop(closedProject.getSession());
             this.modelController = null;
@@ -254,7 +296,7 @@ public class AuditService implements IAuditService {
      * @return the edited project.
      */
     @objid ("1a82221b-5501-4a65-89df-42671396dbbe")
-    GProject getProject() {
+    IGProject getProject() {
         assert this.openedProject != null;
         return this.openedProject;
     }
@@ -267,7 +309,6 @@ public class AuditService implements IAuditService {
         checkerThread.setPriority(Thread.MIN_PRIORITY);
         checkerThread.setName("CHECKER");
         checkerThread.start();
-        
         this.auditJobsMap.put(jobId, checkerThread);
         
     }
@@ -321,13 +362,13 @@ public class AuditService implements IAuditService {
         /**
          * The currently used configuration file. Might be <code>null</code>.
          */
-        @objid ("0e84e471-42a6-4de7-b355-7528929922bf")
+        @objid ("191c3cd7-81e4-417d-a6ab-2adb77b5748f")
         private File configurationFile;
 
         /**
          * The default configuration file stored in the opened project.
          */
-        @objid ("73c99eed-cda8-483b-9c06-1da9b359b534")
+        @objid ("4bc34c79-271c-43ba-8f29-7b6494ae5c7c")
         private File defaultProjectConfigurationFile;
 
         @objid ("0702a158-b73f-4865-a585-d47019cbaff3")
@@ -395,8 +436,8 @@ public class AuditService implements IAuditService {
         }
 
         @objid ("683e932c-a337-404e-8170-f82f2b0a955d")
-        public File initForProject(final GProject project) {
-            return this.defaultProjectConfigurationFile = project.getProjectFileStructure().getProjectDataPath().resolve(".config/auditconfiguration.properties").toFile();
+        public File initForProject(final IGProject project) {
+            return this.defaultProjectConfigurationFile = project.getPfs().getProjectDataPath().resolve(".config/auditconfiguration.properties").toFile();
         }
 
     }

@@ -59,12 +59,6 @@ public class ImageLibrary {
     @objid ("3a069c8d-09f1-458a-a4e6-d6da544271ff")
     private HashMap<String, String> labels = new HashMap<>();
 
-    /**
-     * Binds a category with its image file names
-     */
-    @objid ("53ae47df-60d6-4be6-ada8-1ef91bb117f3")
-    private HashMap<String , List<String>> images = new HashMap<>();
-
     
     @mdl.prop
     @objid ("3959a1fe-695c-4459-abf5-908dee40be4c")
@@ -81,6 +75,12 @@ public class ImageLibrary {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
+
+    /**
+     * Binds a category with its image file name
+     */
+    @objid ("53ae47df-60d6-4be6-ada8-1ef91bb117f3")
+    private HashMap<Object, List<String>> images = new HashMap<>();
 
     /**
      * The base URL of the library - up to the directory that contains the images and the catalog.xml file eg: http://constellation.minotaure.softeam.com/library/imagelibrary/standard/
@@ -137,6 +137,19 @@ public class ImageLibrary {
     public URL getImage(String image) {
         try {
             return new URL(this.repository.toString() + '/' + image);
+        } catch (MalformedURLException e) {
+            return null;
+        }
+        
+    }
+
+    /**
+     * @return the url of the image 64x64 thumbnail in the repository
+     */
+    @objid ("738334f8-0a3c-4a75-827e-afd9fdc83a7a")
+    public URL getImageThumbnail(String image) {
+        try {
+            return new URL(this.repository.toString() + '/' + image.replaceAll(".png", "_64.png"));
         } catch (MalformedURLException e) {
             return null;
         }

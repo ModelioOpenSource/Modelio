@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Sequence diagrams describe the sequence of the exchange of messages between several participants (instances, parts, ...).</p><p>They are used to illustrate a dynamic sequence, to model a protocol, to model tests, to trace an execution, to present a scenario of a use case.</p><p>Participants can be created by dragging and dropping classes, actors, ... The sending of messages can be connected to the operations of the participants.</p><p>Sequence diagrams are typically created in a use case, an operation or a collaboration.</p>
+ * 
+ * 
+ * 
  */
 @objid ("006f58ba-c4bf-1fd8-97fe-001ec947cd2a")
 public interface SequenceDiagram extends BehaviorDiagram {
@@ -46,5 +49,5 @@ public interface SequenceDiagram extends BehaviorDiagram {
      */
     @objid ("b021af49-ba9c-477f-9b2b-f9b607fe7b54")
     public static final String MQNAME = "Standard.SequenceDiagram";
-
 }
+

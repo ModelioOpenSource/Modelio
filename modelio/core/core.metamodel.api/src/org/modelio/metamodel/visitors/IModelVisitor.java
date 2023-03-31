@@ -995,5 +995,5 @@ public interface IModelVisitor extends MVisitor {
 
     @objid ("a2ca39c6-ae60-4bcd-8ff4-e8df5f0b02e8")
     Object visitValuePin(ValuePin obj);
-
 }
+

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='logback/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1639573534377'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='2'>
+    <artifact classifier='osgi.bundle' id='ch.qos.logback.core' version='1.2.7'>
+      <properties size='5'>
+        <property name='artifact.size' value='473029'/>
+        <property name='download.size' value='473029'/>
+        <property name='download.md5' value='c9135be1ab9ed27e61af6bba28505c02'/>
+        <property name='download.checksum.md5' value='c9135be1ab9ed27e61af6bba28505c02'/>
+        <property name='download.checksum.sha-256' value='763ead25f9be559fe7799d6a0660c085a9091eba59e961a4734597deb10c2938'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='ch.qos.logback.classic' version='1.2.7'>
+      <properties size='5'>
+        <property name='artifact.size' value='292031'/>
+        <property name='download.size' value='292031'/>
+        <property name='download.md5' value='96d133b88dd022d5aca7ecfcf29af16b'/>
+        <property name='download.checksum.md5' value='96d133b88dd022d5aca7ecfcf29af16b'/>
+        <property name='download.checksum.sha-256' value='fed605d7079d9e90b1fa39d913b0f2334d7442eaf754ebe865be6076064f396a'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

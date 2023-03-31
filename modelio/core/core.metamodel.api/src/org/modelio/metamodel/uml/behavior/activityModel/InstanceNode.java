@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * An instance node is an activity node that indicates an instance of a particular classifier, possibly in a particular state, potentially available at a particular point in the activity. Instance nodes can be used in a variety of ways, depending on where objects are flowing to and from.
  * 
  * Instances nodes are also used to represent variables in activities and structured nodes.
+ * 
+ * 
  */
 @objid ("0035be3e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InstanceNode extends ObjectNode {
@@ -48,5 +50,5 @@ public interface InstanceNode extends ObjectNode {
      */
     @objid ("52d7e18d-df95-4559-a07f-6ff0c362cdc1")
     public static final String MQNAME = "Standard.InstanceNode";
-
 }
+

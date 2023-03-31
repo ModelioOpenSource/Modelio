@@ -114,5 +114,5 @@ public interface IModuleUserConfiguration {
      */
     @objid ("85f9f1c1-ae51-4623-b858-d611585f0c58")
     void removeListener(IModuleConfigurationListener l);
-
 }
+

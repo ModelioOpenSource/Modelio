@@ -45,8 +45,10 @@ public class EditionManager {
      * The default charset name used to open an editor.
      */
     @objid ("1e2ad6af-efea-4653-8299-076a13317c92")
-    public static final String DEFAULT_CHARSET_NAME = "UTF-8"; /* // $NON-NLS-1$
+    public static final String DEFAULT_CHARSET_NAME = "UTF-8";/*
+     * // $NON-NLS-1$
      */
+    
 
     @objid ("ab475603-2a77-11e2-9fb9-bc305ba4815c")
     private static final String PARENT_PART_ID = "org.modelio.app.center.parts";

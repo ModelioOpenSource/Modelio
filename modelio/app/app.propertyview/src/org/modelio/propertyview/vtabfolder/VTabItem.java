@@ -89,6 +89,7 @@ public class VTabItem extends Item {
 
     @objid ("79615129-f717-45c2-a694-aa867d1b8c20")
     Control control; // the tab page
+    
 
     // Appearance
     @objid ("193cbcac-489e-48c9-a594-61942bf9ef13")

@@ -33,7 +33,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.widgets.FileDialog;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.model.property.plugin.ModelProperty;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.UIImages;
@@ -82,9 +82,6 @@ class DiagramImageChooserListener implements SelectionListener {
         selectImage(e);
     }
 
-    /**
-     * @param event
-     */
     @objid ("c448c258-c69f-489b-91f8-0562ff0b1d5b")
     private void selectImage(SelectionEvent event) {
         FileDialog fileDialog = new FileDialog(this.dialog.getShell(), SWT.OPEN);
@@ -92,8 +89,8 @@ class DiagramImageChooserListener implements SelectionListener {
         String[] filterNames = new String[] { ModelProperty.I18N.getString("StereotypeCreationDialog.ImageFiles") };
         String[] filterExtensions = new String[] { "*.png;*.bmp" };
         
-        GProject openedProject = this.projectService.getOpenedProject();
-        String projectPath = openedProject.getProjectFileStructure().getProjectPath().toString();
+        IGProject openedProject = this.projectService.getOpenedProject();
+        String projectPath = openedProject.getPfs().getProjectPath().toString();
         
         fileDialog.setFilterNames(filterNames);
         fileDialog.setFilterExtensions(filterExtensions);

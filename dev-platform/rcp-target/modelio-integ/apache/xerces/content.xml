@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='xerces/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1668514892625'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='com.modeliosoft.modelio.xerces' version='2.12.1'>
+      <update id='com.modeliosoft.modelio.xerces' range='[0.0.0,2.12.1)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='Xerces'/>
+      </properties>
+      <provides size='77'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.modeliosoft.modelio.xerces' version='2.12.1'/>
+        <provided namespace='osgi.bundle' name='com.modeliosoft.modelio.xerces' version='2.12.1'/>
+        <provided namespace='java.package' name='javax' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.datatype' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.namespace' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.parsers' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.transform' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.transform.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.transform.sax' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.transform.stream' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.validation' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.xpath' version='0.0.0'/>
+        <provided namespace='java.package' name='license' version='0.0.0'/>
+        <provided namespace='java.package' name='org' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.html' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.html.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.wml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.wml.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.dom3' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.dom3.as' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.dom.events' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dtd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dtd.models' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dv' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dv.dtd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dv.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.dv.xs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.msg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.validation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xpath.regex' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs.identity' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs.models' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs.opti' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs.traversers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.impl.xs.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.jaxp' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.jaxp.datatype' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.jaxp.validation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.parsers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xinclude' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xni' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xni.grammars' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xni.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xpointer' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xerces.xs.datatypes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xmlcommons' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.xml.serialize' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.css' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.bootstrap' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.css' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.events' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.html' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.ls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.ranges' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.stylesheets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.traversal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.views' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.xpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.xml.sax' version='0.0.0'/>
+        <provided namespace='java.package' name='org.xml.sax.ext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.xml.sax.helpers' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='com.modeliosoft.modelio.xerces' version='2.12.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='73'>
+        <required namespace='java.package' name='javax' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.dom' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.sax' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.validation' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='license' range='0.0.0'/>
+        <required namespace='java.package' name='org' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.html' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.html.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.wml' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.wml.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom3' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom3.as' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.dom.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dtd' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dtd.models' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.dtd' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.dv.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.io' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.msg' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xpath.regex' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.identity' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.models' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.opti' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.traversers' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.impl.xs.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.jaxp.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xinclude' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni.grammars' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xni.parser' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xpointer' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xs' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xerces.xs.datatypes' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xml' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xmlcommons' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.xml.serialize' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.css' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.bootstrap' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.css' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.html' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.ls' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.ranges' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.stylesheets' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.traversal' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.views' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.ext' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.xerces' version='2.12.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.modeliosoft.modelio.xerces;singleton:=true&#xA;Bundle-Version: 2.12.1&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

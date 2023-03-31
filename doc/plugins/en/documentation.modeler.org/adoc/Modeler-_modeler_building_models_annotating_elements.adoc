@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Annotating-elements]]
 
-[[annotating-elements]]
+
+
 = Annotating elements
 
 Modelio supports different annotation mechanisms used to complete model element properties.

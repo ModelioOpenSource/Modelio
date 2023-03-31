@@ -23,10 +23,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.metamodel.impact.ImpactModel;
 import org.modelio.metamodel.impact.ImpactProject;
 import org.modelio.metamodel.mda.ModuleComponent;
@@ -47,7 +46,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * Default content provider with Infrastructure elements for the model browser.
  */
 @objid ("0f3ddf9c-9ec6-4cff-a8c9-13819f740ad9")
-public class InfrastructureContentProvider implements ITreeContentProvider {
+public class InfrastructureContentProvider implements IModelioTreeContentProvider {
     @objid ("d2060a35-4c7b-4617-9b0b-eb0fa2c46a4d")
     private Viewer currentViewer;
 
@@ -64,8 +63,8 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
     @Override
     public Object[] getChildren(final Object parent) {
         // Special case: children of a fragment => the typed project(s)
-        if (parent instanceof IProjectFragment) {
-            return getFragmentRoots((IProjectFragment) parent).toArray();
+        if (parent instanceof IGModelFragment) {
+            return getFragmentRoots((IGModelFragment) parent).toArray();
         }
         
         // General case: MObject
@@ -96,8 +95,8 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
     @objid ("14104417-3244-43b1-a373-607aa736dce1")
     @Override
     public boolean hasChildren(final Object parent) {
-        if (parent instanceof IProjectFragment) {
-            return hasChildren((IProjectFragment) parent);
+        if (parent instanceof IGModelFragment) {
+            return hasChildren((IGModelFragment) parent);
         } else if (parent instanceof MObject) {
             return hasChildren((MObject) parent);
         } else {
@@ -114,7 +113,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Get children for a MObject
-     * @param parent @return
+     * @return
      */
     @objid ("1c431ccf-5d0b-4e13-9518-6725f63cd2a9")
     private List<Object> getChildren(final MObject parent) {
@@ -132,7 +131,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Has children? for a MObject
-     * @param parent @return
+     * @return
      */
     @objid ("c28725f9-e27d-4ffb-b8c8-f65ce0608e91")
     private boolean hasChildren(final MObject parent) {
@@ -146,10 +145,10 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
     }
 
     /**
-     * Get children for a IProjectFragment
+     * Get children for a IGModelFragment
      */
     @objid ("1a571ae3-e52e-4bbc-b881-b0a52b291ff9")
-    private List<Object> getFragmentRoots(IProjectFragment fragment) {
+    private List<Object> getFragmentRoots(IGModelFragment fragment) {
         List<Object> ret = new ArrayList<>();
         
         IRepository repository = fragment.getRepository();
@@ -166,16 +165,15 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
     }
 
     /**
-     * Has children? for a IProjectFragment
+     * Has children? for a IGModelFragment
      */
     @objid ("eff879af-776e-431d-b452-f6e6805c7e95")
-    private boolean hasChildren(IProjectFragment fragment) {
+    private boolean hasChildren(IGModelFragment fragment) {
         return !getFragmentRoots(fragment).isEmpty();
     }
 
     /**
      * Get parent for a MObject
-     * @param parent
      * @return
      */
     @objid ("aa24a64a-90da-46cf-ba49-05c31f982853")
@@ -190,7 +188,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
             return owner;
         } else if (element instanceof AbstractProject && element.isValid()) {
             // Composition root : return the project
-            return GProject.getProject(element).getFragment(element);
+            return AbstractGProject.getProject(element).getFragment(element);
         }
         return null;
     }

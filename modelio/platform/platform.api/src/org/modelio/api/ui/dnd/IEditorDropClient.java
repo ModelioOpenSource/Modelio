@@ -40,5 +40,5 @@ public interface IEditorDropClient {
      */
     @objid ("e451adfe-79db-11dd-ba6f-0014222a9f79")
     void setDroppedElements(final MObject[] dropedElement);
-
 }
+

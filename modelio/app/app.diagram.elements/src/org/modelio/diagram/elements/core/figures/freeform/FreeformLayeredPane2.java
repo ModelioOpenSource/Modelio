@@ -24,9 +24,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.FreeformFigure;
 import org.eclipse.draw2d.FreeformListener;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 
 /**
  * A LayeredPane that contains {@link org.eclipse.draw2d.FreeformLayer FreeformLayers}.
@@ -88,6 +90,46 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
     @objid ("df8a0559-707a-4084-a773-0748e97131f6")
     @Override
     protected void fireMoved() {
+        
+    }
+
+    /**
+     * Redefined to enable anti aliasing in whole diagram.
+     */
+    @objid ("d12f2e8e-07b2-45f9-b078-30d9de380d7b")
+    @Override
+    public void paint(Graphics graphics) {
+        setupGc(graphics);
+        
+        super.paint(graphics);
+        
+    }
+
+    /**
+     * Use advaced graphics and anti aliasing in the whole diagram.
+     * @param graphics the GEF GC
+     */
+    @objid ("42d73cf6-35f4-4263-893e-96819aa903a8")
+    private void setupGc(Graphics graphics) {
+        /*
+        Dev notes:
+        ----------
+        This is the only place where anti aliasing may be activated for the whole diagram.
+        Places where it didn't work:
+        - ScalableFreeformLayeredPane2.paintclientArea(...) : GC settings are reset on next figure
+        - redefine org.modelio.diagram.editor.widgets.draw2d.DeferredUpdateManagerWithWatchDog.paint(GC) : SWT GC settings are erased on first figure drawing,
+          due to ill initialization of SWTGraphics from GC.
+        - add a SWT paint listener in org.modelio.diagram.editor.AbstractDiagramEditor.createGraphicalViewer(Composite) : the listener is called AFTER painting
+        */
+        // 24/10/2022 : Disabled because it breaks MarqueeDragTracker : XOR mode does not work anymore
+        if (false) {
+            graphics.setAdvanced(true);
+            if (graphics.getAdvanced()) {
+                graphics.setInterpolation(SWT.HIGH); // seems to be interpolation for images painting
+                graphics.setAntialias(SWT.ON);
+                graphics.setTextAntialias(SWT.ON);
+            }
+        }
         
     }
 

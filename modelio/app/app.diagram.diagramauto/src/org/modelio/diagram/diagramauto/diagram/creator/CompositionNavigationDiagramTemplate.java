@@ -22,11 +22,11 @@ package org.modelio.diagram.diagramauto.diagram.creator;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.tools.layout.MatrixLayout;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -39,12 +39,19 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
     private List<IDiagramNode> contentDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("33b4d1c8-32ee-4c73-a49b-8f4c0f1defce")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("cdcde0aa-53a2-4028-8709-57745d8c23a1")
     public  CompositionNavigationDiagramTemplate() {
         super();
         this.contentDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -62,33 +69,30 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
 
     @objid ("5b7ecfc6-7de3-4f35-acb2-3980acf18d27")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof org.modelio.metamodel.uml.statik.Package) {
-            initialUnmasking(dh, (ModelTree) main);
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement elt) {
+        if (!(elt instanceof org.modelio.metamodel.uml.statik.Package))
+            return;
+        
+        org.modelio.metamodel.uml.statik.Package main = (org.modelio.metamodel.uml.statik.Package) elt;
+        
+        
+        
+        // Unmask content
+        for (ModelTree child : main.getOwnedElement()) {
+            IDiagramNode node = this._unmasker.unmask(dh, child);
+            if (node != null) {
+                node.setRepresentationMode(1);
+                // Add intern/extern style
+                initStyle(main, node);
+                this.contentDgs.add(node);
+            }
         }
         
     }
 
-    @objid ("04e7eb26-dda3-4b75-a9cf-7c0c6405370e")
-    private void initialUnmasking(final IDiagramHandle dh, final ModelTree main) {
-        // Mask previous content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
-        }
-        
-        // unmask content
-        for (ModelTree child : main.getOwnedElement()) {
-            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-                node.setRepresentationMode(1);
-        
-                // Add intern/extern style
-                initStyle(main, node);
-        
-                this.contentDgs.add(node);
-            }
-        }
+    @objid ("2fc96964-568d-44fd-8b9b-cbf0b9681f3d")
+    @Override
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement elt) {
         
     }
 
@@ -99,10 +103,16 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
 
     @objid ("b4112f60-2238-43a0-a43f-4bc00b411009")
     @Override
-    protected void layout(final IDiagramHandle dh) {
+    protected void layoutNodes(final IDiagramHandle dh) {
         MatrixLayout layout = new MatrixLayout(10, 10);
         layout.layout(dh, this.contentDgs);
         
+    }
+
+    @objid ("6ebd1453-8be6-4c02-9766-8081b6624d93")
+    @Override
+    protected void layoutLinks(final IDiagramHandle dh) {
+        return;
     }
 
     @objid ("c5fbe005-5762-4c92-b02b-a4b141d5acd8")
@@ -125,6 +135,8 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
     @Override
     protected void reset() {
         this.contentDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
+        
     }
 
 }

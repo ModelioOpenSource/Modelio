@@ -63,7 +63,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
     @objid ("80389602-1dec-11e2-8cad-001ec947c8cc")
     private static final int TOLERANCE = 7;
 
-    @objid ("d77004e0-bc24-4309-a006-10d3e8b28e1d")
+    @objid ("f574fd03-6adc-4c51-92ad-07a76d70cebe")
     private boolean isActive;
 
     @objid ("65957a71-1e83-11e2-8cad-001ec947c8cc")
@@ -692,7 +692,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
         
     }
 
-    @objid ("b5134d3e-129d-48d7-907c-8d81f4a65938")
+    @objid ("df7b4219-2061-4c82-8f5d-cc1be3a8f9e5")
     @Override
     public ConnectionEditPart getHost() {
         return (ConnectionEditPart) super.getHost();
@@ -701,7 +701,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
     /**
      * Redefined to protect against reentrance in headless mode.
      */
-    @objid ("1dd6bc3e-e6ee-4fd6-8d7a-4612494ea95a")
+    @objid ("387c3976-5d48-4b29-b4a9-2096a39b4c32")
     @Override
     protected void addSelectionHandles() {
         // protect against reentrance in headless mode:

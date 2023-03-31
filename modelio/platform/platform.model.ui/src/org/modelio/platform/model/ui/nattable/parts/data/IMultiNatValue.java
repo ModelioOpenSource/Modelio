@@ -31,5 +31,5 @@ public interface IMultiNatValue extends INatValue {
     @objid ("06dbdf7c-e6a0-4bbe-ac02-d46ab34f23df")
     @Override
     Collection<?> getValue();
-
 }
+

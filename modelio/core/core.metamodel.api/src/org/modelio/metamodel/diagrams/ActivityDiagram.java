@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Activity diagrams are used to represent business processes, or the dynamic part of a model (algorithm of an operation, for example).</p><p>They can be &quot;autonomous&quot; (inside a package) and represent a process, or the behavior of an operation (inside an operation).</p><p>Creation wizards, using the drag &amp; drop feature, allow to create object nodes (dragging classes), call operations (dragging operations), sub process calls (dragging activities).</p>
+ * 
+ * 
+ * 
  */
 @objid ("0067c92e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityDiagram extends BehaviorDiagram {
@@ -52,6 +55,7 @@ public interface ActivityDiagram extends BehaviorDiagram {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("7a39a5c8-f15f-4d9b-a4fb-8d0db871e758")
     boolean isIsVertical();
@@ -61,8 +65,9 @@ public interface ActivityDiagram extends BehaviorDiagram {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("d798af5a-ba0a-4b07-a266-e3eecfc4ed07")
     void setIsVertical(boolean value);
-
 }
+

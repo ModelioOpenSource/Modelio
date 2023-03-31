@@ -41,5 +41,5 @@ public interface IModelRefresher extends IModelLoader {
      */
     @objid ("a7f493ed-4bf1-4af2-855b-8dda4fa42fb9")
     void deleteObject(SmObjectImpl obj);
-
 }
+

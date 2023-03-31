@@ -97,28 +97,28 @@ public @interface SmaMetaAssociation {
      * @return true for a composition dependency
      */
     @objid ("002a6eb2-7f00-1f32-acd1-001ec947cd2a")
-    boolean component();
+    boolean component() default false;
 
     /**
      * 
      * @return true for a shared composition dependency
      */
     @objid ("002ac8ee-7f00-1f32-acd1-001ec947cd2a")
-    boolean sharedComponent();
+    boolean sharedComponent() default false;
 
     /**
      * 
      * @return true for a "partof" dependency
      */
     @objid ("002a65e8-7f00-1f32-acd1-001ec947cd2a")
-    boolean partof();
+    boolean partof() default false;
 
     /**
      * 
      * @return true to cascade deletion to the target
      */
     @objid ("002a779a-7f00-1f32-acd1-001ec947cd2a")
-    boolean istodelete();
+    boolean istodelete() default false;
 
     /**
      * Tells whether it is advisable to avoid storing this dependency on saving.
@@ -127,6 +127,6 @@ public @interface SmaMetaAssociation {
      * @return true to tell storage to not save the dependency.
      */
     @objid ("002a80c8-7f00-1f32-acd1-001ec947cd2a")
-    boolean performanceRisk();
+    boolean performanceRisk() default false;
 
 }

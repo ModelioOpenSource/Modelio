@@ -40,6 +40,8 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
  * 
  * Ownership:
  * A FlowElement belongs to an Element Container or a SubProcess
+ * 
+ * 
  */
 @objid ("00792098-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnFlowElement extends BpmnBaseElement {
@@ -60,6 +62,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6047b007-0ce8-4ecc-b428-43885fb46df3")
     boolean isTriggeredByEvent();
@@ -69,6 +72,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5b60cc6c-623e-4406-be63-4c3c1b8829bc")
     void setTriggeredByEvent(boolean value);
@@ -78,6 +82,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b557ffe4-3c8e-48d0-9182-d09917cdd52c")
     EList<BpmnGroup> getGroups();
@@ -87,6 +92,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c95a17ce-bfab-429f-9a8d-ffb2dcfb2e6e")
     <T extends BpmnGroup> List<T> getGroups(java.lang.Class<T> filterClass);
@@ -96,6 +102,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4e951780-e70c-4453-a61f-a3890165cbbb")
     BpmnSubProcess getSubProcess();
@@ -105,6 +112,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("32ddae39-e7a2-423a-82ab-9d4f943e97b9")
     void setSubProcess(BpmnSubProcess value);
@@ -114,6 +122,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f965be7c-0ce7-4b76-a943-e8362af9d909")
     EList<BpmnLane> getLane();
@@ -123,6 +132,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f1b518b0-1f0f-4221-8377-05c2ea5b3ff3")
     <T extends BpmnLane> List<T> getLane(java.lang.Class<T> filterClass);
@@ -132,6 +142,7 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("13f55880-bb48-4a36-93eb-f5304f85d1cb")
     BpmnProcess getContainer();
@@ -141,8 +152,9 @@ public interface BpmnFlowElement extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8a3e4a71-d697-49f2-b75b-8180cdf64d27")
     void setContainer(BpmnProcess value);
-
 }
+

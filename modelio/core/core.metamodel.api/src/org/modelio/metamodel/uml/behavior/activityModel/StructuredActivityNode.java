@@ -37,6 +37,8 @@ import org.eclipse.emf.common.util.EList;
  * The execution of any embedded actions may not begin until the structured activity node has received its object and control tokens. The availability of output tokens from the structured activity node does not occur until all embedded actions have completed execution.
  * 
  * In order to avoid race conditions or other concurrency-related  problems, it is sometimes necessary to isolate the effects of a group of actions from the effects of actions outside the group. This may be indicated by setting the mustIsolate attribute to true on a structured activity node. In this case, any object used by an action within the node cannot be accessed by any action outside the node until the structured activity node as a whole completes. 
+ * 
+ * 
  */
 @objid ("003df874-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StructuredActivityNode extends ActivityAction {
@@ -73,6 +75,7 @@ public interface StructuredActivityNode extends ActivityAction {
      * concurrency conflicts. Isolation is different from the property of 'atomicity',  which is the guarantee that a group of actions 
      * either all complete successfully or have no effect at all. Atomicity generally requires a rollback mechanism to prevent 
      * committing partial results. </i>
+     * 
      */
     @objid ("3161d5d8-3571-4319-9c1d-399f74af40cc")
     boolean isMustIsolate();
@@ -98,6 +101,7 @@ public interface StructuredActivityNode extends ActivityAction {
      * concurrency conflicts. Isolation is different from the property of 'atomicity',  which is the guarantee that a group of actions 
      * either all complete successfully or have no effect at all. Atomicity generally requires a rollback mechanism to prevent 
      * committing partial results. </i>
+     * 
      */
     @objid ("c56d6b94-0808-4631-b351-2f914cb688d7")
     void setMustIsolate(boolean value);
@@ -107,6 +111,7 @@ public interface StructuredActivityNode extends ActivityAction {
      * 
      * Metamodel description:
      * <i>Implementation of the structured activity node.</i>
+     * 
      */
     @objid ("751de91d-f286-47fd-8988-52624e428bda")
     EList<ActivityNode> getBody();
@@ -116,8 +121,9 @@ public interface StructuredActivityNode extends ActivityAction {
      * 
      * Metamodel description:
      * <i>Implementation of the structured activity node.</i>
+     * 
      */
     @objid ("91d83445-f61a-4383-82e1-29002931dd90")
     <T extends ActivityNode> List<T> getBody(java.lang.Class<T> filterClass);
-
 }
+

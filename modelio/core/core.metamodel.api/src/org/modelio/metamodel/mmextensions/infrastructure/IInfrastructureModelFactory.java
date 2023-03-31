@@ -388,5 +388,5 @@ public interface IInfrastructureModelFactory extends IModelFactory {
 
     @objid ("562b5953-2757-4f6e-b24a-c6d6638902fd")
     void setDefaultValue(String key, Object value);
-
 }
+

@@ -72,6 +72,9 @@ public class DiagramService implements IDiagramService {
     @objid ("e2a53de0-1433-4790-aaba-0787258adbcb")
     private EContextService contextService;
 
+    @objid ("b9a98be5-0a86-4f83-88c3-ebaa4471d452")
+    private IEclipseContext eclipseContext;
+
     @objid ("06ebb816-57d8-406e-b21a-2b9e10c038bc")
     private ToolRegistry toolService;
 
@@ -86,9 +89,6 @@ public class DiagramService implements IDiagramService {
 
     @objid ("1a76979e-eec0-43a8-ad95-a93f4e0ad5c6")
     private IMModelServices modelServices;
-
-    @objid ("cdf51ce4-90d3-4dd4-8d2f-56c608180dcf")
-    private IEclipseContext eclipseContext;
 
     /**
      * C'tor.
@@ -264,7 +264,7 @@ public class DiagramService implements IDiagramService {
         return this.eclipseContext.get(ModelViewTemplateManager.class).get(templateId);
     }
 
-    @objid ("7dc30cc7-f109-4782-9dff-920bf0ccf00a")
+    @objid ("d204b3ac-194a-45c0-8ed8-942a7b77bc38")
     private IDiagramConfigurer createConfigurer(MClass baseDiagramClass, final IDiagramCustomizer customizer) {
         IDiagramConfigurer baseConfigurer = this.configurerRegistry.getConfigurer(baseDiagramClass.getName());
         IDGDynamicDecorator dgDecorator = customizer.getDynamicDecorator();

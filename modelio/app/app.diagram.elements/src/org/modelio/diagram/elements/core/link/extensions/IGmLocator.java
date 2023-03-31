@@ -62,5 +62,5 @@ public interface IGmLocator extends IPersistent {
      */
     @objid ("2ff479b5-4f92-4827-a437-09bc7c8ddd1a")
     IGmLocator copy();
-
 }
+

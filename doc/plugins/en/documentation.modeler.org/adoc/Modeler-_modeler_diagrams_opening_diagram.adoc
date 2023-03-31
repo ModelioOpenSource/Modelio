@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Opening-a-diagram]]
 
-[[opening-a-diagram]]
+
+
 = Opening a diagram
 
 There are 3 ways of opening a diagram :

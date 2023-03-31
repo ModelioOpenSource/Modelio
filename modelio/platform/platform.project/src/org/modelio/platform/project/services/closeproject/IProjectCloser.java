@@ -20,7 +20,7 @@
 package org.modelio.platform.project.services.closeproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.platform.project.services.openproject.IProjectServiceAccess;
 
@@ -34,18 +34,18 @@ public interface IProjectCloser {
      * @throws IllegalStateException If no project is currently opened.
      */
     @objid ("0083087e-acc2-103b-a520-001ec947cd2a")
-    void closeProject(final GProject project, boolean sendSyncEvents) throws IllegalArgumentException, IllegalStateException;
+    void closeProject(final IGProject project, boolean sendSyncEvents) throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * Calls {@link #closeProject(GProject, false)}
+     * Calls {@link #closeProject(IGProject, false)}
      * @param project The project to close. Must be equal to the currently opened project.
      * @throws IllegalArgumentException If <code>project</code> is null or different from the currently opened project.
      * @throws IllegalStateException If no project is currently opened.
      */
     @objid ("7159706d-b1e2-4a5b-ab06-9bad395e0fbc")
-    void closeProject(final GProject project) throws IllegalArgumentException, IllegalStateException;
+    void closeProject(final IGProject project) throws IllegalArgumentException, IllegalStateException;
 
     @objid ("ffe83a87-147d-4b50-8787-85b0bf41cd12")
     void configure(IProjectServiceAccess service);
-
 }
+

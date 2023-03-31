@@ -57,17 +57,19 @@ import org.modelio.diagram.elements.core.tools.BendedConnectionCreationTool;
 import org.modelio.diagram.elements.core.tools.multipoint.MultiPointCreationTool;
 import org.modelio.diagram.elements.drawings.core.GmDrawing;
 import org.modelio.diagram.elements.drawings.ellipse.GmEllipseDrawing;
+import org.modelio.diagram.elements.drawings.image.GmImageDrawing;
 import org.modelio.diagram.elements.drawings.line.GmLineDrawing;
+import org.modelio.diagram.elements.drawings.note.GmNoteDrawing;
 import org.modelio.diagram.elements.drawings.rectangle.GmRectangleDrawing;
 import org.modelio.diagram.elements.drawings.text.GmTextDrawing;
 import org.modelio.diagram.styles.core.StyleKey;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.core.events.ModelioEventTopics;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -107,6 +109,18 @@ public class ToolRegistry {
      */
     @objid ("9d70d667-9304-4c0e-9453-b4a0bc737bbc")
     public static final String TOOL_CREATE_DRAWING_TEXT = "CREATE_DRAWING_TEXT";
+
+    /**
+     * Tool that creates drawing Note .
+     */
+    @objid ("d0471320-dbe0-4179-815a-b74846b1ed8f")
+    public static final String TOOL_CREATE_DRAWING_NOTE = "CREATE_DRAWING_NOTE";
+
+    /**
+     * Tool that creates drawing Image .
+     */
+    @objid ("ca40a73f-6ab9-4a47-8f42-2320380d2602")
+    public static final String TOOL_CREATE_DRAWING_IMAGE = "CREATE_DRAWING_IMAGE";
 
     /**
      * ID of the link creation tool that shows popup menu to choose the kind of link.
@@ -182,7 +196,7 @@ public class ToolRegistry {
     @Inject
     @Optional
     void onProjectClose(@SuppressWarnings ("unused")
-    @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject project) {
         // Empty the tool registry
         this.toolMap = null;
         
@@ -192,7 +206,7 @@ public class ToolRegistry {
     @Inject
     @Optional
     void onProjectOpening(@SuppressWarnings ("unused")
-    @UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project, final IMModelServices modelServices) {
+    @UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject project, final IMModelServices modelServices) {
         this.mModelServices = modelServices;
         // tool registry initialization must be delayed until ModelerModule is ready, first module to register a tool will trigger it automatically
         
@@ -287,8 +301,9 @@ public class ToolRegistry {
         
         createDrawingTool(ToolRegistry.TOOL_CREATE_DRAWING_TEXT, NodeCreationTool.class, new DrawingObjectFactory(GmTextDrawing.class));
         
-        // createDrawingTool("CREATE_DRAWING_POLYGON", MultiPointCreationTool.class, new
-        // DrawingObjectFactory(GmEllipseDrawing.class));
+        createDrawingTool(ToolRegistry.TOOL_CREATE_DRAWING_NOTE, NodeCreationTool.class, new DrawingObjectFactory(GmNoteDrawing.class));
+        
+        createDrawingTool(ToolRegistry.TOOL_CREATE_DRAWING_IMAGE, NodeCreationTool.class, new DrawingObjectFactory(GmImageDrawing.class));
         
         createDrawingTool(ToolRegistry.TOOL_CREATE_DRAWING_LINE, ConnectionCreationTool.class, new DrawingObjectFactory(GmLineDrawing.class));
         
@@ -336,7 +351,7 @@ public class ToolRegistry {
         if (stereotype != null) {
             final Profile owner = stereotype.getOwner();
             if (owner != null) {
-                final Image image = ModuleI18NService.getIcon(stereotype);
+                final Image image = MdaResources.getIcon(stereotype);
                 if (image != null) {
                     return ImageDescriptor.createFromImage(image);
                 }

@@ -271,7 +271,7 @@ class MofDiagramMigrator {
         @objid ("814bd943-79e9-4d26-9d72-31e950e85fae")
         @Override
         void close() throws XMLStreamException;
-
-    }
+}
+    
 
 }

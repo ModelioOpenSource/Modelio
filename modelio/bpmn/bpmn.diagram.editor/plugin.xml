@@ -451,10 +451,12 @@
         <creation_tool id="CREATE_TRACEABILITY_BIG"/>
         <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
         <separator/>
-        <creation_tool id="CREATE_DRAWING_LINE"/>
-        <creation_tool id="CREATE_DRAWING_TEXT"/>
-        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
-        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+        	 <creation_tool id="CREATE_DRAWING_TEXT"/>
+			 <creation_tool id="CREATE_DRAWING_NOTE"/>
+			 <creation_tool id="CREATE_DRAWING_IMAGE"/>
+			 <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+             <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+             <creation_tool id="CREATE_DRAWING_LINE"/>
       </palette_group>
     </palette>
 
@@ -542,10 +544,12 @@
         <creation_tool id="CREATE_TRACEABILITY_BIG"/>
         <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
       	<separator/>
-        <creation_tool id="CREATE_DRAWING_LINE"/>
         <creation_tool id="CREATE_DRAWING_TEXT"/>
+		<creation_tool id="CREATE_DRAWING_NOTE"/>
+		<creation_tool id="CREATE_DRAWING_IMAGE"/>
+		<creation_tool id="CREATE_DRAWING_RECTANGLE"/>
         <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
-        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
       </palette_group>
     </palette>
     <palette id="org.modelio.bpmn.diagram.editor.BpmnCollaborationDiagram.PaletteID">
@@ -641,10 +645,12 @@
         <creation_tool id="CREATE_TRACEABILITY_BIG"/>
         <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
       	<separator/>
-        <creation_tool id="CREATE_DRAWING_LINE"/>
         <creation_tool id="CREATE_DRAWING_TEXT"/>
+		<creation_tool id="CREATE_DRAWING_NOTE"/>
+		<creation_tool id="CREATE_DRAWING_IMAGE"/>
+		<creation_tool id="CREATE_DRAWING_RECTANGLE"/>
         <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
-        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
       </palette_group>
     </palette>
     <palette id="org.modelio.bpmn.diagram.editor.BpmnCollaborationDiagram2.PaletteID">
@@ -666,10 +672,12 @@
         <creation_tool id="CREATE_TRACEABILITY_BIG"/>
         <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
       	<separator/>
-        <creation_tool id="CREATE_DRAWING_LINE"/>
         <creation_tool id="CREATE_DRAWING_TEXT"/>
+		<creation_tool id="CREATE_DRAWING_NOTE"/>
+		<creation_tool id="CREATE_DRAWING_IMAGE"/>
+		<creation_tool id="CREATE_DRAWING_RECTANGLE"/>
         <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
-        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
       </palette_group>
     </palette>
   </extension>
@@ -690,6 +698,7 @@
               <adapt type="org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant"/>
               <adapt type="org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess"/>
               <adapt type="org.modelio.metamodel.bpmn.activities.BpmnSubProcess"/>
+              <adapt type="org.modelio.metamodel.bpmn.activities.BpmnCallActivity"/>
             </or>
           </iterate>
         </with>

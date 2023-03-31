@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1080]]
 
-[[r1080]]
+
+
 = R1080
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les _Part_ représentées par des _ActivityPartition_ " soeurs " doivent être des _Part_ du même _Classifier_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Si une _ActivityPartition_ représente une Part d'un _Classifier_, alors toutes les _ActivityPartition_ non externes dans la même dimension et au même niveau d'imbrication dans cette dimension, doivent représenter des _Part_ directement contenues dans la structure interne du même _Classifier_.
@@ -28,9 +28,9 @@ image::images/Modeler_audit_rules_R1080_modeler_fig_1080.gif[1]
 
 La rêgle est violée pour l'_ActivityPartition_ " RH Service ", car elle contient des _ActivityPartition_ qui représentent des _Part_ de _Classifier_ différents.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1080, cela indique une incohérence entre l'organisation de vos _ActivityPartition_ et la structuration des _Part_ qu'elles représentent. La solution consiste en général à réorganiser les _ActivityPartition_ pour respecter le design exprimé par la structuration des Part, ou à modifier le design des _Part_ représentées pour respecter la répartition des responsabilités exprimée par l'organisation des _ActivityPartition_.

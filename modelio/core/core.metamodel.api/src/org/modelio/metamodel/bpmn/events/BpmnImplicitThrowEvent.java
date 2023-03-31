@@ -33,6 +33,8 @@ import org.modelio.metamodel.bpmn.activities.BpmnComplexBehaviorDefinition;
  * 
  * 
  * This is a non-graphical Event that this used for Multi-Instance Activities
+ * 
+ * 
  */
 @objid ("008df234-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnImplicitThrowEvent extends BpmnThrowEvent {
@@ -53,6 +55,7 @@ public interface BpmnImplicitThrowEvent extends BpmnThrowEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0034ec98-9c51-4415-b9f9-43a75ccf3b7a")
     BpmnComplexBehaviorDefinition getOwner();
@@ -62,8 +65,9 @@ public interface BpmnImplicitThrowEvent extends BpmnThrowEvent {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a713adfd-15e5-4b93-942b-1b2902371dc9")
     void setOwner(BpmnComplexBehaviorDefinition value);
-
 }
+

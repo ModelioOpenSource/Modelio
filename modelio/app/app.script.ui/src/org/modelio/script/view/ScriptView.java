@@ -39,7 +39,7 @@ import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.Modelio;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.mda.infra.service.IModuleService;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -110,7 +110,10 @@ public class ScriptView {
 
     @objid ("007f49be-663d-105c-84ef-001ec947cd2a")
     @PostConstruct
-    public void createPartControl(Composite parent, MApplication application) {
+    public void createPartControl(Composite parent, MApplication application, final MPart part) {
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        part.getToolbar().setVisible(true);
+        
         Display display = parent.getDisplay();
         
         this.shform = new SashForm(parent, SWT.VERTICAL | SWT.NO_REDRAW_RESIZE);
@@ -238,7 +241,7 @@ public class ScriptView {
     @objid ("00716b3c-572b-1064-a2b8-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
+    void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject) {
         bindJythonRunner(openedProject);
         configureOptions(getProjectPreferences());
         
@@ -248,7 +251,7 @@ public class ScriptView {
     @Optional
     @SuppressWarnings("unused")
     @Inject
-    void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
+    void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) IGProject project) {
         unbindJythonRunner();
         configureOptions(null);
         
@@ -268,10 +271,9 @@ public class ScriptView {
      * Binding the jython runner to the current project consists in: - binding
      * the python session variables - setting a classloader that is aware of the
      * currently started project modules classes
-     * @param project
      */
     @objid ("007c43ae-52bf-106c-80fa-001ec947cd2a")
-    private void bindJythonRunner(GProject project) {
+    private void bindJythonRunner(IGProject project) {
         // @SuppressWarnings("resource")
         // TO REMOve ClassLoader classLoader = new
         // ScriptClassLoader(this.moduleService);

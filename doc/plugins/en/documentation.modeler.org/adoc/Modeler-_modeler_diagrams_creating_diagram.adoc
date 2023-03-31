@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Creating-a-diagram]]
 
-[[creating-a-diagram]]
+
+
 = Creating a diagram
 
-[[How-do-I-create-a-diagram-in-Modelio]]
 
-[[how-do-i-create-a-diagram-in-modelio]]
+
+
 ===== How do I create a diagram in Modelio?
 
 * By using the *Create diagram...* command from the contextual menu.
 
-[[Diagram-creation-wizard]]
 
-[[diagram-creation-wizard]]
+
+
 ===== Diagram creation wizard
 
 .Creating a class diagram using the Diagram creation wizard
@@ -33,9 +33,9 @@ image::images/Modeler-_modeler_diagrams_creating_diagram_CreateDiagram.png[3]
 6. Click on "OK" to complete the new diagram creation.
 7. Non-applicable diagrams are greyed and can be masked by checking the "Show only applicable diagrams" tickbox.
 
-[[Diagrams-supported-by-Modelio]]
 
-[[diagrams-supported-by-modelio]]
+
+
 ===== Diagrams supported by Modelio
 
 As standard, Modelio supports the following types of diagram:

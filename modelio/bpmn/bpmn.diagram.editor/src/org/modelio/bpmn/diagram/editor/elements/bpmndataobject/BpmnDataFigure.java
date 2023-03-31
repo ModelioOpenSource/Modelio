@@ -53,7 +53,7 @@ public class BpmnDataFigure extends ShapedFigure {
     @objid ("60ae2d23-55b6-11e2-877f-002564c97630")
     public  BpmnDataFigure() {
         super();
-        setShaper(new NoteFigure.NoteShaper());
+        setShaper(new NoteFigure.UMLNoteShaper());
         this.setLayoutManager(new BorderLayout());
         
         this.topContainer = new Figure();
@@ -61,7 +61,7 @@ public class BpmnDataFigure extends ShapedFigure {
         this.topContainer.setOpaque(false);
         
         this.add(this.topContainer, BorderLayout.TOP);
-        this.shapedBorder = new ShapedBorder(this.getLineColor(), this.getLineWidth(), new NoteFigure.NoteShaper());
+        this.shapedBorder = new ShapedBorder(this.getLineColor(), this.getLineWidth(),  new NoteFigure.UMLNoteShaper());
         this.setBorder(this.shapedBorder);
         
     }

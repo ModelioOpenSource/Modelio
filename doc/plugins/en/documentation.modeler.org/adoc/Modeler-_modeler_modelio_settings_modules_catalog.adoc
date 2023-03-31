@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-Modelio-modules-catalog]]
 
-[[the-modelio-modules-catalog]]
+
+
 = The Modelio modules catalog
 
-[[Introducing-the-Modelio-modules-catalog]]
 
-[[introducing-the-modelio-modules-catalog]]
+
+
 ===== Introducing the Modelio modules catalog
 
 The Modelio modules catalog is a list of all Modelio modules which are known to your local Modelio installation. By default, the modules that appear in the modules catalog are those provided with your Modelio installation, but you can also add other modules which you have downloaded or created yourself, for subsequent use in your Modelio projects.
@@ -32,9 +32,9 @@ The *Show only latest versions* tickbox is useful when several versions of a giv
 
 Similarly, the *Show only compatible versions* tickbox enables you to only display the list of modules which are compatible with your current version of Modelio.
 
-[[Adding-or-removing-modules-from-the-modules-catalog]]
 
-[[adding-or-removing-modules-from-the-modules-catalog]]
+
+
 ===== Adding or removing modules from the modules catalog
 
 To add or remove a module from the modules catalog, the *Add a module to this catalog...* and *Remove module from the catalog* buttons are used.

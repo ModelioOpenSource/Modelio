@@ -54,7 +54,7 @@ public class EParameter extends ENamedElement {
     public Element createObjingElt() {
         if (this.isBehavior){
             return ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createBehaviorParameter();
-        }else{ 
+        }else{
             return ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createParameter();
         }
         
@@ -85,7 +85,7 @@ public class EParameter extends ENamedElement {
                 Object owner =  ReverseProperties.getInstance().getMappedElement(ecoreElement.getOwner());
                 if ((owner != null) && (owner instanceof Behavior))
                     ((Behavior) owner).getParameter().add((BehaviorParameter)objingElt);
-                else{ 
+                else{
                     objingElt.delete();
                 }
         
@@ -126,8 +126,7 @@ public class EParameter extends ENamedElement {
                         Parameter temp = ((Operation) objingOperation).getReturn();
                         if (temp != null){
                             temp.delete();
-                            String message = Xmi.I18N
-                                    .getMessage("logFile.warning.multipleReturnParameter", ((org.eclipse.uml2.uml.BehavioralFeature) ecoreOwner).getName());
+                            String message = Xmi.I18N.getMessage("logFile.warning.multipleReturnParameter", ((org.eclipse.uml2.uml.BehavioralFeature) ecoreOwner).getName());
                             ReverseProperties.getInstance().addError(message);
                         }
         
@@ -185,12 +184,12 @@ public class EParameter extends ENamedElement {
                 if (spec != null){
                     Object instance  = ReverseProperties.getInstance().getMappedElement(spec);
                     if ((instance != null) && (instance instanceof Instance)) {
-                        
+        
                         try {
                             ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createDependency(objingElt, (Instance) instance, IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE);
-                        } catch (ExtensionNotFoundException e) {                          
-                            Xmi.LOG.warning(Xmi.PLUGIN_ID, e);       
-                        }                          
+                        } catch (ExtensionNotFoundException e) {
+                            Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
+                        }
                     }
                 }
             }else{
@@ -256,7 +255,7 @@ public class EParameter extends ENamedElement {
                 if (objingType instanceof GeneralClass) {
                     objingElt.setType((GeneralClass) objingType);
                 }else{
-                   String message = Xmi.I18N.getMessage("logFile.warning.unsupportedRelationBetweenTypeImported", 
+                   String message = Xmi.I18N.getMessage("logFile.warning.unsupportedRelationBetweenTypeImported",
                             "Type", ecoreElement.getName(), "EParameter",ecoreType.getName(), ecoreType.getClass().getSimpleName());
                    ReverseProperties.getInstance().addError(message);
                 }
@@ -295,16 +294,16 @@ public class EParameter extends ENamedElement {
     private void setEffect(BehaviorParameter objingElt) {
         org.eclipse.uml2.uml.Parameter ecoreElement = ((org.eclipse.uml2.uml.Parameter)getEcoreElement());
         switch (ecoreElement.getEffect()){
-        case CREATE_LITERAL : 
+        case CREATE_LITERAL :
             objingElt.setEffect(ParameterEffectKind.CREATEEFFECT);
             break;
-        case DELETE_LITERAL : 
+        case DELETE_LITERAL :
             objingElt.setEffect(ParameterEffectKind.DELETEEFFECT);
             break;
-        case READ_LITERAL : 
+        case READ_LITERAL :
             objingElt.setEffect(ParameterEffectKind.READEFFECT);
             break;
-        case UPDATE_LITERAL : 
+        case UPDATE_LITERAL :
             objingElt.setEffect(ParameterEffectKind.UPDATEEFFECT);
             break;
         default:

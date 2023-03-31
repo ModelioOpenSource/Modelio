@@ -83,8 +83,8 @@ public class GmRegionsGroup extends GmResizableGroup {
     @Override
     public boolean canUnmask(MObject el) {
         return Region.class.isAssignableFrom(el.getClass()) &&
-                el.isValid() &&
-                el.getCompositionOwner().equals(this.getRelatedElement());
+                                                                        el.isValid() &&
+                                                                        el.getCompositionOwner().equals(this.getRelatedElement());
         
     }
 

@@ -26,6 +26,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramEditLayoutPolicy;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -68,10 +69,7 @@ class StateDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
             ModelioCreationContext ctx = (ModelioCreationContext) request.getNewObject();
             if (ctx.getElementToUnmask() == null && EntryPointPseudoState.class == ctx.getJavaClass() || ExitPointPseudoState.class == ctx.getJavaClass()) {
                 Object requestConstraint = getConstraintFor(request);
-                return new DefaultCreateElementCommand(((Region) hostElement).getRepresented(),
-                        getHostCompositeNode(),
-                        ctx,
-                        requestConstraint);
+                return new DefaultEditCreatedElementCommand(new DefaultCreateElementCommand(((Region) hostElement).getRepresented(),getHostCompositeNode(),ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
             }
         }
         return super.getCreateCommand(request);

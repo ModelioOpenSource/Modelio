@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2650]]
 
-[[r2650]]
+
+
 = R2650
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The context of a protocol state machine must be a _Classifier_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A protocol state machine is always defined in the context of a _Classifier_. It specifies which operations of the _Classifier_ can be called in which state and under which conditions, thus specifying the authorized call sequences on the _Classifier_'s operations.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 You should change the context of the state machine and choose a _Classifier_.

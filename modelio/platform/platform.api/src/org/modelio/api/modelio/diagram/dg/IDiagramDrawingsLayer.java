@@ -53,5 +53,5 @@ public interface IDiagramDrawingsLayer extends IDiagramLayer {
      */
     @objid ("9845a5b2-c9c1-4ffc-ae63-4a6a4bdbb91e")
     List<IDiagramLink> getDrawingLinks();
-
 }
+

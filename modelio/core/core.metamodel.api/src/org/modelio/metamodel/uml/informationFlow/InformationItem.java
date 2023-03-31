@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.statik.Classifier;
  * One purpose of information items is to be able to define preliminary models, before having made detailed modeling decisions on types or structures. Another purpose of information items and information flows is to abstract complex models by a less precise but more general representation of the information exchanged between entities of a system.
  * 
  * The Classifiers that can realize an information item can only be of the following kind: Class, Interface, InformationItem, Signal, Component.
+ * 
+ * 
  */
 @objid ("0063e890-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InformationItem extends Classifier {
@@ -60,6 +62,7 @@ public interface InformationItem extends Classifier {
      * Metamodel description:
      * <i>Determines the classifiers that will specify the structure and nature of the information. 
      * An information item represents all its represented classifiers.</i>
+     * 
      */
     @objid ("e8f924ab-25de-4f4e-9645-1df60bea749e")
     EList<Classifier> getRepresented();
@@ -70,8 +73,9 @@ public interface InformationItem extends Classifier {
      * Metamodel description:
      * <i>Determines the classifiers that will specify the structure and nature of the information. 
      * An information item represents all its represented classifiers.</i>
+     * 
      */
     @objid ("e4075e97-0dee-4be3-94e7-03248cf68b9f")
     <T extends Classifier> List<T> getRepresented(java.lang.Class<T> filterClass);
-
 }
+

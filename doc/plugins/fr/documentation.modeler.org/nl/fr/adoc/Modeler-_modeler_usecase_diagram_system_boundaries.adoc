@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[System-Boundaries-limites-du-système-des-diagrammes-de-Use-Case]]
 
-[[system-boundaries-limites-du-système-des-diagrammes-de-use-case]]
+
+
 = System Boundaries (limites du système) des diagrammes de Use Case
 
 Par défaut, les limites (System Boundaries) du système représenté dans un diagramme de Use Case ne sont pas affichées. Ces limites représentent le package parent du diagramme et permettent de grouper visuellement des éléments liés. +

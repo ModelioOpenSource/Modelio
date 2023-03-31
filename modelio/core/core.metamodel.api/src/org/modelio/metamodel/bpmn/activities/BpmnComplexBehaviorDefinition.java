@@ -34,6 +34,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * 
  * This element controls when and which Events are thrown in case behavior of the Multi-Instance Activity is set to complex.
+ * 
+ * 
  */
 @objid ("007f7bdc-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
@@ -54,6 +56,7 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("54c9c31d-994b-4994-baf3-4669562ed284")
     String getCondition();
@@ -63,6 +66,7 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("171c71b7-a5e8-4c5a-a7bd-52b7184f7142")
     void setCondition(String value);
@@ -72,6 +76,7 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c9efaab1-6cb1-4a17-a87d-18b328740e4c")
     BpmnMultiInstanceLoopCharacteristics getOwner();
@@ -81,6 +86,7 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("135ff49e-7c01-457a-a727-d346659a3156")
     void setOwner(BpmnMultiInstanceLoopCharacteristics value);
@@ -90,6 +96,7 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e1686bd9-3f4e-4466-a1e9-94baa26e6bef")
     BpmnImplicitThrowEvent getEvent();
@@ -99,8 +106,9 @@ public interface BpmnComplexBehaviorDefinition extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("190cc26a-320e-4388-93a7-cbad64fc65d8")
     void setEvent(BpmnImplicitThrowEvent value);
-
 }
+

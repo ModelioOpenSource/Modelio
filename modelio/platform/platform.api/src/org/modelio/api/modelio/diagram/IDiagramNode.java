@@ -300,7 +300,7 @@ public interface IDiagramNode extends IDiagramGraphic {
      * @since 3.5
      */
     @objid ("5e5d2469-e7b3-419d-9973-25af5828f77e")
-    public enum Role {
+    enum Role {
         /**
          * The child is contained in the parent node main figure.
          */
@@ -323,5 +323,5 @@ public interface IDiagramNode extends IDiagramGraphic {
         SATELLITE;
 
     }
-
 }
+

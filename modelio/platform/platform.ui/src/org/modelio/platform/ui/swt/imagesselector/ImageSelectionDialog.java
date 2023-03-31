@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
@@ -36,6 +37,7 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -46,16 +48,17 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.platform.ui.FontBuilder;
 import org.modelio.platform.ui.UIImages;
+import org.modelio.platform.ui.UIThreadRunner;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.platform.ui.plugin.UI;
 
 @objid ("c277be9d-6de0-49a0-944d-45631156e726")
 public class ImageSelectionDialog extends ModelioDialog {
+    @objid ("8ee4a395-c7e0-466a-a178-6d80c74bbe87")
+    private Gallery gallery;
+
     @objid ("7c35916b-863c-4b1c-b615-8030e445cf8d")
     private final ImageLibrary imagesLibrary;
-
-    @objid ("d3e628ab-6877-491a-b78b-ea14ae1372ec")
-    private Gallery gallery;
 
     @objid ("1f280ec3-af26-4b35-b787-963058d32c2e")
     private LocalResourceManager rm;
@@ -63,17 +66,16 @@ public class ImageSelectionDialog extends ModelioDialog {
     @objid ("3e10e7df-08ee-462d-a16a-779aad918d49")
     private Text searchText;
 
-    @objid ("8607dfdf-4036-48fd-9651-68b7e5eebaf3")
-    private final ImageRegistry imageCache;
+    @objid ("aa3ba8a9-8e76-4cb0-950d-49a87e59db2f")
+    private static ImageRegistry thumbnailsCache = new ImageRegistry();
 
     @objid ("d88f8aaa-f485-4a67-9328-573e761ddb1b")
     private Font galleryFont;
 
     @objid ("9c3cd5ee-4c23-4cf6-86ec-2052646b42dd")
-    public  ImageSelectionDialog(Shell parentShell, final ImageLibrary imagesLibrary, ImageRegistry imageCache) {
+    public  ImageSelectionDialog(Shell parentShell, final ImageLibrary imagesLibrary) {
         super(parentShell);
         this.imagesLibrary = imagesLibrary;
-        this.imageCache = imageCache;
         
     }
 
@@ -86,9 +88,8 @@ public class ImageSelectionDialog extends ModelioDialog {
     @objid ("b575335a-5c76-4cb0-9ea7-3656e212da38")
     @Override
     protected Control createContentArea(Composite parent) {
-        Composite composite = new Composite(parent,SWT.NONE);
+        Composite composite = new Composite(parent, SWT.NONE);
         composite.setLayout(new GridLayout(2, false));
-        
         
         this.searchText = new Text(composite, SWT.BORDER);
         this.searchText.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
@@ -110,7 +111,6 @@ public class ImageSelectionDialog extends ModelioDialog {
         Label searchImage = new Label(composite, SWT.NONE);
         searchImage.setImage(UIImages.SEARCH);
         
-        
         this.rm = new LocalResourceManager(JFaceResources.getResources());
         this.gallery = new Gallery(composite, SWT.V_SCROLL | SWT.VIRTUAL);
         
@@ -128,7 +128,8 @@ public class ImageSelectionDialog extends ModelioDialog {
         ir.setFont(this.galleryFont);
         this.gallery.setFont(this.galleryFont);
         this.gallery.setItemRenderer(ir);
-        show();
+        
+        show(null);
         
         this.gallery.setLayoutData(GridDataFactory.fillDefaults().grab(true, true).span(2, 1).create());
         
@@ -166,41 +167,57 @@ public class ImageSelectionDialog extends ModelioDialog {
             this.gallery.setData("filter", filter);
         
             this.gallery.removeAll();
-            show();
-            for (GalleryItem category : this.gallery.getItems()) {
-                for (GalleryItem item : category.getItems()) {
-                    if (!item.getText().contains(filter)) {
-                        GalleryItem parent = item.getParentItem();
-                        parent.remove(parent.indexOf(item));
-                    }
-                }
-            }
+            show(filter);
+        
             this.gallery.redraw();
         }
         
     }
 
     @objid ("64294844-4392-46fc-82bf-0d73121e8074")
-    private void show() {
+    private void show(String filter) {
         List<GalleryItem> itemList = new ArrayList<>();
+        UIThreadRunner.asynExec(this.gallery, () -> {
+            for (String category : this.imagesLibrary.getCategories()) {
+                // One Gallery group by category
+                GalleryItem group = new GalleryItem(this.gallery, SWT.NONE);
+                group.setText(category); // $NON-NLS-1$
+                group.setExpanded(true);
         
-        for (String category : this.imagesLibrary.getCategories()) {
-            // One Gallery group by category
-            GalleryItem group = new GalleryItem(this.gallery, SWT.NONE);
-            group.setText(category); //$NON-NLS-1$
-            group.setExpanded(true);
+                for (String imageId : this.imagesLibrary.getImages(category)) {
+                    String label = this.imagesLibrary.getLabel(imageId);
+                    if(filter == null || "".equals(filter)  || (label.toLowerCase() != null && label.contains(filter.toLowerCase()))) {
+                        // One Gallery item per image
+                        GalleryItem item = new GalleryItem(group, SWT.NONE);
+                        URL url = this.imagesLibrary.getImageThumbnail(imageId);
         
-            for (String imageId : this.imagesLibrary.getImages(category)) {
-                // One Gallery item per image
-                GalleryItem item = new GalleryItem(group, SWT.NONE);
-                URL url = this.imagesLibrary.getImage(imageId);
-                item.setImage(this.imageCache.get(url.toString()));
-                item.setText(this.imagesLibrary.getLabel(imageId)); // $NON-NLS-1$
-                item.setData(imageId);
+                        Image thumbnailImage = this.thumbnailsCache.get(url.toString());
+                        if (thumbnailImage == null) {
+                            thumbnailImage = ImageDescriptor.createFromURL(url).createImage();
+                            this.thumbnailsCache.put(url.toString(), thumbnailImage);
+                        }
+                        item.setImage(thumbnailImage);
+                        item.setText(label); // $NON-NLS-1$
+                        item.setData(imageId);
+        
+        
+                    }
+        
+                }
+                itemList.add(group);
+        
             }
-            itemList.add(group);
-        }
+            this.gallery.update();
+        });
         
+    }
+
+    @objid ("a13f091a-e96a-480b-803c-0eff5dbb9835")
+    @Override
+    public boolean close() {
+        // this.thumbnailsCache.dispose();
+        // this.thumbnailsCache = null;
+        return super.close();
     }
 
     @objid ("88f26794-f6bc-4a34-98c7-4d1f77535dc1")

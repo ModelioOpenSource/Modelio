@@ -39,6 +39,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.script.handlers.RunMacroHandler;
 import org.modelio.script.macro.IMacroService;
 import org.modelio.script.macro.catalog.Macro;
@@ -64,6 +65,10 @@ public class MacroToolbarProvider extends TrimBarComponent {
     @objid ("d4748348-7487-4db1-b15d-daa8de66f8ce")
     @Inject
     private EPartService partService;
+
+    @objid ("6cd3c18d-6eaa-4053-9290-0cd7f01852a3")
+    @Inject
+    private IProjectService projectService;
 
     @objid ("4d380049-a0e9-4700-b6c8-6251ed111daf")
     public  MacroToolbarProvider() {
@@ -162,9 +167,11 @@ public class MacroToolbarProvider extends TrimBarComponent {
     @objid ("15d21922-45b9-4216-9aa9-ecbeaef56daa")
     private List<ToolItem> fillToolbar(List<Macro> entries) {
         List<ToolItem> items = new ArrayList<>();
-        for (Macro entry : entries) {
-            if (entry.shownInToolbar()) {
-                items.add(createToolItem(entry));
+        if (this.projectService.getOpenedProject() != null) {
+            for (Macro entry : entries) {
+                if (entry.shownInToolbar()) {
+                    items.add(createToolItem(entry));
+                }
             }
         }
         return items;

@@ -267,7 +267,8 @@ public final class StyleManager {
     @objid ("86a95a1f-029d-4fc1-a3b2-5065190a8449")
     public NamedStyle getDefaultTheme() {
         if (this.defaultTheme == null) {
-            this.defaultTheme = getStyle(DiagramStyles.MODELIO_3X_THEME_NAME);
+            NamedStyle cobaltTheme = findStyle(DiagramStyles.COBALT_THEME_NAME);
+            this.defaultTheme = cobaltTheme != null ? cobaltTheme : getStyle(DiagramStyles.MODELIO_3X_THEME_NAME);
         }
         return this.defaultTheme;
     }

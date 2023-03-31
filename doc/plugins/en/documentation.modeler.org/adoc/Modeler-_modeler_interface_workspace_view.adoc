@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-workspace-view]]
 
-[[the-workspace-view]]
+
+
 = The workspace view
 
 .The workspace view
@@ -20,9 +20,9 @@ image::images/Modeler-_modeler_interface_workspace_view_workspaceview2.png[2]
 5. Work models present in the selected project.
 6. Modules present in the selected project.
 
-[[Main-workspace-view-commands]]
 
-[[main-workspace-view-commands]]
+
+
 ===== Main workspace view commands
 
 *From the File menu:*

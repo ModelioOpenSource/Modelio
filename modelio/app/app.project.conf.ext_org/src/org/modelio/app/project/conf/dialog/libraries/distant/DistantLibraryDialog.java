@@ -51,12 +51,12 @@ import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.dialog.common.OptionalAuthPanelProvider;
 import org.modelio.app.project.conf.dialog.common.ScopeHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.data.project.GAuthConf;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.project.GProperties;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.data.project.auth.AuthDescriptor;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.vbasic.files.FileUtils;
@@ -90,13 +90,13 @@ public final class DistantLibraryDialog extends ModelioDialog {
     private final boolean allowProjectAuth;
 
     @objid ("7d4c33ca-3adc-11e2-916e-002564c97630")
-    private FragmentDescriptor result;
+    private GProjectPartDescriptor result;
 
     @objid ("7d4c33d0-3adc-11e2-916e-002564c97630")
     private ExmlUrlFragmentPanel panel;
 
     @objid ("60ab2ba2-3ef7-11e2-9bd5-002564c97630")
-    private final IProjectFragment editedFragment;
+    private final IGModelFragment editedFragment;
 
     @objid ("1e4660e6-5ba7-4ad5-95dc-d00e9ac91a1e")
     private Text fragmentIdText;
@@ -115,10 +115,10 @@ public final class DistantLibraryDialog extends ModelioDialog {
      * @param allFragmentsIds all existing fragments identifiers. used to forbid using them again.
      */
     @objid ("7d4c33d1-3adc-11e2-916e-002564c97630")
-    public  DistantLibraryDialog(final Shell parentShell, final IProjectFragment fragment, final boolean allowProjectAuth, final List<String> allFragmentsIds) {
+    public  DistantLibraryDialog(final Shell parentShell, final IGModelFragment fragment, final boolean allowProjectAuth, final List<String> allFragmentsIds) {
         super(parentShell);
         this.editedFragment = fragment;
-        this.isLocalFragment = fragment == null || fragment.getScope() == DefinitionScope.LOCAL;
+        this.isLocalFragment = fragment == null || fragment.getDefinitionScope() == DefinitionScope.LOCAL;
         this.invalidIds = allFragmentsIds;
         this.allowProjectAuth = allowProjectAuth;
         
@@ -193,7 +193,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             setMessage(AppProjectConfExt.I18N.getString("DistantLibraryDialog.EditMessage")); //$NON-NLS-1$
         
             this.fragmentIdText.setText(this.editedFragment.getId());
-            this.fragmentIdText.setEnabled(this.editedFragment.getScope() == DefinitionScope.LOCAL);
+            this.fragmentIdText.setEnabled(this.editedFragment.getDefinitionScope() == DefinitionScope.LOCAL);
             this.panel.setEdited(this.editedFragment);
         }
         
@@ -202,10 +202,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
     @objid ("7d4e9532-3adc-11e2-916e-002564c97630")
     @Override
     protected void okPressed() {
-        final FragmentDescriptor fragmentDescriptor = new FragmentDescriptor();
-        fragmentDescriptor.setId(this.fragmentIdText.getText());
-        fragmentDescriptor.setScope(ScopeHelper.getScope(this.fragmentIdText));
-        fragmentDescriptor.setType(FragmentType.EXML_URL);
+        final GProjectPartDescriptor fragmentDescriptor = new GProjectPartDescriptor(GProjectPartType.HTTPFRAGMENT, this.fragmentIdText.getText(), null, ScopeHelper.getScope(this.fragmentIdText));
         
         try {
             this.panel.updateFragmentModel(fragmentDescriptor);
@@ -224,7 +221,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
      * @return the edited fragment descriptor.
      */
     @objid ("7d4e9535-3adc-11e2-916e-002564c97630")
-    public FragmentDescriptor getFragmentDescriptor() {
+    public GProjectPartDescriptor getFragmentDescriptor() {
         return this.result;
     }
 
@@ -315,18 +312,11 @@ public final class DistantLibraryDialog extends ModelioDialog {
         }
 
         @objid ("7d4e9582-3adc-11e2-916e-002564c97630")
-        public void updateFragmentModel(final FragmentDescriptor fragmentDescriptor) throws URISyntaxException {
+        public void updateFragmentModel(final GProjectPartDescriptor fragmentDescriptor) throws URISyntaxException {
             if (checkUrl()) {
                 final URI uri = new URI(this.urlText.getText());
-            
-                fragmentDescriptor.setUri(uri);
-            
-                fragmentDescriptor.setType(FragmentType.EXML_URL);
+                fragmentDescriptor.setLocation(uri);
                 fragmentDescriptor.setProperties(new GProperties());
-            
-                if (fragmentDescriptor.getId().isEmpty()) {
-                    fragmentDescriptor.setId(uri.toString());
-                }
             
                 this.authPanel.updateFragmentDescriptor(fragmentDescriptor);
             } else {
@@ -414,12 +404,12 @@ public final class DistantLibraryDialog extends ModelioDialog {
         }
 
         @objid ("7d50f68d-3adc-11e2-916e-002564c97630")
-        public void setEdited(final IProjectFragment fragment) {
-            this.urlText.setText(fragment.getUri().toString());
-            final GAuthConf authConf = fragment.getAuthConfiguration();
-            this.authPanel.setInput(authConf.getAuthData());
+        public void setEdited(final IGModelFragment fragment) {
+            this.urlText.setText(fragment.getDescriptor().getLocation().toString());
+            final AuthDescriptor authConf = fragment.getAuth();
+            this.authPanel.setInput(authConf.getData());
             
-            if (fragment.getScope() == DefinitionScope.SHARED) {
+            if (fragment.getDefinitionScope() == DefinitionScope.SHARED) {
                 this.urlText.setEditable(false);
                 this.authPanel.setEnabled(authConf.getScope() != DefinitionScope.SHARED);
             }

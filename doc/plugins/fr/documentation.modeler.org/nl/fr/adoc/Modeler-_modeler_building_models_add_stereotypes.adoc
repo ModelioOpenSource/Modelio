@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Ajouter-des-stéréotypes-aux-éléments]]
 
-[[ajouter-des-stéréotypes-aux-éléments]]
+
+
 = Ajouter des stéréotypes aux éléments
 
 Il existe deux moyens pour ajouter des stéréotypes aux éléments :

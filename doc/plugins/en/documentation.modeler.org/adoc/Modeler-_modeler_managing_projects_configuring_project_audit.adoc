@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configuring-project-audit]]
 
-[[configuring-project-audit]]
+
+
 = Configuring project audit
 
 Modelio comes with an extensive set of pre-defined audit rules to help you build sound, correct models. +

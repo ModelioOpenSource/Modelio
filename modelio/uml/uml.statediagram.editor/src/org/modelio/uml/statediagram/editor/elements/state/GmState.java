@@ -49,6 +49,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f57c5a99-55b6-11e2-877f-002564c97630")
 public class GmState extends GmPortContainer {
+    @objid ("f57c5a9d-55b6-11e2-877f-002564c97630")
+    private State element;
+
     /**
      * Current version of this Gm.
      */
@@ -60,9 +63,6 @@ public class GmState extends GmPortContainer {
 
     @objid ("f57c5ab1-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
-
-    @objid ("f57c5a9d-55b6-11e2-877f-002564c97630")
-    private State element;
 
     @objid ("818be8e9-55c2-11e2-9337-002564c97630")
     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmStateStructuredStyleKeys();

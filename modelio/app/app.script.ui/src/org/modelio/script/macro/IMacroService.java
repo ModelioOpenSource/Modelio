@@ -47,7 +47,7 @@ public interface IMacroService {
     Catalog getCatalog(Scope scope);
 
     @objid ("12a0c216-71ee-4240-a761-1f49a2c12b7b")
-    public enum Scope {
+    enum Scope {
         @objid ("36a3a715-7f91-471c-a3b5-bddaa3013a11")
         MODELIO,
         @objid ("b7c9e818-e291-4225-97bc-9ce402f180b2")
@@ -56,5 +56,5 @@ public interface IMacroService {
         PROJECT;
 
     }
-
 }
+

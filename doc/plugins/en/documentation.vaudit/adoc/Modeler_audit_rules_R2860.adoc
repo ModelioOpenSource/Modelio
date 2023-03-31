@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2860]]
 
-[[r2860]]
+
+
 = R2860
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Only one _extension/inclusion relationship_ can be defined between two _Use Cases_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A _Use Case_ cannot extend and include another _Use Case_ at the same time.
 
 Multiple extensions and inclusions are also forbidden.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove one of the implicated _extension/inclusion relationship_ depending on what you want to represent.

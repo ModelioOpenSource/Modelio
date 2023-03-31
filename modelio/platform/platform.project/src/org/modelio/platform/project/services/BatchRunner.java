@@ -33,18 +33,17 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.osgi.service.datalocation.Location;
 import org.modelio.api.modelio.Modelio;
+import org.modelio.gproject.auth.GProjectAuthenticationException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.ProjectFileStructure;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.gproject.GProjectAuthenticationException;
+import org.modelio.platform.project.creation.BasicProjectCreationDataModel;
 import org.modelio.platform.project.creation.IProjectCreationData;
-import org.modelio.platform.project.creation.ProjectCreationDataModel;
 import org.modelio.platform.project.creation.ProjectNameValidator;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.script.engine.core.engine.IScriptRunner;
 import org.modelio.platform.script.engine.core.engine.ScriptRunnerFactory;
 import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.auth.IAuthData;
-import org.modelio.vbasic.auth.UserPasswordAuthData;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
@@ -82,7 +81,7 @@ class BatchRunner implements Runnable {
             initWorkspace();
         
             // Get an opened project either by opening, creating or joining
-            GProject openedProject = null;
+            IGProject openedProject = null;
             if (this.batchData.isOpen()) {
                 openedProject = runOpen();
             } else if (this.batchData.isCreate()) {
@@ -229,8 +228,8 @@ class BatchRunner implements Runnable {
     }
 
     @objid ("27271532-33cf-4a61-94c1-318ef3a2c210")
-    private GProject openProject(final URI projectURI) {
-        GProject openedProject = this.projectService.getOpenedProject();
+    private IGProject openProject(final URI projectURI) {
+        IGProject openedProject = this.projectService.getOpenedProject();
         
         if (projectURI != null) {
             assert openedProject == null;
@@ -266,7 +265,7 @@ class BatchRunner implements Runnable {
      * @return the return code.
      */
     @objid ("1f274c5b-8457-410a-a016-2f24529b7ef6")
-    private int runScript(GProject openedProject) {
+    private int runScript(IGProject openedProject) {
         assert this.batchData.getScript() != null;
         
         // The script file must be accessible
@@ -308,7 +307,7 @@ class BatchRunner implements Runnable {
     }
 
     @objid ("d562524f-cd71-4c51-b427-f5af046a85b8")
-    private GProject runOpen() {
+    private IGProject runOpen() {
         Path workspacePath = this.projectService.getWorkspace();
         final String projectName = this.batchData.getProjectName();
         
@@ -323,7 +322,7 @@ class BatchRunner implements Runnable {
     }
 
     @objid ("3ccc84c5-c127-468e-83c7-4d52e7ff4cab")
-    private GProject runCreate() {
+    private IGProject runCreate() {
         final String projectName = this.batchData.getProjectName();
         if (!isvalidProjectName(projectName)) {
             AppProjectCore.LOG.error("Aborting project creation: Illegal project name '%s'", projectName);
@@ -345,7 +344,7 @@ class BatchRunner implements Runnable {
             System.exit(-1);
         }
         
-        ProjectCreationDataModel pm = new ProjectCreationDataModel(this.projectService.getWorkspace());
+        BasicProjectCreationDataModel pm = new BasicProjectCreationDataModel(this.projectService.getWorkspace());
         pm.setProjectName(projectName);
         pm.setTemplate(templatePath);
         
@@ -363,35 +362,22 @@ class BatchRunner implements Runnable {
     }
 
     @objid ("b75e85d6-f24e-4bd7-af95-6cab05304f63")
-    private GProject runJoin() {
-        String projectQualifier = this.batchData.getProjectName();
+    private IGProject runJoin() {
+        String projectId = this.batchData.getProjectName();
         
         try {
-            URI projectURI = new URI(projectQualifier);
-        
-            // System.out.printf(" scheme = %s \n", projectURI.getScheme());
-            // System.out.printf(" host = %s \n", projectURI.getHost());
-            // System.out.printf(" port = %s \n", projectURI.getPort());
-            // System.out.printf(" authority = %s \n", projectURI.getAuthority());
-            // System.out.printf(" path = %s \n", projectURI.getPath());
-            // System.out.printf(" userinfo = %s \n", projectURI.getUserInfo());
-        
+            URI projectURI = this.batchData.getServerUri().resolve("/" + projectId);
             this.projectService.openProject(projectURI, getAuthData(), null);
-        
-        } catch (URISyntaxException e) {
-            AppProjectCore.LOG.error("Invalid '%s' project URI: %s", projectQualifier, e.getMessage());
-            AppProjectCore.LOG.debug(e);
-            System.exit(-1);
         } catch (GProjectAuthenticationException e) {
-            AppProjectCore.LOG.error("The '%s' project authentication failed: %s", projectQualifier, e.getLocalizedMessage());
+            AppProjectCore.LOG.error("The '%s' project authentication failed: %s", projectId, e.getLocalizedMessage());
             AppProjectCore.LOG.debug(e);
             System.exit(-1);
         } catch (IOException e) {
-            AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace: %s", projectQualifier, FileUtils.getLocalizedMessage(e));
+            AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace: %s", projectId, FileUtils.getLocalizedMessage(e));
             AppProjectCore.LOG.debug(e);
             System.exit(-1);
         } catch (InterruptedException e) {
-            AppProjectCore.LOG.error("The '%s' project opening cancelled.", projectQualifier);
+            AppProjectCore.LOG.error("The '%s' project opening cancelled.", projectId);
             AppProjectCore.LOG.debug(e);
             System.exit(-1);
         }
@@ -410,9 +396,7 @@ class BatchRunner implements Runnable {
 
     @objid ("8edbf6f9-be65-44aa-b8cd-2b48639bf63b")
     private IAuthData getAuthData() {
-        if (this.batchData.getUser() == null)
-            return null;
-        return new UserPasswordAuthData(this.batchData.getUser(), this.batchData.getPassword(), false);
+        return this.batchData.getAuthData();
     }
 
 }

@@ -39,5 +39,5 @@ public interface ILinkEditorFilter {
      */
     @objid ("d9cd27b4-dc71-4ba0-9ae6-2bb326d80e0c")
     boolean isLinkTypeEnabled(MClass mc);
-
 }
+

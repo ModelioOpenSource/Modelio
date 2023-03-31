@@ -27,7 +27,7 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.model.property.plugin.ModelProperty;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.ui.UIImages;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -37,7 +37,7 @@ import org.modelio.vcore.smkernel.mapi.MClass;
  */
 @objid ("8faeec7a-c068-11e1-8c0a-002564c97630")
 public class TreeLabelProvider extends LabelProvider {
-    @objid ("a5dcd203-ed37-4b8a-aa1f-014ba77b0933")
+    @objid ("80c2915e-d69c-45b8-8488-2531f1d2408f")
     private Image moduleDefaultIcon;
 
     @objid ("8faeec7e-c068-11e1-8c0a-002564c97630")
@@ -64,7 +64,7 @@ public class TreeLabelProvider extends LabelProvider {
             final StringBuffer stereotypeLabel = new StringBuffer();
             final Stereotype stereotype = (Stereotype) element;
             stereotypeLabel.append("\u00AB "); // "? " : ' <<'
-            String label = ModuleI18NService.getLabel(stereotype);
+            String label = MdaResources.getLabel(stereotype);
             if (!label.isEmpty()) {
                 stereotypeLabel.append(label);
             } else {
@@ -76,7 +76,7 @@ public class TreeLabelProvider extends LabelProvider {
         
         // Module
         if (element instanceof ModuleComponent) {
-            return ModuleI18NService.getLabel((ModuleComponent) element);
+            return MdaResources.getLabel((ModuleComponent) element);
         }
         
         // PropertyTableDefinition
@@ -109,7 +109,7 @@ public class TreeLabelProvider extends LabelProvider {
         
         // If it is valid, get the stereotype image
         if (stereotype.isValid()) {
-            icon = ModuleI18NService.getIcon(stereotype);
+            icon = MdaResources.getIcon(stereotype);
         }
         
         // If null, use the default stereotype icon
@@ -145,7 +145,7 @@ public class TreeLabelProvider extends LabelProvider {
         
         // If it is valid, get the module image
         if (moduleComponent.isValid()) {
-            icon = ModuleI18NService.getModuleImage(moduleComponent);
+            icon = MdaResources.getModuleIcon(moduleComponent);
         }
         
         // If null, use the default module icon

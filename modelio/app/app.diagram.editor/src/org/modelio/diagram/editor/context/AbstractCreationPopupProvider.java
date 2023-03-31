@@ -29,7 +29,6 @@ import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.e4.ui.di.AboutToHide;
@@ -47,8 +46,9 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuSeparator;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -170,20 +170,11 @@ public abstract class AbstractCreationPopupProvider {
     protected MObject getSelectedElement() {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several
         // times...
-        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(
-                IServiceConstants.ACTIVE_SELECTION);
-        if (selection.size() != 1) {
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        if (selection==null || selection.size() != 1) {
             return null;
         }
-        
-        final Object obj = selection.getFirstElement();
-        if (obj instanceof MObject) {
-            return (MObject) obj;
-        } else if (obj instanceof IAdaptable) {
-            final IAdaptable adaptable = (IAdaptable) obj;
-            return adaptable.getAdapter(MObject.class);
-        }
-        return null;
+        return SelectionHelper.getFirst(selection, MObject.class);
     }
 
     /**
@@ -338,7 +329,7 @@ public abstract class AbstractCreationPopupProvider {
     }
 
     @objid ("22b2f9b2-dc14-42b1-883a-b563df803031")
-    final void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    final void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         this.popupEntries = null;
     }
 

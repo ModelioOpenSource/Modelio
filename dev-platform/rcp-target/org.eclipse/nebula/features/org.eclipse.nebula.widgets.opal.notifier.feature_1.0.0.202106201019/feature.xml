@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.notifier.feature"
+      label="Nebula Opal Notifier Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Notifier
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.notifier"
+         download-size="17"
+         install-size="28"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.notifier.source"
+         download-size="12"
+         install-size="23"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

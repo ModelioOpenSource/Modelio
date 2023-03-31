@@ -46,7 +46,7 @@ public interface IDGDynamicDecorator {
      * The passed value must then conform to the format used by {@link org.eclipse.jface.resource.StringConverter}.
      */
     @objid ("8360ed4c-e4ed-4dfd-ba9e-e8ca7b8a27aa")
-    public interface IOverwrittenProperties {
+    interface IOverwrittenProperties {
         /**
          * Instantiate an {@link IDiagramGraphic} associated with the current element.
          * <p>
@@ -175,7 +175,7 @@ public interface IDGDynamicDecorator {
          */
         @objid ("4e8afe23-e948-496c-8d3e-f8433902ddb6")
         AbstractDiagram getDiagram();
-
-    }
-
 }
+    
+}
+

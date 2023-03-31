@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Ownership :
  * 
  * A datastore belongs to a FlowElement container (Process) or a SubProcess
+ * 
+ * 
  */
 @objid ("0003e1c0-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnDataStore extends BpmnItemAwareElement {
@@ -56,6 +58,7 @@ public interface BpmnDataStore extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>Defines the capacity of the Data Store. This is not needed if the isUnlimited attribute is set to true.</i>
+     * 
      */
     @objid ("3b229765-ca47-40ca-b2bd-220c384d2dc3")
     int getCapacity();
@@ -65,6 +68,7 @@ public interface BpmnDataStore extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>Defines the capacity of the Data Store. This is not needed if the isUnlimited attribute is set to true.</i>
+     * 
      */
     @objid ("7b12587e-5a33-4857-a22c-7e9747c75102")
     void setCapacity(int value);
@@ -74,6 +78,7 @@ public interface BpmnDataStore extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>If isUnlimited is set to true, then the capacity of a Data Store is set as unlimited and will override any value of the capacity attribute.</i>
+     * 
      */
     @objid ("a1aa28d1-4c4b-406d-80b6-9c70f0e138d2")
     boolean isIsUnlimited();
@@ -83,8 +88,9 @@ public interface BpmnDataStore extends BpmnItemAwareElement {
      * 
      * Metamodel description:
      * <i>If isUnlimited is set to true, then the capacity of a Data Store is set as unlimited and will override any value of the capacity attribute.</i>
+     * 
      */
     @objid ("3c56365a-d48f-447d-a5ed-c75ba03161eb")
     void setIsUnlimited(boolean value);
-
 }
+

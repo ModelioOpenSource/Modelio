@@ -30,5 +30,5 @@ public interface IActivationService extends IModelioService {
 
     @objid ("762705df-cf40-4461-8d5d-7c4ad715fdc0")
     void editProperties(MObject objectToActivate);
-
 }
+

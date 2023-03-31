@@ -94,6 +94,7 @@ public class SwtContributionItem extends ContributionItem {
      */
     @objid ("c5853e8b-ef2d-42e1-8754-1b0d9f769034")
     private static final String ellipsis = "..."; // $NON-NLS-1$
+    
 
     @objid ("8c404366-d013-493d-a5d7-74c44019dd74")
     private boolean enabled = true;

@@ -70,24 +70,31 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
      */
     @objid ("a5a1c970-27b2-4665-9edd-678676a04a4d")
     public static final String PREFS_PAGE_XP = "org.modelio.platform.preferencespages"; // $NON-NLS-1$
+    
 
     @objid ("d29aa870-ed62-4e6a-a9e9-b64eb6c3a7f4")
     protected static final String ELMT_PAGE = "page"; // $NON-NLS-1$
+    
 
     @objid ("232e9de8-8c99-4e61-a8f0-153437863c26")
     protected static final String ATTR_ID = "id"; // $NON-NLS-1$
+    
 
     @objid ("fdfd0bea-be48-4458-b700-2a0ebbd5de97")
     protected static final String ATTR_CATEGORY = "category"; // $NON-NLS-1$
+    
 
     @objid ("8ca9235b-b677-4427-aef3-64e4d4ef2f0a")
     protected static final String ATTR_CLASS = "class"; // $NON-NLS-1$
+    
 
     @objid ("16a275c6-bb09-4f90-b670-44d5a1606502")
     protected static final String ATTR_NAME = "name"; // $NON-NLS-1$
+    
 
     @objid ("07a267fa-9e6b-4e24-9c4a-2898b14b9cce")
     private static final String DLG_IMG_TITLE_BANNER = "dialog_title_banner_image"; // $NON-NLS-1$
+    
 
     @objid ("baa43f73-ff26-4c28-8241-80b7ca1cc153")
     private int _messageLabelHeight;
@@ -103,6 +110,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     @objid ("85b53bb3-b54b-4a5b-9021-e8b73927d532")
     protected static final String ATTR_ICON = "icon"; // $NON-NLS-1$
+    
 
     @objid ("30fca58c-8a46-4298-a97a-d13331fef3ef")
     private Composite _titleArea;

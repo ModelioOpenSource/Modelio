@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='xerces/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1668514892623'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='1'>
+    <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.xerces' version='2.12.1'>
+      <properties size='5'>
+        <property name='artifact.size' value='1400836'/>
+        <property name='download.size' value='1400836'/>
+        <property name='download.md5' value='5fb2499df5ad0f1dd6b0498c06bc4c9d'/>
+        <property name='download.checksum.md5' value='5fb2499df5ad0f1dd6b0498c06bc4c9d'/>
+        <property name='download.checksum.sha-256' value='d4d6a043f8a71e256bb8a08cd8cce5a48d127ac89fa8a5ad8ed354f33b6a640d'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

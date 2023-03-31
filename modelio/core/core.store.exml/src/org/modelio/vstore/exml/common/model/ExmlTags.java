@@ -149,5 +149,5 @@ public interface ExmlTags {
 
     @objid ("f0b79b49-92d7-11e1-be7e-001ec947ccaf")
     public static final String TAG_REFOBJ = "REFOBJ";
-
 }
+

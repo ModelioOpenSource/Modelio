@@ -27,6 +27,7 @@ import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.platform.ui.UIThreadRunner;
 
 /**
  * Writer that sends the input to the given {@linkplain StyledText}.
@@ -36,11 +37,11 @@ import org.eclipse.swt.widgets.Display;
  */
 @objid ("007da6d6-663d-105c-84ef-001ec947cd2a")
 class OutputWriter extends Writer {
-    @objid ("007dbe8c-663d-105c-84ef-001ec947cd2a")
-    private Runnable onFlush;
-
     @objid ("007dd098-663d-105c-84ef-001ec947cd2a")
     private boolean isToFlush = false;
+
+    @objid ("007dbe8c-663d-105c-84ef-001ec947cd2a")
+    private Runnable onFlush;
 
     @objid ("007db734-663d-105c-84ef-001ec947cd2a")
     protected TextAppender appender;
@@ -117,9 +118,9 @@ class OutputWriter extends Writer {
      * Runnable that appends text to a {@link StyledText} in the GUI thread.
      */
     @objid ("008d009a-663d-105c-84ef-001ec947cd2a")
-    class TextAppender implements Runnable {
-        @objid ("008d1bc0-663d-105c-84ef-001ec947cd2a")
-        private String stringtoAppend = null;
+    private static class TextAppender implements Runnable {
+        @objid ("781fb5e5-4001-435f-9239-fe153fe17d9f")
+        private StringBuilder stringtoAppend;
 
         @objid ("00525d96-f1bd-106a-bf4f-001ec947cd2a")
         private final StyledText outputView;
@@ -135,15 +136,26 @@ class OutputWriter extends Writer {
         }
 
         @objid ("008d90fa-663d-105c-84ef-001ec947cd2a")
-        public void execute(String aString) {
-            this.stringtoAppend = aString;
-            this.outputView.getDisplay().syncExec(this);
+        public synchronized void execute(String aString) {
+            boolean wasEmpty ;
+            if (this.stringtoAppend == null) {
+                this.stringtoAppend = new StringBuilder();
+                wasEmpty = true;
+            } else {
+                wasEmpty = false;
+            }
+            
+            this.stringtoAppend.append(aString);
+            
+            if (wasEmpty) {
+                UIThreadRunner.asynExec(this.outputView, this);
+            }
             
         }
 
         @objid ("008dadb0-663d-105c-84ef-001ec947cd2a")
         @Override
-        public void run() {
+        public synchronized void run() {
             final StyleRange range = new StyleRange(this.style);
             
             range.start = this.outputView.getCharCount();
@@ -152,9 +164,11 @@ class OutputWriter extends Writer {
             // if (range.start < 0)
             // range.start = 0;
             
-            this.outputView.append(this.stringtoAppend);
+            this.outputView.append(this.stringtoAppend.toString());
             this.outputView.setStyleRange(range);
             this.outputView.setSelection(this.outputView.getCharCount());
+            
+            this.stringtoAppend = null;
             
         }
 

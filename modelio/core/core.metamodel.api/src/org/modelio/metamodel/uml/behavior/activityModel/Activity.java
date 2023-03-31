@@ -43,6 +43,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * Activities may be applied to organizational modeling for business process engineering and workflow. In this context, events often originate inside the system, such as the finishing of a task, but also outside the system, such as a customer call. Activities can also be used for information system modeling to specify system level processes.
  * 
  * In Modelio, an activity can be owned by a NameSpace or an operation. It can also be owned by a structured activity node, but in this case, the activity is "hidden" (visually merged with the ActivityNode).
+ * 
+ * 
  */
 @objid ("0026094e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Activity extends Behavior {
@@ -63,6 +65,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>If true, all invocations of the activity are handled by the same execution.</i>
+     * 
      */
     @objid ("c8904af7-f968-4550-be8e-19d895c8bd4c")
     boolean isIsSingleExecution();
@@ -72,6 +75,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>If true, all invocations of the activity are handled by the same execution.</i>
+     * 
      */
     @objid ("6150afc2-71ab-44ef-a6c6-bc087002212a")
     void setIsSingleExecution(boolean value);
@@ -81,6 +85,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>If true, this activity must not make any changes to variables outside the activity or to objects. This is an assertion, not an executable property.</i>
+     * 
      */
     @objid ("17c90e61-dd19-41b1-b885-1281297ff5bd")
     boolean isIsReadOnly();
@@ -90,6 +95,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>If true, this activity must not make any changes to variables outside the activity or to objects. This is an assertion, not an executable property.</i>
+     * 
      */
     @objid ("2677a247-0774-4599-b30f-8e73290c176e")
     void setIsReadOnly(boolean value);
@@ -99,6 +105,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>Top-level groups in the activity. </i>
+     * 
      */
     @objid ("765f3a2a-fb9b-4367-b17e-02f79765ecf4")
     EList<ActivityGroup> getOwnedGroup();
@@ -108,6 +115,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>Top-level groups in the activity. </i>
+     * 
      */
     @objid ("755b9da6-b43e-4f72-8ead-0f79b4953d25")
     <T extends ActivityGroup> List<T> getOwnedGroup(java.lang.Class<T> filterClass);
@@ -117,6 +125,7 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>Nodes coordinated by the activity.</i>
+     * 
      */
     @objid ("8296fbb5-347b-4e5b-a178-8f9f43baaafa")
     EList<ActivityNode> getOwnedNode();
@@ -126,8 +135,9 @@ public interface Activity extends Behavior {
      * 
      * Metamodel description:
      * <i>Nodes coordinated by the activity.</i>
+     * 
      */
     @objid ("fe954622-1e7c-41fe-87c4-a6f2f92616ce")
     <T extends ActivityNode> List<T> getOwnedNode(java.lang.Class<T> filterClass);
-
 }
+

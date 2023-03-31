@@ -179,7 +179,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     @objid ("2d3b2d14-b845-408c-a6eb-62997a2c36a7")
     @Override
     public DragTracker getDragTracker(Request request) {
-        return new MarqueeDragTracker();
+        return new MarqueeDragTracker(); 
     }
 
     @objid ("7e05eaf8-1dec-11e2-8cad-001ec947c8cc")
@@ -331,10 +331,14 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("4b3ae5f6-e70b-485f-9105-56790cd7c6a5")
+    @objid ("af05e012-1761-4576-8a5b-8bd9a32c21a4")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
-        return layoutPolicy instanceof ConstrainedLayoutEditPolicy ? new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy) : layoutPolicy;
+        if(false && layoutPolicy instanceof ConstrainedLayoutEditPolicy)
+            return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy);
+        else
+            return  layoutPolicy;
+        
     }
 
     /**
@@ -537,20 +541,20 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
                 imgLoader.data = new ImageData[] { img.getImageData() };
         
                 try (ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length)) {
-                    imgLoader.save(bos, SWT.IMAGE_PNG);
+                imgLoader.save(bos, SWT.IMAGE_PNG);
         
-                    StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
-                    pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
+                StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
+                pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
         
-                    bos.flush();
-                    bos.close();
+                bos.flush();
+                bos.close();
         
-                    AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
-                    if (diagram != null) {
-                        diagram.setPreviewData(pngPreviewString.toString());
-                    }
+                AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
+                if (diagram != null) {
+                    diagram.setPreviewData(pngPreviewString.toString());
+                }
         
-                    img.dispose();
+                img.dispose();
                 }
             } catch (IOException e) {
                 DiagramElements.LOG.warning("Failed saving %s preview: %s", getModel().getRelatedElement(), FileUtils.getLocalizedMessage(e));
@@ -592,18 +596,18 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
 
     }
 
-    @objid ("40520ac9-ef07-431c-8684-c2ab74230ea4")
+    @objid ("1a51575e-54c9-474b-bf54-6bd815cfc4bb")
     protected static class PageSizeParser {
-        @objid ("ffd7767c-2777-45fe-8a2e-184cebe5982e")
+        @objid ("5f0d4879-1973-4525-9088-aaca0d535ca2")
         private static final Pattern NOT_A_NUMBER = Pattern.compile("[^0-9\\.]");
 
-        @objid ("fad8119a-a879-4cbb-9664-41f81553bc9b")
+        @objid ("ba08ef2e-7e82-4e11-be5b-9cb6c43eea40")
         private static final Pattern PAGE_FORMAT = Pattern.compile("(\\d+\\.?\\d*.*)(x)(\\d+\\.?\\d*.*)", Pattern.CASE_INSENSITIVE);
 
         /**
          * No instance
          */
-        @objid ("6a6bb624-1d3a-461b-b4e2-948efcaf5d31")
+        @objid ("5de944f5-5469-476b-ac8b-221c0f58de35")
         private  PageSizeParser() {
             
         }
@@ -613,7 +617,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
          * @param value the page size string
          * @return the page size in inches
          */
-        @objid ("7e05eb1f-1dec-11e2-8cad-001ec947c8cc")
+        @objid ("41476101-a1f6-415b-9a8a-53441b700e00")
         private static final PrecisionDimension parsePageSize(String value) {
             if (value == null || value.isEmpty()) {
                 return null;
@@ -702,7 +706,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
             return new PrecisionDimension(d.preciseWidth() * dpi.x, d.preciseHeight() * dpi.y);
         }
 
-        @objid ("dc914ea1-7ad8-4d07-847d-9afce6f6c16c")
+        @objid ("5ca26440-c219-4cdc-8b1f-c1c965666dad")
         public static Dimension parseInPixels(String pageSize) {
             PrecisionDimension inchPageSize = parsePageSize(pageSize);
             if (inchPageSize != null) {

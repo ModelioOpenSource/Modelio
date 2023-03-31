@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00223b3e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface NaryLink extends UmlModelElement {
@@ -57,6 +59,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a1935688-f1b4-49c7-a934-dee5cdef1cb4")
     EList<NaryLinkEnd> getNaryLinkEnd();
@@ -66,6 +69,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f2dd34da-33f0-42f4-a6c4-617b0b759715")
     <T extends NaryLinkEnd> List<T> getNaryLinkEnd(java.lang.Class<T> filterClass);
@@ -75,6 +79,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0b925807-3b03-401e-a5aa-ce5dd160ef2a")
     NaryAssociation getModel();
@@ -84,6 +89,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1769063d-3e7f-477e-8fc7-fe38bbfb2b0f")
     void setModel(NaryAssociation value);
@@ -93,6 +99,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90aae63d-9174-4d6c-b5d8-da71464c7718")
     EList<InformationFlow> getRealizedInformationFlow();
@@ -102,6 +109,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("6e1c4609-aa8b-45c3-a991-4c97995c8300")
     <T extends InformationFlow> List<T> getRealizedInformationFlow(java.lang.Class<T> filterClass);
@@ -111,6 +119,7 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2fe2b7a5-c008-4cf4-a0a9-e36664e851e6")
     EList<CommunicationChannel> getSent();
@@ -120,8 +129,9 @@ public interface NaryLink extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8c912625-e0bb-4c1d-982b-2c2ba27a0a25")
     <T extends CommunicationChannel> List<T> getSent(java.lang.Class<T> filterClass);
-
 }
+

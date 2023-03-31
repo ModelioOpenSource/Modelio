@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.incubation.feature"
+      label="All Nebula incubation Widgets (+ Source)"
+      version="1.0.0.202112040935"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula/">
+      This feature contains everything you need to start developing using the Nebula Incubation widgets.
+   </description>
+
+   <copyright>
+      Copyright (c) 2011, EBM WebSourcing and others
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <discovery label="Nebula Release" url="http://download.eclipse.org/nebula/snapshot"/>
+   </url>
+
+   <includes
+         id="org.eclipse.nebula.widgets.collapsiblebuttons.feature"
+         version="1.0.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.datechooser.feature"
+         version="1.0.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.formattedtext.feature"
+         version="1.0.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.treemapper.feature"
+         version="0.1.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.radiogroup.feature"
+         version="0.1.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.pagination.feature"
+         version="1.0.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.picture.feature"
+         version="1.0.0.202112040935"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.calendarcombo.feature"
+         version="1.0.0.202112040935"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.timeline"
+         download-size="138"
+         install-size="293"
+         version="0.1.0.202112040935"
+         unpack="false"/>
+
+</feature>

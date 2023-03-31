@@ -607,8 +607,10 @@ public class ScopeChecker {
         @objid ("83bb744c-db83-4bc3-a5a7-a70a1b5260e6")
         @Override
         public Object visitElement(Element eltToTest) {
-            setTheResult(false);
-            return null;
+            throw new NotFoundException("Element of type "
+                    + eltToTest.getClass()
+                    + " has no implementation done in scope filter.");
+            
         }
 
         @objid ("ab6fba2a-8cbf-47c1-821a-af05b6436e48")

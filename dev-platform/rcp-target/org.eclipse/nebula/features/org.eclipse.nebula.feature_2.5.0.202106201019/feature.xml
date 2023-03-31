@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.feature"
+      label="Nebula Widgets"
+      version="2.5.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula">
+      This feature contains the Eclipse Nebula widgets.
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <discovery label="Nebula Incubation" url="http://download.eclipse.org/nebula/incubation/snapshot"/>
+   </url>
+
+   <includes
+         id="org.eclipse.nebula.widgets.oscilloscope.feature"
+         version="1.4.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.compositetable.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.gallery.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.grid.feature"
+         version="1.1.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.pgroup.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.pshelf.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.tablecombo.feature"
+         version="1.2.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.xviewer.feature"
+         version="1.1.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.ganttchart.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.cdatetime.feature"
+         version="1.5.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.paperclips.feature"
+         version="2.1.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.cwt.feature"
+         version="1.1.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.pshelf.css.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.visualization.feature"
+         version="2.1.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.richtext.feature"
+         version="1.4.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.effects.stw.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.geomap.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.breadcrumb.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.checkboxgroup.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.columnbrowser.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.commons.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.dialog.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.duallist.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.header.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.heapmanager.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.logindialog.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.multichoice.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.notifier.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.preferencewindow.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.promptsupport.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.propertytable.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.rangeslider.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.starrating.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.textassist.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.tipoftheday.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.titledseparator.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.roundedtoolbar.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.calculator.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.horizontalspinner.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.launcher.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.panels.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.opal.switchbutton.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.progresscircle.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.nebulaslider.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.floatingtext.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.splitbutton.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.badgedlabel.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.passwordrevealer.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.ctreecombo.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.led.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.stepbar.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.chips.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.carousel.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.fontawesome.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.roundedswitch.feature"
+         version="1.0.0.202106201019"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.segmentedbar.feature"
+         version="1.0.0.202106201019"/>
+
+</feature>

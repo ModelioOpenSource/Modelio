@@ -27,5 +27,5 @@ public interface IExtensionPointContribution {
     default boolean isActive() {
         return true;
     }
-
 }
+

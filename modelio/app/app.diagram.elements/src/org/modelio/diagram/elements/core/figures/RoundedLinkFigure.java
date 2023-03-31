@@ -265,6 +265,7 @@ public class RoundedLinkFigure extends LinkFigure {
         }
         
         ZoomDrawer.setLineWidth(g, getLineWidth());
+        configureAntialias(g);
         
         Point pp = ps.getPoint(0);
         for (int i = 1; i < psCount; i++) {
@@ -354,6 +355,7 @@ public class RoundedLinkFigure extends LinkFigure {
         }
         
         ZoomDrawer.setLineWidth(g, getLineWidth());
+        configureAntialias(g);
         
         Point pp = ps.getPoint(0);
         for (int i = 1; i < psCount; i++) {

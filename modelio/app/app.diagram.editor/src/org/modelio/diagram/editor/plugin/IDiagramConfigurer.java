@@ -54,9 +54,9 @@ public interface IDiagramConfigurer {
      * @return the module diagram customized this palette is based on. Might be <code>null</code>.
      * @since 4.2
      */
-    @objid ("b71d31a1-3b0c-4111-a4bd-57a4fd06f5ce")
+    @objid ("996a2fcb-36a9-4fc7-941f-256837a9be12")
     default IDiagramCustomizer getModuleCustomizer() {
         return null;
     }
-
 }
+

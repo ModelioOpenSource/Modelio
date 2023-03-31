@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.header.feature"
+      label="Nebula Opal Header Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Header
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.header"
+         download-size="12"
+         install-size="18"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.header.source"
+         download-size="10"
+         install-size="26"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+</feature>

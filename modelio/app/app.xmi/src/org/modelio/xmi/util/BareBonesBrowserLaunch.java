@@ -33,8 +33,7 @@ public class BareBonesBrowserLaunch {
         String osName = System.getProperty("os.name");
         try {
             if (url == null) {
-                throw new Exception(Xmi.I18N
-                        .getString("warning.helpDocNotFound.voidURL"));
+                throw new Exception(Xmi.I18N.getString("warning.helpDocNotFound.voidURL"));
             } else if (osName.startsWith("Windows")) {
                 Runtime.getRuntime().exec(
                         "rundll32 url.dll,FileProtocolHandler " + url);
@@ -54,11 +53,10 @@ public class BareBonesBrowserLaunch {
                         browser = browsers[count];
                     }
                 }
-                
+        
                 if (browser == null)
                     throw new Exception(
-                            Xmi.I18N
-                                    .getString("warning.helpDocNotFound.browserNotFound"));
+                            Xmi.I18N.getString("warning.helpDocNotFound.browserNotFound"));
                 else
                     Runtime.getRuntime().exec(new String[] { browser, url });
             }
@@ -71,13 +69,12 @@ public class BareBonesBrowserLaunch {
     @objid ("b9e8333e-8c3c-4c8e-bc35-dc5cdccd3017")
     private static void displayErrorMessage(final Exception e, final Shell shell) {
         MessageBox messageBox = new MessageBox(shell, SWT.OK | SWT.ICON_WARNING);
-                
+        
         String errorMsg = e.getLocalizedMessage();
         if (errorMsg == null || "".compareTo(errorMsg) == 0) {
-            errorMsg = Xmi.I18N
-                    .getString("warning.helpDocNotFound.browserLaunchingError");
+            errorMsg = Xmi.I18N.getString("warning.helpDocNotFound.browserLaunchingError");
         }
-                
+        
         messageBox.setText(Xmi.I18N.getString("warning.helpDocNotFound.title"));
         messageBox.setMessage(errorMsg);
         messageBox.open();

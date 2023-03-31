@@ -47,7 +47,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
     @objid ("3c453377-fd1c-4190-9000-59ed853b76dc")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Label",
-    	        "BaseClass", "IsHidden", "IsAbstract", "ParentStereotype", "Icon", "DiagramImage" };
+        	        "BaseClass", "IsHidden", "IsAbstract", "ParentStereotype", "Icon", "DiagramImage" };
 
     /**
      * Instantiate the stereotype properties view. element finder structure.
@@ -136,6 +136,7 @@ public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
                 return new DefaultStringNatValue((String) getValue(row, col), false);
             case 3:
                 List<String> metaclasses = new ArrayList<>();
+                metaclasses.add(ModelElement.MQNAME);
         
                 // Get all metaclasses inheriting ModelElement
                 for (MClass metaclass : this.theEditedElement.getMClass().getMetamodel().getMClass(ModelElement.class)

@@ -37,6 +37,8 @@ import org.modelio.metamodel.uml.infrastructure.Profile;
  * 
  * 
  * Type of property. Default PropertyTypes already exist in the requirements project: "Text", "MultiText", "Integer", "Real", "Date", "Boolean". No other PropertyTypes should be created in a requirement project. All property types belong to the PropertyContainer.
+ * 
+ * 
  */
 @objid ("006e6798-ec87-1098-b22e-001ec947cd2a")
 public interface PropertyType extends ModelElement {
@@ -57,6 +59,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08d6506e-75a2-43c6-b839-f9362b4c0770")
     PropertyBaseType getBaseType();
@@ -66,6 +69,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a8137cea-ac3a-4d73-8fd5-6a62618877d5")
     void setBaseType(PropertyBaseType value);
@@ -75,6 +79,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c98b8cee-b503-442d-abbd-ba6ad777efb9")
     ModuleComponent getModuleOwner();
@@ -84,6 +89,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9c4d714c-0b6f-4546-a15a-9b60fbd793f3")
     void setModuleOwner(ModuleComponent value);
@@ -93,6 +99,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("874c5c06-0ff6-4aa1-bc32-0ef676b165fa")
     EList<PropertyDefinition> getTyped();
@@ -102,6 +109,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e20833a4-e26d-44f4-b3d4-e4e2e45b5005")
     <T extends PropertyDefinition> List<T> getTyped(java.lang.Class<T> filterClass);
@@ -111,6 +119,7 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a88dff11-af4b-4371-9ba3-eee756318721")
     Profile getAnalystOwner();
@@ -120,8 +129,9 @@ public interface PropertyType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("72080b2e-6db9-4091-b424-8f526a9c07e5")
     void setAnalystOwner(Profile value);
-
 }
+

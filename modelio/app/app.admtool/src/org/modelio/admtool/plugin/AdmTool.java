@@ -43,6 +43,7 @@ public class AdmTool extends AbstractUIPlugin {
      */
     @objid ("4a890383-81b5-4491-8712-d5579777f905")
     public static final String PLUGIN_ID = "org.modelio.app.admtool"; // $NON-NLS-1$
+    
 
     /**
      * {@value #PLUGIN_ID} plugin logger.

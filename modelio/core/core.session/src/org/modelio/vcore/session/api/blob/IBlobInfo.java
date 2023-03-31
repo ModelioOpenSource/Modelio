@@ -69,5 +69,5 @@ public interface IBlobInfo {
      */
     @objid ("f2f4e6a7-a6ae-4bee-b584-457a181c5c15")
     String getLocalName();
-
 }
+

@@ -104,5 +104,5 @@ public interface ILinkTool extends IDiagramTool {
      */
     @objid ("01e402b4-0000-68dc-0000-000000000000")
     void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, LinkRouterKind routerType, ILinkRoute path);
-
 }
+

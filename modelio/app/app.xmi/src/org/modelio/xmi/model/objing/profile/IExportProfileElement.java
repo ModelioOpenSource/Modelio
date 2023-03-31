@@ -26,5 +26,5 @@ import org.modelio.xmi.generation.ProfileExportVisitorImpl;
 interface IExportProfileElement {
     @objid ("7f489ed3-13f1-4944-a797-ef6504c7c014")
     void accept(ProfileExportVisitorImpl visitor);
-
 }
+

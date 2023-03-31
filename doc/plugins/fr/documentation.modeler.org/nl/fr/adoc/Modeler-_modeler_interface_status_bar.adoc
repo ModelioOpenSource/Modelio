@@ -1,0 +1,48 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+= Barre d'état
+
+La barre d'était montre un résumé rapide de différents aspects de l'application.
+
+image::images/Modeler-_modeler_interface_status_bar.png[barre d'état]
+
+===== Etat de l'élément
+
+image:images/Modeler-_modeler_interface_status_bar_element_status.png[element part of the status bar]
+
+. Icone principale de l'élément sélectionné.
+. Nom de l'élément sélectionné.
+. Editabilité de l'élément sélectionné :
+* image:images/Modeler-_modeler_interface_status_bar_rw-element.png[rw] L'élément peut être édité librement.
+* image:images/Modeler-_modeler_interface_status_bar_ro-element.png[ro] L'élément n'est pas modifiable.
+
+===== Etat SVN
+
+image:images/Modeler-_modeler_interface_status_bar_svn_status.png[partie SVN de la barre d'état]
+
+. Etat du verrouillage dans le référentiel :
+* image:images/Modeler-_modeler_interface_status_bar_nolock-element.png[non verrouillé] L'élément n'est pas verrouillé.
+* image:images/Modeler-_modeler_interface_status_bar_locked-element.png[verrouillé par moi] L'élément est verrouillé par l'utilisateur connecté.
+* image:images/Modeler-_modeler_interface_status_bar_locked-other-element.png[verrouillé par un autre] L'élément est verrouillé par un autre utilisateur.
+* image:images/Modeler-_modeler_interface_status_bar_local-element.png[local] L'élément n'est pas versionné.
+. Etat de l'élément par rapport au référentiel :
+* image:images/Modeler-_modeler_interface_status_bar_notmodified-element.png[non modifié] L'élément est inchangé.
+* image:images/Modeler-_modeler_interface_status_bar_modified-element.png[modifié] L'élément a été modifié localement.
+* image:images/Modeler-_modeler_interface_status_bar_added-element.png[ajouté] L'élément est prêt à être ajouté au référentiel.
+* image:images/Modeler-_modeler_interface_status_bar_removed-element.png[retiré] L'élément est prêt à être enlevé du référentiel.
+* image:images/Modeler-_modeler_interface_status_bar_need-update-element.png[mise à jour requise] L'élément a été modifié dans le référentiel, une mise à jour du modèle est peut-être nécessaire.
+* image:images/Modeler-_modeler_interface_status_bar_conflict-element.png[conflit] L'élément est en conflit : il a été modifié localement et dans le référentiel. Utiliser la résolution de conflit SVN pour le réparer.
+. Numéro de révision dans le référentiel.
+
+===== Etat de l'audit
+
+image:images/Modeler-_modeler_interface_status_bar_audit.png[partie audit de la barre d'état]
+
+Résumé de l'état de l'audit dans l'application.
+
+. Ceci indique le nombre d'erreurs, avertissements et conseils indiqués par l'audit dans le projet. Ouvrir la <<Modeler-_modeler_interface_audit_view.adoc#,vue audit>> pour les voir.
+. Nombre de test restant à traiter, après une modification du modèle.
+. Indique si l'audit est actif ou non.

@@ -56,7 +56,7 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     /**
      * The instance to delegate access to the module parameters.
      */
-    @objid ("f9f63974-9551-4072-b211-c133c2991ef4")
+    @objid ("6693c62b-f025-4b6e-b397-d40fa961764a")
     private ConfigurationImpl impl;
 
     /**

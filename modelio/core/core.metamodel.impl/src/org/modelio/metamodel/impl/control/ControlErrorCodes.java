@@ -113,5 +113,5 @@ public interface ControlErrorCodes {
 
     @objid ("02fb3406-f027-11e1-8bdc-002564c97630")
     public static final int EXTERNDOCUMENT_INCOMPATIBLE_METACLASS = 126;
-
 }
+

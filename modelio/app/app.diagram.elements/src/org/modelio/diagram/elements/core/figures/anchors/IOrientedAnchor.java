@@ -31,12 +31,12 @@ import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
  * @author cma
  * @since 5.1.0
  */
-@objid ("f5916924-968e-40b7-8b8d-bee61329df27")
+@objid ("86e1b844-94eb-490c-bbf4-42faa3781ee2")
 public interface IOrientedAnchor extends ConnectionAnchor {
     /**
      * @return the orthogonal direction from the anchor to outside the node .
      */
-    @objid ("de292326-b364-43f9-a25d-c2247dd029e5")
+    @objid ("a646a28d-d4c3-48d5-a713-e92a81aa58d8")
     Direction getDirection();
 
     /**
@@ -45,7 +45,7 @@ public interface IOrientedAnchor extends ConnectionAnchor {
      * @param anchor an anchor
      * @return the anchor direction or NONE.
      */
-    @objid ("12f6750c-b6fa-4366-8d35-f927d8e007b3")
+    @objid ("04d2a98e-5c1a-4557-84c2-a811fa037f22")
     static Direction getDefinedDirection(ConnectionAnchor anchor) {
         if (anchor instanceof IOrientedAnchor)
             return ((IOrientedAnchor) anchor).getDirection();
@@ -62,12 +62,12 @@ public interface IOrientedAnchor extends ConnectionAnchor {
      * @param nodeBounds the anchor node bounds
      * @return the defined or computed anchor direction.
      */
-    @objid ("9df2e422-8aea-4127-a20e-b412da0d12e4")
+    @objid ("ea779cab-e818-4009-b7d0-9a9c8e062d9b")
     static Direction getAnchorDirection(ConnectionAnchor anchor, Point anchorLoc, Rectangle nodeBounds) {
         Direction ret = IOrientedAnchor.getDefinedDirection(anchor);
         if (ret != Direction.NONE)
             return ret;
         return GeomUtils.getDirection(anchorLoc, nodeBounds);
     }
-
 }
+

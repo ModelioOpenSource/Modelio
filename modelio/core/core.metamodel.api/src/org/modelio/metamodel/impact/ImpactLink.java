@@ -36,6 +36,9 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * <p>An Impact link.</p><p>The source&nbsp;(impacted)&nbsp;element &nbsp;depends on the target (dependsOn) element for the referenced causes.</p><p>This metaclass replaces the NamespaceUse metaclass.</p>
+ * 
+ * 
+ * 
  */
 @objid ("2506d924-c45a-443a-a7eb-fde5229f73b0")
 public interface ImpactLink extends ModelElement {
@@ -57,6 +60,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i><p>Impact link Target : the link source depends on the referenced element</p>
      * </i>
+     * 
      */
     @objid ("1175d3d5-fc51-433d-a22e-02396977d61c")
     ModelElement getDependsOn();
@@ -67,6 +71,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i><p>Impact link Target : the link source depends on the referenced element</p>
      * </i>
+     * 
      */
     @objid ("c1242773-0d31-4f52-91c0-2e5f61167416")
     void setDependsOn(ModelElement value);
@@ -77,6 +82,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i><p>Source: the referenced&nbsp;impacted element depends on the imapct link target</p>
      * </i>
+     * 
      */
     @objid ("77a32748-cb3d-49c8-8815-84a973825734")
     ModelElement getImpacted();
@@ -87,6 +93,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i><p>Source: the referenced&nbsp;impacted element depends on the imapct link target</p>
      * </i>
+     * 
      */
     @objid ("c172ae6b-afef-48ba-a89b-63851abfa5d2")
     void setImpacted(ModelElement value);
@@ -96,6 +103,7 @@ public interface ImpactLink extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("97be4523-ca13-4137-bd97-1e1a55ea8e49")
     EList<Element> getCauses();
@@ -105,6 +113,7 @@ public interface ImpactLink extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b18bb62b-d9b6-47b0-9434-780b49cc2267")
     <T extends Element> List<T> getCauses(java.lang.Class<T> filterClass);
@@ -114,6 +123,7 @@ public interface ImpactLink extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("850650b8-b991-44ec-9a1f-b41c54a73f58")
     ImpactModel getOwner();
@@ -123,8 +133,9 @@ public interface ImpactLink extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7b4550d4-9300-4bca-a4de-b11ba29d41dd")
     void setOwner(ImpactModel value);
-
 }
+

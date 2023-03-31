@@ -192,6 +192,7 @@ public class UmlMetaclassSorter implements Comparator<MObject> {
         return Integer.compare(-UmlMetaclassSorter.ORDERING.indexOf(mo1.getMClass().getJavaInterface()),
                         -UmlMetaclassSorter.ORDERING.indexOf(mo2.getMClass().getJavaInterface()));
     }
+
 static {
             // We do not want unlisted metaclasses to go first because of indexOf == -1, so we have to reverse the stored order
             Collections.reverse(UmlMetaclassSorter.ORDERING);

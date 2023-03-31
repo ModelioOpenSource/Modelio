@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[MDA-modeling-in-Modelio-Modeler]]
 
-[[mda-modeling-in-modelio-modeler]]
+
+
 = MDA modeling in Modelio Modeler
 
 Modelio provides a complete range of MDA services, split into three categories:

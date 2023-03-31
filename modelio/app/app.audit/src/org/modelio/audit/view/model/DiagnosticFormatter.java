@@ -196,7 +196,7 @@ public class DiagnosticFormatter {
 
     @objid ("beafcc3f-2b7b-47f5-8daa-5ebc431de277")
     private static class CopyStyler extends Styler {
-        @objid ("d1e06a20-72bb-441f-98b3-d6e5d48b182c")
+        @objid ("b8d5af5e-6078-41ae-967a-ce870383f9ec")
         protected StyleRange range;
 
         @objid ("0585eaaa-7953-4736-aeb0-1d5ceed2116b")

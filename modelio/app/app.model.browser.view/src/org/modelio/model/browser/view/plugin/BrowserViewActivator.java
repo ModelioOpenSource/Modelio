@@ -35,6 +35,7 @@ public class BrowserViewActivator extends AbstractUIPlugin {
      */
     @objid ("a1490720-2c5b-4ab0-8728-4022b8c81dd8")
     public static final String PLUGIN_ID = "org.modelio.app.model.browser.view"; // $NON-NLS-1$
+    
 
     @objid ("976b51e6-b6ef-4d2c-8754-7d1a43a0cc94")
     public static BundledMessages I18N;

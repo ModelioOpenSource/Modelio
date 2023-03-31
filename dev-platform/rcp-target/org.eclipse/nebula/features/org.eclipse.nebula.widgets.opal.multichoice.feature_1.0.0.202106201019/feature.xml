@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.multichoice.feature"
+      label="Nebula Opal Multichoice Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Multichoice
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+   </requires>
+   
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.multichoice"
+         download-size="21"
+         install-size="38"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.multichoice.source"
+         download-size="17"
+         install-size="54"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+</feature>

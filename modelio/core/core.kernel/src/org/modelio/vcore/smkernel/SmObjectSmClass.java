@@ -133,7 +133,7 @@ public class SmObjectSmClass extends SmClass {
         @objid ("0033f568-702c-1f21-85a5-001ec947cd2a")
         @Override
         public Object getValue(final ISmObjectData object) {
-            final long objStatus = ((SmObjectData) object).status;
+            final long objStatus = object.getStatus();
             return SmStatus.getPersistentBits(objStatus);
         }
 
@@ -143,7 +143,7 @@ public class SmObjectSmClass extends SmClass {
             assert (value != null);
             long longVal = (long) value;
             
-            ((SmObjectData) object).status = SmStatus.setPersistentPart(object.getStatus(), longVal);
+            ((SmObjectData) object).replacePersistentFlags(longVal);
             
         }
 

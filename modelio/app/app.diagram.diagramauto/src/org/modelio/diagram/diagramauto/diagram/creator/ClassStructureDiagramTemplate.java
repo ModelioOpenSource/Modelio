@@ -32,6 +32,7 @@ import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.layout.FourGroupStructuralLayout;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -70,6 +71,12 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
     public List<IDiagramLink> _reflexiveLinksDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("0631a0d5-f3b5-4b7a-9b8a-d9f9af153550")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("bb8cc562-0dc4-4705-9397-26f54eeac028")
@@ -80,6 +87,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         this._leftDgs = new ArrayList<>();
         this._rightDgs = new ArrayList<>();
         this._reflexiveLinksDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -92,144 +100,88 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
     @objid ("4c943f6e-e87e-46d5-b455-78a8d82dabde")
     @Override
     public ModelElement resolveOrigin(final ModelElement main) {
-        if (main instanceof Classifier) {
-            return main;
-        } else {
-            return null;
-        }
-        
-    }
-
-    @objid ("b2403289-0ed1-492b-870e-e7fb7c4836ec")
-    @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof Classifier) {
-            generateContent(dh, (Classifier) main);
-        }
-        
+        return (main instanceof Classifier) ? main : null;
     }
 
     @objid ("ab0e607b-d810-4a62-9947-f7125d99e1f2")
-    protected void generateContent(final IDiagramHandle dh, final Classifier main) {
+    @Override
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof Classifier))
+            return;
+        
+        Classifier classifier = (Classifier) main;
+        
         // Reset
         reset();
         
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
+        // the main element
+        this._mainDG = this._unmasker.unmask(dh, classifier, 100, 100);
+        if (this._mainDG != null) {
+            this._mainDG.setRepresentationMode(1);
+            initStyle(classifier, classifier, this._mainDG);
         }
         
-        // the main element
-        this._mainDG = (IDiagramNode) dh.unmask(main, 400, 400).get(0);
-        this._mainDG.setSize(100, 100);
-        this._mainDG.setRepresentationMode(1);
-        initStyle(main, main, this._mainDG);
-        
-        // unmask generalizations
-        for (Generalization g : main.getParent()) {
+        // Unmask generalizations nodes
+        for (Generalization g : classifier.getParent()) {
             // Unmask parent node
             NameSpace parent = g.getSuperType();
-            List<IDiagramGraphic> nodes = dh.unmask(parent, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
+            IDiagramNode node = this._unmasker.unmask(dh, parent);
+            if (node != null) {
                 // Add intern/extern style
-                initStyle(main, parent, node);
-        
+                initStyle(classifier, parent, node);
                 this._topDgs.add(node);
-            }
-        
-            // Unmask link
-            List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
-            if ((links != null) && (links.size() > 0)) {
-                IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                if (link.getFrom().equals(link.getTo())) {
-                    this._reflexiveLinksDgs.add(link);
-                }
             }
         }
         
-        // unmask realizations
-        for (InterfaceRealization ir : main.getRealized()) {
+        // Unmask realizations nodes
+        for (InterfaceRealization ir : classifier.getRealized()) {
             // Unmask parent node
             Interface parent = ir.getImplemented();
-            List<IDiagramGraphic> nodes = dh.unmask(parent, 0, 0);
-            if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
+            IDiagramNode node = this._unmasker.unmask(dh, parent);
+            if (node != null) {
                 // Add intern/extern style
-                initStyle(main, parent, node);
-        
+                initStyle(classifier, parent, node);
                 this._topDgs.add(node);
-            }
-        
-            // Unmask link
-            List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
-            if ((links != null) && (links.size() > 0)) {
-                IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                if (link.getFrom().equals(link.getTo())) {
-                    this._reflexiveLinksDgs.add(link);
-                }
             }
         }
         
-        // unmask left nodes and links (incoming)
-        for (AssociationEnd a : main.getOwnedEnd()) {
+        // unmask left nodes (incoming links)
+        for (AssociationEnd a : classifier.getTargetingEnd()) {
         
-            AssociationEnd other = a.getOpposite();
-            if (other.getSource() != null && (other.getAggregation() != AggregationKind.KINDISASSOCIATION)) {
+            if (a.getAggregation() != AggregationKind.KINDISASSOCIATION) {
+                Classifier source = a.getSource();
                 // Unmask left node
-                Classifier owner = other.getSource() != null ? other.getSource() : a.getTarget();
-                List<IDiagramGraphic> nodes = dh.unmask(owner, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
-        
-                    // Add intern/extern style
-                    initStyle(main, owner, node);
-        
-                    this._leftDgs.add(node);
-                }
-        
-                // Unmask incoming link
-                List<IDiagramGraphic> links = dh.unmask(other.getAssociation(), 0, 0);
-                if ((links != null) && (links.size() > 0)) {
-                    IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                    if (link.getFrom().equals(link.getTo())) {
-                        this._reflexiveLinksDgs.add(link);
+                if (!source.getCompositionOwner().equals(classifier)
+                        && !classifier.getCompositionOwner().equals(source)) {
+                    IDiagramNode node = this._unmasker.unmask(dh, source);
+                    if (node != null) {
+                        // Add intern/extern style
+                        initStyle(classifier, source, node);
+                        this._leftDgs.add(node);
                     }
                 }
             }
         }
         
-        // unmask right nodes and links (outgoing links)
-        for (AssociationEnd a : main.getOwnedEnd()) {
+        // unmask right nodes (outgoing links)
+        for (AssociationEnd a : classifier.getOwnedEnd()) {
             AssociationEnd other = a.getOpposite();
             if (a.getSource() != null && (other.getAggregation() == AggregationKind.KINDISASSOCIATION)) {
                 // Unmask right node
-                Classifier owner = other.getSource() != null ? other.getSource() : a.getTarget();
-                List<IDiagramGraphic> nodes = dh.unmask(owner, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
+                if (!other.getCompositionOwner().equals(classifier)
+                        && !classifier.getCompositionOwner().equals(other)) {
+                    Classifier owner = other.getSource() != null ? other.getSource() : a.getTarget();
+                    IDiagramNode node = this._unmasker.unmask(dh, owner);
+                    if (node != null) {
+                        // Add intern/extern style
+                        initStyle(classifier, owner, node);
         
-                    // Add intern/extern style
-                    initStyle(main, owner, node);
-        
-                    this._rightDgs.add(node);
-                }
-        
-                // Unmask outgoing link
-                List<IDiagramGraphic> links = dh.unmask(other.getAssociation(), 0, 0);
-                if ((links != null) && (links.size() > 0)) {
-                    IDiagramLink link = (IDiagramLink) links.get(0);
-        
-                    if (link.getFrom().equals(link.getTo())) {
-                        this._reflexiveLinksDgs.add(link);
+                        this._rightDgs.add(node);
                     }
                 }
             }
+        
         }
         
         // remove all inner elements from the diagram
@@ -242,7 +194,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         }
         
         // unmask attributes
-        for (Attribute att : main.getOwnedAttribute()) {
+        for (Attribute att : classifier.getOwnedAttribute()) {
             if (att.getVisibility() == VisibilityMode.PUBLIC || att.getChangeable() != KindOfAccess.ACCESNONE) {
                 dh.unmask(att, 0, 0);
             }
@@ -286,21 +238,6 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         return parent;
     }
 
-    @objid ("6487617e-f437-433b-965e-78b6e5f2ee67")
-    @Override
-    protected void layout(final IDiagramHandle dh) {
-        if (this._mainDG != null) {
-            FourGroupStructuralLayout layout = new FourGroupStructuralLayout();
-            try {
-                layout.layout(this._mainDG, this._topDgs, this._bottomDgs, this._leftDgs, this._rightDgs, this._reflexiveLinksDgs);
-            } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
-                // Should never happen
-                DiagramAuto.LOG.debug(e);
-            }
-        }
-        
-    }
-
     @objid ("27b7e869-5880-4944-b212-6d35aa3c9008")
     @Override
     public ModelElement getMainElement(AbstractDiagram autoDiagram) {
@@ -326,6 +263,104 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         this._leftDgs.clear();
         this._rightDgs.clear();
         this._reflexiveLinksDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
+        
+    }
+
+    @objid ("328efe0e-003a-4e15-87a5-a0f49144fae7")
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof Classifier))
+            return;
+        
+        Classifier classifier = (Classifier) main;
+        
+        // unmask generalizations
+        for (Generalization g : classifier.getParent()) {
+            // Unmask link
+            List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
+            if (!links.isEmpty()) {
+                IDiagramLink link = (IDiagramLink) links.get(0);
+        
+                if (link.getFrom().equals(link.getTo())) {
+                    this._reflexiveLinksDgs.add(link);
+                }
+            }
+        }
+        
+        // unmask realizations
+        for (InterfaceRealization ir : classifier.getRealized()) {
+        
+            // Unmask link
+            List<IDiagramGraphic> links = dh.unmask(ir, 0, 0);
+            if (!links.isEmpty()) {
+                IDiagramLink link = (IDiagramLink) links.get(0);
+        
+                if (link.getFrom().equals(link.getTo())) {
+                    this._reflexiveLinksDgs.add(link);
+                }
+            }
+        }
+        
+        // unmask left nodes and links (incoming)
+        for (AssociationEnd a : classifier.getTargetingEnd()) {
+            // Unmask incoming link
+            Classifier source = a.getSource();
+            if (!source.getCompositionOwner().equals(classifier)
+                    && !classifier.getCompositionOwner().equals(source)) {
+                if (a.getAggregation() != AggregationKind.KINDISASSOCIATION) {
+                    List<IDiagramGraphic> links = dh.unmask(a.getAssociation(), 0, 0);
+                    if (!links.isEmpty()) {
+                        IDiagramLink link = (IDiagramLink) links.get(0);
+                        // if (link.getFrom().equals(link.getTo())) {
+                        // this._reflexiveLinksDgs.add(link);
+                        // }
+                    }
+                }
+            }
+        }
+        
+        // unmask right nodes and links (outgoing links)
+        for (AssociationEnd a : classifier.getOwnedEnd()) {
+            ModelElement other = a.getTarget();
+            // Unmask outgoinglink
+            if (!other.getCompositionOwner().equals(classifier)
+                    && !classifier.getCompositionOwner().equals(other)) {
+                List<IDiagramGraphic> links = dh.unmask(a.getAssociation(), 0, 0);
+                if (!links.isEmpty()) {
+                    IDiagramLink link = (IDiagramLink) links.get(0);
+        
+                    if (link.getFrom().equals(link.getTo())) {
+                        this._reflexiveLinksDgs.add(link);
+                    }
+                }
+            }
+        }
+        
+    }
+
+    @objid ("be7c36ee-521c-45f0-a480-7193ea7d1b2d")
+    @Override
+    protected void layoutNodes(final IDiagramHandle dh) {
+        // The 'FourGroupNodeLayout' used here implies that the node layout depends on the unmasked links (in order to place the nodes where links can be correctly routed).
+        // At this stage the links are not unmasked yet and their DGs not existing,
+        // therefore the node layout is postponed to the layoutLinks() call where we are sure that the link DGs are unmasked and accessible.
+        
+    }
+
+    @objid ("6487617e-f437-433b-965e-78b6e5f2ee67")
+    @Override
+    protected void layoutLinks(final IDiagramHandle dh) {
+        if (this._mainDG != null) {
+            FourGroupStructuralLayout layout = new FourGroupStructuralLayout();
+            try {
+                // layout() lays out both nodes and links
+                layout.layout(this._mainDG, this._topDgs, this._bottomDgs, this._leftDgs, this._rightDgs, this._reflexiveLinksDgs);
+            } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
+                // Should never happen
+                DiagramAuto.LOG.debug(e);
+            }
+        }
         
     }
 

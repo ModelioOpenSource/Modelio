@@ -29,26 +29,26 @@ import org.eclipse.gef.Request;
  * @since 5.1.0
  * @author cma
  */
-@objid ("a44c1983-05ca-48a7-8757-3ddc697d70bf")
+@objid ("69d074be-a885-4d96-b876-84561f702ca7")
 public class RequestProperty<T> {
     /**
      * Request property telling group layout policies the index of the item to move, create or delete .
      * <p>
      * The edit policy and the caller may then skip horrible index-&gt;location-&gt;index computations.
      */
-    @objid ("e7e5f67f-bad2-4682-86d6-13163d69a395")
+    @objid ("b386fc02-8da2-49b1-a675-3a3a1883d355")
     public static final RequestProperty<Integer> PROP_GROUP_ITEM_INDEX = new RequestProperty<>("GmGroup item index");
 
     /**
      * Request property telling the reconnect commands to change the Gm model only and not the Ob model.
      */
-    @objid ("53c26829-227c-4758-88a7-42296e92f035")
+    @objid ("7212865d-d2aa-4fe9-9f0f-f91f74c5f4b5")
     public static final RequestProperty<Boolean> PROP_SKIP_MODELCHANGE = new RequestProperty<>("Skip model change");
 
-    @objid ("33c55d07-1cab-498e-a272-12a1c89f35dd")
+    @objid ("6958a5dc-d162-4daa-91b2-749c9668d990")
     private final Object key;
 
-    @objid ("5cd4ac27-6985-432d-a1ef-fe4c1a41d0e1")
+    @objid ("a9c9fb84-8b31-4314-906f-c993d57d7483")
     private  RequestProperty(Object key) {
         this.key = key;
     }
@@ -57,7 +57,7 @@ public class RequestProperty<T> {
      * @param req the request to read
      * @return the property value;
      */
-    @objid ("b3f72445-393b-451f-97b6-b4bb8f1804ac")
+    @objid ("f885ad55-9371-4832-8bc2-ca3d3f314263")
     @SuppressWarnings ("unchecked")
     public T get(Request req) {
         return (T) req.getExtendedData().get(this.key);
@@ -67,7 +67,7 @@ public class RequestProperty<T> {
      * @param req the request to modify
      * @param val the property value.
      */
-    @objid ("56588559-4152-459d-847c-9531785d92fd")
+    @objid ("4fba970d-4a6b-4446-a3e5-03b03a1ed260")
     public void set(Request req, T val) {
         req.getExtendedData().put(this.key, val);
     }

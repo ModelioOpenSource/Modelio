@@ -70,5 +70,5 @@ public interface IMetamodelService {
      */
     @objid ("a53406cd-aa12-46a8-89aa-f09c332b497d")
     IMetamodelI18nSupport getI18nSupport();
-
 }
+

@@ -101,5 +101,5 @@ public interface IModelChangeSupport {
      */
     @objid ("00620606-58c5-10c8-842f-001ec947cd2a")
     void removeStatusChangeListener(final IStatusChangeListener aListener);
-
 }
+

@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Automatic-diagrams]]
 
-[[automatic-diagrams]]
+
+
 = Automatic diagrams
 
-[[Concept]]
 
-[[concept]]
+
+
 == Concept
 
 Automatic diagram generation is an extremely useful function, notably when massive code reverse operations are run, during which existing code is transformed into a model in order to analyze its design or documentation production.
@@ -19,9 +19,9 @@ The general problem with automatic diagram generation is "which elements to show
 
 The automatic diagrams proposed by Modelio fit into the context of using Modelio for development tasks, with automatic diagrams focused on packages and classes.
 
-[[Automatic-diagrams-proposed]]
 
-[[automatic-diagrams-proposed]]
+
+
 == Automatic diagrams proposed
 
 Currently, Modelio produces the following automatic diagrams:

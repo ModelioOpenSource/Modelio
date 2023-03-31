@@ -110,7 +110,7 @@ public class BpmnFlowElementReparentElementCommand extends Command {
             BpmnFlowNode node = (BpmnFlowNode) childElement;
             for (BpmnSequenceFlow flow : node.getIncoming()) {
                 BpmnFlowNode srcNode = flow.getSourceRef();
-                if (!Objects.equals(getBpmnFlowContainer(this.newParentElement), getBpmnFlowContainer(srcNode))) {
+                if (!Objects.equals(getBpmnFlowContainer(this.newParentElement), getBpmnFlowContainer(srcNode.getCompositionOwner()))) {
                     // sequence flows must relate 2 nodes in the same process.
                     setLabel("Sequence flows must relate 2 nodes in the same process.");
                     return false;
@@ -118,7 +118,7 @@ public class BpmnFlowElementReparentElementCommand extends Command {
             }
             for (BpmnSequenceFlow flow : node.getOutgoing()) {
                 BpmnFlowNode targetNode = flow.getTargetRef();
-                if (!Objects.equals(getBpmnFlowContainer(this.newParentElement), getBpmnFlowContainer(targetNode))) {
+                if (!Objects.equals(getBpmnFlowContainer(this.newParentElement), getBpmnFlowContainer(targetNode.getCompositionOwner()))) {
                     // sequence flows must relate 2 nodes in the same process.
                     setLabel("Sequence flows must relate 2 nodes in the same process.");
                     return false;

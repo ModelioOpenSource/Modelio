@@ -49,7 +49,7 @@ public class GmBpmnLaneStructuredStyleKeys extends BpmnAbstractStyleKeyProvider 
 
     @objid ("71abfeda-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNLANE_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("71abfedc-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNLANE_SHOWTAGS", MetaKey.SHOWTAGS);

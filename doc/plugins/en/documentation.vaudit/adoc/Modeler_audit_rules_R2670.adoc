@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2670]]
 
-[[r2670]]
+
+
 = R2670
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A protocol state machine cannot have history vertices.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A protocol state machine specifies which operations of the classifier can be called in which state and under which conditions, thus specifying the authorized call sequences on the classifier's operations. Therefore history vertices should not be used in a protocol state machine.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Delete any history vertices from the protocol state machine, or move them to

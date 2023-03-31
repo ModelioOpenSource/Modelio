@@ -36,6 +36,7 @@ import org.modelio.diagram.elements.core.model.IGmLinkable;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.umlcommon.note.GmNoteLink;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessCollaborationDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -98,12 +99,22 @@ public abstract class AbstractElementTransmuter implements IModelTransformer {
         // Unmask links
         if (gmPrimaryNodeToBeTransmuted instanceof IGmLinkable) {
             for (IGmLink link : new ArrayList<>(((IGmLinkable) gmPrimaryNodeToBeTransmuted).getStartingLinks())) {
-                IGmDiagram diagram = link.getDiagram();
-                MObject mLink = link.getRelatedElement();
-                GmPath path = new GmPath((IGmPath) link.getLayoutData());
-                IGmLinkable to = link.getTo();
-                link.delete();
-                diagram.unmaskLink(mLink, transmutedGm, to, path);
+                if (link instanceof GmNoteLink) {
+                    IGmDiagram diagram = link.getDiagram();
+                    MObject mLink = link.getRelatedElement();
+                    GmPath path = new GmPath((IGmPath) link.getLayoutData());
+                    IGmLinkable to = link.getTo();
+                    link.delete();
+                    // Show the new element in the diagram (ie create its Gm )
+                    final GmNodeModel createdNode = diagram.unmask((GmCompositeNode) gmToBeTransmuted.getParent(), to.getRelatedElement(), to.getLayoutData());
+                }else {
+                    IGmDiagram diagram = link.getDiagram();
+                    MObject mLink = link.getRelatedElement();
+                    GmPath path = new GmPath((IGmPath) link.getLayoutData());
+                    IGmLinkable to = link.getTo();
+                    link.delete();
+                    diagram.unmaskLink(mLink, transmutedGm, to, path);
+                }
             }
         
             for (IGmLink link : new ArrayList<>(((IGmLinkable) gmPrimaryNodeToBeTransmuted).getEndingLinks())) {

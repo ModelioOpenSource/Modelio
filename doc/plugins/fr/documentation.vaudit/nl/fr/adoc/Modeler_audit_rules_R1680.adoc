@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1680]]
 
-[[r1680]]
+
+
 = R1680
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le champ 'Called operation' doit être défini pour un _Event_ de type _Call_, tandis que le champ 'Instanciated signal' doit être vide.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _Event_ est la spécification d'une occurrence spécifique à un point donné dans l'espace et dans le temps.
 
 Un _Event_ de type _Call_ est utilisé pour indiquer un appel d'_Operation_, et ne peut donc pas instancier un _Signal_ en même temps.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Ajoutez une _Operation_ dans le champ correspondant si l'_Event_ n'en référence pas déjà une.

@@ -30,7 +30,7 @@ import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
@@ -45,11 +45,11 @@ public class ContributingModulesLabelProvider extends StyledCellLabelProvider {
 
     @objid ("75f20e4d-8db1-4827-9b09-28dd7f735cbb")
     private static final Styler INVALID = new Styler() {
-            @Override
-            public void applyStyles(final TextStyle textStyle) {
-                textStyle.foreground = UIColor.RED;
-            }
-        };
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.foreground = UIColor.RED;
+                }
+            };
 
     @objid ("89e40e90-b88d-4476-81c7-0d6c7037c1fe")
     private final List<GModule> modules;

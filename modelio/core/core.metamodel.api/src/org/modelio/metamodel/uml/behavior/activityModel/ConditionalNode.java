@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * A conditional node consists of one or more clauses. Each clause consists of a test section and a body section. When the conditional node begins execution, the test sections of the clauses are executed. If one or more test sections yield a true value, one of the corresponding body sections will be executed. If more than one test section yields a true value, only one body section will be executed. If no test section yields a true value, then no body section is executed; this may be a semantic error if output values are expected from the conditional node.
  * 
  * An "else" clause is a clause that is a successor to all other clauses in the conditional and whose test part always returns true.
+ * 
+ * 
  */
 @objid ("002d52f8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ConditionalNode extends StructuredActivityNode {
@@ -56,6 +58,7 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the modeler asserts that at most one test will succeed. The default value is false. </i>
+     * 
      */
     @objid ("defca8bb-48fc-4231-a8b0-fe79de6ea3d9")
     boolean isIsDeterminate();
@@ -65,6 +68,7 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the modeler asserts that at most one test will succeed. The default value is false. </i>
+     * 
      */
     @objid ("fcf439a2-c1bc-466e-8ed3-92d1343928c6")
     void setIsDeterminate(boolean value);
@@ -74,6 +78,7 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the modeler asserts that at least one test will succeed. The default value is false.</i>
+     * 
      */
     @objid ("79c0023b-67b3-41ed-a135-3b35d348d4ee")
     boolean isIsAssured();
@@ -83,6 +88,7 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>If true, the modeler asserts that at least one test will succeed. The default value is false.</i>
+     * 
      */
     @objid ("25cf970a-1e40-4181-af6c-c4f1ab352e7f")
     void setIsAssured(boolean value);
@@ -92,6 +98,7 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Set of clauses composing the conditional.</i>
+     * 
      */
     @objid ("3de557fa-4550-425e-a78a-c99196d62296")
     EList<Clause> getOwnedClause();
@@ -101,8 +108,9 @@ public interface ConditionalNode extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>Set of clauses composing the conditional.</i>
+     * 
      */
     @objid ("aae00f2c-bd57-441a-8fea-f9ceb955a69e")
     <T extends Clause> List<T> getOwnedClause(java.lang.Class<T> filterClass);
-
 }
+

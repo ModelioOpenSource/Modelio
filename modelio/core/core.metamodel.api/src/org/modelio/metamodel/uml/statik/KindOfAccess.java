@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005a2ada-91e0-1f74-804b-001ec947cd2a")
 public enum KindOfAccess {
@@ -40,6 +42,7 @@ public enum KindOfAccess {
     READWRITE(2, "ReadWrite", "ReadWrite"),
     @objid ("ad7526f1-91f4-4ea6-bd1d-40db8d181770")
     ACCESNONE(3, "AccesNone", "AccesNone");
+
 public static final int READ_VALUE = 0;
     public static final int WRITE_VALUE = 1;
     public static final int READWRITE_VALUE = 2;

@@ -23,7 +23,7 @@ The Modelio MavenPlugin has six goals, divided into two categories:
 ** <<Modeler-_modeler_maven_plugin_Module-validation.adoc#,module-validation>> checks the content of the module.xml file, in a module development project (https://github.com/ModelioOpenSource/Modelio/wiki/Module-Developer-Guide-Index).
 
 
-[[usage]]
+
 == Usage
 
 The Modelio Maven Plugin uses the Modelio tool. The following examples describe the basic usage of the Plugin.
@@ -107,7 +107,7 @@ In a module development project, complete and validate the module.xml file:
 ----
 
 
-[[where-to-find-this-plugin]]
+
 == Where to find this plugin
 
 In your pom.xml file, add the following code to use the Modelio repository:

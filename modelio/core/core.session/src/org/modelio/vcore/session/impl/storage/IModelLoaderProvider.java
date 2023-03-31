@@ -87,5 +87,5 @@ public interface IModelLoaderProvider {
      */
     @objid ("8a447076-8b7f-4751-b9d0-382bc72591f8")
     ScheduledExecutorService getSchedulerService();
-
 }
+

@@ -44,14 +44,13 @@ import org.modelio.edition.dialogs.PanelDescriptor;
 import org.modelio.edition.dialogs.plugin.EditionDialogs;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.MetamodelLabels;
+import org.modelio.platform.ui.UIImages;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.vcore.session.api.ICoreSession;
-import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
-import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
 import org.modelio.vcore.session.api.model.change.IStatusChangeListener;
 
 /**
@@ -74,8 +73,8 @@ import org.modelio.vcore.session.api.model.change.IStatusChangeListener;
  * input of the element panel to null.
  */
 @objid ("61e20035-5087-4ab7-9840-43bcce555ecd")
-public class EditElementDialog extends ModelioDialog implements IModelChangeListener, IStatusChangeListener {
-    @objid ("da10a0a4-9f38-443f-9c4c-4d1aec55349d")
+public class EditElementDialog extends ModelioDialog {
+    @objid ("f39153dc-ce2d-4bd2-ae28-8677a35b5dcf")
     private TabFolder tabFolder;
 
     @objid ("07a9e0a7-6a31-4e38-98f1-844b797c5888")
@@ -92,6 +91,12 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
 
     @objid ("12733530-6b5e-4fa4-85ea-7f0df9a3ce2a")
     private List<IPanelProvider> tabbedPanels = new ArrayList<>();
+
+    @objid ("92d2cb50-1d69-4315-9759-602809475796")
+    private IModelChangeListener modelChangeListener = evt -> getShell().getDisplay().syncExec(this::refresh);
+
+    @objid ("76f5be49-41a1-47fd-99e2-13b761ac07f5")
+    private IStatusChangeListener statusChangeListener = evt -> getShell().getDisplay().asyncExec(this::refresh);
 
     /**
      * @param parentShell the parent SWT shell
@@ -127,10 +132,9 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
     @objid ("d3781c49-5caf-42d9-a418-c31d718ba520")
     @Override
     public Control createContentArea(final Composite parent) {
-        this.tabFolder = new TabFolder(parent, SWT.BORDER);
+        this.tabFolder = new TabFolder(parent, SWT.NONE);
         
-        Point preferredSize = new Point(800, 600); // editPanel.getPreferredSize();
-        GridData gd = new GridData(preferredSize.x, preferredSize.y);
+        GridData gd = new GridData(800, 600);
         gd.horizontalAlignment = SWT.FILL;
         gd.grabExcessHorizontalSpace = true;
         gd.verticalAlignment = SWT.FILL;
@@ -160,22 +164,9 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
         
         // Plug model change listener ( the listener is un-plugged in the close() method)
         if (this.coreSession != null) {
-            this.coreSession.getModelChangeSupport().addModelChangeListener(this);
-            this.coreSession.getModelChangeSupport().addStatusChangeListener(this);
+            this.coreSession.getModelChangeSupport().addModelChangeListener(this.modelChangeListener);
+            this.coreSession.getModelChangeSupport().addStatusChangeListener(this.statusChangeListener);
         }
-        
-        // Un-plug model change listener on Shell disposal
-        parent.getShell().addDisposeListener((e) -> {
-            if (this.coreSession != null) {
-                this.coreSession.getModelChangeSupport().removeModelChangeListener(this);
-                this.coreSession.getModelChangeSupport().removeStatusChangeListener(this);
-                this.coreSession = null;
-            }
-        
-            for (IPanelProvider panelProvider : this.tabbedPanels) {
-                panelProvider.dispose();
-            }
-        });
         return this.tabFolder;
     }
 
@@ -183,48 +174,52 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
     @Override
     public void init() {
         setLogoImage(null);
+        
         // Put the messages in the banner area
         final String name = this.editedElement.getName();
         setTitle(EditionDialogs.I18N.getMessage("EditElementDialog.Title", name, name.length()));
+        
         final String type;
         if (this.editedElement instanceof ModelElement && !((ModelElement) this.editedElement).getExtension().isEmpty()) {
-            type = ModuleI18NService.getStereotypeLabel((ModelElement) this.editedElement);
+            type = MdaResources.getQualifiedLabel((ModelElement) this.editedElement, null);
         } else {
             type = MetamodelLabels.getString(this.editedElement.getMClass().getName());
         }
         setMessage(EditionDialogs.I18N.getMessage("EditElementDialog.Message", type));
-        getShell().setText(EditionDialogs.I18N.getMessage("EditElementDialog.shellTitle"));
         
         // Center the shell on the screen
-        getShell().pack(true);
-        Point size = getShell().getSize();
-        Rectangle parentBounds = getShell().getParent().getBounds();
-        getShell().setLocation(parentBounds.x + parentBounds.width / 2 - size.x / 2,
-                parentBounds.y + parentBounds.height / 2 - size.y / 2);
+        Shell shell = getShell();
+        shell.pack(true);
+        Point size = shell.getSize();
+        Rectangle parentBounds = shell.getParent().getBounds();
+        shell.setLocation(parentBounds.x + parentBounds.width / 2 - size.x / 2, parentBounds.y + parentBounds.height / 2 - size.y / 2);
         
     }
 
-    @objid ("81119e6d-3446-4d79-8566-c5fe980e241f")
+    @objid ("a060dadd-69d9-41ab-b87a-02041f2c9bab")
     @Override
-    public void modelChanged(IModelChangeEvent event) {
-        getShell().getDisplay().syncExec(() -> {
-            // Deal with deleted and invalid elements
-            if (this.editedElement != null) {
-                if (this.editedElement.isDeleted()) {
-                    close();
-                    return;
-                }
-                if (!this.editedElement.isValid()) {
-                    for (IPanelProvider panel : this.tabbedPanels) {
-                        panel.setInput(null);
-                    }
-                    return;
-                }
+    protected Point getInitialSize() {
+        return super.getInitialSize();
+    }
+
+    @objid ("aede2a63-dc4f-4f1b-82fe-e12fc75f91ce")
+    @Override
+    protected void configureShell(Shell newShell) {
+        super.configureShell(newShell);
+        newShell.setText(EditionDialogs.I18N.getMessage("EditElementDialog.shellTitle"));
+        newShell.setImage(UIImages.OPENPROPERTIES);
+        newShell.setMinimumSize(800, 600);
+        
+        // Un-plug model change listener on Shell disposal
+        newShell.addDisposeListener((e) -> {
+            if (this.coreSession != null) {
+                this.coreSession.getModelChangeSupport().removeModelChangeListener(this.modelChangeListener);
+                this.coreSession.getModelChangeSupport().removeStatusChangeListener(this.statusChangeListener);
+                this.coreSession = null;
             }
-            // Simplest strategy here : setInput on element Panel
-            StructuredSelection input = new StructuredSelection(this.editedElement);
-            for (IPanelProvider panel : this.tabbedPanels) {
-                panel.setInput(input);
+        
+            for (IPanelProvider panelProvider : this.tabbedPanels) {
+                panelProvider.dispose();
             }
         });
         
@@ -250,29 +245,26 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
         
     }
 
-    @objid ("b3cf7cfc-844c-4b19-b82c-6c561580b543")
-    @Override
-    public void statusChanged(IStatusChangeEvent event) {
-        getShell().getDisplay().asyncExec(() -> {
-            // Deal with deleted and invalid elements
-            if (this.editedElement != null) {
-                if (this.editedElement.isDeleted()) {
-                    close();
-                    return;
-                }
-                if (!this.editedElement.isValid()) {
-                    for (IPanelProvider panel : this.tabbedPanels) {
-                        panel.setInput(null);
-                    }
-                    return;
-                }
+    @objid ("7538de8a-3f63-49bf-b35a-c11949946877")
+    private void refresh() {
+        // Deal with deleted and invalid elements
+        if (this.editedElement != null) {
+            if (this.editedElement.isDeleted()) {
+                close();
+                return;
             }
-            // Simplest strategy here : setInput on element Panel
-            ISelection selection = new StructuredSelection(this.editedElement);
-            for (IPanelProvider panel : this.tabbedPanels) {
-                panel.setInput(selection);
+            if (!this.editedElement.isValid()) {
+                for (IPanelProvider panel : this.tabbedPanels) {
+                    panel.setInput(null);
+                }
+                return;
             }
-        });
+        }
+        // Simplest strategy here : setInput on element Panel
+        ISelection input = new StructuredSelection(this.editedElement);
+        for (IPanelProvider panel : this.tabbedPanels) {
+            panel.setInput(input);
+        }
         
     }
 

@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A data store keeps all tokens that enter it, copying them when they are chosen to move downstream. Incoming tokens containing a particular object replace any tokens in the object node containing that object.
+ * 
+ * 
+ * 
  */
 @objid ("002f1fe8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface DataStoreNode extends CentralBufferNode {
@@ -46,5 +49,5 @@ public interface DataStoreNode extends CentralBufferNode {
      */
     @objid ("0ed4c131-7e3a-482c-9988-6643bf505b3f")
     public static final String MQNAME = "Standard.DataStoreNode";
-
 }
+

@@ -126,5 +126,5 @@ public interface ISmMeta {
      */
     @objid ("0006a70c-45ea-1ffc-8433-001ec947cd2a")
     SmDepVal getCompositionRelation();
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1500]]
 
-[[r1500]]
+
+
 = R1500
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Dans une instance, le nom d'un attribut instancié doit être le même que l'attribut correspondant dans la classe instanciée.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un attribut instancié représente un attribut de la classe instancié, son nom doit donc correspondre au nom de l'attribut qu'il instancie.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Assurez-vous que le nom de votre attribut instancié corresponde bien au nom de l'attribut qu'il instancie.

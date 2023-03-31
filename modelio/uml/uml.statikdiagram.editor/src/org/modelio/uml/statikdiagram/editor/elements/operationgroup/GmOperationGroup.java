@@ -90,7 +90,7 @@ public class GmOperationGroup extends GmGroup {
         return false;
     }
 
-    @objid ("39f2ddc2-beee-4ff9-be91-be547a0794bb")
+    @objid ("35fef0fb-55b7-11e2-877f-002564c97630")
     @Override
     public void refreshFromObModel() {
         //TODO : move this in parent class

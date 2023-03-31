@@ -252,8 +252,8 @@ public class ProfileUtils {
 
         @objid ("979ee21d-fb58-4c28-a6de-a5c47a461e5d")
         public static final String PATTERNPARAMETER = "PatternParameter";
-
-    }
+}
+    
 
     @objid ("d9d7404c-2a74-4b94-a538-19616afe3ed7")
     public interface PatternDesignerTagTypes {
@@ -280,8 +280,8 @@ public class ProfileUtils {
 
         @objid ("746e9efa-e7a3-4231-a593-7858a00f8b1f")
         public static final String PATTERN_TEMPLATE_PARAMETERS = "Template.Parameters";
-
-    }
+}
+    
 
     /**
      * Simple data structure used when parsing parameter-related information from the model.

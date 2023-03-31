@@ -51,7 +51,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.api.ui.ModelioDialog;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.mda.Project;
@@ -278,8 +278,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
     @objid ("baaa9408-bb69-4d4f-b7c5-59329f99d1f2")
     private void createDiagramImageArea(Composite area) {
         Group diagramImageArea = new Group(area, SWT.NONE);
-        diagramImageArea.setText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.DiagramImageLabel"));
+        diagramImageArea.setText(ModelProperty.I18N.getString("StereotypeCreationDialog.DiagramImageLabel"));
         GridLayout gl_diagramImageArea = new GridLayout(2, false);
         gl_diagramImageArea.verticalSpacing = 3;
         gl_diagramImageArea.marginLeft = 25;
@@ -311,8 +310,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         
         this.diagramImageButton = new Button(buttonArea, SWT.CENTER);
         this.diagramImageButton.setImage(UIImages.FILECHOOSE);
-        this.diagramImageButton.setToolTipText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.DiagramImageLabel"));
+        this.diagramImageButton.setToolTipText(ModelProperty.I18N.getString("StereotypeCreationDialog.DiagramImageLabel"));
         this.diagramImageChooser = new DiagramImageChooserListener(this,
                 this.projectService,
                 this.dataModel);
@@ -352,8 +350,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         
         Label diagramImageSizeLabel = new Label(diagramImageArea, SWT.CENTER);
         diagramImageSizeLabel.setFont(this.sizeFontAdvice);
-        diagramImageSizeLabel.setText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.DiagramImageSizeLabel"));
+        diagramImageSizeLabel.setText(ModelProperty.I18N.getString("StereotypeCreationDialog.DiagramImageSizeLabel"));
         GridData gd_diagramImageSizeLabel = new GridData(SWT.CENTER, SWT.CENTER, true, false);
         gd_diagramImageSizeLabel.widthHint = 100;
         diagramImageSizeLabel.setLayoutData(gd_diagramImageSizeLabel);
@@ -363,8 +360,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
     @objid ("2e73e619-78da-4469-88f5-286bef8322ab")
     private void createExplorerIconArea(Composite area) {
         Group explorerIconArea = new Group(area, SWT.NONE);
-        explorerIconArea.setText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.BrowserIconLabel"));
+        explorerIconArea.setText(ModelProperty.I18N.getString("StereotypeCreationDialog.BrowserIconLabel"));
         GridLayout gl_explorerIconArea = new GridLayout(2, false);
         gl_explorerIconArea.verticalSpacing = 3;
         gl_explorerIconArea.marginLeft = 25;
@@ -398,8 +394,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         
         this.explorerIconButton = new Button(buttonArea, SWT.NONE);
         this.explorerIconButton.setImage(UIImages.FILECHOOSE);
-        this.explorerIconButton.setToolTipText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.BrowserIconLabel"));
+        this.explorerIconButton.setToolTipText(ModelProperty.I18N.getString("StereotypeCreationDialog.BrowserIconLabel"));
         this.explorerIconChooser = new BrowserIconChooserListener(this,
                 this.projectService,
                 this.dataModel);
@@ -439,8 +434,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         Label explorerIconSizeLabel = new Label(explorerIconArea, SWT.CENTER);
         
         explorerIconSizeLabel.setFont(this.sizeFontAdvice);
-        explorerIconSizeLabel.setText(ModelProperty.I18N
-                .getString("StereotypeCreationDialog.ExplorerIconSizeLabel"));
+        explorerIconSizeLabel.setText(ModelProperty.I18N.getString("StereotypeCreationDialog.ExplorerIconSizeLabel"));
         GridData gd_explorerIconSizeLabel = new GridData(SWT.CENTER, SWT.CENTER, true, false);
         gd_explorerIconSizeLabel.widthHint = 100;
         explorerIconSizeLabel.setLayoutData(gd_explorerIconSizeLabel);
@@ -515,7 +509,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         this.stereotypeNameText.setText(this.dataModel.getStereotypeName());
         this.mclassSelector.getControl().setText(this.dataModel.getMetaclassName());
         
-        GProject openedProject = this.projectService.getOpenedProject();
+        IGProject openedProject = this.projectService.getOpenedProject();
         if (openedProject != null) {
             String explorerIconPath = this.dataModel.getExplorerIcon();
             if (explorerIconPath != null && !explorerIconPath.equals("")) {
@@ -629,7 +623,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
     }
 
     /**
-     * @param explorerIconData @return
+     * @return
      */
     @objid ("36577c56-f1ad-44bb-9a8e-e048b1127ec1")
     private ImageData scaleImage(ImageData explorerIconData) {

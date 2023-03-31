@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Using-shortcuts]]
 
-[[using-shortcuts]]
+
+
 = Using shortcuts
 
 Main keyboard shortcuts available in Modelio:

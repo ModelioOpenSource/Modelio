@@ -129,5 +129,5 @@ public interface IMultiLinkTool extends IDiagramTool {
      */
     @objid ("a3ec0f80-0ecc-11e2-96c4-002564c97630")
     void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkRoute> paths, Rectangle rectangle);
-
 }
+

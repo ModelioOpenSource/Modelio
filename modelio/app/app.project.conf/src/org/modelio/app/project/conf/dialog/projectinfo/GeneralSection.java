@@ -634,7 +634,7 @@ class GeneralSection {
         @Override
         public void modifyText(ModifyEvent e) {
             if (e.widget == GeneralSection.this.projectDescription) {
-                GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_DESCRIPTION, GeneralSection.this.projectDescription.getText().replace("\n", "\\n"), DefinitionScope.LOCAL);
+                GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_DESCRIPTION, GeneralSection.this.projectDescription.getText().replace("\n", "\n"), DefinitionScope.LOCAL);
             } else if (e.widget == GeneralSection.this.projectContact) {
                 GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_CONTACT, GeneralSection.this.projectContact.getText(), DefinitionScope.LOCAL);
             }

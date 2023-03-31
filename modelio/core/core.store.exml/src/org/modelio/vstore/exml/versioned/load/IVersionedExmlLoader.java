@@ -42,5 +42,5 @@ public interface IVersionedExmlLoader {
      */
     @objid ("ddea431e-407a-11e2-87cb-001ec947ccaf")
     SmObjectImpl load(final InputSource is, final InputSource localIs, IModelLoader aModelLoader) throws IOException, DuplicateObjectException;
-
 }
+

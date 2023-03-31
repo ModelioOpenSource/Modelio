@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("5dedaa90-debc-4e72-8fb8-7a45806b91b6")
 public enum Navigability {
@@ -40,6 +42,7 @@ public enum Navigability {
     OTHERSIDE(2, "OtherSide", "OtherSide"),
     @objid ("9b154c2c-1740-4e66-b5fe-251d85e40ef6")
     BOTHSIDES(3, "BothSides", "BothSides");
+
 public static final int NONE_VALUE = 0;
     public static final int THISSIDE_VALUE = 1;
     public static final int OTHERSIDE_VALUE = 2;

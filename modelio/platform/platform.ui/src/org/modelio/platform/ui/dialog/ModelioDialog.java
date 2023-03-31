@@ -124,6 +124,7 @@ public abstract class ModelioDialog extends TrayDialog {
      */
     @objid ("004de4e6-4a05-1fe0-bf4c-001ec947cd2a")
     public static final String DLG_IMG_TITLE_BANNER = "dialog_title_banner_image"; // $NON-NLS-1$
+    
 
     /**
      * Minimum dialog height (in dialog units)
@@ -142,6 +143,7 @@ public abstract class ModelioDialog extends TrayDialog {
 
     @objid ("004ea548-4a05-1fe0-bf4c-001ec947cd2a")
     private String message = ""; // $NON-NLS-1$
+    
 
     @objid ("00473c90-4a05-1fe0-bf4c-001ec947cd2a")
     private int messageLabelHeight;
@@ -173,46 +175,46 @@ public abstract class ModelioDialog extends TrayDialog {
     @objid ("2cbd3e0e-eaf2-47fb-a31f-520af39a057e")
     private boolean rightImageLargest = false;
 
-    @objid ("3b3c208d-658f-4e53-8e12-7e4820e980e1")
+    @objid ("5290f926-0d47-480f-b763-3b8cd969c317")
     private Label leftFillerLabel;
 
-    @objid ("bea61309-b985-4833-a3ac-a8cca2db26c0")
+    @objid ("fa3d4890-f5cc-412f-a1a2-c5618a7ab847")
     private Image messageImage;
 
-    @objid ("79c70b1d-819f-4f06-b4dd-07793ad6ca48")
+    @objid ("1a7c6969-386d-49cd-8f7e-f00a287b966e")
     private Label messageImageLabel;
 
-    @objid ("e6f94c8b-71d7-4e42-ad54-e71e764d403d")
+    @objid ("61770565-f3d6-4888-8f0e-16c0e41110c3")
     private Text messageLabel;
 
-    @objid ("f3037043-cbaf-44e6-90ac-bc017f032c7f")
+    @objid ("d030a09f-d670-41db-9871-645891e28768")
     Color titleAreaColor;
 
-    @objid ("27052209-d68c-4340-9df4-a1e4b8293442")
+    @objid ("419bfe7c-f022-46ea-bcdc-ebb9a0f8e188")
     private RGB titleAreaRGB;
 
-    @objid ("be110fbd-73ce-49fe-ac40-0431c74e48dc")
+    @objid ("051ae957-997b-4c14-a783-de5c09aa5e2c")
     private Label titleLabel;
 
-    @objid ("6783c090-d5db-45f6-8056-e0978059453f")
+    @objid ("2d1204df-a4b5-42a9-bfa4-26d53466d913")
     private Image titleRightImage;
 
-    @objid ("1c8ae255-a475-480f-a45c-3cee74528022")
+    @objid ("bcb21365-637b-4f1c-80c6-cc3d2b81e210")
     private Label titleRightImageLabel;
 
-    @objid ("a15324a5-ae27-4063-a053-a5b6a94acd1e")
+    @objid ("bd11aa5b-3a55-4172-9719-312709ec0127")
     private Composite workArea;
 
-    @objid ("a5980f7b-15f4-4053-9571-978ccfa043d0")
+    @objid ("a13dbf3f-9dff-4909-81c3-c2adee13390c")
     protected static final Image LEFT_IMAGE = UI.getImageDescriptor("images/headerleft110x50.png").createImage();
 
-    @objid ("6c6b5eb5-16b8-4715-9101-b395502a2336")
+    @objid ("461a4ed2-fb57-4f77-a0e4-9c9b9b84b8e7")
     private Label bottomFillerLabel;
 
-    @objid ("9597d22d-a464-4a75-b60c-5f1fb95e3b5b")
+    @objid ("67cd6f95-6cc5-44ed-8d81-1834983467ce")
     private Image titleLeftImage;
 
-    @objid ("e4600a58-be7d-4586-9ae5-d1f244864143")
+    @objid ("1caecf42-eec5-4e3b-a172-b6e6dacabdac")
     private Label titleLeftImageLabel;
 
     @objid ("004b855c-4a05-1fe0-bf4c-001ec947cd2a")

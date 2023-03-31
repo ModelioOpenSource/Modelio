@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2050]]
 
-[[r2050]]
+
+
 = R2050
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Certains éléments ne peuvent pas être anonymes.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les éléments des méta-classes suivantes doivent toujours avoir un nom:
@@ -66,9 +66,9 @@ Les éléments des méta-classes suivantes doivent toujours avoir un nom:
 *	ObjectDiagram
 *	UseCaseDiagram
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Editez la propriété 'Nom' de l'élément.

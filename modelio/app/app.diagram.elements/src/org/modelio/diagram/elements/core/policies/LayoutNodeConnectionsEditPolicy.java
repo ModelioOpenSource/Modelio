@@ -34,12 +34,12 @@ import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
  * @author cma
  * @since 5.0.2
  */
-@objid ("40c1aabb-4c76-4d37-88a6-96632e049c55")
+@objid ("ba9573b6-fdf4-4913-af01-eff7ea0c428b")
 public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
     /**
      * The role to use for this edit policy
      */
-    @objid ("02b0d80e-3a33-477c-a710-1e27b6e3805f")
+    @objid ("62c76347-8bc3-4755-b2a6-d71cec26d66a")
     public static final Object ROLE = LayoutNodeConnectionsEditPolicy.class.getSimpleName();
 
     /**
@@ -48,7 +48,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
      * Reserve slots for drag policies that must be installed before this one.
      * @param editpart the edit part destined to have this policy.
      */
-    @objid ("6f0b61ac-8483-411b-a2b6-0b243b67a6d9")
+    @objid ("1f073dac-c632-4fba-8365-cecb4bd063c1")
     public  LayoutNodeConnectionsEditPolicy(EditPart editpart) {
         super();
         
@@ -57,7 +57,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("2b1fa8bf-f6fc-43ac-92b5-2f7b26d72300")
+    @objid ("57832663-7d87-433e-8129-ed275492937b")
     @Override
     public void eraseSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -67,7 +67,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("63f6e00d-8998-4d34-8942-70e18f71e03b")
+    @objid ("b210790f-634c-428d-8086-b690469f7b1c")
     @Override
     public Command getCommand(Request request) {
         if (! isHandled(request))
@@ -87,7 +87,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
     /**
      * Show the source drag feedback for the drag occurring within the viewer.
      */
-    @objid ("09896390-74ed-4c91-9cc2-8873fcd970df")
+    @objid ("7a335e36-9cf3-4bf0-8810-84ba34dceee1")
     @Override
     public void showSourceFeedback(Request request) {
         if (! isHandled(request))
@@ -97,7 +97,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("5d912a3f-796c-430a-925b-daf88f1af37d")
+    @objid ("9ded6ed8-6750-4b95-84b2-f6998347208f")
     protected final void forEachConnection(Consumer<EditPart> action) {
         GraphicalEditPart node = (GraphicalEditPart) getHost();
         
@@ -108,7 +108,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
         
     }
 
-    @objid ("036e4fb8-6ed3-4cf7-8018-4151131be0f2")
+    @objid ("639fce74-52d2-4a19-a660-36b8dec9b8e9")
     private boolean isHandled(Request req) {
         Object type = req.getType();
         return REQ_ADD.equals(type) || REQ_MOVE.equals(type) || REQ_RESIZE.equals(type);
@@ -118,7 +118,7 @@ public class LayoutNodeConnectionsEditPolicy extends GraphicalEditPolicy {
      * Reserve slots for drag policies that must be installed before this one.
      * @param editpart the edit part destined to have this policy.
      */
-    @objid ("2efbf6c2-0f52-4a3a-8d9d-210f742a1816")
+    @objid ("4b8a4e25-9406-412f-8318-d82ca9d7c4ac")
     private void reserveNeededSlots(EditPart editpart) {
         final EditPolicy pol = editpart.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
         if (pol == null)

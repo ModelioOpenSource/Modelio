@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modelio" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="5.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Modelio" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="5.3.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -9,11 +9,11 @@
    <launcherArgs>
       <programArgs>-clearPersistedState
       </programArgs>
-      <vmArgs>-Xms512m -Dpython.console.encoding=UTF-8
+      <vmArgs>-Xms1024m -Xmx4096m -Dpython.console.encoding=UTF-8
       </vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.internal.webkitgtk.ignoretlserrors=true
       </vmArgsLin>
-      <vmArgsMac>-Dosgi.requiredJavaVersion=1.8 --add-modules=ALL-SYSTEM -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      <vmArgsMac>-Dosgi.requiredJavaVersion=11 --add-modules=ALL-SYSTEM -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
 
@@ -29,29 +29,28 @@
    </launcher>
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</macos>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</windows>
    </vm>
 
    <plugins>
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rcp"/>
+      <feature id="org.modelio.rcp"/>
+      <feature id="org.modelio.e4.rcp"/>
       <feature id="org.eclipse.emf.common"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.help"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient45.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.feature"/>
       <feature id="org.eclipse.ecf.core.feature"/>
-      <feature id="org.eclipse.e4.rcp"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
       <feature id="org.eclipse.ecf.core.ssl.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
       <feature id="org.eclipse.draw2d"/>
       <feature id="org.eclipse.gef"/>
+      <feature id="org.modelio.jaxb.feature"/>
       <feature id="org.modelio.application.core"/>
       <feature id="org.modelio.application.perspective"/>
       <feature id="org.modelio.application.plugdule"/>
@@ -62,7 +61,6 @@
       <feature id="org.modelio.application.welcome"/>
       <feature id="org.modelio.diagrams.auto"/>
       <feature id="org.modelio.diagrams.core"/>
-      <feature id="org.modelio.documentation.modeler"/>
       <feature id="org.modelio.formalism.bpmn"/>
       <feature id="org.modelio.formalism.uml"/>
       <feature id="org.modelio.functions.admintool"/>
@@ -82,7 +80,7 @@
       <feature id="org.modelio.functions.xmi"/>
       <feature id="org.modelio.platform.feature"/>
       <feature id="org.modelio.platform.libraries"/>
-      <feature id="org.modelio.documentation.modeler.nl_fr.feature"/>
+      <feature id="net.adoptium.temurin.jre.feature" version="11.0.15"/>
       <feature id="org.modelio.functions.modelviewtemplate"/>
    </features>
 
@@ -93,9 +91,9 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <property name="osgi.configuration.area" value="@user.home/.modelio/5.1/opensource-cache/conf" />
+      <property name="osgi.configuration.area" value="@user.home/.modelio/5.3/opensource-cache/conf" />
       <property name="osgi.configuration.cascaded" value="true" />
-      <property name="osgi.instance.area" value="@user.home/.modelio/5.1/opensource-cache/data" />
+      <property name="osgi.instance.area" value="@user.home/.modelio/5.3/opensource-cache/data" />
       <property name="osgi.locking" value="none" />
       <property name="osgi.sharedConfiguration.area" value="file\:configuration/" />
       <property name="osgi.sharedConfiguration.area.readlOnly" value="true" />

@@ -66,7 +66,7 @@ public class PostLayoutCommand extends CompoundCommand {
     /**
      * Request extended parameter key containing a collection of edit parts for which post layout must not be called.
      */
-    @objid ("8a918bfa-4b91-4c62-bfc1-0bae87993314")
+    @objid ("9286975c-60cf-46b4-ad4c-c2ee25d1b9d0")
     public static final Object REQPARAM_NOPOSTLAYOUT = "no post layout for";
 
     /**

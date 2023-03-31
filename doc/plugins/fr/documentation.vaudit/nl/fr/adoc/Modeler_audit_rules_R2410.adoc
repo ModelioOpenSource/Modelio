@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2410]]
 
-[[r2410]]
+
+
 = R2410
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une Opération ne peut pas avoir les stéréotypes 'constructeur' et 'destructeur' à la fois.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les stéréotypes constructeur et destructeur sont exclusifs entre eux : une méthode ne peut pas être à la fois un constructeur et le destructeur de la classe.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez l'un des deux stéréotypes.

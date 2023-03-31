@@ -1,0 +1,9 @@
+
+1. Please, use the following to set a new version :
+   $ mvn org.eclipse.tycho:tycho-versions-plugin:1.7.0:set-version -DnewVersion=5.0.3-SNAPSHOT -Dartifacts=modelio-parent -Dtycho.disableP2Mirrors=true
+
+2. Don't forget to set the modelio.version and newVersion properties in the parent pom.
+
+3. La doc n'utilise pas le même pom parent. => Ne pas oublier de faire la doc 
+    $ cd ../../doc/aggregator/
+    $ mvn org.eclipse.tycho:tycho-versions-plugin:1.7.0:set-version -DnewVersion=5.0.3-SNAPSHOT -Dartifacts=doc-parent -Dtycho.disableP2Mirrors=true

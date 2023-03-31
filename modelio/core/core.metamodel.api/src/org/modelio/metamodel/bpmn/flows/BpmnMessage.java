@@ -42,6 +42,9 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
  * 
  * <p>A Message represents the content of a communication between two Participants. In BPMN 2.0, a Message is a graphical object (it was a supporting element in BPMN 1.2). An ItemDefinition is used to specify the Message structure.</p><p>In a Process that is not used in a Collaboration, the communication is not displayed, but a Message can be defined for Activities that send and receive Messages (such as a Send Task). Note that the display of Messages in a Process, Collaboration, or Choreography is optional.</p><p>Ownership:<br />
  * A message belongs to a collaboration</p>
+ * 
+ * 
+ * 
  */
 @objid ("007be7e2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnMessage extends BpmnSharedElement {
@@ -62,6 +65,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a6422f6c-a66f-4548-b105-3b349917ddd3")
     EList<BpmnOperation> getOutputMessage();
@@ -71,6 +75,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("18f3d041-73c3-432f-a840-6798b408c84d")
     <T extends BpmnOperation> List<T> getOutputMessage(java.lang.Class<T> filterClass);
@@ -80,6 +85,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5e599c8a-a7a6-4793-8cc4-94267c1b2b5e")
     BpmnItemDefinition getItemRef();
@@ -89,6 +95,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9054a8c0-e3e8-4785-9505-eaad0cd74ad3")
     void setItemRef(BpmnItemDefinition value);
@@ -98,6 +105,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1501d1d6-7b2e-49fe-b557-6a9dccd5e6e1")
     EList<BpmnMessageEventDefinition> getEventDefinition();
@@ -107,6 +115,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("8ae3ce2a-acd9-4e16-9c3a-871392f871b4")
     <T extends BpmnMessageEventDefinition> List<T> getEventDefinition(java.lang.Class<T> filterClass);
@@ -116,6 +125,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5c21a2a3-cd82-44f9-b924-4f25b1d0d743")
     EList<BpmnSendTask> getSender();
@@ -125,6 +135,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5bc7efe4-a0df-4156-9169-2f1c94330515")
     <T extends BpmnSendTask> List<T> getSender(java.lang.Class<T> filterClass);
@@ -134,6 +145,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("95f65d39-1baa-4b3b-b109-60a290a8029e")
     EList<BpmnOperation> getInputMessage();
@@ -143,6 +155,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bbf72a8a-05a2-452a-99f1-d0e386ff9323")
     <T extends BpmnOperation> List<T> getInputMessage(java.lang.Class<T> filterClass);
@@ -152,6 +165,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("4161f4b7-13d4-4dac-bf92-6e2fb865d19e")
     EList<BpmnReceiveTask> getReceiver();
@@ -161,6 +175,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("32295d20-b434-48d5-81f3-fa223daa7289")
     <T extends BpmnReceiveTask> List<T> getReceiver(java.lang.Class<T> filterClass);
@@ -170,6 +185,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7e6a8b05-e174-4bb7-b93a-a00743993e0f")
     EList<BpmnMessageFlow> getMessageFlow();
@@ -179,6 +195,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("5d8f4d4b-58ed-4c4f-9f75-6fbd83f0e96d")
     <T extends BpmnMessageFlow> List<T> getMessageFlow(java.lang.Class<T> filterClass);
@@ -188,6 +205,7 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bbcae7c0-21ef-444c-bf90-867ec277ad91")
     BpmnCollaboration getCollaboration();
@@ -197,8 +215,9 @@ public interface BpmnMessage extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("68837ab5-726f-4d6e-b133-6d6030397a0d")
     void setCollaboration(BpmnCollaboration value);
-
 }
+

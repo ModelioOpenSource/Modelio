@@ -44,5 +44,5 @@ public interface IAuditDiagnostic {
 
     @objid ("bad199a9-0953-483a-807c-4f741b6cc9fd")
     void removeAuditListener(IAuditListener listener);
-
 }
+

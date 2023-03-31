@@ -37,6 +37,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * A merging Package will take elements of the same kind with the same name from one or more Packages and merge them together into a single element using Generalization and redefinitions. 
  * 
  * It should be noted that a PackageMerge can be viewed as a short-hand way of explicitly defining those Generalizations and redefinitions. The merged Packages are still available, and the elements in those Packages can be separately qualified.
+ * 
+ * 
+ * 
  */
 @objid ("0016e662-c4bf-1fd8-97fe-001ec947cd2a")
 public interface PackageMerge extends UmlModelElement {
@@ -57,6 +60,7 @@ public interface PackageMerge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Package that is merged with the current Package.</i>
+     * 
      */
     @objid ("6b66d823-79c7-4a53-8eec-0e66b0514052")
     Package getMergedPackage();
@@ -66,6 +70,7 @@ public interface PackageMerge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Package that is merged with the current Package.</i>
+     * 
      */
     @objid ("f476eec0-d544-4250-85b2-83669e74ef1b")
     void setMergedPackage(Package value);
@@ -75,6 +80,7 @@ public interface PackageMerge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("90cdc17f-175b-4424-ae42-9f723acfdeed")
     Package getReceivingPackage();
@@ -84,8 +90,9 @@ public interface PackageMerge extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("751c3528-751f-4eca-a5f9-d63d5a21ba02")
     void setReceivingPackage(Package value);
-
 }
+

@@ -236,7 +236,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
         
     }
 
-    @objid ("cd0a2ca4-cac1-4b67-b1c8-c5065ce5b07c")
+    @objid ("c0cac7e0-77a8-4e88-8b23-c9015a98e47e")
     @Override
     public void refreshFromObModel() {
         //TODO : move this in parent class

@@ -43,17 +43,17 @@ import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolic
  * @author cma
  * @since 5.1.0
  */
-@objid ("b7327f68-8cc6-41ae-9ede-92533494802f")
+@objid ("cadda286-da78-435b-a147-4301fad524a0")
 public class LayoutConnectionsPortContainerPolicyDecorator extends LayoutConnectionsConstrainedLayoutEditPolicyDecorator {
     /**
      * @param decorated the initial layout edit policy.
      */
-    @objid ("fd638bb6-812b-4b09-b776-f960b1720445")
+    @objid ("7df3017c-801b-48e2-9e52-ddddd3dbff5a")
     public  LayoutConnectionsPortContainerPolicyDecorator(PortContainerEditPolicy decorated) {
         super(decorated);
     }
 
-    @objid ("56037c56-a751-40e1-901c-5f70ec265e23")
+    @objid ("8bc93024-609d-45e7-a2f8-b9208da16b64")
     protected void addLayoutAllCommands(CompoundCommand command, Request request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
         .addEditPart(getHost())
@@ -61,25 +61,25 @@ public class LayoutConnectionsPortContainerPolicyDecorator extends LayoutConnect
         
     }
 
-    @objid ("b66009b3-66d2-438b-9eb0-acb337e18ccb")
+    @objid ("fbbe2181-9386-4dfe-8933-716c236c2182")
     @Override
     protected void addAddCommand(CompoundCommand command, Request request) {
         addLayoutAllCommands(command, request);
     }
 
-    @objid ("e4fc142e-b98d-43fc-a251-6d0c2b2b0d6d")
+    @objid ("2d6a9d0b-13c9-4799-991e-0fa35f818eb7")
     @Override
     protected void addCloneCommand(CompoundCommand command, ChangeBoundsRequest request) {
         addLayoutAllCommands(command, request);
     }
 
-    @objid ("16b7eb97-e8fc-446a-a54e-20b6996e657f")
+    @objid ("3beaeb66-07fd-497f-b498-5ab37a5a686f")
     @Override
     protected void addCreateCommand(CompoundCommand command, CreateRequest request) {
         addLayoutAllCommands(command, request);
     }
 
-    @objid ("7224da56-fa87-45e6-80bf-17cf189f3d04")
+    @objid ("a41ecd53-4f6b-49ca-8231-b0672eb81a90")
     @Override
     protected void addDeleteDependantCommand(CompoundCommand command, GroupRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)
@@ -89,13 +89,13 @@ public class LayoutConnectionsPortContainerPolicyDecorator extends LayoutConnect
         
     }
 
-    @objid ("3f4d7eb6-d561-4c0b-a353-10bcfefbd6d5")
+    @objid ("a7d44e2d-9b2a-4344-883e-4970e6a3eddf")
     @Override
     protected void addMoveChildrenCommand(CompoundCommand command, ChangeBoundsRequest request) {
         addLayoutAllCommands(command, request);
     }
 
-    @objid ("b9fb38be-094a-4b0e-9936-e57893107a93")
+    @objid ("7fbb657b-e056-43e6-8ce2-29864bad4189")
     @Override
     protected void addOrphanChildrenCommand(CompoundCommand command, GroupRequest request) {
         LayoutChildrenNodeConnectionsHelper.forRequest(request)

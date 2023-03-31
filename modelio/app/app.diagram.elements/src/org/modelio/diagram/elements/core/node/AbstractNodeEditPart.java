@@ -32,6 +32,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -57,10 +58,13 @@ import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
 import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
 import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 import org.modelio.diagram.elements.core.link.extensions.IGmLocator;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmObject;
+import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultDeleteNodeEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultRefreshFromModelEditPolicy;
@@ -111,6 +115,9 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     @objid ("8090cd09-1dec-11e2-8cad-001ec947c8cc")
     private IDragTrackerProvider dragTrackerProvider;
+
+    @objid ("ace22895-a181-4295-9c27-ef8d2d284272")
+    private INodeAnchorProvider nodeAnchorProvider;
 
     /**
      * Constructor.
@@ -201,6 +208,16 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
                 return obElement;
             }
         }
+        
+        // Support AccessibleAnchorProvider, INodeAnchorProvider and IFixedNodeAnchorProvider
+        INodeAnchorProvider anchorProvider = getNodeAnchorProvider();
+        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
+            if (anchorProvider instanceof IFixedNodeAnchorProvider) {
+                return ((IFixedNodeAnchorProvider) anchorProvider).getAccessibleAnchorProvider(this);
+            }
+        } else if (adapter.isInstance(anchorProvider)) {
+            return anchorProvider;
+        }
         return super.getAdapter(adapter);
     }
 
@@ -211,7 +228,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
     @objid ("70b5762d-fcb2-459d-8651-ee0f1660b428")
     public URL getCustomImageUrl() {
         IModelioEnvService context = getModel().getDiagram().getModelManager().getService(IModelioEnvService.class);
-        ImageSelectionDialog imageSelctionDialog = new ImageSelectionDialog((Display.getCurrent().getActiveShell()), context.getImageLibrary(), context.getImagesCache());
+        ImageSelectionDialog imageSelctionDialog = new ImageSelectionDialog((Display.getCurrent().getActiveShell()), context.getImageLibrary());
         
         if (imageSelctionDialog.open() == IDialogConstants.OK_ID) {
             return imageSelctionDialog.getSelectedItem();
@@ -304,7 +321,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * @see #createPrimaryDragPolicyDecorator(EditPolicy)
      * @since 5.1.0
      */
-    @objid ("e821f0c5-e958-4cd1-9790-5a14fc564ec2")
+    @objid ("7907215c-d4db-47fc-9f03-af42d28f1d9c")
     @Override
     public void installEditPolicy(Object key, EditPolicy editPolicy) {
         if (editPolicy == null) {
@@ -362,7 +379,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * @param req the direct edit request
      * @since 5.1.0
      */
-    @objid ("3831d415-8cdf-4db7-958a-1683c6ff4d40")
+    @objid ("1a55daa2-5a49-4333-8b76-b9f963b68289")
     protected void performDirectEditRequest(Request req) {
         if (req instanceof LocationRequest) {
             // Give the request to the child where the request is located
@@ -546,6 +563,11 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
         // Deletes the graphic model when the model element is deleted.
         installEditPolicy(DefaultRefreshFromModelEditPolicy.ROLE, new DefaultRefreshFromModelEditPolicy());
         
+        INodeAnchorProvider anchorProvider = getNodeAnchorProvider();
+        if (anchorProvider instanceof IFixedNodeAnchorProvider) {
+            installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy((IFixedNodeAnchorProvider) anchorProvider));
+        }
+        
     }
 
     @objid ("80932f72-1dec-11e2-8cad-001ec947c8cc")
@@ -562,9 +584,9 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("0a83a2cc-9ded-428a-90bc-a85fb5e4e61c")
+    @objid ("6f7d4110-edea-4949-8b04-f6c911c0a8e5")
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
-        if (getModel() instanceof GmCompositeNode && layoutPolicy instanceof LayoutEditPolicy) {
+        if (false && getModel() instanceof GmCompositeNode && layoutPolicy instanceof LayoutEditPolicy) {
             return new LayoutConnectionsCompositeNodeLayoutEditPolicyDecorator( (LayoutEditPolicy) layoutPolicy);
         } else {
             return layoutPolicy;
@@ -580,7 +602,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * @return the created policy.
      * @since 5.1.0
      */
-    @objid ("c950131d-522f-4537-9445-f03fa5ebac11")
+    @objid ("a3b9e63f-f027-4d3e-893b-245bcae2842b")
     protected EditPolicy createPrimaryDragPolicyDecorator(EditPolicy dragPolicy) {
         return dragPolicy;
     }
@@ -619,19 +641,6 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
     @Override
     protected List<IGmLink> getModelTargetConnections() {
         return getModel().getEndingLinks();
-    }
-
-    /**
-     * Get the service used to produce connection anchors from ConnectionEditPart of Request.
-     * <p>
-     * Default implementation returns {@link RectangleNodeAnchorProvider}.
-     * May be redefined to use another service.
-     * @return the service used to produce connection anchors from ConnectionEditPart of Request.
-     * @since 5.0.2
-     */
-    @objid ("7128cf30-d618-42f1-abb0-22527bec8ec3")
-    protected INodeAnchorProvider getNodeAnchorProvider() {
-        return RectangleNodeAnchorProvider.get();
     }
 
     /**
@@ -869,6 +878,51 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
         final Point p = aPoint.getCopy();
         fig.translateToRelative(p);
         return fig.containsPoint(p);
+    }
+
+    /**
+     * Get the service used to produce connection anchors from ConnectionEditPart of Request.
+     * <p>
+     * Default implementation returns {@link RectangleNodeAnchorProvider}.
+     * May be redefined to use another service.
+     * <h2>History</h2>
+     * <ul>
+     * <li> 5.0.2 : Default implementation returns {@link RectangleNodeAnchorProvider}.
+     * May be redefined to use another service.
+     * <li> 5.3.1 : Default implementation is now the default fixed anchor provider .
+     * </ul>
+     * @return the service used to produce connection anchors from ConnectionEditPart of Request.
+     * @since 5.0.2
+     */
+    @objid ("57748422-e7f9-4ea4-a941-15767e8d699f")
+    @SuppressWarnings ("unchecked")
+    protected final <T extends INodeAnchorProvider> T getNodeAnchorProvider() {
+        if (this.nodeAnchorProvider == null) {
+            this.nodeAnchorProvider = createAnchorProvider();
+        }
+        return (T)this.nodeAnchorProvider;
+    }
+
+    /**
+     * Create the {@link IFixedNodeAnchorProvider} for this edit part.
+     * @return the created anchor provider.
+     * @since 5.3.1
+     */
+    @objid ("3bb7291f-d8fb-48a0-ad75-657e88ad9906")
+    protected INodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.defaultFor(this);
+    }
+
+    /**
+     * Here just to forbid compilation of sub classes defining this method with wrong signature.
+     * @param figure not used anymore
+     * @deprecated implement {@link #createAnchorProvider()} instead.
+     * @since 5.3.1
+     */
+    @objid ("12827d0d-9e7c-40a4-a4ca-a6437ee86741")
+    @Deprecated
+    protected final IFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
+        throw new UnsupportedOperationException("obsolete method");
     }
 
 }

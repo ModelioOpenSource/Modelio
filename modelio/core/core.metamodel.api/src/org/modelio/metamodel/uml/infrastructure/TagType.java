@@ -35,6 +35,9 @@ import org.modelio.metamodel.mda.ModuleComponent;
  * 
  * 
  * <p>TagTypes are defined in MDA Modeler projects. TagTypes cannot be created using the Java / Jython language. They belong at metalevel, and are not structured at model level.</p>
+ * 
+ * 
+ * 
  */
 @objid ("008f48d2-c4be-1fd8-97fe-001ec947cd2a")
 public interface TagType extends ModelElement {
@@ -58,6 +61,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Number of parameters an occurrence may have.</i>
+     * 
      */
     @objid ("aad2fbee-f412-42dc-83e4-74afe5eade5b")
     String getParamNumber();
@@ -67,6 +71,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Number of parameters an occurrence may have.</i>
+     * 
      */
     @objid ("1a5570f2-cd98-4cde-b1eb-97669b34f285")
     void setParamNumber(String value);
@@ -76,6 +81,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether or not an occurrence (TaggedValue) has a qualifier.</i>
+     * 
      */
     @objid ("f00e8a1b-7e10-438d-bfec-92d127f729d4")
     boolean isIsQualified();
@@ -85,6 +91,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether or not an occurrence (TaggedValue) has a qualifier.</i>
+     * 
      */
     @objid ("0ab5e72a-dca2-4874-862b-903d0a5daf5a")
     void setIsQualified(boolean value);
@@ -94,6 +101,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether or not a TagType occurrence  belongs to the signature. For example, the TagType * that defines a pointer declaration in C++ belongs to the prototype of operations.</i>
+     * 
      */
     @objid ("bf3a5185-6eda-46cc-a924-1658bbcd992a")
     boolean isBelongToPrototype();
@@ -103,6 +111,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>Determines whether or not a TagType occurrence  belongs to the signature. For example, the TagType * that defines a pointer declaration in C++ belongs to the prototype of operations.</i>
+     * 
      */
     @objid ("85d549d7-e4e9-44e1-8bf6-8db4ad17011c")
     void setBelongToPrototype(boolean value);
@@ -113,6 +122,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this tag type will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("3898ddbe-a21f-404f-86fd-7c4cdfb3cf97")
     boolean isIsHidden();
@@ -123,6 +133,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i><p>Indicates whether or not this tag type will be visible for manual addition/suppression by the user.</p>
      * </i>
+     * 
      */
     @objid ("fe602546-27ed-4480-914e-76e6205d2813")
     void setIsHidden(boolean value);
@@ -133,6 +144,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i><p>The tag type label key used to look into module resources for the translated stereotype label.</p>
      * </i>
+     * 
      */
     @objid ("544a5053-baf6-460d-9271-b0a37bd127c0")
     String getLabelKey();
@@ -143,6 +155,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i><p>The tag type label key used to look into module resources for the translated stereotype label.</p>
      * </i>
+     * 
      */
     @objid ("a21a544f-32ab-418d-8122-276a97f3d253")
     void setLabelKey(String value);
@@ -152,6 +165,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08068ac3-de9f-434b-afce-3b24e9235cd8")
     EList<TaggedValue> getTagOccurence();
@@ -161,6 +175,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b8a0e20e-e48b-4cc9-8cea-c2c34eb79d8a")
     <T extends TaggedValue> List<T> getTagOccurence(java.lang.Class<T> filterClass);
@@ -170,6 +185,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ce94ece2-7a12-461a-b987-cbf3570a2c3d")
     Stereotype getOwnerStereotype();
@@ -179,6 +195,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3416bc70-4100-4304-94e3-0d837ad4713a")
     void setOwnerStereotype(Stereotype value);
@@ -188,6 +205,7 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c1620ba2-11e5-40f2-a7c0-42a2b95fe32a")
     MetaclassReference getOwnerReference();
@@ -197,8 +215,9 @@ public interface TagType extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("08051e43-75a6-44aa-b712-2ed2a53fa3b6")
     void setOwnerReference(MetaclassReference value);
-
 }
+

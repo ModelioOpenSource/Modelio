@@ -100,5 +100,5 @@ interface ISymbolPanelModel {
      */
     @objid ("419bfa89-4b12-4b24-8b64-2d7afa08dd66")
     Shell getSwtShell();
-
 }
+

@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.1-SNAPSHOT</version>
+		<relativePath>../../../modelio-parent</relativePath>
+	</parent>
+
+	<artifactId>aggregator-feature-saas</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.core</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.perspective</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.plugdule</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.preferences</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.project</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.services</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.ui</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.application.welcome</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.diagrams.auto</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.diagrams.core</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.documentation.modeler</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.e4.rcp</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.formalism.analyst</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.formalism.archimate</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.formalism.bpmn</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.formalism.uml</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.admintool</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.audit</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.bundlefiles</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.documents</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.editors</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.elementedition</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.expertise</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.fle</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.impact</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.license</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.matrix</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.methodology</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.modelbrowser</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.modelviewtemplate</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.modules</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.patterns</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.refine</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.script</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.search</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.studio</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.svn</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.update</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.workflow</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.functions.xmi</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.platform.feature</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.platform.libraries</module>
+		<module>../../../../features/saas/com.modeliosoft.modelio.saas.rcp</module>
+	</modules>
+</project>

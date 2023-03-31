@@ -152,5 +152,5 @@ public interface IEditedDocumentViewer {
      */
     @objid ("40e44ca5-eb7b-48e2-b15c-fde22cc3743c")
     void setFileManager(IRichNoteFileRepository aFileManager);
-
 }
+

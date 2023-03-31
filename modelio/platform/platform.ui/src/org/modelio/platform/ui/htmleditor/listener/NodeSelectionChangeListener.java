@@ -29,5 +29,5 @@ import org.modelio.platform.ui.htmleditor.events.NodeSelectionEvent;
 public interface NodeSelectionChangeListener {
     @objid ("b5f63a17-fb80-4c1b-bbc3-9571849caec6")
     void selectedNodeChanged(NodeSelectionEvent event);
-
 }
+

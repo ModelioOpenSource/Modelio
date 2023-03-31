@@ -72,8 +72,6 @@ class Metadatas {
 
     /**
      * Add a file to export.
-     * @param deploymentPath
-     * @param fileDate
      * @param fileEntry the entry telling where the file must be deployed.
      * @param archiveFileName the file name in the archive
      */

@@ -110,6 +110,7 @@ public class SharedCursors2 extends SharedCursors {
         ImageData bitmapData = ImageDescriptor.createFromURL(bitmapUrl).getImageData();
         return new Cursor(Display.getCurrent(), bitmapData, hotX, hotY);
     }
+
 static {
     
             CURSOR_REPARENT = createCursor("cursors/reparent.bmp", //$NON-NLS-1$

@@ -45,5 +45,5 @@ public interface IDefaultValuesProvider {
      */
     @objid ("85512467-1926-11e2-92d2-001ec947c8cc")
     Object getDefaultValue(MetaKey metaKey);
-
 }
+

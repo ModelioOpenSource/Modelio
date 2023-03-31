@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2660]]
 
-[[r2660]]
+
+
 = R2660
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A state belonging to a protocol state machine should not have 'entry', 'exit' or 'do' _InternalTransitions_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A protocol state machine specifies which operations of the classifier can be called in which state and under which conditions, thus specifying the authorized call sequences on the classifier's operations. Therefore the state belonging to a protocol state machine should not describe actions.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Delete any _InternalTransitions_ from a state belonging to a protocol state machine.

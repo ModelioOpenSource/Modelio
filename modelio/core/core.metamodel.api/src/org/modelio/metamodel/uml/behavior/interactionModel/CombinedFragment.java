@@ -37,6 +37,9 @@ import org.eclipse.emf.common.util.EList;
  * 
  * Modelio specific:
  * Gates on CombinedFragments are not supported. In order to model the call and return from a CombinedFragment, create messages just before or just after the CombinedFragment.
+ * 
+ * 
+ * 
  */
 @objid ("00435a1c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CombinedFragment extends InteractionFragment {
@@ -57,6 +60,7 @@ public interface CombinedFragment extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Specifies the operation that defines the semantics of this combination of InteractionFragments. The default value is seq.</i>
+     * 
      */
     @objid ("c560afac-05df-4e7e-8935-8fc6803096c8")
     InteractionOperator getOperator();
@@ -66,6 +70,7 @@ public interface CombinedFragment extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Specifies the operation that defines the semantics of this combination of InteractionFragments. The default value is seq.</i>
+     * 
      */
     @objid ("561e6ad8-149c-401b-b81f-4e29b65c5daa")
     void setOperator(InteractionOperator value);
@@ -75,6 +80,7 @@ public interface CombinedFragment extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The set of operands of the combined fragment. </i>
+     * 
      */
     @objid ("75776855-f6a7-463b-a30a-a0cf2734f60c")
     EList<InteractionOperand> getOperand();
@@ -84,6 +90,7 @@ public interface CombinedFragment extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The set of operands of the combined fragment. </i>
+     * 
      */
     @objid ("283270a9-3351-48a7-aaeb-c22966fda63d")
     <T extends InteractionOperand> List<T> getOperand(java.lang.Class<T> filterClass);
@@ -94,6 +101,7 @@ public interface CombinedFragment extends InteractionFragment {
      * Metamodel description:
      * <i>Not supported in sequence diagrams:
      * Specifies the gates that form the interface between this CombinedFragment and its surroundings.</i>
+     * 
      */
     @objid ("d3847ac0-bf74-496b-be85-112c64148fab")
     EList<Gate> getFragmentGate();
@@ -104,8 +112,9 @@ public interface CombinedFragment extends InteractionFragment {
      * Metamodel description:
      * <i>Not supported in sequence diagrams:
      * Specifies the gates that form the interface between this CombinedFragment and its surroundings.</i>
+     * 
      */
     @objid ("bfc58c78-0240-4a4b-b648-f3376e812924")
     <T extends Gate> List<T> getFragmentGate(java.lang.Class<T> filterClass);
-
 }
+

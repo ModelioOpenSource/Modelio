@@ -84,8 +84,7 @@ public class ImportProfileThread extends AbstractXMIThread implements IRunnableW
         try {
         
             revProp.setReportModel(ReportManager.getNewReport());
-            this.progressBar.setLabel(Xmi.I18N
-                    .getString("progressBar.content.import.XMIFileLoading"));
+            this.progressBar.setLabel(Xmi.I18N.getString("progressBar.content.import.XMIFileLoading"));
         
             resource = this.service.getResource(new File(revProp.getFilePath()));
         

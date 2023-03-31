@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.ganttchart.feature"
+      label="Nebula Ganttchart Widget"
+      version="1.0.0.202106201019"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula">
+      Gantt Chart
+   </description>
+
+   <copyright>
+      Copyright (c) 2008-2009 Emil Crumhorn.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.ganttchart"
+         download-size="516"
+         install-size="1504"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.ganttchart.source"
+         download-size="222"
+         install-size="860"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

@@ -37,5 +37,5 @@ public interface IRichNoteDiffMerger {
      */
     @objid ("ffa67f4c-0306-459b-9af5-087748ba947a")
     void diffMerge(final Element element, final Element compareWith);
-
 }
+

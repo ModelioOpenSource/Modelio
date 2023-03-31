@@ -41,7 +41,7 @@ public class ModuleDiagramCustomizer implements IDiagramConfigurer {
     @objid ("63e3145a-5297-4229-9bcf-0f173959430f")
     private final IDiagramCustomizer customizer;
 
-    @objid ("f454ecd0-553b-4929-9150-8760b547f719")
+    @objid ("8b45af23-2c14-4b3a-b99f-640e001b282e")
     private final IDynamicStyler styler;
 
     @objid ("b39d7a70-7474-440e-8c31-a121ee0e9e21")
@@ -73,8 +73,8 @@ public class ModuleDiagramCustomizer implements IDiagramConfigurer {
     }
 
     /* (non-Javadoc)
-                     * @see java.lang.Object#hashCode()
-                     */
+                         * @see java.lang.Object#hashCode()
+                         */
     @objid ("699e44b7-8722-4cac-a125-55b741e7576f")
     @Override
     public int hashCode() {
@@ -86,8 +86,8 @@ public class ModuleDiagramCustomizer implements IDiagramConfigurer {
     }
 
     /* (non-Javadoc)
-                     * @see java.lang.Object#equals(java.lang.Object)
-                     */
+                         * @see java.lang.Object#equals(java.lang.Object)
+                         */
     @objid ("87b9adf4-1e1a-44d5-a8da-32c65e68fb66")
     @Override
     public boolean equals(Object obj) {
@@ -117,7 +117,7 @@ public class ModuleDiagramCustomizer implements IDiagramConfigurer {
         return this.styler;
     }
 
-    @objid ("31d4a549-739d-4dc1-9236-9436878727ee")
+    @objid ("d8fe6fe2-5206-41bf-85fd-dcbf534074c1")
     @Override
     public IDiagramCustomizer getModuleCustomizer() {
         return this.customizer;

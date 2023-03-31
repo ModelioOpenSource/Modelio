@@ -38,5 +38,5 @@ public interface IPostLoadAction {
      */
     @objid ("9d382761-aeda-410a-84c3-32ae3671a5a3")
     void run(EditPartViewer viewer);
-
 }
+

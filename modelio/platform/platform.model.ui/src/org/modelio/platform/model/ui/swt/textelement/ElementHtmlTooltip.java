@@ -27,7 +27,7 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.statik.NameSpace;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("37efae21-81ac-4881-b112-24a8e8dfb216")
@@ -76,7 +76,7 @@ class ElementHtmlTooltip {
                 if ((((ModelElement)element).getExtension()).size() != 0) {
                     builder.append("<tr><td><strong>Stereotype:</strong></td><td>");
                     for (Stereotype stereotype : ((ModelElement)element).getExtension()) {
-                        builder.append(ModuleI18NService.getLabel(stereotype) + "<br/>");
+                        builder.append(MdaResources.getLabel(stereotype) + "<br/>");
                     }
                     builder.append("</td></tr>");
                 }

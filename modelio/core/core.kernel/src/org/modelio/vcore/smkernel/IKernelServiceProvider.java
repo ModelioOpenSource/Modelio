@@ -68,5 +68,5 @@ public interface IKernelServiceProvider {
      */
     @objid ("ef006c4a-2661-4708-9736-b39b6d13f0b5")
     SmMetamodel getMetamodel();
-
 }
+

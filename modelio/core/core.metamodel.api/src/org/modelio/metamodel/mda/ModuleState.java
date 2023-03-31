@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("002aebda-91e1-1f74-804b-001ec947cd2a")
 public enum ModuleState {
@@ -36,6 +38,7 @@ public enum ModuleState {
     SOMODULESTATEDESACTIVATED(0, "SoModuleStateDesactivated", "SoModuleStateDesactivated"),
     @objid ("71895de3-ad62-411e-a1a5-8677b6886a3a")
     SOMODULESTATEACTIVATED(1, "SoModuleStateActivated", "SoModuleStateActivated");
+
 public static final int SOMODULESTATEDESACTIVATED_VALUE = 0;
     public static final int SOMODULESTATEACTIVATED_VALUE = 1;
     private static final ModuleState[] VALUES_ARRAY =

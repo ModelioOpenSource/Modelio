@@ -65,5 +65,5 @@ public interface IXMIService {
      */
     @objid ("c3c622fa-9a80-49d3-b4e4-8975feaeb086")
     void exportXMIProfile(final ExportConfiguration configuration, IProgressMonitor monitor, IMModelServices modelServices, MMetamodel metamodel, IModelioNavigationService mns) throws Exception;
-
 }
+

@@ -32,7 +32,7 @@ import org.modelio.diagram.styles.core.StyleKey.ShowStereotypeMode;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 
 /**
- * An implementation of IDefaulValuesProvider used by FactoryStyle as its ultimate value provider.<br>
+ * An implementation of IDefaulValuesProvider used by FactoryStyle as its ultimate value provider being called at last when all other cascaded styles failed to provide a value.<br>
  * The implementation is based on initialized constants.
  * <p>
  * This implementation must be maintained when MetaKeys set of values is modified !
@@ -81,16 +81,45 @@ public class FactoryStyleDefaults {
     private static final Font DEFAULT_MEDIUMFONT = new Font(Display.getDefault(), "Arial", 10, 0);
 
     /**
-     * Provide a default value for 'sKey'. The default value resolution is based on Metakey matching if sKey has a MetaKey,otherwise
-     * it is based on sKey required type for the value. Note that in this latter case, only a few 'types' support default values
-     * @param sKey @return
+     * Provide a default value for 'sKey'. The default value resolution is :
+     * <ol>
+     * <li>direct resolution by key (the most specific lookup)</li>
+     * <li>metakey matching if sKey has a MetaKey and a default value exists for the metakey</li>
+     * <li>fallback on the key 'type'. Note that in this latter case, only a few specific 'types' can support default values.
+     * </ol>
+     * @return
      */
     @objid ("8551244f-1926-11e2-92d2-001ec947c8cc")
     public static Object getDefaultValue(StyleKey sKey) {
+        Object value = getDefaultValue(sKey.getCategory(), sKey.id);
+        if (value != null)
+            return value;
+        
         if (sKey.getMetakey() != null) {
             return FactoryStyleDefaults.getDefaultValue(sKey.getMetakey());
         } else {
             return FactoryStyleDefaults.getDefaultValue(sKey.getType());
+        }
+        
+    }
+
+    /**
+     * Resolution by category and key.
+     * 
+     * <p>
+     * NOTE:<br/>
+     * We have to use hard coded strings for key category and keyId instead of the defined constants in order to avoid
+     * plugin dependency cycles. For this reason try to avoid this method and prefer Metakey or Type resolution where possible.
+     * </p>
+     * @return
+     */
+    @objid ("7c4aac5e-db57-45c6-b14c-0a4b1c42eaf0")
+    private static Object getDefaultValue(String keyCategory, String keyId) {
+        switch (keyCategory + "." + keyId) {
+        case "Note.NOTE_UML_REPRESENTATION":
+            return Boolean.TRUE;
+        default:
+            return null;
         }
         
     }

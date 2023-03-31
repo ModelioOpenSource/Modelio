@@ -4,10 +4,10 @@ VERSION = 1
 # FONT syntax: name height style
 #     where style: 0=normal 1=bold 2=italic 3=bold+italic
 #
-# LINEPATTERN syntax: 
-#    1=solid, 2=dash 3=dot 4=dashdot 5=dashdotdot 
+# LINEPATTERN syntax:
+#    1=solid, 2=dash 3=dot 4=dashdot 5=dashdotdot
 
-$WHITE = 255 255 255 
+$WHITE = 255 255 255
 $BLACK = 0 0 0
 $DEFAULTFONT = Arial, 9, 0
 
@@ -18,7 +18,7 @@ GRIDSPACING = 5
 ###  Properties for BPMN Diagram elements
 ###
 
-SUBPROCESS_SHOWCONTENT = false
+SUBPROCESS_SHOWCONTENT = true
 SUBPROCESS_FILLCOLOR = 230 230 240
 SUBPROCESS_FILLMODE = GRADIENT
 SUBPROCESS_LINECOLOR = 150 170 210
@@ -57,6 +57,7 @@ INTERMEDIATTHROWEVENT_FONT = Arial, 9, 0
 
 DATA_SHOWLABEL = true
 DATA_SHOWREPRESENTED = true
+DATA_SHOWNAME = true
 DATA_FONT = Arial, 9, 0
 
 BPMNMESSAGE_FONT            = Arial, 9, 0
@@ -122,10 +123,10 @@ DIAGRAM_GRIDCOLOR             = 192 192 192
 DIAGRAM_GRIDALPHA             = 128
 DIAGRAM_SNAPTOGRID            = true
 DIAGRAM_SHOW_PAGES            = false
-DIAGRAM_FILLIMAGE             = 
-DIAGRAM_FILLCOLOR             = 255 255 255 
+DIAGRAM_FILLIMAGE             =
+DIAGRAM_FILLCOLOR             = 255 255 255
 DIAGRAM_FILLALPHA             = 255
-DIAGRAM_PAGE_SIZE             = A4V 
+DIAGRAM_PAGE_SIZE             = A4V
 DIAGRAM_SNAPTOGEOMETRY        = true
 DIAGRAM_SHOW_SMARTLINK_HANDLE = true
 DIAGRAM_HORIZONTAL_LANES      = true

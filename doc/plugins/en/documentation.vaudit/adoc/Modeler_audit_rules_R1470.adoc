@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1470]]
 
-[[r1470]]
+
+
 = R1470
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The name of a qualifier must be unique among all _AssociationEnd_ qualifiers.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Having multiple qualifiers with the same name can be confusing.
 
 Furthermore it is not supported by most programming languages when generating code from the model.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Give a unique name to each qualifier of your association role.

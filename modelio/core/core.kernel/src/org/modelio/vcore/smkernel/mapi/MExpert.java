@@ -145,5 +145,5 @@ public interface MExpert {
      */
     @objid ("c607b1e6-3847-4d51-96e9-1553291109e5")
     void setTarget(MObject link, MObject oldTarget, MObject newTarget) throws IllegalArgumentException;
-
 }
+

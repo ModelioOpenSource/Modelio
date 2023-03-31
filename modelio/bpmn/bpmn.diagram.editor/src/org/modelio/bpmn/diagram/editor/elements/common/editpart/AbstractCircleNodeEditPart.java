@@ -21,9 +21,8 @@ package org.modelio.bpmn.diagram.editor.elements.common.editpart;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.EllipseAnchor;
-import org.eclipse.draw2d.IFigure;
-import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
-import org.modelio.diagram.elements.core.link.anchors.fixed.EllipseFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.DefaultFixedAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFixedNodeAnchorProvider;
 
 /**
  * Base edit part for circle BPMN nodes for which we want only 4 anchors for cardinal directions,
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.link.anchors.fixed.EllipseFixedNodeAnch
 public class AbstractCircleNodeEditPart extends AbstractBpmnSmallNodeEditPart {
     @objid ("40b1d24c-7670-4e6a-9481-4c04a8ae194c")
     @Override
-    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
-        return new EllipseFixedNodeAnchorProvider();
+    protected IFixedNodeAnchorProvider createAnchorProvider() {
+        return DefaultFixedAnchorProvider.ellipseFor(this);
     }
 
 }

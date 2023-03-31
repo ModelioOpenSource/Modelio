@@ -19,6 +19,7 @@
  */
 package org.modelio.vbasic.net;
 
+import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,7 +35,6 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.config.RequestConfig.Builder;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
@@ -51,11 +51,11 @@ public class ApacheUriConnection extends UriConnection {
     @objid ("6a0187ad-4705-4542-b9a9-62c4905b67aa")
     private boolean dooutput;
 
-    @objid ("a5281e74-0c89-492a-87b7-83a0eb22c299")
-    private CloseableHttpResponse res;
-
     @objid ("d7bd2f5b-6589-4747-8ec6-9cc506dcaca6")
     private int timeout;
+
+    @objid ("a5281e74-0c89-492a-87b7-83a0eb22c299")
+    private HttpResponse res;
 
     @objid ("dd1f5d11-eb65-4998-8263-9e56adc8ef00")
     private IAuthData auth;
@@ -129,7 +129,18 @@ public class ApacheUriConnection extends UriConnection {
         
         HttpPut pr = (HttpPut) getRequest();
         pr.setEntity(entity);
-        return outPipe;
+        
+        FilterOutputStream filterOutputStream = new FilterOutputStream(outPipe) {
+            @Override
+            public void close() throws IOException {
+                try {
+                    snk.close();
+                } finally {
+                    super.close();
+                }
+            }
+        };
+        return filterOutputStream;
     }
 
     @objid ("1726b583-3997-4662-b8e0-fc673b2c07dd")
@@ -144,6 +155,17 @@ public class ApacheUriConnection extends UriConnection {
             }
         } catch (IOException e) {
             throw new IllegalStateException(e);
+        }
+        
+    }
+
+    @objid ("67ec1f0b-a806-46fa-af26-4cf121333975")
+    public long getContentLength() throws IOException {
+        Header firstHeader = getResponse().getFirstHeader(HttpHeaders.CONTENT_LENGTH);
+        if (firstHeader == null) {
+            return -1;
+        } else {
+            return Long.parseLong(firstHeader.getValue());
         }
         
     }

@@ -31,6 +31,7 @@ import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.MApplicationElement;
 import org.eclipse.e4.ui.model.application.descriptor.basic.MPartDescriptor;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
+import org.eclipse.e4.ui.model.application.ui.advanced.impl.PlaceholderImpl;
 import org.eclipse.e4.ui.model.fragment.MModelFragment;
 import org.eclipse.e4.ui.model.fragment.MModelFragments;
 import org.eclipse.e4.ui.model.fragment.impl.FragmentPackageImpl;
@@ -77,8 +78,7 @@ public final class E4XmiLoader {
      * Imports won't be resolved.
      * @param application the Eclipse 4 application model.
      * @param e4ModelURI the E4XMI file URI.
-     * @param contributorURI the contributor plugin URI.
-     * The URI must have the "platform:/plugin/your.plugin.id" format, with no trailing '/'.
+     * @param contributorURI the contributor plugin URI. The URI must have the "platform:/plugin/your.plugin.id" format, with no trailing '/'.
      * @return the loaded application elements.
      */
     @objid ("cd37f50a-4b6a-4610-a66d-3f7ca5459012")
@@ -159,8 +159,7 @@ public final class E4XmiLoader {
 
     /**
      * Remove all E4 elements that belong to the given Eclipse bundle.
-     * @param application the application model to clean.
-     * *
+     * @param application the application model to clean. *
      * @param e4ModelPath the .e4xmi file path relative to the plugin.
      * @param contributorPlugin an Eclipse plugin.
      */
@@ -250,7 +249,7 @@ public final class E4XmiLoader {
         
                     if (feature.isMany()) {
                         CoreRcp.LOG.error("Replacing"); //$NON-NLS-1$
-                        @SuppressWarnings("unchecked")
+                        @SuppressWarnings ("unchecked")
                         final List<Object> l = (List<Object>) target.eGet(feature);
                         final int index = l.indexOf(importObject);
                         if (index >= 0) {
@@ -267,8 +266,7 @@ public final class E4XmiLoader {
 
     /**
      * Remove all E4 elements that belong to the given Eclipse bundle.
-     * @param application the application model to clean.
-     * *
+     * @param application the application model to clean. *
      * @param e4ModelPath the .e4xmi file path relative to the plugin.
      * @param contributorPlugin an Eclipse plugin.
      */
@@ -295,7 +293,17 @@ public final class E4XmiLoader {
         
             if (child instanceof MUIElement) {
                 final MUIElement c = (MUIElement) child;
-                if (contributorURI.equals(c.getContributorURI())) {
+        
+                /**
+                 * For Placolder, check contained Part
+                 */
+                if(c instanceof PlaceholderImpl) {
+                    PlaceholderImpl pls = (PlaceholderImpl) c;
+                    if(pls.getRef()  != null && pls.getRef().getContributorURI() != null && pls.getRef().getContributorURI().equals(contributorURI)) {
+                        c.setVisible(value);
+                        it.prune();
+                    }
+                }else if (contributorURI.equals(c.getContributorURI())) {
                     // Ignore elements belonging to an MPartDescriptor to avoid ClassCastExceptions in e4 renderers
                     if (!(((EObject) c).eContainer() instanceof MPartDescriptor)) {
                         c.setVisible(value);

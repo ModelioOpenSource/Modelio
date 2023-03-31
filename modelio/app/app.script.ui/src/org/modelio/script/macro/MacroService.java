@@ -35,7 +35,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.ModelioEnv;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
@@ -83,12 +83,12 @@ public class MacroService implements IMacroService {
     @objid ("33adeb7e-96fa-46dd-ab8d-2e4fb15ca60b")
     @Inject
     @Optional
-    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project) {
+    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject project) {
         if (project != null) {
             MMetamodel metamodel = project.getSession().getMetamodel();
             this.projectCatalog = new Catalog(
                     project.getName(),
-                    project.getProjectFileStructure().getProjectDataConfigPath().resolve(MacroService.MACROS_SUBDIR),
+                    project.getPfs().getProjectDataConfigPath().resolve(MacroService.MACROS_SUBDIR),
                     false, metamodel);
             this.workspaceCatalog.setMetamodel(metamodel);
         }
@@ -99,7 +99,7 @@ public class MacroService implements IMacroService {
     @Inject
     @Optional
     void onProjectClosed(@SuppressWarnings ("unused")
-    @EventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    @EventTopic (ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         this.projectCatalog = null;
         this.workspaceCatalog.setMetamodel(null);
         

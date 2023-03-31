@@ -30,7 +30,7 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
  * @since 3.6
  */
 @objid ("002764bc-dc8e-4fae-9b11-b240fde6eb8d")
-public class BuildCompatibleMigrationProvider implements IMigrationProvider {
+public class BuildCompatibleMigrationProvider implements IMofRepositoryMigratorProvider {
     /**
      * Returns a {@link NoopMofRepositoryMigrator} if the target metamodel is build compatible
      * with the source metamodel. returns null in all other cases.

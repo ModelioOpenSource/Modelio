@@ -59,7 +59,6 @@ import org.modelio.audit.view.model.AuditRuleModel;
 import org.modelio.audit.view.model.AuditTypeModel;
 import org.modelio.audit.view.providers.AuditProviderFactory;
 import org.modelio.audit.view.providers.AuditProviderFactory.AuditViewMode;
-import org.modelio.audit.view.statusbar.StatusBar;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.ui.panel.IPanelProvider;
@@ -71,26 +70,26 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     @objid ("7fb2c34e-5b76-46ab-916e-27f53c94a904")
     volatile boolean redrawScheduled = false;
 
+    @objid ("b40e7069-684c-4b6c-8730-a71c4e307f28")
+    private static final String ALL_JOBS = "";
+
+    @objid ("0301313f-8345-4a1a-bab7-5eb284d70141")
+    private String jobId;
+
     @objid ("2d0198fb-6e14-4171-9f6b-ab2fcdfe711f")
     private MApplication application;
 
     @objid ("6da009ba-0c4c-4441-b07f-a6e469bdcc34")
     private EModelService emService;
 
-    @objid ("b40e7069-684c-4b6c-8730-a71c4e307f28")
-    private static final String ALL_JOBS = "";
-
-    @objid ("c5ac634c-da10-416a-8825-3342500390f8")
+    @objid ("5cd2be7d-c10a-493c-ae38-5d4e2ca675a2")
     private Composite area;
 
-    @objid ("1f9b28c8-2fc9-4087-90f2-72789e1a5ce0")
+    @objid ("daf0f8f7-40b8-40c9-8113-d2305260f685")
     TreeViewer auditTable = null;
 
-    @objid ("a10bd229-2bc4-40ae-a060-d9811c12af3a")
+    @objid ("8076aa88-a1d2-44a9-ab1d-0b26507d25f9")
     private List<TreeViewerColumn> columns;
-
-    @objid ("0301313f-8345-4a1a-bab7-5eb284d70141")
-    private String jobId;
 
     @objid ("fa78603f-c9fc-4e62-918b-b9493b9b4440")
     ICoreSession modelingSession;
@@ -101,9 +100,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     @objid ("4ed02965-590a-4f7d-b729-9b96161950ca")
     private AuditDiagnostic auditDiagnostic;
 
-    @objid ("458d715e-45aa-4969-899a-c2eb271ff9af")
-    StatusBar auditStatus;
-
+    //StatusBar auditStatus;
     @objid ("9411252a-40e4-4cc5-bf5a-9caecdc79a7a")
     public IModelioNavigationService navigationService;
 
@@ -142,22 +139,22 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         this.area.setLayout(layout);
         
         this.auditTable = createAuditTable(this.area);
-        this.auditStatus = createAuditStatus(this.area);
+        //this.auditStatus = createAuditStatus(this.area);
         
         // attachments for audit table
         final FormData fd = new FormData();
         fd.left = new FormAttachment(0, 0);
         fd.right = new FormAttachment(100, 0);
         fd.top = new FormAttachment(0, 0);
-        fd.bottom = new FormAttachment(this.auditStatus.getComposite(), 0);
+        fd.bottom = new FormAttachment(100/*this.auditStatus.getComposite()*/, 0);
         this.auditTable.getTree().setLayoutData(fd);
         
         // attachments for audit status
-        final FormData fd2 = new FormData();
-        fd2.left = new FormAttachment(0, 0);
-        fd2.right = new FormAttachment(100, 0);
-        fd2.bottom = new FormAttachment(100, 0);
-        this.auditStatus.getComposite().setLayoutData(fd2);
+        //        final FormData fd2 = new FormData();
+        //        fd2.left = new FormAttachment(0, 0);
+        //        fd2.right = new FormAttachment(100, 0);
+        //        fd2.bottom = new FormAttachment(100, 0);
+        //        this.auditStatus.getComposite().setLayoutData(fd2);
         return this.area;
     }
 
@@ -251,7 +248,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 @Override
                 public void run() {
                     if (!lAuditTable.getTree().isDisposed()) {
-                        AuditPanelProvider.this.auditStatus.doRefreshStatus(status, queueSize);
+                        //AuditPanelProvider.this.auditStatus.doRefreshStatus(status, queueSize);
                     }
                 }
             });
@@ -270,7 +267,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                     public void run() {
                         if (!lAuditTable.getTree().isDisposed()) {
                             lAuditTable.refresh();
-                            AuditPanelProvider.this.auditStatus.doRefreshDiagnostic(diagnostic, AuditPanelProvider.this.getScopeLabel());
+                            //AuditPanelProvider.this.auditStatus.doRefreshDiagnostic(diagnostic, AuditPanelProvider.this.getScopeLabel());
                         }
                         AuditPanelProvider.this.redrawScheduled = false;
                     }
@@ -321,12 +318,10 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         return newTree;
     }
 
-    @objid ("ce2da079-ce32-40ce-93ec-45ed4a4b6d12")
-    private StatusBar createAuditStatus(Composite parent) {
-        final StatusBar statusBar = new StatusBar(parent, SWT.NONE);
-        return statusBar;
-    }
-
+    //    private StatusBar createAuditStatus(Composite parent) {
+    //        final StatusBar statusBar = new StatusBar(parent, SWT.NONE);
+    //        return statusBar;
+    //    }
     @objid ("0f3aef86-074c-4648-875f-8e86a3e643c8")
     private TreeViewerColumn createTreeViewerColumn(TreeViewer parent, String title, int bound) {
         final TreeViewerColumn column = new TreeViewerColumn(parent, SWT.DEFAULT);
@@ -383,9 +378,6 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         
     }
 
-    /*
-         * Re-configure the table columns, content and label providers
-         */
     @objid ("b9c7f5b7-4396-4ede-b74d-7fa2e190c814")
     private void reconfigure() {
         this.auditTable.setContentProvider(getProviderFactory().getContentProvider());

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2400]]
 
-[[r2400]]
+
+
 = R2400
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A destructor cannot have parameters.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A destructor is a method that destroys the _Classifier_ it belongs to, and does not need any parameters.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove these parameters, or remove the 'destructor' stereotype from the method.

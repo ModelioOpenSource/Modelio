@@ -35,7 +35,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.conf.dialog.ProjectConfigurationDialog;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
@@ -54,7 +54,7 @@ public class OpenProjectConfiguratorHandler {
     @Named ("folder") final String folder, IModelioProgressService progressService, StatusReporter statusReporter) {
         AppProjectConf.LOG.info("Opening project configurator");
         
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         ProjectConfigurationDialog dialog = new ProjectConfigurationDialog(application, openedProject, shell);
         if (folder != null) {
             try {

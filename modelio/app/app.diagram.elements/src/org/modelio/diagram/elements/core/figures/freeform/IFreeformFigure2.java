@@ -46,5 +46,5 @@ public interface IFreeformFigure2 extends FreeformFigure {
      */
     @objid ("cad7beb4-7ecb-4ce2-b1ac-3160cd31e73b")
     IExtentFilter getExtentFilter();
-
 }
+

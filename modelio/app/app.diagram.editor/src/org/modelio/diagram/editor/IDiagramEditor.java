@@ -51,5 +51,5 @@ public interface IDiagramEditor extends IAdaptable {
      */
     @objid ("6664e8a2-33f7-11e2-95fe-001ec947c8cc")
     DiagramEditorInput getEditorInput();
-
 }
+

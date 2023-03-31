@@ -51,5 +51,5 @@ public interface IUriConnectionFactory {
      */
     @objid ("2e31e97f-78bc-413b-92ea-baa72755ecda")
     UriConnection createConnection(URI uri) throws IOException;
-
 }
+

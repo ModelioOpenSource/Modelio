@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Developing-remote-libraries]]
 
-[[developing-remote-libraries]]
+
+
 = Developing remote libraries
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The development of a remote library is the first phase in the remote library life cycle, during which a remote library is prepared by a developer for packaging.
@@ -22,9 +22,9 @@ Remote library development includes the following operations:
 
 This section presents how to create and define a remote library.
 
-[[Creating-a-remote-library]]
 
-[[creating-a-remote-library]]
+
+
 ===== Creating a remote library
 
 The first step in the development of a remote library is its creation inside a UML model.
@@ -37,23 +37,23 @@ To create a remote library, follow the steps shown below.
 4.  From the '.runtime\fragments\P1' directory, copy the '.index' directory into 'fragModelio' directory.
 5.  In 'fragModelio' directory, rename 'admin/stamp.dat' into 'admin/stamp.conf'.
 
-[[Defining-model-parts-to-be-included-in-a-remote-library]]
 
-[[defining-model-parts-to-be-included-in-a-remote-library]]
+
+
 ===== Defining model parts to be included in a remote library
 
 Model elements to be included in a remote library are referenced using manifestation links. These elements will be available for use in projects where the remote library is deployed. Only high-level packages (packages located under the project root) can be referenced by a remote library through a manifestation link. However, all the elements they contain will also be packaged in the remote library.
 
-[[Modeling-dependencies-between-remote-libraries]]
 
-[[modeling-dependencies-between-remote-libraries]]
+
+
 ===== Modeling dependencies between remote libraries
 
 If your remote library is dependent on another remote library, this fact must be modeled through a use link.
 
-[[Defining-external-files-to-be-included-in-a-remote-library]]
 
-[[defining-external-files-to-be-included-in-a-remote-library]]
+
+
 ===== Defining external files to be included in a remote library
 
 External files can also be included in a remote library. This is useful when you want your remote library to install specific files like libraries, jar files or resource files when it's deployed.

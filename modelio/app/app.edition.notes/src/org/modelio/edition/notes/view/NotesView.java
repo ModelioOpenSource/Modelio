@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.edition.notes.panelprovider.NotesPanelProvider;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.activation.IActivationService;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
@@ -52,8 +52,8 @@ import org.modelio.vcore.session.api.model.change.IStatusChangeListener;
  * NotesView only manages the view life cycle:
  * <ul>
  * <li>creation of the GUI => {@link NotesView#createControls(IProjectService, Composite, IStructuredSelection, EMenuService, IEclipseContext)}</li>
- * <li>project opening => {@link NotesView#onProjectOpened(GProject, IActivationService, IStructuredSelection)}</li>
- * <li>project closing => {@link NotesView#onProjectClosing(GProject)}</li>
+ * <li>project opening => {@link NotesView#onProjectOpened(IGProject, IActivationService, IStructuredSelection)}</li>
+ * <li>project closing => {@link NotesView#onProjectClosing(IGProject)}</li>
  * <li>application selection changes => {@link NotesView#onSelectionChange(IStructuredSelection)}</li>
  * </ul>
  * <p>
@@ -77,18 +77,18 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     private static final String POPUPID = "org.modelio.edition.notes.popupmenu";
 
     /**
+     * Instance counter for debugging ?
+     */
+    @objid ("986c4e1c-bed2-414d-bf90-89376048edba")
+    public static int nbinstances = 0;
+
+    /**
      * Use a static context to avoid initialization issues...
      */
     @objid ("9543d492-9864-465d-91ca-2881869a4703")
     @Optional
     @Inject
     public static EContextService contextService;
-
-    /**
-     * Instance counter for debugging ?
-     */
-    @objid ("986c4e1c-bed2-414d-bf90-89376048edba")
-    public static int nbinstances = 0;
 
     @objid ("a4ecfa86-487d-47af-9197-b800f3a97d96")
     NotesPanelProvider panel;
@@ -170,7 +170,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     @objid ("d7a0aaf0-1a32-4e94-89bd-86c0d3391e57")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional final IActivationService activationService, @Optional
+    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, @Optional final IActivationService activationService, @Optional
     @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         if (openedProject == null) {
             return;
@@ -194,7 +194,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     @Inject
     @SuppressWarnings("unused")
     @Optional
-    void onProjectClosing(@UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject closedProject) {
+    void onProjectClosing(@UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final IGProject closedProject) {
         final NotesPanelProvider lpanel = NotesView.this.panel;
         Display.getDefault().asyncExec(new Runnable() {
             @Override
@@ -233,11 +233,11 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     }
 
     /*
-         * Called when the model is modified (element status modification) (non-Javadoc)
-         * @see
-         * org.modelio.vcore.session.api.model.change.IStatusChangeListener#statusChanged(org.modelio.vcore.session.api.model.change
-         * .IStatusChangeEvent)
-         */
+             * Called when the model is modified (element status modification) (non-Javadoc)
+             * @see
+             * org.modelio.vcore.session.api.model.change.IStatusChangeListener#statusChanged(org.modelio.vcore.session.api.model.change
+             * .IStatusChangeEvent)
+             */
     @objid ("a1db0319-7627-4d95-827e-f8ca43551ddb")
     @Override
     public void statusChanged(IStatusChangeEvent event) {
@@ -245,10 +245,10 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     }
 
     /*
-         * Called when the model is modified (element modification) (non-Javadoc)
-         * @see org.modelio.vcore.session.api.model.change.IModelChangeListener#modelChanged(org.modelio.vcore.session.api.model.change.
-         * IModelChangeEvent)
-         */
+             * Called when the model is modified (element modification) (non-Javadoc)
+             * @see org.modelio.vcore.session.api.model.change.IModelChangeListener#modelChanged(org.modelio.vcore.session.api.model.change.
+             * IModelChangeEvent)
+             */
     @objid ("1a43b2b7-5396-4ebd-97e4-0d1ffdc4b37d")
     @Override
     public void modelChanged(IModelChangeEvent event) {
@@ -262,7 +262,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     @objid ("e3d6e9c3-ff4c-472d-a0a2-7ea4fd199c75")
     @PreDestroy
     public void onDispose(IProjectService projectService) {
-        GProject openedProject = projectService.getOpenedProject();
+        IGProject openedProject = projectService.getOpenedProject();
         if (openedProject != null) {
             final IModelChangeSupport mcs = openedProject.getSession().getModelChangeSupport();
             mcs.removeModelChangeListener(this);

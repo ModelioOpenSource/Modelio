@@ -92,6 +92,7 @@ public class VerticalSegmentMoveHandle extends ConnectionHandle {
         super.validate();
         
     }
+
 {
             setCursor(Cursors.SIZEWE);
         }

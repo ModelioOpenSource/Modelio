@@ -23,7 +23,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.core.modelshield.IErrorReportListener;
 import org.modelio.core.modelshield.ModelShield;
 import org.modelio.core.modelshield.engine.CoreProtectionAgent;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.modelshield.api.IErrorReport;
@@ -39,7 +39,7 @@ public class ModelShieldController {
      * @param openedProject the opened project
      */
     @objid ("82488fee-1dd5-11e2-82de-002564c97630")
-    public static void onProjectOpening(final GProject openedProject) {
+    public static void onProjectOpening(final IGProject openedProject) {
         ICoreSession coreSession = openedProject.getSession();
         
         // Create the core agent
@@ -65,7 +65,7 @@ public class ModelShieldController {
      * @param closedProject the closed project
      */
     @objid ("82488ff4-1dd5-11e2-82de-002564c97630")
-    public static void onProjectClosing(final GProject closedProject) {
+    public static void onProjectClosing(final IGProject closedProject) {
         ICoreSession session = closedProject.getSession();
         if (session != null) {
             session.getTransactionSupport().setTransactionValidator(null);

@@ -38,5 +38,5 @@ public interface IRepositoryRootGetterService extends IRepositoryRootGetter {
      */
     @objid ("1d41e838-3cfc-44c9-9782-d40ae9154157")
     MetamodelExtensionPoint<IRepositoryRootGetter> getMetamodelExtensionPoint();
-
 }
+

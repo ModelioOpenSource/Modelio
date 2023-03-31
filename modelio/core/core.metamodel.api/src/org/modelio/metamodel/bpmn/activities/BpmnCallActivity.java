@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>A Call Activity identifies a point in the Process where a global Process or a Global Task is used. The Call Activity acts as a &quot;wrapper&quot;&nbsp;for the invocation of a global Process or Global Task within the execution. The activation of a call Activity results in the transfer of control to the called global Process or Global Task.</p>
+ * 
+ * 
+ * 
  */
 @objid ("007f01c0-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnCallActivity extends BpmnActivity {
@@ -52,6 +55,7 @@ public interface BpmnCallActivity extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ca351e75-0198-4d4f-8d23-a9b172121edc")
     BpmnTask getCalledGlobalTask();
@@ -61,8 +65,9 @@ public interface BpmnCallActivity extends BpmnActivity {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ac294e14-1aa3-4064-929f-fd37039d8c6a")
     void setCalledGlobalTask(BpmnTask value);
-
 }
+

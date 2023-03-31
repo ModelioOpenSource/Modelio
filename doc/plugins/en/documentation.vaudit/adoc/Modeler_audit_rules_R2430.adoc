@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2430]]
 
-[[r2430]]
+
+
 = R2430
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 All an _Operation_'s _StateMachines_ must have a different name.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 All _StateMachines_ in an Operation must have a different name in order to distinguish them.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Rename them so they each have a unique name.

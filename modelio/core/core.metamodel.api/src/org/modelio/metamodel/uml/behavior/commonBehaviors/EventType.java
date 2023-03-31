@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0086d06c-91e0-1f74-804b-001ec947cd2a")
 public enum EventType {
@@ -40,6 +42,7 @@ public enum EventType {
     TIMEEVENT(2, "TimeEvent", "TimeEvent"),
     @objid ("c6304a4b-6dd7-422d-864f-02a9cd5d0847")
     CHANGEEVENT(3, "ChangeEvent", "ChangeEvent");
+
 public static final int SIGNALEVENT_VALUE = 0;
     public static final int CALLEVENT_VALUE = 1;
     public static final int TIMEEVENT_VALUE = 2;

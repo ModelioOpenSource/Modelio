@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2850]]
 
-[[r2850]]
+
+
 = R2850
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un élément ne peut pas avoir un lien _Dependency_ de type «usage» vers lui-même.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Une _Dependency_ de type «usage» sert à indiquer qu'un élément utilise un autre élément, et donc un élément qui s'utilise lui-même n'a pas de sens.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un élément qui s'utilise lui-même, vous devriez supprimer le lien ou changez sa destination.

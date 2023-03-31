@@ -53,6 +53,7 @@ public class SaveAsImageHandler {
 
     @objid ("1b477747-5e33-11e2-b81d-002564c97630")
     static int initialFilterIndex = 0; // PNG
+    
 
     @objid ("1b477749-5e33-11e2-b81d-002564c97630")
     @Execute

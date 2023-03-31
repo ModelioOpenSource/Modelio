@@ -84,13 +84,33 @@ public class GmFixedAnchor implements IPersistent {
         this.totalOnFace = value;
     }
 
+    /**
+     * the {@link org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator IFixedAnchorLocator} implementation ID.
+     */
+    
+    @mdl.prop
+    @objid ("0f72a073-d82c-414e-ab96-66ad36524dca")
+    private String locator;
+
+    @mdl.propgetter
+    public String getLocator() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.locator;
+    }
+
+    @mdl.propsetter
+    public void setLocator(String value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.locator = value;
+    }
+
     @objid ("b5f3558f-febf-4610-b35d-51a866e9d8d1")
     @Override
     public void read(IDiagramReader in) {
-        // TODO : temporary ascendant compat, to be removed before 5.0.02 release
         this.face = (int) in.readProperty("face");
         this.rank = (int) in.readProperty("rank");
         this.totalOnFace = (int) in.readProperty("total");
+        this.locator = (String) in.readProperty("locator");
         
     }
 
@@ -100,6 +120,7 @@ public class GmFixedAnchor implements IPersistent {
         out.writeProperty("face", this.face);
         out.writeProperty("rank", this.rank);
         out.writeProperty("total", this.totalOnFace);
+        out.writeProperty("locator", this.locator);
         
     }
 
@@ -111,15 +132,17 @@ public class GmFixedAnchor implements IPersistent {
 
     /**
      * Constructor.
+     * @param locator the {@link org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator IFixedAnchorLocator} implementation ID.
      * @param face the face number
      * @param rank the anchor number on the face
      * @param totalOnFace the number of possible anchors on the face
      */
     @objid ("ce360404-c1e5-48ed-aa1d-445919cd60b9")
-    public  GmFixedAnchor(final int face, final int rank, final int totalOnFace) {
+    public  GmFixedAnchor(final String locator, final int face, final int rank, final int totalOnFace) {
         this.face = face;
         this.rank = rank;
         this.totalOnFace = totalOnFace;
+        this.locator = locator;
         
     }
 
@@ -134,13 +157,13 @@ public class GmFixedAnchor implements IPersistent {
         return MAJOR_VERSION;
     }
 
-    @objid ("ac1baa84-8463-416e-a120-9db792286999")
+    @objid ("4e4fbec6-373f-4e54-8dcc-895412f3dfe7")
     @Override
     public String toString() {
         return String.format("%s [face=%s, rank=%d / %d]", getClass().getSimpleName(), this.face, this.rank, this.totalOnFace);
     }
 
-    @objid ("d17712c0-dc5c-4896-9af0-63218327242e")
+    @objid ("e8c019c3-8341-4b4d-8272-e2665dca00ec")
     @Override
     public boolean equals(Object obj) {
         // Automatically generated method.Please delete this comment before entering specific code.
@@ -153,10 +176,9 @@ public class GmFixedAnchor implements IPersistent {
         if (this.rank != other.rank) return false;
         if (this.totalOnFace != other.totalOnFace) return false;
         return true;
-        
     }
 
-    @objid ("0003955d-4104-4f12-83bf-943903ff5b72")
+    @objid ("79c0e9d8-0d94-498b-9aa4-a8293aceeb1d")
     @Override
     public int hashCode() {
         // Automatically generated method.Please delete this comment before entering specific code.

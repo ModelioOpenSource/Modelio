@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1230]]
 
-[[r1230]]
+
+
 = R1230
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _InitialNode_ ne peut avoir que des _ControlFlow_ comme flux sortants.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _InitialNode_ est le point de départ d'une activité et un jeton de contrôle est placé sur ce nœud lorsque l'activité démarre.
 
-[[Astuces]]
 
-[[astuces]]
+
+
 ===== Astuces
 
 Si vous avez un avertissement concernant la règle R1230 sur un _InitialNode_, vérifiez que tous les liens sortants sont bien des _ControlFlow_.

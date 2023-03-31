@@ -39,7 +39,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.app.project.ui.views.urls.UrlEntry;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 
 /**
  * This view displays information about the project currently selected in the
@@ -112,7 +112,7 @@ public class ProjectInfosView {
     }
 
     /**
-     * Workspace tree selection always comes as ProjectDescriptor.
+     * Workspace tree selection always comes as GProjectDescriptor.
      * @param selection the project selected in the workspace browser
      */
     @objid ("deac0c58-836a-4407-907c-ec280e6bbbd3")
@@ -121,7 +121,7 @@ public class ProjectInfosView {
     public void onSelectionChanged(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         this.projectAdapter = null;
         if (selection != null) {
-            List<ProjectDescriptor> projectDescriptors = getSelectedElements(selection);
+            List<GProjectDescriptor> projectDescriptors = getSelectedElements(selection);
             if (projectDescriptors.size() == 1) {
                 this.projectAdapter = new ProjectAdapter(projectDescriptors.get(0));
             }
@@ -219,13 +219,13 @@ public class ProjectInfosView {
     }
 
     @objid ("546ce08a-08b9-44a2-a3bd-485b5861734c")
-    private List<ProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
-        List<ProjectDescriptor> selectedElements = new ArrayList<>();
+    private List<GProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
+        List<GProjectDescriptor> selectedElements = new ArrayList<>();
         if (selection.size() > 0) {
             Object[] elements = selection.toArray();
             for (Object element : elements) {
-                if (element instanceof ProjectDescriptor) {
-                    selectedElements.add((ProjectDescriptor) element);
+                if (element instanceof GProjectDescriptor) {
+                    selectedElements.add((GProjectDescriptor) element);
                 }
             }
         }

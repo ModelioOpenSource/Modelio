@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * As a kind of behavior, an activity may have owned parameters. Within the activity, in and inout parameters may be associated with activity parameter nodes that have no incoming edges-they provide a source within the activity for the overall "input values" of the activity. Similarly, inout, out, and return parameters may be associated with activity nodes that have no outgoing edges-they provide a sink within the activity for the overall "output values" of the activity.
  * 
  * Per the general semantics of a behavior, when the activity is invoked, its in and inout parameters may be given actual values. These input values are placed as tokens on those activity parameter nodes within the activity that are associated with the corresponding in and inout parameters, the ones which do not have incoming edges. The overall activity input values are then available within the activity via the outgoing edges of the activity parameter nodes.
+ * 
+ * 
  */
 @objid ("00293b96-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityParameterNode extends ObjectNode {
@@ -50,5 +52,5 @@ public interface ActivityParameterNode extends ObjectNode {
      */
     @objid ("c9d93327-af15-4418-9ae8-9b7118a2eb26")
     public static final String MQNAME = "Standard.ActivityParameterNode";
-
 }
+

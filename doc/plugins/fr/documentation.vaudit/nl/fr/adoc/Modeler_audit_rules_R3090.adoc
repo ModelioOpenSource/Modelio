@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3090]]
 
-[[r3090]]
+
+
 = R3090
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Sequence Flow_ ne peut pas avoir sa source et sa cible dans des _Process_ différents.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les Process BPMN représentent des flux indépendants. C'est pour cette raison qu'une séquence ne peut pas démarrer dans un _Process_ et finir dans un autre _Process_, ou avoir une partie de sa séquence dans un autre _Process_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une séquence qui appartient à plusieurs _Process_, vous devriez regrouper vos _Lanes_ dans un seul _Process_, ou bien utiliser un système de communication à base de _Message Flows_ pour communiquer entre les deux _Process_.

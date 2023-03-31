@@ -80,7 +80,7 @@ public class ModelManager implements IModelManager {
     @objid ("80874372-1dec-11e2-8cad-001ec947c8cc")
     public  ModelManager(IEclipseContext context) {
         IProjectService projectService = context.get(IProjectService.class);
-        this.projectPath = projectService.getOpenedProject().getProjectFileStructure().getProjectPath();
+        this.projectPath = projectService.getOpenedProject().getPfs().getProjectPath();
         this.session = projectService.getSession();
         this.modelServices = context.get(IMModelServices.class);
         this.contextService = context.get(EContextService.class);

@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1810]]
 
-[[r1810]]
+
+
 = R1810
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An actual _Gate_ on an _InteractionUse_ must reference a formal _Gate_ contained by the referenced _Interaction_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The _Message_ leading to/from an actual _Gate_ of an _InteractionUse_ must correspond to the _Message_ leading to/from the formal _Gate_ with the same name of the _Interaction_ referenced by the _InteractionUse_.
 
 Therefore, an actual _Gate_ on an _InteractionUse_ must always reference a formal _Gate_ of the _Interaction_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have an actual _Gate_ on an _InteractionUse_ which does not reference any formal _Gate_, you should either remove it or reference a formal _Gate_ of the _Interaction_.

@@ -29,5 +29,5 @@ public interface IModelioPickingService extends IModelioService {
 
     @objid ("005bbbc0-0355-106f-bbdd-001ec947cd2a")
     void stopPicking(IPickingSession session);
-
 }
+

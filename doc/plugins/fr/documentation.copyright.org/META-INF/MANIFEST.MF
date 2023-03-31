@@ -1,5 +1,5 @@
 Bundle-Name: Copyright documentation
 Bundle-Vendor: Modelio.org
 Bundle-SymbolicName: org.modelio.documentation.copyright.nl_fr;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Fragment-Host: org.modelio.documentation.copyright

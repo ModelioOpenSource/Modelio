@@ -71,6 +71,8 @@ import org.modelio.vcore.session.api.model.change.ChangeCause;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeSupport;
 import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
+import org.modelio.vcore.session.api.transactions.ITransaction;
+import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -99,7 +101,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * The old value is always <code>null</code>. The new value is a {@link PersistenceException} on failure, anything else on success.
      */
-    @objid ("5a4e1bc9-bdab-4050-99a7-a1fe75c862ec")
+    @objid ("e853cbc9-d9f4-4c33-8eb6-f391bcaeae53")
     public static final String PROP_DIAGRAM_LOAD_END = "diagram_load_finished";
 
     /**
@@ -613,9 +615,9 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         
         default:
             assert false : readVersion + " version number not covered!";
-        // reading as last handled version: 0
-        read_0(in);
-        break;
+            // reading as last handled version: 0
+            read_0(in);
+            break;
         
         }
         
@@ -867,7 +869,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * The returned collection is not modifiable.
      * @return all links of this diagram.
      */
-    @objid ("0c292d70-ee99-430c-af99-d4097d152fe5")
+    @objid ("9c19a9f4-4edf-43a4-9209-d8819eb80e29")
     @Override
     public final Collection<IGmLinkObject> getAllLinks() {
         return Collections.unmodifiableCollection(this.links);
@@ -1141,7 +1143,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
     /**
      * Make the fire property change available to the edit part
      */
-    @objid ("57d1fafd-50d5-4983-b4ff-d35671f5752a")
+    @objid ("39330139-dc18-41d5-9751-146aa78063b5")
     void firePropertyChange(String propertyName) {
         super.firePropertyChange(propertyName, null, null);
     }
@@ -1343,16 +1345,23 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         @objid ("7e1dc271-1dec-11e2-8cad-001ec947c8cc")
         protected final void refreshAllDiagram() {
             final Collection<GmModel> toRefresh = this.gmAbstractDiagram.getAllModels();
+            final Collection<GmModel> toDelete = new ArrayList<>();
             
             for (final GmModel model : toRefresh) {
                 if (model.getDiagram() != null) {
                     final MObject el = model.getRelatedElement();
                     if (el != null && el.isDeleted()) {
-                        model.obElementDeleted();
+                        // Schedule deletion to give a chance to links connected to this node to reroute.
+                        toDelete.add(model);
                     } else if (model.isValid()) {
                         model.obElementsUpdated();
                     }
                 }
+            }
+            
+            // Do all deletions now
+            for (GmModel model : toDelete) {
+                model.obElementDeleted();
             }
             
             // Save the refreshed diagram
@@ -1392,9 +1401,15 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         @Override
         public void statusChanged(IStatusChangeEvent ev) {
             if (ev.getCause() == ChangeCause.REPOSITORY) {
-                // module may have been added/removed : all icons must be reloaded
-                // don't filter on ev.getShellStateChanged().isEmpty(), it is often empty because elements are unloaded then reloaded to same state
-                scheduleDiagramReload();
+                Display.getDefault().asyncExec(() -> {
+                    // TODO : the call to refreshAllDiagram() instead of scheduleDiagramReload() leads to the creation of a ghost transaction
+                    // in the case of creation of elements including diagrams (BPMN Process for example)
+                    try (ITransaction tr = CoreSession.getSession(this.gmAbstractDiagram.getRepresentedElement()).getTransactionSupport().createTransaction(ev.getCause().toString())) {
+                        refreshAllDiagram();
+                        tr.commit();
+                    }
+                });
+            
             }
             
         }

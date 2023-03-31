@@ -34,6 +34,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * A StateInvariant is a runtime constraint on the participants of the interaction. It may be used to specify a variety of different kinds of constraints, such as values of attributes or variables, internal or external states, and so on.
  * 
  * A StateInvariant is an InteractionFragment and is placed on a Lifeline.
+ * 
+ * 
  */
 @objid ("004b7b34-c4bf-1fd8-97fe-001ec947cd2a")
 public interface StateInvariant extends OccurrenceSpecification {
@@ -54,6 +56,7 @@ public interface StateInvariant extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>A Constraint that should hold at runtime for this StateInvariant.</i>
+     * 
      */
     @objid ("301c0286-fc9d-4366-983d-6dd5583d4e47")
     String getBody();
@@ -63,6 +66,7 @@ public interface StateInvariant extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>A Constraint that should hold at runtime for this StateInvariant.</i>
+     * 
      */
     @objid ("bc1c63bc-bfa1-46b1-bdb2-ee87ae94db4b")
     void setBody(String value);
@@ -72,6 +76,7 @@ public interface StateInvariant extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c3e0f7ce-df06-49e9-9c3d-c097af82281d")
     int getEndLineNumber();
@@ -81,8 +86,9 @@ public interface StateInvariant extends OccurrenceSpecification {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("45965828-f890-497c-acfc-62025ffd2d6a")
     void setEndLineNumber(int value);
-
 }
+

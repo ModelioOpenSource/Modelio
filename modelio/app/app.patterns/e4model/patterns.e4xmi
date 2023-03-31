@@ -18,7 +18,7 @@
     <elements xsi:type="commands:Handler" xmi:id="_9pV1AJvqEeS1_P5MDjmJZw" elementId="org.modelio.patterns.handler.applypattern" contributionURI="bundleclass://org.modelio.app.patterns/org.modelio.patterns.apply.ApplyPatternHandler" command="_1ZzAsJvqEeS1_P5MDjmJZw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_2AhSwIkZEeWbO4MnNK7ogg" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu" positionInList="after:org.modelio.model.browser.view.popupmenu.menuseparator.2">
-    <elements xsi:type="menu:Menu" xmi:id="_nRTcAZvqEeS1_P5MDjmJZw" elementId="org.modelio.patterns.menu.patterns" label="%PatternsMenu.label" iconURI="platform:/plugin/org.modelio.app.patterns/icons/patternmodule.png" tooltip="%MacroMenu.tooltip">
+    <elements xsi:type="menu:Menu" xmi:id="_nRTcAZvqEeS1_P5MDjmJZw" elementId="org.modelio.patterns.menu.patterns" label="%PatternsMenu.label" iconURI="platform:/plugin/org.modelio.app.patterns/icons/patternmodule.png" tooltip="%PatternsMenu.tooltip">
       <children xsi:type="menu:DynamicMenuContribution" xmi:id="_fCejwKCoEeSpsblsdy_zBA" elementId="org.modelio.patterns.modelboowser.dynamic" contributionURI="bundleclass://org.modelio.app.patterns/org.modelio.patterns.popup.PatternsPopupProvider"/>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_Y2kbUJvrEeS1_P5MDjmJZw" elementId="org.modelio.patterns.item.editpattern" label="%EditPattern.label" iconURI="platform:/plugin/org.modelio.app.patterns/icons/edit.png" tooltip="%EditPattern.tooltip" command="_uSxToJvqEeS1_P5MDjmJZw">
         <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_lTpGYJvzEeSjqLca8FbWVg" coreExpressionId="model.property.test.ispattern.id"/>

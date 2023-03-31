@@ -40,7 +40,7 @@ import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.IModuleLifeCycleHandler;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.api.module.parameter.IParameterEditionModel;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -63,9 +63,6 @@ public class FakeIModule implements IModule {
     @objid ("d57c21c6-6536-48a0-837f-ff4a3a2d75ad")
     private ResourceBundle manifestBundle;
 
-    @objid ("b317e528-f11c-11e1-af52-001ec947c8cc")
-    private ModuleComponent moduleComponent;
-
     @objid ("b317e525-f11c-11e1-af52-001ec947c8cc")
     private IModuleUserConfiguration moduleConfiguration;
 
@@ -85,7 +82,6 @@ public class FakeIModule implements IModule {
     @objid ("b317e52b-f11c-11e1-af52-001ec947c8cc")
     public  FakeIModule(final GModule gmodule, final IModuleUserConfiguration moduleUserConfiguration, final IModuleAPIConfiguration moduleApiConfiguration) {
         this.gmodule = gmodule;
-        this.moduleComponent = gmodule.getModuleElement();
         this.moduleConfiguration = moduleUserConfiguration;
         this.lifecyleHandler = new IModuleLifeCycleHandler() {
         
@@ -121,8 +117,7 @@ public class FakeIModule implements IModule {
             }
         };
         
-        this.peerModule = new DefaultPeerModule(this.moduleComponent,
-                moduleApiConfiguration);
+        this.peerModule = new DefaultPeerModule(null, moduleApiConfiguration);
         
     }
 
@@ -340,7 +335,7 @@ public class FakeIModule implements IModule {
         @objid ("2a7e0771-34ac-4217-a40e-81f5ee0a5757")
         @Override
         public ModuleComponent getModel() {
-            return FakeIModule.this.moduleComponent;
+            return null;
         }
 
         @objid ("e7e92725-ff6c-4c89-8201-41e6ed2339e8")

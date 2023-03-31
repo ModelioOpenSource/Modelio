@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1960]]
 
-[[r1960]]
+
+
 = R1960
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _Message_ must have the same name as the invoked _Operation_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 From the UML 2.3 specification:
 
 The name of the named element referenced by signature must be the same as that of the _Message_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If the name of your _Message_ does not correspond to the name of the _Operation_ it invokes, you should rename it in accordance with the _Operation_'s name.

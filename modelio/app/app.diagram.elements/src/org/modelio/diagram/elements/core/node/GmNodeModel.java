@@ -132,11 +132,20 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
     @objid ("8097f408-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void delete() {
+        // delete links unless the link model source and target changed
         for (IGmReference<IGmLink> l : new ArrayList<>(this.startingLinks)) {
-            l.delete();
+            if (Objects.equals(l.getReferencedModel().getFromElement(), getRelatedElement())) {
+                l.delete();
+            } else {
+                ((GmModel) l.getReferencedModel()).obElementsUpdated();
+            }
         }
         for (IGmReference<IGmLink> l : new ArrayList<>(this.endingLinks)) {
-            l.delete();
+            if (Objects.equals(l.getReferencedModel().getToElement(), getRelatedElement())) {
+                l.delete();
+            } else {
+                ((GmModel) l.getReferencedModel()).obElementsUpdated();
+            }
         }
         
         final GmCompositeNode gmParent = getParentNode();
@@ -165,6 +174,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
                         .filter(r -> r.isReferencedModelValid())
                         .map(r -> r.getReferencedModel())
                         .collect(Collectors.toList());
+        
     }
 
     @objid ("809a566e-1dec-11e2-8cad-001ec947c8cc")
@@ -227,6 +237,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
                         .filter(r -> r.isReferencedModelValid())
                         .map(r -> r.getReferencedModel())
                         .collect(Collectors.toList());
+        
     }
 
     /**

@@ -34,8 +34,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.lifecycle.ModuleException;
-import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IModuleClassLoaderProvider;
 import org.modelio.platform.mda.infra.service.IRTModule;
@@ -83,8 +83,8 @@ public class ModuleClassLoaderFactory {
         // Resolve all loaded dependencies
         
         final List<IRTModule> loadedDependencies = new ArrayList<>();
-        loadedDependencies.addAll(rtModule.getRequiredDependencies());
-        loadedDependencies.addAll(rtModule.getOptionalDependencies());
+        loadedDependencies.addAll(rtModule.getMandatoryRequiredModules());
+        loadedDependencies.addAll(rtModule.getOptionalRequiredModules());
         
         // Construct a class loader on these informations.
         return ModuleClassLoaderFactory.setupClassLoader(rtModule.getGModule(), loadedDependencies);
@@ -158,7 +158,7 @@ public class ModuleClassLoaderFactory {
             parentLoaders.add(Version.class.getClassLoader());
         
             // Collect metamodels class loaders
-            for (final IGMetamodelExtension mmExt : gModule.getProject().getMetamodelExtensions()) {
+            for (final IGMetamodelExtension mmExt : gModule.getProject().getProjectEnvironment().getDefaultMetamodelExtensions()) {
                 final ISmMetamodelFragment mmf = mmExt.getMmFragment();
                 final ClassLoader loader = mmf.getClass().getClassLoader();
                 if (!parentLoaders.contains(loader)) {

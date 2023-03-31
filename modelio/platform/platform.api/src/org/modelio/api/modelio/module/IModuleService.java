@@ -70,5 +70,5 @@ public interface IModuleService {
      */
     @objid ("50ba2430-b14f-11e1-8436-002564c97630")
     IPeerModule getPeerModule(final String moduleName);
-
 }
+

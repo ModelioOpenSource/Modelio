@@ -39,5 +39,5 @@ public interface IElementConfigurator {
      */
     @objid ("ef57aea4-e26f-4ed6-aea6-534b24bc33dd")
     void configure(MObject element, Map<String, Object> properties);
-
 }
+

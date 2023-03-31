@@ -43,7 +43,7 @@ public class GmBpmnStartEventStructuredStyleKeys extends BpmnAbstractStyleKeyPro
 
     @objid ("7239e6f8-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("STARTEVENT_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("7239e6fa-55c1-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("STARTEVENT_SHOWTAGS", MetaKey.SHOWTAGS);

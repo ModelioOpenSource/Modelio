@@ -26,6 +26,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * @since 3.1
  */
 @objid ("681590d6-c4ba-4649-88e8-05f3402d45a0")
-public interface IDiagramDrawing extends IDiagramGraphic {// nothing more
-    
-}
+public interface IDiagramDrawing extends IDiagramGraphic {
+// nothing more
+    }
+

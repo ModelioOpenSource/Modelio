@@ -62,5 +62,5 @@ public interface IModelChangeListener {
      */
     @objid ("00d00158-0001-61ac-0000-000000000000")
     void modelChanged(IModelingSession session, IModelChangeEvent event);
-
 }
+

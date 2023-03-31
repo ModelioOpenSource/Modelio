@@ -27,5 +27,5 @@ import org.modelio.vcore.session.api.ICoreSession;
 public interface IModelFactoryProvider {
     @objid ("40eef3d7-2639-4511-b2c2-50c1f7722e16")
     IModelFactory getFactory(ICoreSession session);
-
 }
+

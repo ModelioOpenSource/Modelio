@@ -5,9 +5,9 @@
 
 = Le catalogue de macros
 
-[[Introduction-au-catalogue-de-macros-Modelio]]
 
-[[introduction-au-catalogue-de-macros-modelio]]
+
+
 ===== Introduction au catalogue de macros Modelio
 
 Les macros Modelio sont des scripts Jython sauvegardés en tant que fichiers, accessible à travers l'interface Modelio. Les macros ont un nom et peuvent avoir une icône associée dans l'IHM Modelio.
@@ -18,9 +18,9 @@ Le catalogue de macros Modelio organise et affiche toutes les macros disponibles
 * Espace de travail : La macro est disponible dans tous les projet dans l'espace de travail Modelio courant.
 * Projet : La macro n'est disponible que dans le projet courant.
 
-[[Créer-une-nouvelle-macro]]
 
-[[créer-une-nouvelle-macro]]
+
+
 ===== Créer une nouvelle macro
 
 Si vous avez l'intention d'utiliser un script Jython plusieurs fois, il peut vous être utile d'en créer une nouvelle macro, comme le montrent les captures d'écran ci-dessous.
@@ -45,9 +45,9 @@ image::images/Modeler-_modeler_modelio_settings_macros_catalog_scripts5.png[6]
 11. Utilisez ces cases à cocher pour indiquer depuis endroit vous pourrez lancer la macro. La case à cocher *Montrer dans le menu contextuel* affichera la macro dans le menu contextuel, et la case à cocher *Montrer dans la barre d'outils* affichera l'icône associée dans la barre d'outils de Modelio. Vous pouvez activer les deux options.
 12. Cliquez sur "OK" pour valider.
 
-[[Exécuter-une-macro]]
 
-[[exécuter-une-macro]]
+
+
 ===== Exécuter une macro
 
 Pour lancer une macro, utilisez les icônes associées ou les commandes dans le menu contextuel "Macros", si ces dernières ont été définies.

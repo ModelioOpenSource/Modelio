@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1480]]
 
-[[r1480]]
+
+
 = R1480
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _Attribute_ must be typed by a primitive type.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An Attribute should always be typed by a primitive type. The type of an attribute must be a so-called "primitive" type.
@@ -28,9 +28,9 @@ Primitive types are either:
 * Enumerations
 * _Classes_ or _DataTypes_ as long as they are defined as being "primitive"
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1480 error, choose one of the following solutions:

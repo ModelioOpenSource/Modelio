@@ -78,5 +78,5 @@ public interface ILinkExpertHelper {
      */
     @objid ("99932bc7-fd26-4404-9a76-a67b8fece59c")
     void setTarget(MObject link, MObject oldTarget, MObject newTarget) throws IllegalArgumentException;
-
 }
+

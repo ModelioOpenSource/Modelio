@@ -25,7 +25,7 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 
 @objid ("a3cb7538-b1f7-4732-a51f-75adf160af91")
@@ -53,7 +53,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
             AdapterStereotype stereotypeAdapter = (AdapterStereotype) element;
             Stereotype stereotype = stereotypeAdapter.getStereotype();
         
-            Image image = ModuleI18NService.getIcon(stereotype);
+            Image image = MdaResources.getIcon(stereotype);
         
             if (image == null) {
                 image = MetamodelImageService.getIcon(stereotype.getMClass());
@@ -70,12 +70,12 @@ class DocTypeChooserLabelProvider extends LabelProvider {
         if (element instanceof AdapterModule) {
             AdapterModule adapter = (AdapterModule) element;
         
-            return ModuleI18NService.getLabel(adapter.getMdac());
+            return MdaResources.getLabel(adapter.getMdac());
         } else if (element instanceof AdapterRichNoteType) {
             StringBuilder noteTypeLabel = new StringBuilder();
             AdapterRichNoteType adapter = (AdapterRichNoteType) element;
         
-            String label = ModuleI18NService.getLabel(adapter.getDocType());
+            String label = MdaResources.getLabel(adapter.getDocType());
             if (!label.isEmpty()) {
                 noteTypeLabel.append(label);
             } else {
@@ -88,7 +88,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
             AdapterStereotype adapter = (AdapterStereotype) element;
         
             noteTypeLabel.append("<<");
-            String label = ModuleI18NService.getLabel(adapter.getStereotype());
+            String label = MdaResources.getLabel(adapter.getStereotype());
             if (!"".equals(label)) {
                 noteTypeLabel.append(label);
             } else {
@@ -110,13 +110,13 @@ class DocTypeChooserLabelProvider extends LabelProvider {
     @objid ("9885814f-a09e-4000-ae07-cf2e1893dd8a")
     private Image getDocumentTypeImage(ResourceType docType) {
         // TODO missing service to ask the module for the rich note type image.
-        // return ModuleI18NService.getIcon(getModuleOwner(docType), docType);
+        // return MdaResources.getIcon(getModuleOwner(docType), docType);
         return MetamodelImageService.getIcon(docType.getMClass());
     }
 
     @objid ("2703ad18-26d0-4050-9b5f-e2a7916a55e4")
     private Image getModuleImage(ModuleComponent moduleModel) {
-        Image moduleImage = ModuleI18NService.getModuleImage(moduleModel);
+        Image moduleImage = MdaResources.getModuleImage(moduleModel);
         
         if (moduleImage != null) {
             return moduleImage;

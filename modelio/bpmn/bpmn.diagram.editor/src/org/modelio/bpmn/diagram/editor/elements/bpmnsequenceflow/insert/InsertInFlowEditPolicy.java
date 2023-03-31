@@ -29,11 +29,11 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editparts.ZoomManager;
+import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ICreationCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.GmLink;
-import org.modelio.diagram.elements.core.link.GmLinkLayoutEditPolicy;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -51,11 +51,11 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * This policy creates a workflow node and insert it in a sequence flow.
  */
 @objid ("3a935e2d-33ae-4da2-85b1-d2e0073b42af")
-public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
+public class InsertInFlowEditPolicy extends GraphicalEditPolicy {
     @objid ("8241e11f-916d-41cc-a2ae-2d095044997e")
     private InsertInFlowFeedback feedback;
 
-    @objid ("c667abe3-2ec8-47c7-9224-ccaf98e3f974")
+    @objid ("a0ee82ff-4771-405a-b1b1-2c435eb0e6e2")
     private static final Object WATCHDOG = new Object();
 
     @objid ("d58ab386-1fea-49f2-bd6b-41037158fe45")
@@ -64,18 +64,25 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
         if (RequestConstants.REQ_CREATE.equals(request.getType())) {
             CreateRequest createRequest = (CreateRequest) request;
             final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(createRequest);
-            if (ctx != null) {
-                if (ctx.getElementToUnmask() instanceof BpmnMessage) {
-                    return getHost();
-                }
-            }
+            if (ctx == null)
+                return null;
         
+            if (canInsertInFlow(ctx.getJavaClass(), ctx.getProperties()) || ctx.getElementToUnmask() instanceof BpmnMessage) {
+                return getHost();
+            }
         }
-        return super.getTargetEditPart(request);
+        return null;
+    }
+
+    @objid ("f0abf208-10db-423c-b4d5-22dcd01c3e53")
+    @Override
+    public Command getCommand(Request request) {
+        if (getTargetEditPart(request) == null)
+            return null;
+        return getCreateCommand((CreateRequest) request);
     }
 
     @objid ("4bff5022-7c8f-4fdc-af40-8b98d34475d0")
-    @Override
     protected Command getCreateCommand(CreateRequest request) {
         ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         if (ctx == null) {
@@ -88,49 +95,50 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
         // - Any throw event excepted 'throw link'
         // - Any catch event excepted 'catch link'
         
-        if (canInsertInFlow(ctx.getJavaClass(), ctx.getProperties())) {
-            LinkEditPart flowEp = getHost();
-            Point location = snapInsertLocation(request);
-            EditPart backEp = flowEp.getViewer().findObjectAtExcluding(
-                    location,
-                    Collections.singleton(getHostFigure()),
-                    ep -> {
-                        EditPart targetEp = ep.getTargetEditPart(request);
-                        return targetEp != null && targetEp != flowEp;
-                    });
-        
-            if (!isSameContext(backEp, getHost())) {
-                return null;
-            }
-        
-            EditPart targetEditPart = backEp.getTargetEditPart(request);
-            if (targetEditPart == flowEp || targetEditPart == null) {
-                return null;
-            }
-        
-            int watchdog = (int) request.getExtendedData().merge(WATCHDOG, 1, (a,b) -> (int)a+1);
-        
-            try {
-                if( watchdog > 5) {
-                    //DiagramEditorBpmn.LOG.warning(new IllegalStateException("infinite recursion"));
-                    return null;
-                }
-        
-        
-                Command nodeCmd = targetEditPart.getCommand(request);
-                if (nodeCmd instanceof ICreationCommand) {
-                    @SuppressWarnings ("unchecked")
-                    ICreationCommand<GmNodeModel> gmNodeCreateCmd = (ICreationCommand<GmNodeModel>) nodeCmd;
-                    return nodeCmd
-                            .chain(new CenterNodeCommand(gmNodeCreateCmd, flowEp))
-                            .chain(new SplitConnectionCommand(gmNodeCreateCmd, flowEp));
-                }
-            } finally {
-                request.getExtendedData().remove(WATCHDOG);
-            }
-        
+        if (! canInsertInFlow(ctx.getJavaClass(), ctx.getProperties())) {
+            return null;
         }
-        return super.getCreateCommand(request);
+        
+        LinkEditPart flowEp = getHostLinkEditPart();
+        Point location = snapInsertLocation(request);
+        EditPart backEp = flowEp.getViewer().findObjectAtExcluding(
+                location,
+                Collections.singleton(getHostFigure()),
+                ep -> {
+                    EditPart targetEp = ep.getTargetEditPart(request);
+                    return targetEp != null && targetEp != flowEp;
+                });
+        
+        if (!isSameContext(backEp, getHost())) {
+            return null;
+        }
+        
+        EditPart targetEditPart = backEp.getTargetEditPart(request);
+        if (targetEditPart == flowEp || targetEditPart == null) {
+            return null;
+        }
+        
+        int watchdog = (int) request.getExtendedData().merge(WATCHDOG, 1, (a,b) -> (int)a+1);
+        
+        try {
+            if( watchdog > 5) {
+                //DiagramEditorBpmn.LOG.warning(new IllegalStateException("infinite recursion"));
+                return null;
+            }
+        
+            Command nodeCmd = targetEditPart.getCommand(request);
+            if (! (nodeCmd instanceof ICreationCommand))
+                return null;
+        
+            @SuppressWarnings ("unchecked")
+            ICreationCommand<GmNodeModel> gmNodeCreateCmd = (ICreationCommand<GmNodeModel>) nodeCmd;
+            return nodeCmd
+                    .chain(new CenterNodeCommand(gmNodeCreateCmd, flowEp))
+                    .chain(new SplitConnectionCommand(gmNodeCreateCmd, flowEp));
+        } finally {
+            request.getExtendedData().remove(WATCHDOG);
+        }
+        
     }
 
     /**
@@ -138,7 +146,7 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
      * @param request the link creation request.
      * @return the actual insert location to use.
      */
-    @objid ("7b1bf93f-b748-4cd2-b493-b7f0be77743e")
+    @objid ("73731c39-eec9-47d2-a724-a15a93ec1931")
     private Point snapInsertLocation(CreateRequest request) {
         Point location = request.getLocation();
         
@@ -168,7 +176,7 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
 
     @objid ("d261f9eb-48e4-41d8-9d9b-487c6fa0c940")
     @Override
-    protected void showLayoutTargetFeedback(Request request) {
+    public void showTargetFeedback(Request request) {
         // Show nothing if we cannot issue an executable command.
         Command command = getCommand(request);
         if (command == null || !command.canExecute()) {
@@ -180,7 +188,7 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
         
             CreateRequest createRequest = (CreateRequest) request;
         
-            GmLink gm = getHost().getModel();
+            GmLink gm = getHostLinkEditPart().getModel();
             String metaclass = (String) createRequest.getNewObjectType();
             MClass mClass = gm.getRelatedElement().getMClass().getMetamodel().getMClass(metaclass);
         
@@ -194,7 +202,7 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
 
     @objid ("706e675d-c598-4790-8b4e-993e336d04e1")
     @Override
-    protected void eraseLayoutTargetFeedback(Request request) {
+    public void eraseTargetFeedback(Request request) {
         if (this.feedback != null) {
             this.feedback.hide();
             this.feedback = null;
@@ -210,14 +218,14 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
      * <li>Any throw event excepted 'throw link'</li>
      * <li>Any catch event excepted 'catch link'</li>
      * </ul>
-     * @return
+     * @return true if the insertion is allowed
      */
     @objid ("e0b0345b-b7fe-43ef-8361-e98252371940")
     private boolean canInsertInFlow(Class<? extends MObject> metaclass, Map<String, Object> properties) {
         return BpmnActivity.class.isAssignableFrom(metaclass)
                 || BpmnGateway.class.isAssignableFrom(metaclass)
-                || BpmnIntermediateThrowEvent.class.isAssignableFrom(metaclass) && !properties.getOrDefault("type", "").equals("LINK")
-                || BpmnIntermediateCatchEvent.class.isAssignableFrom(metaclass) && !properties.getOrDefault("type", "").equals("LINK");
+                || BpmnIntermediateThrowEvent.class.isAssignableFrom(metaclass) && !"LINK".equals(properties.get("type"))
+                || BpmnIntermediateCatchEvent.class.isAssignableFrom(metaclass) && !"LINK".equals(properties.get("type"));
         
     }
 
@@ -235,39 +243,38 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
     }
 
     @objid ("c976a9d1-f819-429c-8b90-802f689195d0")
-    @Override
-    public LinkEditPart getHost() {
+    public LinkEditPart getHostLinkEditPart() {
         return (LinkEditPart) super.getHost();
     }
 
     /**
      * This enum represents BPMN node types with their default size.
      */
-    @objid ("fd472d43-6e50-4d4b-b72c-89af303865a5")
+    @objid ("6596393b-d78e-4b61-bd72-d3695e4ddc1a")
     enum BpmnNodeType {
-        @objid ("c25a60b1-b582-46eb-b8dc-0d284a2dbf30")
+        @objid ("e73007a0-07c2-48ff-bd7d-f69b7bf1a7e4")
         ACTIVITY(90, 46),
-        @objid ("d6fe0d65-2955-4e6e-9263-9884d5d2ca79")
+        @objid ("430daf5c-88b9-4350-9152-3985161b7b26")
         GATEWAY(40, 40),
-        @objid ("1e5640af-465a-4616-ab53-a64ca8117a28")
+        @objid ("601a0a69-4b4d-49e5-88f2-161b8fd90999")
         EVENT(33, 33),
-        @objid ("577d66dc-e481-4944-bd95-a72ac100b185")
+        @objid ("fc468e19-bfa1-4792-a6ea-1633006dc29b")
         OTHER(90, 46);
 
-        @objid ("d48eae12-7347-40a8-8dae-d0aa1f62e564")
+        @objid ("68ca405c-974a-4b2c-8679-5855f770be83")
         final int width;
 
-        @objid ("6d1ac62c-7342-4bcb-8ff5-851b4587821d")
+        @objid ("c01d9c68-523b-4b3d-80fb-d5a4c94d4d12")
         final int height;
 
-        @objid ("8b1ea2a5-25d1-4c6f-ba57-64d8392d25b5")
+        @objid ("64645d12-a9e1-4f1d-b46e-9f9dc902a337")
         private  BpmnNodeType(int width, int height) {
             this.width = width;
             this.height = height;
             
         }
 
-        @objid ("ee283d33-3145-4955-b9e2-02935695a9da")
+        @objid ("e0e17ba3-4a35-40bb-93cc-71109e0e8ffd")
         public static BpmnNodeType fromMClass(MClass mClass) {
             if (BpmnActivity.class.isAssignableFrom(mClass.getJavaInterface())) {
                 return ACTIVITY;

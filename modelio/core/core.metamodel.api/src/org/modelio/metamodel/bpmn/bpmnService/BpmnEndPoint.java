@@ -36,6 +36,9 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
  * 
  * 
  * <p>The actual definition of the service address is out of scope of BPMN 2.0. The EndPoint element is an extension point&nbsp;and extends from RootElement. The EndPoint element MAY be extended with endpoint reference definitions&nbsp;introduced in other specifications (e.g., WS-Addressing).</p><p>EndPoints can be specified for Participants.</p>
+ * 
+ * 
+ * 
  */
 @objid ("000e89b8-c4c0-1fd8-97fe-001ec947cd2a")
 public interface BpmnEndPoint extends BpmnSharedElement {
@@ -56,6 +59,7 @@ public interface BpmnEndPoint extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9b1674b0-329c-4c3b-af27-1a73c148c94c")
     EList<BpmnParticipant> getParticipantRefs();
@@ -65,8 +69,9 @@ public interface BpmnEndPoint extends BpmnSharedElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f361cbc3-1f82-4066-9212-64f6c840171d")
     <T extends BpmnParticipant> List<T> getParticipantRefs(java.lang.Class<T> filterClass);
-
 }
+

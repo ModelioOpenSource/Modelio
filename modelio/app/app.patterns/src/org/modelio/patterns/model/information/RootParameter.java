@@ -50,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
 @objid ("a7d6a819-0d2b-4806-a734-983c98a5a3ea")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RootParameter")
-public class RootParameter extends Parameter {// Empty
+public class RootParameter extends Parameter {
+// Empty
     
 }

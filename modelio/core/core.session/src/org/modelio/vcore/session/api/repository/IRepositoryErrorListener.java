@@ -41,5 +41,5 @@ public interface IRepositoryErrorListener {
      */
     @objid ("0d22540d-d66d-11e1-adbb-001ec947ccaf")
     void onError(IRepository repository, Throwable e);
-
 }
+

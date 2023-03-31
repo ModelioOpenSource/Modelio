@@ -38,5 +38,5 @@ public interface IPickingSession {
      */
     @objid ("a3ef1cd5-0ecc-11e2-96c4-002564c97630")
     void selectElement(final MObject target);
-
 }
+

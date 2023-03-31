@@ -22,19 +22,18 @@ package org.modelio.platform.project.ext_org.plugin;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.modelio.gproject.gproject.GProjectConfigurer;
 import org.modelio.platform.core.project.ICurrentProjectService;
+import org.modelio.platform.project.creation.BasicProjectCreator;
 import org.modelio.platform.project.creation.IProjectCreationData;
-import org.modelio.platform.project.creation.IProjectCreator;
-import org.modelio.platform.project.creation.ProjectCreator;
+import org.modelio.platform.project.creation.IProjectCreatorDelegate;
 import org.modelio.platform.project.services.FragmentsMigrator;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.project.services.ProjectService;
 import org.modelio.platform.project.services.closeproject.IProjectCloser;
 import org.modelio.platform.project.services.closeproject.ProjectCloser;
-import org.modelio.platform.project.services.createproject.IProjectCreator2;
+import org.modelio.platform.project.services.createproject.IProjectCreator;
 import org.modelio.platform.project.services.createproject.IProjectCreatorFactory;
-import org.modelio.platform.project.services.createproject.ProjectCreator2;
+import org.modelio.platform.project.services.createproject.ProjectCreator;
 import org.modelio.platform.project.services.openproject.IProjectOpener;
 import org.modelio.platform.project.services.openproject.OpenProjectService;
 import org.modelio.platform.project.services.workspace.IWorkspaceService;
@@ -56,14 +55,13 @@ public class ProjectServiceInitializerOrg {
     public static void initialize(IEclipseContext context) {
         IProjectCreatorFactory creatorFactory = new IProjectCreatorFactory() {
             @Override
-            public IProjectCreator getProjectCreator(IProjectCreationData data) {
-                return new ProjectCreator();
+            public IProjectCreatorDelegate getProjectCreator(IProjectCreationData data) {
+                return new BasicProjectCreator();
             }
         };
         
-        IProjectCreator2 projectCreator = new ProjectCreator2(creatorFactory);
-        GProjectConfigurer synchronizer = new GProjectConfigurer();
-        IProjectOpener projectOpener = new OpenProjectService(synchronizer);
+        IProjectCreator projectCreator = new ProjectCreator(creatorFactory);
+        IProjectOpener projectOpener = new OpenProjectService(null);
         IProjectCloser projectCloser = new ProjectCloser();
         IWorkspaceService workspaceService = new WorkspaceService();
         
@@ -71,7 +69,6 @@ public class ProjectServiceInitializerOrg {
                 context,
                 projectCreator,
                 projectOpener,
-                synchronizer,
                 projectCloser,
                 workspaceService,
                 (eclipseContext, project, withConfirmation) -> new FragmentsMigrator(eclipseContext, project, withConfirmation));

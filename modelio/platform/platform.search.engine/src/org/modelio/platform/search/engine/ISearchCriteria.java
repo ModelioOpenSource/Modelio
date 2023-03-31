@@ -32,5 +32,5 @@ public interface ISearchCriteria {
     default void setOption(String key, Object value) {
         throw new UnsupportedOperationException();
     }
-
 }
+

@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005a729c-91e0-1f74-804b-001ec947cd2a")
 public enum PassingMode {
@@ -38,6 +40,7 @@ public enum PassingMode {
     OUT(1, "Out", "Out"),
     @objid ("6505c574-8e79-497b-b48a-92cdaa21908f")
     INOUT(2, "Inout", "Inout");
+
 public static final int IN_VALUE = 0;
     public static final int OUT_VALUE = 1;
     public static final int INOUT_VALUE = 2;

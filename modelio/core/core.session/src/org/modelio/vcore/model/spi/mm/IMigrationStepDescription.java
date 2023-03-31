@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IMigrationStepDescription {
     @objid ("afd295a8-8f20-47f8-8272-ecfd1f19f24c")
     String getStepDescription();
-
 }
+

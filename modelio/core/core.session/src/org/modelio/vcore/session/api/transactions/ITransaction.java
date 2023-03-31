@@ -79,5 +79,5 @@ public interface ITransaction extends AutoCloseable {
      */
     @objid ("75d0b810-1e9d-11e2-8009-002564c97630")
     String getName();
-
 }
+

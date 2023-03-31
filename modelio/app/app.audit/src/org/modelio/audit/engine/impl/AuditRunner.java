@@ -118,7 +118,7 @@ public class AuditRunner implements Runnable {
         for (IControl check : batch.getControls()) {
             try {
                 check.run(diagnostic, batch.getElement());
-            } catch (Exception e) {
+            } catch (RuntimeException | LinkageError e) {
                 Audit.LOG.debug(e);
             }
         }

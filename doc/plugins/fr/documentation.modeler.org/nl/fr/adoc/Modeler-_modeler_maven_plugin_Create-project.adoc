@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[create-project]]
 
-[[create-project]]
+
+
 = create-project
 
-[[Nom-complet]]
 
-[[nom-complet]]
+
+
 == Nom complet
 
 org.modelio:modelio-maven-plugin:2.2.1.01:create-project
 
-[[Description]]
 
-[[description]]
+
+
 == Description
 
 Crée un nouveau projet Modelio s'il n'existe pas.
 
-[[Paramètres-obligatoires]]
 
-[[paramètres-obligatoires]]
+
+
 == Paramètres obligatoires
 
 [width="100%",cols="25%,25%,25%,25%",options="header",]
@@ -56,9 +56,9 @@ Exemple :
 
 |==========================================================
 
-[[Paramètres-optionnels]]
 
-[[paramètres-optionnels]]
+
+
 == Paramètres optionnels
 
 [width="100%",cols="25%,25%,25%,25%",options="header",]

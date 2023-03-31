@@ -115,6 +115,7 @@ public class CoreColorRegistry {
         }
         
     }
+
 static {
             final ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
     

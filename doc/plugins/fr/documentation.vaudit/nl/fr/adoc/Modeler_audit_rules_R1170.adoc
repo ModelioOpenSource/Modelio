@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1170]]
 
-[[r1170]]
+
+
 = R1170
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le _Pin_ cible d'une _CallOperationAction_ doit être typé par le _Classifier_ qui définit l'_Operation_ appelée.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Le _Pin_ cible d'une _CallOperationAction_ doit être typé par le _Classifier_ qui définit l'_Operation_ appelée.
 
 Le _Pin_ cible représente l'objet cible vers lequel la requête est envoyée. Le _Classifier_ de l'objet cible est utilisé afin de déterminer dynamiquement un comportement à invoquer. Cet objet constitue le contexte d'exécution de l'_Operation_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1170, vérifiez que le _Pin_ cible de la _CallOperationAction_ incriminée est du même type que le _Classifier_ définissant l'_Operation_ référencée par le _CallBehaviorAction_.

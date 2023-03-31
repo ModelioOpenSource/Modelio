@@ -40,6 +40,8 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
  * 
  * Ownership:
  * A LaneSet belongs to a process, or to a Lane.
+ * 
+ * 
  */
 @objid ("0074fd92-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnLaneSet extends BpmnBaseElement {
@@ -60,6 +62,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0ae0f3c5-6668-454a-acb2-ed9ffe7eecad")
     EList<BpmnLane> getLane();
@@ -69,6 +72,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d8665b10-8bfa-4725-8481-9456d04ebda4")
     <T extends BpmnLane> List<T> getLane(java.lang.Class<T> filterClass);
@@ -78,6 +82,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("d8933f1b-302a-4ec9-89a0-7a9887ad60eb")
     BpmnProcess getProcess();
@@ -87,6 +92,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b225475a-4454-41b0-a111-817102e0909c")
     void setProcess(BpmnProcess value);
@@ -96,6 +102,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("594d97c1-143b-470b-8eda-5a4b0f164d24")
     BpmnLane getParentLane();
@@ -105,6 +112,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fdc33cee-7344-4a63-95c1-64e0e425ce8b")
     void setParentLane(BpmnLane value);
@@ -114,6 +122,7 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("fcdd0c9f-26f0-48ab-9e94-ffe65b9938f7")
     BpmnSubProcess getSubProcess();
@@ -123,8 +132,9 @@ public interface BpmnLaneSet extends BpmnBaseElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("3aac8003-3b0f-48e4-a65c-8b5d5e289420")
     void setSubProcess(BpmnSubProcess value);
-
 }
+

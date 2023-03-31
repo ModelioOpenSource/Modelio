@@ -32,7 +32,7 @@ import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.modelio.api.ui.dnd.ModelElementTransfer;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.model.ui.swt.dnd.MObjectViewerDragProvider;
 import org.modelio.platform.model.ui.swt.images.ElementDecoratedStyledLabelProvider;
 
@@ -92,7 +92,7 @@ class SmBrowserUi {
      * @param project might be null
      */
     @objid ("96905266-2901-4323-bafa-16d7a7fe9a78")
-    void setInput(GProject project) {
+    void setInput(IGProject project) {
         this.treeViewer.setInput(project);
     }
 
@@ -121,7 +121,6 @@ class SmBrowserUi {
 
     /**
      * Remove a previously registered selection change listener
-     * @param l
      */
     @objid ("3cb1560c-68fd-42b1-b2c2-7f4e2d4f1e93")
     void removeSelectionChangedListener(ISelectionChangedListener l) {

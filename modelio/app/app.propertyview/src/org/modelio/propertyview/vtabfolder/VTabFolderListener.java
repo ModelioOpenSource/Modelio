@@ -35,5 +35,5 @@ public interface VTabFolderListener extends SWTEventListener {
      */
     @objid ("d6f88066-d32b-49a9-b04e-8983175b6aab")
     void itemClosed(VTabFolderEvent event);
-
 }
+

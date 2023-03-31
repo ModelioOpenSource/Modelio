@@ -71,5 +71,5 @@ public interface IBlobProvider {
      */
     @objid ("d00a97c8-6f5e-4199-bb62-10d828b6dce7")
     void objectsMoved(Collection<? extends MObject> objs, IRepository fromRepo, IRepository destRepo);
-
 }
+

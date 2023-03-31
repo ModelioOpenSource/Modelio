@@ -31,5 +31,5 @@ public interface IIntegerNatValue extends INumberNatValue {
     @objid ("d7c0e67c-fc44-49fa-9d75-92d203a8d18f")
     @Override
     Integer getValue();
-
 }
+

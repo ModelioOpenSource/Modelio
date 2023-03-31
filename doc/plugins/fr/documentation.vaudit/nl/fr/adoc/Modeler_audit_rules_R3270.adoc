@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3270]]
 
-[[r3270]]
+
+
 = R3270
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le _State_ d'un _BpmnItemAwareElement_ doit appartenir à la _GeneralClass_ qu'il représente.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Si un _BpmnItemAwareElement_ représente une _GeneralClass_, alors son _State_ doit appartenir à cette _GeneralClass_.

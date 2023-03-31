@@ -37,5 +37,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModelioService {
     @objid ("004956b0-989b-103b-a520-001ec947cd2a")
     String getName();
-
 }
+

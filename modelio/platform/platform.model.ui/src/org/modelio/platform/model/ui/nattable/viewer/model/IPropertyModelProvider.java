@@ -32,5 +32,5 @@ public interface IPropertyModelProvider {
      */
     @objid ("2368d1cb-22dd-4618-bd68-4d0793fddc07")
     IPropertyModel<?> getPropertyModel(MObject element, INatTableViewerContext context);
-
 }
+

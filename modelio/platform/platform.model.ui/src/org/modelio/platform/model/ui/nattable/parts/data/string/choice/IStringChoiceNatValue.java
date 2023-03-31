@@ -44,5 +44,5 @@ public interface IStringChoiceNatValue extends ISingleNatValue {
      */
     @objid ("2be61e79-634a-45e0-9dd7-cba4b520dcb7")
     boolean isEditable();
-
 }
+

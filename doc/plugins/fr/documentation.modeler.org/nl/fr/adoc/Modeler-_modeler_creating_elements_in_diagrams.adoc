@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Créer-des-éléments-dans-les-diagrammes]]
 
-[[créer-des-éléments-dans-les-diagrammes]]
+
+
 = Créer des éléments dans les diagrammes
 
 Avec Modelio, il existe différentes façons de créer des éléments dans les diagrammes selon la nature des éléments à créer. Il est également possible de "démasquer" des éléments qui existent déjà dans le modèle mais qui n'apparaissent pas encore dans un diagramme.

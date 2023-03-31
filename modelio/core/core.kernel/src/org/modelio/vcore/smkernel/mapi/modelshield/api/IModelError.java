@@ -33,5 +33,5 @@ public interface IModelError {
 
     @objid ("001e6cfc-b76e-1f61-8473-001ec947cd2a")
     List<Object> getLinkedObjects();
-
 }
+

@@ -25,5 +25,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IBPMNProcessor {
     @objid ("4436080a-6438-4d1a-9a7d-7901db0f5c47")
     Object process(Object context, Object modelioElement);
-
 }
+

@@ -40,6 +40,7 @@ import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -195,11 +196,12 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
         return command.isEmpty() ? null : command.unwrap();
     }
 
-    @objid ("1650d989-9740-4e14-bad8-500bf49ed2ec")
+    @objid ("b335bab6-67f1-45fe-a317-6740770fd9ce")
     private boolean isLinkMetaclass(final MObject toUnmask) {
         return toUnmask.getMClass().isLinkMetaclass()
-                || toUnmask instanceof BpmnDataAssociation; // BpmnDataAssociation is a mess: it is considered as a link in diagrams despite the metaclass not being tagged as a link
-        
+                // DataAssociations are a mess: they are considered as a link in diagrams despite the metaclass not being tagged as a link
+                || toUnmask instanceof BpmnDataAssociation
+                || toUnmask instanceof BpmnSequenceFlowDataAssociation;
     }
 
     /**

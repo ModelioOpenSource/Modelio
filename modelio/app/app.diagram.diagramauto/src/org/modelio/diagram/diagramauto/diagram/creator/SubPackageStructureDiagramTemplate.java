@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.InvalidDestinationPointException;
@@ -32,6 +31,7 @@ import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.layout.DiagonalLayout;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
@@ -57,13 +57,19 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
     private List<IDiagramNode> _contentDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("ef1b9d11-a08c-463d-9c21-6c414b42eef4")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("77d98f85-f2ae-4863-9c99-ff93bc09fdd7")
     public  SubPackageStructureDiagramTemplate() {
         super();
-        
         this._contentDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -84,42 +90,70 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
         
     }
 
-    @objid ("732f94cd-fcb5-4e1a-beb8-64c887bb201a")
+    @objid ("d0f75312-3448-4c1b-b4a9-eec8dab5b3f4")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof Package || main instanceof Component) {
-            initialUnmasking(dh, (ModelTree) main);
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof Package || main instanceof Component)) {
+            return;
+        }
+        
+        ModelTree modelTree = (ModelTree) main;
+        
+        // unmask content
+        for (Package child : modelTree.getOwnedElement(Package.class)) {
+            IDiagramNode node = this._unmasker.unmask(dh, child);
+            if (node != null) {
+                node.setRepresentationMode(1);
+                // Add intern/extern style
+                initStyle(modelTree, node);
+                this._contentDgs.add(node);
+            }
         }
         
     }
 
-    @objid ("bab7ec8a-a51d-4d5d-8b0b-a260c093b0e3")
-    private void initialUnmasking(final IDiagramHandle dh, final ModelTree main) {
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
+    @objid ("721a0955-74b6-41be-93cf-e8e9d063048a")
+    @Override
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+           if (!(main instanceof Package || main instanceof Component)) {
+               return;
+           }
+        
+           ModelTree modelTree = (ModelTree) main;
+        
+           // Unmask blue links
+           for (Package child : modelTree.getOwnedElement(Package.class)) {
+               for (ImpactLink blueLink : getImpactLinkToElement(child)) {
+                   dh.unmask(blueLink, 0, 0);
+               }
+           }
+        
+    }
+
+    @objid ("81052477-0797-465a-ae4f-0728c61b82db")
+    @Override
+    protected void layoutNodes(final IDiagramHandle dh) {
+        DiagonalLayout layout = new DiagonalLayout();
+        try {
+            layout.layoutNodes(dh, this._contentDgs);
+        } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
+            // Should never happen
+            DiagramAuto.LOG.debug(e);
         }
         
-        // unmask content
-        for (Package child : main.getOwnedElement(Package.class)) {
-            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-            if (nodes != null && nodes.size() > 0 && nodes.get(0) instanceof IDiagramNode) {
-                IDiagramNode node = (IDiagramNode) nodes.get(0);
-                node.setRepresentationMode(1);
-        
-                // Add intern/extern style
-                initStyle(main, node);
-        
-                this._contentDgs.add(node);
-            }
-        
-        }
-        
-        // Unmask blue links
-        for (Package child : main.getOwnedElement(Package.class)) {
-            for (ImpactLink blueLink : getImpactLinkToElement(child)) {
-                dh.unmask(blueLink, 0, 0);
-            }
+    }
+
+    @objid ("e2fd046c-02a1-4e51-8edd-6b8f5b555085")
+    @Override
+    protected void layoutLinks(final IDiagramHandle dh) {
+        DiagonalLayout layout = new DiagonalLayout();
+        try {
+            layout.layoutLinks(dh, this._contentDgs);
+        } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
+            // Should never happen
+            DiagramAuto.LOG.debug(e);
         }
         
     }
@@ -153,19 +187,6 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
         return Objects.equals(elt1.getOwner(), elt2.getOwner());
     }
 
-    @objid ("c658a4b2-8d7f-4ba0-910c-6b4c0c045cb6")
-    @Override
-    protected void layout(final IDiagramHandle dh) {
-        DiagonalLayout layout = new DiagonalLayout();
-        try {
-            layout.layout(dh, this._contentDgs);
-        } catch (InvalidSourcePointException | InvalidPointsPathException | InvalidDestinationPointException e) {
-            // Should never happen
-            DiagramAuto.LOG.debug(e);
-        }
-        
-    }
-
     @objid ("9e009f97-c1e1-442c-9b68-b2b84ef068c1")
     @Override
     public ModelElement getMainElement(AbstractDiagram autoDiagram) {
@@ -186,6 +207,8 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
     @Override
     protected void reset() {
         this._contentDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
+        
     }
 
 }

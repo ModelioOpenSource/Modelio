@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+
+
+= R4050
+
+
+
+
+===== Résumé
+
+
+Les deux éléments ArchiMate sont reliés par plusieurs relations identiques.
+
+===== Détails
+
+Quand deux éléments ArchiMate sont reliés par plusieurs relations identiques, il y a probablement un problème de duplication de ces relations et les relations excédentaires doivent être supprimées.

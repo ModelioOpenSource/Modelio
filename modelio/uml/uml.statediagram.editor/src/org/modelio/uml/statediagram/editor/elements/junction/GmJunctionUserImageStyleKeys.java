@@ -40,7 +40,7 @@ public class GmJunctionUserImageStyleKeys extends StateAbstractStyleKeyProvider 
 
     @objid ("bba6ef7c-b07b-4982-994b-8389ecbcad34")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("JUNCTION_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("398f259c-0f6b-42cd-89cd-0ecd347307f3")
     static final StyleKey SHOWTAGS = createStyleKey("JUNCTION_SHOWTAGS", MetaKey.SHOWTAGS);

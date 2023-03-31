@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.ecf.filetransfer.feature"
+      label="%featureName"
+      version="3.14.1702.v20201025-2315"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the ECF Filetransfer API bundle.  This API is used
+by the Eclipse platform to support P2 filetransfer and is required for any of the ECF FileTransfer providers.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ecf"/>
+      <import plugin="org.eclipse.ecf.identity"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.filetransfer"
+         download-size="52"
+         install-size="82"
+         version="5.1.101.v20201025-2315"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer"
+         download-size="126"
+         install-size="269"
+         version="3.2.601.v20201025-0700"
+         unpack="false"/>
+
+</feature>

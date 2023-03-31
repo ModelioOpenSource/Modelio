@@ -78,5 +78,5 @@ public interface IPropertyModel<T extends MObject> {
      */
     @objid ("3afd44d1-f2ae-48d9-8f96-b91c38680d8c")
     void setValueAt(int row, int col, Object value);
-
 }
+

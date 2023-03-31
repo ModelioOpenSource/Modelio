@@ -108,11 +108,13 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
         BpmnItemAwareElement relatedElement = (BpmnItemAwareElement) getRelatedElement();
         
         if (relatedElement != null && relatedElement.isValid()) {
-            result.append(relatedElement.getName());
+            if (getDisplayedStyle().getBoolean(GmBpmnDataObjectStyleKeys.SHOWNAME) ) {
+                result.append(relatedElement.getName());
+            }
         
             // Append represented element name if required
             String referenceName = getReferencedElementName(relatedElement);
-            if (referenceName != null && Boolean.TRUE.equals(getDisplayedStyle().getProperty(GmBpmnDataObjectStyleKeys.SHOWREPRESENTED))) {
+            if (referenceName != null && getDisplayedStyle().getBoolean(GmBpmnDataObjectStyleKeys.SHOWREPRESENTED)) {
                 result.append(": ");
                 result.append(referenceName);
             }

@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Outline
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.modelio.app.diagram.outline;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Vendor: modelio.org
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,

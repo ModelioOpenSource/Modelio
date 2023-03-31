@@ -43,6 +43,9 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5425eba-55b6-11e2-877f-002564c97630")
 public class GmInitialState extends GmPortContainer {
+    @objid ("f5425ebe-55b6-11e2-877f-002564c97630")
+    private InitialPseudoState element;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,9 +54,6 @@ public class GmInitialState extends GmPortContainer {
 
     @objid ("f543e559-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
-
-    @objid ("f5425ebe-55b6-11e2-877f-002564c97630")
-    private InitialPseudoState element;
 
     @objid ("f5425ec3-55b6-11e2-877f-002564c97630")
     private static final GmInitialStateSimpleStyleKeys SIMPLE_KEYS = new GmInitialStateSimpleStyleKeys();

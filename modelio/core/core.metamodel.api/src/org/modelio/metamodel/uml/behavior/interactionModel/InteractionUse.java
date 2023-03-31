@@ -36,6 +36,9 @@ import org.eclipse.emf.common.util.EList;
  * An InteractionUse refers to an Interaction. The InteractionUse is a shorthand for copying the contents of the referred Interaction where the InteractionUse is. To be accurate the copying must connect the formal gates with the actual ones.
  * 
  * It is common to want to share portions of an interaction between several other interactions. An InteractionUse allows multiple interactions to reference an interaction that represents a common portion of their specification.
+ * 
+ * 
+ * 
  */
 @objid ("00482c5e-c4bf-1fd8-97fe-001ec947cd2a")
 public interface InteractionUse extends InteractionFragment {
@@ -56,6 +59,7 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1d74788e-6ace-425d-9d6e-e0bcdbee5131")
     int getEndLineNumber();
@@ -65,6 +69,7 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9d1d7404-d8b2-48d5-8177-d77e428ef18f")
     void setEndLineNumber(int value);
@@ -74,6 +79,7 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The actual gates of the InteractionUse.</i>
+     * 
      */
     @objid ("641fa332-1d95-4f70-9eb2-4e7fe91fe02f")
     EList<Gate> getActualGate();
@@ -83,6 +89,7 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>The actual gates of the InteractionUse.</i>
+     * 
      */
     @objid ("a209aa9b-08ec-452f-9e70-f49f44868080")
     <T extends Gate> List<T> getActualGate(java.lang.Class<T> filterClass);
@@ -92,6 +99,7 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Refers to the Interaction that defines its meaning.</i>
+     * 
      */
     @objid ("3a2bab6b-210c-4b99-844f-dfd2d4e2f1bc")
     Interaction getRefersTo();
@@ -101,8 +109,9 @@ public interface InteractionUse extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>Refers to the Interaction that defines its meaning.</i>
+     * 
      */
     @objid ("f587fce0-5198-4376-b93b-8689a4b6dc25")
     void setRefersTo(Interaction value);
-
 }
+

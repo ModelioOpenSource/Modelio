@@ -115,7 +115,7 @@ public class GmRaySlidableAnchor implements IPersistent {
         return getClass().getSimpleName()+" [difference=" + this.difference + "]";
     }
 
-    @objid ("872b0a63-8300-4518-ae75-a12e2227999d")
+    @objid ("685a7186-221b-49fe-a912-4706b9eb64e7")
     @Override
     public boolean equals(Object obj) {
         // Automatically generated method.Please delete this comment before entering specific code.
@@ -126,10 +126,9 @@ public class GmRaySlidableAnchor implements IPersistent {
         GmRaySlidableAnchor other = (GmRaySlidableAnchor)obj;
         if (!Objects.equals(this.difference, other.difference)) return false;
         return true;
-        
     }
 
-    @objid ("d41af465-a263-4c9d-940b-4537aaef3cdc")
+    @objid ("17645521-1728-4c57-a808-ddf502cbe770")
     @Override
     public int hashCode() {
         // Automatically generated method.Please delete this comment before entering specific code.

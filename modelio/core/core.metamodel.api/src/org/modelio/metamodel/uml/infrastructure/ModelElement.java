@@ -41,6 +41,9 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
  * 
  * 
  * <p>A ModelElement describes every element that can exist in a model. Only low-level Elements are not ModelElements.&nbsp;</p><p>ModelElements can be extended by Stereotypes and TaggedValues, can have Notes, can be the origin or target of Dependencies, and can have Constraints.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00886f12-c4be-1fd8-97fe-001ec947cd2a")
 public interface ModelElement extends Element {
@@ -658,6 +661,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Name of the element.</i>
+     * 
      */
     @objid ("4124e79d-464f-4499-856b-b699923bf476")
     String getName();
@@ -667,6 +671,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Name of the element.</i>
+     * 
      */
     @objid ("f674c278-1a5e-4e5e-b810-6119261ad04e")
     void setName(String value);
@@ -679,6 +684,7 @@ public interface ModelElement extends Element {
      * 
      * This table is not copied with the element.
      * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
+     * 
      */
     @objid ("139b94d9-809a-48d6-9c36-f13c5f568a03")
     LocalPropertyTable getLocalProperties();
@@ -691,6 +697,7 @@ public interface ModelElement extends Element {
      * 
      * This table is not copied with the element.
      * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
+     * 
      */
     @objid ("2583104a-e8f8-466c-a9de-deea1e8ff7d3")
     void setLocalProperties(LocalPropertyTable value);
@@ -701,6 +708,7 @@ public interface ModelElement extends Element {
      * Metamodel description:
      * <i><p>Stereotypes metaclassifying the ModelElement.</p>
      * </i>
+     * 
      */
     @objid ("2eb38312-fdea-440c-ae57-37a4b5dcf14d")
     EList<Stereotype> getExtension();
@@ -711,6 +719,7 @@ public interface ModelElement extends Element {
      * Metamodel description:
      * <i><p>Stereotypes metaclassifying the ModelElement.</p>
      * </i>
+     * 
      */
     @objid ("45f1da17-6b50-488c-b1ac-1ad6023dc927")
     <T extends Stereotype> List<T> getExtension(java.lang.Class<T> filterClass);
@@ -720,6 +729,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
+     * 
      */
     @objid ("e4e06517-4f51-4598-8573-d195ba46020b")
     EList<Dependency> getDependsOnDependency();
@@ -729,6 +739,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
+     * 
      */
     @objid ("4da29aff-ba78-41be-a37b-d2d7a0b1ebea")
     <T extends Dependency> List<T> getDependsOnDependency(java.lang.Class<T> filterClass);
@@ -738,6 +749,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>TaggedValues annotating the ModelElement.</i>
+     * 
      */
     @objid ("82287c6b-85d1-4136-b64a-bfa0249ebc99")
     EList<TaggedValue> getTag();
@@ -747,6 +759,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>TaggedValues annotating the ModelElement.</i>
+     * 
      */
     @objid ("b7b66961-419f-42fa-8a4b-8cc8b4125510")
     <T extends TaggedValue> List<T> getTag(java.lang.Class<T> filterClass);
@@ -756,6 +769,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Dependencies whose source depend on this element.</i>
+     * 
      */
     @objid ("4dd54cf1-351d-4869-b402-c77a8136f746")
     EList<Dependency> getImpactedDependency();
@@ -765,6 +779,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Dependencies whose source depend on this element.</i>
+     * 
      */
     @objid ("93857f42-8ac1-48a8-ab4c-f2b307b23c99")
     <T extends Dependency> List<T> getImpactedDependency(java.lang.Class<T> filterClass);
@@ -774,6 +789,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Owned property tables.</i>
+     * 
      */
     @objid ("00a4b840-b272-4a7d-869c-a462b7be54da")
     EList<PropertyTable> getProperties();
@@ -783,6 +799,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Owned property tables.</i>
+     * 
      */
     @objid ("470db812-dfcf-4222-a671-7f8df02beb81")
     <T extends PropertyTable> List<T> getProperties(java.lang.Class<T> filterClass);
@@ -792,6 +809,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7535aa0f-3fe1-4bff-b924-d26ff70494de")
     EList<AbstractDiagram> getProduct();
@@ -801,6 +819,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b95ffdb2-846f-4dad-b156-456d46271d5e")
     <T extends AbstractDiagram> List<T> getProduct(java.lang.Class<T> filterClass);
@@ -810,6 +829,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
+     * 
      */
     @objid ("10420350-313a-4987-ac62-b6b8883684f3")
     EList<Note> getDescriptor();
@@ -819,6 +839,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
+     * 
      */
     @objid ("0348ea52-8218-42f5-9ee8-df9418233998")
     <T extends Note> List<T> getDescriptor(java.lang.Class<T> filterClass);
@@ -828,6 +849,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Owned matrices.</i>
+     * 
      */
     @objid ("e7d51296-caca-491f-bca2-58af7ba9569d")
     EList<MatrixDefinition> getMatrix();
@@ -837,6 +859,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Owned matrices.</i>
+     * 
      */
     @objid ("20281702-c0a3-484f-844c-732d2e5b86be")
     <T extends MatrixDefinition> List<T> getMatrix(java.lang.Class<T> filterClass);
@@ -846,6 +869,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Impact link targeting this element.</i>
+     * 
      */
     @objid ("dd2d4138-0617-4911-bd8b-4e8d61e025dd")
     EList<ImpactLink> getImpactImpacted();
@@ -855,6 +879,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Impact link targeting this element.</i>
+     * 
      */
     @objid ("2e999508-2c6e-4320-adeb-3f2668b1488c")
     <T extends ImpactLink> List<T> getImpactImpacted(java.lang.Class<T> filterClass);
@@ -864,6 +889,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Impact links from this element. Gives the elements this one depends on.</i>
+     * 
      */
     @objid ("337adfd7-a746-419c-8242-d7a976ad72be")
     EList<ImpactLink> getImpactDependsOn();
@@ -873,6 +899,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Impact links from this element. Gives the elements this one depends on.</i>
+     * 
      */
     @objid ("6ec8f548-b1c3-436e-83cf-d05747fa3705")
     <T extends ImpactLink> List<T> getImpactDependsOn(java.lang.Class<T> filterClass);
@@ -882,6 +909,7 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Attached resources</i>
+     * 
      */
     @objid ("bcd32e59-fd43-46b1-85b3-33614edc6d6d")
     EList<AbstractResource> getAttached();
@@ -891,8 +919,9 @@ public interface ModelElement extends Element {
      * 
      * Metamodel description:
      * <i>Attached resources</i>
+     * 
      */
     @objid ("a12efbd1-2bcd-447f-b641-438129474970")
     <T extends AbstractResource> List<T> getAttached(java.lang.Class<T> filterClass);
-
 }
+

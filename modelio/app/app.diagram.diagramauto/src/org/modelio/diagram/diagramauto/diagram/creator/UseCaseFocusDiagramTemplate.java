@@ -32,6 +32,7 @@ import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.groups.DgNodeGroup;
+import org.modelio.diagram.diagramauto.tools.layout.NodeRollingUnmasker;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
@@ -75,6 +76,12 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
     public List<IDiagramNode> _parentUseCaseDgs;
 
     /**
+     * A NodeRollingUnmasker that avoids unmasking nodes on each other which could results in erroneous re-parenting
+     */
+    @objid ("c52f7ccf-b197-4cc8-8774-395c03f87248")
+    protected NodeRollingUnmasker _unmasker;
+
+    /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("6e4174f9-90bb-47d6-b944-e7e60dc502cf")
@@ -85,6 +92,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         this._linksDgs = new ArrayList<>();
         this._parentUseCaseDgs = new ArrayList<>();
         this._linkedUseCaseDgs = new ArrayList<>();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -102,23 +110,18 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
 
     @objid ("fc50fd84-771c-4ed4-97a2-56c1f9c77e6d")
     @Override
-    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof UseCase) {
-            initialUnmasking(dh, (UseCase) main);
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof UseCase)) {
+            return;
         }
         
-    }
-
-    @objid ("b53e3108-66c2-45a9-bc15-43d5f6e7eb2c")
-    protected void initialUnmasking(final IDiagramHandle dh, final UseCase uc) {
-        // Mask old content
-        for (IDiagramNode node : dh.getDiagramNode().getNodes()) {
-            node.mask();
-        }
+        UseCase uc = (UseCase) main;
+        
+        
         
         // The focused UseCase
-        this._ucDG = (IDiagramNode) dh.unmask(uc, 400, 400).get(0);
-        this._ucDG.setSize(100, 100);
+        this._ucDG = this._unmasker.unmask(dh, uc, 100, 100);
         
         // Unmask the "left" nodes : the actors associated to the use case
         // Need to explore both incoming and outgoing associations because orientation is completely ignored in use case diagrams
@@ -127,20 +130,18 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
             Classifier e = a.getSource();
             if (e != null && e instanceof Actor) {
                 // Unmask actor
-                List<IDiagramGraphic> nodes = dh.unmask(e, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
+                IDiagramNode node = this._unmasker.unmask(dh, e);
+                if (node != null)
                     this._actorsDgs.add(node);
-                }
-        
-                // Unmask the link
-                List<IDiagramGraphic> linkDgs = dh.unmask(a.getAssociation(), 0, 0);
-                if ((linkDgs != null) && (linkDgs.size() > 0)) {
-                    IDiagramLink link = (IDiagramLink) linkDgs.get(0);
-                    this._linksDgs.add(link);
-                }
-        
             }
+        
+            // Unmask the link
+            // List<IDiagramGraphic> linkDgs = dh.unmask(a.getAssociation(), 0, 0);
+            // if ((linkDgs != null) && (linkDgs.size() > 0)) {
+            // IDiagramLink link = (IDiagramLink) linkDgs.get(0);
+            // this._linksDgs.add(link);
+            // }
+        
         }
         
         // Then, links from the UseCase to an Actor
@@ -148,28 +149,91 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
             Classifier e = a.isNavigable() ? a.getTarget() : a.getOpposite().getSource();
             if (e != null && e instanceof Actor) {
                 // Unmask actor
-                List<IDiagramGraphic> nodes = dh.unmask(e, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
+                IDiagramNode node = this._unmasker.unmask(dh, e);
+                if (node != null)
                     this._actorsDgs.add(node);
-                }
-        
-                // Unmask the link
-                Association link = a.getAssociation();
-                List<IDiagramGraphic> linkDgs = dh.unmask(link, 0, 0);
-                if ((linkDgs != null) && (linkDgs.size() > 0)) {
-                    IDiagramLink linkDg = (IDiagramLink) linkDgs.get(0);
-                    this._linksDgs.add(linkDg);
-                }
             }
+        
+            // Unmask the link
+            // Association link = a.getAssociation();
+            // List<IDiagramGraphic> linkDgs = dh.unmask(link, 0, 0);
+            // if ((linkDgs != null) && (linkDgs.size() > 0)) {
+            // IDiagramLink linkDg = (IDiagramLink) linkDgs.get(0);
+            // this._linksDgs.add(linkDg);
+            // }
+        
         }
         
         // Unmask the 'top' nodes which are the inherited UseCases
         for (Generalization g : uc.getParent()) {
             // Unmask the node
-            IDiagramNode dg = (IDiagramNode) dh.unmask(g.getSuperType(), 0, 0).get(0);
-            this._parentUseCaseDgs.add(dg);
+            IDiagramNode dg = this._unmasker.unmask(dh, g.getSuperType());
+            if (dg != null)
+                this._parentUseCaseDgs.add(dg);
             // unmask the link
+            // List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
+            // if ((links != null) && (links.size() > 0)) {
+            // IDiagramLink link = (IDiagramLink) links.get(0);
+            // this._linksDgs.add(link);
+            // }
+        }
+        
+        // Unmask the 'left' nodes which are the included and extended UseCases
+        for (UseCaseDependency d : uc.getUsed()) {
+            // Unmask the node
+            IDiagramNode dg = this._unmasker.unmask(dh, d.getTarget());
+            if (dg != null)
+                this._linkedUseCaseDgs.add(dg);
+            // unmask the link
+            // List<IDiagramGraphic> links = dh.unmask(d, 0, 0);
+            // if ((links != null) && (links.size() > 0)) {
+            // IDiagramLink link = (IDiagramLink) links.get(0);
+            // this._linksDgs.add(link);
+            // }
+        }
+        
+    }
+
+    @objid ("1dae599f-a875-407a-a4ee-c6c1b3dcd3d7")
+    @Override
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        // Get rid of dumb case
+        if (!(main instanceof UseCase)) {
+            return;
+        }
+        
+        UseCase uc = (UseCase) main;
+        
+        // The focused UseCase
+        this._ucDG = this._unmasker.unmask(dh, uc, 100, 100);
+        
+        // Unmask the "left" nodes : the actors associated to the use case
+        // Need to explore both incoming and outgoing associations because orientation is completely ignored in use case diagrams
+        // First, links from an Actor to the UseCase
+        for (AssociationEnd a : uc.getTargetingEnd()) {
+            // Unmask the link
+            List<IDiagramGraphic> linkDgs = dh.unmask(a.getAssociation(), 0, 0);
+            if ((linkDgs != null) && (linkDgs.size() > 0)) {
+                IDiagramLink link = (IDiagramLink) linkDgs.get(0);
+                this._linksDgs.add(link);
+            }
+        }
+        
+        // Then, links from the UseCase to an Actor
+        for (AssociationEnd a : uc.getOwnedEnd()) {
+            // Unmask the link
+            Association link = a.getAssociation();
+            List<IDiagramGraphic> linkDgs = dh.unmask(link, 0, 0);
+            if ((linkDgs != null) && (linkDgs.size() > 0)) {
+                IDiagramLink linkDg = (IDiagramLink) linkDgs.get(0);
+                this._linksDgs.add(linkDg);
+            }
+        
+        }
+        
+        // Unmask the 'top' nodes which are the inherited UseCases
+        for (Generalization g : uc.getParent()) {
+            // Unmask the link
             List<IDiagramGraphic> links = dh.unmask(g, 0, 0);
             if ((links != null) && (links.size() > 0)) {
                 IDiagramLink link = (IDiagramLink) links.get(0);
@@ -179,10 +243,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         
         // Unmask the 'left' nodes which are the included and extended UseCases
         for (UseCaseDependency d : uc.getUsed()) {
-            // Unmask the node
-            IDiagramNode dg = (IDiagramNode) dh.unmask(d.getTarget(), 0, 0).get(0);
-            this._linkedUseCaseDgs.add(dg);
-            // unmask the link
+            // Unmask the link
             List<IDiagramGraphic> links = dh.unmask(d, 0, 0);
             if ((links != null) && (links.size() > 0)) {
                 IDiagramLink link = (IDiagramLink) links.get(0);
@@ -216,11 +277,26 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
 
     @objid ("beeb701c-0708-4ab2-84b0-8b5c13ffded5")
     @Override
-    protected void layout(final IDiagramHandle dh) {
+    protected void layoutNodes(final IDiagramHandle dh) {
         if (this._ucDG != null) {
             UseCaseFocusLayout layout = new UseCaseFocusLayout();
             try {
-                layout.layout(this._ucDG, this._actorsDgs, this._parentUseCaseDgs, this._linkedUseCaseDgs, this._linksDgs);
+                layout.layoutNodes(this._ucDG, this._actorsDgs, this._parentUseCaseDgs, this._linkedUseCaseDgs, this._linksDgs);
+            } catch (Exception e) {
+                // Should never happen
+                DiagramAuto.LOG.debug(e);
+            }
+        }
+        
+    }
+
+    @objid ("5be8318f-0cf5-40a3-ae1e-987b50bdcbbe")
+    @Override
+    protected void layoutLinks(final IDiagramHandle dh) {
+        if (this._ucDG != null) {
+            UseCaseFocusLayout layout = new UseCaseFocusLayout();
+            try {
+                layout.layoutLinks(this._ucDG, this._actorsDgs, this._parentUseCaseDgs, this._linkedUseCaseDgs, this._linksDgs);
             } catch (Exception e) {
                 // Should never happen
                 DiagramAuto.LOG.debug(e);
@@ -253,6 +329,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         this._linksDgs.clear();
         this._parentUseCaseDgs.clear();
         this._linkedUseCaseDgs.clear();
+        this._unmasker = new NodeRollingUnmasker();
         
     }
 
@@ -268,7 +345,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         private static final int NODE_V_SPACING = 25;
 
         @objid ("a70a3a98-d06d-4d64-9c97-4543c76d81e0")
-        public void layout(IDiagramNode ucDg, List<IDiagramNode> actorsDgs, List<IDiagramNode> parentUseCaseDgs, List<IDiagramNode> linkedUseCaseDgs, List<IDiagramLink> linksDgs) {
+        public void layoutNodes(IDiagramNode ucDg, List<IDiagramNode> actorsDgs, List<IDiagramNode> parentUseCaseDgs, List<IDiagramNode> linkedUseCaseDgs, List<IDiagramLink> linksDgs) {
             DgNodeGroup leftGroup = new DgNodeGroup(actorsDgs);
             DgNodeGroup rightGroup = new DgNodeGroup(linkedUseCaseDgs);
             DgNodeGroup topGroup = new DgNodeGroup(parentUseCaseDgs);
@@ -307,10 +384,14 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
             
             // Position the right block
             double xRight = ucDg.getBounds().preciseX() + ucDg.getBounds().preciseWidth() / 2 +
-                    max(ucDg.getBounds().preciseWidth() / 2 + BLOCK_H_SPACING , topBLock.preciseWidth() / 2 + BLOCK_H_SPACING);
+                    max(ucDg.getBounds().preciseWidth() / 2 + BLOCK_H_SPACING, topBLock.preciseWidth() / 2 + BLOCK_H_SPACING);
             double yRight = ucDg.getBounds().preciseY() + ucDg.getBounds().preciseHeight() / 2 - rightBlock.preciseHeight() / 2;
             rightGroup.moveTo(xRight, yRight);
             
+        }
+
+        @objid ("6ccffc6f-6d59-473a-a8e2-b7fc3140faa9")
+        public void layoutLinks(IDiagramNode ucDg, List<IDiagramNode> actorsDgs, List<IDiagramNode> parentUseCaseDgs, List<IDiagramNode> linkedUseCaseDgs, List<IDiagramLink> linksDgs) {
             // Route links
             for (IDiagramLink linkDg : linksDgs) {
                 if (linkDg.getFrom() instanceof IDiagramNode && linkDg.getTo() instanceof IDiagramNode) {

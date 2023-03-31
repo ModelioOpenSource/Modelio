@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1200]]
 
-[[r1200]]
+
+
 = R1200
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Les flux entrants et sortants d'un _DecisionMergeNode_ doivent être du même type.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 _Contrainte UML_:
@@ -25,9 +25,9 @@ _Contrainte UML_:
 * Les flux entrants et sortants d'un nœud de décision doivent être soit tous des _ControlFlow_ soit tous des _ObjectFlow_.
 * Les flux entrants et sortants d'un nœud de fusion doivent être soit tous des _ControlFlow_ soit tous des _ObjectFlow_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez une erreur R1200 sur un _DecisionMergeNode_, supprimez tous les flux d'un certain type afin de n'avoir qu'un seul type de flux entrant et sortant du _DecisionMergeNode_.

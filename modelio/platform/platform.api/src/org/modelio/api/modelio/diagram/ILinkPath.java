@@ -71,5 +71,5 @@ public interface ILinkPath {
      */
     @objid ("eacc0650-411e-4c5e-9346-a921c1139005")
     void movePoint(final int index, int x, int y);
-
 }
+

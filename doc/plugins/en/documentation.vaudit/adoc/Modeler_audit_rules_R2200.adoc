@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2200]]
 
-[[r2200]]
+
+
 = R2200
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _NameSpace_ should not both derive from and import another _NameSpace_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 When a _NameSpace_ derives from another _NameSpace_, its entire contents are accessible so there is no need to import it as well.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 You can safely remove the import link because it is not necessary.

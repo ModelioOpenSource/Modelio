@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoDiagrammesrdquo]]
 
-[[la-vue-diagrammes]]
+
+
 = La vue "Diagrammes"
 
 .La vue "Diagrammes" en mode "Afficher par groupes utilisateurs"
@@ -17,9 +17,9 @@ image::images/Modeler-_modeler_interface_diagrams_view_diagram_view.png[2]
 2. La barre d'outils de la vue "Diagrammes".
 3. Les diagrammes.
 
-[[Principales-commandes-disponibles-dans-la-vue-ldquoDiagrammesrdquo]]
 
-[[principales-commandes-disponibles-dans-la-vue-diagrammes]]
+
+
 ===== Principales commandes disponibles dans la vue "Diagrammes"
 
 *Depuis le menu contextuel disponible sur des éléments dans la vue "Diagrammes" :*

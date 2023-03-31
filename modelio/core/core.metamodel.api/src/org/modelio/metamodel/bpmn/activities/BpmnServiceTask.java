@@ -34,6 +34,8 @@ import org.modelio.metamodel.bpmn.bpmnService.BpmnOperation;
  * 
  * A Service Task is a Task that uses some sort of service, which could be a Web service or an automated application.
  * A Service Task object shares the same shape as the Task, which is a rectangle that has rounded corners. However, there is a graphical marker in the upper left corner of the shape that indicates that the Task is a Service Task
+ * 
+ * 
  */
 @objid ("008313be-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnServiceTask extends BpmnTask {
@@ -58,6 +60,7 @@ public interface BpmnServiceTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("d9995f2d-6100-453a-899f-a698f77f2623")
     String getImplementation();
@@ -71,6 +74,7 @@ public interface BpmnServiceTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("9dbee6ff-a0a5-4435-919f-8685a466333d")
     void setImplementation(String value);
@@ -80,6 +84,7 @@ public interface BpmnServiceTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e858d345-03fd-43c3-97a7-2b34c025dd8f")
     BpmnOperation getOperationRef();
@@ -89,8 +94,9 @@ public interface BpmnServiceTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e913a9fd-0e1c-4aef-a780-764bda8a05d2")
     void setOperationRef(BpmnOperation value);
-
 }
+

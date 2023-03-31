@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.equinox.p2.core.feature"
+      label="%featureName"
+      version="1.6.800.v20201106-1246"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.core.feature" version="1.4.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.core.ssl.feature" version="1.1.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.feature" version="3.13.7" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient45.feature" version="1.0.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.equinox.p2.artifact.repository"
+         download-size="153"
+         install-size="334"
+         version="1.3.500.v20200406-2025"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.console"
+         download-size="28"
+         install-size="62"
+         version="1.1.400.v20201106-0859"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.core"
+         download-size="74"
+         install-size="138"
+         version="2.6.300.v20200211-1504"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.director"
+         download-size="106"
+         install-size="247"
+         version="2.4.700.v20200511-1530"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.engine"
+         download-size="205"
+         install-size="462"
+         version="2.6.700.v20200511-1530"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.garbagecollector"
+         download-size="24"
+         install-size="44"
+         version="1.1.400.v20200221-1022"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.metadata"
+         download-size="352"
+         install-size="786"
+         version="2.5.100.v20200908-1020"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.metadata.repository"
+         download-size="130"
+         install-size="286"
+         version="1.3.400.v20191211-1528"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.repository"
+         download-size="139"
+         install-size="281"
+         version="2.5.0.v20201013-0853"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.touchpoint.eclipse"
+         download-size="128"
+         install-size="279"
+         version="2.2.700.v20200813-0739"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.touchpoint.natives"
+         download-size="79"
+         install-size="161"
+         version="1.3.600.v20200511-1530"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.simpleconfigurator.manipulator"
+         download-size="26"
+         install-size="49"
+         version="2.1.500.v20200211-1505"
+         unpack="false"/>
+
+   <plugin
+         id="org.sat4j.core"
+         download-size="367"
+         install-size="704"
+         version="2.3.5.v201308161310"
+         unpack="false"/>
+
+   <plugin
+         id="org.sat4j.pb"
+         download-size="244"
+         install-size="504"
+         version="2.3.5.v201404071733"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.frameworkadmin"
+         download-size="36"
+         install-size="67"
+         version="2.1.400.v20191002-0702"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.frameworkadmin.equinox"
+         download-size="66"
+         install-size="141"
+         version="1.1.400.v20200319-1546"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.preferences"
+         download-size="133"
+         install-size="275"
+         version="3.8.100.v20201102-2042"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security"
+         download-size="110"
+         install-size="229"
+         version="1.3.500.v20200114-1637"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.jarprocessor"
+         download-size="71"
+         install-size="123"
+         version="1.1.700.v20200904-1601"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.transport.ecf"
+         download-size="43"
+         install-size="89"
+         version="1.3.0.v20201012-1345"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.operations"
+         download-size="74"
+         install-size="172"
+         version="2.5.1000.v20201106-1246"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.macosx"
+         os="macosx"
+         download-size="28"
+         install-size="109"
+         version="1.101.200.v20190903-0934"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.linux.x86_64"
+         os="linux"
+         arch="x86_64"
+         download-size="16"
+         install-size="31"
+         version="1.1.400.v20200915-1125"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.win32.x86_64"
+         os="win32"
+         arch="x86_64"
+         download-size="40"
+         install-size="74"
+         version="1.1.200.v20190812-0919"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.tukaani.xz"
+         download-size="125"
+         install-size="202"
+         version="1.8.0.v20180207-1613"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.concurrent"
+         download-size="25"
+         install-size="45"
+         version="1.1.500.v20200106-1437"
+         unpack="false"/>
+
+</feature>

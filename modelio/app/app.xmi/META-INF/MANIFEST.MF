@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: XMI
 Bundle-SymbolicName: org.modelio.app.xmi;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Activator: org.modelio.xmi.plugin.Xmi
 Bundle-Localization: plugin
 Bundle-Vendor: modelio.org
@@ -31,7 +31,7 @@ Require-Bundle: org.eclipse.ui,
  org.modelio.platform.preferences,
  org.modelio.core.project.data,
  org.modelio.modelermodule
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"

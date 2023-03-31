@@ -65,5 +65,5 @@ public interface IElementNamer {
      */
     @objid ("7f4a595a-b1e9-4639-806f-ef3ef2eddc59")
     String getBaseName(MObject object);
-
 }
+

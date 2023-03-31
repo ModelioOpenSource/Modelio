@@ -138,5 +138,5 @@ public interface IModelioProgress {
      */
     @objid ("c98a8cd2-a5a3-11e1-aa98-001ec947ccaf")
     void worked(int work);
-
 }
+

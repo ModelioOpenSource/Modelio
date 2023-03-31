@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3010]]
 
-[[r3010]]
+
+
 = R3010
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A «refers» _Dependency_ must link a _BusinessRule_ to a _Term_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A «refers» _Dependency_ indicates that the semantics of the _BusinessRule_ refer to the connected _Term_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a «refers» _Dependency_ which is not between a _BusinessRule_ and a _Term_, you should delete it.

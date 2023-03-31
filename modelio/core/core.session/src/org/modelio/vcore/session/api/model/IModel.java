@@ -236,5 +236,5 @@ public interface IModel {
      */
     @objid ("0078ca26-5a20-10c8-842f-001ec947cd2a")
     GenericFactory getGenericFactory();
-
 }
+

@@ -107,5 +107,5 @@ public interface IHeaderFigure extends IPenOptionsSupport, IFigure {
      */
     @objid ("9c86659a-23f5-49ae-bccb-dd336c85bd6b")
     boolean isWrapped();
-
 }
+

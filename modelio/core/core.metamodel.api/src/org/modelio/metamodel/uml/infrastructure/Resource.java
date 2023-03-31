@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("36611c2a-604e-4297-867c-88c36674512d")
 public interface Resource extends AbstractResource {
@@ -46,5 +48,5 @@ public interface Resource extends AbstractResource {
      */
     @objid ("b579b6ae-1002-4be1-bbd5-0ab063c27d54")
     public static final String MQNAME = "Infrastructure.Resource";
-
 }
+

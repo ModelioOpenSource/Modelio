@@ -53,8 +53,8 @@ public class FinalStateFigure extends ShapedFigure {
         setSize(20, 20);
         setOpaque(true);
         this.shapedBorder = new ShapedBorder(this.penOptions.lineColor,
-                this.penOptions.lineWidth,
-                this.shaper);
+                                             this.penOptions.lineWidth,
+                                             this.shaper);
         setBorder(this.shapedBorder);
         
     }

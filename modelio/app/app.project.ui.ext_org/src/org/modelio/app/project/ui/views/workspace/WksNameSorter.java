@@ -22,14 +22,14 @@ package org.modelio.app.project.ui.views.workspace;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 
 @objid ("efeba28c-b0d5-4ddf-8935-17563609695c")
 public class WksNameSorter extends ViewerComparator {
     @objid ("d2934bfb-d171-47e5-858f-cf5b45f2c158")
     @Override
     public int compare(Viewer viewer, Object e1, Object e2) {
-        return super.compare(viewer, ((ProjectDescriptor) e1).getName(), ((ProjectDescriptor) e2).getName());
+        return super.compare(viewer, ((GProjectDescriptor) e1).getName(), ((GProjectDescriptor) e2).getName());
     }
 
 }

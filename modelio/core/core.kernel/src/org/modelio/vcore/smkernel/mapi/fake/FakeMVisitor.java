@@ -33,5 +33,5 @@ public interface FakeMVisitor {
      */
     @objid ("88e0613d-c0ee-4a0d-a696-ebde6b621c4a")
     Object visitFakeMObject(FakeMObject obj);
-
 }
+

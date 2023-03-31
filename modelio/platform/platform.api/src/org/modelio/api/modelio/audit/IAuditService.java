@@ -54,5 +54,5 @@ public interface IAuditService {
      */
     @objid ("15d2c340-1df4-11e2-bcbe-002564c97630")
     boolean check(ITransaction transaction);
-
 }
+

@@ -36,13 +36,13 @@ import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
 import org.modelio.uml.sequencediagram.editor.elements.GmMessageEndAnchor;
 import org.modelio.uml.sequencediagram.editor.elements.MessageEndAnchor;
+import org.modelio.uml.sequencediagram.editor.elements.common.node.AbstractSequenceNodeEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.GmSequenceDiagram;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.IPlacementConstraintProvider;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.PlacementConstraint;
@@ -51,7 +51,7 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.Placement
  * EditPart (ie Controller in the GEF model) for ExecutionSpecification in Sequence Diagram.
  */
 @objid ("d8e37e1b-55b6-11e2-877f-002564c97630")
-public class ExecutionSpecificationEditPart extends AbstractNodeEditPart implements IPlacementConstraintProvider {
+public class ExecutionSpecificationEditPart extends AbstractSequenceNodeEditPart implements IPlacementConstraintProvider {
     /**
      * Default height to use for an execution specification in none is given by user.
      */

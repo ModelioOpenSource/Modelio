@@ -32,5 +32,5 @@ interface NativeService {
 
     @objid ("b7081f00-cdcb-4026-8552-1332aff4e283")
     int getStartupTime();
-
 }
+

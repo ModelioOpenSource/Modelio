@@ -31,5 +31,5 @@ interface ISymbolPanelController {
      */
     @objid ("66ac3574-57ce-453a-bff6-a4ba30226dce")
     void refreshView();
-
 }
+

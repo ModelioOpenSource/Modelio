@@ -189,5 +189,5 @@ public interface MObject extends Comparable<MObject> {
      */
     @objid ("0062fcd2-b2b0-1f4f-9c13-001ec947cd2a")
     void setName(final String name);
-
 }
+

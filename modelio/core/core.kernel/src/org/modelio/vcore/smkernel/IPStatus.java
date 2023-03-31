@@ -61,5 +61,5 @@ public interface IPStatus {
      */
     @objid ("e31db11a-1d8b-4213-bb16-aeef66612dd1")
     public static final long PMASK_MODIFIABLE_REQUIRED = IPStatus.OBJECTWRITE;
-
 }
+

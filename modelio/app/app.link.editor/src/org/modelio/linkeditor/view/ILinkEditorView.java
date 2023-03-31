@@ -32,5 +32,5 @@ public interface ILinkEditorView {
 
     @objid ("7b716597-298a-408d-9614-3c0fd9b1c966")
     void refreshFromCurrentSelection();
-
 }
+

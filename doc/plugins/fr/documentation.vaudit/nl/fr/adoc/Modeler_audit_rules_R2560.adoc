@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2560]]
 
-[[r2560]]
+
+
 = R2560
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _Port_ de type behavior doit fournir au moins une _Interface_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _Port_ de type behavior doit fournir au moins une _Interface_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Ajoutez une _Interface_ fournie.

@@ -28,6 +28,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("4b84ffb3-13bb-11e2-825e-001ec947c8cc")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
-public @interface IsVisible {// Left empty on purpose.
+public @interface IsVisible {
+// Left empty on purpose.
     
 }

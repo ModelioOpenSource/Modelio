@@ -37,7 +37,7 @@ public class GmInternalTransitionStructuredStyleKeys extends StateAbstractStyleK
 
     @objid ("816eeb0a-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERNALTRANSITION_SHOWSTEREOTYPES",
-                                                                   MetaKey.SHOWSTEREOTYPES);
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("816eeb0c-55c2-11e2-9337-002564c97630")
     static final StyleKey SHOWTAGS = createStyleKey("INTERNALTRANSITION_SHOWTAGS", MetaKey.SHOWTAGS);

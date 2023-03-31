@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Localization: plugin
 Bundle-Name: Modelio platform RCP extensions
 Bundle-SymbolicName: org.modelio.platform.rcp;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Bundle-Vendor: modelio.org
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.modelio.platform.utils,
  org.eclipse.help.base,
  org.eclipse.ui.workbench,

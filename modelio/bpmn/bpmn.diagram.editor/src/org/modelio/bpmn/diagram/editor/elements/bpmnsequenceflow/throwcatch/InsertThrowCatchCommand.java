@@ -27,6 +27,7 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceF
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.figures.anchors.FacesConstants;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.anchors.GmFixedAnchor;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -89,9 +90,9 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         // The command can be used to create either a Throw or a Catch link event.
         // Process according to the effective situation.
         if (newElement instanceof BpmnIntermediateThrowEvent) {
-            doBeforeUnmask((BpmnIntermediateThrowEvent) newElement);
+            beforeUnmaskThrowEvent((BpmnIntermediateThrowEvent) newElement);
         } else if (newElement instanceof BpmnIntermediateCatchEvent) {
-            doBeforeUnmask((BpmnIntermediateCatchEvent) newElement);
+            beforeUnmaskCatchEvent((BpmnIntermediateCatchEvent) newElement);
         }
         
     }
@@ -104,10 +105,12 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
     @Override
     protected void afterUnmask(MObject newBpmnEvent, GmNodeModel newBpmnEventGm) {
         // Process the newly created catch event:
+        // - define the event lanes same as the target lanes
         // - move the the catch event on the left side of its target
         // - unmask and route the flow between the catch event and its target
         BpmnSequenceFlow catchFlow = this.catchEvent.getOutgoing().get(0);
         BpmnFlowNode catchFlowTarget = catchFlow.getTargetRef();
+        this.catchEvent.getLane().addAll(catchFlowTarget.getLane());
         GmNodeModel catchEventGm = getGmForFlowNode(this.catchEvent, getCatchEventCompatibleParentNode((GmNodeModel) this.gmFlow.getTo()));
         GmNodeModel catchFlowTargetGm = getGmForFlowNode(catchFlowTarget, getParentNode());
         if (catchFlowTargetGm != null && catchEventGm != null) {
@@ -130,8 +133,8 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
             // Unmask and route the flow between the catch event and its target node (anchors set to the figure centers)
             IGmPath gmpath = new GmPath();
-            gmpath.setSourceAnchor(new GmFixedAnchor(1, 0, 1));
-            gmpath.setTargetAnchor(new GmFixedAnchor(3, 0, 1));
+            gmpath.setSourceAnchor(new GmFixedAnchor("", FacesConstants.FACE_EAST, 0, 1));
+            gmpath.setTargetAnchor(new GmFixedAnchor("", FacesConstants.FACE_WEST, 0, 1));
             gmpath.setPathData(Collections.EMPTY_LIST);
             gmpath.setRouterKind(ConnectionRouterId.ORTHOGONAL);
             this.diagram.unmaskLink(catchFlow, ((GmPortContainer) catchEventGm).getMainNode(), ((GmPortContainer) catchFlowTargetGm).getMainNode(), gmpath);
@@ -140,11 +143,13 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
             this.diagram.unmaskAsChild(this.catchEvent, new Rectangle(0, 0, -1, -1));
         }
         
-        // Process the newly created catch event:
+        // Process the newly created throw event:
+        // - define the event lanes same as the source lanes
         // - move the the throw event on the right side of its source
         // - unmask and route the flow between the throw event and its source
         BpmnSequenceFlow throwFlow = this.throwEvent.getIncoming().get(0);
         BpmnFlowNode throwFlowSource = throwFlow.getSourceRef();
+        this.throwEvent.getLane().addAll(throwFlowSource.getLane());
         GmNodeModel throwEventGm = getGmForFlowNode(this.throwEvent, getThrowEventCompatibleParentNode((GmNodeModel) this.gmFlow.getFrom()));
         GmNodeModel throwFlowSourceGm = getGmForFlowNode(throwFlowSource, getParentNode());
         
@@ -168,8 +173,8 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
             // Unmask and route the flow between the throw event and its source node (anchors set to the figure centers)
             IGmPath gmpath = new GmPath();
-            gmpath.setSourceAnchor(new GmFixedAnchor(1, 0, 1));
-            gmpath.setTargetAnchor(new GmFixedAnchor(3, 0, 1));
+            gmpath.setSourceAnchor(new GmFixedAnchor("", FacesConstants.FACE_EAST, 0, 1));
+            gmpath.setTargetAnchor(new GmFixedAnchor("", FacesConstants.FACE_WEST, 0, 1));
             gmpath.setPathData(Collections.EMPTY_LIST);
             gmpath.setRouterKind(ConnectionRouterId.ORTHOGONAL);
             this.diagram.unmaskLink(throwFlow, ((GmPortContainer) throwFlowSourceGm).getMainNode(), ((GmPortContainer) throwEventGm).getMainNode(), gmpath);
@@ -183,7 +188,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
      * The 'new element' created by the command is a throw, create the matching catch and branch everything.
      */
     @objid ("acc9af23-15e4-4df6-b5da-e5257d0db710")
-    private void doBeforeUnmask(BpmnIntermediateThrowEvent aThrowEvent) {
+    private void beforeUnmaskThrowEvent(BpmnIntermediateThrowEvent aThrowEvent) {
         final IModelManager modelManager = this.diagram.getModelManager();
         final IModelFactory modelFactory = modelManager.getModelFactory();
         MMetamodel metamodel = aThrowEvent.getMClass().getMetamodel();
@@ -209,7 +214,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
      * The 'new element' created by the command is a catch, create the matching throw and branch everything.
      */
     @objid ("99b10a22-d386-4b53-9f05-4b5214a797e1")
-    private void doBeforeUnmask(BpmnIntermediateCatchEvent aCatchEvent) {
+    private void beforeUnmaskCatchEvent(BpmnIntermediateCatchEvent aCatchEvent) {
         final IModelManager modelManager = this.diagram.getModelManager();
         final IModelFactory modelFactory = modelManager.getModelFactory();
         MMetamodel metamodel = aCatchEvent.getMClass().getMetamodel();

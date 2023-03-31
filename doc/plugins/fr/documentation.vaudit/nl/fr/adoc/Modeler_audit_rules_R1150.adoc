@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1150]]
 
-[[r1150]]
+
+
 = R1150
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 La _CallOperationAction_ ou le _SendSignalAction_ ne doit avoir au plus qu'un seul _Pin_ cible.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Le _Pin_ cible est un _InputPin_ qui représente l'objet cible vers lequel la requête ou le signal est envoyé. Il ne peut y avoir au plus qu'un _Pin_ cible pour une _CallOperationAction_ ou un _SendSignalAction._
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Le _Pin_ cible est indiqué par la propriété booléenne " _Self_ ". Cette propriété est modifiable dans la vue " Elément " lorsque le _Pin_ est sélectionné.

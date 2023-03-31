@@ -42,5 +42,5 @@ public interface IDocumentNatValue extends ISingleNatValue {
      */
     @objid ("86b78e49-4546-47fa-ad98-d834528ad711")
     ModelElement getOwner();
-
 }
+

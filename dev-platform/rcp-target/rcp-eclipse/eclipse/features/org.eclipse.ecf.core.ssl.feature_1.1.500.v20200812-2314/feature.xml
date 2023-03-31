@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.ecf.core.ssl.feature"
+      label="ECF Core SSL Feature"
+      version="1.1.500.v20200812-2314"
+      provider-name="Eclipse.org - ECF">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the ECF core SSL fragment.  On Equinox-based frameworks, this fragment exposes the Equinox TrustManager to ECF FileTransfer and other ECF-based communications.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ecf"/>
+      <import plugin="org.eclipse.ecf.identity"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.ssl"
+         download-size="15"
+         install-size="24"
+         version="1.2.400.v20200611-2220"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

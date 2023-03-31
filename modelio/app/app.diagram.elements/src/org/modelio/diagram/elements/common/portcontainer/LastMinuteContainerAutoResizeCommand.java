@@ -76,6 +76,10 @@ class LastMinuteContainerAutoResizeCommand extends Command {
         PortContainerLayout portContainerLayout = containerFigure.getPortContainerLayout();
         Rectangle updatedContainerBounds = portContainerLayout.getPreferredBounds(containerFigure);
         
+        // If empty or ill formed, abort.
+        if (updatedContainerBounds==null || updatedContainerBounds.isEmpty())
+            return;
+        
         // 3 - Compute the difference between old and updated bounds,
         // and request a resize of container to its parent.
         // Note: let's just hope the parent does accept RESIZE_CHILDREN requests... :/

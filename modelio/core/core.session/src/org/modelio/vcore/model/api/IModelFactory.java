@@ -50,5 +50,5 @@ public interface IModelFactory {
 
     @objid ("36058fb4-9231-43d8-9ead-405cacd844a7")
     <T extends MObject> T createElement(java.lang.Class<T> metaclass, MObject owner, String dependencyName);
-
 }
+

@@ -41,6 +41,8 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
  * An Actor is a specific kind of Classifier. An Actor can have Generalization links with other Actors, can have Attributes and even Operations. 
  * 
  * In Modelio, an Actor physically belongs to a NameSpace that must be a Package.
+ * 
+ * 
  */
 @objid ("0058115a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Actor extends GeneralClass {
@@ -55,5 +57,5 @@ public interface Actor extends GeneralClass {
      */
     @objid ("29d6651b-72eb-4dbb-b2ae-308feb63a2fd")
     public static final String MQNAME = "Standard.Actor";
-
 }
+

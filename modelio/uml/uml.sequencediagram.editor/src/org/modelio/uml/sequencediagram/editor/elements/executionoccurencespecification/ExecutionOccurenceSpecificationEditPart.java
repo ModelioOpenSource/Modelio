@@ -35,7 +35,6 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEdi
 import org.modelio.diagram.elements.core.figures.IBrushOptionsSupport;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
@@ -45,6 +44,7 @@ import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpe
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageSort;
 import org.modelio.uml.sequencediagram.editor.elements.GmMessageEndAnchor;
 import org.modelio.uml.sequencediagram.editor.elements.MessageEndAnchor;
+import org.modelio.uml.sequencediagram.editor.elements.common.node.AbstractSequenceNodeEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.message.GmMessage;
 import org.modelio.uml.sequencediagram.editor.elements.message.MessageEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.GmSequenceDiagram;
@@ -57,7 +57,7 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.Placement
  * @author fpoyer
  */
 @objid ("d8d74900-55b6-11e2-877f-002564c97630")
-public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPart implements IPlacementConstraintProvider {
+public class ExecutionOccurenceSpecificationEditPart extends AbstractSequenceNodeEditPart implements IPlacementConstraintProvider {
     @objid ("d8d74904-55b6-11e2-877f-002564c97630")
     private MasterExecutionOccurrenceSpecificationAnchor masterAnchor;
 

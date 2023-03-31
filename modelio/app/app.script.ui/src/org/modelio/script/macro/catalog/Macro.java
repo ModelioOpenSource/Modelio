@@ -28,6 +28,7 @@ import org.modelio.script.plugin.Script;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.smkernel.meta.SmMetamodel;
 
 /**
  * Represents a runnable macro.
@@ -172,6 +173,10 @@ public class Macro {
         List<Class<? extends MObject>> mcInterfaces = new ArrayList<>(this.metaclasses.size());
         for (String scriptMcName : getMetaclasses()) {
             try {
+        
+                // Hide SHORT_METACLASSNAMES error for old macro catalogue ( new maccro are registred with qualified metaclass name)
+                ((SmMetamodel)metamodel).TRACE_SHORT_METACLASSNAMES = false;
+        
                 final MClass scriptMc = metamodel.getMClass(scriptMcName);
                 final Class<? extends MObject> scriptInterface = scriptMc.getJavaInterface();
                 mcInterfaces.add(scriptInterface);

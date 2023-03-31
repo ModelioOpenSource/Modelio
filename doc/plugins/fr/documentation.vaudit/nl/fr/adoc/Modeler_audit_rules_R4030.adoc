@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
+
+
+
+
+= R4030
+
+
+
+
+===== Résumé
+
+Le nom d'un élément ArchiMate ne doit pas être vide ou non significatif.
+
+===== Détails
+
+Le nom d’un élément ArchiMate doit être significatif. Les éléments dont le nom est vide ou portant toujours le nom par défaut donné à leur création doivent être renommés.

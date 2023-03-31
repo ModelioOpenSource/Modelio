@@ -32,6 +32,11 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 
 /**
  * CommunicationInteraction v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("005a13d8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CommunicationInteraction extends Behavior {
@@ -52,6 +57,7 @@ public interface CommunicationInteraction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("c44f243c-b645-458c-9a66-210d3702342d")
     EList<CommunicationNode> getOwned();
@@ -61,8 +67,9 @@ public interface CommunicationInteraction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("f562daf0-a384-4263-80ad-e7e2e0873598")
     <T extends CommunicationNode> List<T> getOwned(java.lang.Class<T> filterClass);
-
 }
+

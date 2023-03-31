@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("00964254-91e0-1f74-804b-001ec947cd2a")
 public enum InteractionOperator {
@@ -56,6 +58,7 @@ public enum InteractionOperator {
     IGNOREOP(10, "IgnoreOp", "IgnoreOp"),
     @objid ("5ae9e203-7ac8-4217-bb54-66becdb5bf87")
     CONSIDEROP(11, "ConsiderOp", "ConsiderOp");
+
 public static final int SEQOP_VALUE = 0;
     public static final int ALTOP_VALUE = 1;
     public static final int OPTOP_VALUE = 2;

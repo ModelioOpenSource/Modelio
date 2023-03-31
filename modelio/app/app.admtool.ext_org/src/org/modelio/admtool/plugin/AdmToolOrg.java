@@ -25,6 +25,7 @@ import org.osgi.framework.ServiceReference;
 public class AdmToolOrg extends AbstractUIPlugin {
     @objid ("cc5dd3c4-0200-41d2-ad76-44fca7d2488e")
     public static final String PLUGIN_ID = "org.modelio.app.admtool.ext_org"; // $NON-NLS-1$
+    
 
     @objid ("e015a7d3-b5fe-4416-a62e-7e6a9785b7a8")
     public static PluginLogger LOG;

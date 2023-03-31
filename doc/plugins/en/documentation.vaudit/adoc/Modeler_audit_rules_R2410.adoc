@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2410]]
 
-[[r2410]]
+
+
 = R2410
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An _Operation_ cannot own both 'create' and 'destroy' stereotypes.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Constructor and destructor are exclusive stereotypes: a method cannot be both a constructor and a destructor.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Remove one of the stereotypes.

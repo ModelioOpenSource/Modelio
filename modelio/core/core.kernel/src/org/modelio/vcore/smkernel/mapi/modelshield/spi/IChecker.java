@@ -32,5 +32,5 @@ public interface IChecker {
 
     @objid ("007bb376-b6fa-1f60-8473-001ec947cd2a")
     void register(final IModelShieldRegistry plan, MMetamodel smMetamodel);
-
 }
+

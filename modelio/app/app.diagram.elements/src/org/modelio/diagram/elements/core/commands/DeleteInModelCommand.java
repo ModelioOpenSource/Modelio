@@ -19,11 +19,11 @@
  */
 package org.modelio.diagram.elements.core.commands;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
+import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.platform.model.ui.MetamodelLabels;
@@ -81,22 +81,24 @@ public class DeleteInModelCommand extends Command {
         return this;
     }
 
-    @objid ("a45a18b5-df1f-4563-8ac3-2de30f07e1c5")
+    @objid ("f1f24648-d1df-48cd-bc08-c20a87dd8e0b")
     @Override
     public String getLabel() {
         String label = super.getLabel();
-        if (label==null || label.isEmpty()) {
-            if (this.toDelete.size()==1) {
-                MObject obj = this.toDelete.iterator().next();
-                setLabel(MessageFormat.format(
-                        "Delete ''{0}'' {1}",
-                        new UniversalLabelProvider().getText(obj),
-                        MetamodelLabels.getString(obj.getMClass().getName())));
-            } else {
-                setLabel(MessageFormat.format("Delete {0} elements", this.toDelete.size()));
-            }
+        if (label != null && !label.isEmpty()) {
+            return label;
         }
-        return label;
+        
+        // Compute and cache with setLabel() the command label.
+        if (this.toDelete.size()==1) {
+            MObject obj = this.toDelete.iterator().next();
+            setLabel(DiagramElements.I18N.getMessage("DeleteInModelCommand.label.one",
+                    new UniversalLabelProvider().getText(obj),
+                    MetamodelLabels.getString(obj.getMClass().getName())));
+        } else {
+            setLabel(DiagramElements.I18N.getMessage("DeleteInModelCommand.label.many", this.toDelete.size()));
+        }
+        return super.getLabel();
     }
 
     /**

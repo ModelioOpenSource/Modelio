@@ -21,9 +21,8 @@ package org.modelio.platform.preferences;
 
 import java.io.IOException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 /**
  * This class implements a preference node for Modelio GProject preferences.
@@ -255,7 +254,7 @@ public class GProjectPreferenceNode implements IGProjectPreferenceStore {
 
     @objid ("8f2ad262-fbe2-497d-b849-122055359912")
     @Override
-    public GProject getProject() {
+    public IGProject getProject() {
         return this.store.getProject();
     }
 

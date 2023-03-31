@@ -90,5 +90,5 @@ public interface IRichNoteFormatRegistry {
      */
     @objid ("2d7db861-618a-4f96-98cb-4875d1d83f82")
     void reset();
-
 }
+

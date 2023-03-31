@@ -61,5 +61,5 @@ public interface AppSharedPreferencesKeys {
      */
     @objid ("da6894f8-4ba5-46a5-ab2c-b18fd69ca3f0")
     public static final String SHOWADMTOOLS_PREFKEY = "AdmTools.Show";
-
 }
+

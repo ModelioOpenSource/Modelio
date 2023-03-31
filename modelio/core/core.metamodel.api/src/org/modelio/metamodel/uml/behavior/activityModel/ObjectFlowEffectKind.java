@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("007f30c8-91e0-1f74-804b-001ec947cd2a")
 public enum ObjectFlowEffectKind {
@@ -42,6 +44,7 @@ public enum ObjectFlowEffectKind {
     DELETEFLOW(3, "DeleteFlow", "DeleteFlow"),
     @objid ("97ac7677-63b5-4fa8-9e3f-f6f633a6c8ae")
     EXCEPTIONFLOW(4, "ExceptionFlow", "ExceptionFlow");
+
 public static final int CREATEFLOW_VALUE = 0;
     public static final int READFLOW_VALUE = 1;
     public static final int UPDATEFLOW_VALUE = 2;

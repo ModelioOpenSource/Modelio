@@ -36,6 +36,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Messages are generated either by synchronous operation calls or asynchronous signal sends. They are received by the execution of corresponding accept event actions.
  * 
  * It can also represent an execution occurrence specification : in other words, it can represent a moment in time at which actions or behaviors start or finish.
+ * 
+ * 
  */
 @objid ("00444a76-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExecutionOccurenceSpecification extends MessageEnd {
@@ -56,6 +58,7 @@ public interface ExecutionOccurenceSpecification extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("53ef1b45-ea41-4cb9-8973-deef2492b8e0")
     ExecutionSpecification getFinished();
@@ -65,6 +68,7 @@ public interface ExecutionOccurenceSpecification extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1a75e285-76fe-414c-8cab-60a7b48ab233")
     void setFinished(ExecutionSpecification value);
@@ -74,6 +78,7 @@ public interface ExecutionOccurenceSpecification extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1016c93f-a569-437c-8108-6bbeca976754")
     ExecutionSpecification getStarted();
@@ -83,8 +88,9 @@ public interface ExecutionOccurenceSpecification extends MessageEnd {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("467f25e3-dd86-41c9-a573-a0b75725d752")
     void setStarted(ExecutionSpecification value);
-
 }
+

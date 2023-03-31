@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3130]]
 
-[[r3130]]
+
+
 = R3130
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _MessageFlow_ ne peut pas cibler un _EndEvent_ ou un _IntermediateThrowEvent_, ni avoir comme source un _StartEvent_ ou un _IntermediateCatchEvent_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _StartEvent_ démarre une séquence et ne peut pas avoir de messages sortants. Réciproquement, un EndEvent termine une séquence et ne peut pas avoir de messages entrants.
 
 Un nœud de type _CatchEvent_ attrape les messages mais ne peut pas en envoyer, tandis qu'un ThrowEvent envoie des messages mais ne peut pas en recevoir.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des liens sortant d'un _StartEvent_ ou arrivant sur un _EndEvent_, vous devez les supprimer. Si vous avez des messages entrant sur un _ThrowEvent_, vous devriez le changer en _CatchEvent_, ou bien si vous avez des messages sortant d'un _CatchEvent_, vous devriez en faire un _ThrowEvent_.

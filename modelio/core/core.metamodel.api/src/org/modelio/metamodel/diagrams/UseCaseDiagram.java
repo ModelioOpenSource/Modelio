@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Use Case diagrams are used to model the interactions between actors and a system.</p><p>Use case diagrams show which actors communicate with which use cases, and the links between use cases (include, extend, ...).</p><p>Use cases can be documented using predefined notes (pre and post conditions, description, exception).</p>
+ * 
+ * 
+ * 
  */
 @objid ("0071804a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface UseCaseDiagram extends StaticDiagram {
@@ -46,5 +49,5 @@ public interface UseCaseDiagram extends StaticDiagram {
      */
     @objid ("22d64ced-8343-4c84-8cda-c6d8763e5678")
     public static final String MQNAME = "Standard.UseCaseDiagram";
-
 }
+

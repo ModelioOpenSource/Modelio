@@ -68,10 +68,15 @@ public class FsHtmlFigure extends GefFsRenderer {
     public void setHtmlText(String htmlText) {
         if (! Objects.equals(htmlText, this.htmlText)) {
             setDocument(getHtmlDocument(htmlText), null, new NamespaceHandlerExtension());
-            
+        
             this.htmlText = htmlText;
         }
         
+    }
+
+    @objid ("e3a1ba4d-82c6-4542-97be-2603e825002e")
+    public String getHtmlText() {
+        return this.htmlText;
     }
 
     /**
@@ -82,7 +87,7 @@ public class FsHtmlFigure extends GefFsRenderer {
     public void setFont(Font f) {
         if (! Objects.equals(f, getFont())) {
             super.setFont(f);
-            
+        
             setDocument(getHtmlDocument(this.htmlText), null, new NamespaceHandlerExtension());
         }
         

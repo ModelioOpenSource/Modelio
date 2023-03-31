@@ -73,7 +73,7 @@ public interface ILinkPathEditor {
      * assume source and target nodes already moved.
      * @return this instance to chain calls.
      */
-    @objid ("d86078f4-bfdf-4697-9474-bc56bc052e6a")
+    @objid ("d57614f8-5488-4514-bf2d-e7059e0701b0")
     ILinkPathEditor applyChangeBoundsRequest(final ChangeBoundsRequest request, boolean isSimulation);
 
     /**
@@ -94,13 +94,13 @@ public interface ILinkPathEditor {
      * Get the resulting state.
      * @return the current state
      */
-    @objid ("b2f7161c-8a0f-4c07-a305-5ac039b4bcc1")
+    @objid ("d142d519-2845-485e-8b26-6d2cec7e3433")
     ConnectionState getState();
 
     /**
      * Apply the current {@link #getState()} to the edited connection.
      */
-    @objid ("69bd9845-d36b-4828-9d7c-a85dc4a6f071")
+    @objid ("b7dabaf5-8fbb-43b9-9a9f-58a9db08607a")
     default void applyStateToConnection() {
         restoreConnection(getState());
     }
@@ -109,7 +109,7 @@ public interface ILinkPathEditor {
      * Make and return a copy of this editor with a ConnectionState independent from the connection figure and the connected node figure anchors.
      * The returned editor connection state anchors are a copy of the original anchors, owned by dummy figures.
      */
-    @objid ("98faa098-013a-48e3-9260-cd03f4d9d4f8")
+    @objid ("2e8b9ba1-17eb-4f28-91ab-dd666b620fab")
     ILinkPathEditor createFrozenStateCopy();
-
 }
+

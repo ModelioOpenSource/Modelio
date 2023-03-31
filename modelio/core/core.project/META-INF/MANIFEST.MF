@@ -2,35 +2,45 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project
 Bundle-SymbolicName: org.modelio.core.project;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.modelio.core.store.exml,
- org.modelio.core.kernel,
- org.modelio.core.utils,
- practicalxml,
- org.modelio.core.metamodel.api,
  org.modelio.core.session,
- org.eclipse.emf.ecore,
- org.modelio.core.metamodel.impl,
  org.modelio.core.metamodel.api,
- org.modelio.core.kernel,
+ org.modelio.core.metamodel.impl,
+ org.modelio.version,
+ org.modelio.core.utils,
+ practicalxml, 
  org.modelio.core.project.data,
- org.modelio.version
-Export-Package: org.modelio.gproject.fragment,
- org.modelio.gproject.fragment.exml,
- org.modelio.gproject.fragment.migration,
- org.modelio.gproject.fragment.ramcfile,
- org.modelio.gproject.fragment.url,
- org.modelio.gproject.gproject,
- org.modelio.gproject.gproject.remote,
- org.modelio.gproject.model.impl.copy,
- org.modelio.gproject.model.impl.importer.core,
- org.modelio.gproject.model.impl.importer.defaultimporter,
+ org.eclipse.emf.ecore,
+ org.modelio.core.kernel
+Export-Package: org.modelio.gproject,
+ org.modelio.gproject.auth,
+ org.modelio.gproject.catalog,
+ org.modelio.gproject.copy,
+ org.modelio.gproject.core,
+ org.modelio.gproject.env,
+ org.modelio.gproject.importer,
+ org.modelio.gproject.importer.core,
+ org.modelio.gproject.importer.defaultimporter,
+ org.modelio.gproject.lock,
+ org.modelio.gproject.migration,
  org.modelio.gproject.module,
- org.modelio.gproject.module.catalog,
- org.modelio.gproject.module.rtcache,
+ org.modelio.gproject.monitor,
+ org.modelio.gproject.mtools.merge,
+ org.modelio.gproject.parts,
+ org.modelio.gproject.parts.feature,
+ org.modelio.gproject.parts.fragment,
+ org.modelio.gproject.parts.module,
+ org.modelio.gproject.parts.resource,
+ org.modelio.gproject.plugin,
+ org.modelio.gproject.project,
+ org.modelio.gproject.ramc,
  org.modelio.gproject.ramc.core.model,
- org.modelio.gproject.ramc.core.packaging
+ org.modelio.gproject.ramc.core.packaging,
+ org.modelio.gproject.ramc.core.packaging.filters,
+ org.modelio.gproject.rtcache
 Bundle-ClassPath: res/,
  .
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: modelio.org
+Import-Package: org.modelio.gproject.module

@@ -29,6 +29,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * ConnectionPointReference v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("004e3efa-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ConnectionPointReference extends StateVertex {
@@ -49,6 +54,7 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("d8efebae-6e1c-4630-a7a8-7d84f3c31a65")
     ExitPointPseudoState getExit();
@@ -58,6 +64,7 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("96c7f8c8-feb3-45cf-a9b3-8675cc97366c")
     void setExit(ExitPointPseudoState value);
@@ -67,6 +74,7 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("724eb9ac-1e57-4f9c-8e8d-b5712a9e2cd1")
     EntryPointPseudoState getEntry();
@@ -76,6 +84,7 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("1b3b5a3a-91eb-4b3d-9b3c-c65f14e5c815")
     void setEntry(EntryPointPseudoState value);
@@ -85,6 +94,7 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("9ab3fc46-90f8-4ece-acaf-b2e398f5f93a")
     State getOwnerState();
@@ -94,8 +104,9 @@ public interface ConnectionPointReference extends StateVertex {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("6e4be17e-39d9-40e5-b0ac-e4cac097f452")
     void setOwnerState(State value);
-
 }
+

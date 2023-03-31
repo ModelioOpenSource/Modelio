@@ -35,6 +35,8 @@ import org.modelio.metamodel.mda.ModuleParameter;
  * 
  * 
  * Enumerated property type. Owns the literals that are allowed as property values.
+ * 
+ * 
  */
 @objid ("00706656-ec87-1098-b22e-001ec947cd2a")
 public interface EnumeratedPropertyType extends PropertyType {
@@ -62,6 +64,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("89fd1a16-ff09-4f51-b39b-791e77ba5a6a")
     EList<PropertyEnumerationLitteral> getLitteral();
@@ -71,6 +74,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("60556e0f-cf97-433d-bec8-62bef5639066")
     <T extends PropertyEnumerationLitteral> List<T> getLitteral(java.lang.Class<T> filterClass);
@@ -80,6 +84,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ab677af9-3932-4eb3-b6fb-a88d80a39059")
     EList<ModuleParameter> getOccurenceConfigParam();
@@ -89,8 +94,9 @@ public interface EnumeratedPropertyType extends PropertyType {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("772ab581-d603-4708-8f6a-ef4617b0d128")
     <T extends ModuleParameter> List<T> getOccurenceConfigParam(java.lang.Class<T> filterClass);
-
 }
+

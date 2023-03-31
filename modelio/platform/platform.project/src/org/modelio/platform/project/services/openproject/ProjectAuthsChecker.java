@@ -26,16 +26,17 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.gproject.FragmentAuthenticationException;
+import org.modelio.gproject.auth.AuthResolver;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.InheritedAuthData;
-import org.modelio.gproject.data.project.ModuleDescriptor;
-import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.fragment.FragmentAuthenticationException;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.gproject.module.GModule;
-import org.modelio.gproject.module.ModuleSorter;
+import org.modelio.gproject.data.project.GProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.auth.InheritedAuthData;
+import org.modelio.gproject.parts.module.GModule;
+import org.modelio.gproject.parts.module.MTopoSorter;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.ui.progress.ModelioProgressAdapter;
@@ -47,14 +48,14 @@ import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.progress.SubProgress;
 
 /**
- * Helper class that prompt user for missing or denied authentication for
- * a project and all its fragments and modules.
+ * Helper class that prompt user for missing or denied authentication for a project and all its fragments and modules.
  * <p>
- * It contains 2 main methods:<ul>
- * <li>{@link #checkMissingAuths(ProjectDescriptor)} : to be called before opening the project
- * <li>{@link #checkAuthErrors(IProgressMonitor, GProject)} : to be called after project
- * opening to request auth on fragments that failed authentication.
+ * It contains 2 main methods:
+ * <ul>
+ * <li>{@link #checkMissingAuths(GProjectDescriptor)} : to be called before opening the project
+ * <li>{@link #checkAuthErrors(IProgressMonitor, IGProject)} : to be called after project opening to request auth on fragments that failed authentication.
  * </ul>
+ * 
  * @author cma
  * @since 4.0 : was before in one of the OpenProjectHandler implementations.
  */
@@ -81,33 +82,31 @@ class ProjectAuthsChecker {
     /**
      * Check authentication status on the project and all its fragments.
      * <p>
-     * Ask the user for authentication data if needed and possible.
-     * Try to mount again fragments after the user changed authentication data.
+     * Ask the user for authentication data if needed and possible. Try to mount again fragments after the user changed authentication data.
      * <p>
-     * TODO : this method might be useless now {@link OpenProjectService} and {@link TodoRunner}
-     * nearly catches everywhere authentication problems and uses {@link IAuthenticationPrompter}
-     * to resolve them real time.
+     * TODO : this method might be useless now {@link OpenProjectService} and {@link TodoRunner} nearly catches everywhere authentication problems and uses {@link IAuthenticationPrompter} to resolve them real time.
      * @param monitor a progress monitor, may be null.
      * @param openedProject the opened project
      */
     @objid ("5ef276f9-7d08-4baf-9c93-89a096fac7b3")
-    public void checkAuthErrors(IProgressMonitor monitor, GProject openedProject) {
-        if (this.authPrompter == null)
+    public void checkAuthErrors(IProgressMonitor monitor, IGProject openedProject) {
+        if (this.authPrompter == null) {
             return;
+        }
         
-        int monCount = openedProject.getFragments().size() + openedProject.getModules().size();
+        int monCount = openedProject.getParts(IGModelFragment.class).size() + openedProject.getParts(GModule.class).size();
         SubProgress mon = ModelioProgressAdapter.convert(monitor, monCount);
         
-        for (IProjectFragment f : openedProject.getFragments()) {
+        for (IGModelFragment f : openedProject.getParts(IGModelFragment.class)) {
             while (needsAuthPrompt(f)) {
-                mon.setWorkRemaining(monCount+1);
+                mon.setWorkRemaining(monCount + 1);
         
-                IAuthData confAuthData = f.getAuthConfiguration().getAuthData();
+                IAuthData confAuthData = f.getAuth().getData();
                 IAuthData oldAuthData = confAuthData != null ? confAuthData : new NoneAuthData();
                 String label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.FragmentLabel", f.getId());
         
                 // Prompt for auth
-                IAuthData newAuthData = promptAuthentication( oldAuthData, label, uriToString(f.getUri()), getError(f));
+                IAuthData newAuthData = promptAuthentication(oldAuthData, label, uriToString(f.getDescriptor().getLocation()), getError(f));
         
                 // Check for user abort
                 if (newAuthData == null) {
@@ -115,30 +114,35 @@ class ProjectAuthsChecker {
                 }
         
                 if (oldAuthData != newAuthData) {
-                    f.getAuthConfiguration().setAuthData(newAuthData);
+                    f.getAuth().setData(newAuthData);
                 }
         
+                // FIXME Not sure here, should not mount() but rather add to project parts which in turn will mount() ?
                 SubProgress m2 = mon.newChild(1);
-                f.mount(m2);
+                try {
+                    f.mount(m2);
+                } catch (@SuppressWarnings ("unused") GPartException e) {
+                    // ignore here, error is checked in while condition
+                }
             }
         
             mon.worked(1);
             monCount--;
         }
         
-        List<GModule> sortedModules = openedProject.getModules();
+        List<GModule> sortedModules = openedProject.getParts(GModule.class);
         try {
-            sortedModules = ModuleSorter.sortModules(sortedModules);
+            sortedModules = MTopoSorter.sortModules(sortedModules);
         } catch (CyclicDependencyException e) {
             AppProjectCore.LOG.warning(e.toString());
             AppProjectCore.LOG.debug(e);
         }
         
         for (GModule f : sortedModules) {
-            IAuthData authData = f.getAuthData().getAuthData();
+            IAuthData authData = f.getAuth().getData();
             while (needsAuthPrompt(f)) {
-                String label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.ModuleLabel", f.getName(), f.getVersion().toString());
-                IAuthData newAuthData = promptAuthentication( authData, label, f.getOriginalArchiveUri().toString(), getError(f));
+                String label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.ModuleLabel", f.getId(), f.getVersion().toString());
+                IAuthData newAuthData = promptAuthentication(authData, label, f.getDescriptor().getLocation().toString(), getError(f));
         
                 // Check for user abort
                 if (newAuthData == null) {
@@ -146,7 +150,7 @@ class ProjectAuthsChecker {
                 }
         
                 if (authData != newAuthData) {
-                    f.getAuthData().setAuthData(newAuthData);
+                    f.getAuth().setData(newAuthData);
                 }
         
                 try {
@@ -168,39 +172,26 @@ class ProjectAuthsChecker {
      * @return the project authentication data on success, <i>null</i> if the user aborts open.
      */
     @objid ("ad0a56c0-7178-456b-8463-3f8f3e50a6ab")
-    public IAuthData checkMissingAuths(final ProjectDescriptor projectToOpen) {
+    public IAuthData checkMissingAuths(final GProjectDescriptor projectToOpen) {
         String label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.ProjectLabel", projectToOpen.getName());
         IAuthData firstProjAuth = this.projectAuth != null ? this.projectAuth : projectToOpen.getAuthDescriptor().getData();
         
         IAuthData projAuthData = checkMissingPartAuth(
-                firstProjAuth ,
+                firstProjAuth,
                 label,
                 projectToOpen.getRemoteLocation());
         
-        for (FragmentDescriptor f : projectToOpen.getFragments()) {
-            IAuthData authData = f.getAuthDescriptor().getData();
-            if (needsAuthPrompt(authData, f.getUri())) {
+        AuthResolver authResolver = new AuthResolver(projAuthData);
+        for (GProjectPartDescriptor f : projectToOpen.getPartDescriptors()) {
+            IAuthData authData = authResolver.resolve(f.getAuth());
+            if (needsAuthPrompt(authData, f.getLocation())) {
                 label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.FragmentLabel", f.getId());
-                IAuthData newAuthData = checkMissingPartAuth( authData, label, uriToString(f.getUri()));
+                IAuthData newAuthData = checkMissingPartAuth(authData, label, uriToString(f.getLocation()));
                 if (newAuthData == null) {
                     return null;
                 }
                 if (authData != newAuthData) {
-                    f.getAuthDescriptor().setData(newAuthData);
-                }
-            }
-        }
-        
-        for (ModuleDescriptor f : projectToOpen.getModules()) {
-            IAuthData authData = f.getAuthDescriptor().getData();
-            if (needsAuthPrompt(authData, f.getArchiveLocation())) {
-                label = AppProjectCore.I18N.getMessage("OpenProjectHandler.Auth.ModuleLabel", f.getName(), f.getVersion().toString());
-                IAuthData newAuthData = checkMissingPartAuth( authData, label, uriToString(f.getArchiveLocation()));
-                if (newAuthData == null) {
-                    return null;
-                }
-                if (authData != newAuthData) {
-                    f.getAuthDescriptor().setData(newAuthData);
+                    f.getAuth().setData(newAuthData);
                 }
             }
         }
@@ -230,7 +221,7 @@ class ProjectAuthsChecker {
             }
         
             do {
-                authData = promptAuthentication( authData, name, location, null);
+                authData = promptAuthentication(authData, name, location, null);
             } while (authData != null && !authData.isComplete());
         }
         return authData;
@@ -238,14 +229,14 @@ class ProjectAuthsChecker {
 
     @objid ("8a5d51f9-24e8-4959-a478-d895a849e593")
     private static String getError(GModule f) {
-        IProjectFragment moduleFrag = f.getModelFragment();
-        Throwable downError = moduleFrag != null ? moduleFrag.getDownError() : null;
+        // IGModelFragment moduleFrag = f.getModelFragment();
+        Throwable downError = f.getState().getDownError();
         return getErrorMessage(downError);
     }
 
     @objid ("5cbc64de-2cfa-458d-8c6d-164f6b0cbf9a")
-    private static String getError(IProjectFragment f) {
-        return getErrorMessage(f.getDownError());
+    private static String getError(IGModelFragment f) {
+        return getErrorMessage(f.getState().getDownError());
     }
 
     @objid ("82fd3377-f3b9-450e-a7c9-d8aac938521d")
@@ -261,17 +252,16 @@ class ProjectAuthsChecker {
     }
 
     /**
-     * A fragment needs authentication prompting if it is down with
-     * a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
+     * A fragment needs authentication prompting if it is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
     @objid ("4588b5fc-47d4-41d9-b185-892929816229")
-    private boolean needsAuthPrompt(IProjectFragment f) {
-        Throwable downError = f.getDownError();
+    private boolean needsAuthPrompt(IGModelFragment f) {
+        Throwable downError = f.getState().getDownError();
         if (downError instanceof FragmentAuthenticationException || downError instanceof AccessDeniedException) {
-            return (f.getAuthConfiguration().getScope() != DefinitionScope.SHARED &&
-                    !InheritedAuthData.SCHEME_ID.equals(f.getAuthConfiguration().getSchemeId()));
+            return f.getAuth().getScope() != DefinitionScope.SHARED &&
+                    !InheritedAuthData.matches(f.getAuth().getData());
         } else {
             return false;
         }
@@ -279,20 +269,19 @@ class ProjectAuthsChecker {
     }
 
     /**
-     * A module needs authentication prompting if its model component fragment is down
-     * with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
+     * A module needs authentication prompting if its model component fragment is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
     @objid ("41451476-d25e-478b-abff-d6c9699fe875")
     private boolean needsAuthPrompt(GModule f) {
-        if (f.getAuthData().getScope() == DefinitionScope.SHARED
-                || InheritedAuthData.SCHEME_ID.equals(f.getAuthData().getSchemeId())) {
+        if (f.getAuth().getScope() == DefinitionScope.SHARED
+                || InheritedAuthData.matches(f.getAuth().getData())) {
             return false;
         }
         
-        IProjectFragment moduleFrag = f.getModelFragment();
-        Throwable downError = moduleFrag != null ? moduleFrag.getDownError() : null;
+        // IGModelFragment moduleFrag = f.getModelFragment();
+        Throwable downError = f.getState().getDownError();
         return downError instanceof FragmentAuthenticationException || downError instanceof AccessDeniedException;
     }
 
@@ -321,8 +310,9 @@ class ProjectAuthsChecker {
 
     @objid ("db249017-f9d3-4836-b7aa-92f2f7f4c42f")
     private static String uriToString(URI uri) {
-        if (uri==null)
+        if (uri == null) {
             return null;
+        }
         return uri.toString();
     }
 

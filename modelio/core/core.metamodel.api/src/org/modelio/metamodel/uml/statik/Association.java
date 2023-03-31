@@ -39,6 +39,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * An Association can be related to a ClassAssociation that may, for example, provide Attributes and Operations.  The connections to the associated Classes are specified through the AssociationEnd metaclass.  The AssociationEnd metaclass will provide the properties of an Association, such as cardinalities, navigability, and so on. Aggregation is a specific case of an Association. 
  * 
  * In Modelio, an Association physically belongs to no other elements. It has a specific way of behaving during transfer and copy/paste operations, depending on whether the connected Classes are transferred in conjunction or not.
+ * 
+ * 
  */
 @objid ("28f7c9fd-bee9-46f0-8969-5c46572cec86")
 public interface Association extends UmlModelElement {
@@ -59,6 +61,7 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bfed74c4-9c91-4751-97cf-c0ae6533be22")
     EList<Link> getOccurence();
@@ -68,6 +71,7 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2a60d613-2bb8-4177-9b0c-de253462a3fc")
     <T extends Link> List<T> getOccurence(java.lang.Class<T> filterClass);
@@ -77,6 +81,7 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bd69461f-6a73-40d7-8315-e523b1010d24")
     EList<AssociationEnd> getEnd();
@@ -86,6 +91,7 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("63638baa-4047-40dd-a47c-caa27f557c45")
     <T extends AssociationEnd> List<T> getEnd(java.lang.Class<T> filterClass);
@@ -95,6 +101,7 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies a ClassAssociation that may be related to the Association.</i>
+     * 
      */
     @objid ("bec781f9-55e4-404c-8ec8-ab15243067ee")
     ClassAssociation getLinkToClass();
@@ -104,8 +111,9 @@ public interface Association extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies a ClassAssociation that may be related to the Association.</i>
+     * 
      */
     @objid ("d1b75fcc-4b8e-49e3-9f65-203409b0c579")
     void setLinkToClass(ClassAssociation value);
-
 }
+

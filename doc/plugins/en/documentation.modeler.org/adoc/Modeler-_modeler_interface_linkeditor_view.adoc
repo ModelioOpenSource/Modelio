@@ -3,18 +3,18 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[The-Links-Editor-view]]
 
-[[the-links-editor-view]]
+
+
 = The Links Editor view
 
 .The Links Editor view
 image::images/Modeler-_modeler_interface_linkeditor_view_LinksEditorView.png[2]
 
 
-[[Main-Links-Editor-view-commands]]
 
-[[main-links-editor-view-commands]]
+
+
 ===== Main Links Editor view commands
 
 *From the Links Editor toolbar:*

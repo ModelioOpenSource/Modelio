@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.0
+Build-Jdk-Spec: 11
+
+Name: about.html
+SHA-256-Digest: AnTMch8Mwf9UA6rZjxKRcvnoulguYwoA8E9JDlq10xU=
+
+Name: Nebula_All.psf
+SHA-256-Digest: E9+G6YAmD2Hc3ymYW58aK11JUYnVgPeYnAnLZOsN38Y=
+
+Name: feature.xml
+SHA-256-Digest: 4AHo49U+WBIF0tXS/lphEiIwfjbs3yCmKGJZGE5P6ao=
+
+Name: feature.properties
+SHA-256-Digest: 3aBMkeR2byvGU4RY0jqHlklYzTFa+rgS/v1KRpHNFFo=
+
+Name: license.html
+SHA-256-Digest: Dv5NbrV590iFepPFp4HDAA9w8zkHSynRW5FCE+FLHVM=
+

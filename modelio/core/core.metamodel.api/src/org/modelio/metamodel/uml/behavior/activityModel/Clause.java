@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * A clause is an element that represents a single branch of a conditional construct, including a test and a body section. The body section is executed only (but not necessarily) if the test section is true.
+ * 
+ * 
  */
 @objid ("002cb618-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Clause extends UmlModelElement {
@@ -55,6 +57,7 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the result of the test.</i>
+     * 
      */
     @objid ("7ab2268a-3aca-419a-8ad3-81e78dff134f")
     String getTest();
@@ -64,6 +67,7 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Specifies the result of the test.</i>
+     * 
      */
     @objid ("f275f8f2-a8e9-4202-b868-bf9a9bef154e")
     void setTest(String value);
@@ -73,6 +77,7 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>A nested activity fragment that is executed if the test is true and the clause is chosen over any concurrent clauses that are also true.</i>
+     * 
      */
     @objid ("55188136-5c63-4c26-93c2-31311bf79bf8")
     EList<ActivityNode> getBody();
@@ -82,6 +87,7 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>A nested activity fragment that is executed if the test is true and the clause is chosen over any concurrent clauses that are also true.</i>
+     * 
      */
     @objid ("6cb43116-2f47-4287-a8c2-fe1c8b007a69")
     <T extends ActivityNode> List<T> getBody(java.lang.Class<T> filterClass);
@@ -91,6 +97,7 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b7a03d1c-9348-44a1-813e-5edd42181163")
     ConditionalNode getOwner();
@@ -100,8 +107,9 @@ public interface Clause extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0f636aaf-13ec-4932-9589-12d30322c0f0")
     void setOwner(ConditionalNode value);
-
 }
+

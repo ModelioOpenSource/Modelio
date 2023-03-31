@@ -30,6 +30,7 @@ import org.eclipse.gef.handles.HandleBounds;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.RGB;
+import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
 
 /**
@@ -37,6 +38,9 @@ import org.modelio.diagram.styles.core.StyleKey.LinePattern;
  */
 @objid ("7fa261af-1dec-11e2-8cad-001ec947c8cc")
 public class GradientFigure extends Figure implements IBrushOptionsSupport, IPenOptionsSupport, HandleBounds {
+    @objid ("21bbe186-0313-42be-a283-09cc991f4b79")
+    private Direction gradientDirection = Direction.NORTH;
+
     @objid ("7fa261b5-1dec-11e2-8cad-001ec947c8cc")
     protected BrushOptions brushOptions;
 
@@ -53,6 +57,20 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
     }
 
     /**
+     * Set the gradient orientation. The gradient goes from the fill color to the gradient derived color. The direction value designates the side of the figure that is colored by the fill color.
+     * <ul>
+     * <li>EAST horizontal gradient, fill color on the left side, derived color on the right side</li>
+     * <li>WEST horizontal gradient, fill color on the right side, derived color on the left side</li>
+     * <li>NORTH vertical gradient, fill color on the top side, derived color on the bottom side</li>
+     * <li>SOUTH vertical gradient, fill color on the bottom side, derived color on the top side</li>
+     * </ul>
+     */
+    @objid ("2ae519d2-d098-46f0-82ff-09c78d7fcb44")
+    public void setGradientDirection(Direction direction) {
+        this.gradientDirection = direction;
+    }
+
+    /**
      * Creates a gradient figure.
      */
     @objid ("7fa261c1-1dec-11e2-8cad-001ec947c8cc")
@@ -66,17 +84,43 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
     @Override
     protected void paintFigure(Graphics graphics) {
         if (isOpaque() && this.brushOptions.fillColor != null) {
-            Color base = this.brushOptions.fillColor;
-            Color gradientColor = this.brushOptions.useGradient ? computeGradientColor(base) : base;
-            graphics.setBackgroundColor(gradientColor);
-            graphics.setForegroundColor(base);
             graphics.setAlpha(this.brushOptions.alpha);
-        
             tempRect = getPaintRectangle();
+            Color normalFillcolor = this.brushOptions.fillColor;
+            Color gradientFillColor = this.brushOptions.useGradient ? computeGradientColor(this.brushOptions.fillColor) : this.brushOptions.fillColor;
         
             if (this.brushOptions.useGradient) {
-                graphics.fillGradient(tempRect, false);
-                gradientColor.dispose();
+                // Graphics draws gradient from background color to foregaound color
+                // - from left to right in horizontal mode
+                // - from top to bottom in vertical mode
+                Boolean verticalGradient = null;
+                switch (this.gradientDirection) {
+                case SOUTH:
+                    graphics.setBackgroundColor(normalFillcolor);
+                    graphics.setForegroundColor(gradientFillColor);
+                    verticalGradient = true;
+                    break;
+                case NORTH:
+                    graphics.setBackgroundColor(gradientFillColor);
+                    graphics.setForegroundColor(normalFillcolor);
+                    verticalGradient = true;
+                    break;
+                case WEST:
+                    graphics.setBackgroundColor(gradientFillColor);
+                    graphics.setForegroundColor(normalFillcolor);
+                    verticalGradient = false;
+                    break;
+                case EAST:
+                default:
+                    graphics.setBackgroundColor(normalFillcolor);
+                    graphics.setForegroundColor(gradientFillColor);
+                    verticalGradient = false;
+        
+                    break;
+        
+                }
+                graphics.fillGradient(tempRect, verticalGradient);
+                gradientFillColor.dispose();
             } else {
                 graphics.fillRectangle(tempRect);
             }

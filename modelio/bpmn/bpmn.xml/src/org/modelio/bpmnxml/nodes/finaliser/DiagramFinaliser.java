@@ -214,7 +214,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram, BPMNDiag
         
     }
 
-    @objid ("4d7027b5-2705-4d81-9333-c7355211b7e0")
+    @objid ("a901f421-0510-4c21-86cf-21b2d6910430")
     private Rectangle toGefRectangle(Bounds bounds) {
         Rectangle rect = new Rectangle();
         rect.width = (int) bounds.getWidth();

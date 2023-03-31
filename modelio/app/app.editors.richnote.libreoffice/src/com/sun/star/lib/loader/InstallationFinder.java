@@ -73,6 +73,7 @@ public final class InstallationFinder {
 
     @objid ("e658e8c6-3b2a-4896-98f5-976ae8f9b3e7")
     private static final String SOFFICE = "soffice"; // Unix/Linux only
+    
 
     @objid ("1e1e28ed-db83-417c-bb9e-816cd1b201a0")
     private  InstallationFinder() {

@@ -54,5 +54,5 @@ public interface IUserNodeIndex {
      */
     @objid ("32337f98-5c7b-11e1-863f-001ec947ccaf")
     Collection<ObjId> getObjectUsers(final ObjId objectId, String depName) throws IndexException;
-
 }
+

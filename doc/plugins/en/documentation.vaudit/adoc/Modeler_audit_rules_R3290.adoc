@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3290]]
 
-[[r3290]]
+
+
 = R3290
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _SequenceFlow_ must exist to support _DataAssociations_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 In BPMN, two ways of transfering _DataObject_ exist:
@@ -32,9 +32,9 @@ Directly using _DataAssociations_;
 
 In both cases, the _SequenceFlow_ existence is mandatory.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Create a _SequenceFlow_ between the _BPMN elements_ transfering a _DataObject_ through _DataAssociations_.

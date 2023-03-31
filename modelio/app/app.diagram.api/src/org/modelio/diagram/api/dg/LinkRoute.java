@@ -59,18 +59,18 @@ import org.modelio.diagram.elements.core.model.IGmPath;
  * @author cma
  * @since 5.1.0
  */
-@objid ("5d914e7b-a981-442f-9628-df52de6f3638")
+@objid ("755a9dd6-4f7a-470b-a009-97e1274a863f")
 public class LinkRoute implements ILinkRoute {
-    @objid ("433d0578-b46a-493e-94fe-8b8765a54efb")
-    private static final MPoint TMP = new MPoint();
-
-    @objid ("fa8ae6e3-be29-4cbf-935c-f21b3c90c027")
+    @objid ("7f89dbcc-4999-4d9c-95c7-3022a84dd511")
     private final List<ILinkPoint> points = new ArrayList<>();
+
+    @objid ("5ee3b121-ccea-46f5-8327-f6d5e0ae28b3")
+    private static final MPoint TMP = new MPoint();
 
     /**
      * @param ep the edited connection edit part
      */
-    @objid ("c9e45433-15e0-4a42-862f-1ef0dd88943f")
+    @objid ("264556f6-ddd6-4f08-afe6-80eae8b0103a")
     public  LinkRoute(ConnectionEditPart ep) {
         this( (Connection) ep.getFigure());
     }
@@ -78,7 +78,7 @@ public class LinkRoute implements ILinkRoute {
     /**
      * @param conn the edited connection figure
      */
-    @objid ("ab08db64-b1f2-4d36-aef2-51fa4ed2d385")
+    @objid ("fce58f5d-2ef8-4e21-a113-4b80e47ab340")
     public  LinkRoute(Connection conn) {
         ConnectionView view = new ConnectionView().init(conn);
         
@@ -88,14 +88,14 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("3672642c-3b83-41ad-a62b-0533e791f3f6")
+    @objid ("efecb1d6-65e4-4874-94ba-7ee5eda1e4bd")
     @Override
     public ILinkRoute addBendPoint(Point loc) {
         this.points.add(this.points.size()-1, new LinkPointData(LinkPointKind.BENDPOINT, loc));
         return this;
     }
 
-    @objid ("4e56e2cc-b429-407e-b3dd-7e91e4285b4d")
+    @objid ("bbd48f10-eb38-42eb-aa2c-e9c223418838")
     @Override
     public ILinkRoute addFixedPoint(Point loc) {
         this.points.add(this.points.size()-1, new LinkPointData(LinkPointKind.BENDPOINT_FIXED, loc));
@@ -109,7 +109,7 @@ public class LinkRoute implements ILinkRoute {
      * @throws InvalidPointsPathException if the target anchor is missing
      * @throws InvalidDestinationPointException ?
      */
-    @objid ("4107ad79-06ac-434a-9709-5dea158213e7")
+    @objid ("42780021-8faf-4bc0-bce0-71a816ecfcc5")
     public void apply(ConnectionEditPart connectionEditPart) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
         if (this.points.isEmpty()) {
             createDefaultRoute(connectionEditPart);
@@ -168,7 +168,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("9b591060-ba6b-49c2-b81a-e174e66634d0")
+    @objid ("4016f08e-423d-40db-839f-dab8e44fe962")
     private Point computeSourceAnchorRef(ConnectionEditor editor) {
         PrecisionRectangle sourceBounds = editor.getView().getAnchorBounds().source;
         Point forbidden = sourceBounds.getCenter();
@@ -179,7 +179,7 @@ public class LinkRoute implements ILinkRoute {
         return sourceBounds.getRight();
     }
 
-    @objid ("dcd4f924-f247-482a-a80a-843a916d65f7")
+    @objid ("6fcde409-5c92-4e32-8f05-82c4b162cfee")
     private Point computeTargetAnchorRef(ConnectionEditor editor) {
         PrecisionRectangle targetBounds = editor.getView().getAnchorBounds().target;
         Point forbidden = targetBounds.getCenter();
@@ -190,7 +190,7 @@ public class LinkRoute implements ILinkRoute {
         return targetBounds.getRight();
     }
 
-    @objid ("679a71fe-709a-4511-9945-42d573544668")
+    @objid ("057c9517-76ad-491e-950a-85239b872c79")
     @Override
     public ILinkRoute clearBendPoints() {
         getBendPoints().clear();
@@ -201,42 +201,42 @@ public class LinkRoute implements ILinkRoute {
      * Create a completely empty LinkRoute.
      * @return an empty route
      */
-    @objid ("72fa6bce-4f8c-4fa1-a31c-1582ea79dffa")
+    @objid ("b07ebc45-eb20-4998-baf6-49b05acedfbc")
     public static LinkRoute createEmpty() {
         return new LinkRoute();
     }
 
-    @objid ("1dec99ec-ecdb-4419-ba24-c1cc87f760b5")
+    @objid ("a061ac16-9963-43b3-8afa-d5ad9aede21f")
     @Override
     public ILinkPoint createLinkPoint(LinkPointKind kind, Point location) {
         return new LinkPointData(kind, location);
     }
 
-    @objid ("8a43e572-d104-48ef-8fcb-d5c086620cdf")
+    @objid ("dcf8ee45-7fc5-4fb6-831c-703bcfa94983")
     @Override
     public List<ILinkPoint> getAllPoints() {
         return this.points;
     }
 
-    @objid ("1ab89870-ff92-43c7-8151-7e8f1ddd2209")
+    @objid ("71283291-dc17-4c96-8196-7e211eeab865")
     @Override
     public List<ILinkPoint> getBendPoints() {
         return this.points.subList(1, this.points.size()-1);
     }
 
-    @objid ("ad2f6732-668d-4b65-b763-9ff95834c57d")
+    @objid ("7a273e3a-9b40-4d13-8ecc-e7cb0d09a654")
     @Override
     public ILinkPoint getSourceAnchor() {
         return this.points.get(0);
     }
 
-    @objid ("94d2935c-4b46-4d06-9278-044458087f4b")
+    @objid ("ad00aed0-1356-40ba-b0b2-928c7ef2af49")
     @Override
     public ILinkPoint getTargetAnchor() {
         return this.points.get(this.points.size()-1);
     }
 
-    @objid ("cb3206c5-20ba-4e61-aad6-774b6960c43e")
+    @objid ("6d036c1c-3d91-410a-9506-4fcf388096b1")
     @Override
     public void removePoint(int index) {
         if (index == 0 ||index >= this.points.size()-1)
@@ -245,7 +245,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("a0b5b61f-59e7-4854-bdf0-c0f3e4d7f16a")
+    @objid ("b96e0fdf-901b-4212-82e9-8de9474815bd")
     @Override
     public ILinkRoute setSourceAnchor(Point loc, boolean sliding) {
         LinkPointKind kind = sliding ? LinkPointKind.ANCHOR_SLIDING : LinkPointKind.ANCHOR_DISCRETE;
@@ -257,7 +257,7 @@ public class LinkRoute implements ILinkRoute {
         return this;
     }
 
-    @objid ("9d1a8dfd-a0fd-40fa-bbb8-3cd26ec132b5")
+    @objid ("a9b79f89-899a-4fbe-b20d-8d4d3b40c43f")
     @Override
     public ILinkRoute setTargetAnchor(Point loc, boolean sliding) {
         int n = this.points.size();
@@ -274,7 +274,7 @@ public class LinkRoute implements ILinkRoute {
         return this;
     }
 
-    @objid ("96231e9e-963e-40c0-96d6-65e57c9b286d")
+    @objid ("e86c74e9-e5f9-44b4-96df-111585b36c91")
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -297,12 +297,12 @@ public class LinkRoute implements ILinkRoute {
     /**
      * initialize a completely empty LinkRoute.
      */
-    @objid ("c630060e-8b45-45a4-98f8-4b61b760ac44")
+    @objid ("21757b46-1d36-479d-a620-1aa239f169c7")
     protected  LinkRoute() {
         
     }
 
-    @objid ("8025f290-3a6f-4373-b3b6-6b82500667a3")
+    @objid ("8b39d7ca-0eb8-4ed9-b4a7-052514ba84a3")
     protected static void computeBendPoints(Connection c, List<ILinkPoint> out) {
         Object constraint = c.getRoutingConstraint();
         if (BendPointUtils.isMPointList(constraint)) {
@@ -327,7 +327,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("290f294f-495c-4936-9a62-71a36e73f229")
+    @objid ("66c1c6a8-780a-4c44-94c0-6eb1a5aa9567")
     protected static Point getLocationFromFace(GraphicalEditPart node, LinkAnchorFace face) {
         IFigure figure = node.getFigure();
         Rectangle bounds = figure.getBounds();
@@ -336,7 +336,7 @@ public class LinkRoute implements ILinkRoute {
         return ref;
     }
 
-    @objid ("aa997024-60d1-4a88-81a0-56fb7ea99d72")
+    @objid ("6ea542ea-abe0-4cff-ac2d-ffa5719cf788")
     private static ILinkPoint computeSourceLinkPoint(ConnectionView view, ILinkPoint out) {
         LinkPointKind kind = getKind(view.getState().getSourceAnchor());
         out.setLocation(view.getSourceLocation(TMP, true));
@@ -344,7 +344,7 @@ public class LinkRoute implements ILinkRoute {
         return out;
     }
 
-    @objid ("e76bf8be-92bb-48d8-8ed0-c89c5a4cda12")
+    @objid ("b9403616-582c-47d1-a659-4c36f13c5e9d")
     private static ILinkPoint computeTargetLinkPoint(ConnectionView view, ILinkPoint out) {
         LinkPointKind kind = getKind(view.getState().getTargetAnchor());
         out.setLocation(view.getTargetLocation(TMP, true));
@@ -352,7 +352,7 @@ public class LinkRoute implements ILinkRoute {
         return out;
     }
 
-    @objid ("a40488d7-5925-45c0-b5c8-ac0a279e1d8d")
+    @objid ("ccbe8e54-a15f-4f0e-a895-bd73401226fa")
     private void createDefaultRoute(ConnectionEditPart connectionEditPart) {
         this.points.clear();
         this.points.addAll(new LinkRouteBuilder(connectionEditPart)
@@ -362,7 +362,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("94f07999-e4a3-4487-ad3c-3eaa18d1518d")
+    @objid ("3c6e3b5c-6ae6-41e2-b17d-f58e5cd7df0c")
     private RawPathData createRawPathData(ConnectionEditPart editPart) {
         final IGmLink gmLink = (IGmLink) editPart.getModel();
         
@@ -383,7 +383,7 @@ public class LinkRoute implements ILinkRoute {
         return rawPath;
     }
 
-    @objid ("182f49b2-9d27-4b7f-842d-b5d66e2775d2")
+    @objid ("543c75fd-0419-41be-9bf8-257169a2d98e")
     private static LinkPointKind getKind(ConnectionAnchor a) {
         if (a instanceof FixedAnchor)
             return LinkPointKind.ANCHOR_DISCRETE;
@@ -392,7 +392,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("df903604-6f3a-4f60-84b7-aae9833bd7e2")
+    @objid ("565f553b-8c84-4136-a15e-02f86b890d54")
     private static Point getRelLocationFromFace(Rectangle bounds, LinkAnchorFace face) {
         switch (face) {
         case EAST:
@@ -409,7 +409,7 @@ public class LinkRoute implements ILinkRoute {
         
     }
 
-    @objid ("c267a3ee-54cd-4da6-9309-dcf5ec17fc89")
+    @objid ("2420f248-c970-4d7d-a5f2-1b648e85fbdf")
     private static boolean isAnchorPoint(ILinkPoint p) {
         return p.getKind()==LinkPointKind.ANCHOR_DISCRETE || p.getKind()==LinkPointKind.ANCHOR_SLIDING;
     }
@@ -417,15 +417,15 @@ public class LinkRoute implements ILinkRoute {
     /**
      * Immutable implementation of {@link ILinkPoint}
      */
-    @objid ("b46d320a-c64b-4c02-8ef7-5bd60572cd72")
+    @objid ("a8faf080-9502-4d6f-9449-0e584a01a689")
     static class LinkPointData implements ILinkPoint {
-        @objid ("148b9bde-4f5a-4a93-ba8f-374595399911")
+        @objid ("e2fe6f1e-04dc-4225-aea2-edc514793b1e")
         private LinkPointKind kind;
 
-        @objid ("a3acf4c8-9338-47f4-803c-74a35ef7c2c9")
+        @objid ("268caa65-b34a-49bb-958f-1aee987ad3fc")
         private final Point location;
 
-        @objid ("32974ab6-eaf6-481b-8dd0-f94b2d88e3b5")
+        @objid ("a7270a4a-bb47-44a8-8e36-90a2917c36b3")
         public  LinkPointData(LinkPointKind kind, Point location) {
             super();
             this.kind = kind;
@@ -433,46 +433,46 @@ public class LinkRoute implements ILinkRoute {
             
         }
 
-        @objid ("87046cd3-2fe4-4c54-83eb-610e3dc01209")
+        @objid ("e24f8fac-4279-4555-b528-22521d3c29a4")
         @Override
         public LinkPointKind getKind() {
             return this.kind;
         }
 
-        @objid ("f880e029-8c23-4105-a8f6-b3a47f83a69c")
+        @objid ("5d2d914e-5c31-4d10-b51f-f706b2fc8b50")
         @SuppressWarnings ("unchecked")
         @Override
         public <P extends Point> P getLocation(P out) {
             return (P) out.setLocation(this.location);
         }
 
-        @objid ("a39d518b-bd8e-4923-bbc6-9d71faf75027")
+        @objid ("9dfcdb22-484f-4bf3-b14a-6e06298a6cb9")
         @Override
         public ILinkPoint setKind(LinkPointKind val) {
             this.kind = val;
             return this;
         }
 
-        @objid ("e633f487-6b67-476f-b2cc-86f66c3ff236")
+        @objid ("8d8d5912-47c3-4778-bb3e-6598c2c5b4c9")
         @Override
         public ILinkPoint setLocation(Point val) {
             this.location.setLocation(val);
             return this;
         }
 
-        @objid ("6e515966-4524-4072-9de6-08089f3b6cd8")
+        @objid ("c40ba623-8ad3-424b-b2fb-8947f5be4373")
         @Override
         public int x() {
             return this.location.x();
         }
 
-        @objid ("d0a65c9e-7cb1-449b-9d86-5d496d3c29ff")
+        @objid ("191da64f-df1c-40e1-93a4-90cce4697b4e")
         @Override
         public int y() {
             return this.location.y();
         }
 
-        @objid ("97e60e7e-8d2a-4007-b78f-e4ed03dd211d")
+        @objid ("13f316a5-1d2a-45a3-88f7-687a45f15350")
         @Override
         public String toString() {
             return String.format("%s [kind=%s, location=%s]", getClass().getSimpleName(), this.kind, this.location);

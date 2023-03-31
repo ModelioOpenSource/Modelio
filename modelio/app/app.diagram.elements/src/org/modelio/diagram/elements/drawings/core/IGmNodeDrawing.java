@@ -45,5 +45,5 @@ public interface IGmNodeDrawing extends IGmDrawingLinkable {
      */
     @objid ("6efda563-7876-4368-af17-76a8791f1d24")
     void setLabel(String label);
-
 }
+

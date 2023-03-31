@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2220]]
 
-[[r2220]]
+
+
 = R2220
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A leaf _NameSpace_ cannot be abstract.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A leaf _NameSpace_ cannot be further derived, so it must be a concrete _NameSpace_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Make the _NameSpace_ non-final or make it concrete.

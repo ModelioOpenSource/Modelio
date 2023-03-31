@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Audit-rules-list]]
 
-[[audit-rules-list]]
+
+
 = Audit rules list
 
 * *<<Modeler_audit_rules_R1000.adoc#,R1000>>*: A Model Element cannot abstract itself.

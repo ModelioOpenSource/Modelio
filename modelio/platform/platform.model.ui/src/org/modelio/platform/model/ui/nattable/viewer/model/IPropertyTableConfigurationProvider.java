@@ -43,5 +43,5 @@ public interface IPropertyTableConfigurationProvider {
      */
     @objid ("10d02cb9-5fc4-4b0a-821f-3afa09b49084")
     IConfiguration getConfiguration(INatTableViewerContext context, PropertyTableDataModel dataModel);
-
 }
+

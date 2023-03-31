@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.xviewer.feature"
+      label="%featureName"
+      version="1.1.0.202106201019"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/nebula/widgets/xviewer/xviewer.php">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.ui.forms"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer"
+         download-size="318"
+         install-size="678"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer.source"
+         download-size="185"
+         install-size="599"
+         version="1.1.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer.core"
+         download-size="39"
+         install-size="74"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer.core.source"
+         download-size="26"
+         install-size="62"
+         version="1.0.0.202106201019"
+         unpack="false"/>
+
+</feature>

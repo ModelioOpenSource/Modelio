@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Activer-la-grille]]
 
-[[activer-la-grille]]
+
+
 = Activer la grille
 
 La grille vous facilite l'alignement précis des éléments présents dans les diagrammes Modelio.

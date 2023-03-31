@@ -123,6 +123,7 @@ public class BpmnActivityCreateDataOutputCommand extends DefaultCreateElementCom
         BpmnActivity activity = (BpmnActivity) getParentElement();
         
         dataOutput.setContainer(activity.getContainer());
+        dataOutput.getLane().addAll(activity.getLane());
         
         // Attach the stereotype if needed.
         if (this.getContext().getStereotype() != null) {

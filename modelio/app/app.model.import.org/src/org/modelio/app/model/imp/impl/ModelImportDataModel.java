@@ -23,7 +23,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -42,7 +42,7 @@ public class ModelImportDataModel implements AutoCloseable {
     private List<MObject> elementsToImport = new ArrayList<>();
 
     @objid ("b8b05bc6-8159-4d88-ae31-7189b9b6ae13")
-    private GProject importedProject = null;
+    private IGProject importedProject = null;
 
     /**
      * Get the actual list of all elements to import.
@@ -58,7 +58,7 @@ public class ModelImportDataModel implements AutoCloseable {
      * @return the imported project. Might be <code>null</code> if {@link #setImportedProject(Path)} has not been called.
      */
     @objid ("329e3d58-6ebc-4bdb-9060-2ee164eeba87")
-    public GProject getImportedProject() {
+    public IGProject getImportedProject() {
         return this.importedProject;
     }
 
@@ -69,7 +69,7 @@ public class ModelImportDataModel implements AutoCloseable {
      * </p>
      */
     @objid ("04d82fce-1fcd-4d1e-947f-c2eabb5f2707")
-    public void setImportedProject(GProject importedProject) {
+    public void setImportedProject(IGProject importedProject) {
         // Clean up the imported element list, as their project is closed...
         this.elementsToImport.clear();
         

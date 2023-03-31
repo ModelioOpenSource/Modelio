@@ -70,7 +70,7 @@ public class CheckerView extends ModelioDialog {
     @objid ("c8b57cbd-d554-49cd-b4f2-a9a0d2d4c25f")
     private String lastUsedName;
 
-    @objid ("c876561d-097d-4e0b-95d6-10268bc5eea6")
+    @objid ("b39f71a8-763a-47b3-91fd-e65b7cf822b3")
     Label statusLabel;
 
     @objid ("04a2cb18-1b8f-4991-9f66-3f6a735b148b")
@@ -84,7 +84,7 @@ public class CheckerView extends ModelioDialog {
         super(parentShell);
         
         // Used as proposed path for the 'save as file' command.
-        this.lastUsedPath = projectService.getOpenedProject().getProjectFileStructure().getProjectPath().toString();
+        this.lastUsedPath = projectService.getOpenedProject().getPfs().getProjectPath().toString();
         this.lastUsedName = projectService.getOpenedProject().getName();
         
         this.checkedElements = getSelectedElements(selection);

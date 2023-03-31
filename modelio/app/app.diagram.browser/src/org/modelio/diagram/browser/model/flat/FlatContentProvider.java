@@ -23,7 +23,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelio.diagram.browser.model.AllDiagramsNode;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 
 /**
@@ -38,7 +38,7 @@ public class FlatContentProvider implements ITreeContentProvider {
     private Object rootNode;
 
     @objid ("63f4f9b4-58ed-41bd-9b5b-74bad3916064")
-    protected GProject project;
+    protected IGProject project;
 
     @objid ("002769ec-0d4f-10c6-842f-001ec947cd2a")
     @Override
@@ -82,11 +82,8 @@ public class FlatContentProvider implements ITreeContentProvider {
         return false;
     }
 
-    /**
-     * @param session
-     */
     @objid ("002856cc-0d4f-10c6-842f-001ec947cd2a")
-    public  FlatContentProvider(GProject project) {
+    public  FlatContentProvider(IGProject project) {
         this.project = project;
         this.rootNode = new AllDiagramsNode(project, null);
         

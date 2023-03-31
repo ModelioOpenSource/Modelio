@@ -320,7 +320,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
         @objid ("353d278d-55b7-11e2-877f-002564c97630")
         public static final String INTERNALSTRUCTURE = "InternalStructure";
-
-    }
+}
+    
 
 }

@@ -31,5 +31,5 @@ public interface RTPartitionTypes {
 
     @objid ("abfff81e-2a77-11e2-9fb9-bc305ba4815c")
     public static final String COMMENT_PARTITION = "_COMMENT";
-
 }
+

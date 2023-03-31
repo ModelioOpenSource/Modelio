@@ -110,11 +110,17 @@ public class Allocated {
         	throw new IllegalArgumentException("Allocated: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("facd57f5-521d-4f13-afa7-dc1642c0baf9")
     public static ModelElement getTarget(ModelElement source) {
         return AbstractMethodologicalLink.getTarget(source, MdaTypes.STEREOTYPE_ELT);
     }
 
+    /**
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     */
     @objid ("8aab8462-5dd2-4967-b0a7-08050099b208")
     public static void setTarget(ModelElement source, ModelElement target) {
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
@@ -175,6 +181,7 @@ public class Allocated {
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
             
         }
+
 	static {
         		if(ModelerModuleModule.getInstance() != null) {
         			init(ModelerModuleModule.getInstance().getModuleContext());

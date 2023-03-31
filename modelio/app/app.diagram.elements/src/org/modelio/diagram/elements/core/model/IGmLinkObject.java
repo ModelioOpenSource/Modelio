@@ -34,5 +34,5 @@ public interface IGmLinkObject extends IGmObject, IGmAnchorListener {
      */
     @objid ("d39c17d5-4717-4071-817d-cc72051a4002")
     IGmPath getPath();
-
 }
+

@@ -77,5 +77,5 @@ public interface IGmLinkFactory {
     default String migrateNamespacing(String namespace) {
         return namespace;
     }
-
 }
+

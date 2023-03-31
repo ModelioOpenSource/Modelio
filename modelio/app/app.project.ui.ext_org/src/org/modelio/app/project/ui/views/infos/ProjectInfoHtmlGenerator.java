@@ -42,9 +42,8 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.data.project.ModuleDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.version.Version;
@@ -138,9 +137,9 @@ class ProjectInfoHtmlGenerator {
      * @return Libraries Fragments table content Columns
      */
     @objid ("fc59e2b0-cd2a-4f29-a20b-2c5aa6f9f312")
-    private String createLibrariesTableContent(List<FragmentDescriptor> fragments) {
+    private String createLibrariesTableContent(List<GProjectPartDescriptor> fragments) {
         StringBuilder content = new StringBuilder();
-        for (FragmentDescriptor fragment : fragments) {
+        for (GProjectPartDescriptor fragment : fragments) {
             content.append("<tr>");
         
             String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";
@@ -164,34 +163,6 @@ class ProjectInfoHtmlGenerator {
             content.append("</td>");
         
             content.append("</tr>");
-        }
-        return content.toString();
-    }
-
-    /**
-     * Create Modules table content Columns: Name, Version
-     * @return Modules table content Columns
-     */
-    @objid ("25fe63e2-5bab-4c58-9a0a-659b45167b4b")
-    private String createModulesTableContent(Object[] modules) {
-        StringBuilder content = new StringBuilder();
-        
-        String addIconString = "<img src=\"" + getFragmentIconPath(FragmentType.MDA) + "\"> ";
-        for (Object element : modules) {
-            if (element instanceof ModuleDescriptor) {
-                content.append("<tr>");
-        
-                content.append("<td>");
-                content.append(addIconString);
-                content.append(((ModuleDescriptor) element).getName());
-                content.append("</td>");
-        
-                content.append("<td>");
-                content.append(((ModuleDescriptor) element).getVersion().toString());
-                content.append("</td>");
-        
-                content.append("</tr>");
-            }
         }
         return content.toString();
     }
@@ -253,9 +224,9 @@ class ProjectInfoHtmlGenerator {
      * @return the HTML table columns
      */
     @objid ("325e6f93-4795-4cea-9ea2-43c0595c7486")
-    private String createWorkModelsTableContent(List<FragmentDescriptor> fragments) {
+    private String createWorkModelsTableContent(List<GProjectPartDescriptor> fragments) {
         StringBuilder content = new StringBuilder();
-        for (FragmentDescriptor fragment : fragments) {
+        for (GProjectPartDescriptor fragment : fragments) {
             content.append("<tr>");
         
             String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";
@@ -264,13 +235,13 @@ class ProjectInfoHtmlGenerator {
             content.append(fragment.getId());
             content.append("</td>");
         
-            boolean isDistant = fragment.getType() == FragmentType.EXML_SVN;
+            boolean isDistant = fragment.getType() == GProjectPartType.SVNFRAGMENT;
             String fType = isDistant ? AppProjectUiExt.I18N.getString("ProjectInfoHtmlGenerator.workmodeltype.distant") : AppProjectUiExt.I18N.getString("ProjectInfoHtmlGenerator.workmodeltype.local");
             content.append("<td>");
             content.append(fType);
             content.append("</td>");
         
-            String fUriString = isDistant ? fragment.getUri().toString().replace("%20", " ") : "";
+            String fUriString = isDistant ? fragment.getLocation().toString().replace("%20", " ") : "";
             content.append("<td>");
             content.append(fUriString);
             content.append("</td>");
@@ -328,22 +299,22 @@ class ProjectInfoHtmlGenerator {
     }
 
     @objid ("4cde8c84-9bdd-420e-9d0e-14667556936d")
-    private String getFragmentIconPath(FragmentType type) {
+    private String getFragmentIconPath(GProjectPartType type) {
         String fileName;
         switch (type) {
-        case EXML:
+        case EXMLFRAGMENT:
             fileName = "icons/exmlfragment.png";
             break;
-        case EXML_URL:
+        case HTTPFRAGMENT:
             fileName = "icons/httpfragment.png";
             break;
-        case EXML_SVN:
+        case SVNFRAGMENT:
             fileName = "icons/svnfragment.png";
             break;
         case RAMC:
             fileName = "icons/ramcfragment.png";
             break;
-        case MDA:
+        case MODULE:
             fileName = "icons/mdafragment.png";
             break;
         default:
@@ -492,14 +463,14 @@ class ProjectInfoHtmlGenerator {
         replaceAll(source, "$project_modelio_version_class", getModelioVersionClass());
         
         // WorkModels Fragments section
-        List<FragmentDescriptor> workModelsFragments = this.projectAdapter.getWorkModelsFragments();
+        List<GProjectPartDescriptor> workModelsFragments = this.projectAdapter.getWorkModelsFragments();
         if (!workModelsFragments.isEmpty()) {
             replaceAll(source, "$tbl_workModels_content", createWorkModelsListContent(workModelsFragments));
         } else { // Hide container if no WorkModels
             hideContainer(source, "AccordionContainerWorkModels");
         }
         // Libraries Fragments section
-        List<FragmentDescriptor> librariesFragments = this.projectAdapter.getLibrariesFragments();
+        List<GProjectPartDescriptor> librariesFragments = this.projectAdapter.getLibrariesFragments();
         if (!librariesFragments.isEmpty()) {
             replaceAll(source, "$tbl_libraries_content", createLibrariesListContent(librariesFragments));
         } else { // Hide container if no Libraries
@@ -507,7 +478,7 @@ class ProjectInfoHtmlGenerator {
         }
         
         // Modules section
-        replaceAll(source, "$tbl_modules_content", createModulesListContent(this.projectAdapter.getModules()));
+        replaceAll(source, "$tbl_modules_content", createModulesListContent(this.projectAdapter.getParts(GProjectPartType.MODULE)));
         return source;
     }
 
@@ -517,9 +488,9 @@ class ProjectInfoHtmlGenerator {
     }
 
     @objid ("fd9d7711-738a-4652-baff-b8c4821da383")
-    private String createLibrariesListContent(List<FragmentDescriptor> fragments) {
+    private String createLibrariesListContent(List<GProjectPartDescriptor> fragments) {
         StringBuilder content = new StringBuilder();
-        for (FragmentDescriptor fragment : fragments) {
+        for (GProjectPartDescriptor fragment : fragments) {
             content.append("<div class='listitem'>");
             String fDescription = fragment.getProperties().getValue("FragmentDescription");
             if (fDescription != null && fDescription.length() > 0) {
@@ -538,28 +509,26 @@ class ProjectInfoHtmlGenerator {
     }
 
     @objid ("b76b4f70-9397-49d6-a11f-42344da1da4b")
-    private String createModulesListContent(Object[] modules) {
+    private String createModulesListContent(GProjectPartDescriptor[] modules) {
         StringBuilder content = new StringBuilder();
         
-        String addIconString = "<img src=\"" + getFragmentIconPath(FragmentType.MDA) + "\"> ";
-        for (Object element : modules) {
-            if (element instanceof ModuleDescriptor) {
+        String addIconString = "<img src=\"" + getFragmentIconPath(GProjectPartType.MODULE) + "\"> ";
+        for (GProjectPartDescriptor element : modules) {
                 content.append("<div class='listitem'>");
                 content.append(addIconString);
-                content.append(((ModuleDescriptor) element).getName() + " " + ((ModuleDescriptor) element).getVersion().toString());
+                content.append(element.getId() + " " + element.getVersion().toString());
                 content.append("</div>");
-            }
         }
         return content.toString();
     }
 
     @objid ("b0a2d06f-9369-4ac6-b923-5d1ffa2b2f76")
-    private String createWorkModelsListContent(List<FragmentDescriptor> fragments) {
+    private String createWorkModelsListContent(List<GProjectPartDescriptor> fragments) {
         StringBuilder content = new StringBuilder();
-        for (FragmentDescriptor fragment : fragments) {
+        for (GProjectPartDescriptor fragment : fragments) {
             content.append("<div class='listitem'>");
-            boolean isDistant = fragment.getType() == FragmentType.EXML_SVN;
-            String fUriString = isDistant ? fragment.getUri().toString().replace("%20", " ") : "";
+            boolean isDistant = fragment.getType() == GProjectPartType.SVNFRAGMENT;
+            String fUriString = isDistant ? fragment.getLocation().toString().replace("%20", " ") : "";
             if (fUriString != null && fUriString.length() > 0) {
                 content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\"" + fUriString + "\">");
             } else {

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.management.EditorsRegistry.RichNoteToken;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
 
@@ -35,7 +35,7 @@ import org.modelio.vcore.session.api.model.change.IModelChangeListener;
 @objid ("e5aa4acf-55ed-423e-b917-29ea528d8e1b")
 class RichNoteChangeHandler implements IModelChangeListener {
     @objid ("1ae1e490-0cb6-4e54-93a2-6c821ba55416")
-    private GProject project;
+    private IGProject project;
 
     @objid ("28a114ec-2ce4-4a7a-a17f-72bac63cb52d")
     private IRichNoteFileRepository fileManager;
@@ -48,7 +48,7 @@ class RichNoteChangeHandler implements IModelChangeListener {
      * @param session the modeling session to handle.
      */
     @objid ("ce5a559d-aede-4b4b-a30f-fa5cb234d56a")
-    public  RichNoteChangeHandler(final GProject session) {
+    public  RichNoteChangeHandler(final IGProject session) {
         this.project = session;
         this.editorRegistry = RichNotesSession.get(session).getEditorRegistry();
         

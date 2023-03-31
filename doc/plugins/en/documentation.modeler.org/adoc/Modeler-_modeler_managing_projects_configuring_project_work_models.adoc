@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configuring-project-work-models]]
 
-[[configuring-project-work-models]]
+
+
 = Configuring project work models
 
 A *work model* in a Modelio project is a modifiable model that is being worked on by the end-user.

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3120]]
 
-[[r3120]]
+
+
 = R3120
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _LinkThrowEvent_ doit toujours être relié à un _LinkCatchEvent_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les événements _BPMN Link_ facilitent la création de diagrammes BPMN en permettant de remplacer un flux de séquence _«qui serait difficile à router dans le diagramme»_ par une construction de type «goto / étiquette».
@@ -28,9 +28,9 @@ Pour que cette construction fonctionne et ait un sens, il est indispensable qu'u
 
 De manière symétrique, la règle signale également les événements _LinkCatchEvent_ qui ne sont pas associés à au moins un _LinkThrowEvent_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 La correction à apporter est assez simple:
@@ -38,9 +38,9 @@ La correction à apporter est assez simple:
 * soit associer le _Link event_ solitaire à un autre _Link event_, le cas échéant en créant cet autre événement.
 * soit supprimer l'événement solitaire qui viole la règle dés lors que cet événement n'est plus utile et ne joue plus aucun role dans le processus.
 
-[[A-propos-des-événements-de-lien]]
 
-[[a-propos-des-événements-de-lien]]
+
+
 A propos des événements de lien:
 
 Les événements _Link event_ sont utiles lorsque:
@@ -50,18 +50,18 @@ Les événements _Link event_ sont utiles lorsque:
 
 Le concepteur de BPMN doit cependant garder à l'esprit que, bien que utile et même parfois inévitable, l'utilisation d'une paire _LinkThrowEvent/LinkCatchEvent_ crée defacto une rupture dans le flux du processus. Il faut donc limiter l'utilisation de cette technique aux cas où les bénéfices l'emportent sur cet inconvénient.
 
-[[Goodies]]
 
-[[goodies]]
+
+
 Goodies:
 
 * les événements de type _Link event_ ont un nom dans Modelio qui peut être affiché dans le diagramme. Afficher le nom facilite grandement l'identification de la paire _LinkThrowEvent/LinkCatchEvent_ à condition que *le même nom soit utilisé* pour les deux nœuds de la paire. Ceci est la pratique recommandée par Modelio.
 * la règle <<Modeler_audit_rules_R3200.adoc#,R3200>> renforce la pratique de nommage recommandée ci-dessus en surveillant les noms dans les paires _LinkThrowEvent/LinkCatchEvent_
 * la sélection d'un nœud de type _Link event_ dans un diagramme met en évidence (highlighting) les nœuds appairés correspondants.
 
-[[A-propos-de-la-règle]]
 
-[[a-propos-de-la-règle]]
+
+
 A propos de la règle:
 
 * notre recommandation est de garder la règle R3120 activée et de ne jamais la désactiver complètement. La raison est qu'un _LinkThrowEvent/LinkCatchEvent_ solitaire (ie non appairé) brise en pratique le flux du processus, ce qui n'est jamais souhaitable.

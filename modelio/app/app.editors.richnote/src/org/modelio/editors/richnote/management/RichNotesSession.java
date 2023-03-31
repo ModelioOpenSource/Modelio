@@ -24,7 +24,8 @@ import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.management.EditorsRegistry.RichNoteToken;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.project.AbstractGProject;
 import org.modelio.vcore.session.api.blob.IBlobChangeEvent;
 import org.modelio.vcore.session.api.blob.IBlobChangeListener;
 import org.modelio.vcore.session.api.blob.IBlobInfo;
@@ -34,16 +35,16 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * Represents a modeling session for the rich notes plugin.
  * <p>
- * There should be one instance per opened {@link GProject}.
+ * There should be one instance per opened {@link IGProject}.
  * Its life cycle is managed by {@link RichNoteEditorsManager}.
  */
 @objid ("7dc0b412-675d-466d-972e-ee11a98ff679")
 public class RichNotesSession implements IBlobChangeListener {
     @objid ("a213c04e-13a8-4819-a658-399d10d6ee14")
-    private static Map<GProject, RichNotesSession> sessions = new HashMap<>(3);
+    private static Map<IGProject, RichNotesSession> sessions = new HashMap<>(3);
 
     @objid ("ba879bbd-069b-406b-81d0-e35ccc293f8d")
-    private GProject project;
+    private IGProject project;
 
     @objid ("a183eb35-e8af-4c4e-8659-9531a6a35244")
     private FileRepository fileManager;
@@ -54,16 +55,16 @@ public class RichNotesSession implements IBlobChangeListener {
     /**
      * Initialize a new rich note modeling session.
      * <p>
-     * Called by {@link RichNoteEditorsManager#onProjectOpen(GProject)}.
+     * Called by {@link RichNoteEditorsManager#onProjectOpen(IGProject)}.
      * @param project the project to handle.
      */
     @objid ("a491b067-18bd-4f2a-88a3-252b110a3fde")
-     RichNotesSession(GProject project) {
+     RichNotesSession(IGProject project) {
         assert (project != null);
         assert (sessions.get(project) == null) : project;
         
         sessions.put(project, this);
-             
+        
         this.project = project;
         this.editors =  new EditorsRegistry();
         this.fileManager = new FileRepository(project, this.editors);
@@ -88,7 +89,7 @@ public class RichNotesSession implements IBlobChangeListener {
         }
         
         for (IBlobInfo b : ev.getUpdatedBlobs()) {
-            
+        
             RichNoteToken token = this.editors.getEditorToken(b.getRelatedElement());
             if (token != null) {
                 token.editor.onOriginalModified(token.model);
@@ -100,7 +101,7 @@ public class RichNotesSession implements IBlobChangeListener {
     /**
      * To be called when the project is closed.
      * <p>
-     * Called by {@link RichNoteEditorsManager#onProjectClosed(GProject, org.eclipse.e4.ui.workbench.modeling.EPartService)}
+     * Called by {@link RichNoteEditorsManager#onProjectClosed(IGProject, org.eclipse.e4.ui.workbench.modeling.EPartService)}
      */
     @objid ("03026df5-4fa2-47bb-bba7-1d777d42c12b")
     void closeSession() {
@@ -129,7 +130,7 @@ public class RichNotesSession implements IBlobChangeListener {
      * @return the matching rich note session.
      */
     @objid ("e2f8fc23-af94-453e-8ffb-a3722c74f34d")
-    public static RichNotesSession get(GProject openedProject) {
+    public static RichNotesSession get(IGProject openedProject) {
         return sessions.get(openedProject);
     }
 
@@ -140,7 +141,7 @@ public class RichNotesSession implements IBlobChangeListener {
      */
     @objid ("41d3fb48-18f4-4533-8ba9-a259565fb749")
     public static RichNotesSession get(MObject obj) {
-        return sessions.get(GProject.getProject(obj));
+        return sessions.get(AbstractGProject.getProject(obj));
     }
 
 }

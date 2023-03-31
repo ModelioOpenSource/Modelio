@@ -45,6 +45,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public class GmBpmnBehavior extends GmPortContainer {
     @objid ("3419b62e-55b7-11e2-877f-002564c97630")
     private ModelElement element; // Behavior OR Package
+    
 
     /**
      * Current version of this Gm.

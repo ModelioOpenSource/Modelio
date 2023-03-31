@@ -27,11 +27,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -47,14 +44,13 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixValueDefinition;
 import org.modelio.metamodel.uml.infrastructure.matrix.QueryDefinition;
 import org.modelio.metamodel.visitors.DefaultInfrastructureVisitor;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.platform.model.ui.swt.images.ElementStyler;
 import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.platform.model.ui.swt.images.FragmentStyledLabelProvider;
 import org.modelio.platform.model.ui.swt.images.IModelioElementLabelProvider;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -64,12 +60,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class BrowserLabelProvider extends LabelProvider implements IModelioElementLabelProvider {
     @objid ("c13d663c-d63b-11e1-9955-002564c97630")
     protected BrowserLabelService umlLabelService;
-
-    @objid ("ed4047da-504e-450b-8ff8-58ee18765a5e")
-    protected static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
-
-    @objid ("8508489f-7996-4cd7-ae4f-983d88315575")
-    protected static final Font italicFont = CoreFontRegistry.getModifiedFont(BrowserLabelProvider.normalFont, SWT.ITALIC, 1.0f);
 
     @objid ("bfeb7ddf-b8a1-4d2d-8a65-f111dcca831d")
     private Map<String, IModelioElementLabelProvider> extensions = new HashMap<>();
@@ -88,8 +78,8 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
         // null object special case
         if (obj == null) {
             return null;
-        } else if (obj instanceof IProjectFragment) {
-            return FragmentImageService.getImage((IProjectFragment) obj);
+        } else if (obj instanceof IGModelFragment) {
+            return FragmentImageService.getImage((IGModelFragment) obj);
         } else if (obj instanceof IModelContainer) {
             return ((IModelContainer<?>) obj).getIcon();
         } else if (obj instanceof MObject) {
@@ -115,8 +105,8 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
     public StyledString getStyledText(Object obj) {
         if (obj == null) {
             return new StyledString("<null>", StyledString.createColorRegistryStyler("red", null));
-        } else if (obj instanceof IProjectFragment) {
-            return FragmentStyledLabelProvider.getStyledText((IProjectFragment) obj);
+        } else if (obj instanceof IGModelFragment) {
+            return FragmentStyledLabelProvider.getStyledText((IGModelFragment) obj);
         } else if (obj instanceof IModelContainer) {
             return new StyledString(((IModelContainer<?>) obj).getLabel());
         } else if (obj instanceof MObject) {
@@ -172,8 +162,8 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
     @objid ("d01d864b-6212-4b0f-922b-9260a64df068")
     @Override
     public String getToolTipText(Object obj) {
-        if (obj instanceof IProjectFragment) {
-            final Throwable downError = ((IProjectFragment) obj).getDownError();
+        if (obj instanceof IGModelFragment) {
+            final Throwable downError = ((IGModelFragment) obj).getState().getDownError();
             if (downError != null) {
                 return downError.getLocalizedMessage();
             }
@@ -402,7 +392,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
             final StringBuilder stringBuilder = new StringBuilder();
             if (!dep.getExtension().isEmpty()) {
                 for (final Stereotype v : dep.getExtension()) {
-                    stringBuilder.append(ModuleI18NService.getLabel(v));
+                    stringBuilder.append(MdaResources.getLabel(v));
             
                     stringBuilder.append(", ");
                 }

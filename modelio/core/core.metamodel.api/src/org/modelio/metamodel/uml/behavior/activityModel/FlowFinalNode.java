@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * A flow final destroys all tokens that arrive at it. It has no effect on other flows in the activity.
+ * 
+ * 
+ * 
  */
 @objid ("00330446-c4bf-1fd8-97fe-001ec947cd2a")
 public interface FlowFinalNode extends FinalNode {
@@ -46,5 +49,5 @@ public interface FlowFinalNode extends FinalNode {
      */
     @objid ("28a44d04-3dfd-436a-93a8-798bae10eba7")
     public static final String MQNAME = "Standard.FlowFinalNode";
-
 }
+

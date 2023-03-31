@@ -49,7 +49,7 @@ public class GmBpmnSendTaskStructuredStyleKeys extends BpmnAbstractStyleKeyProvi
 
     @objid ("4cbd7eaf-6f9b-4ddc-96cd-dc71be4aa527")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TASK_SHOWSTEREOTYPES",
-                MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     @objid ("14dbf73f-2f27-4849-96c9-73edab21588b")
     public static final StyleKey SHOWTAGS = createStyleKey("TASK_SHOWTAGS", MetaKey.SHOWTAGS);

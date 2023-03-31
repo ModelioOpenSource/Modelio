@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='oauth/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541005305263'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='1'>
+    <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.oauth' version='2.3.0'>
+      <properties size='5'>
+        <property name='artifact.size' value='96355'/>
+        <property name='download.size' value='96355'/>
+        <property name='download.md5' value='cf767ccd840e9d019d8f355e87f59d49'/>
+        <property name='download.checksum.md5' value='cf767ccd840e9d019d8f355e87f59d49'/>
+        <property name='download.checksum.sha-256' value='aad5b580525474ca3d254a42c8c6863f46a1fafb79ca00702c98ddb8eae4565b'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

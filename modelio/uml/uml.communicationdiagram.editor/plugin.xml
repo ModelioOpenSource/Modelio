@@ -81,10 +81,12 @@
              <creation_tool id="CREATE_RELATED_DIAGRAM_LINK"/>
           </palette_group>
           <palette_group label="%CommunicationPaletteGroup.Drawings">
-             <creation_tool id="CREATE_DRAWING_LINE"/>
-             <creation_tool id="CREATE_DRAWING_TEXT"/>
-             <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
-             <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+	        <creation_tool id="CREATE_DRAWING_TEXT"/>
+			<creation_tool id="CREATE_DRAWING_NOTE"/>
+			<creation_tool id="CREATE_DRAWING_IMAGE"/>
+			<creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+	        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+	        <creation_tool id="CREATE_DRAWING_LINE"/>
           </palette_group>
        </palette>
     </extension>

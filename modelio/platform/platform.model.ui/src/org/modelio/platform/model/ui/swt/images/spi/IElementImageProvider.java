@@ -45,5 +45,5 @@ public interface IElementImageProvider {
      */
     @objid ("6d65c1eb-b79f-40f0-9cb3-8e3ee2755da2")
     QualifiedImage getImage(MObject element);
-
 }
+

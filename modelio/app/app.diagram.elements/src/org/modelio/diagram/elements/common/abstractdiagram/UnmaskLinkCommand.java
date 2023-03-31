@@ -73,28 +73,28 @@ public class UnmaskLinkCommand extends Command {
     @objid ("7a104643-df7c-4e36-a08a-b88030a3b219")
     private Point dropLocation;
 
-    @objid ("e9da8e19-1d16-486c-917f-9553c4f2d906")
+    @objid ("aeabf020-df90-4e25-92ac-f0aad0611a1f")
     private IAnchorRefResolver sourceAnchorResolver;
 
-    @objid ("438b0089-5cb2-4146-8e8b-3db66b07739e")
+    @objid ("7c7770dd-47d8-4d7d-a1a0-f72e3607cc92")
     private IAnchorRefResolver targetAnchorResolver;
 
-    @objid ("66a9e271-2763-4819-ae5b-461c2e077189")
+    @objid ("28514d22-34bf-4bbe-b8a0-821c6bb68288")
     public IAnchorRefResolver getSourceAnchorResolver() {
         return this.sourceAnchorResolver;
     }
 
-    @objid ("bc30b6f0-c246-4402-bc32-223afa188a46")
+    @objid ("c719cc0d-1fb5-49f7-8bb8-8422688879b3")
     public void setSourceAnchorResolver(IAnchorRefResolver sourceAnchorResolver) {
         this.sourceAnchorResolver = sourceAnchorResolver;
     }
 
-    @objid ("9745deff-9e14-458e-ae46-da8ddd619a2f")
+    @objid ("0cd33acf-c3f8-4438-8f4e-6f3247aab776")
     public IAnchorRefResolver getTargetAnchorResolver() {
         return this.targetAnchorResolver;
     }
 
-    @objid ("c2fe51e0-8c9c-4679-a9ec-bdeaff3e3e10")
+    @objid ("bf040293-2275-4d11-a0e2-2309981fc3a8")
     public void setTargetAnchorResolver(IAnchorRefResolver targetAnchorResolver) {
         this.targetAnchorResolver = targetAnchorResolver;
     }
@@ -128,7 +128,7 @@ public class UnmaskLinkCommand extends Command {
      * @param host the edit part that was asked to handle the unmasking.
      * @param dropLocation the drop location.
      */
-    @objid ("aec4b3a1-ea8b-43a1-8a49-1f8f9ea79227")
+    @objid ("bd09b5e6-11ce-46e2-9339-d0c3158db336")
     public  UnmaskLinkCommand(IGmLink link, AbstractDiagramEditPart host, Point dropLocation) {
         this(link, host, dropLocation, DefaultAnchorRefResolver.get(), DefaultAnchorRefResolver.get());
     }

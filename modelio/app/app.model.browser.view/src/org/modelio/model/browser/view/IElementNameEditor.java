@@ -30,5 +30,5 @@ public interface IElementNameEditor {
      */
     @objid ("e3308685-c4a0-4e43-a71f-891ec2cd926b")
     void edit(final MObject elementToEdit);
-
 }
+

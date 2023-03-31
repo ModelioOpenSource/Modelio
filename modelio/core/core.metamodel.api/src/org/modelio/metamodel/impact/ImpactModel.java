@@ -35,6 +35,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("919b6a5f-21fd-4465-8fa1-ebcf7cfa168c")
 public interface ImpactModel extends ModelElement {
@@ -55,6 +57,7 @@ public interface ImpactModel extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("ae44446a-b0a7-41d0-b43b-f28fe5c4d5d9")
     ImpactProject getProject();
@@ -64,6 +67,7 @@ public interface ImpactModel extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("320b19c0-b20f-4cad-bcbe-37387bc491b0")
     void setProject(ImpactProject value);
@@ -73,6 +77,7 @@ public interface ImpactModel extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9fae87fc-db51-49e4-ba35-f755cce22775")
     EList<ImpactLink> getOwnedLinks();
@@ -82,8 +87,9 @@ public interface ImpactModel extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9a8bb454-3077-41a9-a042-e6901ef331af")
     <T extends ImpactLink> List<T> getOwnedLinks(java.lang.Class<T> filterClass);
-
 }
+

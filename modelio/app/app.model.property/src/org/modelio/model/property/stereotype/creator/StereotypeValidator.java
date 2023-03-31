@@ -93,8 +93,7 @@ public class StereotypeValidator implements ModifyListener {
     }
 
     /**
-     * @param stereotypeMetaclass
-     * @param stereotypeName @return
+     * @return
      */
     @objid ("6ca03d00-d66a-4ba6-950e-47dc079b5c0c")
     private boolean stereotypeNameExists(MClass stereotypeMetaclass, String stereotypeName) {

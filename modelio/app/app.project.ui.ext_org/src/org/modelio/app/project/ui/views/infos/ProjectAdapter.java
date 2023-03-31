@@ -31,11 +31,12 @@ import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.app.project.ui.views.urls.PropertiesUrlAdapter;
 import org.modelio.app.project.ui.views.urls.UrlEntry;
-import org.modelio.gproject.data.project.FragmentDescriptor;
+import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.data.project.GProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.gproject.data.project.GProperties;
-import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectFileStructure;
-import org.modelio.gproject.gproject.GProject;
 
 @objid ("70c2a655-56a8-4200-aa54-af4a65a1490f")
 class ProjectAdapter {
@@ -43,10 +44,10 @@ class ProjectAdapter {
     private PropertiesUrlAdapter propertiesUrlAdapter;
 
     @objid ("8ab915f2-78d9-474e-a878-c9b86d6cede8")
-    private final ProjectDescriptor projectDescriptor;
+    private final GProjectDescriptor projectDescriptor;
 
     @objid ("07bcf207-9996-470a-b8f3-4992701c52b0")
-    public  ProjectAdapter(ProjectDescriptor projectDescriptor) {
+    public  ProjectAdapter(GProjectDescriptor projectDescriptor) {
         this.projectDescriptor = projectDescriptor;
         
         this.propertiesUrlAdapter = new PropertiesUrlAdapter(projectDescriptor.getProperties());
@@ -54,12 +55,12 @@ class ProjectAdapter {
     }
 
     @objid ("97aeecbd-8d55-408e-93b4-2abba9274347")
-    public boolean isSameAs(GProject project) {
+    public boolean isSameAs(IGProject project) {
         return project != null && project.getName().equals(getName());
     }
 
     @objid ("4445d246-094c-4f61-8e5e-db2c2106ad1a")
-    public boolean isSameAs(ProjectDescriptor aProjectDescriptor) {
+    public boolean isSameAs(GProjectDescriptor aProjectDescriptor) {
         return aProjectDescriptor != null && aProjectDescriptor.getName().equals(getName());
     }
 
@@ -77,7 +78,7 @@ class ProjectAdapter {
     }
 
     @objid ("fa0b1568-51f7-4bf4-b4d4-7126243f77ce")
-    public ProjectDescriptor getProjectDescriptor() {
+    public GProjectDescriptor getProjectDescriptor() {
         return this.projectDescriptor;
     }
 
@@ -101,17 +102,13 @@ class ProjectAdapter {
     }
 
     @objid ("6e507b34-4bb2-432d-b973-86009d304bab")
-    public Object[] getFragments() {
+    public GProjectPartDescriptor[] getParts(GProjectPartType... partTypes) {
         if (this.projectDescriptor != null) {
-            return this.projectDescriptor.getFragments().toArray();
-        }
-        return null;
-    }
-
-    @objid ("15ab036e-0264-4a61-9b26-a8bb3dc40ca2")
-    public Object[] getModules() {
-        if (this.projectDescriptor != null) {
-            return this.projectDescriptor.getModules().toArray();
+            List<GProjectPartDescriptor> parts = new ArrayList<>();
+            for (GProjectPartType partType : partTypes) {
+                parts.addAll(this.projectDescriptor.getPartDescriptors(partType));
+            }
+            return parts.toArray(new GProjectPartDescriptor[0]);
         }
         return null;
     }
@@ -145,19 +142,10 @@ class ProjectAdapter {
      * @return
      */
     @objid ("ece56476-ee22-4f86-bf85-c27ffd265572")
-    public List<FragmentDescriptor> getWorkModelsFragments() {
-        List<FragmentDescriptor> workModelsFragments = new ArrayList<>();
-        for (Object element : getFragments()) {
-            if (element != null && element instanceof FragmentDescriptor) {
-                switch (((FragmentDescriptor) element).getType()) {
-                case EXML_SVN:
-                case EXML:
-                    workModelsFragments.add((FragmentDescriptor) element);
-                    break;
-                default:
-                    break;
-                }
-            }
+    public List<GProjectPartDescriptor> getWorkModelsFragments() {
+        List<GProjectPartDescriptor> workModelsFragments = new ArrayList<>();
+        for (GProjectPartDescriptor element : getParts(GProjectPartType.SVNFRAGMENT, GProjectPartType.EXMLFRAGMENT)) {
+            workModelsFragments.add(element);
         }
         return workModelsFragments;
     }
@@ -168,20 +156,11 @@ class ProjectAdapter {
      * @return
      */
     @objid ("bd420ad8-0d47-4f8d-bfaf-acad8149ca51")
-    public List<FragmentDescriptor> getLibrariesFragments() {
-        List<FragmentDescriptor> librariesFragments = new ArrayList<>();
-        for (Object element : getFragments()) {
-            if (element != null && element instanceof FragmentDescriptor) {
-                switch (((FragmentDescriptor) element).getType()) {
-                case EXML_URL:
-                case RAMC:
-                    if (!((FragmentDescriptor) element).getId().equals("PredefinedTypes")) {
-                        librariesFragments.add((FragmentDescriptor) element);
-                    }
-                    break;
-                default:
-                    break;
-                }
+    public List<GProjectPartDescriptor> getLibrariesFragments() {
+        List<GProjectPartDescriptor> librariesFragments = new ArrayList<>();
+        for (GProjectPartDescriptor element : getParts(GProjectPartType.HTTPFRAGMENT, GProjectPartType.RAMC)) {
+            if (!element.getId().equals("PredefinedTypes")) {
+                librariesFragments.add(element);
             }
         }
         return librariesFragments;

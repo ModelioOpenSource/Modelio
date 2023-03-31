@@ -32,6 +32,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * <p>Composite Structure diagrams depict the internal structure of a classifier, as well as the internal details of a collaboration.</p><p>There you can define connection details between parts, show which port connects to which other one, insert collaboration uses within collaboration, etc.</p><p>This kind of diagram is used at a fine level of detail, to express how occurrences (parts) are related and connected.</p>
+ * 
+ * 
+ * 
  */
 @objid ("0072e322-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CompositeStructureDiagram extends StaticDiagram {
@@ -46,5 +49,5 @@ public interface CompositeStructureDiagram extends StaticDiagram {
      */
     @objid ("8322c1a0-ab3c-4483-b802-8966d58b6ed1")
     public static final String MQNAME = "Standard.CompositeStructureDiagram";
-
 }
+

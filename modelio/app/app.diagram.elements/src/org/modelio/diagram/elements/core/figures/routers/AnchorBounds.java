@@ -69,7 +69,7 @@ public final class AnchorBounds implements Translatable {
      * @param anchor The anchor.
      * @return out for convenience. Contains the anchor owner bounds.
      */
-    @objid ("f5e5b217-1dbc-4746-9850-6ee7a7a0997a")
+    @objid ("d8a4f38b-c119-4a38-bf7f-b6f775b4deb6")
     public static Rectangle getAnchorOwnerAbsoluteBounds(PrecisionRectangle out, ConnectionAnchor anchor) {
         return getAnchorOwnerAbsoluteBounds(out, anchor, anchor.getReferencePoint());
     }
@@ -142,7 +142,7 @@ public final class AnchorBounds implements Translatable {
      * @param targetRef a target reference point in absolute coordinates to call {@link ConnectionAnchor#getLocation(Point)}.
      * @return this instance to chain calls
      */
-    @objid ("8616cb44-a9dc-4c03-8887-40557cca22ed")
+    @objid ("adeea870-1142-4b6b-ab2e-daad035f2742")
     public AnchorBounds fromAnchors(ConnectionAnchor srcAnchor, Point srcRef, ConnectionAnchor targetAnchor, Point targetRef) {
         getAnchorOwnerAbsoluteBounds(this.source, srcAnchor, srcRef);
         getAnchorOwnerAbsoluteBounds(this.target, targetAnchor, targetRef);
@@ -185,7 +185,7 @@ public final class AnchorBounds implements Translatable {
      * @param other the object to copy
      * @return this instance to chain calls
      */
-    @objid ("aa3a549a-470b-4f4e-b964-1715924238dd")
+    @objid ("8cdc81fa-5c11-430f-abb9-aa24a1b9b958")
     public AnchorBounds fromOther(AnchorBounds other) {
         this.source.setBounds(other.source);
         this.target.setBounds(other.target);
@@ -208,13 +208,13 @@ public final class AnchorBounds implements Translatable {
      * @param c the figure to use convert coordinates
      * @return this instance
      */
-    @objid ("bf248d01-55c2-4b2c-ab65-044d54ac4ac3")
+    @objid ("4a66d06f-928a-4444-9bcb-ba499be1bf51")
     public AnchorBounds toAbsolute(IFigure c) {
         c.translateToAbsolute(this);
         return this;
     }
 
-    @objid ("2d55f54a-3c1e-4e46-b11d-e349686cd076")
+    @objid ("3ad097ed-ab52-4f83-ad6a-8875683349f5")
     @Override
     public String toString() {
         return String.format(

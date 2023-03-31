@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * The default is None (no arrowhead). 
  * A value of One means that the arrowhead SHALL be at the Target Object. 
  * A value of Both means that there SHALL be an arrowhead at both ends of the Association line.
+ * 
+ * 
  */
 @objid ("00409336-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnAssociationDirection {
@@ -41,6 +43,7 @@ public enum BpmnAssociationDirection {
     ONEDIRECTION(1, "OneDirection", "OneDirection"),
     @objid ("87fc44c9-1c8c-42be-a583-5b8586cc5759")
     BOTHDIRECTION(2, "BothDirection", "BothDirection");
+
 public static final int NONEDIRECTION_VALUE = 0;
     public static final int ONEDIRECTION_VALUE = 1;
     public static final int BOTHDIRECTION_VALUE = 2;

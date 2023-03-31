@@ -23,7 +23,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
@@ -51,18 +50,23 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.modelio.api.ui.swt.SelectionHelper;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ColumnHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.data.project.AuthDescriptor;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.core.IGPart;
+import org.modelio.gproject.core.IGPart.GPartException;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.GAuthConf;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
 import org.modelio.gproject.data.project.ProjectType;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.gproject.FragmentConflictException;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.data.project.auth.AuthDescriptor;
+import org.modelio.gproject.parts.GPartFactory;
 import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.ModelioProgressAdapter;
+import org.modelio.vbasic.progress.NullProgress;
+import org.modelio.vbasic.progress.SubProgress;
 
 /**
  * Manage the distant libraries section.
@@ -105,8 +109,7 @@ public class DistantLibrariesSection {
     }
 
     /**
-     * Update() is called by the project infos view when the project to be
-     * displayed changes or need contents refresh.
+     * Update() is called by the project infos view when the project to be displayed changes or need contents refresh.
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("7d4e9546-3adc-11e2-916e-002564c97630")
@@ -114,7 +117,7 @@ public class DistantLibrariesSection {
         this.projectAdapter = selectedProject;
         
         if (selectedProject != null) {
-            final List<IProjectFragment> sel = getSelectedFragments();
+            final List<IGModelFragment> sel = getSelectedFragments();
             final boolean isFragmentSelected = !sel.isEmpty();
             final boolean areLocal = isFragmentSelected && areAllLocalFragments(sel);
         
@@ -167,19 +170,16 @@ public class DistantLibrariesSection {
         ColumnViewerToolTipSupport.enableFor(this.viewer);
         
         // Name column
-        @SuppressWarnings("unused")
-        final
-        TableViewerColumn nameColumn = ColumnHelper.createFragmentNameColumn(this.viewer);
+        @SuppressWarnings ("unused")
+        final TableViewerColumn nameColumn = ColumnHelper.createFragmentNameColumn(this.viewer);
         
         // Scope column
-        @SuppressWarnings("unused")
-        final
-        TableViewerColumn scopeColumn = ColumnHelper.createFragmentScopeColumn(this.viewer);
+        @SuppressWarnings ("unused")
+        final TableViewerColumn scopeColumn = ColumnHelper.createFragmentScopeColumn(this.viewer);
         
         // Metamodel version column
-        @SuppressWarnings("unused")
-        final
-        TableViewerColumn mmVer = ColumnHelper.createFragmentMmVersionColumn(this.viewer);
+        @SuppressWarnings ("unused")
+        final TableViewerColumn mmVer = ColumnHelper.createFragmentMmVersionColumn(this.viewer);
         
         // URL column
         final TableViewerColumn uriColumn = new TableViewerColumn(this.viewer, SWT.NONE);
@@ -189,8 +189,8 @@ public class DistantLibrariesSection {
             @Override
             public String getText(final Object element) {
                 URI uri = null;
-                if (element instanceof IProjectFragment) {
-                    uri = ((IProjectFragment) element).getUri();
+                if (element instanceof IGModelFragment) {
+                    uri = ((IGModelFragment) element).getDescriptor().getLocation();
                 }
                 return uri != null ? uri.toString().replaceAll("%20", " ") : ""; //$NON-NLS-1$
             }
@@ -269,9 +269,9 @@ public class DistantLibrariesSection {
     }
 
     @objid ("bbd157b1-6f11-48b7-ada2-9fb24d519fc8")
-    private boolean areAllLocalFragments(final List<IProjectFragment> sel) {
-        for (final IProjectFragment f : sel) {
-            if (f.getScope() == DefinitionScope.SHARED) {
+    private boolean areAllLocalFragments(final List<IGModelFragment> sel) {
+        for (final IGModelFragment f : sel) {
+            if (f.getDefinitionScope() == DefinitionScope.SHARED) {
                 return false;
             }
         }
@@ -283,10 +283,9 @@ public class DistantLibrariesSection {
      * @return the selection as a list of fragments.
      */
     @objid ("55f63ac7-1fae-4c8d-b126-2c4ba5d1e4e3")
-    @SuppressWarnings("unchecked")
-    public List<IProjectFragment> getSelectedFragments() {
+    public List<IGModelFragment> getSelectedFragments() {
         final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
-        return selection.toList();
+        return SelectionHelper.toList(selection, IGModelFragment.class);
     }
 
     @objid ("7d4e955a-3adc-11e2-916e-002564c97630")
@@ -302,18 +301,21 @@ public class DistantLibrariesSection {
             final DistantLibraryDialog dlg = new DistantLibraryDialog(shell, null, allowProjectAuth, getProjectAdapter().getFragmentIdList());
             dlg.open();
             
-            final FragmentDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
+            final GProjectPartDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
             if (fragmentDescriptor != null) {
             
-                final IRunnableWithProgress runnable = new IRunnableWithProgress() {
+                final IRunnableWithProgress runnable = monitor -> {
+                    try {
+                        IGProject openedProject = getProjectAdapter().getOpenedProject();
+                        SubProgress mon = ModelioProgressAdapter.convert(monitor, 100);
             
-                    @Override
-                    public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-                        try {
-                            projectService.addFragment(getProjectAdapter().getOpenedProject(), fragmentDescriptor, monitor);
-                        } catch (final FragmentConflictException ex) {
-                            throw new InvocationTargetException(ex, ex.getLocalizedMessage());
-                        }
+                        // Instantiate the part
+                        final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+            
+                        // Add new fragment to project, permanent mount
+                        openedProject.addGPart(mon, newFragment, true);
+                    } catch (final GPartException ex) {
+                        throw new InvocationTargetException(ex, ex.getLocalizedMessage());
                     }
                 };
             
@@ -323,7 +325,7 @@ public class DistantLibrariesSection {
                 } catch (final InvocationTargetException ex) {
                     AppProjectConfExt.LOG.error(ex);
                     MessageDialog.openError(shell, AppProjectConfExt.I18N.getString("Error"), ex.getCause().getLocalizedMessage()); //$NON-NLS-1$
-                } catch (final InterruptedException ex) {
+                } catch (@SuppressWarnings ("unused") final InterruptedException ex) {
                     // nothing
                 }
             
@@ -343,16 +345,22 @@ public class DistantLibrariesSection {
         @objid ("7d4e9562-3adc-11e2-916e-002564c97630")
         @Override
         public void widgetSelected(final SelectionEvent e) {
-            final IProjectService projectService = DistantLibrariesSection.this.applicationContext.get(IProjectService.class);
-            
             if (getViewer().getSelection().isEmpty()) {
                 return;
             }
             
-            final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
-            for (final Object obj : selection.toList()) {
-                projectService.removeFragment(getProjectAdapter().getOpenedProject(), (IProjectFragment) obj);
+            IGProject openedProject = getProjectAdapter().getOpenedProject();
+            IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
+            try {
+                for (final IGModelFragment gPart : SelectionHelper.toList(selection, IGModelFragment.class)) {
+                    openedProject.removeGPart(new NullProgress(), gPart);
+                }
+            } catch (GPartException ex) {
+                AppProjectConfExt.LOG.error(ex);
+                Shell shell = getViewer().getControl().getShell();
+                MessageDialog.openError(shell, AppProjectConfExt.I18N.getString("Error"), ex.getLocalizedMessage());
             }
+            
             refresh();
             
         }
@@ -376,32 +384,30 @@ public class DistantLibrariesSection {
         public void widgetSelected(final SelectionEvent e) {
             final IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
             for (final Object obj : selection.toList()) {
-                final IProjectFragment fragment = (IProjectFragment) obj;
+                final IGModelFragment fragment = (IGModelFragment) obj;
             
                 final Shell shell = getViewer().getControl().getShell();
             
-                final IProjectService projectService = DistantLibrariesSection.this.applicationContext.get(IProjectService.class);
-                final GProject openedProject = getProjectAdapter().getOpenedProject();
+                final IGProject openedProject = getProjectAdapter().getOpenedProject();
             
-                final GAuthConf authConf = fragment.getAuthConfiguration();
-                final FragmentDescriptor fragmentDescriptor = new FragmentDescriptor();
-                fragmentDescriptor.setId(fragment.getId());
+                final AuthDescriptor authConf = fragment.getAuth();
+                final GProjectPartDescriptor fragmentDescriptor = new GProjectPartDescriptor(fragment.getType(), fragment.getId(), null, fragment.getDefinitionScope());
                 fragmentDescriptor.setProperties(fragment.getProperties());
-                fragmentDescriptor.setType(fragment.getType());
-                fragmentDescriptor.setUri(fragment.getUri());
-                fragmentDescriptor.setScope(fragment.getScope());
-                fragmentDescriptor.setAuthDescriptor(new AuthDescriptor(authConf.getAuthData(), authConf.getScope()));
+                fragmentDescriptor.setLocation(fragment.getDescriptor().getLocation());
+                fragmentDescriptor.setAuth(new AuthDescriptor(authConf));
             
-                final IRunnableWithProgress runnable = new IRunnableWithProgress() {
+                final IRunnableWithProgress runnable = monitor -> {
+                    try {
+                        SubProgress mon = ModelioProgressAdapter.convert(monitor, 2);
+                        openedProject.removeGPart(mon.newChild(1), fragment);
             
-                    @Override
-                    public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-                        projectService.removeFragment(openedProject, fragment);
-                        try {
-                            projectService.addFragment(openedProject, fragmentDescriptor, monitor);
-                        } catch (final FragmentConflictException ex) {
-                            throw new InvocationTargetException(ex, ex.getLocalizedMessage());
-                        }
+                        // Instantiate the part
+                        final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+            
+                        // Add new fragment to project, permanent mount
+                        openedProject.addGPart(mon.newChild(1), newFragment, true);
+                    } catch (final GPartException ex) {
+                        throw new InvocationTargetException(ex, ex.getLocalizedMessage());
                     }
                 };
             
@@ -410,7 +416,7 @@ public class DistantLibrariesSection {
                 } catch (final InvocationTargetException ex) {
                     AppProjectConfExt.LOG.error(ex);
                     MessageDialog.openError(shell, AppProjectConfExt.I18N.getString("Error"), ex.getCause().getLocalizedMessage()); //$NON-NLS-1$
-                } catch (final InterruptedException ex) {
+                } catch (@SuppressWarnings ("unused") final InterruptedException ex) {
                     // nothing
                 }
             }
@@ -430,29 +436,30 @@ public class DistantLibrariesSection {
         @objid ("7d4e9572-3adc-11e2-916e-002564c97630")
         @Override
         public void widgetSelected(final SelectionEvent e) {
-            for (final IProjectFragment fragment : getSelectedFragments()) {
+            for (final IGModelFragment fragment : getSelectedFragments()) {
                 final Shell shell = getViewer().getControl().getShell();
             
-                final IProjectService projectService = DistantLibrariesSection.this.applicationContext.get(IProjectService.class);
-                final GProject openedProject = getProjectAdapter().getOpenedProject();
+                final IGProject openedProject = getProjectAdapter().getOpenedProject();
                 final boolean allowProjectAuth = openedProject.getType() != ProjectType.LOCAL;
             
                 final DistantLibraryDialog dlg = new DistantLibraryDialog(shell, fragment, allowProjectAuth, getProjectAdapter().getFragmentIdList());
                 dlg.open();
             
-                final FragmentDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
+                final GProjectPartDescriptor fragmentDescriptor = dlg.getFragmentDescriptor();
                 if (fragmentDescriptor != null) {
             
-                    final IRunnableWithProgress runnable = new IRunnableWithProgress() {
+                    final IRunnableWithProgress runnable = monitor -> {
+                        try {
+                            SubProgress mon = ModelioProgressAdapter.convert(monitor, 2);
+                            openedProject.removeGPart(mon.newChild(1), fragment);
             
-                        @Override
-                        public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-                            try {
-                                projectService.removeFragment(openedProject, fragment);
-                                projectService.addFragment(openedProject, fragmentDescriptor, monitor);
-                            } catch (final FragmentConflictException ex) {
-                                throw new InvocationTargetException(ex, ex.getLocalizedMessage());
-                            }
+                            // Instantiate the part
+                            final IGPart newFragment = GPartFactory.getInstance().instantiate(fragmentDescriptor);
+            
+                            // Add new fragment to project, permanent mount
+                            openedProject.addGPart(mon.newChild(1), newFragment, true);
+                        } catch (final GPartException ex) {
+                            throw new InvocationTargetException(ex, ex.getLocalizedMessage());
                         }
                     };
             
@@ -461,7 +468,7 @@ public class DistantLibrariesSection {
                     } catch (final InvocationTargetException ex) {
                         AppProjectConfExt.LOG.error(ex);
                         MessageDialog.openError(shell, AppProjectConfExt.I18N.getString("Error"), ex.getCause().getLocalizedMessage()); //$NON-NLS-1$
-                    } catch (final InterruptedException ex) {
+                    } catch (@SuppressWarnings ("unused") final InterruptedException ex) {
                         // nothing
                     }
             

@@ -44,5 +44,5 @@ public interface IDiagramPersister {
      */
     @objid ("7f9f6dae-ce28-4d97-a1e8-61068a68a4da")
     void load() throws PersistenceException;
-
 }
+

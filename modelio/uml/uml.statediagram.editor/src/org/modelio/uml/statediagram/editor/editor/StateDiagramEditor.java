@@ -48,7 +48,7 @@ public class StateDiagramEditor extends AbstractDiagramEditor {
      * Change orthogonal router to new {@link AutoOrthogonalRouter}.
      * @since 5.0.2
      */
-    @objid ("edb0bdce-dffc-4f3a-9052-02bcc849ac07")
+    @objid ("b7ab2415-67a3-44a6-9a79-0c5340706eb3")
     @Override
     protected ConnectionRoutingServices initializeConnectionRoutingServices() {
         return ConnectionRoutingServices.builder()

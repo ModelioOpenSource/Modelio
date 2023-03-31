@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.modelio.app.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.modelio.app.ui" id="org.modelio.app.ui.statusbar" name="Status bar items"/>
+      </appinfo>
+      <documentation>
+         Modelio StatusBar contributors.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="group"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="group">
+      <annotation>
+         <documentation>
+            Represents a group of several contribution.
+Groups are separated in the status bar by a graphic separator while the contributions are laid out side by side within a group.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="item"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An id for the contributed group.
+This value must be kept unique in the whole application.
+Prefixing with the contributing plugin id is a recommended option.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="label" type="string">
+            <annotation>
+               <documentation>
+                  Label for the group.
+Will appear in the trimbar as a kind of prefixed &apos;title&apos; of the group trim area.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Must be parsable as a decimal integer value.
+This value is only a hint used to sort contributions in the trim bar.
+The highest value is laid out first in its area.
+Left area and center areas are laid out from left to right from the left side of the trimbar.
+Right area is laid out from right to left, from  the right side of the trimbar
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="area" use="required">
+            <annotation>
+               <documentation>
+                  The trim bar is composed of three areas: left, center and right.
+The left area is placed on the left side of the trimbar. Its items are laid out from left to right, highest priority first.
+The right area is place don the right side of the trimbar. Its items are laid out from right to left, the highest priority first.
+The center area is place between the left and right areas. Its items are laid out from left ot right, the highest priority first. The items are centered in the area.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="left">
+                  </enumeration>
+                  <enumeration value="center">
+                  </enumeration>
+                  <enumeration value="right">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="item">
+      <annotation>
+         <documentation>
+            Represents a single contribution within current group.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Define the class providing the contributed widget in the trimbar group.
+Must implement org.modelio.app.ui.IStatusBarContribution
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.app.ui.statusbar.IStatusBarContribution"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="widthHint" type="string">
+            <annotation>
+               <documentation>
+                  Optional widht hint value for the item.
+If null, the item will resize as required by displayed value otherwise the item widht will be set to the &apos;widthHint&apos; value in pixels.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="tooltip" type="string">
+            <annotation>
+               <documentation>
+                  An optional tooltip for the item.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         5.0.2
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

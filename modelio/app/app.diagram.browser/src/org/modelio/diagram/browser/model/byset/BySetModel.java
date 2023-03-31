@@ -22,7 +22,7 @@ package org.modelio.diagram.browser.model.byset;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.modelio.diagram.browser.model.core.AbstractModel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 @objid ("00450e3e-0d4f-10c6-842f-001ec947cd2a")
 public class BySetModel extends AbstractModel {
@@ -36,7 +36,7 @@ public class BySetModel extends AbstractModel {
     }
 
     @objid ("77e6b108-8736-4b87-ad4e-c2a565f38fc2")
-    public  BySetModel(GProject project) {
+    public  BySetModel(IGProject project) {
         this.bySetContentProvider = new BySetContentProvider(project);
     }
 

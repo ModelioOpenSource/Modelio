@@ -49,6 +49,7 @@ import javax.xml.bind.annotation.XmlType;
 @objid ("2dc9fc49-6495-449b-abec-dc91b15e7a7e")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConstentParameter")
-public class ConstantParameter extends Parameter {// Empty
+public class ConstantParameter extends Parameter {
+// Empty
     
 }

@@ -150,5 +150,5 @@ public interface ICmsNodeIndex {
      */
     @objid ("3f2444b5-f7ef-4ae1-a65e-cde6e2cc04c5")
     Iterable<ObjId> getCmsNodeContent(ObjId cmsNodeId) throws IndexException;
-
 }
+

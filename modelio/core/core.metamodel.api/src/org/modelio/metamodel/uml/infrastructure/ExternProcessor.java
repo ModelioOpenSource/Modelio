@@ -36,6 +36,8 @@ import org.modelio.metamodel.uml.infrastructure.matrix.QueryDefinition;
  * Represents an external processor.
  * 
  * An external processor references a java class that can be executed.
+ * 
+ * 
  */
 @objid ("e5bf50a8-5a3e-4c5c-9bf8-83310c530ee3")
 public interface ExternProcessor extends ModelElement {
@@ -57,6 +59,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>Class name of the external processor.
      * Should be a complete Java class name.</i>
+     * 
      */
     @objid ("21f5bedb-396b-433a-a8b6-a1ed8ab351a2")
     String getClassName();
@@ -67,6 +70,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>Class name of the external processor.
      * Should be a complete Java class name.</i>
+     * 
      */
     @objid ("2592b1db-7c96-43a1-b6bd-9c0400d72fff")
     void setClassName(String value);
@@ -76,6 +80,7 @@ public interface ExternProcessor extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2aa6c5f4-b956-4383-856c-65a5c4c363e9")
     QueryDefinition getOwnerQuery();
@@ -85,6 +90,7 @@ public interface ExternProcessor extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c1d44022-8b6b-4ace-933e-7005c727af5e")
     void setOwnerQuery(QueryDefinition value);
@@ -94,6 +100,7 @@ public interface ExternProcessor extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a200c188-40ef-4cae-9b41-65a4ac4859db")
     MatrixValueDefinition getOwnerValDef();
@@ -103,8 +110,9 @@ public interface ExternProcessor extends ModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("185ba874-8710-4d91-85a7-2b78f7f66c3b")
     void setOwnerValDef(MatrixValueDefinition value);
-
 }
+

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R4010]]
 
-[[r4010]]
+
+
 = R4010
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 The relationships to and from a Junction must be of the same kind.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Junctions can only connect links of the same kind. +

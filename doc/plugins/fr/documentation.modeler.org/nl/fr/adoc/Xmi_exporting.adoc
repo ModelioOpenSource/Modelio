@@ -5,9 +5,9 @@
 
 = Exporter un modèle au format XMI
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 L'opération d'export XMI de Modelio lance la génération de fichiers XMI à partir de modèles construits dans Modelio.
@@ -22,9 +22,9 @@ image::images/Xmi_exporting_XMI_Exp-fr.png[image]
 1. Cliquez droit sur un package pour ouvrir son menu contextuel.
 2. Lancez la commande "Import/Export \ Export \ Export XMI".
 
-[[La-fenêtre-dexport-XMI]]
 
-[[la-fenêtre-dexport-xmi]]
+
+
 ===== La fenêtre d'export XMI
 
 .La fenêtre d'export XMI
@@ -38,9 +38,9 @@ image::images/Xmi_exporting_ExportCommand-fr.png[image]
 4. Dans le champ "Extension", définissez l'extension qui sera affectée au fichier que vous allez exporter (".xmi" ou ".uml").
 5. Cliquez sur "Export".
 
-[[Export-partiel]]
 
-[[export-partiel]]
+
+
 ===== Export partiel
 
 Avec Modelio XMI Import/Export, vous avez la possibilité d'effectuer un import XMI partiel. Pour ce faire, il suffit de lancer la commande d'export de n'importe quel package de votre projet.

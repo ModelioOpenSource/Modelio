@@ -43,7 +43,7 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
     @objid ("8025832a-1dec-11e2-8cad-001ec947c8cc")
     private Object sharedAnchor;
 
-    @objid ("592e23ac-bcad-415d-b3b0-029b2a304550")
+    @objid ("c50b59df-48fb-4ac6-be26-998d52bba0b3")
     private final List<PropertyChangeListener> listeners = new CopyOnWriteArrayList<>();
 
     @objid ("80258332-1dec-11e2-8cad-001ec947c8cc")
@@ -64,19 +64,19 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
         out.writeProperty("sharedAnchor", this.sharedAnchor);
     }
 
-    @objid ("d253b108-7bb3-48c0-8011-656b5fe0f581")
+    @objid ("aafffd81-db23-4ad8-b873-81f7d0a25f3a")
     @Override
     public void addListener(PropertyChangeListener listener) {
         this.listeners.add(listener);
     }
 
-    @objid ("d22dcb61-a583-4a30-88bf-b03827b85cca")
+    @objid ("4791d2cb-0eef-4b93-b82a-3a8afa5f7744")
     @Override
     public void removeListener(PropertyChangeListener listener) {
         this.listeners.remove(listener);
     }
 
-    @objid ("d2afbd9c-8f56-40c7-8b19-d4647bc13a0c")
+    @objid ("515b8e58-0e18-4607-a914-6502fd970f05")
     protected void fireListeners(Object oldAnchor) {
         PropertyChangeEvent evt = new PropertyChangeEvent(this, PROP, oldAnchor, getSharedAnchor());
         for (PropertyChangeListener l : this.listeners) {
@@ -110,13 +110,13 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
         return MAJOR_VERSION;
     }
 
-    @objid ("067d4caf-0660-4510-a677-3d25e1dbcd54")
+    @objid ("4cf90695-1b77-46df-8072-ee71f42b41bd")
     @Override
     public int hashCode() {
         return Objects.hash(this.sharedAnchor);
     }
 
-    @objid ("073c882b-5ff5-42cc-a56c-927ac5732ae3")
+    @objid ("e7653f34-a0a3-4c0b-8e89-03efd4166067")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,7 +132,7 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
         return Objects.equals(this.sharedAnchor, other.sharedAnchor);
     }
 
-    @objid ("6e8a4a2b-ba40-4ef8-a413-36c47bd7ad64")
+    @objid ("a3b17950-8b9b-4cc0-9984-0c42ebfa0c0a")
     @Override
     public String toString() {
         return String.format("%s [sharedAnchor=%s, %d listeners]", getClass().getSimpleName(), this.sharedAnchor, this.listeners.size());

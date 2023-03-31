@@ -59,6 +59,7 @@ import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.TransferDropTargetListener;
@@ -77,6 +78,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.events.MouseTrackAdapter;
 import org.eclipse.swt.events.MouseTrackListener;
+import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
@@ -89,8 +91,9 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Tracker;
 import org.eclipse.ui.IMemento;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.XMLMemento;
-import org.eclipse.ui.internal.DragCursors;
 
 /**
  * The FlyoutPaletteComposite is used to show a flyout palette alongside another control. The flyout palette auto-hides (thus maximizing space) when not in use, but can also be pinned open if so desired. It will only be visible when the PaletteView is not.
@@ -157,52 +160,55 @@ public class FlyoutPaletteComposite2 extends Composite {
     private int cachedLocation = -1;
 
     @objid ("659ca2f4-33f7-11e2-95fe-001ec947c8cc")
-    int cachedTitleHeight = 24; // give it a default value
+    int cachedTitleHeight = 24;/*
+     * // give it a default value
+     */
+    
 
     @objid ("185b7bdd-3897-11e2-95fe-001ec947c8cc")
-    private static final String PROPERTY_PALETTE_WIDTH = "org.eclipse.gef.ui.palette.fpa.paletteWidth"; // $NON-NLS-1$
+    private static final String PROPERTY_PALETTE_WIDTH = "org.eclipse.gef.ui.palette.fpa.paletteWidth";
 
     @objid ("18604090-3897-11e2-95fe-001ec947c8cc")
-    private static final String PROPERTY_STATE = "org.eclipse.gef.ui.palette.fpa.state"; // $NON-NLS-1$
+    private static final String PROPERTY_STATE = "org.eclipse.gef.ui.palette.fpa.state";
 
     @objid ("18650545-3897-11e2-95fe-001ec947c8cc")
-    private static final String PROPERTY_DOCK_LOCATION = "org.eclipse.gef.ui.palette.fpa.dock"; // $NON-NLS-1$
+    private static final String PROPERTY_DOCK_LOCATION = "org.eclipse.gef.ui.palette.fpa.dock";
+
+    @objid ("9bab7340-3d3f-42ff-ae93-528a68d4bd5f")
+    static final Dimension ARROW_SIZE = new Dimension(6, 11);
+
+    @objid ("d42f49b3-b955-46ec-8de0-4fe9b66f5a70")
+    PropertyChangeSupport listeners = new PropertyChangeSupport(this);
+
+    @objid ("e3b753c6-bcaa-41ea-b7e2-d3ffebb00c2a")
+    Composite paletteContainer;
+
+    @objid ("81a7a63f-2264-4699-a59c-06c1a565d3d3")
+    private PaletteViewer pViewer;
+
+    @objid ("9cb0a304-4b0c-4ee3-aeae-bbf302e00b52")
+    private PaletteViewer externalViewer;
+
+    @objid ("a5edf520-83c8-41d0-8dd2-1d74bcfa0628")
+    private IMemento capturedPaletteState;
+
+    @objid ("fa289453-b7a6-45d0-9420-c5d8a4892e58")
+    Control graphicalControl;
+
+    @objid ("3b919c34-628c-409e-86f9-504c24b4a552")
+    Composite sash;
+
+    @objid ("7f4dbf24-4a8f-4218-a962-b095ec096c24")
+    private PaletteViewerProvider provider;
+
+    @objid ("5623acc0-3d33-458c-9760-c1cd0c440e07")
+    private Point cachedBounds = new Point(0, 0);
 
     @objid ("65957c13-33f7-11e2-95fe-001ec947c8cc")
     static final FontManager FONT_MGR = new FontManager();
 
-    @objid ("6597de41-33f7-11e2-95fe-001ec947c8cc")
-    static final Dimension ARROW_SIZE = new Dimension(6, 11);
-
-    @objid ("6597de4b-33f7-11e2-95fe-001ec947c8cc")
-    PropertyChangeSupport listeners = new PropertyChangeSupport(this);
-
-    @objid ("6597de4c-33f7-11e2-95fe-001ec947c8cc")
-    Composite paletteContainer;
-
-    @objid ("6597de4d-33f7-11e2-95fe-001ec947c8cc")
-    private PaletteViewer pViewer;
-
-    @objid ("6597de4e-33f7-11e2-95fe-001ec947c8cc")
-    private PaletteViewer externalViewer;
-
-    @objid ("6597de4f-33f7-11e2-95fe-001ec947c8cc")
-    private IMemento capturedPaletteState;
-
-    @objid ("6597de50-33f7-11e2-95fe-001ec947c8cc")
-    Control graphicalControl;
-
-    @objid ("6597de51-33f7-11e2-95fe-001ec947c8cc")
-    Composite sash;
-
-    @objid ("659a409a-33f7-11e2-95fe-001ec947c8cc")
-    private PaletteViewerProvider provider;
-
     @objid ("659a409b-33f7-11e2-95fe-001ec947c8cc")
     FlyoutPreferences prefs;
-
-    @objid ("659a409c-33f7-11e2-95fe-001ec947c8cc")
-    private Point cachedBounds = new Point(0, 0);
 
     /**
      * Constructor
@@ -704,12 +710,12 @@ public class FlyoutPaletteComposite2 extends Composite {
          */
         @objid ("659f056c-33f7-11e2-95fe-001ec947c8cc")
         void setPaletteWidth(int width);
-
-    }
+}
+    
 
     @objid ("659f056f-33f7-11e2-95fe-001ec947c8cc")
     private class Sash extends Composite {
-        @objid ("659f0570-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("2dedbeeb-07ac-421e-83e0-9c2776d00540")
         private Control button;
 
         @objid ("659f0571-33f7-11e2-95fe-001ec947c8cc")
@@ -844,18 +850,18 @@ public class FlyoutPaletteComposite2 extends Composite {
             @objid ("65a167a9-33f7-11e2-95fe-001ec947c8cc")
             protected int origX;
 
-            @objid ("65a167aa-33f7-11e2-95fe-001ec947c8cc")
+            @objid ("55bfa11d-30d0-4a03-b8e9-7dbd2e1da822")
             protected Listener keyListener = new Listener() {
-                            @Override
-                            public void handleEvent(Event event) {
-                                if (event.keyCode == SWT.ALT || event.keyCode == SWT.ESC) {
-                                    SashDragManager.this.dragging = false;
-                                    Display.getCurrent().removeFilter(SWT.KeyDown, this);
-                                }
-                                event.doit = false;
-                                event.type = SWT.None;
-                            }
-                        };
+                                                    @Override
+                                                    public void handleEvent(Event event) {
+                                                        if (event.keyCode == SWT.ALT || event.keyCode == SWT.ESC) {
+                                                            SashDragManager.this.dragging = false;
+                                                            Display.getCurrent().removeFilter(SWT.KeyDown, this);
+                                                        }
+                                                        event.doit = false;
+                                                        event.type = SWT.None;
+                                                    }
+                                                };
 
             @objid ("65a167ab-33f7-11e2-95fe-001ec947c8cc")
             public  SashDragManager() {
@@ -1012,21 +1018,21 @@ public class FlyoutPaletteComposite2 extends Composite {
                             // update the cursor
                             int cursor;
                             if (invalid) {
-                                cursor = DragCursors.INVALID;
+                                cursor = DragCursors2.INVALID;
                             } else if ((!TitleDragManager.this.switchDock && FlyoutPaletteComposite2.this.dock == PositionConstants.EAST)
                                     || (TitleDragManager.this.switchDock && FlyoutPaletteComposite2.this.dock == PositionConstants.WEST)) {
-                                cursor = DragCursors.RIGHT;
+                                cursor = DragCursors2.RIGHT;
                             } else {
-                                cursor = DragCursors.LEFT;
+                                cursor = DragCursors2.LEFT;
                             }
                             if (isMirrored()) {
-                                if (cursor == DragCursors.RIGHT) {
-                                    cursor = DragCursors.LEFT;
-                                } else if (cursor == DragCursors.LEFT) {
-                                    cursor = DragCursors.RIGHT;
+                                if (cursor == DragCursors2.RIGHT) {
+                                    cursor = DragCursors2.LEFT;
+                                } else if (cursor == DragCursors2.LEFT) {
+                                    cursor = DragCursors2.RIGHT;
                                 }
                             }
-                            tracker.setCursor(DragCursors.getCursor(cursor));
+                            tracker.setCursor(DragCursors2.getCursor(cursor));
                             // update the rectangle only if it has changed
                             if (!tracker.getRectangles()[0].equals(placeHolder)) {
                                 tracker.setRectangles(new Rectangle[] { placeHolder });
@@ -1089,10 +1095,10 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     @objid ("65a167de-33f7-11e2-95fe-001ec947c8cc")
     private class PaletteComposite extends Composite {
-        @objid ("65a167df-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("fd3770f1-fcf6-4891-9285-ceb787e91ad6")
         protected Control button;
 
-        @objid ("65a167e0-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("7ceaf277-0d48-43e2-8f42-884faac76fb0")
         protected Control title;
 
         @objid ("65a3ca02-33f7-11e2-95fe-001ec947c8cc")
@@ -1177,10 +1183,10 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     @objid ("65a3ca0e-33f7-11e2-95fe-001ec947c8cc")
     private static class TitleLabel extends Label {
-        @objid ("65a3ca10-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("88aca55e-f903-4a45-b8d3-0a62c4c2e14c")
         protected static final Border BORDER = new MarginBorder(0, 3, 0, 3);
 
-        @objid ("65a3ca12-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("ef2a5dff-c97c-4938-99f2-101ef7a8c354")
         protected static final Border TOOL_TIP_BORDER = new MarginBorder(0, 2, 0, 2);
 
         @objid ("65a3ca14-33f7-11e2-95fe-001ec947c8cc")
@@ -1239,7 +1245,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     @objid ("65a3ca1f-33f7-11e2-95fe-001ec947c8cc")
     private class ButtonCanvas extends Canvas {
-        @objid ("65a3ca20-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("72b1626a-226c-434e-985a-d223d2631eec")
         private LightweightSystem lws;
 
         @objid ("65a3ca21-33f7-11e2-95fe-001ec947c8cc")
@@ -1349,7 +1355,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
         @objid ("65a3ca38-33f7-11e2-95fe-001ec947c8cc")
         private class ArrowButton extends Button {
-            @objid ("65a3ca39-33f7-11e2-95fe-001ec947c8cc")
+            @objid ("2fc4edc9-538d-4758-a195-d098f5b02959")
             private Triangle triangle;
 
             /**
@@ -1413,7 +1419,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     @objid ("65a62c6a-33f7-11e2-95fe-001ec947c8cc")
     private class TitleCanvas extends Canvas {
-        @objid ("65a62c6b-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("f14a28f4-5fbc-4f7e-91fb-fa10851884c9")
         private LightweightSystem lws;
 
         @objid ("65a62c6c-33f7-11e2-95fe-001ec947c8cc")
@@ -1577,20 +1583,20 @@ public class FlyoutPaletteComposite2 extends Composite {
         @objid ("1b64ba7c-3897-11e2-95fe-001ec947c8cc")
         final String fontName = getFontType();
 
-        @objid ("65a88ecb-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("7fe8ba6e-5bd4-4f3e-bcc2-9c6cc3ff4fcb")
         private Font titleFont;
 
-        @objid ("65a88ecc-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("d7a66ba8-d9fb-4bd7-85be-2263576e7148")
         private final IPropertyChangeListener fontListener = new IPropertyChangeListener() {
-                    @Override
-                    public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
-                        if (FontManager.this.fontName.equals(event.getProperty())) {
-                            handleFontChanged();
-                        }
-                    }
-                };
+                                    @Override
+                                    public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
+                                        if (FontManager.this.fontName.equals(event.getProperty())) {
+                                            handleFontChanged();
+                                        }
+                                    }
+                                };
 
-        @objid ("65a88ece-33f7-11e2-95fe-001ec947c8cc")
+        @objid ("379d63e1-8d89-443b-ac73-2646364b468d")
         private List<Control> registrants = new ArrayList<>();
 
         @objid ("65a88ed1-33f7-11e2-95fe-001ec947c8cc")
@@ -1653,6 +1659,86 @@ public class FlyoutPaletteComposite2 extends Composite {
                 dispose();
             }
             
+        }
+
+    }
+
+    @objid ("b792d373-7f72-4487-8ff1-f1f887f15e43")
+    private static class DragCursors2 {
+        @objid ("8fd76ace-31ea-4abe-8932-337a6ca8f5e3")
+        public static final int INVALID = 0;
+
+        @objid ("13e09e46-5485-4c4b-9076-cfcd0205aea5")
+        public static final int LEFT = 1;
+
+        @objid ("5ed8d001-4198-4270-96c6-05de60f95fab")
+        public static final int RIGHT = 2;
+
+        @objid ("a166453a-2036-4fdb-a5f8-772473ec75ab")
+        private static final Cursor[] cursors = new Cursor[3];
+
+        /**
+         * Return the cursor for a drop scenario, as identified by code. Code
+         * must be one of INVALID, LEFT, RIGHT. If the code is not found default
+         * to INVALID. Note that since these three cursors are static, they will
+         * only be created once for the lifetime of the eclipse session and
+         * shared (i.e this is not an image leak).
+         * @param code the code
+         * @return the cursor
+         */
+        @objid ("f7244bee-a279-42bb-a3b0-8cdc4600ab7f")
+        public static Cursor getCursor(int code) {
+            Display display = Display.getCurrent();
+            if (cursors[code] == null) {
+                ImageDescriptor source = null;
+                ImageDescriptor mask = null;
+                switch (code) {
+                case LEFT:
+                    source = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_LEFT_SOURCE);
+                    mask = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_LEFT_MASK);
+                    cursors[LEFT] = new Cursor(display, source.getImageData(),
+                            mask.getImageData(), 16, 16);
+                    break;
+                case RIGHT:
+                    source = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_RIGHT_SOURCE);
+                    mask = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_RIGHT_MASK);
+                    cursors[RIGHT] = new Cursor(display, source.getImageData(),
+                            mask.getImageData(), 16, 16);
+                    break;
+                default:
+                case INVALID:
+                    source = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_INVALID_SOURCE);
+                    mask = PlatformUI
+                            .getWorkbench()
+                            .getSharedImages()
+                            .getImageDescriptor(
+                                    ISharedImages.IMG_OBJS_DND_INVALID_MASK);
+                    cursors[INVALID] = new Cursor(display,
+                            source.getImageData(), mask.getImageData(), 16, 16);
+                    break;
+                }
+            }
+            return cursors[code];
         }
 
     }

@@ -32,7 +32,7 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 
 @objid ("1b61a60e-5e33-11e2-b81d-002564c97630")
 class DialogModel {
@@ -124,7 +124,7 @@ class DialogModel {
     public void removeFromFilter(final Stereotype stereotype) {
         // Find the module bringing this stereotype.
         ModuleComponent module = stereotype.getOwner().getOwnerModule();
-        assert (module != null) : "Could not find module that brought the stereotype: " + ModuleI18NService.getLabel(stereotype);
+        assert (module != null) : "Could not find module that brought the stereotype: " + MdaResources.getLabel(stereotype);
         
         this.filterStereotypes.get(module).remove(stereotype);
         if (this.filterStereotypes.get(module).isEmpty()) {

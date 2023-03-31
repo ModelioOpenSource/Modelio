@@ -39,5 +39,5 @@ public interface INavigationListener {
      */
     @objid ("5f16e38a-fcd2-4d5e-866b-b6f87a0a1a0f")
     void navigateTo(List<MObject> targets);
-
 }
+

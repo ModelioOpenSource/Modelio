@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3180]]
 
-[[r3180]]
+
+
 = R3180
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _BPMN element_ cannot have a _SequenceFlow_ towards itself.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 It makes no sense in BPMN to have a flow directed towards itself.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have a BPMN element with a flow towards itself you should remove that flow or change its destination.

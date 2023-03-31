@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[La-vue-ldquoEdition-des-diagrammesrdquo]]
 
-[[la-vue-edition-des-diagrammes]]
+
+
 = La vue "Edition des diagrammes"
 
 .La vue "Edition des diagrammes"
@@ -20,9 +20,9 @@ image::images/Modeler-_modeler_interface_edition_view_DiagramEditionViewPuces.pn
 5. Barre d'outil du diagramme.
 6. <<Modeler-_modeler_interface_symbol_view.adoc#,Vue symbole>> réduite.
 
-[[Principales-commandes-disponibles-dans-la-vue-ldquoEdition-des-diagrammesrdquo]]
 
-[[principales-commandes-disponibles-dans-la-vue-edition-des-diagrammes]]
+
+
 ===== Principales commandes disponibles dans la vue "Edition des diagrammes"
 
 *Depuis la palette du diagramme :*

@@ -20,10 +20,15 @@
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.net.URI;
+import java.security.Principal;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,24 +36,49 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
+import org.apache.http.Consts;
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
+import org.apache.http.HttpRequest;
+import org.apache.http.auth.AUTH;
+import org.apache.http.auth.AuthSchemeProvider;
 import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.AuthenticationException;
+import org.apache.http.auth.BasicUserPrincipal;
+import org.apache.http.auth.Credentials;
+import org.apache.http.auth.InvalidCredentialsException;
+import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.AuthSchemes;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.conn.ssl.BrowserCompatHostnameVerifier;
+import org.apache.http.config.Lookup;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.ssl.DefaultHostnameVerifier;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
+import org.apache.http.impl.auth.BasicSchemeFactory;
+import org.apache.http.impl.auth.DigestSchemeFactory;
+import org.apache.http.impl.auth.KerberosSchemeFactory;
+import org.apache.http.impl.auth.NTLMSchemeFactory;
+import org.apache.http.impl.auth.RFC2617Scheme;
+import org.apache.http.impl.auth.SPNegoSchemeFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.SystemDefaultCredentialsProvider;
+import org.apache.http.message.BufferedHeader;
+import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
+import org.apache.http.util.Args;
+import org.apache.http.util.CharArrayBuffer;
 import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.auth.NoneAuthData;
-import org.modelio.vbasic.auth.ServerUserPassAuthData;
+import org.modelio.vbasic.auth.OidcAuthData;
 import org.modelio.vbasic.auth.UserPasswordAuthData;
+import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
 
 /**
@@ -67,8 +97,34 @@ import org.modelio.vbasic.log.Log;
  */
 @objid ("ea58b1b9-38a6-4b36-96e9-32f37f7016b7")
 public class ApacheHttpClients {
-    @objid ("57105053-0815-4c28-8265-9232b3e53633")
-    private static final CloseableHttpClient defaultClient = initDefaultHttpClient();
+    /**
+     * Copy of {@link org.apache.http.impl.client.AuthenticationStrategyImpl#DEFAULT_SCHEME_PRIORITY} .
+     * <p>
+     * Needed for OAuth/token/OIDC authentication.
+     * @since 5.2
+     */
+    @objid ("d9c58319-faaa-407f-9abc-1f03cba3d5c6")
+    @SuppressWarnings ("javadoc")
+    public static final List<String> DEFAULT_SCHEME_PRIORITY;
+
+    @objid ("4ba63a3b-aab4-47f4-94f6-fcbd5158fd54")
+    private static final HttpClient defaultClient;
+
+    /**
+     * Default auth scheme registry needed for OAuth/token/OIDC authentication.
+     * @since 5.2
+     */
+    @objid ("c49ad6e4-0455-4bd6-9e4f-6891c13ec2f7")
+    public static final Lookup<AuthSchemeProvider> DEFAULT_AUTH_SCHEME_REGISTRY;
+
+    /**
+     * Default {@link RequestConfig} needed for OAuth/token/OIDC authentication.
+     * <p>
+     * It is used to initialize {@link #createClientBuilder()}.
+     * @since 5.2
+     */
+    @objid ("51661a9c-5a10-49a5-947f-89969e292b5b")
+    public static final RequestConfig DEFAULT_REQUEST_CONFIG;
 
     /**
      * Configure HTTP(S) proxy authentication from the given properties .
@@ -133,24 +189,43 @@ public class ApacheHttpClients {
             credsProvider.setCredentials(
                     authscope,
                     credentials);
-        
         }
         
     }
 
     /**
      * Create a configured but still customizable {@link HttpClientBuilder}.
+     * <p>
+     * Please note the builder has a default :<ul>
+     * <li> request config set as {@link #DEFAULT_REQUEST_CONFIG}.
+     * <li> Auth scheme registry
      * @return a HttpClientBuilder
      */
     @objid ("bc1f0a0d-8efc-424f-ae30-745413b75e5e")
     public static HttpClientBuilder createClientBuilder() {
-        HostnameVerifier hostnameVerifier = new HostNameVerifier();
+        //HostnameVerifier hostnameVerifier = new HostNameVerifier();
         return HttpClientBuilder.create()
                 .useSystemProperties()
                 .setSSLContext(SslManager.getInstance().getSslContext())
                 .setRedirectStrategy(null)
                 .setRetryHandler(new RetryHandler())
-                .setSSLHostnameVerifier(hostnameVerifier);
+                .setDefaultRequestConfig(DEFAULT_REQUEST_CONFIG)
+                .setDefaultAuthSchemeRegistry(DEFAULT_AUTH_SCHEME_REGISTRY)
+                //.setSSLHostnameVerifier(hostnameVerifier)
+                ;
+        
+    }
+
+    @objid ("b0822db6-c4e3-424f-b800-f5dc3761177a")
+    private static Registry<AuthSchemeProvider> initAuthSchemeRegistry() {
+        return RegistryBuilder.<AuthSchemeProvider>create()
+                .register(AuthSchemes.BASIC, new BasicSchemeFactory())
+                .register(AuthSchemes.DIGEST, new DigestSchemeFactory())
+                .register(AuthSchemes.NTLM, new NTLMSchemeFactory())
+                .register(AuthSchemes.SPNEGO, new SPNegoSchemeFactory())
+                .register(AuthSchemes.KERBEROS, new KerberosSchemeFactory())
+                .register(BearerAuthScheme.SCHEME_NAME, BearerAuthScheme.factory())
+                .build();
         
     }
 
@@ -159,12 +234,12 @@ public class ApacheHttpClients {
      * @return a ready to use {@link CloseableHttpClient}.
      */
     @objid ("65d4178b-287b-4e04-a887-477100021c0b")
-    public static CloseableHttpClient getDefaultClient() {
+    public static HttpClient getDefaultClient() {
         return ApacheHttpClients.defaultClient;
     }
 
     @objid ("526c188d-d764-4c43-bef9-8b09b0b3c1eb")
-    private static CloseableHttpClient initDefaultHttpClient() {
+    private static HttpClient initDefaultHttpClient() {
         return createClientBuilder().build();
     }
 
@@ -185,23 +260,31 @@ public class ApacheHttpClients {
         
         if (auth != null) {
             switch (auth.getSchemeId()) {
-            case UserPasswordAuthData.USERPASS_SCHEME_ID:
-            case ServerUserPassAuthData.SERVERUSERPASS_SCHEME_ID:
+            case UserPasswordAuthData.USERPASS_SCHEME_ID: {
                 UserPasswordAuthData authData = (UserPasswordAuthData) auth;
         
                 if (authData.getUser() == null) {
                     throw new UriAuthenticationException(uri.toString(), "User name may not be null.");
                 }
         
-                UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(
-                        authData.getUser(), authData.getPassword());
+                Credentials credentials = new UsernamePasswordCredentials(authData.getUser(), authData.getPassword());
                 AuthScope authscope = new AuthScope(uri.getHost(), AuthScope.ANY_PORT);
                 credsProvider.setCredentials(authscope, credentials);
+            }
+            break;
+            case OidcAuthData.SCHEME_ID: {
+                OidcAuthData authData = (OidcAuthData) auth;
         
-                break;
+                AuthScope authscope = new AuthScope(uri.getHost(), AuthScope.ANY_PORT, AuthScope.ANY_REALM, BearerAuthScheme.SCHEME_NAME);
+                credsProvider.setCredentials(authscope, new OidcCredentials(authData));
+        
+                if (configBuilder != null) {
+                    configBuilder.setTargetPreferredAuthSchemes(Arrays.asList(BearerAuthScheme.SCHEME_NAME, AuthSchemes.DIGEST, AuthSchemes.BASIC));
+                }
+            }
+            break;
             case NoneAuthData.AUTH_NONE_SCHEME_ID:
                 break;
-        
             default:
                 throw new UriAuthenticationException(uri.toString(), auth + " not supported .");
             }
@@ -228,7 +311,7 @@ public class ApacheHttpClients {
             if (data != null) {
                 if (data.containsKey("http.proxyHost")) {
                     String host = data.get("http.proxyHost");
-                    int port = Integer.parseInt(data.get("http.proxyPort"));
+                    int port = Integer.parseInt(data.getOrDefault("http.proxyPort", "-1"));
         
                     HttpHost proxy = new HttpHost(host, port);
                     configBuilder.setProxy(proxy);
@@ -248,14 +331,37 @@ public class ApacheHttpClients {
         
     }
 
+static {
+                    // Initialize all statics in the right order
+                    DEFAULT_SCHEME_PRIORITY = Collections.unmodifiableList(Arrays.asList(
+                            BearerAuthScheme.SCHEME_NAME,
+                            AuthSchemes.SPNEGO,
+                            AuthSchemes.KERBEROS,
+                            AuthSchemes.NTLM,
+                            AuthSchemes.CREDSSP,
+                            AuthSchemes.DIGEST,
+                            AuthSchemes.BASIC));
+    
+                    DEFAULT_AUTH_SCHEME_REGISTRY = initAuthSchemeRegistry();
+    
+                    DEFAULT_REQUEST_CONFIG = RequestConfig
+                            .copy(RequestConfig.DEFAULT)
+                            .setTargetPreferredAuthSchemes(DEFAULT_SCHEME_PRIORITY).build();
+    
+                    // Initialize default client at last because it depends on above initializations.
+                    defaultClient = initDefaultHttpClient();
+                }
+    
     /**
-     * Use our own implementation of Apache {@link X509HostnameVerifier} that delegates to {@link BrowserCompatHostnameVerifier} and intercepts failures.
+     * Use our own implementation of Apache {@link HostnameVerifier} that delegates to {@link DefaultHostnameVerifier} and intercepts failures.
      * <p>
      * Exceptions thrown by the delegate are augmented by adding a suppressed {@link InvalidCertificateException} that will be found by {@link SslManager#fixUntrustedServer(SSLException, URI)}.
+     * @deprecated This class is a security hole, the user must not be able to bypass the verification.
      */
     @objid ("e5a628f4-826f-4727-b3ed-838b86b17879")
-    public static class HostNameVerifier implements HostnameVerifier {
-        @objid ("5a220cdc-5a1c-453f-ad74-e5fa14cd8a84")
+    @Deprecated
+    private static class HostNameVerifier implements HostnameVerifier {
+        @objid ("a2c8298d-7262-4f84-9e45-bbd4afa142d6")
         private final DefaultHostnameVerifier delegate = new DefaultHostnameVerifier();
 
         @objid ("63e0be86-be74-4bb8-8ab5-bd27ec18d665")
@@ -311,11 +417,6 @@ public class ApacheHttpClients {
             
         }
 
-        @objid ("774f3770-2d3b-4899-8bbd-cad288d11dc7")
-        public  HostNameVerifier() {
-            super();
-        }
-
     }
 
     /**
@@ -323,11 +424,6 @@ public class ApacheHttpClients {
      */
     @objid ("9453ebe9-8193-4264-b09f-dfb4ab856a7c")
     public static class RetryHandler extends DefaultHttpRequestRetryHandler {
-        @objid ("00f3dd92-08d0-4053-829a-1c52d7ec5267")
-        public  RetryHandler() {
-            super();
-        }
-
         @objid ("fded4899-30d6-4cc6-95ec-3a4a3b7773c4")
         @Override
         public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
@@ -339,6 +435,183 @@ public class ApacheHttpClients {
                 return SslManager.getInstance().fixUntrustedServer((SSLException) exception, anUri);
             }
             return super.retryRequest(exception, executionCount, context);
+        }
+
+    }
+
+    /**
+     * "Bearer" authentication scheme for OIDC/OAuth authentication.
+     * <p>
+     * Expects the access token being stored in the {@link Credentials#getPassword()}.
+     * @author cmarin
+     * @since 5.2
+     */
+    @objid ("2ac5eead-7eac-4800-90cf-8837c59baa24")
+    public static class BearerAuthScheme extends RFC2617Scheme {
+        @objid ("56dfafae-a4a9-496a-a827-071b56b16c57")
+        private static final long serialVersionUID = -1931571557597830536L;
+
+        /**
+         * Whether the basic authentication process is complete
+         */
+        @objid ("f291c173-0961-4d25-8f05-0f788c158066")
+        private boolean complete;
+
+        /**
+         * The scheme identifier
+         */
+        @objid ("33eb2f7d-cbac-4674-9c33-f57395275124")
+        public static String SCHEME_NAME = "Bearer";
+
+        @objid ("31a91c79-86e7-4c7d-a5b9-3848b3e992fd")
+        public  BearerAuthScheme() {
+            super(Consts.ASCII);
+        }
+
+        /**
+         * Returns textual designation of the basic authentication scheme.
+         * @return {@code basic}
+         */
+        @objid ("dd936bb3-07be-4ef2-838f-46d585693552")
+        @Override
+        public String getSchemeName() {
+            return SCHEME_NAME;
+        }
+
+        /**
+         * Processes the Basic challenge.
+         * @param header the challenge header
+         * @throws MalformedChallengeException is thrown if the authentication challenge
+         * is malformed
+         */
+        @objid ("5ce50f2f-7209-4b2b-99c1-83f93e9b9956")
+        @Override
+        public void processChallenge(final Header header) throws MalformedChallengeException {
+            super.processChallenge(header);
+            this.complete = true;
+            
+        }
+
+        /**
+         * Tests if the Basic authentication process has been completed.
+         * @return {@code true} if Basic authorization has been processed,
+         * {@code false} otherwise.
+         */
+        @objid ("cc0a68fd-40a2-4eb6-8be6-e7983ebf107b")
+        @Override
+        public boolean isComplete() {
+            return this.complete;
+        }
+
+        /**
+         * Returns {@code false}. Basic authentication scheme is request based.
+         * @return {@code false}.
+         */
+        @objid ("e57820e1-e249-4360-b60a-826fec8f81ef")
+        @Override
+        public boolean isConnectionBased() {
+            return false;
+        }
+
+        /**
+         * @deprecated (4.2) Use {@link org.apache.http.auth.ContextAwareAuthScheme#authenticate(
+         * Credentials, HttpRequest, org.apache.http.protocol.HttpContext)}
+         */
+        @objid ("a26fd6e9-2347-4073-861a-d23f88a4baf4")
+        @Override
+        @Deprecated
+        public Header authenticate(final Credentials credentials, final HttpRequest request) throws AuthenticationException {
+            return authenticate(credentials, request, new BasicHttpContext());
+        }
+
+        /**
+         * Produces basic authorization header for the given set of {@link Credentials}.
+         * @param credentials The set of credentials to be used for authentication
+         * @param request The request being authenticated
+         * @return a basic authorization string
+         * @throws InvalidCredentialsException if authentication
+         * credentials are not valid or not applicable for this authentication scheme
+         * @throws AuthenticationException if authorization string cannot
+         * be generated due to an authentication failure
+         */
+        @objid ("a4b721ca-c5c1-49ba-98a9-683199cf07c8")
+        @Override
+        public Header authenticate(final Credentials credentials, final HttpRequest request, final HttpContext context) throws InvalidCredentialsException, AuthenticationException {
+            Args.notNull(credentials, "Credentials");
+            Args.notNull(request, "HTTP request");
+            
+            String accessToken;
+            try {
+                accessToken = credentials.getPassword();
+            } catch (UncheckedIOException e) {
+                throw new AuthenticationException(FileUtils.getLocalizedMessage(e.getCause()), e);
+            }
+            if (accessToken == null)
+                throw new InvalidCredentialsException("credentials.getPassword() returned null");
+            
+            final CharArrayBuffer buffer = new CharArrayBuffer(64);
+            if (isProxy()) {
+                buffer.append(AUTH.PROXY_AUTH_RESP);
+            } else {
+                buffer.append(AUTH.WWW_AUTH_RESP);
+            }
+            buffer.append(": Bearer ");
+            buffer.append(accessToken);
+            return new BufferedHeader(buffer);
+        }
+
+        @objid ("64bf14f1-d602-4810-bede-f458fa295018")
+        @Override
+        public String toString() {
+            return new StringBuilder()
+                    .append(BearerAuthScheme.SCHEME_NAME)
+                    .append(" [complete=")
+                    .append(this.complete)
+                    .append("]")
+                    .toString();
+            
+        }
+
+        /**
+         * @return a {@link AuthSchemeProvider} that creates {@link BearerAuthScheme}.
+         */
+        @objid ("a25545a6-44f8-43e5-ac45-32f29b31ae95")
+        public static AuthSchemeProvider factory() {
+            return c-> new BearerAuthScheme();
+        }
+
+    }
+
+    /**
+     * Adapter from {@link OidcAuthData} to Apache HTTP {@link Credentials}.
+     * @author cmarin
+     * @since 5.2
+     */
+    @objid ("1d4a4b9f-bd0c-478d-b120-6541db315536")
+    static class OidcCredentials implements Credentials {
+        @objid ("72206676-33c7-4a70-b27b-2d33edad7033")
+        private final OidcAuthData authData;
+
+        @objid ("e7141898-cb78-4b38-b8e7-f90ddc8d208a")
+        public  OidcCredentials(OidcAuthData authData) {
+            this.authData = authData;
+        }
+
+        @objid ("2b501a1f-33e7-4926-b5f0-096a1aba426f")
+        @Override
+        public Principal getUserPrincipal() {
+            return new BasicUserPrincipal(this.authData.getUserId());
+        }
+
+        @objid ("f6f36c15-e826-4b40-a7e6-63a9618c730f")
+        @Override
+        public String getPassword() throws UncheckedIOException {
+            try {
+                return this.authData.getToken();
+            } catch (IOException e) {
+                throw new UncheckedIOException(FileUtils.getLocalizedMessage(e), e);
+            }
+            
         }
 
     }

@@ -40,12 +40,14 @@ class GridLayer2 extends GridLayer {
      */
     @objid ("c3cd7607-3896-11e2-95fe-001ec947c8cc")
     public static final String PROPERTY_GRID_COLOR = "GridLayer2.GridColor"; // $NON-NLS-1$
+    
 
     /**
      * A viewer property indicating the grid's alpha. The value must be a {@link Integer}.
      */
     @objid ("c3d6ff6e-3896-11e2-95fe-001ec947c8cc")
     public static final String PROPERTY_GRID_ALPHA = "GridLayer2.GridAlpha"; // $NON-NLS-1$
+    
 
     @objid ("65aaf110-33f7-11e2-95fe-001ec947c8cc")
     private Color gridColor;

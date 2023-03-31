@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1470]]
 
-[[r1470]]
+
+
 = R1470
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Le nom de chaque qualifier doit être unique.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Avoir plusieurs qualifiers avec le même nom peut porter à confusion, de plus la plupart des langages de programmation ne supporte pas la duplication des noms sur les qualifiers.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Donnez un nom unique à chaque qualifier de votre _AssociationEnd_.

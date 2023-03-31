@@ -44,7 +44,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.browser.model.IBrowserModel;
 import org.modelio.diagram.browser.model.core.DiagramRef;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.platform.core.activation.IActivationService;
@@ -70,7 +70,7 @@ public class DiagramBrowserView {
     private ESelectionService selectionService;
 
     @objid ("000c9752-0d4f-10c6-842f-001ec947cd2a")
-    protected GProject project;
+    protected IGProject project;
 
     @objid ("000caef4-0d4f-10c6-842f-001ec947cd2a")
     protected DiagramBrowserModelChangeListener modelChangeListener;
@@ -101,6 +101,9 @@ public class DiagramBrowserView {
     @objid ("000ccc86-0d4f-10c6-842f-001ec947cd2a")
     @PostConstruct
     public void createPartControl(Composite aParent, @Optional IProjectService aProjectService, MPart part, EMenuService menuService, IModelioNavigationService navigationService) {
+        // With Eclipse 4.18, the toolbar is messed up, force it right manually...
+        part.getToolbar().setVisible(true);
+        
         // Connect to session if one is open
         this.parent = aParent;
         this.projectService = aProjectService;
@@ -135,7 +138,7 @@ public class DiagramBrowserView {
     @objid ("0011a2ce-43b1-10c7-842f-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, final MPart part, final EMenuService menuService, final IModelioNavigationService navigationService) {
+    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, final MPart part, final EMenuService menuService, final IModelioNavigationService navigationService) {
         this.project = openedProject;
         
         if (DiagramBrowserView.this.diagramBrowserPanelProvider == null) {
@@ -236,8 +239,7 @@ public class DiagramBrowserView {
 
     @objid ("fc05adf8-2a43-402f-8e86-0018f85d2c90")
     protected void initDiagramBrowserPanelProvider(EMenuService menuService, IModelioNavigationService navigationService) {
-        this.diagramBrowserPanelProvider = new DiagramBrowserPanelProvider(this.projectService.getOpenedProject(),
-                navigationService);
+        this.diagramBrowserPanelProvider = new DiagramBrowserPanelProvider(this.projectService.getOpenedProject(), navigationService);
         this.diagramBrowserPanelProvider.createPanel(this.parent);
         
         // Add the selection provider
@@ -277,7 +279,7 @@ public class DiagramBrowserView {
 
     /**
      * Get selected content model in the toolbar
-     * @param part @return
+     * @return
      */
     @objid ("756fe621-4b86-442a-9f1d-5530556c46a7")
     protected String getSelectedContentModel(MPart part) {
@@ -334,7 +336,7 @@ public class DiagramBrowserView {
     @objid ("a3c50a24-5d97-42e9-86f5-e320681d3bfd")
     @Inject
     @Optional
-    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project, IProjectService projectService) {
+    void onProjectClosing(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final IGProject project, IProjectService projectService) {
         // remove model change listener if session still alive
         if ((project != null) && project.isOpen()) {
             project.getSession().getModelChangeSupport().removeModelChangeListener(this.modelChangeListener);

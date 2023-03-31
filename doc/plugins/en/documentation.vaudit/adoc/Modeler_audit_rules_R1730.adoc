@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1730]]
 
-[[r1730]]
+
+
 = R1730
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A _Generalization_ must be created between two model elements of the same type, except in the case of a _Signal_, which can specialize a _Signal_ or a _Class_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A _Class_ inheriting from a _UseCase_ or a _Node_ inheriting from an _Artifact_ for example would not make sense.
 
 The only exception is for _Signals_ that can inherit from _Classes_.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Remove your generalization.

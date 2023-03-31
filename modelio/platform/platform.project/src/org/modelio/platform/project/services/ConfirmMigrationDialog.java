@@ -39,9 +39,9 @@ import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.modelio.gproject.fragment.FragmentMigrationNeededException;
-import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.gproject.fragment.migration.IFragmentMigrator;
+import org.modelio.gproject.FragmentMigrationNeededException;
+import org.modelio.gproject.core.IGModelFragment;
+import org.modelio.gproject.parts.IGModelFragmentMigrator;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.platform.utils.i18n.BundledMessages;
@@ -181,7 +181,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
     }
 
     @objid ("9e086005-699b-410b-b1f8-e17702e58b73")
-    public  ConfirmMigrationDialog(Shell parentShell, IProjectFragment toMigrate, MetamodelVersionDescriptor targetMetamodel) throws IOException {
+    public  ConfirmMigrationDialog(Shell parentShell, IGModelFragment toMigrate, MetamodelVersionDescriptor targetMetamodel) throws IOException {
         this(parentShell, new Data(toMigrate, targetMetamodel));
     }
 
@@ -209,9 +209,9 @@ class ConfirmMigrationDialog extends ModelioDialog {
         private final List<IMigrationStepDescription> steps;
 
         @objid ("f9ad6f2a-39b4-4613-827d-e036acd3894b")
-        public  Data(IProjectFragment toMigrate, MetamodelVersionDescriptor targetMmVersion) throws IOException {
-            FragmentMigrationNeededException ex = (FragmentMigrationNeededException) toMigrate.getDownError();
-            IFragmentMigrator migrator = toMigrate.getMigrator(targetMmVersion);
+        public  Data(IGModelFragment toMigrate, MetamodelVersionDescriptor targetMmVersion) throws IOException {
+            FragmentMigrationNeededException ex = (FragmentMigrationNeededException) toMigrate.getState().getDownError();
+            IGModelFragmentMigrator migrator = toMigrate.getMigrator(targetMmVersion);
             
             this.fragmentId = toMigrate.getId();
             this.requiredUserActions = migrator.getRequiredUserActions();

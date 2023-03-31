@@ -20,6 +20,7 @@
       <handlers xmi:id="_ZUVGIHsBEeShLO3VXu_qAA" elementId="diagram.browser.handler.0" contributionURI="bundleclass://org.modelio.app.diagram.browser/org.modelio.diagram.browser.handlers.EditPropertiesHandler" command="_70b5oHsAEeShLO3VXu_qAA"/>
       <menus xsi:type="menu:PopupMenu" xmi:id="_3dd1cEtTEeKLy7OoR19zGw" elementId="org.modelio.diagram.browser.popupmenu">
         <tags>popup:org.modelio.popupmenu.cms</tags>
+        <tags>popup:org.modelio.popupmenu.workflow</tags>
         <children xsi:type="menu:DirectMenuItem" xmi:id="_6UKVwEtTEeKLy7OoR19zGw" elementId="org.modelio.diagram.browser.popupmenu.creatediagramset" label="%CreateDiagramSet.label" iconURI="platform:/plugin/org.modelio.app.diagram.browser/icons/closed_set.png" tooltip="%CreateDiagramSet.tooltip" contributionURI="bundleclass://org.modelio.app.diagram.browser/org.modelio.diagram.browser.handlers.CreateDiagramSetHandler">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_bCMu8L1zEeKa_Z5OvMh8Mw" coreExpressionId="diagram.browser.test.createfolder.id"/>
         </children>
@@ -28,7 +29,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Px2EIAdOEeSGzu5o-qoXaQ" elementId="org.modelio.diagram.browser.popupmenu.selectinexplorer" label="%SelectInExplorer.label" iconURI="platform:/plugin/org.modelio.platform.ui/icons/selectinbrowser.png" tooltip="%SelectInExplorer.tooltip" command="_dxP-QAdOEeSGzu5o-qoXaQ">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_XJHMoAdOEeSGzu5o-qoXaQ" coreExpressionId="diagram.browser.test.selectinexplore.id"/>
         </children>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_FK-LMHsBEeShLO3VXu_qAA" elementId="org.modelio.diagram.browser.popupmenu.openproperties" label="%OpenProperties.label" iconURI="platform:/plugin/org.modelio.app.diagram.browser/icons/openproperties.png" tooltip="%OpenProperties.tooltip" command="_70b5oHsAEeShLO3VXu_qAA">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_FK-LMHsBEeShLO3VXu_qAA" elementId="org.modelio.diagram.browser.popupmenu.openproperties" label="%OpenProperties.label" iconURI="platform:/plugin/org.modelio.platform.ui/icons/openproperties.png" tooltip="%OpenProperties.tooltip" command="_70b5oHsAEeShLO3VXu_qAA">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_sk0nQJvuEeS1_P5MDjmJZw" coreExpressionId="app.project.ui.expression.isMObject"/>
         </children>
         <children xsi:type="menu:MenuSeparator" xmi:id="_sPk-IFS-EeK4YallPPLLhg" elementId="org.modelio.diagram.browser.separator.0"/>
@@ -95,6 +96,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_20pBsN_OEeKdg8e0rQGLrw" featurename="children" parentElementId="org.modelio.app.bottom.parts">
-    <elements xsi:type="advanced:Placeholder" xmi:id="_20pBsd_OEeKdg8e0rQGLrw" elementId="org.modelio.diagram.browser.placeholder" ref="_tcIaYIkaEeWbO4MnNK7ogg"/>
+    <elements xsi:type="advanced:Placeholder" xmi:id="_20pBsd_OEeKdg8e0rQGLrw" elementId="org.modelio.diagram.browser.placeholder" ref="_tcIaYIkaEeWbO4MnNK7ogg" closeable="true"/>
   </fragments>
 </fragment:ModelFragments>

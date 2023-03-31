@@ -43,5 +43,5 @@ public interface IProductionNode<U extends MObject, J> extends IProduction {
 
     @objid ("03d7a0c1-9e27-476e-b44c-d25a6a3344fd")
     U findUMLElementById(J jaxbElement, ICoreSession session);
-
 }
+

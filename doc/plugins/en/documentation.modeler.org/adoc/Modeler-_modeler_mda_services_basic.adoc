@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Basic-level-ndash-Creating-a-stereotype]]
 
-[[basic-level-creating-a-stereotype]]
+
+
 = Basic level – Creating a stereotype
 
 .Creating a new stereotype

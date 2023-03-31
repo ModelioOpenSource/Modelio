@@ -34,6 +34,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
  * 
  * The Complex Gateway can be used to model complex synchronization behavior. An Expression
  * activationCondition is used to describe the precise behavior. For example, this Expression could specify that tokens on three out of five incoming Sequence Flow are needed to activate the Gateway. What tokens are produced by the Gateway is determined by conditions on the outgoing Sequence Flow as in the split behavior of the Inclusive Gateway. If token arrive later on the two remaining Sequence Flow, those tokens cause a reset of the Gateway and new token can be produced on the outgoing Sequence Flow. To determine whether it needs to wait for additional tokens before it can reset, the Gateway uses the synchronization semantics of the Inclusive Gateway.
+ * 
+ * 
  */
 @objid ("00973ae2-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnComplexGateway extends BpmnGateway {
@@ -59,6 +61,7 @@ public interface BpmnComplexGateway extends BpmnGateway {
      * prevent undesirable oscillation of activation of the Complex Gateway, ActivationCount variables should only be
      * used in subexpressions of the form expr >= const where expr is an arithmetic Expression that uses only addition and
      * const is an Expression whose evaluation remains constant during execution of the Process.</i>
+     * 
      */
     @objid ("90bc42c2-4daf-48fc-bee9-0ebae0ef138e")
     String getActivationExpression();
@@ -73,6 +76,7 @@ public interface BpmnComplexGateway extends BpmnGateway {
      * prevent undesirable oscillation of activation of the Complex Gateway, ActivationCount variables should only be
      * used in subexpressions of the form expr >= const where expr is an arithmetic Expression that uses only addition and
      * const is an Expression whose evaluation remains constant during execution of the Process.</i>
+     * 
      */
     @objid ("40fc8886-8aa9-4ce1-9f50-44bc58e0f7ee")
     void setActivationExpression(String value);
@@ -82,6 +86,7 @@ public interface BpmnComplexGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b656d014-80d4-4e4b-b7cc-914140d8cece")
     BpmnSequenceFlow getDefaultFlow();
@@ -91,8 +96,9 @@ public interface BpmnComplexGateway extends BpmnGateway {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("87132cb0-e040-4f7a-86a0-0bf9ca309f74")
     void setDefaultFlow(BpmnSequenceFlow value);
-
 }
+

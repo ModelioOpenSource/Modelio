@@ -44,6 +44,14 @@ import org.modelio.metamodel.uml.statik.Artifact;
 @objid ("71f2e307-6c24-11e0-b589-002564c97630")
 public interface IEditionService {
     /**
+     * Open the edit element dialog (if available) for mObj.
+     * (Send an applicative ModelioEvent.EDIT_ELEMENT event)
+     * @param me the element to edit
+     */
+    @objid ("ff57baa2-1af4-47ec-9286-4cf5074fc335")
+    void editElement(ModelElement me);
+
+    /**
      * Set the focus on a specific editor.
      * @param editor the editor to focus.
      */
@@ -229,5 +237,5 @@ public interface IEditionService {
      */
     @objid ("97d3bf10-fafd-4ea6-9c37-7787852c9daf")
     void unregisterListener(IExternDocumentChangeListener editor);
-
 }
+

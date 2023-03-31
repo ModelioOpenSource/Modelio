@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  * An OccurrenceSpecification is the basic semantic unit of Interactions. The sequences of occurrences specified by them are the meanings of Interactions.
  * 
  * OccurrenceSpecifications are ordered along a Lifeline.
+ * 
+ * 
  */
 @objid ("004a586c-c4bf-1fd8-97fe-001ec947cd2a")
 public interface OccurrenceSpecification extends InteractionFragment {
@@ -56,6 +58,7 @@ public interface OccurrenceSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>NOT TO DOCUMENT : References the GeneralOrderings that specify EventOcurrences that must occur after this OccurrenceSpecification.</i>
+     * 
      */
     @objid ("335d4ddb-df5e-40b4-92ec-07ef7334f022")
     EList<GeneralOrdering> getToAfter();
@@ -65,6 +68,7 @@ public interface OccurrenceSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>NOT TO DOCUMENT : References the GeneralOrderings that specify EventOcurrences that must occur after this OccurrenceSpecification.</i>
+     * 
      */
     @objid ("8335bbf4-7a22-4fa9-a622-bef2adffa6fe")
     <T extends GeneralOrdering> List<T> getToAfter(java.lang.Class<T> filterClass);
@@ -74,6 +78,7 @@ public interface OccurrenceSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("1fd093eb-4bcc-4f5d-b7f4-abbd322c1d14")
     EList<GeneralOrdering> getToBefore();
@@ -83,8 +88,9 @@ public interface OccurrenceSpecification extends InteractionFragment {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("09b66cfb-a0d2-4096-86b2-895924aadfc4")
     <T extends GeneralOrdering> List<T> getToBefore(java.lang.Class<T> filterClass);
-
 }
+

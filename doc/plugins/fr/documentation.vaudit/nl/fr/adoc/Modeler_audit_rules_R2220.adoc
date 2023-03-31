@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2220]]
 
-[[r2220]]
+
+
 = R2220
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _NameSpace_ feuille ne peut pas être abstrait.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _NameSpace_ feuille ne peut plus être dérivé, et donc doit forcément être concret.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 * Mettez le NameSpace abstrait en non final.

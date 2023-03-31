@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1020]]
 
-[[r1020]]
+
+
 = R1020
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Flows cannot directly cross the boundaries of a Structured Activity Node.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 Structured Activity Nodes are:
@@ -34,9 +34,9 @@ image::images/Modeler_audit_rules_R1020_modeler_fig_200.gif[image]
 
 *green = correct flows via pins,* *red = incorrect flow crossing structured node boundaries*
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 Possible solutions to this problem are as follows:

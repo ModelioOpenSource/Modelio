@@ -51,6 +51,7 @@ import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnLaneReparent
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign.BpmnProcessDesignDiagramEditPart;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
+import org.modelio.diagram.elements.core.commands.DefaultEditCreatedElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.commands.NodeChangeLayoutCommand;
@@ -111,7 +112,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
                     MExpert expert = metaclassToCreate.getMetamodel().getMExpert();
                     if (expert.canCompose(hostElement.getMClass(), metaclassToCreate, ctx.getDependencyName())) {
                         final Object requestConstraint = getConstraintFor(request);
-                        return new CreateBpmnSubProcessCommand(hostElement, gmParentNode, ctx, requestConstraint);
+                        return new DefaultEditCreatedElementCommand(new CreateBpmnSubProcessCommand(hostElement, gmParentNode, ctx, requestConstraint),getHost().getRoot().getViewer().getEditPartRegistry());
                     }
                 }
                 return null;
@@ -354,10 +355,10 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
      * TODO : extract this class for reuse into its own (abstract?) class.
      * The same algorithm is already used in {@link org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmLinksFinder GmLinksFinder}
      */
-    @objid ("ee079d7f-94bf-4daf-b87b-05572412b3a5")
+    @objid ("45649788-3802-47d9-ae28-1867c8e0f66a")
     @Deprecated
     private static class ConnectionsFinder {
-        @objid ("4e5a355f-ab11-445f-84d7-1c4725bbee0f")
+        @objid ("8701a9cc-fe6d-45a8-8b70-9c6a10359ff7")
         private void computeAllLinksFor2(final Collection<GraphicalEditPart> operationSet, final Set<GraphicalEditPart> linksToAdd) {
             BiConsumer<GraphicalEditPart, Consumer<GraphicalEditPart>> transitions = (ep, graphWalker) -> walkConnectedLinks(graphWalker, ep, operationSet, linksToAdd);
             
@@ -374,7 +375,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
          * @param operationSet the initial request operation set
          * @param linkEditParts all found link edit parts
          */
-        @objid ("f36a15d2-c53b-401c-8caa-6ecdb89636da")
+        @objid ("24ab63ba-faae-44f3-b9bb-7989fa3c86ea")
         private static void walkConnectedLinks(Consumer<GraphicalEditPart> graphWalker, GraphicalEditPart ep, Collection<GraphicalEditPart> operationSet, Collection<GraphicalEditPart> linkEditParts) {
             // Walk composition children
             for (Object child : ep.getChildren()) {
@@ -412,7 +413,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
          * @param roots the start nodes.
          * @param transitions a function that receives a A node and a function to call for each connected node to walk. This function is expected to walk transitions.
          */
-        @objid ("e3385d24-1436-48f8-bb53-fbe103f99218")
+        @objid ("5926d762-7769-45b4-a22d-8305c89d624a")
         private static <A> void traverseGraph2(final Collection<? extends A> roots, BiConsumer<A, Consumer<A>> transitions) {
             // Set of already traversed nodes to avoid cycles.
             final Set<A> traversed = new HashSet<>();

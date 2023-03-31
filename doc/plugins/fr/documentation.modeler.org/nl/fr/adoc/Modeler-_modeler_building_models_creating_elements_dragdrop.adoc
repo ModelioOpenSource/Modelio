@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Démasquer-des-éléments-dans-les-diagrammes-par-glisser-déposer]]
 
-[[démasquer-des-éléments-dans-les-diagrammes-par-glisser-déposer]]
+
+
 = Démasquer des éléments dans les diagrammes par glisser-déposer
 
 Le service "glisser-déposer" vous permet de démasquer rapidement des éléments dans les diagrammes Modelio. En effet, il suffit de sélectionner un(des) élément(s) dans la vue "Modèle" puis de le(s) glisser-déposer dans un diagramme.

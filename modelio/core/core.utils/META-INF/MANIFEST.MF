@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Core Utils
 Bundle-SymbolicName: org.modelio.core.utils;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Export-Package: org.modelio.vbasic.auth,
  org.modelio.vbasic.collections,
  org.modelio.vbasic.debug,
@@ -11,12 +11,24 @@ Export-Package: org.modelio.vbasic.auth,
  org.modelio.vbasic.i18n,
  org.modelio.vbasic.log,
  org.modelio.vbasic.net,
+ org.modelio.vbasic.oidc,
+ org.modelio.vbasic.oidc.flows,
+ org.modelio.vbasic.oidc.registration,
  org.modelio.vbasic.progress,
  org.modelio.vbasic.version,
  org.modelio.vbasic.xml
 Bundle-ClassPath: res/,
- .
-Require-Bundle: org.apache.httpcomponents.httpclient,
+ .,
+ lib/deps/accessors-smart-2.4.8.jar,
+ lib/deps/asm-9.1.jar,
+ lib/deps/content-type-2.2.jar,
+ lib/deps/jcip-annotations-1.0-1.jar,
+ lib/deps/json-smart-2.4.8.jar,
+ lib/deps/lang-tag-1.6.jar,
+ lib/deps/nimbus-jose-jwt-9.22.jar,
+ lib/deps/oauth2-oidc-sdk-9.35.jar
+Require-Bundle: org.apache.commons.commons-compress,
+ org.apache.httpcomponents.httpclient,
  org.apache.httpcomponents.httpcore,
- org.apache.commons.commons-compress
+ org.modelio.jaxb;bundle-version="1.0.0"
 Bundle-Vendor: modelio.org

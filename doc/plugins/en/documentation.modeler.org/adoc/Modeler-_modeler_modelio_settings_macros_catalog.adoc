@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Macros-catalog]]
 
-[[macros-catalog]]
+
+
 = Macros catalog
 
-[[Introducing-the-Modelio-macros-catalog]]
 
-[[introducing-the-modelio-macros-catalog]]
+
+
 ===== Introducing the Modelio macros catalog
 
 Modelio macros are Jython scripts which have been saved as files and which can be accessed via the Modelio interface in the same way as any other command. Macros have a name and can have an associated icon in the Modelio GUI.
@@ -21,9 +21,9 @@ The Modelio macros catalog organizes and displays all available macros, and show
 * Workspace: The macro is available for all projects in the current Modelio workspace.
 * Project: The macro is only available in the current project.
 
-[[Creating-a-new-macro]]
 
-[[creating-a-new-macro]]
+
+
 ===== Creating a new macro
 
 If you intend to reuse a Jython script several times, you may want to create a new macro from it, as shown in the screenshots below.
@@ -50,9 +50,9 @@ image::images/Modeler-_modeler_modelio_settings_macros_catalog_scripts5.png[6]
 11. Use these tickboxes to define where the macro can be run from. The *Show in contextual menu* tickbox will display the macro in the context menu, and the *Show in toolbar* tickbox will display the associated icon in the Modelio toolbar. You can choose to activate both these options.
 12. Click on OK to confirm.
 
-[[Running-a-macro]]
 
-[[running-a-macro]]
+
+
 ===== Running a macro
 
 Macros can be run via their associated buttons and context menu commands, where these have been defined.

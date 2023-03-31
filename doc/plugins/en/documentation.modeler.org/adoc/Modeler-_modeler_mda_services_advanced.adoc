@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Advanced-level-ndash-Working-in-the-MDA-model]]
 
-[[advanced-level-working-in-the-mda-model]]
+
+
 = Advanced level – Working in the MDA model
 
-[[Showing-the-MDA-model]]
 
-[[showing-the-mda-model]]
+
+
 ===== Showing the MDA model
 
 .Showing the MDA model
@@ -23,9 +23,9 @@ image::images/Modeler-_modeler_mda_services_advanced_ShowMDA.png[2]
 2. Check the "Show MDA model" views option.
 3. All deployed modules appear here, as well as "LocalModule", which is where you can create new MDA elements.
 
-[[Creating-an-MDA-element]]
 
-[[creating-an-mda-element]]
+
+
 ===== Creating an MDA element
 
 In the MDA model, you can create the following MDA elements:

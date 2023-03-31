@@ -46,7 +46,6 @@ public class DefaultSWTExceptionHandler {
         AppUi.LOG.error("Unhandled exception caught by SWT: %s",e);
         // SWT should already log the stack trace, this should not be needed
         AppUi.LOG.debug(e);
-        throw e;
         
     }
 

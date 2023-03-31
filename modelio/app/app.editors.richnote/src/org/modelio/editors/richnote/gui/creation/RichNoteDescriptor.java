@@ -57,6 +57,7 @@ public class RichNoteDescriptor {
 
     /**
      * <p>Optional authentication data for remote documents.</p><p>The authentication data might&nbsp;or may not be stored in the model.</p>
+     * 
      */
     
     @mdl.prop

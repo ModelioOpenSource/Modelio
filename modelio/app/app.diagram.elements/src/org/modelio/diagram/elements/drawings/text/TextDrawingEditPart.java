@@ -136,20 +136,20 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
     @objid ("0e40132d-e637-42e1-837f-06f4d68d5184")
     @Override
     public void performRequest(Request req) {
-        if (RequestConstants.REQ_DIRECT_EDIT.equals(req.getType())) {
+        if (RequestConstants.REQ_OPEN.equals(req.getType()) || RequestConstants.REQ_DIRECT_EDIT.equals(req.getType())) {
         
             final ResizeableTextFigure label = getFigure();
         
-            CellEditorLocator cellEditorLocator = 
+            CellEditorLocator cellEditorLocator =
                     new EditorLocatorForLabelFigure(
-                            label, 
+                            label,
                             (String s) -> label.setContents(s))
                     .setFontGetter(() -> label.getTextFont());
         
             TextDirectEditManager manager = new TextDirectEditManager(
-                    this, 
-                    cellEditorLocator, 
-                    getModel().getDisplayedStyle().getProperty(GmTextStyleKeys.ALIGNMENT), 
+                    this,
+                    cellEditorLocator,
+                    getModel().getDisplayedStyle().getProperty(GmTextStyleKeys.ALIGNMENT),
                     getModel().getLabel())
                     .setMultiline(true)
                     .setWrap(false);

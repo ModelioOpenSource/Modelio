@@ -52,7 +52,7 @@ public class TreeContentProvider implements ITreeContentProvider {
     private boolean displayHiddenTags = false;
 
     @objid ("33c2aabd-297b-4230-b767-f3700ab8c06c")
-    private ModelElement inputElement;
+    private ModelElement annotedElement;
 
     @objid ("8fac8b32-c068-11e1-8c0a-002564c97630")
     @Override
@@ -60,9 +60,7 @@ public class TreeContentProvider implements ITreeContentProvider {
         if (object == null) {
             return Collections.EMPTY_LIST.toArray();
         }
-        
         List<Object> elements = new ArrayList<>();
-        
         if (object instanceof Element) {
             // first child is the element itself
             elements.add(((Element) object).getMClass());
@@ -86,16 +84,16 @@ public class TreeContentProvider implements ITreeContentProvider {
     @Override
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
         // Nothing to do
-        this.inputElement = (ModelElement) (newInput instanceof ModelElement ? newInput : null);
+        this.annotedElement = (ModelElement) (newInput instanceof ModelElement ? newInput : null);
         
     }
 
     @objid ("8faeec55-c068-11e1-8c0a-002564c97630")
     @Override
     public Object[] getChildren(Object parent) {
-        if (parent instanceof ModuleComponent && this.inputElement != null) {
+        if (parent instanceof ModuleComponent && this.annotedElement != null) {
             List<Stereotype> ret = new ArrayList<>();
-            for (Stereotype stereotype : this.inputElement.getExtension()) {
+            for (Stereotype stereotype : this.annotedElement.getExtension()) {
                 if (parent.equals(stereotype.getModule())) {
                     ret.add(stereotype);
                 }
@@ -114,7 +112,7 @@ public class TreeContentProvider implements ITreeContentProvider {
     @objid ("8faeec63-c068-11e1-8c0a-002564c97630")
     @Override
     public boolean hasChildren(Object parent) {
-        if (parent instanceof ModuleComponent && this.inputElement != null) {
+        if (parent instanceof ModuleComponent && this.annotedElement != null) {
             return getChildren(parent).length > 0;
         } else if (parent instanceof Stereotype) {
             return getChildren(parent).length > 0;
@@ -129,13 +127,11 @@ public class TreeContentProvider implements ITreeContentProvider {
      * <li>it defines at least one tagtype applicable on the model element</li>
      * <li>it is started</li>
      * </ul>
-     * @param element
      * @return a collection of Modules
      */
     @objid ("8faeec69-c068-11e1-8c0a-002564c97630")
     private Collection<ModuleComponent> getContributingModules(final ModelElement element) {
         Set<ModuleComponent> modules = new TreeSet<>(new Comparator<ModuleComponent>() {
-        
             @Override
             public int compare(ModuleComponent o1, ModuleComponent o2) {
                 return o1.getName().compareTo(o2.getName());

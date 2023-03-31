@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Exporting-a-model-in-XMI-format]]
 
-[[exporting-a-model-in-xmi-format]]
+
+
 = Exporting a model in XMI format
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The Modelio XMI export operation is used to generate XMI files from models built in Modelio.
@@ -25,9 +25,9 @@ image::images/Xmi_exporting_xmiexport.png[image]
 1. Right-click on a package to open the context menu.
 2. Run the "Import/Export \ Export \XMI Export" command.
 
-[[The-ldquoXMI-Exportrdquo-window]]
 
-[[the-xmi-export-window]]
+
+
 ===== The "XMI Export" window
 
 .The XMI export window
@@ -42,9 +42,9 @@ image::images/Xmi_exporting_xmiexportwindows.png[image]
 5. The progress bar shows the progress of the export operation
 
 
-[[Partial-export]]
 
-[[partial-export]]
+
+
 ===== Partial export
 
 With Modelio XMI Import/Export, you can carry out a partial export. To do this, simply run the export command from any of your project's "Package" type elements.

@@ -5,9 +5,9 @@
 
 = Developing and packaging model components
 
-[[Introduction]]
 
-[[introduction]]
+
+
 ===== Introduction
 
 The development of a model component is the first phase in the model component life cycle, during which a model component is prepared by a developer for packaging.
@@ -19,9 +19,9 @@ Model component development includes the following operations:
 
 This section presents how to create and define a model component.
 
-[[Creating-a-model-component]]
 
-[[creating-a-model-component]]
+
+
 ===== Creating a model component
 
 The first step in the development of a model component is its creation inside a UML model.
@@ -39,23 +39,23 @@ image::images/Model_components_development_CreateLocalLibrary2.png[4]
 4. From the UML explorer, drag and drop model components on which your model component will depend.
 5. Check the modules which are contributing to your model component.
 
-[[Defining-model-parts-to-be-included-in-a-model-component]]
 
-[[defining-model-parts-to-be-included-in-a-model-component]]
+
+
 ===== Defining model parts to be included in a model component
 
 Model elements to be included in a model component are referenced using manifestation links. These elements will be available for use in projects where the model component is deployed. Only high-level packages (packages located under the project root) can be referenced by a model component through a manifestation link. However, all the elements they contain will also be packaged in the model component.
 
-[[Modeling-dependencies-between-model-components]]
 
-[[modeling-dependencies-between-model-components]]
+
+
 ===== Modeling dependencies between model components
 
 If your model component is dependent on another model component, this fact must be modeled through a use link.
 
-[[Defining-external-files-to-be-included-in-a-model-component]]
 
-[[defining-external-files-to-be-included-in-a-model-component]]
+
+
 ===== Defining external files to be included in a model component
 
 External files can also be included in a model component. This is useful when you want your model component to install specific files like libraries, jar files or resource files when it's deployed.

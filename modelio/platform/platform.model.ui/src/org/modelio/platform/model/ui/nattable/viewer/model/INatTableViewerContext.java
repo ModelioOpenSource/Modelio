@@ -75,5 +75,5 @@ public interface INatTableViewerContext {
 
     @objid ("5dd41070-2e14-4c14-b5b9-8d11211e1439")
     <T> T getService(Class<T> clazz);
-
 }
+

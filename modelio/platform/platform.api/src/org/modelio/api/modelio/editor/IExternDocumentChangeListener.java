@@ -54,5 +54,5 @@ public interface IExternDocumentChangeListener {
      */
     @objid ("51b2df11-f620-4dbb-ad22-13efa5c905d3")
     void onOriginalModified(MObject model);
-
 }
+

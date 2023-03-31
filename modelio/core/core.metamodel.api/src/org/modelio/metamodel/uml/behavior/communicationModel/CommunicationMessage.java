@@ -45,6 +45,9 @@ import org.modelio.metamodel.uml.statik.Operation;
  * In Modelio, a Message belongs to the Communication it follows.
  * 
  * The message sequencing information is handled in communication diagrams by the 'Sequencing' attribute.
+ * 
+ * 
+ * 
  */
 @objid ("005b08f6-c4bf-1fd8-97fe-001ec947cd2a")
 public interface CommunicationMessage extends UmlModelElement {
@@ -65,6 +68,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0d4560a2-bcfc-4971-80aa-5cc030cec4a2")
     String getArgument();
@@ -74,6 +78,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("0aac360d-3d70-4a09-a0c5-e9ed652090b0")
     void setArgument(String value);
@@ -83,6 +88,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("b609eb48-5068-49a0-94f7-62c005f779e8")
     String getSequence();
@@ -92,6 +98,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("2ab41695-b9c9-423c-807f-d10e76e80754")
     void setSequence(String value);
@@ -101,6 +108,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The sort of communication reflected by the CommunicationMessage. Default value is synchCall.</i>
+     * 
      */
     @objid ("c3047e8d-9096-4d11-b872-76b14788de85")
     MessageSort getSortOfMessage();
@@ -110,6 +118,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The sort of communication reflected by the CommunicationMessage. Default value is synchCall.</i>
+     * 
      */
     @objid ("e2b758b9-70ea-4981-b81c-61ea9a3b7b20")
     void setSortOfMessage(MessageSort value);
@@ -119,6 +128,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f0b19be5-9a88-40a0-bb77-5859db3bd034")
     EList<InformationFlow> getRealizedInformationFlow();
@@ -128,6 +138,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9c5593fd-889e-4b48-85cd-3024df1d128a")
     <T extends InformationFlow> List<T> getRealizedInformationFlow(java.lang.Class<T> filterClass);
@@ -137,6 +148,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("95318e99-a3d5-4b28-9105-d3ffed72a753")
     CommunicationChannel getChannel();
@@ -146,6 +158,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7691e9b5-4cf1-4dc9-965a-e59ef059cef3")
     void setChannel(CommunicationChannel value);
@@ -155,6 +168,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7cb38a1f-9b26-41c9-8da6-beb6b05e039d")
     CommunicationChannel getInvertedChannel();
@@ -164,6 +178,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("06f1402a-f750-467b-8acb-512ecd7fc6b5")
     void setInvertedChannel(CommunicationChannel value);
@@ -173,6 +188,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Operation is invoked by the Message.</i>
+     * 
      */
     @objid ("4a99a651-9892-4bb0-89cf-a867c145c454")
     Operation getInvoked();
@@ -182,6 +198,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Operation is invoked by the Message.</i>
+     * 
      */
     @objid ("f323a471-df47-42ef-9445-fd10a58404c3")
     void setInvoked(Operation value);
@@ -191,6 +208,7 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Signal that is sent by the message.</i>
+     * 
      */
     @objid ("a3d5ec6e-e081-44cc-a72d-891a3c50f904")
     Signal getSignalSignature();
@@ -200,8 +218,9 @@ public interface CommunicationMessage extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>Signal that is sent by the message.</i>
+     * 
      */
     @objid ("72743132-5450-4923-bf4b-b3f9a894b354")
     void setSignalSignature(Signal value);
-
 }
+

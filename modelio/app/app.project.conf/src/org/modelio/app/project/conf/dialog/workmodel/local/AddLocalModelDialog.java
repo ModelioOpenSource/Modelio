@@ -19,7 +19,6 @@
  */
 package org.modelio.app.project.conf.dialog.workmodel.local;
 
-import java.net.URI;
 import java.util.List;
 import java.util.regex.Pattern;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.FragmentDescriptor;
-import org.modelio.gproject.data.project.FragmentType;
-import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.dialog.ModelioDialog;
 
@@ -56,7 +54,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
     List<String> invalidIds;
 
     @objid ("7d5f3eca-3adc-11e2-916e-002564c97630")
-    private FragmentDescriptor result;
+    private GProjectPartDescriptor result;
 
     @objid ("7d5f3ecc-3adc-11e2-916e-002564c97630")
     Text fragmentIdText;
@@ -128,35 +126,14 @@ public final class AddLocalModelDialog extends ModelioDialog {
     @objid ("7d5f3ee7-3adc-11e2-916e-002564c97630")
     @Override
     protected void okPressed() {
-        this.result = new FragmentDescriptor();
-        this.result.setId(this.fragmentIdText.getText());
-        this.result.setScope(DefinitionScope.LOCAL);
-        this.result.setType(FragmentType.EXML);
-        
-        try {
-            updateFragmentModel(this.result);
-        } catch (Exception e) {
-            // Display and log the message, and prevent dialog from closing.
-            AppProjectConf.LOG.error(e);
-            setErrorMessage(e.getLocalizedMessage());
-            return;
-        }
-        
+        this.result = new GProjectPartDescriptor(GProjectPartType.EXMLFRAGMENT, this.fragmentIdText.getText(), null, DefinitionScope.LOCAL);
         super.okPressed();
         
     }
 
     @objid ("7d61a029-3adc-11e2-916e-002564c97630")
-    public FragmentDescriptor getFragmentDescriptor() {
+    public GProjectPartDescriptor getFragmentDescriptor() {
         return this.result;
-    }
-
-    @objid ("102c65ce-3e33-11e2-b901-002564c97630")
-    public void updateFragmentModel(FragmentDescriptor fragmentDescriptor) {
-        fragmentDescriptor.setType(FragmentType.EXML);
-        fragmentDescriptor.setProperties(new GProperties());
-        fragmentDescriptor.setUri((URI) null);
-        
     }
 
     @objid ("568cc0f3-9609-4e7b-bc0a-dd52e5a81fb2")

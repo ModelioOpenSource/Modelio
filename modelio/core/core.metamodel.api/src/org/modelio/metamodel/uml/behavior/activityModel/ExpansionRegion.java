@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("0031bab4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExpansionRegion extends StructuredActivityNode {
@@ -54,6 +56,7 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("bb8b9e9c-4c85-469b-bdcf-6c927b87c468")
     ExpansionKind getMode();
@@ -63,6 +66,7 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("222ca9fe-d242-4888-9654-baf02d991507")
     void setMode(ExpansionKind value);
@@ -73,6 +77,7 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * Metamodel description:
      * <i>An object node that accepts a separate element of the output collection during each of the multiple executions of the 
      * region. The values are formed into a collection that is available when the execution of the region is complete.</i>
+     * 
      */
     @objid ("c543530f-3be7-4aaa-8d07-08a9d4646379")
     EList<ExpansionNode> getOutputElement();
@@ -83,6 +88,7 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * Metamodel description:
      * <i>An object node that accepts a separate element of the output collection during each of the multiple executions of the 
      * region. The values are formed into a collection that is available when the execution of the region is complete.</i>
+     * 
      */
     @objid ("052f2b1a-2bf2-4aac-a815-48921e89a3ed")
     <T extends ExpansionNode> List<T> getOutputElement(java.lang.Class<T> filterClass);
@@ -92,6 +98,7 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("123ae37b-acca-4f9a-ab47-3db4a5da67b7")
     EList<ExpansionNode> getInputElement();
@@ -101,8 +108,9 @@ public interface ExpansionRegion extends StructuredActivityNode {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("9e29a494-90e9-482f-9b88-919eae7306cc")
     <T extends ExpansionNode> List<T> getInputElement(java.lang.Class<T> filterClass);
-
 }
+

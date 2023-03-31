@@ -34,7 +34,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.GProjectDescriptor;
 import org.modelio.platform.project.creation.ProjectNameValidator;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.swt.ColoredInputDialog;
@@ -45,8 +45,8 @@ public class RenameProjectHandler {
     @objid ("9ebb5bb2-f708-4de1-9374-93ecfa04b0ca")
     @Execute
     public void execute(final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        List<ProjectDescriptor> projectDescriptors = getSelectedElements(selection);
-        for (ProjectDescriptor projectDescriptor : projectDescriptors) {
+        List<GProjectDescriptor> projectDescriptors = getSelectedElements(selection);
+        for (GProjectDescriptor projectDescriptor : projectDescriptors) {
             AppProjectUi.LOG.info("Renaming project '%s' ", projectDescriptor.getName());
         
             ColoredInputDialog dialog = new ColoredInputDialog(shell, AppProjectUiExt.I18N.getString("RenameProject.Title"), AppProjectUiExt.I18N.getString("RenameProject.Message"), projectDescriptor.getName(),
@@ -75,7 +75,7 @@ public class RenameProjectHandler {
         if (selection == null) {
             return false;
         }
-        List<ProjectDescriptor> projects = getSelectedElements(selection);
+        List<GProjectDescriptor> projects = getSelectedElements(selection);
         if (projects.size() != 1) {
             return false;
         }
@@ -87,13 +87,13 @@ public class RenameProjectHandler {
     }
 
     @objid ("8eb6d1eb-780f-40b0-ae0f-2dd5c42c14dc")
-    private List<ProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
-        List<ProjectDescriptor> selectedElements = new ArrayList<>();
+    private List<GProjectDescriptor> getSelectedElements(final IStructuredSelection selection) {
+        List<GProjectDescriptor> selectedElements = new ArrayList<>();
         if (selection.size() > 0) {
             Object[] elements = selection.toArray();
             for (Object element : elements) {
-                if (element instanceof ProjectDescriptor) {
-                    selectedElements.add((ProjectDescriptor) element);
+                if (element instanceof GProjectDescriptor) {
+                    selectedElements.add((GProjectDescriptor) element);
                 }
             }
         }

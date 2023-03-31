@@ -65,7 +65,7 @@ import org.modelio.diagram.elements.plugin.DiagramElements;
  */
 @objid ("477f3df8-c7db-4950-aa85-8c689fd7272e")
 public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
-    @objid ("6bced7f2-4439-4896-9089-bf7f0c8c4e37")
+    @objid ("0417bf72-7738-4af8-8b65-413c377cf2de")
     private final IGmPath origGmPath;
 
     /**
@@ -155,7 +155,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * Try to improve connection by anchoring them at fixed anchors.
      * @param editPart the connection edit part to improve
      */
-    @objid ("cb062c00-7ecd-4c57-b04d-a1b109bb3355")
+    @objid ("dbf7497d-8c23-46b5-acfa-08ff3ca49bd1")
     private void tryImprovelink(ConnectionEditPart editPart) {
         new ConnectionPathImprover(editPart).tryImprovelink();
     }
@@ -168,7 +168,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * Restore RaySlidableAnchors on the Connection so that computation look like same in 5.0.
      * @param curLayoutData the current path,
      */
-    @objid ("aa5dc731-62c5-4cfb-ab5b-e46e71459a1d")
+    @objid ("cdac6608-8057-4045-9db4-7e88263772c6")
     private void restoreOriginalAnchors(IGmPath curLayoutData, Connection connection) {
         Object origSourceAnchor = this.origGmPath.getSourceAnchor();
         if (origSourceAnchor != null && origSourceAnchor.getClass() == GmRaySlidableAnchor.class
@@ -197,7 +197,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @param dumpOnFail if true, dump infos in the log on failure
      * @return true if the connection is orthogonal
      */
-    @objid ("f7af3a97-da41-48b6-9282-041f55a37718")
+    @objid ("5777ab70-439d-4666-9560-974cfe49914a")
     private boolean applyAndValidateGmPath(IGmPath newGmPath, Connection connection, boolean dumpOnFail) {
         if (newGmPath == null) {
             return false;
@@ -226,7 +226,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @param connection a connection
      * @return true only when first and last segments are orthogonal.
      */
-    @objid ("732caf84-2ceb-46dd-9713-9ca0a15d4cb2")
+    @objid ("415e2717-d1e7-4f97-b6fb-a5449623908d")
     private static boolean areExtremesOrthogonal(Connection connection) {
         // Triggers figures validation so the connection points match the constraint & anchors
         connection.getUpdateManager().performValidation();
@@ -243,7 +243,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         return true;
     }
 
-    @objid ("3766ef8e-f964-49c7-9b27-814eb4fbd561")
+    @objid ("f2c445ac-321f-4566-a501-1cf924008956")
     private static boolean assertLinkOrthogonal(Connection connection) {
         // Triggers figures validation so the connection points match the constraint & anchors
         connection.getUpdateManager().performValidation();
@@ -277,7 +277,6 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         
         AutoOrthogonalRouter newRouter = new AutoOrthogonalRouter()
                 .setCleanupManualPoints(false)
-                .setIgnoreAutomaticPoints(false)
                 .setSimplifyEnds(false);
         List<MPoint> newPointList = newRouter.computeMPointRoute(connection, origPathData);
         PointList oldPointList = new OrthogonalRouter5_0().computePointList(connection, origPathData);
@@ -335,7 +334,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         return newPath;
     }
 
-    @objid ("1492a2f1-72cd-45a7-a2e4-d8ae11712de5")
+    @objid ("54e51d67-86ee-4bee-b1dd-ceb57b21cb53")
     private boolean alignAnchors(ConnectionEditor editor, Connection connection, IGmPath newPath, Point oldFirstPoint) {
         List<MPoint> mPoints = editor.getView().getState().getMPoints();
         if (mPoints.isEmpty()) {
@@ -359,7 +358,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @param connection the connection
      * @return the computed GmPath, null if failed
      */
-    @objid ("cff254b7-b465-4d3a-9bf0-2e86868b95e2")
+    @objid ("1be6a7a0-8356-4609-93e7-dd82a0928dc9")
     private IGmPath reRouteConnection(ConnectionEditPart linkEditPart, Connection connection) {
         // restore old GmPath
         this.gmLink.setLayoutData(this.origGmPath);
@@ -373,7 +372,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         // create ortho router with all permissions
         AutoOrthogonalRouter newRouter = new AutoOrthogonalRouter()
                 .setCleanupManualPoints(true)
-                .setIgnoreAutomaticPoints(true)
+                .setRerouteWrongSectionFromPreviousManualPoint(true)
                 .setSimplifyEnds(false);
         
         List<MPoint> newPointList = newRouter.computeMPointRoute(connection, origPathData);
@@ -396,7 +395,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         return newPath;
     }
 
-    @objid ("ebbcf841-e603-47d1-ac56-cb2ff0091646")
+    @objid ("eb17b27a-0099-41ad-a1a3-cbe6148763ca")
     private Orientation guessOrientation(Connection connection) {
         ConnectionAnchor sourceAnchor = connection.getSourceAnchor();
         ConnectionAnchor targetAnchor = connection.getTargetAnchor();
@@ -430,7 +429,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         return GeomUtils.getDirection(targetLocation, srcNodeBounds).orientation();
     }
 
-    @objid ("e9f5e323-b04b-4519-9296-a0f75b5f4a6e")
+    @objid ("dafbd2f1-6455-44fd-b8cb-23795c2bc37d")
     private static Orientation guessOrientation(Point p1, Point p2) {
         final int TOLERANCE = 3;
         
@@ -500,7 +499,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @param path the link's path to edit
      * @param absAlignRef the point to align to in absolute coordinates
      */
-    @objid ("3997625f-8419-4ebb-932a-d1e947ce1d2c")
+    @objid ("afd00c57-6217-4ee7-b8e3-407b6badbeca")
     private boolean alignDirectConnAnchors2(ConnectionEditor editor, Orientation orientation, IGmPath path, Point absAlignRef) {
         MPrecisionPoint p1 = editor.getView().getSourceLocation(new MPrecisionPoint(), true);
         MPrecisionPoint p2 = editor.getView().getTargetLocation(new MPrecisionPoint(), true);
@@ -527,7 +526,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
                 .withSliding(true)
                 .requestAnchor());
         
-        editor.fixWithRouter();
+        editor.fixWithRouter(true);
         
         if (editor.getView().cardPoints() == 2) {
             applySourceAnchorToGmPath(editor, path);
@@ -540,7 +539,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         
     }
 
-    @objid ("cf12f33b-2970-4b8c-a640-655b11889d64")
+    @objid ("e2754db3-56f0-40b0-9420-be5091f7ef7a")
     private static void applySourceAnchorToGmPath(ConnectionEditor editor, IGmPath gmpath) {
         IAnchorModelProvider sourceEp = (IAnchorModelProvider) editor.getConnectionEditPart().getSource();
         ConnectionState connectionState = editor.getView().getState();
@@ -549,7 +548,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         
     }
 
-    @objid ("a550f6df-8074-4655-9aba-e0f22836e5c0")
+    @objid ("aae85ea6-ef50-4605-8436-c226423d7c31")
     private static void applyTargetAnchorToGmPath(ConnectionEditor editor, IGmPath gmpath) {
         IAnchorModelProvider nodeEp = (IAnchorModelProvider) editor.getConnectionEditPart().getTarget();
         ConnectionState connectionState = editor.getView().getState();
@@ -567,7 +566,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @param source true for source anchor, false for target anchor
      * @return true if anchor is aligned else false.
      */
-    @objid ("9b70e5ce-a734-489f-b9ad-860848b195f5")
+    @objid ("c3dc6bb1-796a-4b7d-bce6-bdb7b354a50f")
     private boolean alignAnchor(ConnectionEditor editor, Connection connection, IGmPath path, Point alignRef, boolean source) {
         // Compute alignment point absolute
         Point absAlign = new PrecisionPoint(alignRef);
@@ -644,7 +643,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         /**
          * Temporary point used to avoid Point allocations.
          */
-        @objid ("6021e3a0-cf96-4e20-8865-487a506fd5cc")
+        @objid ("1e0b29b0-1231-4ce8-b3fa-dbb51b4e90f3")
         private static final PrecisionPoint A_POINT = new PrecisionPoint();
 
         @objid ("4d69a289-2e6b-4222-8a16-f54c891f59bc")
@@ -949,30 +948,30 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
      * @author cma
      * @since 5.1.0
      */
-    @objid ("fae0625f-f89d-41cd-99d9-3effa9615448")
+    @objid ("099001c1-c764-421f-b7c9-3b926869bc87")
     static class ConnectionPathImprover {
-        @objid ("5b3e4fa2-da64-4f8a-b79a-473e6f58ae9a")
+        @objid ("39cb99b3-2934-492d-99d2-ca77e91f1c61")
         private final int oldPointcount;
 
-        @objid ("7cd09566-3bd7-4e0c-93cd-265808041976")
+        @objid ("d7b09292-5cca-4af7-8a5b-611ed24a16df")
         private double maxDiffPercent = 0.17;
 
-        @objid ("42e5670e-558d-4d5d-aaaa-042af9e0227b")
+        @objid ("6f95a39e-5841-4501-bf22-162447edd228")
         private final ConnectionEditor editor;
 
-        @objid ("42a63b6e-e24c-4a6c-a5b7-19baed7576d4")
+        @objid ("a0fb8c48-9736-4564-85e0-c7ac059ff13c")
         private final ConnectionView origView;
 
-        @objid ("cd31a67e-821c-4898-b148-e5c884faea1e")
+        @objid ("f29a652b-4d3b-4e9f-bdad-e90bfb5a0221")
         private final MPoint origSrcAbsLoc;
 
-        @objid ("6bc9ed6a-2e39-4a8e-8d90-907b3bf2e4c5")
+        @objid ("933e018e-e6dc-49e0-8088-e2c00bed8bb3")
         private final MPoint origTargetAbsLoc;
 
-        @objid ("f1a1f9b8-6459-424f-8644-e4de5cd735d2")
+        @objid ("aa0355cd-9b26-40d1-bdf6-f46811198619")
         private final List<MPoint> origPointList;
 
-        @objid ("1510e83c-a6f7-4377-9dea-986133ca4cf5")
+        @objid ("dcbff8a9-97f3-465d-95c3-d8ba4d95547d")
         public  ConnectionPathImprover(ConnectionEditPart editPart) {
             this.editor = new ConnectionEditor().init(editPart);
             ConnectionView view = this.editor.getView();
@@ -985,7 +984,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
             
         }
 
-        @objid ("ad001e21-6bca-4d85-8445-2c0dc70483ca")
+        @objid ("4b8f58e1-cb59-4b42-b118-b3f4f7a1a2d5")
         public ConnectionPathImprover setMaxDiffPercent(double maxDiffPercent) {
             this.maxDiffPercent = maxDiffPercent;
             return this;
@@ -994,7 +993,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         /**
          * Try to improve connection by anchoring them at fixed anchors.
          */
-        @objid ("8013fa3c-d2a3-421f-b98f-ef580e03ddcd")
+        @objid ("7667640f-709d-40f4-b23e-217f2b6e9aee")
         public void tryImprovelink() {
             ConnectionView view = this.editor.getView();
             ConnectionAnchor oldSourceAnchor = view.getState().getSourceAnchor();
@@ -1027,11 +1026,11 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
             
         }
 
-        @objid ("7c4f996d-2e6a-4c2a-b311-739f97eb12ea")
+        @objid ("abf951aa-5e03-45a8-86c0-f186f279af00")
         private boolean tryImprovedLink() {
             ConnectionView view = this.editor.getView();
             if (!view.isValidPath()) {
-                this.editor.fixWithRouter();
+                this.editor.fixWithRouter(true);
             }
             
             MPoint newSrcAbsLoc = view.getSourceLocation(new MPoint(), true);
@@ -1063,7 +1062,7 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
             return false;
         }
 
-        @objid ("47602b2b-9926-4ac8-b700-822a484e1a96")
+        @objid ("e906fb7c-d871-4fb7-bbd7-252a6d9ee611")
         private static double getBorderFractionDiff(Point p1, Point p2, Rectangle r) {
             switch (GeomUtils.getDirection(p2, r)) {
             case EAST:

@@ -67,5 +67,5 @@ public interface IFragmentStructure {
      */
     @objid ("b06ac3fa-1915-4837-b13e-b9327c0b9787")
     List<Element> getRoots();
-
 }
+

@@ -29,6 +29,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("005a4e98-91e0-1f74-804b-001ec947cd2a")
 public enum MethodPassingMode {
@@ -36,6 +38,7 @@ public enum MethodPassingMode {
     METHODIN(0, "MethodIn", "MethodIn"),
     @objid ("118fafcc-f2c5-4078-b3aa-33369969187d")
     METHODOUT(1, "MethodOut", "MethodOut");
+
 public static final int METHODIN_VALUE = 0;
     public static final int METHODOUT_VALUE = 1;
     private static final MethodPassingMode[] VALUES_ARRAY =

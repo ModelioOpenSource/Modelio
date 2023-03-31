@@ -56,22 +56,22 @@ public enum Direction {
     @objid ("7f7e9e74-1dec-11e2-8cad-001ec947c8cc")
     WEST;
 
-    @objid ("b390bc05-f99e-4f87-82bf-16272a291e33")
+    @objid ("b679d224-c575-4e1e-828a-a6151487d762")
     private Direction opposite;
 
-    @objid ("2ab84b3b-12f6-44e1-a0fa-1e7d62b8eb78")
+    @objid ("2bda1ef9-d018-4a6e-b4bc-af531d1633fc")
     private Direction left;
 
-    @objid ("4f6ed463-4eea-4a6f-a41e-7e11ee7b73ad")
+    @objid ("929f7596-0ecb-43ef-946b-0fed5e27ac05")
     private Direction right;
 
-    @objid ("98add04a-2b85-4670-b946-629efbc916ac")
+    @objid ("5097b248-8c8a-4aa3-a659-487123c106f5")
     private Orientation orientation;
 
     /**
      * @return the opposite direction
      */
-    @objid ("5c57a653-117f-425b-8b33-29c98642f7f7")
+    @objid ("ae8a7edb-5ff5-44d5-9a8e-942316bf81b8")
     public Direction opposite() {
         return this.opposite;
     }
@@ -79,7 +79,7 @@ public enum Direction {
     /**
      * @return the direction at the left of this direction
      */
-    @objid ("c3b3d9c6-e8c7-4ada-a658-75676cfa6483")
+    @objid ("14caa42e-d5b0-4c99-b59b-ae5749709cd7")
     public Direction left() {
         return this.left;
     }
@@ -87,7 +87,7 @@ public enum Direction {
     /**
      * @return the direction at the right of this direction.
      */
-    @objid ("44624114-e522-4c7d-ab34-bf88fdacaf5a")
+    @objid ("ebe086e9-3ac9-4610-a7f2-0be39707862f")
     public Direction right() {
         return this.right;
     }
@@ -95,7 +95,7 @@ public enum Direction {
     /**
      * @return the {@link Orientation} of this direction
      */
-    @objid ("8ca5cdca-450f-4f3b-a608-f8623bf7b91a")
+    @objid ("ca06a5f8-5d4f-4061-a2d3-914c93fdfc6d")
     public Orientation orientation() {
         return this.orientation;
     }
@@ -106,7 +106,7 @@ public enum Direction {
      * @param defVal the value to return if the passed integer does not match any constant.
      * @return the matching direction
      */
-    @objid ("951a8a5f-09aa-41e7-bed0-a60e63abf292")
+    @objid ("6841a6a4-9b3a-4114-a7c4-bbdfc9f603e3")
     public static Direction fromPositionConstant(int posConstant, Direction defVal) {
         switch (posConstant) {
         case PositionConstants.EAST:
@@ -133,7 +133,7 @@ public enum Direction {
      * @param target the target point
      * @return the direction from source to target or NONE.
      */
-    @objid ("84546462-8487-4d54-8530-d6c88bfe5c84")
+    @objid ("e4d46140-5a28-4bf7-b86d-192229816af3")
     public static Direction getOrtho(Point source, Point target) {
         if (source.y() == target.y()) {
             // horizontal
@@ -161,7 +161,7 @@ public enum Direction {
      * @param target a point
      * @return a direction from source to target
      */
-    @objid ("b955b465-08ce-4694-a478-3d026368450e")
+    @objid ("016cd9db-fce9-4e18-9135-62ad2621f77e")
     public static Direction getMajor(Point source, Point target) {
         int dx = target.x() - source.x();
         int dy = target.y() - source.y();
@@ -190,7 +190,7 @@ public enum Direction {
      * @param target a point
      * @return a direction from source to target or NONE.
      */
-    @objid ("2e8320e9-3f97-4e23-aae8-514b42ce2793")
+    @objid ("5232153f-8095-4d3d-a19a-96e6ca79fe84")
     public static Direction getMinor(Point source, Point target) {
         int dx = target.x() - source.x();
         int dy = target.y() - source.y();
@@ -220,54 +220,55 @@ public enum Direction {
      * @param target a point
      * @return a direction from source to target or NONE.
      */
-    @objid ("9731e0c3-1927-400b-b453-fef557cc82e4")
+    @objid ("b4112c60-83e9-436a-8d1c-b9eeed7eb8c9")
     public static Pair getPair(Point source, Point target) {
         return new Pair().init(source, target);
     }
+
 static {
-                        NONE.opposite = NONE;
-                        NONE.left = NONE;
-                        NONE.right = NONE;
-                        NONE.orientation = Orientation.NONE;
-    
-                        NORTH.opposite = SOUTH;
-                        NORTH.left = WEST;
-                        NORTH.right = EAST;
-                        NORTH.orientation = Orientation.VERTICAL;
-    
-                        EAST.opposite = WEST;
-                        EAST.left = NORTH;
-                        EAST.right = SOUTH;
-                        EAST.orientation = Orientation.HORIZONTAL;
-    
-                        SOUTH.opposite = NORTH;
-                        SOUTH.left = EAST;
-                        SOUTH.right = WEST;
-                        SOUTH.orientation = Orientation.VERTICAL;
-    
-                        WEST.opposite = EAST;
-                        WEST.left = SOUTH;
-                        WEST.right = NORTH;
-                        WEST.orientation = Orientation.HORIZONTAL;
-                    }
+                            NONE.opposite = NONE;
+                            NONE.left = NONE;
+                            NONE.right = NONE;
+                            NONE.orientation = Orientation.NONE;
+        
+                            NORTH.opposite = SOUTH;
+                            NORTH.left = WEST;
+                            NORTH.right = EAST;
+                            NORTH.orientation = Orientation.VERTICAL;
+        
+                            EAST.opposite = WEST;
+                            EAST.left = NORTH;
+                            EAST.right = SOUTH;
+                            EAST.orientation = Orientation.HORIZONTAL;
+        
+                            SOUTH.opposite = NORTH;
+                            SOUTH.left = EAST;
+                            SOUTH.right = WEST;
+                            SOUTH.orientation = Orientation.VERTICAL;
+        
+                            WEST.opposite = EAST;
+                            WEST.left = SOUTH;
+                            WEST.right = NORTH;
+                            WEST.orientation = Orientation.HORIZONTAL;
+                        }
     
     /**
      * Holder for both the {@link Direction#getMajor(Point, Point)} and {@link Direction#getMinor(Point, Point)}.
      * <p>
      * {@link #major} and {@link #minor} are expected to be perpendicular or {@link Direction#NONE}.
      */
-    @objid ("c2ab764e-d220-44e2-95e8-14150f5583a0")
+    @objid ("81e1af1b-19f5-4805-a15f-fb7adbcd2929")
     public static class Pair {
-        @objid ("0b20eab8-acf2-4cb6-8df2-6bd676b9d304")
+        @objid ("b3bd8039-928b-4847-8206-a9bda609db37")
         private Direction major;
 
-        @objid ("263b08a1-7126-4a2a-8494-a84f8d95939a")
+        @objid ("c573598c-89d6-485d-9e12-6bfaca64bf98")
         private Direction minor;
 
         /**
          * Shared instance for short computations.
          */
-        @objid ("54b8f70f-eaac-4943-aebe-a3b9298c8ee6")
+        @objid ("b73c905a-9b18-4903-b957-006fa6cbd7dd")
         public static final Pair SHARED = new Pair();
 
         /**
@@ -276,7 +277,7 @@ static {
          * @param target a point
          * @return this instance to chain call
          */
-        @objid ("a0789459-ba9f-499d-9064-74d7993ccff5")
+        @objid ("00020d84-a480-4e35-b30c-f8a19af4e879")
         public Pair init(Point source, Point target) {
             int dx = target.x() - source.x();
             int dy = target.y() - source.y();
@@ -314,7 +315,7 @@ static {
          * @param orientation an orientation
          * @return the direction perpendicular to the given orientation.
          */
-        @objid ("e64f9f62-8a88-4c05-8aac-2b46185dcc2b")
+        @objid ("3b9935c8-8705-4602-821e-e2b6b5591f9a")
         public Direction perpendicularOf(Orientation orientation) {
             if (this.major==NONE)
                 return this.major;
@@ -331,7 +332,7 @@ static {
          * @param orientation an orientation
          * @return the direction parallel to the given orientation.
          */
-        @objid ("30e366fb-e9d1-47b9-9dfc-722da01d516b")
+        @objid ("3ed8cd24-bf77-4506-acd8-f6acd39b921c")
         public Direction parallelOf(Orientation orientation) {
             if (this.major==NONE)
                 return this.major;
@@ -346,7 +347,7 @@ static {
         /**
          * @return the major direction
          */
-        @objid ("378ceeb4-0f11-4935-ae11-e5d549540acd")
+        @objid ("6620a44e-2031-465c-a9b0-ba1a437c26dd")
         public Direction major() {
             return this.major;
         }
@@ -354,7 +355,7 @@ static {
         /**
          * @return the minor direction
          */
-        @objid ("38d9f1fc-39f3-4f23-b657-f3b90479aedd")
+        @objid ("e2f5ab3c-1795-486f-bd70-f7824d82d090")
         public Direction minor() {
             return this.minor;
         }
@@ -362,7 +363,7 @@ static {
         /**
          * @return true both points were equal.
          */
-        @objid ("1013fbbc-8358-447e-ac4f-f885663e695f")
+        @objid ("c87b5250-83a0-4c7d-af8f-6e7f8adc87ee")
         public boolean isOverlap() {
             return this.major == NONE;
         }
@@ -370,7 +371,7 @@ static {
         /**
          * @return true if the direction is orthogonal.
          */
-        @objid ("1d1c4884-8262-4af9-8615-8723135c0bd8")
+        @objid ("3bddd6be-2477-4929-9a44-46b2e19fe819")
         public boolean isOrthogonal() {
             return ! isOverlap() && minor() == NONE;
         }
@@ -380,7 +381,7 @@ static {
          * @param other a direction pair
          * @return the direction parallel to the given pair major orientation.
          */
-        @objid ("4b795850-408d-40b4-bf58-aab34f65a2fe")
+        @objid ("9ab41b77-338e-40b3-8f8e-1750f3e417c7")
         public Direction parallelOf(Pair other) {
             return parallelOf(other.major().orientation());
         }
@@ -390,7 +391,7 @@ static {
          * @param other a direction pair
          * @return the direction perpendicular to the given pair major orientation.
          */
-        @objid ("326eeb9e-ef5a-427d-9cb5-31ddffcc965a")
+        @objid ("d52216fa-7f89-4af8-8111-82a1ca3e8899")
         public Direction perpendicularOf(Pair other) {
             return perpendicularOf(other.major().orientation());
         }

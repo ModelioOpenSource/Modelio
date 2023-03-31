@@ -43,15 +43,12 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.modelio.diagram.elements.core.figures.ChainedLayout;
-import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIFont;
 
 @objid ("7ccc0864-4543-49ad-87ad-3329399a9c4d")
 public class FigureView {
     @objid ("2b7868b4-fbcc-45fc-8132-abcc9dcc4b78")
     private TableViewer figureProps;
-
-    @objid ("c81aa6b8-a565-4540-9bb9-5a2d5d4a4587")
-    private Font boldFont;
 
     @objid ("4437763e-a988-4646-894e-6c51b00d2645")
     public  FigureView(Composite parent) {
@@ -61,7 +58,6 @@ public class FigureView {
         table.setHeaderVisible(true);
         table.setLinesVisible(true);
         
-        this.boldFont = CoreFontRegistry.getModifiedFont(table.getFont(), SWT.BOLD, 1.0f);
         
         TableViewerColumn colKey = new TableViewerColumn(this.figureProps, SWT.NONE);
         colKey.getColumn().setWidth(200);
@@ -75,7 +71,7 @@ public class FigureView {
         
             @Override
             public Font getFont(Object element) {
-                return getText(element).startsWith(" ") ? null : FigureView.this.boldFont;
+                return getText(element).startsWith(" ") ? null : UIFont.NORMALB;
             }
         });
         
@@ -91,7 +87,7 @@ public class FigureView {
         
             @Override
             public Font getFont(Object element) {
-                return ((Entry<String, String>) element).getKey().startsWith(" ") ? null : FigureView.this.boldFont;
+                return ((Entry<String, String>) element).getKey().startsWith(" ") ? null : UIFont.NORMALB;
             }
         });
         
@@ -203,7 +199,7 @@ public class FigureView {
             
         }
 
-        @objid ("7f63b105-4871-41f3-a9e1-4e819524743d")
+        @objid ("5276551c-a508-4d05-a125-eecf46030453")
         private String formatLayoutConstraint(IFigure figure) {
             IFigure parent = figure.getParent();
             if (parent == null)
@@ -215,7 +211,7 @@ public class FigureView {
             return Formatter.toString(layoutManager.getConstraint(figure));
         }
 
-        @objid ("f39ed5c5-fcb5-4328-a8f0-c631100fe4fd")
+        @objid ("03273cd6-e19a-4c04-a3cf-b0d3b0cfec56")
         private String formatLayoutManager(IFigure figure) {
             if (figure == null)
                 return "N/A";

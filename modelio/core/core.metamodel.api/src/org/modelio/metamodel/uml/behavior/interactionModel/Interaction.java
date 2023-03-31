@@ -43,6 +43,8 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
  * InteractionFragments are ordered by an internal feature that is not directly accessible.
  * 
  * The Joni Java API provides methods to access the ordering of InteractionFragments.
+ * 
+ * 
  */
 @objid ("004683fe-c4bf-1fd8-97fe-001ec947cd2a")
 public interface Interaction extends Behavior {
@@ -63,6 +65,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("5f9e037a-948f-477a-80c3-2a92ec9fa928")
     EList<Gate> getFormalGate();
@@ -72,6 +75,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("730c0c6f-d58a-495e-a4a5-e10217d3d1c1")
     <T extends Gate> List<T> getFormalGate(java.lang.Class<T> filterClass);
@@ -81,6 +85,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i>The set of fragments in the Interaction.</i>
+     * 
      */
     @objid ("6306227b-7eca-46c0-bc8f-47a2d525c301")
     EList<InteractionFragment> getFragment();
@@ -90,6 +95,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i>The set of fragments in the Interaction.</i>
+     * 
      */
     @objid ("bd5f4a2c-9a63-43be-973e-b6cddc1aafaa")
     <T extends InteractionFragment> List<T> getFragment(java.lang.Class<T> filterClass);
@@ -99,6 +105,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("ec90d76d-fb5f-4d38-99fb-c650d22055c8")
     EList<Lifeline> getOwnedLine();
@@ -108,6 +115,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("b43a08b8-aa79-4e59-bf12-0ae82822e028")
     <T extends Lifeline> List<T> getOwnedLine(java.lang.Class<T> filterClass);
@@ -117,6 +125,7 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("e9f8f8b8-cea6-40a2-8528-c6d169a903c2")
     EList<InteractionUse> getReferedUse();
@@ -126,8 +135,9 @@ public interface Interaction extends Behavior {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("04cc70f8-4c3f-4218-91f2-d313e651e197")
     <T extends InteractionUse> List<T> getReferedUse(java.lang.Class<T> filterClass);
-
 }
+

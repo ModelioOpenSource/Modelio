@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1360]]
 
-[[r1360]]
+
+
 = R1360
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _InputPin_ peut avoir des flux sortants seulement s'il se trouve sur un _StructuredNode_ et seulement si ces flux ciblent un nœud contenu dans ce _StructuredNode_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _InputPin_ peut avoir des flux sortants seulement s'il se trouve sur un _StructuredNode_ et seulement si ces flux ciblent un nœud contenu dans ce _StructuredNode_.
@@ -26,9 +26,9 @@ Un _InputPin_ peut avoir des flux sortants seulement s'il se trouve sur un _Stru
 
 image::images/Modeler_audit_rules_R1360_image001.png[image]
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous rencontrez une erreur R1360, vérifiez que ce que vous voulez faire correspond bien à la configuration de l'exemple ci-dessus. Si c'est le cas, vérifiez que les flux qui partent de l'_InputPin_ incriminé ciblent bien des nœuds contenus par le _StructuredNode_ auquel appartient le _Pin_.

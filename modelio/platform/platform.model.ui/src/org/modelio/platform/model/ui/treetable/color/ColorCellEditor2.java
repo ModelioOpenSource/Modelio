@@ -22,7 +22,6 @@ package org.modelio.platform.model.ui.treetable.color;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.TableTree;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.GC;
@@ -66,25 +65,25 @@ public class ColorCellEditor2 extends DialogCellEditor {
     /**
      * The composite widget containing the color and RGB label widgets
      */
-    @objid ("6b28cc30-1eba-11e2-9382-bc305ba4815c")
+    @objid ("9ad3026c-c12e-43ce-b7e9-fd78b47b9bc9")
     private Composite composite;
 
     /**
      * The label widget showing the current color.
      */
-    @objid ("6b296870-1eba-11e2-9382-bc305ba4815c")
+    @objid ("624221f6-eb64-4385-9a0c-1cc2e423db42")
     private Label colorLabel;
 
     /**
      * The label widget showing the RGB values.
      */
-    @objid ("6b296872-1eba-11e2-9382-bc305ba4815c")
+    @objid ("d785385d-e437-40bd-8a92-d6b232210888")
     private Label rgbLabel;
 
     /**
      * The image.
      */
-    @objid ("6b298f81-1eba-11e2-9382-bc305ba4815c")
+    @objid ("a52512d5-9f9a-412a-81dd-ea70eaa0aa92")
     private Image image;
 
     @objid ("6b298f83-1eba-11e2-9382-bc305ba4815c")
@@ -184,8 +183,6 @@ public class ColorCellEditor2 extends DialogCellEditor {
             extent = ((Table) w).getItemHeight() - 1;
         } else if (w instanceof Tree) {
             extent = ((Tree) w).getItemHeight() - 1;
-        } else if (w instanceof TableTree) {
-            extent = ((TableTree) w).getItemHeight() - 1;
         }
         
         if (size > extent) {

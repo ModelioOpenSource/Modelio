@@ -78,7 +78,7 @@ public class MetaclassSelector {
     /**
      * The wrapped Text widget
      */
-    @objid ("e4964504-be5d-4526-9c46-c5f9952e343a")
+    @objid ("8131eff2-a12f-4966-be7f-139c9f6eafb9")
     private final Text text;
 
     
@@ -132,6 +132,7 @@ public class MetaclassSelector {
     public MClass getSelected() {
         return ((MClass) this.text.getData());
         // return this.metamodel.getMClass(MetaclassSelector.this.text.getData());
+        
     }
 
     @objid ("bf8a7608-a95f-4185-8c38-60729d5de25f")
@@ -156,7 +157,7 @@ public class MetaclassSelector {
         final Text wrappedText = new Text(parent, style);
         
         // create the decoration for the text component
-        final ControlDecoration deco = new ControlDecoration(wrappedText, SWT.TOP | SWT.RIGHT);
+        final ControlDecoration deco = new ControlDecoration(wrappedText, SWT.CENTER | SWT.RIGHT);
         
         // set description and image
         deco.setDescriptionText(CoreUi.I18N.getString("MetaclassSelector.assist.tooltip"));
@@ -250,7 +251,8 @@ public class MetaclassSelector {
     @objid ("816c8d8e-37b4-4698-8113-f5b2d2c30205")
     private void showMetaclassValidity() {
         String metaclassName = MetaclassSelector.this.text.getText();
-        final MClass mClass = this.metamodel.getMClass(metaclassName);
+        
+        final MClass mClass = (MClass)this.text.getData();
         if (mClass != null) {
             MetaclassSelector.this.text.setForeground(MetaclassSelector.this.text.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
         } else {

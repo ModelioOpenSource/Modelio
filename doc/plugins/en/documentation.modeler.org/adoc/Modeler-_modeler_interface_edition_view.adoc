@@ -19,9 +19,9 @@ image::images/Modeler-_modeler_interface_edition_view_DiagramEditionViewPuces.pn
 5. Diagram toolbar.
 6. Reduced <<Modeler-_modeler_interface_symbol_view.adoc#,Symbol view>>.
 
-[[Main-diagram-edition-view-commands]]
 
-[[main-diagram-edition-view-commands]]
+
+
 ===== Main diagram edition view commands
 
 *From the diagram palette:*

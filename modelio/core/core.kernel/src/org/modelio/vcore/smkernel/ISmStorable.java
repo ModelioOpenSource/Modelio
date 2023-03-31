@@ -41,5 +41,5 @@ public interface ISmStorable {
      */
     @objid ("0061a62a-b2b0-1f4f-9c13-001ec947cd2a")
     IRepositoryObject getRepositoryObject();
-
 }
+

@@ -1,0 +1,203 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>5.3.0-SNAPSHOT</version>
+		<relativePath>../../../../maven/modelio-parent</relativePath>
+	</parent>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>org.modelio.rcp.jaxb-4.0</artifactId>
+	<packaging>pom</packaging>
+	<description>
+		Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.
+
+		p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .
+
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jaxb.version>4.0.2</jaxb.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+		    <groupId>org.glassfish.jaxb</groupId>
+		    <artifactId>jaxb-runtime</artifactId>
+		    <version>2.4.0-b180830.0438</version>
+   		</dependency>
+	</dependencies>
+
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+            <plugin>
+            	<!-- https://github.com/reficio/p2-maven-plugin -->
+                <groupId>org.reficio</groupId>
+                <artifactId>p2-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <phase>package</phase>
+                        <goals>
+                        	<goal>site</goal>
+                        </goals>
+                        <configuration>
+							<compressSite>false</compressSite>
+
+                            <featureDefinitions>
+								<feature>
+									<id>org.modelio.jaxb.feature</id>
+									<version>${project.version}</version>
+									<label>JAXB Libraries</label>
+									<providerName>Softeam Software</providerName>
+									<description>${project.description}</description>
+									<copyright>(c) Softeam Software</copyright>
+									<artifacts>
+										<artifact>
+											<id>org.glassfish.jaxb:jaxb-runtime:${jaxb.version}</id>
+											<transitive>true</transitive>
+											<source>true</source>
+			                                <excludes>
+												<!-- TIP : If Modelio freeze with 100% CPU on start
+													add debug break point in
+													org.apache.felix.resolver.ResolverImpl [line: 583] - findValidCandidates(ResolveSession, Map<Resource, ResolutionError>)
+												-->
+			                                	<exclude>:*slf4j*::</exclude>
+			                                </excludes>
+										</artifact>
+									</artifacts>
+								</feature>
+                            </featureDefinitions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+	      <id>dev</id>
+
+	      <activation>
+	      	<file><exists>debug-maven.flag</exists></file>
+	      </activation>
+
+	      <dependencies>
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+	               <groupId>org.reficio</groupId>
+	               <artifactId>p2-maven-plugin</artifactId>
+	               <version>2.1.0</version>
+			</dependency>
+
+            <dependency>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>biz.aQute.bndlib</artifactId>
+                <version>5.3.0</version>
+            </dependency>
+			<dependency>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>target-platform-validation-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>org.eclipse.tycho.p2.maven.repository</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>org.eclipse.tycho.p2.tools.impl</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>org.eclipse.tycho.p2.resolver.impl</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-publisher-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.equinox.p2.metadata</artifactId>
+				<version>2.5.100</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.eclipse.platform</groupId>
+			    <artifactId>org.eclipse.equinox.p2.publisher</artifactId>
+			    <version>1.6.200</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.equinox.p2.publisher.eclipse</artifactId>
+				<version>1.4.1</version>
+			</dependency>
+	      </dependencies>
+	    </profile>
+	</profiles>
+
+</project>

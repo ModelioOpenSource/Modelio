@@ -56,5 +56,5 @@ public interface IMetamodelSupport {
      */
     @objid ("ff0f983e-9248-4d76-bd2e-5aca35ed7afe")
     void removeMetamodelListener(IMetamodelListener listener);
-
 }
+

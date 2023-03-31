@@ -358,7 +358,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         return intersections;
     }
 
-    @objid ("88aff947-519b-4be4-8212-d44fed8a6050")
+    @objid ("10737b5e-799e-4b6a-b72a-7549f09bca73")
     public LineSeg setValues(PointList from, int index1, int index2) {
         from.getPoint(this.origin, index1);
         from.getPoint(this.terminus, index2);
@@ -457,7 +457,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
      * @param out the point to fill with the origin
      * @return <code>out</code> filled with the origin of the line segment.
      */
-    @objid ("ad6334db-2a26-4561-9e02-06f83f4e96fb")
+    @objid ("133ef952-890c-4382-bbb3-1eb1faa18b01")
     public Point getOrigin(Point out) {
         return out.setLocation(this.origin);
     }
@@ -505,7 +505,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
      * Accessor to retrieve the terminal point of the line segment.
      * @return <code>Point</code> the terminating point of the line segment
      */
-    @objid ("62e7b79c-4161-4cd8-b290-fab7c2d1ca48")
+    @objid ("485a7166-de4f-4342-a7ab-3241ecd7b643")
     public Point getTerminus(Point out) {
         return out.setLocation(this.terminus);
     }
@@ -876,22 +876,19 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
          * Constant designating the origin point on the line segment.
          */
         @objid ("7f8a8a53-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint ORIGIN = new KeyPoint("origin"); /* // $NON-NLS-1$
-         */
+        public static final KeyPoint ORIGIN = new KeyPoint("origin");
 
         /**
          * Constant designating the mid point on the line segment.
          */
         @objid ("7f8a8a57-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint MIDPOINT = new KeyPoint("midpoint"); /* // $NON-NLS-1$
-         */
+        public static final KeyPoint MIDPOINT = new KeyPoint("midpoint");
 
         /**
          * Constant designating the terminal point on the line segment.
          */
         @objid ("7f8a8a5b-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint TERMINUS = new KeyPoint("terminus"); /* // $NON-NLS-1$
-         */
+        public static final KeyPoint TERMINUS = new KeyPoint("terminus");
 
         @objid ("7f8a8a5f-1dec-11e2-8cad-001ec947c8cc")
         private  KeyPoint(String name) {
@@ -918,15 +915,13 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
          * Constant designating an orientation that is position relative to the lineseg vector.
          */
         @objid ("7f8a8a6c-1dec-11e2-8cad-001ec947c8cc")
-        public static final Sign POSITIVE = new Sign("positive"); /* // $NON-NLS-1$
-         */
+        public static final Sign POSITIVE = new Sign("positive");
 
         /**
          * Constant designating an orientation that is negative relative to the lineseg vector.
          */
         @objid ("7f8a8a70-1dec-11e2-8cad-001ec947c8cc")
-        public static final Sign NEGATIVE = new Sign("negative"); /* // $NON-NLS-1$
-         */
+        public static final Sign NEGATIVE = new Sign("negative");
 
         @objid ("7f8cec88-1dec-11e2-8cad-001ec947c8cc")
         private  Sign(String name) {

@@ -25,8 +25,7 @@ import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.gproject.gproject.GProject;
-import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.model.search.QuickSearchCombo;
 import org.modelio.model.search.dialog.SearchDialog;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
@@ -34,6 +33,7 @@ import org.modelio.platform.model.ui.panels.search.model.ModelSearchPanel;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.search.engine.searchers.model.ModelSearchCriteria;
 import org.modelio.vcore.session.api.ICoreSession;
+import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
 
 /**
@@ -44,7 +44,7 @@ public class OpenSearchDialogHandler {
     @objid ("000f47fe-c59e-10ab-8258-001ec947cd2a")
     @Execute
     public void execute(final IProjectService projectService, final IModelioNavigationService navigationService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell) {
-        final GProject project = projectService.getOpenedProject();
+        final IGProject project = projectService.getOpenedProject();
         if (project == null) {
             return;
         }
@@ -61,7 +61,13 @@ public class OpenSearchDialogHandler {
         final SmMetamodel metamodel = session.getMetamodel();
         final ModelSearchCriteria searchCriteria = new ModelSearchCriteria();
         searchCriteria.setExpression((expression.endsWith(".*") == false) ? expression + ".*" : expression);
-        searchCriteria.addMetaclass(metamodel.getMClass(NameSpace.class));
+        
+        for (String smcName : ModelSearchPanel.DEFAULT_SEARCH_METACLASSES) {
+            SmClass mc = metamodel.getMClass(smcName);
+            if (mc!=null)
+                searchCriteria.addMetaclass(mc);
+        }
+        
         searchCriteria.setIncludeRamc(false);
         searchCriteria.setStereotype("");
         searchDialog.setDisplayedContent(ModelSearchPanel.class, searchCriteria, null);

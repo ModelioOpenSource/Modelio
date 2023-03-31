@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3120]]
 
-[[r3120]]
+
+
 = R3120
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A LinkThrowEvent must be linked to a LinkCatchEvent.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 The BPMN Link events help simplifying the BPMN diagramming task by allowing to replace a _"hard to route through the diagram"_ sequence flow by a _"goto-like"_ construction.
@@ -28,9 +28,9 @@ Obviously, a *LinkThrowEvent* must be paired with a matching *LinkCatchEvent* fo
 
 Note that, symmetrically, the rule also reports *LinkCatchEvent* events which are not paired to any *LinkThrowEvent*.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 The fix is quite obvious:
@@ -38,9 +38,9 @@ The fix is quite obvious:
 * either pair the unlinked throw/catch event with a throw/catch event, optionally creating it
 * delete the unlinked throw/catch event that triggers the rule report if this event is no longer useful.
 
-[[About-link-events]]
 
-[[about-link-events]]
+
+
 About link events:
 
 Link events are helpful when:
@@ -50,18 +50,18 @@ Link events are helpful when:
 
 The BPMN designer should however keep in mind that, although useful and sometimes unavoidable, the link throw/catch events construction introduces a kind of break in the process flow. So the use of this construction must be limited to cases where it is really justified.
 
-[[Goodies]]
 
-[[goodies]]
+
+
 Goodies:
 
 * link events have a name in Modelio. This name can be displayed in the diagram, greatly helping the identification of the link throw and catch pair as soon as the same name is used for both the throw and the catch event nodes. This is the recommended practice.
 * the rule <<Modeler_audit_rules_R3200.adoc#,R3200>> reinforces the above recommended best practice by monitoring the names in link throw/ link catch pairs.
 * selecting a link throw (or a link catch) in a diagram will point its corresponding link catch (or link throw) nodes.
 
-[[About-the-rule]]
 
-[[about-the-rule]]
+
+
 About the rule:
 
 * our recommendation is to keep this rule enabled and to not disable it. The reason is that a non-paired link throw or catch event simply breaks the flow of the process which is unlikely a desired situation.

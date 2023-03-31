@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * An activity may have more than one activity final node. The first one reached stops all flows in the activity.
+ * 
+ * 
  */
 @objid ("00278eea-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ActivityFinalNode extends FinalNode {
@@ -46,5 +48,5 @@ public interface ActivityFinalNode extends FinalNode {
      */
     @objid ("29f6112e-119e-4754-b5ff-a0b29156ef23")
     public static final String MQNAME = "Standard.ActivityFinalNode";
-
 }
+

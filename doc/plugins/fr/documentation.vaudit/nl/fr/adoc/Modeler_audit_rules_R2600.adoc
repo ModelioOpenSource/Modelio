@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2600]]
 
-[[r2600]]
+
+
 = R2600
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Une machine à états ou un état ne peut contenir plusieurs états avec le même nom.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Le nom d'un état doit être unique dans son conteneur. Avoir plusieurs états avec le même nom peut porter à confusion.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Solutions possibles:

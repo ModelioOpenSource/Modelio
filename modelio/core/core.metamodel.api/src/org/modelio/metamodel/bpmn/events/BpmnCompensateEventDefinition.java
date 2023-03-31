@@ -38,6 +38,8 @@ import org.modelio.metamodel.bpmn.activities.BpmnActivity;
  * - The catch Compensation Intermediate Event MUST only be attached to the boundary of an Activity and, thus, MAY NOT be used in normal flow.
  * - The throw Compensation Intermediate Event MAY be used in normal flow.
  * - The Compensation End Event MAY be used within any Sub-Process or Process.
+ * 
+ * 
  */
 @objid ("008944c8-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnCompensateEventDefinition extends BpmnEventDefinition {
@@ -59,6 +61,7 @@ public interface BpmnCompensateEventDefinition extends BpmnEventDefinition {
      * Metamodel description:
      * <i>The Expression might be underspecified and provided in the form of natural language.
      * For executable Processes (processType = executable), if the trigger is Conditional, then a FormalExpression MUST be entered.</i>
+     * 
      */
     @objid ("f1f6e168-8e7b-4266-9e70-e971a4c5152d")
     String getWaitForCompletion();
@@ -69,6 +72,7 @@ public interface BpmnCompensateEventDefinition extends BpmnEventDefinition {
      * Metamodel description:
      * <i>The Expression might be underspecified and provided in the form of natural language.
      * For executable Processes (processType = executable), if the trigger is Conditional, then a FormalExpression MUST be entered.</i>
+     * 
      */
     @objid ("09f7c892-f8f0-4a92-947d-fba4d34b3bea")
     void setWaitForCompletion(String value);
@@ -78,6 +82,7 @@ public interface BpmnCompensateEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("dd2c0b25-45f3-44d3-adcb-92e623cb5ffd")
     BpmnActivity getActivityRef();
@@ -87,8 +92,9 @@ public interface BpmnCompensateEventDefinition extends BpmnEventDefinition {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("53b688b2-a80e-4aed-8d06-4c638d771189")
     void setActivityRef(BpmnActivity value);
-
 }
+

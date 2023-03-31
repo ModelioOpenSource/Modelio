@@ -37,6 +37,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 	<li>The catch Cancel Intermediate Event MUST only be attached to the boundary of a Transaction Sub-Process and, thus, MAY NOT be used in normal flow.</li>
  * 	<li>The Cancel End Event MUST only be used within a Transaction Sub-Process and, thus, MAY NOT be used in any other type of Sub-Process or Process.</li>
  * </ul>
+ * 
+ * 
+ * 
  */
 @objid ("0087fdd4-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnCancelEventDefinition extends BpmnEventDefinition {
@@ -51,5 +54,5 @@ public interface BpmnCancelEventDefinition extends BpmnEventDefinition {
      */
     @objid ("3287b147-30b2-4b63-a430-3a0c3987bda2")
     public static final String MQNAME = "Standard.BpmnCancelEventDefinition";
-
 }
+

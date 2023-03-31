@@ -31,22 +31,22 @@ import org.modelio.api.module.context.configuration.IModuleConfigurationListener
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.project.GProperties.Entry;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 
 /**
  * This class handles reading and writing module parameters and listener management.
  */
-@objid ("b27240fd-7a19-4f98-911c-cc0e3e2c0772")
+@objid ("a50d909f-1779-4a48-8517-07a2cd5e469d")
 public final class ConfigurationImpl {
-    @objid ("2e9b01b4-de57-4250-b681-bb6df562964a")
+    @objid ("8f4b9849-a65a-4a24-9048-5fd491a52a4f")
     private Path resourcesPath;
 
-    @objid ("3990c224-f5f2-4ea5-b1df-f7b0ee131b71")
+    @objid ("5fe5e3c5-8290-4333-bd32-861d0257ddf5")
     private GModule module;
 
-    @objid ("057f3298-d829-45c6-a780-d5adda170450")
+    @objid ("8ba09120-11f7-4ab8-adf8-dfcd7050047d")
     private List<IModuleConfigurationListener> listeners = new ArrayList<>();
 
     /**
@@ -54,32 +54,32 @@ public final class ConfigurationImpl {
      * @param module the module this configuration is build for.
      * @param resourcesPath The module deployment path
      */
-    @objid ("691a65e8-4549-4a6d-826c-ee3e2e23ab64")
+    @objid ("0a08a22e-ca53-439f-953f-bd183d5bb6b9")
     public  ConfigurationImpl(GModule module, Path resourcesPath) {
         this.module = module;
         this.resourcesPath = resourcesPath;
         
     }
 
-    @objid ("dc77637b-a1ea-40b3-b19e-b496354a5cd5")
+    @objid ("7b768f76-19fa-4492-b44c-9c4494e96b40")
     String getParameterValue(String key, Predicate<ModuleParameter> visibilityTester) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.getName().equals(key) && visibilityTester.test(configParam)) {
-                    return this.module.getParameters().getValue(key, "");
+                    return this.module.getProperties().getValue(key, "");
                 }
             }
         }
         return null;
     }
 
-    @objid ("cff8e035-077a-4bea-afb8-cdcef067288c")
+    @objid ("58fb6dbc-0644-4e55-a17f-59ad3065092c")
     Map<String, String> getParameters(Predicate<ModuleParameter> visibilityTester) {
         Map<String, String> results = new HashMap<>();
         
-        GProperties gProperties = this.module.getParameters();
+        GProperties gProperties = this.module.getProperties();
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
@@ -93,14 +93,14 @@ public final class ConfigurationImpl {
         return results;
     }
 
-    @objid ("9f738bd3-dd9a-4434-9764-95c849a508d6")
+    @objid ("23105b02-cab7-4c13-a968-6d257ed609b3")
     boolean setParameterValue(String key, String value, Predicate<ModuleParameter> editabilityTester) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.getName().equals(key) && editabilityTester.test(configParam)) {
-                    GProperties gProperties = this.module.getParameters();
+                    GProperties gProperties = this.module.getProperties();
                     Entry gProperty = gProperties.getProperty(key);
                     if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
                         // Update property value
@@ -117,11 +117,11 @@ public final class ConfigurationImpl {
         return false;
     }
 
-    @objid ("e366281d-26db-4f8e-b406-1ca3fc17519e")
+    @objid ("d9738cea-592b-44ea-8357-9a6dabdd1eb6")
     void updateFrom(Map<String, String> parameters, Predicate<ModuleParameter> editabilityTester) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
-            GProperties gProperties = this.module.getParameters();
+            GProperties gProperties = this.module.getProperties();
             for (ModuleParameter configParam : moduleElement.getModuleParameter()) {
                 String key = configParam.getName();
                 if (parameters.containsKey(key) && editabilityTester.test(configParam)) {
@@ -136,19 +136,19 @@ public final class ConfigurationImpl {
         
     }
 
-    @objid ("f1e2d212-e988-463e-bbab-b20c3ba03da6")
+    @objid ("472b1d39-e105-4c9e-9963-97990500d935")
     Path getModuleResourcesPath() {
         return this.resourcesPath;
     }
 
-    @objid ("60935083-7a79-45da-94d9-c8855255cf6d")
+    @objid ("000201c0-578a-43cc-b56e-baef65c2b886")
     boolean isLocked(String key, Predicate<ModuleParameter> lockTester) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.getName().equals(key) && lockTester.test(configParam)) {
-                    Entry property = this.module.getParameters().getProperty(key);
+                    Entry property = this.module.getProperties().getProperty(key);
                     if (property != null) {
                         return property.getScope() == DefinitionScope.SHARED;
                     }
@@ -158,17 +158,17 @@ public final class ConfigurationImpl {
         return false;
     }
 
-    @objid ("6313224a-288f-47de-9eca-a8e3f5c7e04a")
+    @objid ("ab8c8360-233f-4d0c-8afb-35be7813e95c")
     void fireListeners(String pName, String oldValue, String newValue) {
         this.listeners.forEach(l -> l.parameterChanged(pName, oldValue, newValue));
     }
 
-    @objid ("79a7225b-dfa7-4b2e-bff2-0fe1c7e09c2f")
+    @objid ("993a655b-f5d3-4788-afb0-88d375a6ec1e")
     void addListener(IModuleConfigurationListener l) {
         this.listeners.add(l);
     }
 
-    @objid ("5b2bf0f5-abbb-45a0-9176-bf07b6598921")
+    @objid ("f59c33ac-a2fc-4fb8-912d-e5f0ab33015e")
     void removeListener(IModuleConfigurationListener l) {
         this.listeners.remove(l);
     }

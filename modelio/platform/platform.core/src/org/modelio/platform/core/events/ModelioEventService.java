@@ -24,7 +24,6 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.IModelioService;
-import org.modelio.platform.core.plugin.AppCore;
 
 @objid ("0044936e-cc35-1ff2-a7f4-001ec947cd2a")
 public class ModelioEventService implements IModelioEventService {
@@ -52,16 +51,7 @@ public class ModelioEventService implements IModelioEventService {
     public void postAsyncEvent(final IModelioService emitter, final String topic, final Object data) {
         IEventBroker eventBroker = this.context.get(IEventBroker.class);
         if (eventBroker != null) {
-            boolean sent = eventBroker.post(topic, data);
-            if (AppCore.LOG.isDebugEnabled()) {
-                AppCore.LOG.debug("postAsyncEvent - emitter='%s' topic='%s' data='%s' sent='%s'", emitter.getName(), topic, data,
-                        sent);
-            }
-        
-        } else {
-            if (AppCore.LOG.isDebugEnabled()) {
-                AppCore.LOG.debug("postAsyncEvent - emitter='%s' cannot send event, event broker is null.", emitter.getName());
-            }
+            eventBroker.post(topic, data);
         }
         
     }
@@ -70,16 +60,7 @@ public class ModelioEventService implements IModelioEventService {
     public void postSyncEvent(final IModelioService emitter, final String topic, final Object data) {
         IEventBroker eventBroker = this.context.get(IEventBroker.class);
         if (eventBroker != null) {
-            boolean sent = eventBroker.send(topic, data);
-            if (AppCore.LOG.isDebugEnabled()) {
-                AppCore.LOG.debug("postSyncEvent - emitter='%s' topic='%s' data='%s' sent='%s'", emitter.getName(), topic, data,
-                        sent);
-            }
-        
-        } else {
-            if (AppCore.LOG.isDebugEnabled()) {
-                AppCore.LOG.debug("postSyncEvent - emitter='%s' cannot send event, event broker is null.", emitter.getName());
-            }
+           eventBroker.send(topic, data);
         }
         
     }

@@ -51,6 +51,7 @@ import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
@@ -139,6 +140,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
         } else if (candidate instanceof AbstractDiagram
                 || candidate instanceof Behavior
                 || candidate instanceof BpmnDataAssociation
+                || candidate instanceof BpmnSequenceFlowDataAssociation
                 || candidate instanceof BpmnFlowElement
                 || candidate instanceof Dependency
                 || candidate instanceof Document

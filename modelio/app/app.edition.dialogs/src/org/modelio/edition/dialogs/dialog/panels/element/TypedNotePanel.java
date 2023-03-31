@@ -41,7 +41,7 @@ import org.modelio.metamodel.mmextensions.infrastructure.IInfrastructureModelFac
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.MimeServices.MimeType;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.htmleditor.HtmlComposer;
@@ -418,7 +418,7 @@ public class TypedNotePanel implements IPanelProvider {
             
                 } else if (this.noteModel.noteExists() == false) {
                     // Got a note model but no existing note, creating a note must be possible
-                    this.view.setTitle(ModuleI18NService.getLabel(this.noteModel.noteType));
+                    this.view.setTitle(MdaResources.getLabel(this.noteModel.noteType));
                     this.view.setReadOnly(this.me.isModifiable());
                     this.view.setMimeType(MimeType.PLAIN);
                     this.view.setText(EditionDialogs.I18N.getString("TypedNotePanel.EnterText"));
@@ -427,7 +427,7 @@ public class TypedNotePanel implements IPanelProvider {
             
                 } else {
                     // Got a note model and an existing note
-                    this.view.setTitle(ModuleI18NService.getLabel(this.noteModel.noteType));
+                    this.view.setTitle(MdaResources.getLabel(this.noteModel.noteType));
                     this.view.setReadOnly(this.me.isModifiable());
                     this.view.setMimeType(this.noteModel.getNoteMimeType());
                     this.view.setText(this.noteModel.note.getContent());
@@ -614,7 +614,6 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Find the note of given type on modelElement.
-         * @param modelElement
          * @param type a note type.
          * @return null if no note could be found
          */
@@ -634,9 +633,6 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Find the NoteType matching the current element metaclass, the module provider and the note type name
-         * @param me
-         * @param moduleName
-         * @param noteTypeName
          * @return null if no matching NoteType could be found
          */
         @objid ("53596f0d-cf36-4586-abb6-df75e8156ba7")

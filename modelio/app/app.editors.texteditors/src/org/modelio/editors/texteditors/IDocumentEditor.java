@@ -37,5 +37,5 @@ public interface IDocumentEditor {
      */
     @objid ("f917d94f-d4c3-443d-a40e-82e02a9b5eb0")
     TextViewer getViewer();
-
 }
+

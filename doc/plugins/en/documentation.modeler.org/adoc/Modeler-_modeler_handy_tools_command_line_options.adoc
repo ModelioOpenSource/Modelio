@@ -3,14 +3,14 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Command-line-options]]
 
-[[command-line-options]]
+
+
 = Command line options
 
-[[Command-Line-Modelio]]
 
-[[command-line-modelio]]
+
+
 === Command Line Modelio
 
 To run Modelio in command line, you must execute:
@@ -24,9 +24,9 @@ The executable file `modelio.sh` located in the `Contents/MacOS` subdirectory of
 
 In this page, we will refer to Modelio's executable full path (for example: `C:\Program Files\Modelio Open Source 4.1\modelio.exe`), as *$\{MODELIO_EXE}*.
 
-[[Options-list]]
 
-[[options-list]]
+
+
 === Options list
 
 Modelio comes with several command line options:

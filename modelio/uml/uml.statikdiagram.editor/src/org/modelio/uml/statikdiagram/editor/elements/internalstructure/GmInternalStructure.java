@@ -98,7 +98,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         
     }
 
-    @objid ("f790055b-03cc-4bb8-bc43-3912ae4ac0ae")
+    @objid ("14a7c73e-8c9b-4e7a-990f-69695844023d")
     @Override
     public void delete() {
         // Avoid useless work on delete

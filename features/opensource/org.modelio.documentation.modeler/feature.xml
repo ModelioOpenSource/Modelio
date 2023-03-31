@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.documentation.modeler"
          label="Documentation Modeler"
-         version="5.1.0.qualifier"
+         version="5.3.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
-      Copyright 2019 Modeliosoft
+      Copyright 2021 Modeliosoft
 
 This file is part of Modelio.
 Modelio is free software: you can redistribute it and/or modify
@@ -55,12 +55,6 @@ GPL
         install-size="0"
         version="0.0.0"
         fragment="false"
-        unpack="false"/>
-<plugin id="org.modelio.documentation.modeliomodeler.toc"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="true"
         unpack="false"/>
 <plugin id="org.modelio.documentation.vaudit"
         download-size="0"

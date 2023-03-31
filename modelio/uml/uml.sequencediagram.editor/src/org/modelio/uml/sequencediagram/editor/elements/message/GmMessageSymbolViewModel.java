@@ -28,9 +28,9 @@ import org.modelio.uml.sequencediagram.editor.plugin.DiagramEditorSequence;
 /**
  * Helper class building a {@link ISymbolViewModel} for {@link GmMessage}.
  */
-@objid ("9077d1cd-40ce-4dc9-bb4a-d435e894b3dc")
+@objid ("8a04fe0c-0f39-4611-9a90-755770569afb")
 class GmMessageSymbolViewModel {
-    @objid ("d146ef0b-5e76-4414-bdd4-2f13c2f6ec6d")
+    @objid ("a608cc41-ad50-488d-a411-3caaac1adc03")
     public static ISymbolViewModel create(IStyle editedStyle, GmMessage input) {
         SymbolViewContentBuilder b = new SymbolViewContentBuilder(input.getRelatedMClass().getName());
         b

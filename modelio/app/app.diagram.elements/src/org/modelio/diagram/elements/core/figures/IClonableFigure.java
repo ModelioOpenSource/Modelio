@@ -34,5 +34,5 @@ public interface IClonableFigure extends IFigure {
      */
     @objid ("d0374309-92b9-4752-89ae-724a75735e25")
     IFigure getCopy();
-
 }
+

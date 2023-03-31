@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="net.adoptium.temurin.jre.feature"
+      label="jre11"
+      version="11.0.15"
+      provider-name="AdoptOpenJDK">
+
+   <description url="https://adoptium.net/temurin/">
+      
+   </description>
+
+   <copyright url="https://www.eclipse.org/legal/copyright.php">
+      
+   </copyright>
+
+   <license url="https://www.eclipse.org/legal/epl-2.0/">
+      
+   </license>
+
+</feature>

@@ -3,30 +3,30 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2520]]
 
-[[r2520]]
+
+
 = R2520
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 If a _Port_ runs a delegation towards an internal part, the _Port_ should provide at least one _Interface_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A delegation is a _Connector_ from a _Port_ and a part of the _Class_ or _Component_ owning the _Port_.
 
 The _Port_ should then provide an interface with a _ProvidedInterface_ in order to have something to delegate.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Add a provided interface to the port.

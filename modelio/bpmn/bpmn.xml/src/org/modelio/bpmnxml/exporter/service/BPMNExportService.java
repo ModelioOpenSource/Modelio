@@ -40,11 +40,11 @@ import org.modelio.vcore.session.api.ICoreSession;
 
 @objid ("421e5041-a3ed-405d-9368-de8ec37f0076")
 public class BPMNExportService {
+    @objid ("bd6ed66f-1946-4208-87c9-6b087a6081d7")
+    private IProgressMonitor progress;
+
     @objid ("b39a1667-f51b-4c9a-80fc-d75d65768fc2")
     private IDiagramService diagramService;
-
-    @objid ("4c414e4b-195e-4214-b9a3-539f60f7fc8b")
-    private IProgressMonitor progress;
 
     @objid ("2a8e5e95-79fb-4dd2-9cae-3d8b2ce67416")
     private ICoreSession session;
@@ -82,7 +82,7 @@ public class BPMNExportService {
         BPMNWalker showWalker = new BPMNWalker(context, showProcessor,this.diagramService);
         showWalker.walk(jaxDefinition, this.progress);
         
-         
+        
         if(xpdlFile.toFile().exists()){
             xpdlFile.toFile().delete();
         }
@@ -98,7 +98,7 @@ public class BPMNExportService {
 
     @objid ("4225649f-aeb8-41b7-af27-670b02f0098a")
     private void writeXPDLFile(Path xpdlFile, JAXBElement<? extends TDefinitions> packageType) throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance("org.modelio.bpmnxml.model");
+        JAXBContext jc = JAXBContext.newInstance("org.modelio.bpmnxml.model", TDefinitions.class.getClassLoader());
         Marshaller  marchaller = jc.createMarshaller();
         
         

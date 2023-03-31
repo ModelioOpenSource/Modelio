@@ -24,6 +24,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import org.eclipse.core.runtime.FileLocator;
@@ -33,7 +34,8 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.diagram.styles.manager.StyleManager;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.preferences.IGProjectPreferenceStore;
 import org.modelio.platform.project.prefs.ProjectPreferencesKeys;
@@ -61,12 +63,13 @@ public class DiagramStylesProcessor {
     @objid ("12c628eb-19f0-11e2-92d2-001ec947c8cc")
     @Inject
     @Optional
-    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject openedProject) {
+    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final IGProject openedProject) {
         // Ensure that the project style dir is initialized and that a default style exists in it
-        DiagramStylesProcessor.checkProjectStyleDirectory(openedProject.getProjectFileStructure().getProjectDataPath());
+        DiagramStylesProcessor.checkProjectStyleDirectory(openedProject.getPfs().getProjectDataPath());
         
         // Load styles
-        DiagramStyles.getStyleManager().reloadStylesIn(openedProject.getProjectFileStructure().getProjectDataPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
+        StyleManager styleManager = DiagramStyles.getStyleManager();
+        styleManager.reloadStylesIn(openedProject.getPfs().getProjectDataPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
         
         if (this.projectService != null) {
             // Listen to diagram theme changes
@@ -75,17 +78,17 @@ public class DiagramStylesProcessor {
                 @Override
                 public void propertyChange(PropertyChangeEvent event) {
                     if (event.getProperty().endsWith(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY)) {
-                        DiagramStyles.getStyleManager().setDefaultTheme((String) event.getNewValue());
+                        styleManager.setDefaultTheme((String) event.getNewValue());
                     }
                 }
             });
         
             // Init default diagram theme
             if (store.getDefaultString(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY).isEmpty()) {
-                store.setDefault(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY, DiagramStyles.MODELIO_3X_THEME_NAME);
+                store.setDefault(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY, styleManager.getDefaultTheme().getName());
                 store.setToDefault(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY);
             }
-            DiagramStyles.getStyleManager().setDefaultTheme(store.getString(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY));
+            styleManager.setDefaultTheme(store.getString(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY));
         }
         
     }
@@ -103,10 +106,10 @@ public class DiagramStylesProcessor {
         }
         
         // ensure the existence of the style files
-        ensuteFileExistence(getStyleDirectory(), DiagramStyles.STYLE_FILE_EXTENSION, projectStyleDir);
+        ensureFileExistence(getStyleDirectory(), DiagramStyles.STYLE_FILE_EXTENSION, projectStyleDir);
         
         // ensure the existence of the theme files
-        ensuteFileExistence(getThemeDirectory(), DiagramStyles.THEME_FILE_EXTENSION, projectStyleDir);
+        ensureFileExistence(getThemeDirectory(), DiagramStyles.THEME_FILE_EXTENSION, projectStyleDir);
         
     }
 
@@ -152,21 +155,21 @@ public class DiagramStylesProcessor {
      * Walk the given style directory an copy each file having the given extension into the project style directory.
      */
     @objid ("b1f0cce3-0ac2-4899-b1e8-ca101b6abbdd")
-    private static void ensuteFileExistence(Path styleDirectory, String styleFileExtension, Path projectStyleDir) {
-        try {
-            Files.walk(styleDirectory)
-                    .filter(Files::isRegularFile)
-                    .filter(sub -> sub.toString().endsWith(styleFileExtension))
-                    .forEach(sub -> {
-                        Path targetPath = projectStyleDir.resolve(sub.getFileName());
-                        if (Files.notExists(targetPath)) {
-                            try {
-                                Files.copy(sub, targetPath);
-                            } catch (IOException e) {
-                                DiagramStyles.LOG.debug(e);
-                            }
-                        }
-                    });
+    private static void ensureFileExistence(Path styleDirectory, String styleFileExtension, Path projectStyleDir) {
+        try (Stream<Path> fileWalker = Files.walk(styleDirectory)) {
+            fileWalker
+            .filter(Files::isRegularFile)
+            .filter(sub -> sub.toString().endsWith(styleFileExtension))
+            .forEach(sub -> {
+                Path targetPath = projectStyleDir.resolve(sub.getFileName());
+                if (Files.notExists(targetPath)) {
+                    try {
+                        Files.copy(sub, targetPath);
+                    } catch (IOException e) {
+                        DiagramStyles.LOG.debug(e);
+                    }
+                }
+            });
         } catch (IOException e) {
             DiagramStyles.LOG.debug(e);
         }

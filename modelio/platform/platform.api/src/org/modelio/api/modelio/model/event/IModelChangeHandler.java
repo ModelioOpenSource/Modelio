@@ -61,5 +61,5 @@ public interface IModelChangeHandler {
      */
     @objid ("9b3cc8cc-f790-11dd-83f5-0014222a9f79")
     void handleModelChange(IModelingSession session, IModelChangeEvent event);
-
 }
+

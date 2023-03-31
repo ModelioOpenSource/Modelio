@@ -25,7 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelio.diagram.browser.model.core.VirtualFolder;
 import org.modelio.diagram.browser.plugin.DiagramBrowser;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -34,10 +34,10 @@ import org.modelio.vcore.session.api.model.IModel;
 @objid ("0047bcce-0d4f-10c6-842f-001ec947cd2a")
 public class AllDiagramsNode extends VirtualFolder {
     @objid ("007bd9fa-1f1a-10c7-842f-001ec947cd2a")
-    private final GProject project;
+    private final IGProject project;
 
     @objid ("0047e6ae-0d4f-10c6-842f-001ec947cd2a")
-    public  AllDiagramsNode(GProject session, AbstractProject project) {
+    public  AllDiagramsNode(IGProject session, AbstractProject project) {
         super(project);
         this.project = session;
         setName(DiagramBrowser.I18N.getString("AllDiagrams"));

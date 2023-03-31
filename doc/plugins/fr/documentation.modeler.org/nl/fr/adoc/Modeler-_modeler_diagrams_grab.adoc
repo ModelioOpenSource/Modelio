@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Utiliser-le-ldquograbrdquo]]
 
-[[utiliser-le-grab]]
+
+
 = Utiliser le "grab"
 
 Le "grab" est utilisé pour déplacer le contenu d'un diagramme dans son intégralité, sans avoir à sélectionner individuellement tous les éléments qu'il contient.

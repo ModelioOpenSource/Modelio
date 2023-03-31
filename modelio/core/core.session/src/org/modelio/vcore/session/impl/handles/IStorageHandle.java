@@ -100,5 +100,5 @@ public interface IStorageHandle {
      */
     @objid ("1f1a5485-3a2d-11e2-bf6c-001ec947ccaf")
     int loadDepIndexOf(SmObjectImpl obj, SmDependency dep, SmObjectImpl dep_val, ISmObjectData data);
-
 }
+

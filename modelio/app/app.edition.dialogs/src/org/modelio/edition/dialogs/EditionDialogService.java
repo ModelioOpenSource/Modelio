@@ -44,7 +44,7 @@ import org.modelio.api.module.propertiesPage.IModulePropertyPage;
 import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
 import org.modelio.edition.dialogs.dialog.EditElementDialog;
 import org.modelio.edition.dialogs.plugin.EditionDialogs;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -118,7 +118,7 @@ public class EditionDialogService {
     @SuppressWarnings("unused")
     @Optional
     @Inject
-    void onOpenProject(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project, final IEclipseContext eclipseContext) {
+    void onOpenProject(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final IGProject project, final IEclipseContext eclipseContext) {
         this.panelContributions.initializeExtensions(eclipseContext);
     }
 
@@ -126,7 +126,7 @@ public class EditionDialogService {
     @SuppressWarnings("unused")
     @Optional
     @Inject
-    void onCloseProject(@UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    void onCloseProject(@UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final IGProject project) {
         this.panelContributions.clearExtensions();
     }
 

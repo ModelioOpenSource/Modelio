@@ -23,13 +23,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.ConnectionEditPart;
 import org.modelio.diagram.elements.core.figures.routers.ConnectionState;
 
-@objid ("a9402da1-4461-42bb-adb4-79d2db5082c5")
+@objid ("5dd29e12-0fab-47f2-86dd-9f5a7f2e6cbc")
 public interface ILinkPathEditorFactory {
     /**
      * Restore the connection anchors and routing constraint from a data object.
      * @param connectionEditPart the connection to restore
      */
-    @objid ("82e06563-4ba5-480a-b12c-d86f38579190")
+    @objid ("15b372bb-4960-4dc3-998f-b44873508364")
     ILinkPathEditor from(ConnectionEditPart connectionEditPart);
 
     /**
@@ -37,7 +37,7 @@ public interface ILinkPathEditorFactory {
      * @param connectionEditPart the connection to restore
      * @param backup the backup data
      */
-    @objid ("dd87bbe1-c13d-46dc-8c64-e3005a0f7ec5")
+    @objid ("3f915be9-be53-4a66-b20a-a06def4f852c")
     ILinkPathEditor from(ConnectionEditPart connectionEditPart, ConnectionState backup);
-
 }
+

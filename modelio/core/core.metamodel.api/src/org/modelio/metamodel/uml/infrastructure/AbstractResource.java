@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("99a0b4ef-1e10-4e11-82bd-308aa634b06b")
 public interface AbstractResource extends ModelElement {
@@ -91,6 +93,7 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>MIME type of the rich note.</i>
+     * 
      */
     @objid ("422e5f5a-5c36-4726-ba4a-407cbd7f0076")
     String getMimeType();
@@ -100,6 +103,7 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>MIME type of the rich note.</i>
+     * 
      */
     @objid ("3c2c06f3-04ec-41b6-bd42-7eef7ad4f91f")
     void setMimeType(String value);
@@ -110,6 +114,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i><p>Internal informations about where the resource is located and/or where it can be extracted.</p>
      * </i>
+     * 
      */
     @objid ("199c6d8c-c760-42f9-a0d1-78c3281a51e2")
     String getStorageInfo();
@@ -120,6 +125,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i><p>Internal informations about where the resource is located and/or where it can be extracted.</p>
      * </i>
+     * 
      */
     @objid ("446aa24f-f97b-4247-8950-ac0d781216aa")
     void setStorageInfo(String value);
@@ -129,6 +135,7 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>Semantic function of the rich note.</i>
+     * 
      */
     @objid ("85bfb9c6-0060-4710-b3b6-267df8454fbb")
     ResourceType getType();
@@ -138,6 +145,7 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>Semantic function of the rich note.</i>
+     * 
      */
     @objid ("f8bcb203-c521-41ba-a8b7-9094b802b650")
     void setType(ResourceType value);
@@ -147,6 +155,7 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>Model element owning the rich note.</i>
+     * 
      */
     @objid ("55667236-6342-4a75-ba1e-f94ffa951865")
     ModelElement getSubject();
@@ -156,8 +165,9 @@ public interface AbstractResource extends ModelElement {
      * 
      * Metamodel description:
      * <i>Model element owning the rich note.</i>
+     * 
      */
     @objid ("893518a4-2501-4d0a-b07d-4e2cfef4c1f1")
     void setSubject(ModelElement value);
-
 }
+

@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1530]]
 
-[[r1530]]
+
+
 = R1530
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 Some elements should have a name.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 _Associations_ and _Ports_ should always have a name.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 If you have an _Association_ or a _Port_ without a name, you should consider giving it one.

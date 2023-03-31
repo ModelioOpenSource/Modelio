@@ -68,5 +68,5 @@ public interface IGmDrawingLinkable extends IGmDrawing {
      */
     @objid ("680f9fe3-d8f2-43d6-8553-f77a9ea788c8")
     void removeEndingDrawingLink(IGmDrawingLink gmLink);
-
 }
+

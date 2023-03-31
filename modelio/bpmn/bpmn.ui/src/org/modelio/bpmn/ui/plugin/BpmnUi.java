@@ -39,6 +39,7 @@ public class BpmnUi extends AbstractUIPlugin {
      */
     @objid ("cf123d74-b9cb-4ec2-ac06-a7ba13e935e4")
     public static final String PLUGIN_ID = "org.modelio.bpmn.ui"; // $NON-NLS-1$
+    
 
     @objid ("df4e627b-15bc-480c-82ad-befef69feb18")
     private static BundleContext context;

@@ -116,6 +116,8 @@ public class BpmnActivityCreateDataInputCommand extends DefaultCreateElementComm
         BpmnActivity activity = (BpmnActivity) getParentElement();
         
         dataInput.setContainer(activity.getContainer());
+        dataInput.getLane().addAll(activity.getLane());
+        
         
         // Attach the stereotype if needed.
         if (this.getContext().getStereotype() != null) {

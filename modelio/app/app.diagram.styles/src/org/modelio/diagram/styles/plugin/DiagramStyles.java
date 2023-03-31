@@ -48,9 +48,6 @@ public class DiagramStyles implements BundleActivator {
     @objid ("866f3e74-1926-11e2-92d2-001ec947c8cc")
     public static final String ROOT_STYLE_NAME = "default";
 
-    @objid ("daba525a-4f4f-4000-92e1-a14b0e0816e6")
-    private static BundleContext context;
-
     @objid ("dc8db742-0291-4c50-80eb-8e52295233c5")
     public static final String RAMC_STYLE_NAME = "ramc";
 
@@ -68,6 +65,12 @@ public class DiagramStyles implements BundleActivator {
 
     @objid ("40ee5906-ef47-4e13-bef0-eac115510711")
     public static final String MODELIO_3X_THEME_NAME = "Modelio 3.x";
+
+    @objid ("0880bfc5-3505-4904-9946-50816c8ed34c")
+    public static final String COBALT_THEME_NAME = "Cobalt";
+
+    @objid ("daba525a-4f4f-4000-92e1-a14b0e0816e6")
+    private static BundleContext context;
 
     @objid ("a67cb94d-18fe-11e2-92d2-001ec947c8cc")
     public static BundledMessages I18N = null;

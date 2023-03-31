@@ -29,5 +29,5 @@ public interface IModelioEventService {
 
     @objid ("000f3124-a9ae-106e-bbdd-001ec947cd2a")
     void postAsyncEvent(IModelioService emitter, final ModelioEvent topic, final Object data);
-
 }
+

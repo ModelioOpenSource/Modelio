@@ -33,6 +33,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * A User Task is a typical "workflow" Task where a human performer performs the Task with the assistance of a software application and is scheduled through a task list manager of some sort.
  * A User Task is executed by and managed by a business process runtime. Attributes concerning the human involvement,like people assignments and UI rendering can be specified in great detail.
+ * 
+ * 
  */
 @objid ("0086182a-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnUserTask extends BpmnTask {
@@ -53,6 +55,7 @@ public interface BpmnUserTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>This attribute specifies the technology that will be used to send and receive the Messages. A Web service is the default technology.</i>
+     * 
      */
     @objid ("60bcc173-de1f-4458-b41a-f3f1fd7dc6f8")
     String getImplementation();
@@ -62,8 +65,9 @@ public interface BpmnUserTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>This attribute specifies the technology that will be used to send and receive the Messages. A Web service is the default technology.</i>
+     * 
      */
     @objid ("ee56b330-4b17-4160-9025-e69104507062")
     void setImplementation(String value);
-
 }
+

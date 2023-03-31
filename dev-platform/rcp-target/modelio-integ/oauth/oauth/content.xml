@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='oauth/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541005305264'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='com.modeliosoft.modelio.oauth' version='2.3.0'>
+      <update id='com.modeliosoft.modelio.oauth' range='[0.0.0,2.3.0)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='oauth'/>
+      </properties>
+      <provides size='20'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.modeliosoft.modelio.oauth' version='2.3.0'/>
+        <provided namespace='osgi.bundle' name='com.modeliosoft.modelio.oauth' version='2.3.0'/>
+        <provided namespace='java.package' name='net' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth.client' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth.http' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth.server' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth.signature' version='0.0.0'/>
+        <provided namespace='java.package' name='net.oauth.signature.pem' version='0.0.0'/>
+        <provided namespace='java.package' name='org' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server.oauth' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server.oauth.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server.oauth.core.consumer' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server.oauth.core.token' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.lyo.server.oauth.core.utils' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='com.modeliosoft.modelio.oauth' version='2.3.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='java.package' name='net' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth.client' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth.http' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth.server' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth.signature' range='0.0.0'/>
+        <required namespace='java.package' name='net.oauth.signature.pem' range='0.0.0'/>
+        <required namespace='java.package' name='org' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server.oauth' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server.oauth.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server.oauth.core.consumer' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server.oauth.core.token' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.lyo.server.oauth.core.utils' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.modeliosoft.modelio.oauth' version='2.3.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.modeliosoft.modelio.oauth;singleton:=true&#xA;Bundle-Version: 2.3.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

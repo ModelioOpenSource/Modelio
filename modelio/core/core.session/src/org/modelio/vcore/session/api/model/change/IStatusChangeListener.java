@@ -30,5 +30,5 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IStatusChangeListener {
     @objid ("0041b3b0-d428-1f3b-aafd-001ec947cd2a")
     void statusChanged(final IStatusChangeEvent event);
-
 }
+

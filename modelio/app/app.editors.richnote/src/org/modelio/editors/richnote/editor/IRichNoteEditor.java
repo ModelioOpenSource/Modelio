@@ -76,5 +76,5 @@ public interface IRichNoteEditor {
      */
     @objid ("8cfc32ce-ff62-4551-8884-4d1b2a16d613")
     MPart getMPart();
-
 }
+

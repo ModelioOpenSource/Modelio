@@ -28,8 +28,8 @@ import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
-import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
@@ -38,17 +38,17 @@ import org.modelio.vbasic.version.VersionedItem;
 class DependenciesLabelProvider extends StyledCellLabelProvider {
     @objid ("c259c973-22ab-42e4-90ee-bb30ec9814de")
     public static final Styler INVALID = new Styler() {
-            @Override
-            public void applyStyles(final TextStyle textStyle) {
-                textStyle.foreground = UIColor.RED;
-            }
-        };
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.foreground = UIColor.RED;
+                }
+            };
 
     @objid ("37356e22-2a51-4b45-a073-3da24245963c")
-    private final List<RamcFileFragment> fragments;
+    private final List<IGModelFragment> fragments;
 
     @objid ("aa5cfa19-237d-4eef-9e0e-26a83dde3ccb")
-    public  DependenciesLabelProvider(final List<RamcFileFragment> fragments) {
+    public  DependenciesLabelProvider(final List<IGModelFragment> fragments) {
         super();
         this.fragments = fragments;
         
@@ -83,9 +83,9 @@ class DependenciesLabelProvider extends StyledCellLabelProvider {
 
     @objid ("6435d80e-387d-45a5-9cd7-36a9fa52158b")
     private boolean isValidVersioned(final VersionedItem<?> item) {
-        for (final RamcFileFragment fragment : this.fragments) {
+        for (final IGModelFragment fragment : this.fragments) {
             try {
-                final IModelComponentInfos infos = fragment.getInformations();
+                final IModelComponentInfos infos = (IModelComponentInfos) fragment.getInformations();
                 if (infos.getName().equals(item.getName())) {
                     if (!infos.getVersion().isOlderThan(item.getVersion())) {
                         return true;    // equal or newer

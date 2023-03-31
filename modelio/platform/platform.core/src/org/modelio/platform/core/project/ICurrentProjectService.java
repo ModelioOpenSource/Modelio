@@ -22,7 +22,7 @@ package org.modelio.platform.core.project;
 import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.IModelioService;
 import org.modelio.vcore.session.api.ICoreSession;
 
@@ -41,7 +41,7 @@ public interface ICurrentProjectService extends IModelioService {
      * @return the currently opened project or null if none.
      */
     @objid ("00832174-acc2-103b-a520-001ec947cd2a")
-    GProject getOpenedProject();
+    IGProject getOpenedProject();
 
     /**
      * @param nodeId a preference node identifier.
@@ -77,5 +77,5 @@ public interface ICurrentProjectService extends IModelioService {
      */
     @objid ("38cdfb9d-8aaf-4b8a-b00c-55319d7ec41c")
     boolean isDirty();
-
 }
+

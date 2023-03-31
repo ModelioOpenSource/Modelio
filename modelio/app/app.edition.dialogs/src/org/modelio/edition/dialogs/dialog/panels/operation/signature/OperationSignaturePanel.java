@@ -33,13 +33,12 @@ import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.modelio.edition.dialogs.dialog.panels.operation.IOperationPropertyModel;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
-import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIFont;
 import org.modelio.platform.ui.panel.IPanelProvider;
 
 /**
@@ -50,13 +49,13 @@ import org.modelio.platform.ui.panel.IPanelProvider;
  */
 @objid ("093046bf-e6b1-43f3-b586-0ebfb9763635")
 public class OperationSignaturePanel implements IPanelProvider {
-    @objid ("7ddf6b52-9524-4d9e-8f9b-836629c16b0d")
+    @objid ("6173494c-8e8f-4c6d-b004-7910b5fe1267")
     private Composite container;
 
-    @objid ("963ab53c-0f7b-4a75-bea4-fe09dd2e187a")
+    @objid ("f7d962cc-2b08-48bf-8f0c-2f67b5f3d475")
     private StyledText previewLabel;
 
-    @objid ("b82541ff-af0b-4f2d-a4b5-3dc95c946283")
+    @objid ("747e5c0a-54d5-4146-9617-a3d33640df16")
     Label previewIcon;
 
     @objid ("3cfe2de5-29ab-46ce-8200-bf30d59ee2bb")
@@ -146,29 +145,17 @@ public class OperationSignaturePanel implements IPanelProvider {
 
     @objid ("c1557bc0-27ae-4791-acfd-53db6077833c")
     private static class OpSignatureBuilder {
-        @objid ("bdc3f8ef-efac-48dc-8f0a-df9acb80415f")
+        @objid ("2e402ab4-b0bd-4deb-a07b-bb7d325b9edb")
         private Styler nameStyler;
 
-        @objid ("9dacf6b9-5fea-4fab-bc2b-51e9a3ec40d4")
+        @objid ("93e38714-50b9-43c2-8b15-2ef1fcd703e7")
         private Styler syntaxStyler;
 
-        @objid ("9a92b14e-e326-4f6c-83de-5a63dd64205a")
+        @objid ("ed2ba407-f1ee-4019-8ad8-1f516219dbde")
         private Styler typeStyler;
 
-        @objid ("2e910848-d702-4bed-a57c-40875dae76d2")
+        @objid ("2a505c1a-d504-4519-b4cc-9957d25979ec")
         private Styler returnTypeStyler;
-
-        @objid ("73fa4e9f-c751-421a-b40e-12fe6520ddf2")
-        private static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
-
-        @objid ("c7a8afed-9adc-4dd4-b5ac-3377f66a55ac")
-        private static final Font italicFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.ITALIC, 1.0f);
-
-        @objid ("1a0c307c-c4ff-40b8-8179-49fb626b711e")
-        private static final Font boldFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.BOLD, 1.0f);
-
-        @objid ("c514599d-6a5a-4b65-8bca-6a307dd0a86b")
-        private static final Font italicBoldFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.BOLD | SWT.ITALIC, 1.0f);
 
         @objid ("9692a6e5-181f-4236-9f69-8e708b975da5")
         private IOperationPropertyModel opModel;
@@ -231,7 +218,7 @@ public class OperationSignaturePanel implements IPanelProvider {
             this.nameStyler = new Styler() {
                 @Override
                 public void applyStyles(final TextStyle textStyle) {
-                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.font = opModel.isAbstract() ? UIFont.NORMALBI : UIFont.NORMALB;
                     textStyle.underline = opModel.isClass();
                     textStyle.foreground = UIColor.BLUE;
                 }
@@ -239,7 +226,7 @@ public class OperationSignaturePanel implements IPanelProvider {
             this.syntaxStyler = new Styler() {
                 @Override
                 public void applyStyles(final TextStyle textStyle) {
-                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.font = opModel.isAbstract() ? UIFont.NORMALBI : UIFont.NORMALB;
                     textStyle.underline = opModel.isClass();
                     textStyle.foreground = UIColor.GRAY;
                 }
@@ -247,7 +234,7 @@ public class OperationSignaturePanel implements IPanelProvider {
             this.typeStyler = new Styler() {
                 @Override
                 public void applyStyles(final TextStyle textStyle) {
-                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.font = opModel.isAbstract() ? UIFont.NORMALBI : UIFont.NORMALB;
                     textStyle.underline = opModel.isClass();
                     textStyle.foreground = UIColor.GREEN;
                 }
@@ -255,7 +242,7 @@ public class OperationSignaturePanel implements IPanelProvider {
             this.returnTypeStyler = new Styler() {
                 @Override
                 public void applyStyles(final TextStyle textStyle) {
-                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.font = opModel.isAbstract() ? UIFont.NORMALBI : UIFont.NORMALB;
                     textStyle.underline = opModel.isClass();
                     textStyle.foreground = UIColor.BROWN;
                 }

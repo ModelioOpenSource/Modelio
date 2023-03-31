@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Model-patterns]]
 
-[[model-patterns]]
+
+
 = Model patterns
 
 Model patterns are a powerful modeling feature of the Modelio modeler.
@@ -32,9 +32,9 @@ Modelio offers the following pattern-related features:
 * *Pattern use*
 ** Setting and applying patterns
 
-[[Creating-a-pattern]]
 
-[[creating-a-pattern]]
+
+
 == Creating a pattern
 
 A pattern can be created in two different ways:
@@ -42,9 +42,9 @@ A pattern can be created in two different ways:
 1.  From scratch.
 2.  From an existing model.
 
-[[Creating-a-pattern-from-scratch]]
 
-[[creating-a-pattern-from-scratch]]
+
+
 === Creating a pattern from scratch
 
 To create a pattern from scratch, proceed as follows:
@@ -60,9 +60,9 @@ The main advantage of this process is that it lets you create the whole model. N
 For example, if the above 'Observer' pattern is meant to generate java code, as seems to indicate the generalization diagram, all the annotations and Java notes which are necessary to generate the code still have to be introduced, which can be quite tedious. +
 It may happen that the desired content of the pattern is already available in complete and annotated models that you have at hand. Using those models as the basis for the building of a pattern is the second method.
 
-[[Creating-a-pattern-from-an-existing-UML-model]]
 
-[[creating-a-pattern-from-an-existing-uml-model]]
+
+
 === Creating a pattern from an existing UML model
 
 Creating a pattern from an existing UML model is an easy task. It consists of identifying the parts of the existing model which represent the function you want to use as your pattern content, and converting them into a copy that will then become the pattern itself. The original model *will remain unchanged*.
@@ -78,9 +78,9 @@ image::images/Modeler-_modeler_patterns_CreatePatternFromModel1.png[3]
 
 In this example, the pattern creation command executed on the Java class *Manager*, let the original model unchanged, but made a copy (1) and converted it into a pattern (2).
 
-[[Defining-parameters-for-a-pattern]]
 
-[[defining-parameters-for-a-pattern]]
+
+
 == Defining parameters for a pattern
 
 Once the pattern has been created, it can be used, but it will reproduce strictly the same model as the one it is based on. +
@@ -93,9 +93,9 @@ There are two kinds of parameters:
 * The string type parameters,
 * and the model element type parameters.
 
-[[Defining-a-string-type-parameter]]
 
-[[defining-a-string-type-parameter]]
+
+
 === Defining a string type parameter
 
 Any string defined in the UML model can be converted into a pattern parameter. For example, the name of a model element, the content of a code note, or an element property, can all become a _String_ type parameter. To define a _String_ type parameter, replace the string with $(paramter's name). Any alphanumeric combination can be used as a parameter's name.
@@ -111,9 +111,9 @@ Modifiers can be added to the parameters:
 * cfirst : String's first letter in Upper case. Ex : $(view,cfirst)
 * lfirst : String's first letter in Lower case. Ex : $(view, lfirst)
 
-[[Defining-a-model-element-type-parameter]]
 
-[[defining-a-model-element-type-parameter]]
+
+
 === Defining a model element type parameter
 
 Model element can also become pattern parameters. Those parameters have to be instantiated with a model element of the same kind during the application of the pattern.

@@ -35,6 +35,8 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessage;
  * 
  * A Send Task is a simple Task that is designed to send a Message to an external Participant (relative to the Process). Once the Message has been sent, the Task is completed.
  * The actual Participant which the Message is sent can be identified by connecting the Send Task to a Participant using a Message Flow within the definitional Collaboration of the Process
+ * 
+ * 
  */
 @objid ("00828728-c4bf-1fd8-97fe-001ec947cd2a")
 public interface BpmnSendTask extends BpmnTask {
@@ -59,6 +61,7 @@ public interface BpmnSendTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("c033c797-a62e-458d-aae3-bf5464ba8360")
     String getImplementation();
@@ -72,6 +75,7 @@ public interface BpmnSendTask extends BpmnTask {
      * Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
      * 
      * A Web service is the default technology.</i>
+     * 
      */
     @objid ("5786dcbb-ea5f-4a0d-b2e4-47ed5fc39ae7")
     void setImplementation(String value);
@@ -81,6 +85,7 @@ public interface BpmnSendTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("f1a37e99-42ae-41e2-be2e-67b6b5937923")
     BpmnMessage getMessageRef();
@@ -90,6 +95,7 @@ public interface BpmnSendTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("62c45768-ddc5-47c7-a722-5c53b517956e")
     void setMessageRef(BpmnMessage value);
@@ -99,6 +105,7 @@ public interface BpmnSendTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("a95781ab-a729-49aa-bb80-3ade3afc1fd5")
     BpmnOperation getOperationRef();
@@ -108,8 +115,9 @@ public interface BpmnSendTask extends BpmnTask {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("7d3ad8bc-cb75-4d05-a205-4dff36a6add2")
     void setOperationRef(BpmnOperation value);
-
 }
+

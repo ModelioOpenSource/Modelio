@@ -36,7 +36,7 @@ import org.modelio.api.module.contributor.IWizardContributor;
 import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
-import org.modelio.gproject.module.GModule;
+import org.modelio.gproject.parts.module.GModule;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -64,7 +64,6 @@ public interface IRTModule {
 
     /**
      * Get the configuration associated to this module.
-     * @see IModuleUserConfiguration
      * @return the module configuration.
      */
     @objid ("287cc5f6-be23-48cf-96f2-bdb2dd36c745")
@@ -102,8 +101,7 @@ public interface IRTModule {
     /**
      * For a broken or incompatible module, returns the exception that caused the module loading fail.
      * <p>
-     * The exception message is expected to be directly displayed to the user.
-     * So the message has to be translated and as user friendly as possible
+     * The exception message is expected to be directly displayed to the user. So the message has to be translated and as user friendly as possible
      * @return the break cause or null if the module is not broken.
      */
     @objid ("3f78af6e-4413-4c46-a57c-405019f10862")
@@ -231,19 +229,18 @@ public interface IRTModule {
      * @return the required modules
      */
     @objid ("fc90994e-5a75-423d-9950-8dbb5f5b86f1")
-    List<IRTModule> getRequiredDependencies();
+    List<IRTModule> getMandatoryRequiredModules();
 
     /**
      * @return the optionally used modules
      */
     @objid ("e8da79e5-bf62-405f-981c-5545e56ec071")
-    List<IRTModule> getOptionalDependencies();
+    List<IRTModule> getOptionalRequiredModules();
 
     /**
      * Get the module life cycle listeners.
      * <p>
-     * Returns a direct reference to the actual list.
-     * The list may be modified to add or remove listeners.
+     * Returns a direct reference to the actual list. The list may be modified to add or remove listeners.
      * @return the module listeners.
      */
     @objid ("dda8c406-3b44-4267-aa9a-1418d3c0b10c")
@@ -272,17 +269,16 @@ public interface IRTModule {
      * @return the modules that require this module.
      */
     @objid ("c74181ea-0a64-4cf4-8ff0-b2a6b2aaba34")
-    List<IRTModule> getModuleUsers();
+    List<IRTModule> getModuleMandatoryUses();
 
     /**
      * @return the modules that use optionally this module.
      */
     @objid ("db889b30-af82-4063-86c6-f876e846fd86")
-    List<IRTModule> getModuleOptionalUsers();
+    List<IRTModule> getModuleOptionalUses();
 
     /**
-     * Invalidates the module users list so that next call to {@link #getModuleUsers()} or {@link #getModuleOptionalUsers()}
-     * recomputes it.
+     * Invalidates the module users list so that next call to {@link #getModuleMandatoryUses()} or {@link #getModuleOptionalUses()} recomputes it.
      */
     @objid ("f6f2754f-9d9a-4cd6-8db8-ea7d2965f5e9")
     void resetModuleUsers();
@@ -306,10 +302,11 @@ public interface IRTModule {
 
     /**
      * Data structure representing a diagram customizer.
+     * 
      * @since 2.2.1
      */
     @objid ("dc8f2fa1-8c0a-4a86-a7ed-433a83ff72cc")
-    public class DiagramCustomizationDescriptor {
+    class DiagramCustomizationDescriptor {
         @objid ("e6db5ef7-58f9-434c-a6a1-c33f2eef55ef")
         private Stereotype stereotype;
 
@@ -365,7 +362,7 @@ public interface IRTModule {
      * @since 2.2.1
      */
     @objid ("df460e76-0480-42c5-b69e-115ca9e1bfa5")
-    public class DiagramToolDescriptor {
+    class DiagramToolDescriptor {
         @objid ("44d65cf5-4745-4072-a4a3-437a4c4c7112")
         private String id;
 
@@ -388,8 +385,8 @@ public interface IRTModule {
             MMetamodel mm = this.handler.getModule().getModuleContext().getModel().getMClass().getMetamodel();
             
             String mc = this.handler.getParameters().get("metaclass");
-            MClass mClass = (mc != null) ? mm.getMClass(mc) : null;
-            return (mClass != null) ? mClass.getJavaInterface() : null;
+            MClass mClass = mc != null ? mm.getMClass(mc) : null;
+            return mClass != null ? mClass.getJavaInterface() : null;
         }
 
         /**
@@ -399,13 +396,12 @@ public interface IRTModule {
         public Stereotype getStereotype() {
             MMetamodel mm = this.handler.getModule().getModuleContext().getModel().getMClass().getMetamodel();
             
-            
             String mc = this.handler.getParameters().get("metaclass");
-            MClass mClass = (mc != null) ? mm.getMClass(mc) : null;
+            MClass mClass = mc != null ? mm.getMClass(mc) : null;
             
             String st = this.handler.getParameters().get("stereotype");
-            return (st != null && !st.isEmpty()) ? this.handler.getModule().getModuleContext().getModelingSession().getMetamodelExtensions()
-                                                                                                                                                                                                                        .getStereotype(st, mClass) : null;
+            return st != null && !st.isEmpty() ? this.handler.getModule().getModuleContext().getModelingSession().getMetamodelExtensions()
+                    .getStereotype(st, mClass) : null;
             
         }
 
@@ -442,7 +438,7 @@ public interface IRTModule {
      * Enumeration of the states a module can have at runtime.
      */
     @objid ("4d148035-99dd-11e1-b1e0-001ec947c8cc")
-    public enum ModuleRuntimeState {
+    enum ModuleRuntimeState {
         /**
          * This state indicates the module is loaded but not started.
          */
@@ -460,5 +456,5 @@ public interface IRTModule {
         Incompatible;
 
     }
-
 }
+

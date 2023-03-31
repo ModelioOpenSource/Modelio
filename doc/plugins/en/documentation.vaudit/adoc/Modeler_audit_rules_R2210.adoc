@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R2210]]
 
-[[r2210]]
+
+
 = R2210
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 A leaf _NameSpace_ cannot be derived.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 A leaf _NameSpace_ is a final namespace, and cannot be further derived.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Make the _NameSpace_ non-final.

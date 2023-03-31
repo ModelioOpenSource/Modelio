@@ -266,6 +266,7 @@ import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
 
 /**
  * This class is an implementation of {@link IModelVisitor} whose visit() methods simply return <code>null</code>.
+ * 
  */
 @objid ("6b4da49c-5452-428c-b2d8-2406b179c380")
 public interface IAbstractModelVisitor extends IModelVisitor {
@@ -1726,5 +1727,5 @@ public interface IAbstractModelVisitor extends IModelVisitor {
     default Object visitValuePin(ValuePin obj) {
         	return null;
     }
-
 }
+

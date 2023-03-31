@@ -22,7 +22,7 @@ package org.modelio.diagram.browser.model.bytype;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.modelio.diagram.browser.model.core.AbstractModel;
-import org.modelio.gproject.gproject.GProject;
+import org.modelio.gproject.core.IGProject;
 
 @objid ("004067c6-0d4f-10c6-842f-001ec947cd2a")
 public class ByTypeModel extends AbstractModel {
@@ -36,7 +36,7 @@ public class ByTypeModel extends AbstractModel {
     }
 
     @objid ("7068a710-af08-4eea-b642-ee60cb5150d7")
-    public  ByTypeModel(GProject project) {
+    public  ByTypeModel(IGProject project) {
         this.byTypeContentProvider = new ByTypeContentProvider(project);
     }
 

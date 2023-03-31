@@ -87,7 +87,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
         if (req.getType() == RequestConstants.REQ_DIRECT_EDIT) {
             GmModelElementHeader gm = (GmModelElementHeader) getModel();
             if (gm.getRelatedElement() == null || gm.getRelatedElement().isShell() || gm.getRelatedElement().isDeleted()
-                    || !gm.getRelatedElement().getStatus().isModifiable()) {
+                    || !gm.getRelatedElement().getStatus().isModifiable() || this.getViewer().getControl() == null) {
                 return;
             }
         

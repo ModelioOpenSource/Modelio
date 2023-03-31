@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1640]]
 
-[[r1640]]
+
+
 = R1640
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Il ne peut y avoir plus d'un _ElementImport_ entre deux _NameSpace_ ou entre une _Operation_ et un _NameSpace_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Importer le même _NameSpace_ plusieurs fois ne sert à rien en UML.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Supprimez tous les liens d'import en trop.

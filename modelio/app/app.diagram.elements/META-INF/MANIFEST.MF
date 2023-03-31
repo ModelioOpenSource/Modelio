@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Elements
 Bundle-SymbolicName: org.modelio.app.diagram.elements;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.3.1.qualifier 
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,
  org.modelio.platform.ui,
@@ -27,8 +27,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.workbench,
  org.modelio.core.project.data,
  org.modelio.platform.rcp,
- org.modelio.app.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ org.modelio.app.ui,
+ org.modelio.platform.preferences
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ClassPath: res/,
  .,
  lib/flying-saucer-core-9.0.7.jar,
@@ -74,7 +75,17 @@ Export-Package: org.modelio.diagram.elements.common.abstractdiagram,
  org.modelio.diagram.elements.core.helpers.palapi,
  org.modelio.diagram.elements.core.link,
  org.modelio.diagram.elements.core.link.anchors,
- org.modelio.diagram.elements.core.link.anchors.fixed,
+ org.modelio.diagram.elements.core.link.anchors.fixed2,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.adefault,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.composite,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.ellipse,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.shaped,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.snaptogrid,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.swappable,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.variable,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.wrapped,
+ org.modelio.diagram.elements.core.link.anchors.fixed2.core,
  org.modelio.diagram.elements.core.link.createhandle,
  org.modelio.diagram.elements.core.link.extensions,
  org.modelio.diagram.elements.core.link.linknode,
@@ -89,10 +100,13 @@ Export-Package: org.modelio.diagram.elements.common.abstractdiagram,
  org.modelio.diagram.elements.core.requests,
  org.modelio.diagram.elements.core.tools,
  org.modelio.diagram.elements.core.tools.multipoint,
+ org.modelio.diagram.elements.core.ui,
  org.modelio.diagram.elements.drawings.core,
  org.modelio.diagram.elements.drawings.core.node,
  org.modelio.diagram.elements.drawings.ellipse,
+ org.modelio.diagram.elements.drawings.image,
  org.modelio.diagram.elements.drawings.line,
+ org.modelio.diagram.elements.drawings.note,
  org.modelio.diagram.elements.drawings.rectangle,
  org.modelio.diagram.elements.drawings.text,
  org.modelio.diagram.elements.factories,

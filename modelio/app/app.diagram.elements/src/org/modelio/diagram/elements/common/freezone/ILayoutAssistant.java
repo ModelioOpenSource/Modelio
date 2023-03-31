@@ -82,5 +82,5 @@ public interface ILayoutAssistant {
      */
     @objid ("865c269a-6077-4cbb-8c25-45aa95abcd0f")
     void addBoundsChange(GraphicalEditPart movedEp, PrecisionRectangle oldRect, PrecisionRectangle newRect);
-
 }
+

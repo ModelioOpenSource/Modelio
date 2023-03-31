@@ -1723,7 +1723,7 @@ public class PointListUtilities {
      * @param oldPointList another point list
      * @return <code>true</code> if the size or points are different
      */
-    @objid ("c25b1b4d-62c4-4cf8-b5f5-c1bcfebbf60e")
+    @objid ("4c488f4e-a7db-46ca-88ed-3ed848946a88")
     public static boolean isContentDifferent(PointList newPointList, PointList oldPointList) {
         if (oldPointList.size() != newPointList.size()) {
             return true;

@@ -3,21 +3,21 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1490]]
 
-[[r1490]]
+
+
 = R1490
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Dans une instance, le type d'un attribut instancié doit faire parti de la classe instanciée ou d'une des ses classes parentes.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 L'_Attribut_ décrit par un _AttributeLink_ doit appartenir :
@@ -25,9 +25,9 @@ L'_Attribut_ décrit par un _AttributeLink_ doit appartenir :
 * Soit  au _Classifier_ instanciée par _l'Instance_ de l'_attribut_.
 * Soit à un _Classifier_ parent du _Classifier_ instanciée.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez un slot  décrivant un _Attribut_ non accessible par la classe instancié, vous devriez faire l'une des actions suivantes:

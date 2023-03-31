@@ -32,6 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * 
  * 
  * null
+ * 
+ * 
  */
 @objid ("003ed672-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ValuePin extends InputPin {
@@ -52,6 +54,7 @@ public interface ValuePin extends InputPin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("40a55e03-6a85-497a-b5cf-040047f41698")
     String getValue();
@@ -61,8 +64,9 @@ public interface ValuePin extends InputPin {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("59cc87be-57ba-45aa-8ae6-bbf95bd8ff65")
     void setValue(String value);
-
 }
+

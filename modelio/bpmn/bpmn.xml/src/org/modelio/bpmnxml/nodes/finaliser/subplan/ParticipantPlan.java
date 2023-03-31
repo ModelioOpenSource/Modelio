@@ -35,14 +35,14 @@ import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
 
 @objid ("569f8b00-84bb-44ba-a0bd-0c1c1776a5dc")
 public class ParticipantPlan {
-    @objid ("c1753c2e-042b-4329-953a-f8807888b9bd")
-    private Point transposition;
-
     @objid ("1ae2eee9-afa7-4415-b373-e056336c3e16")
     private BpmnProcessCollaborationDiagram diagram;
 
     @objid ("6c98b61a-5960-4443-9777-37b349fc8aaa")
     private Bounds bounds;
+
+    @objid ("acbe6a5f-2701-40d2-b5bd-865e0a5f9605")
+    private Point transposition;
 
     @objid ("d6e5156c-cc92-4b8b-8bff-c480b0d104d6")
     private BPMNPlane jaxPlan;

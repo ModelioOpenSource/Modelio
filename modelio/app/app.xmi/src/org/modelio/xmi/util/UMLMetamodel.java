@@ -110,6 +110,7 @@ public class UMLMetamodel {
             INSTANCE = new UMLMetamodel();
         return INSTANCE;
     }
+
 static{
             umlMetamodel = load(URI.createURI(UMLResource.UML_METAMODEL_URI));
             umlLibrary = load(URI.createURI(UMLResource.UML_PRIMITIVE_TYPES_LIBRARY_URI));

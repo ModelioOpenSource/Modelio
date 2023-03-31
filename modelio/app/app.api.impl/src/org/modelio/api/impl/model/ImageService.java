@@ -25,7 +25,7 @@ import org.modelio.api.modelio.model.IImageService;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.MdaResources;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.ui.swt.QualifiedImage;
@@ -67,7 +67,9 @@ public class ImageService implements IImageService {
     public Image getIcon(final MObject element, final IPeerModule filter) {
         if (filter != null) {
             if (element instanceof ModelElement) {
-                return ModuleI18NService.getIcon((ModelElement) element, filter);
+                QualifiedImage qualifiedIcon = MdaResources.getQualifiedIcon((ModelElement)element, filter);
+                return qualifiedIcon != null ? qualifiedIcon.getImage() : null;
+        
             } else {
                 return null;
             }
@@ -100,7 +102,8 @@ public class ImageService implements IImageService {
     public Image getImage(MObject element, IPeerModule filter) {
         if (filter != null) {
             if (element instanceof ModelElement) {
-                return ModuleI18NService.getImage((ModelElement) element, filter);
+                QualifiedImage qualifiedImage = MdaResources.getQualifiedImage((ModelElement)element, filter);
+                return qualifiedImage != null ? qualifiedImage.getImage() : null;
             } else {
                 return null;
             }
@@ -121,7 +124,7 @@ public class ImageService implements IImageService {
     public QualifiedImage getQualifiedIcon(final MObject element, final IPeerModule filter) {
         if (filter != null) {
             if (element instanceof ModelElement) {
-                return ModuleI18NService.getQualifiedIcon((ModelElement) element, filter);
+                return MdaResources.getQualifiedIcon((ModelElement) element, filter);
             } else {
                 return null;
             }
@@ -142,7 +145,7 @@ public class ImageService implements IImageService {
     public QualifiedImage getQualifiedImage(final MObject element, final IPeerModule filter) {
         if (filter != null) {
             if (element instanceof ModelElement) {
-                return ModuleI18NService.getQualifiedImage((ModelElement) element, filter);
+                return MdaResources.getQualifiedImage((ModelElement) element, filter);
             } else {
                 return null;
             }
@@ -161,13 +164,13 @@ public class ImageService implements IImageService {
     @objid ("a4b49ab5-05cb-42c4-8a5f-efccb04cbc0f")
     @Override
     public Image getStereotypeIcon(final Stereotype stereotype) {
-        return ModuleI18NService.getIcon(stereotype);
+        return MdaResources.getIcon(stereotype);
     }
 
     @objid ("09d7e8aa-5f78-409a-8e7b-564c6dd9aa61")
     @Override
     public Image getStereotypeImage(final Stereotype stereotype) {
-        return ModuleI18NService.getImage(stereotype);
+        return MdaResources.getImage(stereotype);
     }
 
 }

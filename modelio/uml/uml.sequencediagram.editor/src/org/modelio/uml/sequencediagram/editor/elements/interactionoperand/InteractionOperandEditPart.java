@@ -52,7 +52,7 @@ public class InteractionOperandEditPart extends PortContainerEditPart {
         return fig;
     }
 
-    @objid ("482c00d5-95d8-4783-b75b-03cc37a99234")
+    @objid ("386cf319-8d9b-47ae-b032-6d13c6f70337")
     @Override
     protected void createEditPolicies() {
         super.createEditPolicies();
@@ -60,7 +60,7 @@ public class InteractionOperandEditPart extends PortContainerEditPart {
         
     }
 
-    @objid ("565765ef-4b44-4e4f-a7ec-83ba2774d05f")
+    @objid ("d65dde4d-64a9-4969-a2fa-49caa715eb3b")
     @Override
     public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
         return new AutoSizeEditPolicy2() {
@@ -75,7 +75,7 @@ public class InteractionOperandEditPart extends PortContainerEditPart {
         
     }
 
-    @objid ("cc726d27-d96b-4512-8cae-a40a3f02449c")
+    @objid ("cbb13b5e-291e-4517-8350-095e3b9f4c75")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
         return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);

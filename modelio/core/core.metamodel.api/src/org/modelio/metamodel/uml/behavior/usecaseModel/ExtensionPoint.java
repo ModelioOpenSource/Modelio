@@ -38,6 +38,8 @@ import org.modelio.metamodel.uml.statik.VisibilityMode;
  * An extension point identifies a point in the behavior of a use case where that behavior can be extended by the behavior of some other (extending) use case, as specified by an extend relationship.
  * 
  * An ExtensionPoint is a feature of a use case that identifies a point where the behavior of a use case can be augmented with elements of another (extending) use case. 
+ * 
+ * 
  */
 @objid ("00598058-c4bf-1fd8-97fe-001ec947cd2a")
 public interface ExtensionPoint extends UmlModelElement {
@@ -58,6 +60,7 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("ccf36050-2ea2-4fd8-8e51-85f7d206e349")
     VisibilityMode getVisibility();
@@ -67,6 +70,7 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i></i>
+     * 
      */
     @objid ("6236174c-9c10-45c0-a047-8f3d74c229cd")
     void setVisibility(VisibilityMode value);
@@ -76,6 +80,7 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("73d347a3-9fec-4fe0-a62c-46f285a00a38")
     EList<UseCaseDependency> getExtended();
@@ -85,6 +90,7 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("c490ca52-4fb9-4fdb-9cd8-3f543b30d760")
     <T extends UseCaseDependency> List<T> getExtended(java.lang.Class<T> filterClass);
@@ -94,6 +100,7 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("13352a44-d6df-498f-a338-2da62eca5735")
     UseCase getOwner();
@@ -103,8 +110,9 @@ public interface ExtensionPoint extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>null</i>
+     * 
      */
     @objid ("baac16d9-8aad-41c9-926c-0e899abbd362")
     void setOwner(UseCase value);
-
 }
+

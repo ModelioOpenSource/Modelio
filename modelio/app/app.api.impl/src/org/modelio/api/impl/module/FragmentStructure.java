@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.context.project.IFragmentStructure;
-import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -49,10 +49,10 @@ public class FragmentStructure implements IFragmentStructure {
     private final List<Element> roots = new ArrayList<>();
 
     @objid ("19e5e7da-eb9f-4584-81fe-3924d3f168fd")
-     FragmentStructure(IProjectFragment f) {
+     FragmentStructure(IGModelFragment f) {
         this.name = f.getId();
         this.type = String.valueOf(f.getType());
-        this.remoteLocation = String.valueOf(f.getUri());
+        this.remoteLocation = String.valueOf(f.getDescriptor().getLocation());
         this.state = String.valueOf(f.getState());
         
         // Root elements

@@ -29,6 +29,11 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * FinalState v0.0.9054
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 @objid ("00564a96-c4bf-1fd8-97fe-001ec947cd2a")
 public interface FinalState extends State {
@@ -43,5 +48,5 @@ public interface FinalState extends State {
      */
     @objid ("dcc77879-9875-425d-9546-01865ad17a6e")
     public static final String MQNAME = "Standard.FinalState";
-
 }
+

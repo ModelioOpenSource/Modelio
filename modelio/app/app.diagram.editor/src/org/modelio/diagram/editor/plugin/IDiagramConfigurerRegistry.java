@@ -58,5 +58,5 @@ public interface IDiagramConfigurerRegistry {
      */
     @objid ("667336a1-33f7-11e2-95fe-001ec947c8cc")
     IDiagramConfigurer getConfigurer(final String metaclassName);
-
 }
+

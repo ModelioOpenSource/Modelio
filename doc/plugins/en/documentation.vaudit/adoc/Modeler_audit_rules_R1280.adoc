@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1280]]
 
-[[r1280]]
+
+
 = R1280
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 ObjectFlows may not have Actions at both end.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An object flow is an activity edge that only passes object and data tokens.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 When you get a R1280 warning on an ObjectFlow, check that it does not connect action nodes.

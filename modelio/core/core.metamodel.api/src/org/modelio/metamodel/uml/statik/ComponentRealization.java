@@ -33,6 +33,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
  * 
  * 
  * <p>A Component may be realized (or implemented) by a number of Classifiers. In that case, a Component owns a set of ComponentRealizations to these Classifiers.</p>
+ * 
+ * 
+ * 
  */
 @objid ("62efa8ac-4b66-4ce6-bc08-86fd413905ce")
 public interface ComponentRealization extends UmlModelElement {
@@ -53,6 +56,7 @@ public interface ComponentRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Classifiers that are involved in the implementation of the Component that owns this Realization.</i>
+     * 
      */
     @objid ("ae88e7f4-2a5e-46d0-9cac-f08251c4cc84")
     Classifier getRealizingClassifier();
@@ -62,6 +66,7 @@ public interface ComponentRealization extends UmlModelElement {
      * 
      * Metamodel description:
      * <i>The Classifiers that are involved in the implementation of the Component that owns this Realization.</i>
+     * 
      */
     @objid ("3b3d78d8-462e-4f4a-b3e8-41a1c0514f5a")
     void setRealizingClassifier(Classifier value);
@@ -72,6 +77,7 @@ public interface ComponentRealization extends UmlModelElement {
      * Metamodel description:
      * <i>The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.
      * </i>
+     * 
      */
     @objid ("b7949c2f-89e4-4fe0-8456-3e2c7180f678")
     Component getAbstraction();
@@ -82,8 +88,9 @@ public interface ComponentRealization extends UmlModelElement {
      * Metamodel description:
      * <i>The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.
      * </i>
+     * 
      */
     @objid ("c2ab659d-22e9-421c-9241-0120cc5d706b")
     void setAbstraction(Component value);
-
 }
+

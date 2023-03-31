@@ -38,5 +38,5 @@ public interface IOElement {
 
     @objid ("703e1d59-3750-4d77-bed9-e5a2384c9f3c")
     void setProperties(org.eclipse.uml2.uml.Element ecoreElt);
-
 }
+

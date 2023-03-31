@@ -67,5 +67,5 @@ public interface IPersistent {
      */
     @objid ("cb7049c0-186f-11e2-92d2-001ec947c8cc")
     int getMajorVersion();
-
 }
+

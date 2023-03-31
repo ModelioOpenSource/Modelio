@@ -43,5 +43,5 @@ public interface IAccessManager {
      */
     @objid ("c7734778-d58f-11e1-b069-001ec947ccaf")
     void initStatus(SmObjectImpl obj, IModelLoader loader);
-
 }
+

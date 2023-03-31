@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3230]]
 
-[[r3230]]
+
+
 = R3230
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Tous les _SequenceFlows_ sortant d'un _ExclusiveGateway_ doivent avoir une garde, à l'exception du flux par défaut.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Un _ExclusiveGateway_ agit comme un 'OU' logique, et donc tous les flux sortant doivent avoir une condition, à l'exception du flux par défaut, qui reçoit le jeton lorsque toutes les conditions sont fausses.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des flux sortant d'un _ExclusiveGateway_ qui n'ont pas de garde et qui ne sont pas le flux par défaut, vous devriez éditer leur propriété _Garde_.

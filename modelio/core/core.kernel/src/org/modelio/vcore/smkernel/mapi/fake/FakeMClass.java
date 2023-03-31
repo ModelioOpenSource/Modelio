@@ -49,5 +49,5 @@ public interface FakeMClass extends MClass {
     @objid ("573f85f0-db50-4904-a42e-09743c59f5cc")
     @Override
     boolean isFake();
-
 }
+

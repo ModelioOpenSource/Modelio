@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R3220]]
 
-[[r3220]]
+
+
 = R3220
 
-[[Résumé]]
 
-[[résumé]]
+
+
 ===== Résumé
 
 Un _SequenceFlow_ sortant d'un _EventBasedGateway_ doit cibler un _IntermediaryCatchEvent_.
 
-[[Détails]]
 
-[[détails]]
+
+
 ===== Détails
 
 Les _SequenceFlows_ sortant d'un _EventBasedGateway_ sont considérés comme des évènements et ne peuvent être attrapés que par des _IntermediaryCatchEvent_.
 
-[[Conseils]]
 
-[[conseils]]
+
+
 ===== Conseils
 
 Si vous avez des flux sortant d'un _EventBasedGateway_ qui ne ciblent pas un _IntermediaryCatchEvent_, vous devriez supprimer ces flux.

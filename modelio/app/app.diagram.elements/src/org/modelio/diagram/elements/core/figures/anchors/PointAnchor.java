@@ -70,13 +70,13 @@ public class PointAnchor extends XYAnchor {
         return super.getReferencePoint();
     }
 
-    @objid ("1bf43f4c-d976-4822-9022-26504e18a531")
+    @objid ("b7624711-c21a-4d8d-a74c-d1f9874ceb29")
     @Override
     public int hashCode() {
         return Objects.hash(this.owner, getRelativeReferencePoint());
     }
 
-    @objid ("f203d36e-69aa-4e1a-8e5b-9d1de3791d1d")
+    @objid ("d175ec0c-5975-4d36-8b72-40b1971e7db5")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

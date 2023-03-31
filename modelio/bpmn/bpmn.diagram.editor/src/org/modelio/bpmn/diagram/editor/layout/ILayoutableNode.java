@@ -148,5 +148,5 @@ public interface ILayoutableNode {
 
     @objid ("c22cf0a1-6373-4455-b3c2-60fa5bf61117")
     List<ILayoutableLink> getOutLinks(AnchorDirection anchorDirection);
-
 }
+

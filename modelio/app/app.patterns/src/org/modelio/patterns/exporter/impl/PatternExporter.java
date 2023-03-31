@@ -98,16 +98,16 @@ public class PatternExporter implements IPatternModelAnalyser, IPatternModelComp
 
     /**
      * Exporting metadatas from a {@link RuntimePattern}.
-     * @see org.modelio.patterns.model.information.Pattern
      * @throws JAXBException when the pattern metadatas are invalid.
      * @throws IOException when the pattern can't be read.
+     * @see org.modelio.patterns.model.information.Pattern
      * @see org.modelio.patterns.model.information.Pattern 
      */
     @objid ("1f03b502-063b-4d74-90e7-f5b683adbeb1")
     private void exportManifest(RuntimePattern pattern, Path exportDirectory) throws JAXBException, IOException {
         Path manifest = exportDirectory.resolve("Manifest.xml");
         
-        JAXBContext jc = JAXBContext.newInstance("org.modelio.patterns.model.information");
+        JAXBContext jc = JAXBContext.newInstance("org.modelio.patterns.model.information", RuntimePattern.class.getClassLoader());
         Marshaller m = jc.createMarshaller();
         try (final FileOutputStream stream = new FileOutputStream(manifest.toFile())) {
             m.marshal(pattern.getInfos(), stream);
@@ -208,7 +208,7 @@ public class PatternExporter implements IPatternModelAnalyser, IPatternModelComp
             @objid ("710597b6-6eb6-427a-baad-c434b07b8916")
             public String packagingPath;
 
-            @objid ("4f8059d2-c814-4439-8b10-ec8294f2c24b")
+            @objid ("1f1ee270-8fa9-40d6-b4a0-8e022185424c")
             public File resourceFile;
 
             @objid ("5e0040d0-fe4a-4854-87a5-5623e7732b59")

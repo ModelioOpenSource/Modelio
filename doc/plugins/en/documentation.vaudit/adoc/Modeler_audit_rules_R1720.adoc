@@ -3,28 +3,28 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[R1720]]
 
-[[r1720]]
+
+
 = R1720
 
-[[Summary]]
 
-[[summary]]
+
+
 ===== Summary
 
 An abstract _NameSpace_ should only inherit from an abstract _NameSpace_.
 
-[[Details]]
 
-[[details]]
+
+
 ===== Details
 
 An abstract _NameSpace_ cannot be instantiated. Therefore an abstract _NameSpace_ should not inherit from a _NameSpace_ that can be instantiated because it would inherit instanciable properties.
 
-[[Tips]]
 
-[[tips]]
+
+
 ===== Tips
 
 * Make the child _NameSpace_ concrete.

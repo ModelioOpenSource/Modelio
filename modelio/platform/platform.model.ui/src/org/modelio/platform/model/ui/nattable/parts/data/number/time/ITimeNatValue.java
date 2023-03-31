@@ -32,5 +32,5 @@ public interface ITimeNatValue extends INumberNatValue {
     @objid ("25e66ff5-b2c9-4ea9-9bba-402dae216c49")
     @Override
     Date getValue();
-
 }
+

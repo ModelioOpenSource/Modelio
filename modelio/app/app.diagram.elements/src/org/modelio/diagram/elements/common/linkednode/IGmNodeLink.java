@@ -28,6 +28,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * node. This link does not represent a model element but rather the value of one of its relationships.
  */
 @objid ("7eb8bb7d-1dec-11e2-8cad-001ec947c8cc")
-public interface IGmNodeLink {// Nothing to do
-    
-}
+public interface IGmNodeLink {
+// Nothing to do
+    }
+

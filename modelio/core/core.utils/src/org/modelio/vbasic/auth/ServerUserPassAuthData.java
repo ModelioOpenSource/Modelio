@@ -27,6 +27,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Note that the server part may be null and that server is not required for a isComplete() authentication data.
  */
 @objid ("947c5dbc-8b3b-437a-97f6-399670bb73be")
+@Deprecated
 public class ServerUserPassAuthData extends UserPasswordAuthData {
     @objid ("71a56cab-e055-481f-98ae-2cbb44c2bd19")
     private static final String TARGETSERVER = "targetserver";

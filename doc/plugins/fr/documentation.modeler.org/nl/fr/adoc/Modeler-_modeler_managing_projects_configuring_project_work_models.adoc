@@ -3,9 +3,9 @@
 // Path to the stylesheet files
 :stylesdir: .
 
-[[Configurer-les-modèles-de-travail-du-projet]]
 
-[[configurer-les-modèles-de-travail-du-projet]]
+
+
 = Configurer les modèles de travail du projet
 
 Un *modèle de travail* dans un projet Modelio est un modèle modifiable sur lequel travaille un utilisateur final.
