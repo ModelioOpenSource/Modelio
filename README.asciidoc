@@ -3,7 +3,7 @@ link:https://www.modelio.org[image:README/logo-modelio-v4.png[]]
 == Modelio 5.3.1 Release
 
 We are pleased to announce the release of Modelio 5.3.1. 
-link:https://github.com/ModelioOpenSource/Modelio/wiki[*Modelio 5.3.1 Download*]
+link:https://github.com/ModelioOpenSource/Modelio/releases/tag/v5.3.1[*Modelio 5.3.1 Download*]
 
 **Discover the new features of this version:**
 
