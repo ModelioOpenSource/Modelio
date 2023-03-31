@@ -10,9 +10,11 @@ Discover the new features of this version:
 *ArchiMate 3.2 Support :*  Modelio supports the latest version of the ArchiMate standard. This new iteration of the standard proposes an evolution in the relationships between ArchiMate elements and a standardization of element representation modes. 
 
 *Easily reuse existing elements in new diagrams :* The new model element creation mode is available in all diagrams and formalisms. It allows the reuse of existing concepts by a targeted search among elements of the same type andunmasking the selected element instead of creating a new concept.  This function is simply activated by pressing the "CTRL" key when creating an element. It offers a search window allowing you to select an existing element or to create a new one.
+
 image:README/release5-3-1-a.gif[Easily reuse existing elements in new diagrams]
 
 *Merge similar concepts within the repository* : This new tool allows you to automatically merge elements of the same type within the model repository. When merging, all relationships of the merged elements are preserved. The diagrams, in which the merged concepts appear, are updated automatically; this ensures the quality of the resulting models.
+
 image:README/release5-3-1-b.gif[Merge similar concepts within the repository]
 
 *Customize your diagrams with new documentation elements :* You can now directly insert formatted texts and customized images into your diagrams. This allows you to meet specific needs or to use a clearer representation for business teams.
