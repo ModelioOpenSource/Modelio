@@ -8,7 +8,7 @@ link:https://github.com/ModelioOpenSource/Modelio/releases/tag/v5.4.1[*Modelio 5
 
 https://github.com/ModelioOpenSource/Modelio/wiki[*Modelio 5.4.1 Documentation*]
 
-*Discover new features of this version*
+=== Discover new features of this version
 
 * *Diagram Thumbnail :* The interface for including a diagram thumbnail in another diagram has been improved, and now features search functionality and context information to differentiate between two diagrams with the same name.
 
@@ -22,6 +22,7 @@ image:README/release5-4-1-b.png[Traceability In Diagrams]
 
 image:README/release5-4-1-c.png[Archimate]
 
+=== Release Note
 https://github.com/ModelioOpenSource/Modelio/wiki/Release-541[*Modelio 5.4.1 Release Note*]
 
 == Modelio Modeling Environment
