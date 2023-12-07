@@ -8,20 +8,6 @@ link:https://github.com/ModelioOpenSource/Modelio/releases/tag/v5.4.1[*Modelio 5
 
 https://github.com/ModelioOpenSource/Modelio/wiki[*Modelio 5.4.1 Documentation*]
 
-=== Discover new features of this version
-
-* *Diagram Thumbnail :* The interface for including a diagram thumbnail in another diagram has been improved, and now features search functionality and context information to differentiate between two diagrams with the same name.
-
-image:README/release5-4-1-a.png[Diagram Thumbnail]
-
-* *Traceability In Diagrams :* New feature that allows you to unmask all elements linked to elements already present in a diagram. 
-
-image:README/release5-4-1-b.png[Traceability In Diagrams]
-
-* *Archimate 3.2 Support:* Iconographic representation has been updated to comply with ArchiMate 3.2 standard : Communication Network, Device, Distribution Network, Equipment, Facility.
-
-image:README/release5-4-1-c.png[Archimate]
-
 === Release Note
 https://github.com/ModelioOpenSource/Modelio/wiki/Release-541[*Modelio 5.4.1 Release Note*]
 
