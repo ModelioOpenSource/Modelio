@@ -39,9 +39,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("3504b25a-55b7-11e2-877f-002564c97630")
 public class GmInformationFlowLink extends GmLink {
-    @objid ("3504b25e-55b7-11e2-877f-002564c97630")
-    private InformationFlow element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -53,6 +50,9 @@ public class GmInformationFlowLink extends GmLink {
 
     @objid ("06a2b8f8-9efd-491f-9dae-791ab2e4db05")
     public static final String ROLE_CONVEYED_GROUP = "conveyed_group";
+
+    @objid ("3504b25e-55b7-11e2-877f-002564c97630")
+    private InformationFlow element;
 
     @objid ("5d1270ed-5bd5-11e2-9e33-00137282c51b")
     private static final InformationFlowLinkStyleKeys STRUCTURED_KEYS = new InformationFlowLinkStyleKeys();
@@ -91,6 +91,9 @@ public class GmInformationFlowLink extends GmLink {
     @objid ("3504b277-55b7-11e2-877f-002564c97630")
     @Override
     public UmlModelElement getFromElement() {
+        if (this.element == null)
+            return null;
+        
         final List<UmlModelElement> sources = this.element.getInformationSource();
         if (sources.isEmpty()) {
             return null;
@@ -127,6 +130,9 @@ public class GmInformationFlowLink extends GmLink {
     @objid ("35063904-55b7-11e2-877f-002564c97630")
     @Override
     public UmlModelElement getToElement() {
+        if (this.element == null)
+            return null;
+        
         final List<UmlModelElement> targets = this.element.getInformationTarget();
         if (targets.isEmpty()) {
             return null;

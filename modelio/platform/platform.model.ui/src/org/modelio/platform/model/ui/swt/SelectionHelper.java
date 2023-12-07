@@ -22,6 +22,7 @@ package org.modelio.platform.model.ui.swt;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
@@ -77,7 +78,7 @@ public final class SelectionHelper {
     public static boolean containsOnly(final ISelection selection, Class<?> cls) {
         if (selection instanceof IStructuredSelection) {
             final IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-            
+        
             // Forbid empty selection
             if (structuredSelection.size() == 0) {
                 return false;
@@ -174,6 +175,31 @@ public final class SelectionHelper {
     }
 
     /**
+     * Convert the selection object to a list of the given type.
+     * <p>
+     * All selection elements not matching the type are filtered out.
+     * @param <T> the wanted type
+     * @param selection the selection object
+     * @param cls the wanted type
+     * @param filter an additional filter that elements must satisfy to be returned
+     * @return the filtered selection content
+     */
+    @objid ("591695a3-08b0-425f-83ea-daf8a0b02dca")
+    public static <T> List<T> toList(final ISelection selection, Class<T> cls, Predicate<T> filter) {
+        List<T> selectedElements = new ArrayList<>();
+        
+        if (selection instanceof IStructuredSelection) {
+            for (Object element : ((IStructuredSelection) selection).toArray()) {
+                final T adapter = adapt(element, cls);
+                if (adapter != null && filter.test(adapter)) {
+                    selectedElements.add(adapter);
+                }
+            }
+        }
+        return selectedElements;
+    }
+
+    /**
      * Convert the selection object to a {@link Stream} of the given type.
      * <p>
      * All selection elements not matching the type are filtered out.
@@ -186,7 +212,7 @@ public final class SelectionHelper {
     public static <T> Stream<T> toStream(final ISelection selection, Class<T> cls) {
         if (selection instanceof IStructuredSelection) {
             Stream<?> stream = ((IStructuredSelection) selection).toList().stream();
-            
+        
             return stream
             .map(element -> adapt(element, cls))
             .filter(Objects::nonNull);

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -45,13 +45,13 @@ public interface Stereotype extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("bd635881-166f-428c-aa59-bb3e38a6fc84")
+    @objid ("44c85697-569f-4c2f-8b93-6976f595ed07")
     public static final String MNAME = "Stereotype";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("b3926811-6d09-4242-82ff-c3f80a6ebff9")
+    @objid ("d60a10c8-0486-42be-8e1f-a6cd9d0509a7")
     public static final String MQNAME = "Infrastructure.Stereotype";
 
     @objid ("27dde74f-c802-420a-8472-e6f2e9d112a7")
@@ -73,7 +73,7 @@ public interface Stereotype extends ModelElement {
      * <i>Image that represents the stereotype in diagrams for elements in image mode.</i>
      * 
      */
-    @objid ("f646a97c-df9d-4066-a96c-8d20ccd0d19b")
+    @objid ("29149c4e-5304-48b8-bf36-e2b4815f9636")
     String getImage();
 
     /**
@@ -83,7 +83,7 @@ public interface Stereotype extends ModelElement {
      * <i>Image that represents the stereotype in diagrams for elements in image mode.</i>
      * 
      */
-    @objid ("ff9a8197-3e42-46ab-bd71-820a893089e9")
+    @objid ("70720aa6-1a8b-4321-bc4c-d1c68055e414")
     void setImage(String value);
 
     /**
@@ -93,7 +93,7 @@ public interface Stereotype extends ModelElement {
      * <i>Icon that can represent the stereotyped ModelElement.</i>
      * 
      */
-    @objid ("8129819e-9021-4771-89ef-a3d1ac7d7bd6")
+    @objid ("d98d0518-869c-467b-ab92-2fd98155cb0e")
     String getIcon();
 
     /**
@@ -103,7 +103,7 @@ public interface Stereotype extends ModelElement {
      * <i>Icon that can represent the stereotyped ModelElement.</i>
      * 
      */
-    @objid ("6e399aa9-3ad6-4f49-a75b-8dc902a758b3")
+    @objid ("1dd8bc53-3061-4801-9291-54f5a1461e26")
     void setIcon(String value);
 
     /**
@@ -114,7 +114,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("192777cf-12cf-4880-bfb4-046f55b3c1cc")
+    @objid ("7a266180-bd64-48b7-9637-f69662454ee0")
     boolean isIsHidden();
 
     /**
@@ -125,7 +125,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("f544b284-e1b7-428d-b6e8-760ffac80abf")
+    @objid ("7852257a-d2ea-4570-99f1-10ac2a0f9da1")
     void setIsHidden(boolean value);
 
     /**
@@ -136,7 +136,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("adde264e-a042-4a08-b6ce-c5127ff6b5f0")
+    @objid ("157e0544-289f-460e-88e6-704ad37391ae")
     boolean isIsAbstract();
 
     /**
@@ -147,7 +147,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("77f77b7b-3094-4087-bf50-484995125046")
+    @objid ("a3d85ae5-9b56-4942-9f9f-df22378cb70e")
     void setIsAbstract(boolean value);
 
     /**
@@ -158,7 +158,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("6bea0aa1-a217-4330-b37d-6a6e6586b655")
+    @objid ("17dfd735-cb7d-4eb8-b6f7-12d5c65c394f")
     String getLabelKey();
 
     /**
@@ -169,7 +169,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("995d1e2c-0579-4cd5-acb0-31626d364e30")
+    @objid ("439275b0-01bd-450e-b00d-b1811144f8fd")
     void setLabelKey(String value);
 
     /**
@@ -180,7 +180,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("d07a6cde-3f3d-4581-bdd6-606e94d62222")
+    @objid ("217dad3c-0090-4e59-bcf4-1bc09487e9f6")
     String getBaseClassName();
 
     /**
@@ -191,7 +191,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("685e817a-dcd9-4e33-8657-5c1d338fc0c8")
+    @objid ("bccc4486-2027-4d7d-8492-0646dbac1ab1")
     void setBaseClassName(String value);
 
     /**
@@ -201,7 +201,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("9620b9e1-3293-4b9a-8e85-7170adfd610e")
+    @objid ("57757b5e-1e0f-426f-834d-198fe1c6cf9a")
     PropertyTableDefinition getDefinedTable();
 
     /**
@@ -211,7 +211,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("e6583b5e-1639-43e2-aeaf-4abfe09ab6aa")
+    @objid ("46ac57fe-be3e-4c9d-8939-e5749dfa30e1")
     void setDefinedTable(PropertyTableDefinition value);
 
     /**
@@ -221,7 +221,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("cad89353-31db-452e-80ad-008c91d510a6")
+    @objid ("fb61d71d-3f7f-4692-9572-e485c4192529")
     EList<ResourceType> getDefinedResourceType();
 
     /**
@@ -231,7 +231,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("0b3cb31e-6630-49ce-afe4-a34905245383")
+    @objid ("22b24651-0b54-440c-80df-3d2b276fc5d8")
     <T extends ResourceType> List<T> getDefinedResourceType(java.lang.Class<T> filterClass);
 
     /**
@@ -241,7 +241,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("8dac0868-ef42-43bd-87d7-e4eb2693585b")
+    @objid ("2ce14133-d9a4-4003-b5d8-baa8d80869e4")
     Profile getOwner();
 
     /**
@@ -251,7 +251,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("966d098c-178b-4351-ac54-2670aa9b763c")
+    @objid ("32103a4d-d877-424f-9a9e-c89d4bf8f67b")
     void setOwner(Profile value);
 
     /**
@@ -261,7 +261,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("c9765e77-a706-42c6-aa6a-52670cf4fdd1")
+    @objid ("e904d0e6-881d-4831-b454-46ea2b285857")
     Stereotype getParent();
 
     /**
@@ -271,7 +271,7 @@ public interface Stereotype extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("edc13f38-ea18-4856-ac8f-98ebcf3f7166")
+    @objid ("8738aed0-7cd8-4350-ac52-622b1c41936f")
     void setParent(Stereotype value);
 
     /**
@@ -281,7 +281,7 @@ public interface Stereotype extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("23a5e876-bfa6-4051-8d72-a97a6f839d92")
+    @objid ("03939e51-7a84-48bf-8f41-37c7628106e9")
     EList<TagType> getDefinedTagType();
 
     /**
@@ -291,7 +291,7 @@ public interface Stereotype extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("03836d0e-b665-4dab-8249-28b9b7b808a8")
+    @objid ("62f0d43c-529c-4af6-b56c-8d9e5b6c6721")
     <T extends TagType> List<T> getDefinedTagType(java.lang.Class<T> filterClass);
 
     /**
@@ -301,7 +301,7 @@ public interface Stereotype extends ModelElement {
      * <i>Stereotypes inheriting from this one.</i>
      * 
      */
-    @objid ("25020361-36d8-437d-84ff-16bc481e8e16")
+    @objid ("91a8a5a5-6def-47e4-8a46-33534f8cded9")
     EList<Stereotype> getChild();
 
     /**
@@ -311,7 +311,7 @@ public interface Stereotype extends ModelElement {
      * <i>Stereotypes inheriting from this one.</i>
      * 
      */
-    @objid ("55698fc3-8ecd-406b-816d-c1dbabb2de9e")
+    @objid ("d70333fd-2e31-41f9-8940-48817d0183f8")
     <T extends Stereotype> List<T> getChild(java.lang.Class<T> filterClass);
 
     /**
@@ -321,7 +321,7 @@ public interface Stereotype extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("ab6d8673-42f8-4270-90f2-4379bc7d5d1f")
+    @objid ("be10fa65-ebdb-49b5-9b36-2f28b350e93c")
     EList<NoteType> getDefinedNoteType();
 
     /**
@@ -331,7 +331,7 @@ public interface Stereotype extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("88117104-4340-4261-ae95-1998d1484e6d")
+    @objid ("4d5e2133-800d-42de-a2af-fa514114c40a")
     <T extends NoteType> List<T> getDefinedNoteType(java.lang.Class<T> filterClass);
 
     /**
@@ -342,7 +342,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("de5f773c-76ca-4e9a-b0fe-9304bd63a0ec")
+    @objid ("2669c84a-1c58-4ef0-a8b8-dfaf08d4c68f")
     EList<ModelElement> getExtendedElement();
 
     /**
@@ -353,7 +353,7 @@ public interface Stereotype extends ModelElement {
      * </i>
      * 
      */
-    @objid ("4b4e95d4-e04d-4e9a-aee1-36dac8b4bfed")
+    @objid ("724d6b1a-bc5f-4397-804b-572eef4e7aef")
     <T extends ModelElement> List<T> getExtendedElement(java.lang.Class<T> filterClass);
 }
 

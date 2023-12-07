@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>5.3.1-SNAPSHOT</version>
+		<version>5.4.1-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
@@ -33,8 +33,8 @@
 		<module>../../../modelio/app/app.edition.dialogs</module>
 		<module>../../../modelio/app/app.edition.notes</module>
 		<module>../../../modelio/app/app.editors.richnote</module>
-		<module>../../../modelio/app/app.editors.richnote.libreoffice</module>
-		<module>../../../modelio/app/app.editors.richnote.microsoft</module>
+		<!--module>../../../modelio/app/app.editors.richnote.libreoffice</module>
+		<module>../../../modelio/app/app.editors.richnote.microsoft</module-->
 		<module>../../../modelio/app/app.editors.texteditors</module>
 		<module>../../../modelio/app/app.link.editor</module>
 		<module>../../../modelio/app/app.link.editor.ext_org</module>

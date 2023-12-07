@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="net.java.dev.jna"
+      label="JNA Library"
+      version="4.1.0.v06022015_1911">
+
+   <description url="http://jna.dev.java.net/">
+      JNA Library
+   </description>
+
+   <copyright url="http://jna.dev.java.net/">
+      Copyright (c) 2008 Timothy Wall, All Rights Reserved
+   </copyright>
+
+   <license url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">
+      %license
+   </license>
+
+   <url>
+      <update label="TMate Software SVNKit 1.10.x Update Site" url="https://eclipse.tmatesoft.com/1.10.x/"/>
+      <discovery label="TMate Software SVNKit 1.10.x Update Site" url="https://eclipse.tmatesoft.com/1.10.x/"/>
+   </url>
+
+   <plugin
+         id="net.java.dev.jna"
+         download-size="0"
+         install-size="0"
+         version="4.1.0.v06022015_1911"
+         unpack="false"/>
+
+</feature>

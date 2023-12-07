@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -51,20 +51,20 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return Integer.compare(literals.indexOf(l), literals.indexOf(this));
     }
 
-    @objid ("ecbee17b-24d7-4d10-9677-759645ac4f9f")
+    @objid ("5ce3b468-495f-4649-a835-dd214d35842b")
     @Override
     public EnumeratedPropertyType getOwner() {
         Object obj = getDepVal(((PropertyEnumerationLitteralSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof EnumeratedPropertyType)? (EnumeratedPropertyType)obj : null;
     }
 
-    @objid ("277fcca7-b4d5-4f0b-a58f-1f06a4e8e389")
+    @objid ("e58070ab-078b-422a-aa7b-1c4fdddae863")
     @Override
     public void setOwner(EnumeratedPropertyType value) {
         appendDepVal(((PropertyEnumerationLitteralSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("94d883b7-ee75-413a-8a57-f163c4e365bb")
+    @objid ("68e5c15d-6a4c-4de2-9e62-4ee7ecad002d")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -76,7 +76,7 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return super.getCompositionOwner();
     }
 
-    @objid ("c4b9e76a-0a4a-475b-9807-81a2684e87e5")
+    @objid ("4e2a7f8f-3cfb-489e-81f7-acf7a7ede7d3")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -91,7 +91,7 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return super.getCompositionRelation();
     }
 
-    @objid ("b1cddef5-7887-44ab-8906-355548eae0e4")
+    @objid ("f0e6ee44-097f-4160-960d-606f7eb1b2b9")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyEnumerationLitteral(this);

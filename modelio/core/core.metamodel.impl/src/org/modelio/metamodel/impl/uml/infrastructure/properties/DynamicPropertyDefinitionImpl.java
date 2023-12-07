@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -78,7 +78,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return getMClass().getOrigin().getDynamicBehavior(resolverKey, IDynamicPropertyResolver.class);
     }
 
-    @objid ("31b1cb48-3844-4ba2-902d-c1d48c60ed5c")
+    @objid ("1d69c937-0753-4adb-bb17-a25904d82941")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -86,7 +86,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return super.getCompositionOwner();
     }
 
-    @objid ("0678557c-f88d-4043-9bea-c470d154d5b8")
+    @objid ("3933de84-3c18-4b4c-8892-d848eb880b8a")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -96,7 +96,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return super.getCompositionRelation();
     }
 
-    @objid ("5b711afe-1715-4da8-8b6f-9012484bf3e9")
+    @objid ("43c0fe77-9238-4a41-a38d-a03517631c16")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDynamicPropertyDefinition(this);

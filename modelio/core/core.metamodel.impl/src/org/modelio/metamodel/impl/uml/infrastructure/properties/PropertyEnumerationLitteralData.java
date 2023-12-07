@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -31,10 +31,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("007387fa-ec87-1098-b22e-001ec947cd2a")
 public class PropertyEnumerationLitteralData extends ModelElementData {
-    @objid ("8ed9ac87-b0c2-45f6-8532-5d33f7572a88")
+    @objid ("bfa928fc-3d53-4a85-8165-3c370cc4d02f")
     SmObjectImpl mOwner;
 
-    @objid ("798366dd-374f-45fd-8cdb-30f909ba6391")
+    @objid ("beae627b-67e3-47df-8e9b-a6532581642b")
     public  PropertyEnumerationLitteralData(PropertyEnumerationLitteralSmClass smClass) {
         super(smClass);
     }

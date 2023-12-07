@@ -1,21 +1,21 @@
-/* 
+/*
  * Copyright 2013-2020 Modeliosoft
- * 
+ *
  * This file is part of Modelio.
- * 
+ *
  * Modelio is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Modelio is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package org.modelio.platform.model.ui.swt.selectmetaclass.multiple;
 
@@ -69,7 +69,7 @@ public class MultipleMetaclassSelector {
     @objid ("bd145d57-38e7-43a6-9828-e751a2d245dd")
     private final Text text;
 
-    
+
     @mdl.prop
     @objid ("f9e435de-9cbd-47a5-9aef-12055591c9dc")
     public IMetaclassSelectorFilter metaclassFilter;
@@ -101,7 +101,7 @@ public class MultipleMetaclassSelector {
     public  MultipleMetaclassSelector(Composite parent, int style, MMetamodel metamodel, IMetaclassSelectorFilter filter) {
         this.text = createControl(parent, style);
         this.metaclassFilter = filter;
-        
+
         this.allMetaclasses = new ArrayList<>(metamodel.getRegisteredMClasses());
         Collections.sort(this.allMetaclasses, new Comparator<MClass>() {
             @Override
@@ -109,7 +109,7 @@ public class MultipleMetaclassSelector {
                 return o1.getName().compareTo(o2.getName());
             }
         });
-        
+
     }
 
     @objid ("6c2c2d5f-a9db-49fe-aad6-ce42b9128366")
@@ -143,23 +143,23 @@ public class MultipleMetaclassSelector {
             this.selectedMetaclasses.addAll(mClasses);
         }
         refreshMetaclassesText();
-        
+
     }
 
     @objid ("90cdf83f-17ba-4903-8f95-8324da47c14f")
     private Text createControl(Composite parent, int style) {
         final Text wrappedText = new Text(parent, style | SWT.READ_ONLY);
-        
+
         // create the decoration for the text component
         final ControlDecoration deco = new ControlDecoration(wrappedText, SWT.CENTER | SWT.RIGHT);
-        
+
         // set description and image
         deco.setDescriptionText(CoreUi.I18N.getString("MultipleMetaclassSelector.assist.tooltip"));
         deco.setImage(UIImages.ASSIST);
-        
+
         // always show decoration
         deco.setShowOnlyOnFocus(false);
-        
+
         wrappedText.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseDown(MouseEvent e) {
@@ -184,30 +184,30 @@ public class MultipleMetaclassSelector {
                                 this.selectedMetaclasses.get(0).getQualifiedName(),
                                 this.selectedMetaclasses.size()-1));
         }
-        
-        
+
+
         this.text.setToolTipText(this.selectedMetaclasses.stream()
                 .map((mc)->mc.getQualifiedName())
                 .sorted()
                 .collect(Collectors.joining("\n")));
-        
+
     }
 
     @objid ("bc07f8f3-4033-4ead-8443-eb7b5fef6149")
     private void updateMetaclasses() {
         refreshMetaclassesText();
-        
+
         for (IMultipleMetaclassSelectorListener l : this.listeners) {
             l.selectMetaclasses(getSelected());
         }
-        
+
     }
 
     @objid ("2470b32e-153a-4abd-80f0-75dc50ae3488")
     private void showProposals() {
         IMetaclassSelectorFilter filter = this.metaclassFilter != null ? this.metaclassFilter : (o) -> true;
-        
-        Supplier<List<MClass>> candidatesProvider = new Supplier<>() {
+
+        Supplier<List<MClass>> candidatesProvider = new Supplier<List<MClass>>() {
             @Override
             public List<MClass> get() {
                 return MultipleMetaclassSelector.this.allMetaclasses.stream()
@@ -215,35 +215,35 @@ public class MultipleMetaclassSelector {
                                                                     .collect(Collectors.toList());
             }
         };
-        
+
         ILabelProvider labelProvider = new LabelProvider() {
             @Override
             public String getText(Object element) {
                 return ((MClass) element).getQualifiedName();
             }
-        
+
             @Override
             public Image getImage(Object element) {
                 return MetamodelImageService.getIcon((MClass) element);
             };
         };
-        
+
         SelectObjectsPanel<MClass> panel = new SelectObjectsPanel<>(MClass.class, candidatesProvider, labelProvider, true);
-        
+
         ThinPanelDialog poppingPanel = new ThinPanelDialog(this.text, panel, false) {
             @Override
             public void onClose() {
                 updateMetaclasses();
                 super.onClose();
             }
-        
-        
-        
+
+
+
         };
-        
+
         poppingPanel.open();
         poppingPanel.getPanelProvider().setInput(this.selectedMetaclasses);
-        
+
     }
 
 }

@@ -38,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("34eac1d1-55b7-11e2-877f-002564c97630")
 public class GmGeneralization extends GmLink {
-    @objid ("34eac1d5-55b7-11e2-877f-002564c97630")
-    private Generalization element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -49,6 +46,9 @@ public class GmGeneralization extends GmLink {
 
     @objid ("34ec485b-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("34eac1d5-55b7-11e2-877f-002564c97630")
+    private Generalization element;
 
     @objid ("5964b017-5bd5-11e2-9e33-00137282c51b")
     private static final GmGeneralizationStyleKeys styleKeyProvider = new GmGeneralizationStyleKeys();
@@ -97,12 +97,16 @@ public class GmGeneralization extends GmLink {
     @objid ("34ec4885-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
         return this.element.getSubType();
     }
 
     @objid ("34ec488c-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getSuperType();
     }
 

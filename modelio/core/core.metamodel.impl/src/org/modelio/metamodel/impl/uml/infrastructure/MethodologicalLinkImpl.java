@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -42,20 +42,20 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("54eeca61-6ddb-4cfc-9b17-2f0c30f9720b")
 public class MethodologicalLinkImpl extends DependencyImpl implements MethodologicalLink {
-    @objid ("56585732-ec5f-455b-aed1-2eb882200cf5")
+    @objid ("6a6227f0-c211-40fa-9083-64b47c5c64f9")
     @Override
     public ExternElement getExternElement() {
         Object obj = getDepVal(((MethodologicalLinkSmClass)getClassOf()).getExternElementDep());
         return (obj instanceof ExternElement)? (ExternElement)obj : null;
     }
 
-    @objid ("13a377dd-2fc9-446e-88f1-896f131e5b17")
+    @objid ("ed0743e1-35c1-4cd4-9ee3-61d6a52fc938")
     @Override
     public void setExternElement(ExternElement value) {
         appendDepVal(((MethodologicalLinkSmClass)getClassOf()).getExternElementDep(), (SmObjectImpl)value);
     }
 
-    @objid ("f770f90f-d0a4-49a4-8ab1-3a1070066473")
+    @objid ("34434e3f-3c57-4fcc-8908-4b28279e2e74")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -63,7 +63,7 @@ public class MethodologicalLinkImpl extends DependencyImpl implements Methodolog
         return super.getCompositionOwner();
     }
 
-    @objid ("485f15ed-b308-4086-a41a-0e587a6a5f49")
+    @objid ("42327f50-b337-4d57-8035-6c63cd2fa95a")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -73,7 +73,7 @@ public class MethodologicalLinkImpl extends DependencyImpl implements Methodolog
         return super.getCompositionRelation();
     }
 
-    @objid ("dde3feac-83be-4bf2-a038-fb4a8408d02a")
+    @objid ("e4e0af51-ad7f-48a4-bc81-d349863f2b00")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitMethodologicalLink(this);

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -31,19 +31,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00907a4a-c4be-1fd8-97fe-001ec947cd2a")
 public class TaggedValueData extends ModelElementData {
-    @objid ("e24a9152-db4f-42e2-9b4a-104c5ee99485")
+    @objid ("b073a771-a7f2-430f-8bf7-9134b6cad9ac")
     List<SmObjectImpl> mActual = null;
 
-    @objid ("90442ea9-3158-4787-a7c3-a943bd0d2a9f")
+    @objid ("83bfe656-71b0-4a87-9fe9-6a96fdcd4c28")
     SmObjectImpl mQualifier;
 
-    @objid ("bbcc2673-5f77-451c-838b-ed22fa1576cc")
+    @objid ("2664affd-4265-42ff-bfc1-399a71340a43")
     SmObjectImpl mDefinition;
 
-    @objid ("07ff44a3-58b0-4021-86d7-7c708c5d022e")
+    @objid ("35dc1058-8a3b-46cc-9d59-b16d34ea14d3")
     SmObjectImpl mAnnoted;
 
-    @objid ("be80494c-eeaf-43c2-a455-f11f8c4f401e")
+    @objid ("27e242b9-41c4-414c-a2d0-aed49cbd2d1b")
     public  TaggedValueData(TaggedValueSmClass smClass) {
         super(smClass);
     }

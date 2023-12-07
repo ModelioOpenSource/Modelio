@@ -30,6 +30,7 @@ import org.modelio.diagram.elements.core.ui.DefaultElementSelectionDialog;
 import org.modelio.diagram.elements.core.ui.ElementPlaceolderData;
 import org.modelio.diagram.elements.core.ui.ElementSelectionData;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -44,6 +45,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e6c44060-55cd-4bad-b572-b457c94a1904")
 public class DefaultSelectElementCommand extends DefaultCreateElementCommand {
+    @objid ("31e2124d-0375-4437-9d5c-8d140091b786")
+    private IModelioNavigationService navigationService;
+
     /**
      * Creates a node creation command.
      * @param parentNode The parent node
@@ -73,10 +77,13 @@ public class DefaultSelectElementCommand extends DefaultCreateElementCommand {
         canExecute();
         final IGmDiagram diagram = this.parentNode.getDiagram();
         ElementSelectionData data = initSelectionDataModel();
+        if ( this.parentNode.getDiagram() != null && this.parentNode.getDiagram().getModelManager() != null) {
+            this.navigationService = this.parentNode.getDiagram().getModelManager().getNavigationService();
+        }
         Display.getCurrent().syncExec(new Runnable() {
             @Override
             public void run() {
-                DefaultElementSelectionDialog dialog = new DefaultElementSelectionDialog(Display.getCurrent().getActiveShell(), CoreSession.getSession(parentElement));
+                DefaultElementSelectionDialog dialog = new DefaultElementSelectionDialog(Display.getCurrent().getActiveShell(), CoreSession.getSession(parentElement), navigationService);
                 dialog.setInput(data);
                 if(dialog.open() == IDialogConstants.OK_ID) {
                     MObject newElement = null;

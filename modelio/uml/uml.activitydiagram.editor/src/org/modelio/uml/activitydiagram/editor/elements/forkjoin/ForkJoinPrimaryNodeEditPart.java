@@ -157,6 +157,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         
         if (aFigure.getParent() != null) {
             ChangeBoundsRequest resizeRequest = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
+            resizeRequest.setEditParts(this);
             RequestHelper.setDeltas(resizeRequest, aFigure, newBounds);
             Command command = getParent().getCommand(resizeRequest);
             getViewer().getEditDomain().getCommandStack().execute(command);

@@ -80,20 +80,17 @@ public class LoadHelper implements ILoadHelper {
     @Override
     public SmObjectImpl createStubCmsNode(IModelLoader modelLoader, ObjId id, String defaultName) throws DuplicateObjectException {
         assert (id.classof.isCmsNode()) : id.classof + " is not cms node.";
-        assert (this.loadCache.findById(id.classof, id.id) == null) : id + " is already in load cache";
+        //assert (this.loadCache.findById(id.classof, id.id) == null) : id + " is already in load cache";
+        return this.loadCache.supplyIfAbsent(id.classof, id.id, () -> {
+            // Create a not yet loaded ref.
+            SmObjectImpl  newObject = modelLoader.createLoadedObject(id.classof, id.id);
         
-        SmObjectImpl newObject;
-        // Create a not yet loaded ref.
-        newObject = modelLoader.createLoadedObject(id.classof, id.id);
+            // Set the name now
+            setObjectName(modelLoader, newObject, getNameFromIndex(id, defaultName ));
+            newObject.setRepositoryObject(createStorageHandler(newObject, false));
+            return newObject;
+        });
         
-        // Set the name now
-        setObjectName(modelLoader, newObject, getNameFromIndex(id, defaultName )); 
-              
-        // Add new object to the loaded objects cache
-        this.loadCache.putToCache(newObject);
-              
-        newObject.setRepositoryObject(createStorageHandler(newObject, false));
-        return newObject;
     }
 
     @objid ("67841285-2e7b-11e2-8aaa-001ec947ccaf")
@@ -130,36 +127,36 @@ public class LoadHelper implements ILoadHelper {
         
                 // Get the CMS node containing the element
                 final ObjId parentId = this.exmlBase.getCmsNodeIndex().getCmsNodeOf(idn.toObjId());
-                
+        
                 // If no parent, the element does not exist in the repository
                 if (parentId == null) {
                     throw new IllegalReferenceException("No CMS node contains "+idn+" in the repository.");
                 } else if (! parentId.classof.isCmsNode()) {
                     Log.warning("EXML LoadHelper: The metaclass of %s parent node of %s is not a CMS node", parentId, idn);
                 }
-                
+        
                 // Get the storage handler from the parent CMS node
                 SmObjectImpl parentNode = getLoadedObject(parentId);
                 if (parentNode == null) {
                     // Create ref to the parent CMS node
                     parentNode = createStubCmsNode(modelLoader, parentId, null);
-                
+        
                     // assert the parent node is in the same repository
                     assert (parentNode.getRepositoryObject().getRepositoryId() == this.exmlBase.getRepositoryId());
                 }
-                
         
-                // Create a not yet loaded ref.
-                newObject = modelLoader.createLoadedObject(idn.classof, idn.id);
+                final SmObjectImpl finalParentNode = parentNode;
+                newObject = this.loadCache.supplyIfAbsent(idn.classof, idn.id, () -> {
+                    // Create a not yet loaded ref.
+                    SmObjectImpl newObj = modelLoader.createLoadedObject(idn.classof, idn.id);
         
-                newObject.setRepositoryObject( parentNode.getRepositoryObject());
-                
-                // Set the name now
-                String objName = loadNameFromIndex ? getNameFromIndex(idn.toObjId(), idn.name) : idn.name;
-                setObjectName(modelLoader, newObject, objName);
+                    newObj.setRepositoryObject( finalParentNode.getRepositoryObject());
         
-                // Add new object to the loaded objects cache
-                this.loadCache.putToCache(newObject);
+                    // Set the name now
+                    String objName = loadNameFromIndex ? getNameFromIndex(idn.toObjId(), idn.name) : idn.name;
+                    setObjectName(modelLoader, newObj, objName);
+                    return newObj;
+                });
             }
         
             assert (newObject.getRepositoryObject().getRepositoryId() == this.exmlBase.getRepositoryId());

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Elements
 Bundle-SymbolicName: org.modelio.app.diagram.elements;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,
  org.modelio.platform.ui,
@@ -91,6 +91,7 @@ Export-Package: org.modelio.diagram.elements.common.abstractdiagram,
  org.modelio.diagram.elements.core.link.linknode,
  org.modelio.diagram.elements.core.link.ortho,
  org.modelio.diagram.elements.core.link.ortho.edit,
+ org.modelio.diagram.elements.core.link.ortho.migration,
  org.modelio.diagram.elements.core.link.path,
  org.modelio.diagram.elements.core.link.rake,
  org.modelio.diagram.elements.core.model,

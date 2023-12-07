@@ -286,7 +286,7 @@ public class RakeRouter implements ConnectionRouter {
         
         if (c.getSourceRakeAnchor() != null) {
             routeToSource(connection);
-        } else {
+        } else if (c.getTargetRakeAnchor() != null) {
             routeToTarget(connection);
         }
         

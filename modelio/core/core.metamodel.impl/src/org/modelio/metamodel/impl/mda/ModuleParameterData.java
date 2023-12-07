@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.mda;
@@ -32,34 +32,34 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00653042-c4bf-1fd8-97fe-001ec947cd2a")
 public class ModuleParameterData extends ModelElementData {
-    @objid ("875a5352-981d-495f-b047-2a4904ada79b")
+    @objid ("0f394fb7-10aa-4335-9c46-55d02921fbb7")
     Object mGroupName = "";
 
-    @objid ("6dd2e620-659f-40bb-a412-ab98c85184e7")
+    @objid ("9d740fb1-4936-404e-8570-f58f9f8b8ae3")
     Object mType = ModuleParameterType.TYPE_PARAM_STRING;
 
-    @objid ("426f5b32-711c-4178-9341-9c1b12b82599")
+    @objid ("08c15dd2-570d-4e69-8ebe-677c2e2d5c8c")
     Object mIsUserRead = true;
 
-    @objid ("50cc351b-ccae-418e-9647-e5c5252853c4")
+    @objid ("24635533-ddb2-441c-b4b6-abc1ed5f6fb2")
     Object mIsUserWrite = true;
 
-    @objid ("a1724d18-1934-4fbf-8c60-8cda829b5c79")
+    @objid ("2032d17c-8d9a-46df-8e67-ea482cd3dfdc")
     Object mIsApiRead = true;
 
-    @objid ("7f8c5950-05ce-4c0f-9767-017f461b65f3")
+    @objid ("6f5f4572-36f4-4f0c-9cbe-a0ac87e29700")
     Object mIsApiWrite = true;
 
-    @objid ("f7c23efa-4484-4eb9-bc15-7afc5dbac7d5")
+    @objid ("00b311f7-49cf-40ce-af03-23a6ae9dbbe1")
     Object mDefaultValue = "";
 
-    @objid ("fc423e38-f6c1-42c1-a437-4a8b3381246e")
+    @objid ("6c9befbf-7f4d-4ee6-af77-cd557482115f")
     SmObjectImpl mOwner;
 
-    @objid ("83b0a08d-0121-42da-b3f5-d5b7131822dd")
+    @objid ("07b628b4-d1e0-4f26-a676-eda890961e89")
     SmObjectImpl mEnumType;
 
-    @objid ("c7325aef-917a-4f90-9b7d-361c84d7dac9")
+    @objid ("38011958-1108-487d-bc4c-6e5225ee380e")
     public  ModuleParameterData(ModuleParameterSmClass smClass) {
         super(smClass);
     }

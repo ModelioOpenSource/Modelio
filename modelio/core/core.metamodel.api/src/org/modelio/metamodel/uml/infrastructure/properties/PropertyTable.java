@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -46,13 +46,13 @@ public interface PropertyTable extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("a791122f-ea89-43e8-b461-b191f35f9a70")
+    @objid ("a50e0bb3-6e3c-4af4-8238-18c0304c3a11")
     public static final String MNAME = "PropertyTable";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("db3bbc31-bbfa-48db-a312-56e2238b0609")
+    @objid ("bbdf3f7c-75c0-43fb-88a7-99526ce320b8")
     public static final String MQNAME = "Infrastructure.PropertyTable";
 
     /**
@@ -97,7 +97,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("42a371d5-c71a-4952-9e8c-62fc8d697923")
+    @objid ("a874b4b6-8fdd-472c-9eb2-1274e0d9e401")
     String getName();
 
     /**
@@ -107,7 +107,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("64cfa3b6-69e8-4f3b-95c7-7e5f8ed1a30b")
+    @objid ("3d7d5669-4e20-4fe6-8083-dcbe314d514c")
     void setName(String value);
 
     /**
@@ -117,7 +117,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("bb942164-5769-4e91-8d66-6b171599b8ba")
+    @objid ("96693597-9d82-4b9f-9fc6-90387b431b7a")
     String getContent();
 
     /**
@@ -127,7 +127,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("0a291134-2ff3-4ea3-bdb7-a17c4522d52f")
+    @objid ("cb4427a0-30e9-4219-bb00-25a81501e984")
     void setContent(String value);
 
     /**
@@ -137,7 +137,7 @@ public interface PropertyTable extends Element {
      * <i>Matrix value definition owning the property table.</i>
      * 
      */
-    @objid ("1cdffada-8db9-420e-b02f-b9e32e0c3d00")
+    @objid ("65f9785b-0876-4e21-a049-97c5e3bfee65")
     MatrixValueDefinition getOwnerValDef();
 
     /**
@@ -147,7 +147,7 @@ public interface PropertyTable extends Element {
      * <i>Matrix value definition owning the property table.</i>
      * 
      */
-    @objid ("5a725eb2-929b-4040-b570-20f3e3f7e827")
+    @objid ("900bd246-84ef-4ffe-8ae7-5917a3bbbd4f")
     void setOwnerValDef(MatrixValueDefinition value);
 
     /**
@@ -157,7 +157,7 @@ public interface PropertyTable extends Element {
      * <i>Query owner</i>
      * 
      */
-    @objid ("548bfd84-7aa4-4489-8474-f532b3facdc2")
+    @objid ("b135b465-88ad-4869-96c6-21a9f4c8b8b0")
     QueryDefinition getOwnerQuery();
 
     /**
@@ -167,7 +167,7 @@ public interface PropertyTable extends Element {
      * <i>Query owner</i>
      * 
      */
-    @objid ("f3700b9c-0494-4c0b-97e6-7cc42dd7865e")
+    @objid ("06fb1265-9057-48c1-a1aa-4b4e43392216")
     void setOwnerQuery(QueryDefinition value);
 
     /**
@@ -177,7 +177,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("f79d0ea5-91f5-401b-b81f-e505b62b916a")
+    @objid ("16f96e8b-6b5f-4ef2-b50e-e28c4acd5cec")
     ModelElement getOwner();
 
     /**
@@ -187,7 +187,7 @@ public interface PropertyTable extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("0194ecb3-0722-4753-a3b5-ee1354c0344f")
+    @objid ("1e41cf9c-cdc2-4c94-875f-5260d932d06f")
     void setOwner(ModelElement value);
 }
 

@@ -383,10 +383,6 @@
       <parameter name="metaclass" value="Standard.ValuePin"/>
       <parameter name="dependency" value="Input"/>
     </command>
-    <command id="org.modelio.app.ui.command.create.element">
-      <parameter name="metaclass" value="Standard.OutputPin"/>
-      <parameter name="dependency" value="Output"/>
-    </command>
   </popup>
   <!-- Popup for StructuredActivityNode -->
   <popup metaclass="Standard.StructuredActivityNode">

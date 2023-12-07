@@ -24,27 +24,17 @@ package org.modelio.module.modelermodule.api.methodology.infrastructure.methodol
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.model.IModelingSession;
-import org.modelio.api.modelio.model.IUmlModel;
-import org.modelio.api.modelio.model.PropertyConverter;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
-import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
-import org.modelio.module.modelermodule.api.ModelerModuleProxyFactory;
 import org.modelio.module.modelermodule.impl.ModelerModuleModule;
-import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.model.api.MTools;
 
 /**
  * Proxy class to handle a {@link MethodologicalLink} with << AbstractMethodologicalLink >> stereotype.
@@ -107,7 +97,7 @@ public abstract class AbstractMethodologicalLink {
         }
         
         if (!found && target != null) {
-            MethodologicalLink newLink = (MethodologicalLink) ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement(MethodologicalLink.MQNAME);
+            MethodologicalLink newLink = MTools.get(target).getModelFactories().createElement(MethodologicalLink.class);
             newLink.getExtension().add(ste);
             newLink.setImpacted(source);
             newLink.setDependsOn(target);
@@ -135,10 +125,9 @@ public abstract class AbstractMethodologicalLink {
         }
         
         // Add new ones
-        IUmlModel modelFactory = ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel();
         for (ModelElement target : targets) {
             if (oldDeps.stream().noneMatch(d -> d.getDependsOn().equals(target))) {
-                MethodologicalLink newLink = (MethodologicalLink) modelFactory.createElement(MethodologicalLink.MQNAME);
+                MethodologicalLink newLink = MTools.get(target).getModelFactories().createElement(MethodologicalLink.class);
                 newLink.setDependsOn(target);
                 newLink.setImpacted(source);
                 newLink.getExtension().add(ste);
@@ -164,7 +153,7 @@ public abstract class AbstractMethodologicalLink {
     }
 
     /**
-     * Get the underlying {@link MethodologicalLink}. 
+     * Get the underlying {@link MethodologicalLink}.
      * @return the MethodologicalLink represented by this proxy, never null.
      */
     @objid ("7503c73b-f345-43b7-9aea-7cda02a36f64")
@@ -176,7 +165,6 @@ public abstract class AbstractMethodologicalLink {
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
-        
     }
 
     @objid ("f4b63b89-a8a4-4195-ae14-3a15f3b07688")
@@ -203,11 +191,11 @@ public abstract class AbstractMethodologicalLink {
             
         }
 
-	static {
-        		if(ModelerModuleModule.getInstance() != null) {
-        			init(ModelerModuleModule.getInstance().getModuleContext());
-        		}
-        	}
+static {
+                        if(ModelerModuleModule.getInstance() != null) {
+                            init(ModelerModuleModule.getInstance().getModuleContext());
+                        }
+                    }
         
     }
 

@@ -22,24 +22,15 @@
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.model.IModelingSession;
-import org.modelio.api.modelio.model.PropertyConverter;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
-import org.modelio.module.modelermodule.api.ModelerModuleProxyFactory;
 import org.modelio.module.modelermodule.impl.ModelerModuleModule;
+import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -72,7 +63,6 @@ public class Represents {
 
     /**
      * Create a new {@link MethodologicalLink} stereotyped << Represents >> then instantiate a {@link Represents} proxy.
-     * 
      * @return a {@link Represents} proxy on the created {@link MethodologicalLink}.
      */
     @objid ("32339d7b-7cae-4011-92de-0efbe9dbb5ed")
@@ -83,7 +73,7 @@ public class Represents {
     }
 
     /**
-     * Tries to instantiate a {@link Represents} proxy from a {@link MethodologicalLink} stereotyped << Represents >> checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Represents} proxy from a {@link MethodologicalLink} stereotyped << Represents >> checking its metaclass and its stereotype.
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MethodologicalLink
@@ -95,7 +85,7 @@ public class Represents {
     }
 
     /**
-     * Tries to instantiate a {@link Represents} proxy from a {@link MethodologicalLink} stereotyped << Represents >> checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Represents} proxy from a {@link MethodologicalLink} stereotyped << Represents >> checking its metaclass and its stereotype.
      * <p>
      * The method throws an {@link IllegalArgumentException} if the instantiation cannot be carried out.
      * @param obj a {@link MethodologicalLink}
@@ -105,9 +95,10 @@ public class Represents {
     @objid ("ca34eb2d-da62-46e9-8626-fdfe9f1bce71")
     public static Represents safeInstantiate(MethodologicalLink obj) throws IllegalArgumentException {
         if (Represents.canInstantiate(obj))
-        	return new Represents(obj);
+            return new Represents(obj);
         else
-        	throw new IllegalArgumentException("Represents: Cannot instantiate "+obj+": wrong element type or stereotype");
+            throw new IllegalArgumentException("Represents: Cannot instantiate "+obj+": wrong element type or stereotype");
+        
     }
 
     /**
@@ -115,6 +106,7 @@ public class Represents {
      */
     @objid ("b68488da-cf0c-4fc1-94b3-9950d52ae9bb")
     public static ModelElement getTarget(ModelElement source) {
+        preloadStereotype(source);
         return AbstractMethodologicalLink.getTarget(source, MdaTypes.STEREOTYPE_ELT);
     }
 
@@ -123,7 +115,10 @@ public class Represents {
      */
     @objid ("85a28a48-571f-47ac-b1b3-7f5fb1f27c90")
     public static void setTarget(ModelElement source, ModelElement target) {
+        preloadStereotype(source);
+        
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
+        
     }
 
     @objid ("28348dd3-b54a-4dfd-a94b-182de139d1da")
@@ -143,7 +138,7 @@ public class Represents {
     }
 
     /**
-     * Get the underlying {@link MethodologicalLink}. 
+     * Get the underlying {@link MethodologicalLink}.
      * @return the MethodologicalLink represented by this proxy, never null.
      */
     @objid ("87570b45-03bf-459b-8340-6ec23eba1bef")
@@ -155,12 +150,34 @@ public class Represents {
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
-        
     }
 
     @objid ("221886f8-93e7-4dfd-a672-5935b1737418")
     protected  Represents(MethodologicalLink elt) {
         this.elt = elt;
+    }
+
+    /**
+     * Ensure {@link MdaTypes#STEREOTYPE_ELT} is loaded with an element.
+     * <p>
+     * {@link MdaTypes#STEREOTYPE_ELT} may be null when called while doing metamodel migration on model fragments.
+     * In this case modules are not yet loaded and MDA proxies are not initialized.
+     * 
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     * @param source a model element to guess the {@link CoreSession} .
+     * @since 5.4.1 25/10/2023
+     */
+    @objid ("a1827fcf-f98b-4c4c-9474-b7d35680ea9b")
+    private static void preloadStereotype(ModelElement source) {
+        if (MdaTypes.STEREOTYPE_ELT == null) {
+            CoreSession session = CoreSession.getSession(source);
+            // Note : with this we always have an element, shell if the module is missing.
+            MdaTypes.STEREOTYPE_ELT = (Stereotype) session.getSmFactory().getObjectReference(
+                    session.getMetamodel().getMClass(Stereotype.class),
+                    "f5d2927d-46d6-4d87-9cf2-adb4a47ca929",
+                    STEREOTYPE_NAME);
+        }
+        
     }
 
     @objid ("d9896322-b59f-496b-99be-d10d51513d32")
@@ -182,11 +199,11 @@ public class Represents {
             
         }
 
-	static {
-        		if(ModelerModuleModule.getInstance() != null) {
-        			init(ModelerModuleModule.getInstance().getModuleContext());
-        		}
-        	}
+static {
+                    if(ModelerModuleModule.getInstance() != null) {
+                        init(ModelerModuleModule.getInstance().getModuleContext());
+                    }
+                }
         
     }
 

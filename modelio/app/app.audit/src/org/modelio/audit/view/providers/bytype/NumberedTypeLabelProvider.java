@@ -19,6 +19,7 @@
  */
 package org.modelio.audit.view.providers.bytype;
 
+import java.text.NumberFormat;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.StyledString;
@@ -34,6 +35,9 @@ public class NumberedTypeLabelProvider extends StyledCellLabelProvider {
     @objid ("9a76f277-25e2-400a-975e-99ca42b7a836")
     private static final UniversalLabelProvider bp = new UniversalLabelProvider();
 
+    @objid ("9b709176-0704-46ae-bb5c-479636dec87a")
+    private NumberFormat numberFormatter = NumberFormat.getNumberInstance();
+
     @objid ("5df37ca2-cf5c-40de-9c08-61cf2472893c")
     @Override
     public void update(ViewerCell cell) {
@@ -42,17 +46,19 @@ public class NumberedTypeLabelProvider extends StyledCellLabelProvider {
         
         if (element instanceof AuditTypeModel) {
             AuditTypeModel entry = (AuditTypeModel) element;
+            String formatedNum = this.numberFormatter.format(entry.entries.size());
+        
             cell.setImage(entry.severity.getImage());
             text.append(entry.severity.getLabel());
-            text.append(" (" + entry.entries.size() + ")", StyledString.COUNTER_STYLER);
+            text.append(" (" + formatedNum + ")", StyledString.COUNTER_STYLER);
         
         } else if (element instanceof IAuditEntry) {
             IAuditEntry diagnostic = (IAuditEntry) element;
             MObject modelObj = diagnostic.getElement();
         
             try {
-                cell.setImage(NumberedTypeLabelProvider.bp.getImage(modelObj));
-                text.append(NumberedTypeLabelProvider.bp.getStyledText(modelObj));
+                cell.setImage(bp.getImage(modelObj));
+                text.append(bp.getStyledText(modelObj));
             } catch (DeadObjectException e) {
                 // ignore
             }

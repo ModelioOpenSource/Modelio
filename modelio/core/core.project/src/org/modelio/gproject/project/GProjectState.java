@@ -90,13 +90,51 @@ public class GProjectState implements IGProjectState {
     public GProjectStateEnum sendNew(IModelioProgress supplier) throws IllegalStateException {
         // Check transition is legal
         if (this.currentState != GProjectStateEnum.INITIAL) {
-            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'new' transition not allowed from state '%d'", this.project.getName(), this.currentState));
+            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'new' transition not allowed from state '%s'", this.project.getName(), this.currentState));
             Log.trace(e);
             throw e;
         }
         
         // Carry out the transition
         setValue(supplier, GProjectStateEnum.NEW);
+        return this.currentState;
+    }
+
+    @objid ("659fdcc2-5f7c-48df-93c8-e2a5c4cd2628")
+    public GProjectStateEnum sendClosing(IModelioProgress supplier) throws IllegalStateException {
+        // Check transition is legal
+        switch (this.currentState) {
+        case OPENED:
+        case OPENING:
+        case SESSIONUP:
+            // State allowed
+            break;
+        case CLOSED:
+        case CLOSING:
+        case INITIAL:
+        case NEW:
+        default:
+            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'closing' transition not allowed from state '%s'", this.project.getName(), this.currentState.name()));
+            Log.trace(e);
+            throw e;
+        }
+        
+        // Carry out the transition
+        setValue(supplier, GProjectStateEnum.CLOSING);
+        return this.currentState;
+    }
+
+    @objid ("6fd2145f-4802-4e7e-ae97-1491aecace30")
+    public GProjectStateEnum sendClosed(IModelioProgress monitorSupplier) throws IllegalStateException {
+        // Check transition is legal
+        if (this.currentState != GProjectStateEnum.CLOSING) {
+            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'closed' transition not allowed from state '%s'", this.project.getName(), this.currentState));
+            Log.trace(e);
+            throw e;
+        }
+        
+        // Carry out the transition
+        setValue(monitorSupplier, GProjectStateEnum.CLOSED);
         return this.currentState;
     }
 
@@ -112,7 +150,7 @@ public class GProjectState implements IGProjectState {
     public GProjectStateEnum sendSessionUp(IModelioProgress monitorSupplier) throws IllegalStateException {
         // Check transition is legal
         if (this.currentState != GProjectStateEnum.NEW) {
-            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'Session up' transition not allowed from state '%d'", this.project.getName(), this.currentState));
+            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'Session up' transition not allowed from state '%s'", this.project.getName(), this.currentState));
             Log.trace(e);
             throw e;
         }
@@ -134,7 +172,7 @@ public class GProjectState implements IGProjectState {
     public GProjectStateEnum sendOpening(IModelioProgress monitorSupplier) throws IllegalStateException {
         // Check transition is legal
         if (this.currentState != GProjectStateEnum.SESSIONUP) {
-            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'opening' transition not allowed from state '%d'", this.project.getName(), this.currentState));
+            IllegalStateException e = new IllegalStateException(String.format("'%s' project 'opening' transition not allowed from state '%s'", this.project.getName(), this.currentState));
             Log.trace(e);
             throw e;
         }

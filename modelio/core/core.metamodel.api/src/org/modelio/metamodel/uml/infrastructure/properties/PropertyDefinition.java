@@ -18,10 +18,11 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,19 +34,22 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
  * 
  * 
  * <p>Property definition for typed property tables.</p>
+ * 
+ * 
+ * 
  */
 @objid ("00640c80-ec87-1098-b22e-001ec947cd2a")
 public interface PropertyDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("80e2cf6c-9ebe-4c33-9ebf-d486ad8ea22a")
+    @objid ("f48f52f5-37d2-4e6d-a63c-f51099c7c2a4")
     public static final String MNAME = "PropertyDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("1c8a725d-8d27-4693-8407-fc1e8b0bef56")
+    @objid ("565b5dce-1e4a-4e2d-860f-d2aada52250c")
     public static final String MQNAME = "Infrastructure.PropertyDefinition";
 
     /**
@@ -73,78 +77,6 @@ public interface PropertyDefinition extends ModelElement {
     String convertToString(Object value, ModelElement object);
 
     /**
-     * Getter for attribute 'PropertyDefinition.IsEditable'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("c5e3460a-07e6-4340-b2da-c1969c043e85")
-    boolean isIsEditable();
-
-    /**
-     * Setter for attribute 'PropertyDefinition.IsEditable'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("10441fe0-82b8-43c0-aea8-7b10f8ccb46f")
-    void setIsEditable(boolean value);
-
-    /**
-     * Getter for attribute 'PropertyDefinition.DefaultValue'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("99b20404-59a9-488d-86a3-edca71c518a7")
-    String getDefaultValue();
-
-    /**
-     * Setter for attribute 'PropertyDefinition.DefaultValue'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("d916cbb7-d3fd-410c-aa91-a16224eafa49")
-    void setDefaultValue(String value);
-
-    /**
-     * Getter for relation 'PropertyDefinition->Type'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("ac8497ee-de53-46e2-932c-9c219badeccf")
-    PropertyType getType();
-
-    /**
-     * Setter for relation 'PropertyDefinition->Type'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("42d461d2-9238-438d-855d-7892a7371cf6")
-    void setType(PropertyType value);
-
-    /**
-     * Getter for relation 'PropertyDefinition->Owner'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("ab6d9ba3-a60f-4022-9d48-d10382741922")
-    PropertyTableDefinition getOwner();
-
-    /**
-     * Setter for relation 'PropertyDefinition->Owner'
-     * 
-     * Metamodel description:
-     * <i>null</i>
-     */
-    @objid ("b9116627-6c41-4416-98e7-480f22aa1b9c")
-    void setOwner(PropertyTableDefinition value);
-
-    /**
      * Translates an internal string value, according to the property definition's base type.
      * <p>
      * Used for displaying translated value (on diagrams for example).
@@ -157,5 +89,85 @@ public interface PropertyDefinition extends ModelElement {
 
     @objid ("f8b75391-f4ac-4dd6-9e85-797b2ea71aee")
     ModuleComponent getModule();
+
+    /**
+     * Getter for attribute 'PropertyDefinition.IsEditable'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("e45d1dea-945a-4243-8e60-67466395fbfa")
+    boolean isIsEditable();
+
+    /**
+     * Setter for attribute 'PropertyDefinition.IsEditable'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("68fffc33-f236-4681-b2ca-c837ebf10822")
+    void setIsEditable(boolean value);
+
+    /**
+     * Getter for attribute 'PropertyDefinition.DefaultValue'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("c48df2ae-eb29-4018-a9c0-51e30d3fc0d6")
+    String getDefaultValue();
+
+    /**
+     * Setter for attribute 'PropertyDefinition.DefaultValue'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("45469ec3-9a70-4be3-8739-8964d39efe31")
+    void setDefaultValue(String value);
+
+    /**
+     * Getter for relation 'PropertyDefinition->Type'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("1c24e831-1b5d-4776-8e64-4097d596a82f")
+    PropertyType getType();
+
+    /**
+     * Setter for relation 'PropertyDefinition->Type'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("85ce366a-21e7-4ea2-b011-0e6c84ec47fe")
+    void setType(PropertyType value);
+
+    /**
+     * Getter for relation 'PropertyDefinition->Owner'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("6e289114-63bd-4c3b-9f9f-2d08c201f249")
+    PropertyTableDefinition getOwner();
+
+    /**
+     * Setter for relation 'PropertyDefinition->Owner'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("d803768b-e00b-4abf-9ed9-74a56c918373")
+    void setOwner(PropertyTableDefinition value);
 }
 

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -33,19 +33,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("006f8eac-ec87-1098-b22e-001ec947cd2a")
 public class PropertyTypeData extends ModelElementData {
-    @objid ("6b5f2d01-674f-4228-87b5-b766f8ab23ea")
+    @objid ("fa5075ad-4dd3-4f41-9ded-096018d12fe7")
     Object mBaseType = PropertyBaseType.STRING;
 
-    @objid ("a3a3f3ae-0873-4d23-86e6-5758ea4c7dc3")
+    @objid ("c6ebe45d-255e-46ee-b9d3-b093d597d170")
     SmObjectImpl mModuleOwner;
 
-    @objid ("f4e8c732-d3f3-4f29-9496-3f8ab983d36d")
+    @objid ("ffc70799-a47e-40d7-bf41-7d8d568e0ae2")
     List<SmObjectImpl> mTyped = null;
 
-    @objid ("43c0abbf-9e20-4bb8-b9fc-cdf5961d8862")
+    @objid ("3f96aaf0-333c-4d4c-888d-4ca04747017f")
     SmObjectImpl mAnalystOwner;
 
-    @objid ("d016b3e7-2ff9-454f-a5e0-da64dbdec8c2")
+    @objid ("56362f4f-7cb6-456e-8c78-ac8eb8a41267")
     public  PropertyTypeData(PropertyTypeSmClass smClass) {
         super(smClass);
     }

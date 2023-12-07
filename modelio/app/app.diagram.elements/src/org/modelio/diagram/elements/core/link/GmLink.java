@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.link.extensions.GmConnectionEndpoinLocator;
@@ -575,7 +576,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
     public void setFrom(IGmLinkable from) {
         IGmReference<IGmLinkable> oldFrom = this.from;
         if (from != IGmReference.resolve(oldFrom)) {
-            this.from = from == null ? null : new GmReference<>(this, from);
+            this.from = (from == null) ? null : new GmReference<>(this, from);
         
             updateFromReferenceListeners(oldFrom, this.from);
             firePropertyChange(GmLink.PROP_SOURCE_GM, oldFrom, from);
@@ -684,20 +685,57 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
     }
 
+    @objid ("c415c1b2-3dad-4a78-9326-2fa0730a32d9")
+    private static String safeDump(Supplier<Object> strSupl) {
+        try {
+            Object object = strSupl.get();
+            if (object == null)
+                return "<null>";
+        
+            return object.toString();
+        } catch (RuntimeException | LinkageError e) {
+            DiagramElements.LOG.warning(e);
+            return "!"+e.getClass().getSimpleName()+"!";
+        }
+        
+    }
+
+    @objid ("c1b28702-bf53-475a-92f0-26c2c53f6546")
+    private static String safeDump(Object strSupl) {
+        if (strSupl==null)
+            return "<null>";
+        
+        try {
+            return strSupl.toString();
+        } catch (RuntimeException | LinkageError e) {
+            DiagramElements.LOG.warning(e);
+            return "!"+e.getClass().getSimpleName()+"!";
+        }
+        
+    }
+
     @objid ("80199746-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void write(IDiagramWriter out) {
         super.write(out);
         
-        if (this.from == null || this.to == null) {
-            String msg = MessageFormat.format(
-                    "This {0} representing {1} from {2} to {3} has <{4}> as source and <{5}> as target in the diagram.",
-                    getClass().getSimpleName(),
-                    getRelatedElement(),
-                    getFromElement(),
-                    getToElement(),
-                    this.from, this.to);
-            throw new IllegalStateException(msg);
+        if (DiagramElements.LOG.isDebugEnabled() && (this.from == null || this.to == null)) {
+            // 06/09/2023 : replaced throw exception by log trace in debug mode, shielded against NPE & co
+            // The usefulness of this check is questionable, it might happen on link from/to ghost nodes.
+            try {
+                String msg = MessageFormat.format(
+                        "{6} diagram saving: The {0} representing {1} from {2} to {3} elements has <{4}> as source and <{5}> as target in the diagram.",
+                        getClass().getSimpleName(),
+                        safeDump(this::getRelatedElement),
+                        safeDump(this::getFromElement),
+                        safeDump(this::getToElement),
+                        safeDump(this.from),
+                        safeDump(this.to),
+                        safeDump(() -> getDiagram().getRelatedElement()));
+                DiagramElements.LOG.debug(msg);
+            } catch (RuntimeException ex) {
+                DiagramElements.LOG.warning(new IllegalStateException("Exception dumping broken "+getClass().getSimpleName()+" : "+ex, ex));
+            }
         }
         
         out.writeProperty("Source", this.from);
@@ -781,7 +819,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
             // The best workaround for now is to delete them now.
             DiagramElements.LOG.warning(
                     "refreshAllFromObModel(): Deleting %s representing %s from %s to %s that has no source nor target in the diagram.",
-                    getClass().getSimpleName(), getRelatedElement(), getFromElement(), getToElement());
+                    getClass().getSimpleName(), getRepresentedRef(), getFromElement(), getToElement());
             delete();
             return; // fast exit
         }

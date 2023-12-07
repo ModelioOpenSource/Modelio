@@ -36,12 +36,14 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.core.commands.DeleteInModelCommand;
-import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.model.IGmModelRelated;
 import org.modelio.diagram.elements.drawings.core.IGmDrawing;
+import org.modelio.diagram.elements.umlcommon.diagramview.DiagramViewEditPart;
+import org.modelio.diagram.elements.umlcommon.diagramview.GmDiagramView;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -75,25 +77,24 @@ public class DeleteInModelHandler {
     @CanExecute
     public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
         List<GraphicalEditPart> selected = getSelectedEditParts(selection);
+        if (selected.isEmpty())
+            return false;
         
         final Command buildCommand = buildCommand(selected);
-        return !selected.isEmpty() && buildCommand.canExecute();
+        return buildCommand.canExecute();
     }
 
     @objid ("4042b31f-5c31-4215-ab55-b47fb5ed9c2a")
     private List<GraphicalEditPart> getSelectedEditParts(ISelection selection) {
-        List<GraphicalEditPart> selected = new ArrayList<>();
+        List<GraphicalEditPart> editParts = SelectionHelper.toList(selection, GraphicalEditPart.class);
+        List<GraphicalEditPart> selected = new ArrayList<>(editParts.size());
         
-        if (selection instanceof IStructuredSelection) {
-            for (Object selectedObject : ((IStructuredSelection) selection).toList()) {
-                if (selectedObject instanceof GraphicalEditPart && !(selectedObject instanceof AbstractDiagramEditPart)) {
-                    Object model = ((GraphicalEditPart) selectedObject).getModel();
-                    if (model instanceof GmModel && ((GmModel) model).getRelatedElement() instanceof AbstractDiagram) {
-                        continue;
-                    }
-                    selected.add((GraphicalEditPart) selectedObject);
-                }
-            }
+        for (GraphicalEditPart ep : editParts) {
+            if (!(ep instanceof DiagramViewEditPart) && ep instanceof AbstractDiagramEditPart)
+                continue;
+            if (!(ep instanceof DiagramViewEditPart) && ep.getAdapter(AbstractDiagram.class) != null)
+                continue;
+            selected.add(ep);
         }
         return selected;
     }
@@ -103,22 +104,22 @@ public class DeleteInModelHandler {
         CompoundCommand compound = new CompoundCommand("Delete");
         
         // Get the model elements to delete or to mask
-        final List<GraphicalEditPart> toMask = new ArrayList<>();
-        final Collection<MObject> toDelete = new ArrayList<>();
+        final List<GraphicalEditPart> toMask = new ArrayList<>(selected.size());
+        final Collection<MObject> toDelete = new ArrayList<>(selected.size());
         for (final GraphicalEditPart editPart : selected) {
             final Object model = editPart.getModel();
-            if (model instanceof GmModel) {
-                final GmModel gmModel = (GmModel) model;
+            if (model instanceof IGmModelRelated) {
+                final IGmModelRelated gmModel = (IGmModelRelated) model;
                 if (!gmModel.getDiagram().isUserEditable()) {
                     return UnexecutableCommand.INSTANCE;
                 }
         
                 final MObject el = gmModel.getRelatedElement();
-                if (el == null) {
-                    // This is probably a ghost, we need to mask it
+                if (el == null || gmModel instanceof GmDiagramView) {
+                    // - mask diagram views, don't delete them
+                    // - or This is probably a ghost, we need to mask it
                     toMask.add(editPart);
-                }
-                if (el != null && !toDelete.contains(el)) {
+                } else if (!toDelete.contains(el)) {
                     toDelete.add(el);
                 }
             } else if (model instanceof IGmDrawing) {

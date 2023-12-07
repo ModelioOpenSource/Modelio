@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project
 Bundle-SymbolicName: org.modelio.core.project;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Require-Bundle: org.modelio.core.store.exml,
  org.modelio.core.session,
  org.modelio.core.metamodel.api,

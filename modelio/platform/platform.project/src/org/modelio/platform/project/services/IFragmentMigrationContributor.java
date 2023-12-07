@@ -25,6 +25,7 @@ import org.modelio.gproject.MigrationFailedException;
 import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.core.IGProject;
 import org.modelio.vbasic.progress.IModelioProgress;
+import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.model.spi.mm.IMigrationReporter;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 
@@ -53,5 +54,15 @@ public interface IFragmentMigrationContributor {
      */
     @objid ("b55f9044-6832-48c5-bb0b-d12f55af6e48")
     void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, IGProject gproject, IGModelFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException;
+
+    /**
+     * Get the target Modelio version this migrator is made for.
+     * <p>
+     * It will be used as key to sort migration contributors.
+     * @return the target Modelio version this migrator is made for.
+     * @since 5.4.1 26/10/2023
+     */
+    @objid ("cd431ed9-c1d1-45c5-a43c-7dace27550cd")
+    Version getTargetModelioVersion();
 }
 

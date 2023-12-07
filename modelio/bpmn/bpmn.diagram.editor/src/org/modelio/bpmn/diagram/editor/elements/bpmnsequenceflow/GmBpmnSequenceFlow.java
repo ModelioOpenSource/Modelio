@@ -115,12 +115,16 @@ public class GmBpmnSequenceFlow extends GmLink {
     @objid ("61a0ca86-55b6-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
         return this.element.getSourceRef();
     }
 
     @objid ("61a0ca8d-55b6-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getTargetRef();
     }
 
@@ -136,87 +140,91 @@ public class GmBpmnSequenceFlow extends GmLink {
     @objid ("61a0ca9b-55b6-11e2-877f-002564c97630")
     @Override
     public void refreshFromObModel() {
-        if (this.element != null) {
-            List<BpmnDataObject> existingDataObjects = new ArrayList<>();
-            List<GmBpmnDataObject> existingGmDataObjects = new ArrayList<>();
-            Map<BpmnDataObject, BpmnSequenceFlowDataAssociation> extensionDataObjects = new HashMap<>();
-        
-            // Get GmBpmnDataObjects already unmasked as extensions
-            for (GmModel model : getExtensions()) {
-                if (model instanceof GmBpmnDataObject) {
-                    GmBpmnDataObject gmDataObject = (GmBpmnDataObject) model;
-                    existingDataObjects.add((BpmnDataObject) gmDataObject.getRelatedElement());
-                    existingGmDataObjects.add(gmDataObject);
-                }
-            }
-        
-            // Get referenced BpmnDataObjects
-            for (BpmnSequenceFlowDataAssociation sfda : this.element.getConnector()) {
-                for (BpmnDataAssociation dataAssociation : sfda.getDataAssociation()) {
-                    if (dataAssociation.getSourceRef().size() > 0) {
-                        BpmnDataObject dataObject = (BpmnDataObject) dataAssociation.getSourceRef().get(0);
-                        extensionDataObjects.put(dataObject, sfda);
-                    }
-                }
-            }
-        
-            // Remove no longer referenced data objects
-            for (GmBpmnDataObject gmDataObject : existingGmDataObjects) {
-                if (!extensionDataObjects.containsKey(gmDataObject.getRelatedElement())) {
-                    removeExtension(gmDataObject);
-                } else {
-                    boolean isMissingLink = true;
-                    for (IGmLink startingLink : getStartingLinks()) {
-                        if (startingLink instanceof GmBpmnSequenceFlowDataAssociation && gmDataObject.getRepresentedRef().equals(startingLink.getTo().getRepresentedRef())) {
-                            isMissingLink = false;
-                            break;
-                        }
-                    }
-                    if (isMissingLink) {
-                        createMissingLinkForElement(extensionDataObjects.get(gmDataObject.getRepresentedElement()), gmDataObject);
-                    }
-                }
-            }
-        
-            // Unmask data objects that are not already extensions
-            for (Entry<BpmnDataObject, BpmnSequenceFlowDataAssociation> entry : extensionDataObjects.entrySet()) {
-                BpmnDataObject dataObject = entry.getKey();
-                BpmnSequenceFlowDataAssociation sfda = entry.getValue();
-        
-                if (!existingDataObjects.contains(dataObject)) {
-                    GmBpmnDataObject gmDataObject = null;
-        
-                    // Get existing gm data object from the diagram
-                    for (GmModel existingGm : this.getDiagram().getAllGMRepresenting(new MRef(dataObject))) {
-                        if (existingGm instanceof GmBpmnDataObject && !(existingGm.getParent() instanceof GmBpmnSequenceFlow)) {
-                            gmDataObject = (GmBpmnDataObject) existingGm;
-                            gmDataObject.getParentNode().removeChild(gmDataObject);
-                            gmDataObject.setLayoutData(null);
-                            break;
-                        }
-                    }
-        
-                    if (gmDataObject == null) {
-                        // Create gm data object
-                        gmDataObject = new GmBpmnDataObject(getDiagram(), dataObject, new MRef(dataObject));
-                    }
-                    addExtension(ExtensionLocation.MiddleNW, GmBpmnSequenceFlow.ROLE_DATAOBJECT, gmDataObject);
-        
-                    // Move extension a little
-                    GmFractionalConnectionLocator layoutContraint = (GmFractionalConnectionLocator) getLayoutContraint(gmDataObject);
-                    layoutContraint.setVDistance(60);
-        
-                    // Unmask link
-                    createMissingLinkForElement(sfda, gmDataObject);
-        
-                    firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, getRelatedElement().getName());
-                }
-            }
-        
-            // Fire changes
-            firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
-            firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getRepresentedElement().getName());
+        if (this.element == null) {
+            super.refreshFromObModel();
+            return;
         }
+        
+        List<BpmnDataObject> existingDataObjects = new ArrayList<>();
+        List<GmBpmnDataObject> existingGmDataObjects = new ArrayList<>();
+        Map<BpmnDataObject, BpmnSequenceFlowDataAssociation> extensionDataObjects = new HashMap<>();
+        
+        // Get GmBpmnDataObjects already unmasked as extensions
+        for (GmModel model : getExtensions()) {
+            if (model instanceof GmBpmnDataObject) {
+                GmBpmnDataObject gmDataObject = (GmBpmnDataObject) model;
+                existingDataObjects.add((BpmnDataObject) gmDataObject.getRelatedElement());
+                existingGmDataObjects.add(gmDataObject);
+            }
+        }
+        
+        // Get referenced BpmnDataObjects
+        for (BpmnSequenceFlowDataAssociation sfda : this.element.getConnector()) {
+            for (BpmnDataAssociation dataAssociation : sfda.getDataAssociation()) {
+                if (dataAssociation.getSourceRef().size() > 0) {
+                    BpmnDataObject dataObject = (BpmnDataObject) dataAssociation.getSourceRef().get(0);
+                    extensionDataObjects.put(dataObject, sfda);
+                }
+            }
+        }
+        
+        // Remove no longer referenced data objects
+        for (GmBpmnDataObject gmDataObject : existingGmDataObjects) {
+            if (!extensionDataObjects.containsKey(gmDataObject.getRelatedElement())) {
+                removeExtension(gmDataObject);
+            } else {
+                boolean isMissingLink = true;
+                for (IGmLink startingLink : getStartingLinks()) {
+                    if (startingLink instanceof GmBpmnSequenceFlowDataAssociation && gmDataObject.getRepresentedRef().equals(startingLink.getTo().getRepresentedRef())) {
+                        isMissingLink = false;
+                        break;
+                    }
+                }
+                if (isMissingLink) {
+                    createMissingLinkForElement(extensionDataObjects.get(gmDataObject.getRepresentedElement()), gmDataObject);
+                }
+            }
+        }
+        
+        // Unmask data objects that are not already extensions
+        for (Entry<BpmnDataObject, BpmnSequenceFlowDataAssociation> entry : extensionDataObjects.entrySet()) {
+            BpmnDataObject dataObject = entry.getKey();
+            BpmnSequenceFlowDataAssociation sfda = entry.getValue();
+        
+            if (!existingDataObjects.contains(dataObject)) {
+                GmBpmnDataObject gmDataObject = null;
+        
+                // Get existing gm data object from the diagram
+                for (GmModel existingGm : this.getDiagram().getAllGMRepresenting(new MRef(dataObject))) {
+                    if (existingGm instanceof GmBpmnDataObject && !(existingGm.getParent() instanceof GmBpmnSequenceFlow)) {
+                        gmDataObject = (GmBpmnDataObject) existingGm;
+                        gmDataObject.getParentNode().removeChild(gmDataObject);
+                        gmDataObject.setLayoutData(null);
+                        break;
+                    }
+                }
+        
+                if (gmDataObject == null) {
+                    // Create gm data object
+                    gmDataObject = new GmBpmnDataObject(getDiagram(), dataObject, new MRef(dataObject));
+                }
+                addExtension(ExtensionLocation.MiddleNW, GmBpmnSequenceFlow.ROLE_DATAOBJECT, gmDataObject);
+        
+                // Move extension a little
+                GmFractionalConnectionLocator layoutContraint = (GmFractionalConnectionLocator) getLayoutContraint(gmDataObject);
+                layoutContraint.setVDistance(60);
+        
+                // Unmask link
+                createMissingLinkForElement(sfda, gmDataObject);
+        
+                firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, getRelatedElement().getName());
+            }
+        }
+        
+        // Fire changes
+        firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
+        firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getRepresentedElement().getName());
+        
         super.refreshFromObModel();
         
     }

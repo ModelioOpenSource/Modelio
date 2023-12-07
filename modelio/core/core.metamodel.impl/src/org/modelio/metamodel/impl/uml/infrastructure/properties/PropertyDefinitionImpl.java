@@ -18,19 +18,22 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -40,10 +43,14 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefiniti
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyType;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
 import org.modelio.vcore.session.impl.CoreSession;
+import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
+import org.modelio.vcore.smkernel.SmList;
 import org.modelio.vcore.smkernel.SmObjectImpl;
+import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
+import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("0064a19a-ec87-1098-b22e-001ec947cd2a")
@@ -213,91 +220,6 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         
     }
 
-    @objid ("05cacdc4-5596-4c06-b552-c6df6728f2e4")
-    @Override
-    public boolean isIsEditable() {
-        return (Boolean) getAttVal(((PropertyDefinitionSmClass) getClassOf()).getIsEditableAtt());
-    }
-
-    @objid ("fd8a62ac-6f72-42f0-891e-d1c654dc38e0")
-    @Override
-    public void setIsEditable(boolean value) {
-        setAttVal(((PropertyDefinitionSmClass) getClassOf()).getIsEditableAtt(), value);
-    }
-
-    @objid ("d208ceaa-0b08-4279-a719-e2ee8284edba")
-    @Override
-    public String getDefaultValue() {
-        return (String) getAttVal(((PropertyDefinitionSmClass) getClassOf()).getDefaultValueAtt());
-    }
-
-    @objid ("80849511-0bba-4fb7-b3b8-428cf4a3f3eb")
-    @Override
-    public void setDefaultValue(String value) {
-        setAttVal(((PropertyDefinitionSmClass) getClassOf()).getDefaultValueAtt(), value);
-    }
-
-    @objid ("4f5a5c39-c66e-4714-86ef-32db172df9e6")
-    @Override
-    public PropertyType getType() {
-        Object obj = getDepVal(((PropertyDefinitionSmClass) getClassOf()).getTypeDep());
-        return obj instanceof PropertyType ? (PropertyType) obj : null;
-    }
-
-    @objid ("1c6e3022-f4e8-4406-9184-dfc772eaf52f")
-    @Override
-    public void setType(PropertyType value) {
-        appendDepVal(((PropertyDefinitionSmClass) getClassOf()).getTypeDep(), (SmObjectImpl) value);
-    }
-
-    @objid ("bbbc5b15-49d0-45eb-baf8-eeb223a294c7")
-    @Override
-    public PropertyTableDefinition getOwner() {
-        Object obj = getDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep());
-        return obj instanceof PropertyTableDefinition ? (PropertyTableDefinition) obj : null;
-    }
-
-    @objid ("9a3917e5-84e9-4c90-a0c4-6d9d10fc3e6a")
-    @Override
-    public void setOwner(PropertyTableDefinition value) {
-        appendDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep(), (SmObjectImpl) value);
-    }
-
-    @objid ("59d66b8f-e74f-4603-9313-8077f387ceb7")
-    @Override
-    public SmObjectImpl getCompositionOwner() {
-        // Generated implementation
-        SmObjectImpl obj;
-        // Owner
-        obj = (SmObjectImpl) getDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep());
-        if (obj != null) {
-            return obj;
-        }
-        return super.getCompositionOwner();
-    }
-
-    @objid ("d143df50-8250-4d51-b6d0-d4cbc1e995f5")
-    @Override
-    public SmDepVal getCompositionRelation() {
-        // Generated implementation
-        SmObjectImpl obj;
-        SmDependency dep;
-        
-        // Owner
-        dep = ((PropertyDefinitionSmClass) getClassOf()).getOwnerDep();
-        obj = (SmObjectImpl) getDepVal(dep);
-        if (obj != null) {
-            return new SmDepVal(dep, obj);
-        }
-        return super.getCompositionRelation();
-    }
-
-    @objid ("6843184e-98fb-4972-8e32-2b48908e5a65")
-    @Override
-    public Object accept(IInfrastructureVisitor v) {
-        return v.visitPropertyDefinition(this);
-    }
-
     @objid ("63f1768b-2744-4a81-970b-23b1521eb101")
     @Override
     public String computeLabel(String value) {
@@ -330,11 +252,94 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         
     }
 
-    @objid ("100cb02f-748f-44b4-a86c-20c2b912d9e1")
+    @objid ("e9ecf193-a17c-4606-bc2e-485c79739636")
     @Override
     public ModuleComponent getModule() {
         final PropertyTableDefinition tableDef = getOwner();
         return (tableDef != null)? tableDef.getModule() : null;
+    }
+
+    @objid ("da82859c-aa65-4d96-aceb-5237a2d5d34e")
+    @Override
+    public boolean isIsEditable() {
+        return (Boolean) getAttVal(((PropertyDefinitionSmClass)getClassOf()).getIsEditableAtt());
+    }
+
+    @objid ("6e8a8aab-454a-4228-a38f-a74529dca49c")
+    @Override
+    public void setIsEditable(boolean value) {
+        setAttVal(((PropertyDefinitionSmClass)getClassOf()).getIsEditableAtt(), value);
+    }
+
+    @objid ("cbcb02fd-b53e-44bc-841c-ba395157f69d")
+    @Override
+    public String getDefaultValue() {
+        return (String) getAttVal(((PropertyDefinitionSmClass)getClassOf()).getDefaultValueAtt());
+    }
+
+    @objid ("0990d2ac-6b7f-4170-9239-96d7e78e44f6")
+    @Override
+    public void setDefaultValue(String value) {
+        setAttVal(((PropertyDefinitionSmClass)getClassOf()).getDefaultValueAtt(), value);
+    }
+
+    @objid ("91d095eb-0d6f-4a72-a234-bad0c7d11884")
+    @Override
+    public PropertyType getType() {
+        Object obj = getDepVal(((PropertyDefinitionSmClass)getClassOf()).getTypeDep());
+        return (obj instanceof PropertyType)? (PropertyType)obj : null;
+    }
+
+    @objid ("695c3edd-4dcb-4c33-88ba-c50f27be7545")
+    @Override
+    public void setType(PropertyType value) {
+        appendDepVal(((PropertyDefinitionSmClass)getClassOf()).getTypeDep(), (SmObjectImpl)value);
+    }
+
+    @objid ("ef083850-1690-4003-9ae5-845193c01b0d")
+    @Override
+    public PropertyTableDefinition getOwner() {
+        Object obj = getDepVal(((PropertyDefinitionSmClass)getClassOf()).getOwnerDep());
+        return (obj instanceof PropertyTableDefinition)? (PropertyTableDefinition)obj : null;
+    }
+
+    @objid ("207f4c80-94e9-4c68-9f1e-ec828023a26f")
+    @Override
+    public void setOwner(PropertyTableDefinition value) {
+        appendDepVal(((PropertyDefinitionSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
+    }
+
+    @objid ("3493b699-7d22-4f44-8aed-bce1d1ebc1dc")
+    @Override
+    public SmObjectImpl getCompositionOwner() {
+        // Generated implementation
+        SmObjectImpl obj;
+        // Owner
+        obj = (SmObjectImpl)this.getDepVal(((PropertyDefinitionSmClass)getClassOf()).getOwnerDep());
+        if (obj != null)
+          return obj;
+        return super.getCompositionOwner();
+    }
+
+    @objid ("979e2deb-2e27-40d3-ab1d-f4d51510f766")
+    @Override
+    public SmDepVal getCompositionRelation() {
+        // Generated implementation
+        SmObjectImpl obj;
+        SmDependency dep;
+        
+        // Owner
+        dep = ((PropertyDefinitionSmClass)getClassOf()).getOwnerDep();
+        obj = (SmObjectImpl)this.getDepVal(dep);
+        if (obj != null) return new SmDepVal(dep, obj);
+        
+        return super.getCompositionRelation();
+    }
+
+    @objid ("11e97a78-3d70-4ab8-bd1e-88cce4e2cdee")
+    @Override
+    public Object accept(IInfrastructureVisitor v) {
+        return v.visitPropertyDefinition(this);
     }
 
 }

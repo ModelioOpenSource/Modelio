@@ -301,7 +301,7 @@ public class GmReference<T extends IGmModelRelated> implements IGmReference<T> {
         writeMinorVersion(out, GmReference.MINOR_VERSION_PREFIX, GmReference.MINOR_VERSION);
         T targetGm = this.delegate.get();
         
-        if(this.targetDiagram == this.ownerDiagram && targetGm != null) {
+        if(this.targetDiagram == this.ownerDiagram && targetGm != null && targetGm.getDiagram() != null) {
             out.writeProperty("targetGraphic", targetGm);
         } else {
             out.writeProperty("targetDiagram", this.targetDiagramRef);

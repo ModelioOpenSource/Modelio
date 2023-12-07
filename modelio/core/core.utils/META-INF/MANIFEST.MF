@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Core Utils
 Bundle-SymbolicName: org.modelio.core.utils;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Export-Package: org.modelio.vbasic.auth,
  org.modelio.vbasic.collections,
  org.modelio.vbasic.debug,
@@ -30,5 +30,5 @@ Bundle-ClassPath: res/,
 Require-Bundle: org.apache.commons.commons-compress,
  org.apache.httpcomponents.httpclient,
  org.apache.httpcomponents.httpcore,
- org.modelio.jaxb;bundle-version="1.0.0"
+ org.modelio.jaxb
 Bundle-Vendor: modelio.org

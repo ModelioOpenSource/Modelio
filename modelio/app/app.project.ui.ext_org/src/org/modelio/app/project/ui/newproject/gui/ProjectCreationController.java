@@ -19,14 +19,11 @@
  */
 package org.modelio.app.project.ui.newproject.gui;
 
-import java.io.IOException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.platform.project.creation.BasicProjectCreationDataModel;
 import org.modelio.platform.project.creation.ProjectNameValidator;
@@ -98,17 +95,6 @@ public class ProjectCreationController implements Listener, ISelectionChangedLis
     public void updateDataModel() {
         this.dataModel.setProjectName(this.dialog.getProjectPanel().getProjectName());
         this.dataModel.setProjectDescription(this.dialog.getProjectPanel().getProjectDescription());
-        
-        if (this.dialog.getProjectPanel().isJavaChecked()) {
-            try {
-                IModuleHandle javaDesigner = this.moduleCatalog.findModule("JavaDesigner", null, null);
-                if (javaDesigner != null) {
-                    this.dataModel.getModuleHandles().add(javaDesigner);
-                }
-            } catch (IOException e) {
-                AppProjectUiExt.LOG.debug(e);
-            }
-        }
         
     }
 

@@ -20,7 +20,7 @@
 package org.modelio.bpmnxml.importer.service.walker;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.modelio.bpmnxml.importer.service.processor.IBPMNImportProcessor;
 import org.modelio.bpmnxml.model.BPMNDiagram;

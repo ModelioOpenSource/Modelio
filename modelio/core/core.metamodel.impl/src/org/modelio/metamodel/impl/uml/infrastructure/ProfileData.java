@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -31,19 +31,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008ce3b2-c4be-1fd8-97fe-001ec947cd2a")
 public class ProfileData extends ModelElementData {
-    @objid ("e271baf7-5570-4a74-b745-04da419ff700")
+    @objid ("f619ac4c-7b6f-4108-9180-d8528c7eb134")
     List<SmObjectImpl> mDefinedStereotype = null;
 
-    @objid ("68f4373e-591a-4a49-b498-d5a5c3a0f21c")
+    @objid ("1ad0e6c9-f2fd-4ccd-b047-48334a17d011")
     List<SmObjectImpl> mOwnedReference = null;
 
-    @objid ("7705dc50-2991-4e3b-b265-155daacbc8ee")
+    @objid ("45e802f9-6f31-468d-b640-cf16e12b1606")
     SmObjectImpl mOwnerModule;
 
-    @objid ("45a128bb-0322-4838-920f-864064efefff")
+    @objid ("fcfe08a1-8217-429e-a04d-92818df0c820")
     List<SmObjectImpl> mDefinedType = null;
 
-    @objid ("5a96e202-cb00-4b4b-8dd6-f2e0e1fb60b4")
+    @objid ("1478e97e-c7c3-4a35-a1f8-ed6a6dba3df0")
     public  ProfileData(ProfileSmClass smClass) {
         super(smClass);
     }

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.mda;
@@ -45,117 +45,117 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00650bb2-c4bf-1fd8-97fe-001ec947cd2a")
 public class ModuleParameterImpl extends ModelElementImpl implements ModuleParameter {
-    @objid ("3a9decb1-4beb-417b-899c-3d9b595bb14d")
+    @objid ("269125e7-1c12-4c02-bc48-68b1ebb3e0d8")
     @Override
     public String getGroupName() {
         return (String) getAttVal(((ModuleParameterSmClass)getClassOf()).getGroupNameAtt());
     }
 
-    @objid ("3d509149-97b7-44aa-9433-2e145d756ca1")
+    @objid ("1b3a95a7-cfbf-4d69-afe1-f0b91863dd03")
     @Override
     public void setGroupName(String value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getGroupNameAtt(), value);
     }
 
-    @objid ("1d346f1b-4fe5-4a03-b4e6-5879792fc2b5")
+    @objid ("d085223c-197b-4f80-885f-0ae8258b9717")
     @Override
     public ModuleParameterType getType() {
         return (ModuleParameterType) getAttVal(((ModuleParameterSmClass)getClassOf()).getTypeAtt());
     }
 
-    @objid ("09dafd20-1510-4646-8954-cc90a67abd05")
+    @objid ("aac6b980-8c83-4c5d-8219-17a35cfe84f7")
     @Override
     public void setType(ModuleParameterType value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getTypeAtt(), value);
     }
 
-    @objid ("c74f0212-3295-422a-856e-bd87583baf2a")
+    @objid ("a3c69370-591b-47eb-bf7a-c1c1193325ac")
     @Override
     public boolean isIsUserRead() {
         return (Boolean) getAttVal(((ModuleParameterSmClass)getClassOf()).getIsUserReadAtt());
     }
 
-    @objid ("c7583686-b532-4ada-9bef-504c59584dc1")
+    @objid ("0ba5aacf-5469-4d88-9166-26f3546f739c")
     @Override
     public void setIsUserRead(boolean value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getIsUserReadAtt(), value);
     }
 
-    @objid ("93d09ddc-2823-47a9-a2ee-5bdcf5abb0c9")
+    @objid ("0e88190b-7609-475a-84d9-f6db6a7653a4")
     @Override
     public boolean isIsUserWrite() {
         return (Boolean) getAttVal(((ModuleParameterSmClass)getClassOf()).getIsUserWriteAtt());
     }
 
-    @objid ("5d9e16dd-7d8c-4cf6-a995-876a080dde6d")
+    @objid ("af2b287b-24d0-4a2d-87dc-0713c67df4dd")
     @Override
     public void setIsUserWrite(boolean value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getIsUserWriteAtt(), value);
     }
 
-    @objid ("801bb7d3-5011-4cbe-93d7-e4f2bd675105")
+    @objid ("378cd107-143a-4021-be17-2c128d70e893")
     @Override
     public boolean isIsApiRead() {
         return (Boolean) getAttVal(((ModuleParameterSmClass)getClassOf()).getIsApiReadAtt());
     }
 
-    @objid ("4ef99f71-c5c2-43de-adc2-de38d8df0488")
+    @objid ("56990302-005e-4173-be90-883e1374dcb6")
     @Override
     public void setIsApiRead(boolean value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getIsApiReadAtt(), value);
     }
 
-    @objid ("ffeac3d2-ec02-4741-98ed-576ca1e2fa06")
+    @objid ("f7df0cf5-8770-4247-9c81-257e42075b2b")
     @Override
     public boolean isIsApiWrite() {
         return (Boolean) getAttVal(((ModuleParameterSmClass)getClassOf()).getIsApiWriteAtt());
     }
 
-    @objid ("71a5800d-f864-454c-83a0-a9748312cbf5")
+    @objid ("3555ec37-cba4-41e7-bda9-d04742216c5f")
     @Override
     public void setIsApiWrite(boolean value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getIsApiWriteAtt(), value);
     }
 
-    @objid ("524b9c38-2aea-440e-834e-11eeee655600")
+    @objid ("8e471cba-a8e4-4b41-8767-ecd7bf79c667")
     @Override
     public String getDefaultValue() {
         return (String) getAttVal(((ModuleParameterSmClass)getClassOf()).getDefaultValueAtt());
     }
 
-    @objid ("165377dd-b7fb-4b4a-9503-9b4f96b6a277")
+    @objid ("167aa18d-73cb-444a-8cc3-f763a9f3dd8a")
     @Override
     public void setDefaultValue(String value) {
         setAttVal(((ModuleParameterSmClass)getClassOf()).getDefaultValueAtt(), value);
     }
 
-    @objid ("dc4f363d-5b9e-4f64-8b6e-de8a0427dc5e")
+    @objid ("7a5698f5-3654-4c91-9c86-ca5624a07485")
     @Override
     public ModuleComponent getOwner() {
         Object obj = getDepVal(((ModuleParameterSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof ModuleComponent)? (ModuleComponent)obj : null;
     }
 
-    @objid ("4c3cde04-f4b2-41b1-934f-f40f4cac5c76")
+    @objid ("5cd024e0-2aba-4543-ba63-aa063d73df24")
     @Override
     public void setOwner(ModuleComponent value) {
         appendDepVal(((ModuleParameterSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("3dda73d1-8c88-465f-b0d3-603c932da14c")
+    @objid ("6e8517f4-1f07-4291-a357-cd1f58114f99")
     @Override
     public EnumeratedPropertyType getEnumType() {
         Object obj = getDepVal(((ModuleParameterSmClass)getClassOf()).getEnumTypeDep());
         return (obj instanceof EnumeratedPropertyType)? (EnumeratedPropertyType)obj : null;
     }
 
-    @objid ("bc23e4c1-0607-46e1-aa70-f224a10b94d4")
+    @objid ("c8fe4304-cf03-49a4-9d3d-46d27af92cd0")
     @Override
     public void setEnumType(EnumeratedPropertyType value) {
         appendDepVal(((ModuleParameterSmClass)getClassOf()).getEnumTypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("49202d4f-7fd9-42dc-b3b2-95e9e7174133")
+    @objid ("9ccb02d6-398c-41a1-a6f7-d5c27ab1ac68")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -167,7 +167,7 @@ public class ModuleParameterImpl extends ModelElementImpl implements ModuleParam
         return super.getCompositionOwner();
     }
 
-    @objid ("91af75e8-f6cd-4ffe-9cb4-838f32d47bc1")
+    @objid ("09e8d528-d7b6-41e6-af87-18774dc683ea")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -182,7 +182,7 @@ public class ModuleParameterImpl extends ModelElementImpl implements ModuleParam
         return super.getCompositionRelation();
     }
 
-    @objid ("0d311b9f-9d02-4334-9cef-c2bde65f9e4d")
+    @objid ("ecfe7ee3-58b7-4301-93d0-0a3d93318e93")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitModuleParameter(this);

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>5.3.1-SNAPSHOT</version>
+		<version>5.4.1-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
@@ -17,33 +17,24 @@
 	<build>
 		<plugins>
 			<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>2.9</version>
 				<executions>
 					<execution>
-						<id>copy-dependencies</id>
+						<id>copy_deps</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
 						</goals>
+						<inherited>false</inherited>
 						<configuration>
-							<outputDirectory>${project.build.directory}</outputDirectory>
+							<includeGroupIds>net.sf.cssbox</includeGroupIds>
+							<outputDirectory>${basedir}/lib</outputDirectory>
 						</configuration>
 					</execution>
-					<execution>
-						  <id>src-dependencies</id>
-						  <phase>package</phase>
-						  <goals>
-						    <goal>copy-dependencies</goal>
-						  </goals>
-						  <configuration>
-						    <classifier>sources</classifier>
-						    <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
-						    <outputDirectory>${project.build.directory}/sources</outputDirectory>
-						  </configuration>
-					</execution>
-				</executions>			</plugin>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

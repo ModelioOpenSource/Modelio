@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Module Property Tab
 Bundle-SymbolicName: org.modelio.app.module.propertytab;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.ui,
  org.modelio.platform.utils,

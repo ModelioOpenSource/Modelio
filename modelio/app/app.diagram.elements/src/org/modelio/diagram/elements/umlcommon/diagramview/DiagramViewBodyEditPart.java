@@ -47,7 +47,6 @@ public class DiagramViewBodyEditPart extends AbstractNodeEditPart {
     protected IFigure createFigure() {
         // Create the figure
         final ResizableImageFigure fig = new ResizableImageFigure();
-        updatePreviewImage(fig);
         return fig;
     }
 
@@ -88,10 +87,29 @@ public class DiagramViewBodyEditPart extends AbstractNodeEditPart {
         // Make the background transparent
         Color color = UIColor.WHITE;
         int pixelColor = (color.getRed() << 16) + (color.getGreen() << 8) + color.getBlue();
-        for (int y = 0; y < imageData.height; y++) {
-            for (int x = 0; x < imageData.width; x++) {
-                if (imageData.getPixel(x, y) != pixelColor) {
-                    imageData.setAlpha(x, y, 255);
+        
+        if (true) {
+            // Try to boost performances by using bulk ImageData methods
+            // and operating directly in the array.
+            // This may also allow JIT to compile this using SIMD processor capabilities.
+            final int pixelscount = imageData.width * imageData.height;
+            final int[] pixels = new int[pixelscount];
+            final byte[] alphas = new byte[pixelscount];
+            imageData.getPixels(0, 0, pixelscount, pixels, 0);
+            for (int i = 0; i < pixelscount; i++) {
+                if (pixels[i] != pixelColor) {
+                    alphas[i] = (byte) 255;
+                }
+            }
+            imageData.setPixels(0, 0, pixelscount, pixels, 0);
+            imageData.alphaData = alphas;
+        } else {
+            // old code
+            for (int y = 0; y < imageData.height; y++) {
+                for (int x = 0; x < imageData.width; x++) {
+                    if (imageData.getPixel(x, y) != pixelColor) {
+                        imageData.setAlpha(x, y, 255);
+                    }
                 }
             }
         }

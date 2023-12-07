@@ -121,7 +121,8 @@ public class PolluxWidgetConfigurator {
     public static void configureStyleForFieldLabel(Control label) {
         Composite container = label.getParent();
         label.setFont(UIFont.NORMALB);
-        label.setForeground(UIColor.SWT_LIST_SELECTION);
+        label.setForeground(UIColor.GRAY);
+        
         label.setBackground(container.getBackground());
         
     }
@@ -224,6 +225,19 @@ public class PolluxWidgetConfigurator {
         gd.verticalIndent = VERTICAL_SPACING * 2;
         
         control.setLayoutData(gd);
+        
+    }
+
+    @objid ("771edecd-16ba-4aa3-b982-746d85436534")
+    public static void configureHeaderStyle(Control control) {
+        if (control == null) {
+            throw new IllegalArgumentException("'control' cannot be null.");
+        }
+        Composite container = control.getParent();
+        
+        control.setFont(UIFont.XLARGEB);
+        control.setForeground(UIColor.SWT_LIST_SELECTION);
+        control.setBackground(container.getBackground());
         
     }
 

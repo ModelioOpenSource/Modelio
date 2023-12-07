@@ -19,6 +19,8 @@
  */
 package org.modelio.diagram.elements.drawings.note;
 
+import java.util.Arrays;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
@@ -50,7 +52,7 @@ import org.modelio.diagram.styles.core.StyleKey.LinePattern;
  */
 @objid ("f6de7d06-9a0a-4673-b3de-461685be01dc")
 public class NoteDrawingFigure extends ShapedFigure {
-    @objid ("246de964-3818-4850-8acd-900c75e66596")
+    @objid ("5ffdbc99-d03d-49f8-b55b-4531c196754a")
     private ScrollPane scrollPane;
 
     @objid ("3349305e-e7b1-428e-862d-6b1d25cc8683")
@@ -203,8 +205,8 @@ public class NoteDrawingFigure extends ShapedFigure {
             Dimension ret = new Dimension(0, 0);
             ret.union(super.calculateMinimumSize(container, wHint, hHint));
             
-            if (ret.width < 120) {
-                ret.width = 120;
+            if (ret.width < 200) {
+                ret.width = 200;
             }
             
             if (ret.height < 100) {
@@ -227,16 +229,40 @@ public class NoteDrawingFigure extends ShapedFigure {
         @objid ("41d08228-0fc8-4444-ae31-62e3dba0d859")
         private Dimension calculateIdealSize(final NoteDrawingFigure container, final int wHint, final int hHint) {
             Dimension ret = super.calculatePreferredSize(container, wHint, hHint);
-            if (ret.height < 60) {
-                ret.height = 60;
-            }
-            if (ret.width < 40) {
-                ret.width = 40;
-            }
-            if (ret.width / ret.height > 4) {
-                ret = super.calculatePreferredSize(container, ret.height * 4, hHint);
+            
+            // Try to estimate the dimention of rendered htmt note
+            String content = container.getContent();
+            if(content.contains("<p>")) {
+                int maxString = 0;
+                int extimateLignes = 0;
+                List<String>  paragraphers = splitByParagrapher(content);
+            
+                for(String par : paragraphers) {
+                    maxString = Math.max(maxString, par.replaceAll("<.*>", "").length());
+                }
+            
+                extimateLignes = paragraphers.size();
+            
+            
+                ret.height = extimateLignes * 30 + 30;
+                ret.width = maxString * 5;
+            
+                if (ret.width / ret.height > 3) {
+                    ret.width  = ret.height * 3;
+                    ret.height = ret.height * 2 ;
+            
+                }
+            
+            }else {
+                ret.height = 100;
+                ret.width = 200;
             }
             return ret;
+        }
+
+        @objid ("8b01543b-3508-4c57-bb49-70de5d6d8e5f")
+        private List<String> splitByParagrapher(String content) {
+            return  Arrays.asList(content.split("</p>|<li>"));
         }
 
     }

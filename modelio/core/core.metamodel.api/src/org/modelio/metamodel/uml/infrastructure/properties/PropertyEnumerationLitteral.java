@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -41,13 +41,13 @@ public interface PropertyEnumerationLitteral extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("a25c63ff-d184-41c9-aab6-a29cca85f42d")
+    @objid ("9df01a0e-fc9b-43f2-ae92-6341d0c12eb6")
     public static final String MNAME = "PropertyEnumerationLitteral";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("0200e80e-4f6c-4663-bb20-6b3c4ecca88a")
+    @objid ("b3b5f46f-148b-4fda-ad11-3e3c9d06d8aa")
     public static final String MQNAME = "Infrastructure.PropertyEnumerationLitteral";
 
     /**
@@ -66,7 +66,7 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("00280604-7678-440b-9ac7-958206b7b120")
+    @objid ("68d88fcc-d67d-4092-8cb7-7d6137c15960")
     EnumeratedPropertyType getOwner();
 
     /**
@@ -76,7 +76,7 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("43155574-367a-4713-bae7-0d8841d954df")
+    @objid ("9e350390-e86b-4a5c-8834-cc3a501e9387")
     void setOwner(EnumeratedPropertyType value);
 }
 

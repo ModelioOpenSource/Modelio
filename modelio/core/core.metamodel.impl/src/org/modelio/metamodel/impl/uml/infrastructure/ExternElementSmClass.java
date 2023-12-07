@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -44,58 +44,58 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("bb01b1df-d69b-484e-a283-b96fe3abb407")
 public class ExternElementSmClass extends ModelElementSmClass {
-    @objid ("21bd450b-56cf-400b-aa3a-0f842af7818d")
+    @objid ("f09d368f-cc97-45ab-9797-24bf9705a53a")
     private SmAttribute providerAtt;
 
-    @objid ("baf66f50-f625-4b2a-857f-9cf11e8e4e24")
+    @objid ("91ba2ef9-bf89-4c1f-bf6d-a293c3d07311")
     private SmAttribute externIdAtt;
 
-    @objid ("c857eca6-b940-4b0c-aa85-55baf1ad224c")
+    @objid ("a0b7aa99-de48-4074-bb05-da3547bf6daa")
     private SmAttribute locationAtt;
 
-    @objid ("69d36b23-8fb4-4ba8-a6e8-90455b3f9b5f")
+    @objid ("74500cb3-5492-4ccf-9e85-79242808174e")
     private SmDependency ownerDep;
 
-    @objid ("9d740594-ae06-4e52-80fa-caa59a75840e")
+    @objid ("6ef09d05-d2e4-450a-bfca-1b5c25133607")
     public  ExternElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("f55a8e31-69d4-4a66-b3e2-65d138c12e0f")
+    @objid ("25a8d131-1eab-4a1c-8a13-888849b7ab1f")
     @Override
     public String getName() {
         return "ExternElement";
         
     }
 
-    @objid ("9ea255b7-3c90-4517-88a7-2f4775cd0fc0")
+    @objid ("2707bb93-d6a4-41d9-a280-7b83d2a945d2")
     @Override
     public Version getVersion() {
         return new Version("0.0.0");
     }
 
-    @objid ("ed79dbca-4824-438a-8d41-ba9e0a54eacb")
+    @objid ("e67fe198-eddc-4948-9e81-a1aa11f0fbd5")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExternElement.class;
         
     }
 
-    @objid ("452f0dbc-af3f-4a96-92fe-a378d446436e")
+    @objid ("0b9f6369-c1eb-4680-b904-a7ad8294bc2d")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("2643d9cc-dd18-48df-b035-1aaaf3f94137")
+    @objid ("7db94386-fe83-4308-835f-4f4517420bd6")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("ecbcbcc9-58c8-4a78-97f1-d0e8112b3025")
+    @objid ("7829fc0a-c4e4-4ea5-a15b-b5d95d93fbf7")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -124,7 +124,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
         
     }
 
-    @objid ("e5494e0b-d13e-48b0-a225-ce92cca719f2")
+    @objid ("4af4413e-8b37-4188-9bb6-ce03a1666d35")
     public SmAttribute getProviderAtt() {
         if (this.providerAtt == null) {
         	this.providerAtt = this.getAttributeDef("Provider");
@@ -132,7 +132,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
         return this.providerAtt;
     }
 
-    @objid ("87b412e0-d15f-496c-8c6c-4d5e68520af5")
+    @objid ("f8d401cf-fe91-4c11-ba7b-e4c7b7cac1d6")
     public SmAttribute getExternIdAtt() {
         if (this.externIdAtt == null) {
         	this.externIdAtt = this.getAttributeDef("ExternId");
@@ -140,7 +140,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
         return this.externIdAtt;
     }
 
-    @objid ("fb5e9641-3c10-4101-b4f0-033e9bde3228")
+    @objid ("a326c7f3-fa27-4f6f-b391-3164c537fd25")
     public SmAttribute getLocationAtt() {
         if (this.locationAtt == null) {
         	this.locationAtt = this.getAttributeDef("Location");
@@ -148,7 +148,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
         return this.locationAtt;
     }
 
-    @objid ("d7e3093c-3db6-4166-b4f3-2d912c5210be")
+    @objid ("dca0c6ac-f3af-4de3-9d45-b6ba25d530b9")
     public SmDependency getOwnerDep() {
         if (this.ownerDep == null) {
         	this.ownerDep = this.getDependencyDef("Owner");
@@ -158,21 +158,21 @@ public class ExternElementSmClass extends ModelElementSmClass {
 
     @objid ("a74a6cae-1052-4cc4-a153-14b8fc53b199")
     private static class ExternElementObjectFactory implements ISmObjectFactory {
-        @objid ("f699c652-a7f8-4c1a-a533-f26221c2550a")
+        @objid ("f478cc9c-4267-4cc0-a480-8ae8e277d8b6")
         private ExternElementSmClass smClass;
 
-        @objid ("462d53ac-cf37-42e1-a4f3-ab6b46912a4a")
+        @objid ("fe67351c-89b6-40d4-9b6a-ad062112f238")
         public  ExternElementObjectFactory(ExternElementSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("fde6d75d-59f9-447e-84d3-960ad1540361")
+        @objid ("d5c7fdab-ead4-47ad-8410-e7e7947799b3")
         @Override
         public ISmObjectData createData() {
             return new ExternElementData(this.smClass);
         }
 
-        @objid ("a4d28811-a483-4a13-a230-0cd01c90f01a")
+        @objid ("0a0220b3-aad3-490d-b04e-9b4c5af5b7f5")
         @Override
         public SmObjectImpl createImpl() {
             return new ExternElementImpl();
@@ -182,12 +182,12 @@ public class ExternElementSmClass extends ModelElementSmClass {
 
     @objid ("c079e4f5-9bcb-43b1-b963-a5f70f57fc08")
     public static class ProviderSmAttribute extends SmAttribute {
-        @objid ("27589a52-950e-4d21-9405-efcbbe9b1cb7")
+        @objid ("3b95c45c-4b7b-4c23-a418-642631793cb3")
         public Object getValue(ISmObjectData data) {
             return ((ExternElementData) data).mProvider;
         }
 
-        @objid ("7cbdafaa-e140-4294-91c5-fddf60514324")
+        @objid ("e0ffdb06-09d5-43b2-9783-30b364e7246a")
         public void setValue(ISmObjectData data, Object value) {
             ((ExternElementData) data).mProvider = value;
         }
@@ -196,12 +196,12 @@ public class ExternElementSmClass extends ModelElementSmClass {
 
     @objid ("c2ef6589-cd06-413b-bf6f-e218bab3aa8f")
     public static class ExternIdSmAttribute extends SmAttribute {
-        @objid ("48032e45-ca50-40ac-9262-2134df3deba5")
+        @objid ("c19c7ad1-794d-4da9-a3d4-e7f21a50fabc")
         public Object getValue(ISmObjectData data) {
             return ((ExternElementData) data).mExternId;
         }
 
-        @objid ("cf6fad49-0845-4071-99eb-a84023d242b2")
+        @objid ("b9aae609-c6a7-4430-a6e2-0375562798ac")
         public void setValue(ISmObjectData data, Object value) {
             ((ExternElementData) data).mExternId = value;
         }
@@ -210,12 +210,12 @@ public class ExternElementSmClass extends ModelElementSmClass {
 
     @objid ("8481eb5e-8372-406f-b4a1-a3afa134655c")
     public static class LocationSmAttribute extends SmAttribute {
-        @objid ("ba8e46ed-a9cb-49d4-aca0-29268900cdcf")
+        @objid ("3f90fdc8-c6af-4ce5-beee-e80ef671e28c")
         public Object getValue(ISmObjectData data) {
             return ((ExternElementData) data).mLocation;
         }
 
-        @objid ("ea1f89b4-d785-454f-9fd1-bebb209cfae9")
+        @objid ("e3da73b8-88e4-4692-a7c8-ee8117314791")
         public void setValue(ISmObjectData data, Object value) {
             ((ExternElementData) data).mLocation = value;
         }
@@ -224,22 +224,22 @@ public class ExternElementSmClass extends ModelElementSmClass {
 
     @objid ("d49825ad-1a43-4438-bcd1-d469433cc4ed")
     public static class OwnerSmDependency extends SmSingleDependency {
-        @objid ("8a66f52a-4665-467d-98c7-d53a5d77fbe3")
+        @objid ("16c6bc2e-a9d1-4600-8754-f0ea22f2018b")
         private SmDependency symetricDep;
 
-        @objid ("421da56b-bcb4-4f99-b8ec-77583a2788b8")
+        @objid ("34e6fc4a-aff5-4333-9a5b-866a7b47eda7")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ExternElementData) data).mOwner;
         }
 
-        @objid ("95204539-1f9c-4ff3-bf00-690476c01244")
+        @objid ("968f6353-8b5d-4da5-a31e-bdc4a4f3ccb9")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ExternElementData) data).mOwner = value;
         }
 
-        @objid ("b773c4c9-1cdf-4231-9443-96d79054d3b8")
+        @objid ("3fdcde7c-df50-42d2-99c7-11b6c4fc1cd3")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

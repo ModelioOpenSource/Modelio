@@ -19,6 +19,7 @@
  */
 package org.modelio.audit.view.providers.byelement;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
@@ -36,6 +37,9 @@ public class NumberedElementLabelProvider extends StyledCellLabelProvider {
     @objid ("bb83b884-4031-4b7a-b094-16cfddea7619")
     private static final UniversalLabelProvider bp = new UniversalLabelProvider();
 
+    @objid ("6ad434dc-788b-45ec-9568-d6cf275f051f")
+    private static final NumberFormat numFormat = NumberFormat.getNumberInstance();
+
     @objid ("0672105d-d785-47f9-9763-cb7c3598917d")
     @Override
     public void update(ViewerCell cell) {
@@ -44,13 +48,13 @@ public class NumberedElementLabelProvider extends StyledCellLabelProvider {
         
         if (element instanceof AuditElementModel) {
             AuditElementModel entry = (AuditElementModel) element;
-            cell.setImage(NumberedElementLabelProvider.bp.getImage(entry.element));
-            text.append(NumberedElementLabelProvider.bp.getStyledText(entry.element));
-            text.append(" (" + entry.entries.size() + ")", StyledString.COUNTER_STYLER);
+            cell.setImage(bp.getImage(entry.element));
+            text.append(bp.getStyledText(entry.element));
+            text.append(" (" + numFormat.format(entry.entries.size()) + ")", StyledString.COUNTER_STYLER);
         
         } else if (element instanceof IAuditEntry) {
             IAuditEntry entry = (IAuditEntry) element;
-            text.append(NumberedElementLabelProvider.formatter.format(entry.getTimestamp()));
+            text.append(formatter.format(entry.getTimestamp()));
         }
         cell.setText(text.toString());
         cell.setStyleRanges(text.getStyleRanges());

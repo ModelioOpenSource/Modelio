@@ -30,6 +30,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.ConfigurableFixedAnchorFactory;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.FixedNodeAnchorLocator;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.TolerantFixedAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFigureAnchorsFactory;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 
@@ -54,7 +55,7 @@ public class EllipseAnchorFactory extends ConfigurableFixedAnchorFactory {
 
     @objid ("963ec4cf-58af-488e-bb42-1be02df2e5d4")
     public  EllipseAnchorFactory(String algorithmId) {
-        this(algorithmId, new FixedNodeAnchorLocator(algorithmId));
+        this(algorithmId, new TolerantFixedAnchorLocator(new FixedNodeAnchorLocator(algorithmId), 1));
     }
 
     @objid ("71ff001a-d821-474c-b886-ec0964c48585")

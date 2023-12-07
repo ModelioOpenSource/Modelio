@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.mda;
@@ -46,85 +46,85 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("43f4fe7e-e0f5-4fc1-a14f-737f4dfc2ee6")
 public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleComponent {
-    @objid ("263d2b9f-b294-43e1-a937-3e3466b52457")
+    @objid ("3db9e0ce-87d3-4883-bb04-2dcf2b382be1")
     @Override
     public int getLicenseKey() {
         return (Integer) getAttVal(((ModuleComponentSmClass)getClassOf()).getLicenseKeyAtt());
     }
 
-    @objid ("58f6d988-55d9-4f0a-abce-42ed25e96008")
+    @objid ("17b3ca1b-1ded-4aed-8821-a2bd03ad09be")
     @Override
     public void setLicenseKey(int value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getLicenseKeyAtt(), value);
     }
 
-    @objid ("5b4d07c1-bec4-4948-9639-9bce58fc4023")
+    @objid ("d5781df3-3f88-4c8a-be5b-8562e7e4a74c")
     @Override
     public int getMajVersion() {
         return (Integer) getAttVal(((ModuleComponentSmClass)getClassOf()).getMajVersionAtt());
     }
 
-    @objid ("57efda82-dfdd-48a3-aac2-78e23d6a5bde")
+    @objid ("dddceaa2-9faa-42a0-b8b7-19d5c7c30c43")
     @Override
     public void setMajVersion(int value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getMajVersionAtt(), value);
     }
 
-    @objid ("669a534f-3f95-4d80-820d-156cadedc97a")
+    @objid ("9b6d01f5-47de-4e5a-983e-34aa7ab4eec3")
     @Override
     public int getMinVersion() {
         return (Integer) getAttVal(((ModuleComponentSmClass)getClassOf()).getMinVersionAtt());
     }
 
-    @objid ("42ca1c1b-f6c5-4e70-bb86-e7bc1878db48")
+    @objid ("d0a31f68-8287-4551-ae29-71c6a5447607")
     @Override
     public void setMinVersion(int value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getMinVersionAtt(), value);
     }
 
-    @objid ("09a80a71-50e5-4902-8a2a-009c361f4425")
+    @objid ("f4b155c4-9bc5-4a34-8292-c49c0ca2d09b")
     @Override
     public String getMinMinVersion() {
         return (String) getAttVal(((ModuleComponentSmClass)getClassOf()).getMinMinVersionAtt());
     }
 
-    @objid ("cb552e3d-837e-4e03-8082-16d168c4cb28")
+    @objid ("53580057-34e3-4caa-88c0-9a3cdd9b54f4")
     @Override
     public void setMinMinVersion(String value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getMinMinVersionAtt(), value);
     }
 
-    @objid ("6960d52a-4dd8-414f-bdbd-271a018daba5")
+    @objid ("e7389d45-76b2-4b8e-91c3-fa2c1fa529c7")
     @Override
     public String getMinBinVersionCompatibility() {
         return (String) getAttVal(((ModuleComponentSmClass)getClassOf()).getMinBinVersionCompatibilityAtt());
     }
 
-    @objid ("97771980-8e74-419f-aaab-54ebecb6e7af")
+    @objid ("ae01ac74-6fbc-48cf-a56c-04475e80e947")
     @Override
     public void setMinBinVersionCompatibility(String value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getMinBinVersionCompatibilityAtt(), value);
     }
 
-    @objid ("d6669dac-8fef-445c-8fce-69acfc07e712")
+    @objid ("bfa5a6c6-c133-46a0-af5e-a4e877564d3d")
     @Override
     public String getJavaClassName() {
         return (String) getAttVal(((ModuleComponentSmClass)getClassOf()).getJavaClassNameAtt());
     }
 
-    @objid ("4a3778c3-e5dd-45f2-861b-cdfa89177188")
+    @objid ("7145b504-1d12-4076-a9c3-997464da4e53")
     @Override
     public void setJavaClassName(String value) {
         setAttVal(((ModuleComponentSmClass)getClassOf()).getJavaClassNameAtt(), value);
     }
 
-    @objid ("183a87e9-1409-4e18-a840-3f99bfba6c6b")
+    @objid ("961a6d16-8307-4cd9-b7f1-c688b2ece7ea")
     @Override
     public EList<PropertyType> getDefinedPropertyType() {
         return new SmList<>(this, ((ModuleComponentSmClass)getClassOf()).getDefinedPropertyTypeDep());
     }
 
-    @objid ("6bb51c1a-d473-4015-9061-161c4c80bd41")
+    @objid ("83e6d40b-fec8-4c58-93a2-e2572a612db7")
     @Override
     public <T extends PropertyType> List<T> getDefinedPropertyType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -140,13 +140,13 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         
     }
 
-    @objid ("757d3260-793b-4f1e-afeb-e0b4687130c7")
+    @objid ("7ae50cdd-2871-4271-a5b2-43b13d4de172")
     @Override
     public EList<Profile> getOwnedProfile() {
         return new SmList<>(this, ((ModuleComponentSmClass)getClassOf()).getOwnedProfileDep());
     }
 
-    @objid ("b2adca13-7498-4235-8664-9f72bb403b04")
+    @objid ("3f07fb16-d56d-4537-94ac-6d9e714cf7bc")
     @Override
     public <T extends Profile> List<T> getOwnedProfile(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -162,13 +162,13 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         
     }
 
-    @objid ("61a48e08-91a2-47c7-b468-d9cf69f728eb")
+    @objid ("74859676-733f-46e6-bae7-b9f209a43719")
     @Override
     public EList<ModuleParameter> getModuleParameter() {
         return new SmList<>(this, ((ModuleComponentSmClass)getClassOf()).getModuleParameterDep());
     }
 
-    @objid ("ff586b89-d51b-4480-971f-564b4c35b433")
+    @objid ("ace8f723-0e9c-4c3d-8473-dc655e6a730c")
     @Override
     public <T extends ModuleParameter> List<T> getModuleParameter(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -184,13 +184,13 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         
     }
 
-    @objid ("791022a2-87db-480e-8c12-b677aa91c537")
+    @objid ("bdef97a3-0e1e-4566-975f-3205259a50c5")
     @Override
     public EList<ModuleComponent> getDependsOn() {
         return new SmList<>(this, ((ModuleComponentSmClass)getClassOf()).getDependsOnDep());
     }
 
-    @objid ("ac18f535-5728-4e11-86ff-e51c15cf6a98")
+    @objid ("f8bf7835-e0b6-4648-8b90-628654979dc2")
     @Override
     public <T extends ModuleComponent> List<T> getDependsOn(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -206,13 +206,13 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         
     }
 
-    @objid ("c3c5489f-34de-4b5e-b1e8-93d689a04faf")
+    @objid ("6fb0be5e-80a5-4981-b04f-d4caf9594e4a")
     @Override
     public EList<ModuleComponent> getImpacted() {
         return new SmList<>(this, ((ModuleComponentSmClass)getClassOf()).getImpactedDep());
     }
 
-    @objid ("dac730a9-ab2a-4746-8b9f-0d5d5218fcfe")
+    @objid ("2330c678-d8f5-4896-9eda-13c28cfe44dd")
     @Override
     public <T extends ModuleComponent> List<T> getImpacted(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -228,7 +228,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         
     }
 
-    @objid ("5ec32d00-0e8b-4497-93b1-530491428dcb")
+    @objid ("a54917f5-30f8-4e87-b138-5d355c38b40b")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -236,7 +236,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         return super.getCompositionOwner();
     }
 
-    @objid ("e7f04aee-f9d0-4ed8-8e47-f3a6ae46bbb5")
+    @objid ("45e9a7b4-62e0-4220-a4b8-400a39c4cc07")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -246,7 +246,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         return super.getCompositionRelation();
     }
 
-    @objid ("46592479-a2f0-4000-a2d0-4a25ad8d91b3")
+    @objid ("fcee1a6d-3b52-4cd4-a057-c09bcbb76c07")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitModuleComponent(this);

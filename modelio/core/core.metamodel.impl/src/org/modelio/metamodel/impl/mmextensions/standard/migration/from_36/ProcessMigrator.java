@@ -26,6 +26,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.vbasic.log.Log;
 import org.modelio.vcore.model.spi.mm.IMofSession;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -148,16 +149,18 @@ class ProcessMigrator {
     private MofSmObjectImpl getOrCreateCollaboration(MofSmObjectImpl process, MofSmObjectImpl bpmnBehavior) {
         final List<MofSmObjectImpl> bpmnBehaviorRoots = bpmnBehavior.getDep("RootElement");
         
+        PrintWriter logger = this.mofSession.getReport().getLogger();
+        
         for (MofSmObjectImpl rootEl : bpmnBehaviorRoots) {
             if (rootEl.getMClass().equals(this.mm.bpmnCollaboMC)) {
-                this.mofSession.getReport().getLogger().format("  Use existing %s for %s .\n", rootEl, process);
+                logger.format("  Use existing %s for %s .%n", rootEl, process);
                 return rootEl;
             }
         }
         
         MofSmObjectImpl collaboration = this.mofSession.createObject(this.mm.bpmnCollaboMC, bpmnBehavior.getName());
         bpmnBehaviorRoots.add(collaboration);
-        this.mofSession.getReport().getLogger().format("  Create %s in %s for %s .\n", collaboration, collaboration.getSingleDep("Owner"), process);
+        logger.format("  Create %s in %s for %s .%n", collaboration, collaboration.getSingleDep("Owner"), process);
         return collaboration;
     }
 
@@ -197,7 +200,7 @@ class ProcessMigrator {
         
             // debug
             List<MofSmObjectImpl> oldLaneNodes = new ArrayList<>(poolLane.getDep("FlowElementRef"));
-            
+        
             // Merge Process name and Pool name
             final String poolLaneName = poolLane.getName();
             if (!Objects.equals(poolLaneName, process.getName()) && !poolHasDefaultName(poolLane)) {
@@ -269,7 +272,7 @@ class ProcessMigrator {
         
             // debug
             List<MofSmObjectImpl> oldLaneNodes = new ArrayList<>(poolLane.getDep("FlowElementRef"));
-            
+        
             // Merge Process name and Pool name
             final String poolLaneName = poolLane.getName();
             if (!Objects.equals(poolLaneName, process.getName()) && !poolHasDefaultName(poolLane)) {
@@ -378,6 +381,7 @@ class ProcessMigrator {
         
         // If the process has only pools, no nodes at root,
         // keep the first pool as a Lane container and convert other pools to Process and Participant.
+        // CMA 17/10/2023 : keep the parent lane, to avoid breaking the content layout.
         // If the Process has Pools and nodes on root, convert all pools to Process and Participant.
         List<MofSmObjectImpl> origRootPools = new ArrayList<>(process.getDep("LaneSet"));
         
@@ -399,11 +403,12 @@ class ProcessMigrator {
         } else if (origRootPools.size() == 1
                 && !origHasActiveNodes
                 && !origHasMessageFlows
-                && origRootPools.get(0).getDep("Lane").stream()
-                        .allMatch(l -> l.getDep("ChildLaneSet").isEmpty())) {
+                /*&& origRootPools.get(0).getDep("Lane").stream()
+                        .allMatch(l -> l.getDep("ChildLaneSet").isEmpty())*/) {
+            // CMA 17/10/2023 : disabled last condition to keep the previously mandatory parent lane, to avoid breaking the content layout.
             // Special case : 1 Pool with 1 Lane (or 1 Pool with x Lanes with no sub LaneSet)
             // keep lanes as is
-            logger.format(" %s has only one pool with no sub laneset, keep as is.\n", process);
+            logger.format(" %s has only one pool /*with no sub laneset*/, keep as is.\n", process);
         
             // Transmute all BpmnProcessCollaborationDiagram to BpmnProcessDesignDiagram
             final List<MofSmObjectImpl> diagrams = new ArrayList<>(process.getDep("Product"));
@@ -453,10 +458,16 @@ class ProcessMigrator {
             for (MofSmObjectImpl diagram : new ArrayList<>(process.getDep("Product"))) {
                 if (diagram.getMClass() == this.mm.bpmnProcessCollaborationDiagramMC) {
                     if (origHasMessageFlows && collaboration != null && (contains(diagram, this.mm.bpmnMessageFlowMC) || contains(diagram, this.mm.participantMC))) {
-                        // To a BpmnCollaborationDiagram into the collaboration
+                        // Duplicate the diagram as a process diagram, the original one will be transmuted to a BpmnCollaborationDiagram.
+                        // org.modelio.bpmn.diagram.editor.contributor.BpmnMmMigrationContributor will clean the diagram later.
+                        if (false) {
+                            MofSmObjectImpl clonedDiagram = cloneDiagram(diagram, process, this.mm.bpmnProcessDesignDiagramMC);
+                        }
+        
+                        // Move the original diagram from the process into the collaboration
+                        // Transmute it to a BpmnCollaborationDiagram
                         process.getDep("Product").remove(diagram);
                         collaboration.getDep("Product").add(diagram);
-        
                         this.mofSession.transmute(diagram, this.mm.bpmnCollaborationDiagramMC);
         
                     } else {
@@ -469,6 +480,40 @@ class ProcessMigrator {
         
         logger.format("-- end of %s migration.\n\n", process);
         
+    }
+
+    /**
+     * Clone the given diagram with a new metaclass.
+     * <p>
+     * The returned diagram is orphan and must be attached to somebody with:
+     * <pre><code>process.getDep("Product").add(clonedDiagram);</code></pre>
+     * @param diagram the original diagram
+     * @param clonedDiagramMetaclass the clone metaclass
+     * @return the cloned diagram
+     */
+    @objid ("392e00d7-c87e-44e6-aee6-1450c510a82e")
+    private MofSmObjectImpl cloneDiagram(MofSmObjectImpl diagram, MofSmObjectImpl target, MClass clonedDiagramMetaclass) {
+        MofSmObjectImpl clonedDiagram = this.mofSession.createObject(clonedDiagramMetaclass);
+        String originalName = diagram.getName();
+        clonedDiagram.setAttVal("UiDataVersion", diagram.getAtt("UiDataVersion"));
+        clonedDiagram.setAttVal("UiData", diagram.getAtt("UiData"));
+        clonedDiagram.getDep("Represented").addAll(diagram.getDep("Represented")); // represented elements list
+        clonedDiagram.getDep("ReferencingSet").addAll(diagram.getDep("ReferencingSet")); // diagram folder
+        
+        target.getDep("Product").add(clonedDiagram);
+        
+        try {
+            String ownerName = diagram.getSingleDep("Origin").getName();
+            String newName = originalName.replace(ownerName, target.getName());
+            if (newName.equals(originalName)) {
+                newName = target.getName();
+            }
+            clonedDiagram.setAttVal("Name", newName);
+        } catch (RuntimeException e) {
+            Log.warning(e);
+            clonedDiagram.setAttVal("Name", target.getName());
+        }
+        return clonedDiagram;
     }
 
     /**
@@ -522,6 +567,9 @@ class ProcessMigrator {
      */
     @objid ("1ca1a424-6004-45c3-b25a-d6dc4163d765")
     private void movePoolContentToNewProcess(final PrintWriter logger, MofSmObjectImpl origPool, MofSmObjectImpl process, MofSmObjectImpl bpmnBehavior, MofSmObjectImpl collaboration) {
+        ArrayList<MofSmObjectImpl> processDiagrams = new ArrayList<>(process.getDep("Product"));
+        processDiagrams.removeIf(diagram -> diagram.getMClass() != this.mm.bpmnProcessCollaborationDiagramMC);
+        
         final List<MofSmObjectImpl> poolOnlyLane = getAndClearDep(origPool, "Lane");
         
         // We have to move the Pool content to a new Process.
@@ -541,6 +589,16 @@ class ProcessMigrator {
         
             // Create the new process
             MofSmObjectImpl newProcess = this.mofSession.createObject(this.mm.processMclass, newProcessName);
+            logger.format("   Moving all nodes inside (%s) to new (%s)...%n", lane, newProcess);
+        
+            // clone the process diagram
+            if (false) {
+                for (MofSmObjectImpl processDiag : processDiagrams) {
+                    // Duplicate the diagram as a process diagram, the original one will be transmuted to a BpmnCollaborationDiagram.
+                    // org.modelio.bpmn.diagram.editor.contributor.BpmnMmMigrationContributor will clean the diagram later.
+                    MofSmObjectImpl clonedDiagram = cloneDiagram(processDiag, newProcess, this.mm.bpmnProcessDesignDiagramMC);
+                }
+            }
         
             final List<MofSmObjectImpl> allLaneNodes = getAllLaneNodes(lane);
         
@@ -567,7 +625,7 @@ class ProcessMigrator {
             collaboration.getDep("Participants").add(participant);
             participant.getDep("Process").add(newProcess);
             bpmnBehavior.getDep("RootElement").add(newProcess);
-            logger.format("  Created %s under %s.\n", newProcess, bpmnBehavior);
+            logger.format("    Created %s under %s.\n", newProcess, bpmnBehavior);
         
             // Lane.RepresentedElement ==> Participant.Type if compatible
             if (laneRepresentedElement != null && this.mm.umlClassifierMC.isInstance(laneRepresentedElement)) {

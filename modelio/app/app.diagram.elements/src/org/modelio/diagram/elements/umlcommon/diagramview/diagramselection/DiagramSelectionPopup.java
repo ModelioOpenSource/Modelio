@@ -19,209 +19,306 @@
  */
 package org.modelio.diagram.elements.umlcommon.diagramview.diagramselection;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerComparator;
-import org.eclipse.jface.window.Window;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
-import org.modelio.platform.ui.dialog.ModelioDialog;
+import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIImages;
+import org.modelio.platform.ui.dialog.ModelioDialog2;
+import org.modelio.platform.ui.dialog.PolluxWidgetConfigurator;
+import org.modelio.vcore.smkernel.mapi.MClass;
 
-/**
- * Dialog used to select a diagram amonst a list.
- */
 @objid ("fbf3eca2-7088-4d59-a3df-91a6fea67b3b")
-public class DiagramSelectionPopup extends ModelioDialog {
-    @objid ("34b59a1d-8460-44d4-95ec-268ef1e4a04b")
-    protected DiagramSelectionModel model;
+public class DiagramSelectionPopup extends ModelioDialog2 {
+    @objid ("bda89850-39b3-4d36-9b9c-fa2469367928")
+    private DiagramSelectionModel data;
 
-    @objid ("29c0e2a0-1936-445e-b30d-fe5298269763")
-    protected Composite composite;
+    @objid ("49888a8c-c682-4f74-a21b-d946f5fe92b1")
+    private Controler controler;
 
-    @objid ("8c0ae270-122f-4be5-8b8b-cb8a52d04aaa")
-    protected Button okButton;
+    @objid ("2973ed64-22d9-4059-9760-ce322f7b27f8")
+    private Ui ui;
 
-    /**
-     * C'tor.
-     * @param shell The shell to use to create this dialog.
-     * @param model The model to use for this popup.
-     */
-    @objid ("c9ccdcf3-dcef-4a78-af5f-bfc7e9d06d41")
-    public  DiagramSelectionPopup(final Shell shell, final DiagramSelectionModel model) {
-        super(shell);
-        this.model = model;
-        setShellStyle(SWT.TITLE |
-                SWT.RESIZE |
-                SWT.BORDER |
-                SWT.APPLICATION_MODAL |
-                Window.getDefaultOrientation());
+    @objid ("cbba8eb7-41f3-4975-8d00-4dd32b150284")
+    public  DiagramSelectionPopup(Shell parentShell) {
+        super(parentShell);
+        this.controler = new Controler();
+        this.ui = new Ui(this.controler);
+        this.controler.setUi(this.ui);
         
     }
 
-    @objid ("bf427f04-6d1f-4653-ac00-35318d97dc66")
-    @Override
-    protected boolean canHandleShellCloseEvent() {
-        return false;
-    }
-
-    @objid ("67df0d3a-25bf-4928-a1d8-c8cdc426c673")
-    @Override
-    public Control createContentArea(final Composite parent) {
-        this.composite = new Composite(parent, SWT.NONE);
-        this.composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        this.composite.setLayout(new GridLayout(1, true));
-        
-        TreeViewer treeViewer = new TreeViewer(this.composite, SWT.BORDER);
-        treeViewer.setContentProvider(new TypeSelectionContentProvider());
-        treeViewer.setLabelProvider(new TypeSelectionLabelProvider());
-        treeViewer.setComparator(new ViewerComparator());
-        treeViewer.setInput(this.model);
-        treeViewer.expandAll();
-        treeViewer.setAutoExpandLevel(2);
-        treeViewer.getTree().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        
-        treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
-            @Override
-            public void selectionChanged(SelectionChangedEvent event) {
-                ISelection selection = event.getSelection();
-                if (selection instanceof StructuredSelection) {
-                    AbstractDiagram selectedDiagram = (AbstractDiagram) ((StructuredSelection) selection).getFirstElement();
-                    DiagramSelectionPopup.this.model.setSelected(selectedDiagram);
-                    DiagramSelectionPopup.this.okButton.setEnabled(!((StructuredSelection) selection).isEmpty());
-                }
-            }
-        });
-        return this.composite;
-    }
-
-    @objid ("e5143b32-1014-410a-9ca8-28b8533d97be")
-    @Override
-    public void addButtonsInButtonBar(final Composite parent) {
-        this.okButton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
-        createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
-        
-    }
-
-    @objid ("fb594973-30de-4142-afc9-4481a362932a")
-    @Override
-    public void init() {
-        // Put the window title, dialog title and dialog message
-        getShell().setText(DiagramElements.I18N.getMessage("DiagramSelectionPopup.WindowTitle"));
-        setTitle(DiagramElements.I18N.getMessage("DiagramSelectionPopup.DialogTitle"));
-        setMessage(DiagramElements.I18N.getMessage("DiagramSelectionPopup.DialogMessage"));
-        
-        // Set minimum size
-        getShell().setMinimumSize(400, 300);
-        
-    }
-
-    @objid ("b6d2e91e-e3b5-48fb-ab79-6d5f71075216")
+    @objid ("d4f1d77b-7484-488c-95d0-1bcedf39b55d")
     @Override
     protected Point getInitialSize() {
         return new Point(400, 400);
     }
 
-    @objid ("727e8507-bfe3-4c0f-b171-76da43eea610")
+    @objid ("250e96e5-f038-40af-a799-6f036018367d")
     @Override
-    protected Point getInitialLocation(final Point initialSize) {
-        return super.getInitialLocation(initialSize);
+    protected void addButtonsInButtonBar(Composite parent) {
+        addDefaultButtons(parent);
+        getButton(IDialogConstants.OK_ID).setEnabled(true);
+        this.ui.setOkButton(getButton(IDialogConstants.OK_ID));
+        
     }
 
-    /**
-     * Label and image provider for the type selection dialog.
-     */
-    @objid ("9c7c0f83-1419-443e-bde8-a0dd143b8c37")
-    private static class TypeSelectionLabelProvider extends LabelProvider {
-        @objid ("7623c44e-0182-4e76-91fa-234c1d1e3a27")
-        public  TypeSelectionLabelProvider() {
-            super();
+    @objid ("90373794-010d-4a05-ad93-ca1629e6a406")
+    @Override
+    protected Control createContentArea(Composite parent) {
+        Composite top = this.ui.create(parent);
+        if (this.data != null) {
+            this.controler.updateData(data);
+        }
+        return top;
+    }
+
+    @objid ("a9b9f60e-d430-4b08-9c02-17a1c30f138c")
+    @Override
+    protected void init() {
+        getShell().setText(DiagramElements.I18N.getMessage("DiagramSelectionPopup.WindowTitle"));
+    }
+
+    @objid ("b09d3760-b7ee-4f0c-a512-b7c07a475e76")
+    public void setInput(DiagramSelectionModel data) {
+        this.data = data;
+    }
+
+    @objid ("e88b9e39-d279-4d9e-806b-78a0f70b4c9d")
+    private static class Controler {
+        @objid ("10553160-467b-469c-ba0c-5338c4541479")
+        private Ui ui;
+
+        @objid ("4e142b38-3d51-445e-acd7-c532a3a55faa")
+        private List<AbstractDiagram> filtredData = new ArrayList<>();
+
+        @objid ("c9fad25b-2c87-4246-96c0-0a45caee2961")
+        private DiagramSelectionModel data;
+
+        @objid ("5766069d-0586-487a-8e6f-8da9a25be1c1")
+        public void setUi(Ui ui) {
+            this.ui = ui;
         }
 
-        @objid ("2c18ad72-3095-4ca3-aff2-0c67c04258ec")
-        @Override
-        public Image getImage(final Object obj) {
-            if (obj instanceof AbstractDiagram) {
-                return ElementImageService.getIcon((AbstractDiagram) obj);
-            }
-            return super.getImage(obj);
+        @objid ("df11d156-601f-43d5-9380-eda39eda8f5e")
+        public void updateData(DiagramSelectionModel data) {
+            this.data = data;
+            this.filtredData = new ArrayList<>(this.data.getAllowed());
+            this.ui.update(data,new ArrayList<>(this.data.getAllowed()));
+            
         }
 
-        @objid ("06a87850-6e9e-447a-83ec-1ac734ad7ced")
-        @Override
-        public String getText(final Object obj) {
-            if (obj instanceof AbstractDiagram) {
-                return ((AbstractDiagram) obj).getName();
+        @objid ("37232304-7568-4fb2-b0a1-5f0607afaea1")
+        public void onSerachUpdate(String searchText) {
+            this.filtredData = new ArrayList<>();
+            for (AbstractDiagram candidate : this.data.getAllowed()) {
+                if (candidate.getName().toLowerCase().contains(searchText.toLowerCase()) ||(candidate.isValid() &&  candidate.getCompositionOwner() != null  && candidate.getCompositionOwner().getMClass().getName().toLowerCase().contains(searchText.toLowerCase()))) {
+                    filtredData.add(candidate);
+                }
             }
-            return super.getText(obj);
+            
+            this.ui.update(this.data,this.filtredData);
+            
+        }
+
+        @objid ("d2e8d435-aa1b-4bd5-814e-0b886c4b3b14")
+        public void onElementSelectionChange(AbstractDiagram element) {
+            this.data.setSelected(element);
+            this.ui.update(this.data, this.filtredData);
+            
         }
 
     }
 
-    /**
-     * Content provider for the type selection dialog.
-     */
-    @objid ("76ef302b-abcf-43d4-9b7c-d70421f1d1b4")
-    private static class TypeSelectionContentProvider implements ITreeContentProvider {
-        @objid ("8b4d786f-1ae3-4bba-a9da-320663e2714b")
-        public  TypeSelectionContentProvider() {
-            super();
+    @objid ("a0b4fab4-1ca1-4a64-9c9b-14c55b61bba8")
+    private static class Ui {
+        @objid ("0c2520d0-c2e9-4ef0-a015-09a67a7444e3")
+        private Composite rootComposite;
+
+        @objid ("3e9d2c9a-74a3-46ba-bb02-eafae5e6d6fb")
+        private CLabel headerLabel;
+
+        @objid ("8b4c0623-515a-4329-b4f7-eb7babb41cfa")
+        private TableViewer existingElementTable;
+
+        @objid ("32e75993-51a0-43d9-97ab-4e0ca3c2c27f")
+        private Text searchText;
+
+        @objid ("77a68cce-a18b-44c1-8a57-300fb20936cc")
+        private Button okButton;
+
+        @objid ("1fa1c5b3-79b9-4b01-9908-3ef6ce5b3722")
+        private Controler controler;
+
+        @objid ("68243fff-f8eb-4c7b-a385-3a91ec2ee313")
+        public  Ui(Controler controler) {
+            this.controler = controler;
         }
 
-        @objid ("fa1a65fa-241c-427e-a9b5-c7827f2ec405")
-        @Override
-        public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
-            // Nothing to do.
+        @objid ("acdad73a-5f35-4274-b923-d2dd0f7a0c6f")
+        public Composite create(Composite parent) {
+            this.rootComposite = new Composite(parent, SWT.NONE);
+            GridData gd = new GridData(GridData.FILL_BOTH | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
+            this.rootComposite.setLayoutData(gd);
+            this.rootComposite.setFont(parent.getFont());
+            PolluxWidgetConfigurator.configureContainer(this.rootComposite);
+            createHeaderArea(this.rootComposite);
+            createElementsTable(this.rootComposite);
+            return this.rootComposite;
         }
 
-        @objid ("87cee8ff-6167-4cf4-8353-e4ac7978c06a")
-        @Override
-        public void dispose() {
-            // Nothing to do.
+        @objid ("4a694a9f-33a5-425a-95d0-6b03d5584261")
+        private Composite createHeaderArea(Composite parent) {
+            this.headerLabel = new CLabel(parent, SWT.NONE);
+            PolluxWidgetConfigurator.configureHeaderField(this.headerLabel);
+            return headerLabel;
         }
 
-        @objid ("eb8f21d4-c9bf-4b84-b590-56789c16eb0b")
-        @Override
-        public boolean hasChildren(final Object element) {
-            return element instanceof DiagramSelectionModel;
+        @objid ("7dd96ac5-6588-4804-941e-b96c452cefde")
+        private Composite createElementsTable(Composite parent) {
+            Composite listComposite = new Composite(parent, SWT.NONE);
+            GridData gd = new GridData(GridData.FILL_BOTH);
+            listComposite.setLayoutData(gd);
+            PolluxWidgetConfigurator.configureContainer(listComposite);
+            
+            createSearchComposite(listComposite);
+            
+            this.searchText.addListener(SWT.Modify, new Listener() {
+                @Override
+                public void handleEvent(Event event) {
+                    controler.onSerachUpdate(searchText.getText());
+                }
+            });
+            
+            this.existingElementTable = new TableViewer(listComposite, SWT.V_SCROLL | SWT.BORDER | SWT.MULTI);
+            
+            this.existingElementTable.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+            this.existingElementTable.setContentProvider(ArrayContentProvider.getInstance());
+            
+            TableViewerColumn elementListColumn = new TableViewerColumn(this.existingElementTable, SWT.FILL);
+            elementListColumn.getColumn().setAlignment(SWT.CENTER);
+            elementListColumn.getColumn().setResizable(false);
+            
+            // Universal Label Provider
+            elementListColumn.setLabelProvider(new ColumnLabelProvider() {
+                @Override
+                public Image getImage(final Object obj) {
+                    if (obj instanceof AbstractDiagram) {
+                        return ElementImageService.getIcon((AbstractDiagram) obj);
+                    }
+                    return super.getImage(obj);
+                }
+            
+                @Override
+                public String getText(final Object obj) {
+                    if (obj instanceof AbstractDiagram) {
+                        return ((AbstractDiagram) obj).getName()+  " " +DiagramElements.I18N.getMessage("DiagramSelectionPopup.forminfo",((AbstractDiagram) obj).getCompositionOwner().getName() );
+                    }
+                    return super.getText(obj);
+                }
+            });
+            
+            this.existingElementTable.getControl().addControlListener(new ControlListener() {
+                @Override
+                public void controlResized(ControlEvent e) {
+                    Rectangle rect = existingElementTable.getTable().getClientArea();
+                    if (rect.width > 0) {
+                        elementListColumn.getColumn().setWidth(rect.width);
+                    }
+                }
+            
+                @Override
+                public void controlMoved(ControlEvent e) {
+                    // TODO Auto-generated method stub
+            
+                }
+            });
+            
+            this.existingElementTable.addSelectionChangedListener(new ISelectionChangedListener() {
+                @Override
+                public void selectionChanged(SelectionChangedEvent event) {
+                    IStructuredSelection selection = existingElementTable.getStructuredSelection();
+                    controler.onElementSelectionChange((AbstractDiagram)selection.getFirstElement());
+            
+                }
+            });
+            return listComposite;
         }
 
-        @objid ("571bf089-7a20-4389-85c0-18c729358b21")
-        @Override
-        public Object getParent(final Object element) {
-            return null;
+        @objid ("191aa643-8c4e-46ec-b44e-69e40e1cdfad")
+        private Composite createSearchComposite(Composite composite) {
+            Composite searchComposite = new Composite(composite, SWT.NONE);
+            GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+            searchComposite.setLayoutData(gd);
+            PolluxWidgetConfigurator.configureContainer(searchComposite);
+            
+            GridLayout gridLayout = new GridLayout();
+            gridLayout.numColumns = 2;
+            
+            searchComposite.setLayout(gridLayout);
+            Label searchImage = new Label(searchComposite, SWT.NONE);
+            searchImage.setImage(UIImages.SEARCH);
+            searchImage.setBackground(UIColor.WHITE);
+            searchImage.setSize(30, 30);
+            this.searchText = new Text(searchComposite, SWT.BORDER | SWT.WRAP | SWT.SINGLE);
+            this.searchText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+            return searchComposite;
         }
 
-        @objid ("c7d96cd9-1262-4f71-ab14-aadd73d1d96d")
-        @Override
-        public Object[] getElements(final Object inputElement) {
-            return getChildren(inputElement);
-        }
-
-        @objid ("d293bce8-328f-4ed2-b0a1-5b611f1cd377")
-        @Override
-        public Object[] getChildren(final Object parentElement) {
-            if (parentElement instanceof DiagramSelectionModel) {
-                return ((DiagramSelectionModel) parentElement).getAllowed().toArray();
+        @objid ("5ceb0e51-cc0f-4c91-8dd8-669e2982ac86")
+        public void update(DiagramSelectionModel data, List<AbstractDiagram> filtresData) {
+            this.headerLabel.setText(DiagramElements.I18N.getMessage("DiagramSelectionPopup.DialogTitle"));
+            this.existingElementTable.setInput(filtresData);
+            
+                    /*    if(data.getSelected() != null) {
+                this.existingElementTable.setSelection(new StructuredSelection(data.getSelected()));
+            }*/
+            
+            if (this.okButton != null) {
+                this.okButton.setEnabled(data.getSelected() != null);
             }
-            return null;
+            
+        }
+
+        @objid ("5ac3f788-922e-469b-80c6-87b410dc8f54")
+        private Image getMetaclassImage(MClass metaclass) {
+            return MetamodelImageService.getIcon(metaclass);
+        }
+
+        @objid ("b671dd5b-ebc8-4f79-93f5-7bd670629123")
+        public void setOkButton(Button button) {
+            this.okButton = button;
+            this.okButton.setEnabled(false);
+            
         }
 
     }

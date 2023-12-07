@@ -18,10 +18,11 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
@@ -39,9 +40,12 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
+import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
 import org.modelio.vcore.smkernel.SmList;
 import org.modelio.vcore.smkernel.SmObjectImpl;
+import org.modelio.vcore.smkernel.mapi.MClass;
+import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("0067251e-ec87-1098-b22e-001ec947cd2a")
@@ -64,13 +68,28 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return pDef;
     }
 
-    @objid ("6c69c6fd-4846-4028-b7c5-ffb90f8dd947")
+    @objid ("a4aa97a8-8163-47ae-bc75-46d46c2d8a55")
+    @Override
+    public ModuleComponent getModule() {
+        MetaclassReference ref = getOwnerReference();
+        Stereotype st = getOwnerStereotype();
+        
+        if (ref != null && ref.getOwnerProfile() != null) {
+            return ref.getOwnerProfile().getOwnerModule();
+        } else if (st != null && st.getOwner() != null) {
+            return st.getOwner().getOwnerModule();
+        } else
+            return null;
+        
+    }
+
+    @objid ("de95edb4-3810-4a33-a05a-5fa6d81e1f82")
     @Override
     public EList<TypedPropertyTable> getTypedTable() {
         return new SmList<>(this, ((PropertyTableDefinitionSmClass)getClassOf()).getTypedTableDep());
     }
 
-    @objid ("1f77a021-1259-4069-a733-5ebf42b7af38")
+    @objid ("44b6d08a-c094-4adb-bc67-3eb44d2f2c57")
     @Override
     public <T extends TypedPropertyTable> List<T> getTypedTable(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -78,46 +97,47 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         }
         final List<T> results = new ArrayList<>();
         for (final TypedPropertyTable element : getTypedTable()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("5326e862-1e97-4f3f-bf0d-6ee67acf8355")
+    @objid ("0b930b94-0e18-4f79-bce9-6e8345f8c864")
     @Override
     public MetaclassReference getOwnerReference() {
         Object obj = getDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerReferenceDep());
         return (obj instanceof MetaclassReference)? (MetaclassReference)obj : null;
     }
 
-    @objid ("188f7369-6551-47ec-bb0e-eb6e44cc16ef")
+    @objid ("b402a139-b5c6-4005-8a92-acb473480368")
     @Override
     public void setOwnerReference(MetaclassReference value) {
         appendDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerReferenceDep(), (SmObjectImpl)value);
     }
 
-    @objid ("e40103f6-21d6-4942-86f3-4ee7e9e79bf4")
+    @objid ("46e1e02e-852d-4a21-ba0d-d016876594c4")
     @Override
     public Stereotype getOwnerStereotype() {
         Object obj = getDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep());
         return (obj instanceof Stereotype)? (Stereotype)obj : null;
     }
 
-    @objid ("4d661679-f6c3-43a3-9a60-bd9aa3f95feb")
+    @objid ("4057fda5-7f3a-4916-963f-6e3eb3e80921")
     @Override
     public void setOwnerStereotype(Stereotype value) {
         appendDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("30777145-32b4-41a6-b456-3821347b3f90")
+    @objid ("1d91d189-8982-4dde-9efd-df19c5073c48")
     @Override
     public EList<PropertyDefinition> getOwned() {
         return new SmList<>(this, ((PropertyTableDefinitionSmClass)getClassOf()).getOwnedDep());
     }
 
-    @objid ("4d099719-4cc9-46da-887a-d2fc5322bb8e")
+    @objid ("2e58e7d2-9a6c-4be8-8712-0c747655fbd6")
     @Override
     public <T extends PropertyDefinition> List<T> getOwned(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -125,14 +145,15 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         }
         final List<T> results = new ArrayList<>();
         for (final PropertyDefinition element : getOwned()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("2edf994c-6513-46fb-9342-425c7ee2e03a")
+    @objid ("9065c2ba-5257-4a67-9715-3602dd2fc2bd")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -148,7 +169,7 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return super.getCompositionOwner();
     }
 
-    @objid ("dceab729-b69b-41d7-af0d-3ad46acba84c")
+    @objid ("13d9cb91-97e5-472b-bdc9-06a69fea4693")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -164,28 +185,14 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         dep = ((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep();
         obj = (SmObjectImpl)this.getDepVal(dep);
         if (obj != null) return new SmDepVal(dep, obj);
+        
         return super.getCompositionRelation();
     }
 
-    @objid ("b6d1573b-88c2-402b-864a-61b1138031c3")
+    @objid ("aa78ee6f-46e5-4d96-a9c1-df391433ff1d")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyTableDefinition(this);
-    }
-
-    @objid ("6fe6159a-f82a-4f98-9b3e-3ee05905ee03")
-    @Override
-    public ModuleComponent getModule() {
-        MetaclassReference ref = getOwnerReference();
-        Stereotype st = getOwnerStereotype();
-        
-        if (ref != null && ref.getOwnerProfile() != null) {
-            return ref.getOwnerProfile().getOwnerModule();
-        } else if (st != null && st.getOwner() != null) {
-            return st.getOwner().getOwnerModule();
-        } else
-            return null;
-        
     }
 
 }

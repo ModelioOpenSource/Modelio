@@ -19,6 +19,7 @@
  */
 package org.modelio.audit.view.providers.byrules;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
@@ -30,7 +31,10 @@ import org.modelio.audit.view.model.AuditRuleModel;
 @objid ("26c1dcc6-372e-4dd1-9ba6-5e30022e34e6")
 public class NumberedRuleLabelProvider extends StyledCellLabelProvider {
     @objid ("3eec002c-3d80-4666-aeb3-a6618edd5d42")
-    private final SimpleDateFormat formatter = new SimpleDateFormat("H:mm:ss");
+    private final SimpleDateFormat dateFormatter = new SimpleDateFormat("H:mm:ss");
+
+    @objid ("5419bb31-646a-4e25-a7a2-e8492d3e7b79")
+    private final NumberFormat numFormat = NumberFormat.getNumberInstance();
 
     @objid ("aedd5f98-f5e3-49fc-a8a0-836ed317e076")
     @Override
@@ -42,11 +46,11 @@ public class NumberedRuleLabelProvider extends StyledCellLabelProvider {
             AuditRuleModel entry = (AuditRuleModel) element;
             cell.setImage(entry.severity.getImage());
             text.append(entry.rule);
-            text.append(" (" + entry.entries.size() + ")", StyledString.COUNTER_STYLER);
+            text.append(" (" + this.numFormat.format(entry.entries.size()) + ")", StyledString.COUNTER_STYLER);
         
         } else if (element instanceof IAuditEntry) {
             IAuditEntry entry = (IAuditEntry) element;
-            text.append(this.formatter.format(entry.getTimestamp()));
+            text.append(this.dateFormatter.format(entry.getTimestamp()));
         }
         
         cell.setText(text.toString());

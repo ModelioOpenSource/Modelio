@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: core.project.data
 Bundle-SymbolicName: org.modelio.core.project.data;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Require-Bundle: org.modelio.core.utils,
  practicalxml,
  org.modelio.version,
- org.modelio.jaxb;bundle-version="1.0.0"
+ org.modelio.jaxb
 Export-Package: org.modelio.gproject.data.module,
  org.modelio.gproject.data.module.jaxbv1,
  org.modelio.gproject.data.module.jaxbv2,

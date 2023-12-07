@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.editors"
          label="Function Editors"
-         version="5.3.1.qualifier"
+         version="5.4.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -38,7 +38,7 @@ GPL
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.app.editors.richnote.libreoffice"
+<!--plugin id="org.modelio.app.editors.richnote.libreoffice"
         download-size="0"
         install-size="0"
         version="0.0.0"
@@ -49,7 +49,7 @@ GPL
         install-size="0"
         version="0.0.0"
         fragment="false"
-        unpack="false"/>
+        unpack="false"/-->
 <plugin id="org.modelio.app.editors.texteditors"
         download-size="0"
         install-size="0"

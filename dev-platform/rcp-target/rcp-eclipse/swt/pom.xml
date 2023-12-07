@@ -6,7 +6,7 @@
 	<groupId>org.modelio</groupId>
 	<artifactId>swt-4-24-p2-site</artifactId>
 	<packaging>pom</packaging>
-	<version>5.3.1-SNAPSHOT</version>
+	<version>5.4.1-SNAPSHOT</version>
 
 	<properties>
 		<rcp.group>org.eclipse.platform</rcp.group>

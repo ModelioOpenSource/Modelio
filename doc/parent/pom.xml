@@ -7,11 +7,11 @@
 
 	<groupId>org.modelio</groupId>
 	<artifactId>doc-parent</artifactId>
-	<version>5.3.1-SNAPSHOT</version>
+	<version>5.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<modelio.version>[5.3.1,5.4.0)</modelio.version>
+		<modelio.version>[5.4.1,5.4.2)</modelio.version>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
@@ -48,7 +48,7 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<strictVersions>false</strictVersions>
-					<strictBinIncludes>true</strictBinIncludes>
+					<strictBinIncludes>false</strictBinIncludes>
 					<archive>
 						<!-- don't create the maven directory (descriptor files) in META-INF -->
 						<addMavenDescriptor>false</addMavenDescriptor>

@@ -507,4 +507,25 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
         this.heightConstraint = fixedHeight;
     }
 
+    @objid ("c7007920-9c73-404d-8d28-981e0d0f52d5")
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getClass().getSimpleName());
+        builder.append(" [fraction=");
+        builder.append(this.fraction);
+        builder.append(", towardTarget=");
+        builder.append(this.towardTarget ? "target" : "source");
+        builder.append(", uDistance=");
+        builder.append(this.uDistance);
+        builder.append(", vDistance=");
+        builder.append(this.vDistance);
+        builder.append(", widthConstraint=");
+        builder.append(this.widthConstraint);
+        builder.append(", heightConstraint=");
+        builder.append(this.heightConstraint);
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

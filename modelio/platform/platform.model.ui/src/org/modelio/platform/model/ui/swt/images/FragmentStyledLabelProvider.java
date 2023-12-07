@@ -83,10 +83,11 @@ public class FragmentStyledLabelProvider {
             switch (aFragment.getType()) {
             case EXMLFRAGMENT:
             case SVNFRAGMENT:
-                if (Boolean.parseBoolean(aFragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY)))
-                    return UIColor.NONMODIFIABLE_ELEMENT_FG;
-                else
+            case CONFERENCEFRAGMENT:
+                if(aFragment.getAccessRights().isEditable())
                     return UIColor.BLACK;
+                else
+                    return UIColor.NONMODIFIABLE_ELEMENT_FG;
             case RAMC:
             case MODULE:
                 return UIColor.RAMC_ELEMENT_FG;

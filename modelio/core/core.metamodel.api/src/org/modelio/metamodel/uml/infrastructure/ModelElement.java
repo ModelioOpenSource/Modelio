@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -50,13 +50,13 @@ public interface ModelElement extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("bbaf5609-1ee2-4ee5-a65b-818cbd8d2014")
+    @objid ("1d7b6f83-20a9-499b-a6c5-43be66df2a00")
     public static final String MNAME = "ModelElement";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("66839c03-5611-49a2-a15a-ab4e83c73704")
+    @objid ("763d7906-b94d-4be8-abd8-87f0c4cf14d5")
     public static final String MQNAME = "Infrastructure.ModelElement";
 
     /**
@@ -663,7 +663,7 @@ public interface ModelElement extends Element {
      * <i>Name of the element.</i>
      * 
      */
-    @objid ("4124e79d-464f-4499-856b-b699923bf476")
+    @objid ("47c4f310-569c-4555-bab6-313195e867bb")
     String getName();
 
     /**
@@ -673,7 +673,7 @@ public interface ModelElement extends Element {
      * <i>Name of the element.</i>
      * 
      */
-    @objid ("f674c278-1a5e-4e5e-b810-6119261ad04e")
+    @objid ("4e6e9ba6-bdfe-4e35-ac42-6a526c06cf09")
     void setName(String value);
 
     /**
@@ -686,7 +686,7 @@ public interface ModelElement extends Element {
      * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
      * 
      */
-    @objid ("139b94d9-809a-48d6-9c36-f13c5f568a03")
+    @objid ("24f35a56-be19-4b75-b074-a10e6ac7ade6")
     LocalPropertyTable getLocalProperties();
 
     /**
@@ -699,7 +699,7 @@ public interface ModelElement extends Element {
      * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
      * 
      */
-    @objid ("2583104a-e8f8-466c-a9de-deea1e8ff7d3")
+    @objid ("22052e4d-f12c-4c1c-ae6d-1bdd691a3ebe")
     void setLocalProperties(LocalPropertyTable value);
 
     /**
@@ -710,7 +710,7 @@ public interface ModelElement extends Element {
      * </i>
      * 
      */
-    @objid ("2eb38312-fdea-440c-ae57-37a4b5dcf14d")
+    @objid ("bb8514b0-458e-4107-81bf-21b8d7a1471c")
     EList<Stereotype> getExtension();
 
     /**
@@ -721,7 +721,7 @@ public interface ModelElement extends Element {
      * </i>
      * 
      */
-    @objid ("45f1da17-6b50-488c-b1ac-1ad6023dc927")
+    @objid ("47164bc6-31f4-48b7-9dd5-51da83454f8e")
     <T extends Stereotype> List<T> getExtension(java.lang.Class<T> filterClass);
 
     /**
@@ -731,7 +731,7 @@ public interface ModelElement extends Element {
      * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
      * 
      */
-    @objid ("e4e06517-4f51-4598-8573-d195ba46020b")
+    @objid ("b134ccc6-14ff-4b7f-98b1-6cf50f18c430")
     EList<Dependency> getDependsOnDependency();
 
     /**
@@ -741,7 +741,7 @@ public interface ModelElement extends Element {
      * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
      * 
      */
-    @objid ("4da29aff-ba78-41be-a37b-d2d7a0b1ebea")
+    @objid ("0c8b9839-d7a1-4874-bb30-645fd9219fc3")
     <T extends Dependency> List<T> getDependsOnDependency(java.lang.Class<T> filterClass);
 
     /**
@@ -751,7 +751,7 @@ public interface ModelElement extends Element {
      * <i>TaggedValues annotating the ModelElement.</i>
      * 
      */
-    @objid ("82287c6b-85d1-4136-b64a-bfa0249ebc99")
+    @objid ("a26333ef-6384-4deb-b1d3-f0d443c77703")
     EList<TaggedValue> getTag();
 
     /**
@@ -761,7 +761,7 @@ public interface ModelElement extends Element {
      * <i>TaggedValues annotating the ModelElement.</i>
      * 
      */
-    @objid ("b7b66961-419f-42fa-8a4b-8cc8b4125510")
+    @objid ("a0072aaf-befd-44e1-ac6a-ebdec884b646")
     <T extends TaggedValue> List<T> getTag(java.lang.Class<T> filterClass);
 
     /**
@@ -771,7 +771,7 @@ public interface ModelElement extends Element {
      * <i>Dependencies whose source depend on this element.</i>
      * 
      */
-    @objid ("4dd54cf1-351d-4869-b402-c77a8136f746")
+    @objid ("5244feac-3cd7-4e79-901d-87dee785e24b")
     EList<Dependency> getImpactedDependency();
 
     /**
@@ -781,7 +781,7 @@ public interface ModelElement extends Element {
      * <i>Dependencies whose source depend on this element.</i>
      * 
      */
-    @objid ("93857f42-8ac1-48a8-ab4c-f2b307b23c99")
+    @objid ("8688646a-b861-4407-bd42-9f30b61adbdf")
     <T extends Dependency> List<T> getImpactedDependency(java.lang.Class<T> filterClass);
 
     /**
@@ -791,7 +791,7 @@ public interface ModelElement extends Element {
      * <i>Owned property tables.</i>
      * 
      */
-    @objid ("00a4b840-b272-4a7d-869c-a462b7be54da")
+    @objid ("3e23c62a-73c0-41e8-beb9-d2259a10d865")
     EList<PropertyTable> getProperties();
 
     /**
@@ -801,7 +801,7 @@ public interface ModelElement extends Element {
      * <i>Owned property tables.</i>
      * 
      */
-    @objid ("470db812-dfcf-4222-a671-7f8df02beb81")
+    @objid ("d0e5e499-22ea-479e-818f-250fb3f631f6")
     <T extends PropertyTable> List<T> getProperties(java.lang.Class<T> filterClass);
 
     /**
@@ -811,7 +811,7 @@ public interface ModelElement extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("7535aa0f-3fe1-4bff-b924-d26ff70494de")
+    @objid ("9a514880-ebf1-4608-9d43-7122538c0062")
     EList<AbstractDiagram> getProduct();
 
     /**
@@ -821,7 +821,7 @@ public interface ModelElement extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("b95ffdb2-846f-4dad-b156-456d46271d5e")
+    @objid ("374d19cd-3b2f-4c63-8262-ea31155df6f8")
     <T extends AbstractDiagram> List<T> getProduct(java.lang.Class<T> filterClass);
 
     /**
@@ -831,7 +831,7 @@ public interface ModelElement extends Element {
      * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
      * 
      */
-    @objid ("10420350-313a-4987-ac62-b6b8883684f3")
+    @objid ("eecebc0a-d9ea-4da7-a202-0d4dde807dfe")
     EList<Note> getDescriptor();
 
     /**
@@ -841,7 +841,7 @@ public interface ModelElement extends Element {
      * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
      * 
      */
-    @objid ("0348ea52-8218-42f5-9ee8-df9418233998")
+    @objid ("df3e1c48-bab9-4e09-894b-198e7d5f1ba5")
     <T extends Note> List<T> getDescriptor(java.lang.Class<T> filterClass);
 
     /**
@@ -851,7 +851,7 @@ public interface ModelElement extends Element {
      * <i>Owned matrices.</i>
      * 
      */
-    @objid ("e7d51296-caca-491f-bca2-58af7ba9569d")
+    @objid ("0d746e19-5661-4875-9ff0-ad39e88f1cf9")
     EList<MatrixDefinition> getMatrix();
 
     /**
@@ -861,7 +861,7 @@ public interface ModelElement extends Element {
      * <i>Owned matrices.</i>
      * 
      */
-    @objid ("20281702-c0a3-484f-844c-732d2e5b86be")
+    @objid ("fdc2c046-e9a1-464a-89a0-4d0720254f93")
     <T extends MatrixDefinition> List<T> getMatrix(java.lang.Class<T> filterClass);
 
     /**
@@ -871,7 +871,7 @@ public interface ModelElement extends Element {
      * <i>Impact link targeting this element.</i>
      * 
      */
-    @objid ("dd2d4138-0617-4911-bd8b-4e8d61e025dd")
+    @objid ("ba6f87cd-42cf-45d1-86b0-cd8ca1a76acb")
     EList<ImpactLink> getImpactImpacted();
 
     /**
@@ -881,7 +881,7 @@ public interface ModelElement extends Element {
      * <i>Impact link targeting this element.</i>
      * 
      */
-    @objid ("2e999508-2c6e-4320-adeb-3f2668b1488c")
+    @objid ("b1b6492d-8f28-489e-8e47-6660bac41d88")
     <T extends ImpactLink> List<T> getImpactImpacted(java.lang.Class<T> filterClass);
 
     /**
@@ -891,7 +891,7 @@ public interface ModelElement extends Element {
      * <i>Impact links from this element. Gives the elements this one depends on.</i>
      * 
      */
-    @objid ("337adfd7-a746-419c-8242-d7a976ad72be")
+    @objid ("055b1515-e2c6-4b5f-b38a-3631cc1a422b")
     EList<ImpactLink> getImpactDependsOn();
 
     /**
@@ -901,7 +901,7 @@ public interface ModelElement extends Element {
      * <i>Impact links from this element. Gives the elements this one depends on.</i>
      * 
      */
-    @objid ("6ec8f548-b1c3-436e-83cf-d05747fa3705")
+    @objid ("05028aa6-9295-4ebc-bf6d-02baa29b20ab")
     <T extends ImpactLink> List<T> getImpactDependsOn(java.lang.Class<T> filterClass);
 
     /**
@@ -911,7 +911,7 @@ public interface ModelElement extends Element {
      * <i>Attached resources</i>
      * 
      */
-    @objid ("bcd32e59-fd43-46b1-85b3-33614edc6d6d")
+    @objid ("a8d1f2ab-35db-4339-bdd7-b567b94794e0")
     EList<AbstractResource> getAttached();
 
     /**
@@ -921,7 +921,7 @@ public interface ModelElement extends Element {
      * <i>Attached resources</i>
      * 
      */
-    @objid ("a12efbd1-2bcd-447f-b641-438129474970")
+    @objid ("dff10952-686d-441b-873b-8027be5a66c0")
     <T extends AbstractResource> List<T> getAttached(java.lang.Class<T> filterClass);
 }
 

@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='svnkit-1.10.9 - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1675091768160'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <references size='2'>
+    <repository uri='https://eclipse.tmatesoft.com/1.10.x/' url='https://eclipse.tmatesoft.com/1.10.x/' type='1' options='0'/>
+    <repository uri='https://eclipse.tmatesoft.com/1.10.x/' url='https://eclipse.tmatesoft.com/1.10.x/' type='0' options='0'/>
+  </references>
+  <units size='8'>
+    <unit id='org.tmatesoft.svnkit' version='1.10.9.r10853' singleton='false' generation='2'>
+      <update id='org.tmatesoft.svnkit' range='[0.0.0,1.10.9.r10853)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='SVNKit pure Java Subversion Library'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software'/>
+      </properties>
+      <provides size='101'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.svnkit' version='1.10.9.r10853'/>
+        <provided namespace='osgi.bundle' name='org.tmatesoft.svnkit' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.jcraft.jsch.agentproxy' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.jcraft.jsch.agentproxy.connector' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.jcraft.jsch.agentproxy.usocket' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.darwin' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.freebsd-amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.freebsd-i386' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-arm' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-i386' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-ia64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-ppc' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-ppc64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform.dnd' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform.mac' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform.unix' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform.win32' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.platform.wince' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.ptr' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-sparc' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-sparcv9' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-x86' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.w32ce-arm' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.win32' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.win32-amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='com.sun.jna.win32-x86' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence.core' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence.line' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence.line.diff' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence.line.simplifier' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='de.regnis.q.sequence.media' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.lz4' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.darwin.x86_64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.linux.aarch64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.linux.amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.linux.i386' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.linux.ppc64le' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.linux.s390x' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.util.win32.amd64' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='net.jpountz.xxhash' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.apache.subversion.javahl' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.apache.subversion.javahl.callback' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.apache.subversion.javahl.remote' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.apache.subversion.javahl.types' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.apache.subversion.javahl.util' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tigris.subversion.javahl' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.auth' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.db' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.delta' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.dav' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.dav.handlers' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.dav.http' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.fs' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.fs.index' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.fs.repcache' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.fs.revprop' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.svn' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.svn.sasl' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.svn.ssh' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.svn.ssh.apache' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.io.svn.ssh.trilead' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.util' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.util.jna' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc.admin' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc.patch' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc16' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc17' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc17.db' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc17.db.statement' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc17.db.statement17' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.admin' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.compat' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.ng' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.old' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.patch' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.internal.wc2.remote' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.io' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.io.diff' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.io.repository' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.javahl' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.javahl17' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.replicator' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc.admin' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc.xml' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc2' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc2.admin' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.core.wc2.hooks' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='org.tmatesoft.svn.util' version='1.10.9.r10853'/>
+        <provided namespace='java.package' name='svnkit.build.properties' version='1.10.9.r10853'/>
+        <provided namespace='osgi.identity' name='org.tmatesoft.svnkit' version='1.10.9.r10853'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='net.java.dev.jna' range='[3.2.7,4.1.0]' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='com.trilead.ssh2' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.tmatesoft.sqljet' range='[1.0.5,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            org.tmatesoft.svnkit
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            org.tmatesoft.svnkit
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.tmatesoft.svnkit' version='1.10.9.r10853'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.tmatesoft.svnkit&#xA;Bundle-Version: 1.10.9.r10853&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.tmatesoft.svnkit.feature.group' version='1.10.9.r10853' singleton='false'>
+      <update id='org.tmatesoft.svnkit.feature.group' range='[0.0.0,1.10.9.r10853)' severity='0'/>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='SVNKit Library'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://svnkit.com/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='df_LT.license' value='The TMate Open Source License&#xA;&#xA;This license applies to all portions of TMate SVNKit library, which&#xA;are not externally-maintained libraries (e.g. Trilead SSH library).&#xA;&#xA;All the source code and compiled classes in package org.tigris.subversion.javahl&#xA;except SvnClient class are covered by the license in JAVAHL-LICENSE file&#xA;&#xA;Copyright (c) 2004-2021 TMate Software. All rights reserved.&#xA;&#xA;Redistribution and use in source and binary forms, with or without modification,&#xA;are permitted provided that the following conditions are met:&#xA;&#xA;* Redistributions of source code must retain the above copyright notice,&#xA;this list of conditions and the following disclaimer.&#xA;&#xA;* Redistributions in binary form must reproduce the above copyright notice,&#xA;this list of conditions and the following disclaimer in the documentation &#xA;and/or other materials provided with the distribution.&#xA;&#xA;* Redistributions in any form must be accompanied by information on how to&#xA;obtain complete source code for the software that uses SVNKit and any &#xA;accompanying software that uses the software that uses SVNKit. The source&#xA;code must either be included in the distribution or be available for no &#xA;more than the cost of distribution plus a nominal fee, and must be freely &#xA;redistributable under reasonable conditions. For an executable file, complete&#xA;source code means the source code for all modules it contains. It does not &#xA;include source code for modules or files that typically accompany the major &#xA;components of the operating system on which the executable file runs.&#xA;&#xA;* Redistribution in any form without redistributing source code for software&#xA;that uses SVNKit is possible only when such redistribution is explictly permitted&#xA;by TMate Software. Please, contact TMate Software at support@svnkit.com to &#xA;get such permission.&#xA;&#xA;THIS SOFTWARE IS PROVIDED BY TMATE SOFTWARE ``AS IS&apos;&apos; AND ANY EXPRESS OR IMPLIED&#xA;WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF &#xA;MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT, ARE&#xA;DISCLAIMED. &#xA;&#xA;IN NO EVENT SHALL TMATE SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,&#xA;INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT&#xA;LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR &#xA;PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF &#xA;LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE&#xA;OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF &#xA;ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&#xA;&#xA;'/>
+        <property name='df_LT.description' value='SVNKit is a pure java Subversion client library that may be used through its own API or serve as a transparent replacement of native javahl bindings.'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.svnkit.feature.group' version='1.10.9.r10853'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.svnkit' range='[1.10.9.r10853,1.10.9.r10853]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.sqljet' range='[1.1.14.r1345,1.1.14.r1345]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.trilead.ssh2' range='[1.0.0.build222_185,1.0.0.build222_185]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.svnkit.feature.jar' range='[1.10.9.r10853,1.10.9.r10853]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='' url=''>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='https://svnkit.com/' url='https://svnkit.com/'>
+        (c) 2004-2021, TMate Software Ltd.
+      </copyright>
+    </unit>
+    <unit id='org.tmatesoft.sqljet' version='1.1.14.r1345' singleton='false' generation='2'>
+      <update id='org.tmatesoft.sqljet' range='[0.0.0,1.1.14.r1345)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='SQLJet pure Java Sqlite Library'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software'/>
+      </properties>
+      <provides size='27'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.sqljet' version='1.1.14.r1345'/>
+        <provided namespace='osgi.bundle' name='org.tmatesoft.sqljet' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.antlr.runtime' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.antlr.runtime.debug' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.antlr.runtime.misc' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.antlr.runtime.tree' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.btree' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.db' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.fs' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.fs.util' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.lang' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.map' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.memory' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.mutex' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.pager' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.schema' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.table' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.internal.vdbe' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.map' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.schema' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.table' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='org.tmatesoft.sqljet.core.table.engine' version='1.1.14.r1345'/>
+        <provided namespace='java.package' name='sqljet.build.properties' version='1.1.14.r1345'/>
+        <provided namespace='osgi.identity' name='org.tmatesoft.sqljet' version='1.1.14.r1345'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'>
+          <description>
+            org.tmatesoft.sqljet
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'>
+          <description>
+            org.tmatesoft.sqljet
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.tmatesoft.sqljet' version='1.1.14.r1345'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.tmatesoft.sqljet&#xA;Bundle-Version: 1.1.14.r1345&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.trilead.ssh2' version='1.0.0.build222_185' singleton='false' generation='2'>
+      <update id='com.trilead.ssh2' range='[0.0.0,1.0.0.build222_185)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='trilead-ssh2-osgi'/>
+        <property name='org.eclipse.equinox.p2.description' value='Triead SSH Library'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software on behalf of Trilead AG'/>
+      </properties>
+      <provides size='17'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.trilead.ssh2' version='1.0.0.build222_185'/>
+        <provided namespace='osgi.bundle' name='com.trilead.ssh2' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.auth' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.channel' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.crypto' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.crypto.cipher' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.crypto.dh' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.crypto.digest' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.log' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.packets' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.sftp' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.signature' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.transport' version='1.0.0.build222_185'/>
+        <provided namespace='java.package' name='com.trilead.ssh2.util' version='1.0.0.build222_185'/>
+        <provided namespace='osgi.identity' name='com.trilead.ssh2' version='1.0.0.build222_185'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'>
+          <description>
+            com.trilead.ssh2
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'>
+          <description>
+            com.trilead.ssh2
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.trilead.ssh2' version='1.0.0.build222_185'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.trilead.ssh2&#xA;Bundle-Version: 1.0.0.build222_185&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.java.dev.jna.feature.jar' version='4.1.0.v06022015_1911'>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JNA Library'/>
+        <property name='org.eclipse.equinox.p2.description' value='JNA Library'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://jna.dev.java.net/'/>
+        <property name='df_LT.license' value='Copyright (c) 2008 Timothy Wall, All Rights Reserved&#xA;&#xA;This library is free software; you can redistribute it and/or&#xA;modify it under the terms of the GNU Lesser General Public&#xA;License as published by the Free Software Foundation; either&#xA;version 2.1 of the License, or (at your option) any later version.&#xA;&#xA;This library is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU&#xA;Lesser General Public License for more details.'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.java.dev.jna.feature.jar' version='4.1.0.v06022015_1911'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='net.java.dev.jna' version='4.1.0.v06022015_1911'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='net.java.dev.jna' version='4.1.0.v06022015_1911'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html' url='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html'>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='http://jna.dev.java.net/' url='http://jna.dev.java.net/'>
+        Copyright (c) 2008 Timothy Wall, All Rights Reserved
+      </copyright>
+    </unit>
+    <unit id='net.java.dev.jna.feature.group' version='4.1.0.v06022015_1911' singleton='false'>
+      <update id='net.java.dev.jna.feature.group' range='[0.0.0,4.1.0.v06022015_1911)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='JNA Library'/>
+        <property name='org.eclipse.equinox.p2.description' value='JNA Library'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://jna.dev.java.net/'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='df_LT.license' value='Copyright (c) 2008 Timothy Wall, All Rights Reserved&#xA;&#xA;This library is free software; you can redistribute it and/or&#xA;modify it under the terms of the GNU Lesser General Public&#xA;License as published by the Free Software Foundation; either&#xA;version 2.1 of the License, or (at your option) any later version.&#xA;&#xA;This library is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU&#xA;Lesser General Public License for more details.'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.java.dev.jna.feature.group' version='4.1.0.v06022015_1911'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.java.dev.jna' range='[4.1.0.v06022015_1911,4.1.0.v06022015_1911]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.java.dev.jna.feature.jar' range='[4.1.0.v06022015_1911,4.1.0.v06022015_1911]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html' url='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html'>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='http://jna.dev.java.net/' url='http://jna.dev.java.net/'>
+        Copyright (c) 2008 Timothy Wall, All Rights Reserved
+      </copyright>
+    </unit>
+    <unit id='org.tmatesoft.svnkit.feature.jar' version='1.10.9.r10853'>
+      <properties size='6'>
+        <property name='org.eclipse.equinox.p2.name' value='SVNKit Library'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://svnkit.com/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software'/>
+        <property name='df_LT.license' value='The TMate Open Source License&#xA;&#xA;This license applies to all portions of TMate SVNKit library, which&#xA;are not externally-maintained libraries (e.g. Trilead SSH library).&#xA;&#xA;All the source code and compiled classes in package org.tigris.subversion.javahl&#xA;except SvnClient class are covered by the license in JAVAHL-LICENSE file&#xA;&#xA;Copyright (c) 2004-2021 TMate Software. All rights reserved.&#xA;&#xA;Redistribution and use in source and binary forms, with or without modification,&#xA;are permitted provided that the following conditions are met:&#xA;&#xA;* Redistributions of source code must retain the above copyright notice,&#xA;this list of conditions and the following disclaimer.&#xA;&#xA;* Redistributions in binary form must reproduce the above copyright notice,&#xA;this list of conditions and the following disclaimer in the documentation &#xA;and/or other materials provided with the distribution.&#xA;&#xA;* Redistributions in any form must be accompanied by information on how to&#xA;obtain complete source code for the software that uses SVNKit and any &#xA;accompanying software that uses the software that uses SVNKit. The source&#xA;code must either be included in the distribution or be available for no &#xA;more than the cost of distribution plus a nominal fee, and must be freely &#xA;redistributable under reasonable conditions. For an executable file, complete&#xA;source code means the source code for all modules it contains. It does not &#xA;include source code for modules or files that typically accompany the major &#xA;components of the operating system on which the executable file runs.&#xA;&#xA;* Redistribution in any form without redistributing source code for software&#xA;that uses SVNKit is possible only when such redistribution is explictly permitted&#xA;by TMate Software. Please, contact TMate Software at support@svnkit.com to &#xA;get such permission.&#xA;&#xA;THIS SOFTWARE IS PROVIDED BY TMATE SOFTWARE ``AS IS&apos;&apos; AND ANY EXPRESS OR IMPLIED&#xA;WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF &#xA;MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT, ARE&#xA;DISCLAIMED. &#xA;&#xA;IN NO EVENT SHALL TMATE SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,&#xA;INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT&#xA;LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR &#xA;PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF &#xA;LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE&#xA;OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF &#xA;ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&#xA;&#xA;'/>
+        <property name='df_LT.description' value='SVNKit is a pure java Subversion client library that may be used through its own API or serve as a transparent replacement of native javahl bindings.'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.tmatesoft.svnkit.feature.jar' version='1.10.9.r10853'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.tmatesoft.svnkit' version='1.10.9.r10853'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.tmatesoft.svnkit' version='1.10.9.r10853'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='' url=''>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='https://svnkit.com/' url='https://svnkit.com/'>
+        (c) 2004-2021, TMate Software Ltd.
+      </copyright>
+    </unit>
+    <unit id='net.java.dev.jna' version='4.1.0.v06022015_1911' singleton='false' generation='2'>
+      <update id='net.java.dev.jna' range='[0.0.0,4.1.0.v06022015_1911)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='jna-osgi'/>
+        <property name='org.eclipse.equinox.p2.description' value='JNA Library'/>
+        <property name='org.eclipse.equinox.p2.provider' value='TMate Software on behalf of JNA Developers Team'/>
+      </properties>
+      <provides size='22'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.java.dev.jna' version='4.1.0.v06022015_1911'/>
+        <provided namespace='osgi.bundle' name='net.java.dev.jna' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-x86-64' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.w32ce-arm' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.openbsd-x86' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.win32-x86' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.darwin' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-sparc' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-sparcv9' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.win32-x86-64' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-x86-64' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.ptr' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.sunos-x86' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-arm' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.win32' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.openbsd-x86-64' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.freebsd-x86' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.freebsd-x86-64' version='4.1.0.v06022015_1911'/>
+        <provided namespace='java.package' name='com.sun.jna.linux-x86' version='4.1.0.v06022015_1911'/>
+        <provided namespace='osgi.identity' name='net.java.dev.jna' version='4.1.0.v06022015_1911'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.4))'>
+          <description>
+            net.java.dev.jna
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.java.dev.jna' version='4.1.0.v06022015_1911'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: net.java.dev.jna&#xA;Bundle-Version: 4.1.0.v06022015_1911&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

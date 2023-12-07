@@ -215,13 +215,23 @@ public class GmInstanceLink extends GmLink {
     @objid ("355bac03-55b7-11e2-877f-002564c97630")
     @Override
     public Instance getFromElement() {
-        return (this.roleEl != null && this.roleEl.getSource() != null) ? this.roleEl.getSource() : (this.oppositeRole != null ? this.oppositeRole.getTarget() : null);
+        if (this.roleEl != null && this.roleEl.getSource() != null)
+            return this.roleEl.getSource();
+        
+        if (this.oppositeRole == null)
+            return null;
+        return this.oppositeRole.getTarget();
     }
 
     @objid ("355bac0a-55b7-11e2-877f-002564c97630")
     @Override
     public Instance getToElement() {
-        return (this.roleEl != null && this.roleEl.getTarget() != null) ? this.roleEl.getTarget() : (this.oppositeRole != null ? this.oppositeRole.getSource() : null);
+        if (this.roleEl != null && this.roleEl.getTarget() != null)
+            return this.roleEl.getTarget();
+        
+        if (this.oppositeRole == null)
+            return null;
+        return this.oppositeRole.getSource();
     }
 
     @objid ("355bac17-55b7-11e2-877f-002564c97630")

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -45,13 +45,13 @@ public interface TaggedValue extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("96bea112-41f4-4579-8e28-ccd2d32e105f")
+    @objid ("c3c49ce5-be7d-4602-b99c-44e56f61c738")
     public static final String MNAME = "TaggedValue";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("7223f505-de8d-41ea-bf1b-89326e70d5b0")
+    @objid ("87aff37d-2717-4dbd-aa56-1a21e9714289")
     public static final String MQNAME = "Infrastructure.TaggedValue";
 
     /**
@@ -61,7 +61,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Parameters of the TaggedValue.</i>
      * 
      */
-    @objid ("7e43f945-d3f3-4af7-81a1-70a6e1b84642")
+    @objid ("d2a3485a-ceed-4434-aef9-7971665630ac")
     EList<TagParameter> getActual();
 
     /**
@@ -71,7 +71,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Parameters of the TaggedValue.</i>
      * 
      */
-    @objid ("93bebbeb-973d-4ad5-8755-d3edc4b70236")
+    @objid ("12f9452a-ab52-4b02-88b9-5ad5d53d313d")
     <T extends TagParameter> List<T> getActual(java.lang.Class<T> filterClass);
 
     /**
@@ -81,7 +81,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Current Qualifier of the TaggedValue. A qualifier is a parameter that is placed in first place Tag:Qualifier (Parameters).</i>
      * 
      */
-    @objid ("b4bfa642-b1d6-49c4-b00f-dc656fbb8e36")
+    @objid ("dfc6a4f3-32d6-42ad-9130-89c7b603ed37")
     TagParameter getQualifier();
 
     /**
@@ -91,7 +91,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Current Qualifier of the TaggedValue. A qualifier is a parameter that is placed in first place Tag:Qualifier (Parameters).</i>
      * 
      */
-    @objid ("dd41680c-59bb-459c-badc-49239d8758d5")
+    @objid ("99bed391-d6dc-4807-b477-bfa438b85187")
     void setQualifier(TagParameter value);
 
     /**
@@ -101,7 +101,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Determines the TagType that is the model of the current TaggedValue.</i>
      * 
      */
-    @objid ("3c732532-7e95-48cf-995e-2fd0204f5798")
+    @objid ("23aa03bb-b350-4448-aab6-75b91cabda30")
     TagType getDefinition();
 
     /**
@@ -111,7 +111,7 @@ public interface TaggedValue extends ModelElement {
      * <i>Determines the TagType that is the model of the current TaggedValue.</i>
      * 
      */
-    @objid ("08bc124d-338f-47a7-a5fb-dacca29a9683")
+    @objid ("a33c5695-1905-4d3a-9081-83138e1d9501")
     void setDefinition(TagType value);
 
     /**
@@ -121,7 +121,7 @@ public interface TaggedValue extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("60890134-3506-40b9-96b0-bf696675eb11")
+    @objid ("f114b4e7-061c-4e93-9969-bb29f6e5cac5")
     ModelElement getAnnoted();
 
     /**
@@ -131,7 +131,7 @@ public interface TaggedValue extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("f8620d67-19ad-4e50-b148-3b9c86a5c0da")
+    @objid ("b215155d-56b7-4026-b97b-8ed3b40dcb3a")
     void setAnnoted(ModelElement value);
 }
 

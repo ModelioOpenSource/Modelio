@@ -19,9 +19,12 @@
  */
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map.Entry;
+import java.util.Properties;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.module.lifecycle.ModuleException;
@@ -34,6 +37,12 @@ import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
  */
 @objid ("a0aae73c-1dc0-4f2b-86c1-b1b257fd7fb0")
 public class DiagramStylesInstalledFeature extends AbstractFeature {
+    @objid ("f92f1275-e52c-463f-97ab-b5cefa73c645")
+    private static String baseStyle = "default";
+
+    @objid ("a9de5827-88d5-407a-a104-5893e0069883")
+    private static final String BASESTYLE = "basestyle";
+
     /**
      * @param module the module
      */
@@ -79,9 +88,12 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
             for (Entry<String, Path> style : this.rtModule.getConfiguration().getStylePath().entrySet()) {
                 Path stylePath = style.getValue();
                 String styleName = style.getKey();
+            
+            
+            
                 try {
                     if (Files.exists(stylePath)) {
-                        this.rtModule.getIModule().getModuleContext().getModelioServices().getDiagramService().registerStyle(styleName, "default", stylePath.toFile());
+                        this.rtModule.getIModule().getModuleContext().getModelioServices().getDiagramService().registerStyle(styleName,  getBaseStyle(stylePath), stylePath.toFile());
                     } else {
                         MdaInfra.LOG.warning(" '%s' file for '%s' diagram style missing.", stylePath, styleName);
                     }
@@ -92,6 +104,24 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
                 }
             }
             
+        }
+
+        /**
+         * @param stylePath the path
+         * @return the basestyle using in diagrams
+         */
+        @objid ("c819301a-ec4b-44b6-b87b-26c480a68593")
+        private String getBaseStyle(Path stylePath) {
+            final Properties loadedValues = new Properties();
+            try {
+                FileReader reader = new FileReader(stylePath.toFile());
+                loadedValues.load(reader);
+                baseStyle = loadedValues.getProperty(BASESTYLE);
+            } catch (IOException e) {
+                MdaInfra.LOG.error("Failed to load '%s' file for '%s' diagram style", stylePath, e);
+                return baseStyle;
+            }
+            return baseStyle;
         }
 
     }

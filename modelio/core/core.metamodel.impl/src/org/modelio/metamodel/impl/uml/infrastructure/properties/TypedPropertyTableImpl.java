@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -79,20 +79,20 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         
     }
 
-    @objid ("268f7fd8-f06d-4e57-9c91-f1bca9975dc7")
+    @objid ("a97851f1-66a1-4ab1-b1d5-62c6b9a76e3b")
     @Override
     public PropertyTableDefinition getType() {
         Object obj = getDepVal(((TypedPropertyTableSmClass)getClassOf()).getTypeDep());
         return (obj instanceof PropertyTableDefinition)? (PropertyTableDefinition)obj : null;
     }
 
-    @objid ("69fca55f-f217-485e-9bc6-635385465719")
+    @objid ("7f37183d-423d-4582-a8f8-64dcb238da60")
     @Override
     public void setType(PropertyTableDefinition value) {
         appendDepVal(((TypedPropertyTableSmClass)getClassOf()).getTypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("5f109030-0010-456f-b7ba-a612835886a9")
+    @objid ("0bcaf560-4998-4059-80a2-6ff0f6ac4468")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -100,7 +100,7 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         return super.getCompositionOwner();
     }
 
-    @objid ("b8d8be86-933b-4cfe-b96b-91efb678dd85")
+    @objid ("ea4903ee-93fe-46f1-b205-ef8eeea74f5a")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -110,7 +110,7 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         return super.getCompositionRelation();
     }
 
-    @objid ("e9b0e875-af6f-489a-bc54-a36ec93b3d69")
+    @objid ("d7087c34-af88-4f0f-b50f-7c7e343a3c14")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitTypedPropertyTable(this);

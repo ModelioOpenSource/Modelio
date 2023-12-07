@@ -33,6 +33,7 @@ import org.modelio.diagram.api.dg.common.DiagramDrawingLayerDG;
 import org.modelio.diagram.api.dg.drawings.common.DiagramDrawingLinkDG;
 import org.modelio.diagram.api.dg.drawings.common.DiagramDrawingNodeDG;
 import org.modelio.diagram.api.dg.infra.InfrastructureDGFactory;
+import org.modelio.diagram.api.plugin.DiagramApi;
 import org.modelio.diagram.api.services.DiagramGraphic;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
@@ -70,18 +71,15 @@ public class DGFactory implements IDGFactory {
      * Comparator making the {@link InfrastructureDGFactory} the last to be asked when making DGs.
      */
     @objid ("bf25d51a-8191-4f24-86a4-e187767bc013")
-    private static final Comparator<? super IDGFactory> DEFAULT_FACTORY_COMPARATOR = new Comparator<IDGFactory>() {
-                @Override
-                public int compare(IDGFactory o1, IDGFactory o2) {
-                    if (o1 instanceof InfrastructureDGFactory) {
-                        return Integer.MAX_VALUE;
-                    } else if (o2 instanceof InfrastructureDGFactory) {
-                        return Integer.MIN_VALUE;
-                    } else {
-                        return 0;
-                    }
-                }
-            };
+    private static final Comparator<? super IDGFactory> DEFAULT_FACTORY_COMPARATOR = (IDGFactory o1, IDGFactory o2) -> {
+            if (o1 instanceof InfrastructureDGFactory) {
+                return 1;
+            } else if (o2 instanceof InfrastructureDGFactory) {
+                return -1;
+            } else {
+                return 0;
+            }
+        };
 
     @objid ("dbe693bf-71c0-4df6-ad31-7324ef842dd5")
     private  DGFactory() {
@@ -136,9 +134,6 @@ public class DGFactory implements IDGFactory {
         return list;
     }
 
-    /* (non-Javadoc)
-             * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramLink(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.model.IGmLink)
-             */
     @objid ("9ece0dd2-718f-486e-aa45-34e751fd9203")
     @Override
     public IDiagramLink getDiagramLink(IDiagramHandle diagramHandle, IGmLink gmLink) {
@@ -153,13 +148,17 @@ public class DGFactory implements IDGFactory {
         return ret;
     }
 
-    /* (non-Javadoc)
-             * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramNode(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.node.GmNodeModel)
-             */
     @objid ("0c99b06f-a207-4b03-b535-a1f176b81570")
     @Override
     public IDiagramNode getDiagramNode(IDiagramHandle diagramHandle, GmNodeModel gmNodeModel) {
         if (!gmNodeModel.isVisible()) {
+            return null;
+        }
+        
+        Object editPart = ((DiagramHandle) diagramHandle).getEditPart(gmNodeModel);
+        if (editPart == null) {
+            // A Gm model may have no edit part if it is inside a ghost edit part
+            DiagramApi.LOG.debug("DGFactory.getDiagramNode(): %s graphic model has no edit part, it's parent is probably a ghost node. Produce no IDiagramNode.", gmNodeModel);
             return null;
         }
         

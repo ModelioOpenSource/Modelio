@@ -53,7 +53,7 @@ public class ConstraintBodyLabelEditPart extends ModelElementHeaderEditPart {
             if (gm.getRelatedElement() == null
                     || gm.getRelatedElement().isShell()
                     || gm.getRelatedElement().isDeleted()
-                    || !gm.getRelatedElement().getStatus().isModifiable()) {
+                    || !gm.getRelatedElement().getStatus().isModifiable() ||  this.getViewer().getControl() == null) {
                 return;
             }
         

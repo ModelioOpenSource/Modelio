@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: App Ui extensions
 Bundle-SymbolicName: org.modelio.app.ui.ext_org;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Fragment-Host: org.modelio.app.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: modelio.org

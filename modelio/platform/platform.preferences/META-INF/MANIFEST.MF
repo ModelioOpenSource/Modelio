@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Preferences
 Bundle-SymbolicName: org.modelio.platform.preferences;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin

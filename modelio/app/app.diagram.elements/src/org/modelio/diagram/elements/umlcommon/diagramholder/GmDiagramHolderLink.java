@@ -106,13 +106,19 @@ public class GmDiagramHolderLink extends GmLink {
     @objid ("813ed8b3-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public MObject getFromElement() {
-        return getRelatedElement().getImpacted();
+        Dependency relatedElement = getRelatedElement();
+        if (relatedElement == null)
+            return null;
+        return relatedElement.getImpacted();
     }
 
     @objid ("813ed8b8-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public MObject getToElement() {
-        return getRelatedElement().getDependsOn();
+        Dependency relatedElement = getRelatedElement();
+        if (relatedElement == null)
+            return null;
+        return relatedElement.getDependsOn();
     }
 
     /**

@@ -22,7 +22,7 @@ package org.modelio.platform.project.services;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -328,21 +328,35 @@ public class FragmentsMigrator {
 
     @objid ("dbefcd5d-94f9-4be9-8f1c-932d1428331a")
     private void runFragmentMigrationContributors(final SubProgress monitor, final BasicMigrationReporter reporter, final IGModelFragment f, final MetamodelVersionDescriptor fromVersion) throws MigrationFailedException {
-        final Collection<IConfigurationElement> configurationElements = new ExtensionPointContributionManager(EXTENSIONPOINT_ID).getExtensions("contributor");
-        monitor.setWorkRemaining(configurationElements.size() * 3);
-        for (final IConfigurationElement ce : configurationElements) {
+        IFragmentMigrationContributor[] contributors = new ExtensionPointContributionManager(EXTENSIONPOINT_ID)
+                .getExtensions("contributor")
+                .stream()
+                .map(this::createExecutableExtension)
+                .filter(Objects::nonNull)
+                .sorted(Comparator.comparing(IFragmentMigrationContributor::getTargetModelioVersion))
+                .toArray(IFragmentMigrationContributor[]::new);
+        
+        monitor.setWorkRemaining(contributors.length * 3);
+        for (final IFragmentMigrationContributor svc : contributors) {
             try {
-                final IFragmentMigrationContributor svc = (IFragmentMigrationContributor) ce.createExecutableExtension("class");
                 reporter.getLogger().format("Running %s migration contributor ...%n", svc.getClass());
         
                 svc.contributeMigration(monitor.newChild(2), reporter, this.project, f, fromVersion, this.eclipseContext);
         
                 f.getRepository().save(monitor.newChild(1));
-            } catch (final CoreException e) {
-                throw new MigrationFailedException(e.getLocalizedMessage(), e);
             } catch (final IOException e) {
                 throw new MigrationFailedException(FileUtils.getLocalizedMessage(e), e);
             }
+        }
+        
+    }
+
+    @objid ("30201670-b6c1-436d-91dd-4f1a066c0522")
+    private IFragmentMigrationContributor createExecutableExtension(IConfigurationElement ce) throws LinkageError {
+        try {
+            return (IFragmentMigrationContributor) ce.createExecutableExtension("class");
+        } catch (CoreException e1) {
+            throw new LinkageError(e1.getMessage(), e1);
         }
         
     }

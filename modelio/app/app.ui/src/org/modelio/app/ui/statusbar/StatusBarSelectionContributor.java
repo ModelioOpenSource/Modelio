@@ -65,26 +65,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("18f8b550-f2f7-49ca-a783-43fa90597b08")
 public class StatusBarSelectionContributor implements IStatusBarContribution, IModelChangeListener {
-    @objid ("3569bdfb-1d97-4990-8420-d83ed8e74ac0")
+    @objid ("19632e96-de2d-44fc-8bcf-1447ca6df9df")
+    @Inject
+    IEventBroker eventBroker;
+
+    @objid ("a224ba69-430e-475e-9604-2e6a5b60a59e")
+    @Optional
+    @Inject
+    ESelectionService selectionService;
+
+    @objid ("28bc880d-954f-41dd-93e9-473c773ef462")
     private CLabel selectionLabel;
 
     /**
      * Read/write status
      */
-    @objid ("f34de509-48a9-462c-b4ed-fc183c50727c")
+    @objid ("2ffc71d8-6576-4c57-8358-7504d28e9e87")
     private CLabel labelRW;
 
-    @objid ("4c00d3d5-4be4-4a66-a8bb-308ac5ec96d5")
+    @objid ("9a6ccc52-223c-4460-b86c-299ad82350ae")
     private List<Control> allLabels = null;
-
-    @objid ("a411806c-2ec1-44a2-87e0-483f937d2f5c")
-    @Inject
-    IEventBroker eventBroker;
-
-    @objid ("e17dfe17-5992-4a67-bb13-40667b54530b")
-    @Optional
-    @Inject
-    ESelectionService selectionService;
 
     @objid ("16989cca-a62e-435f-8c31-3fef1a0452b7")
     private Resources resources;
@@ -143,10 +143,11 @@ public class StatusBarSelectionContributor implements IStatusBarContribution, IM
             return;
         }
         
-        if (selection == null || selection.isEmpty()) {
+        List<MObject> elements = SelectionHelper.toList(selection, MObject.class);
+        if (elements == null || elements.isEmpty()) {
             clear();
-        } else if (selection.size() == 1) {
-            update(selection.getFirstElement());
+        } else if (elements.size() == 1) {
+            update(elements.get(0));
         } else {
             clear();
             updateSelectionLabel(String.format("%d selected", selection.size()), null);
@@ -176,10 +177,10 @@ public class StatusBarSelectionContributor implements IStatusBarContribution, IM
     }
 
     @objid ("8ff98ae7-ea29-4d13-ab45-53998ebaa1dc")
-    private void update(Object o) {
-        if (o != null && o instanceof MObject) {
-            updateSelectionLabel(((MObject) o).getName(), ElementImageService.getIcon((MObject) o));
-            updateRWLabel((MObject) o);
+    private void update(MObject o) {
+        if (o != null) {
+            updateSelectionLabel(o.getName(), ElementImageService.getIcon(o));
+            updateRWLabel(o);
         } else {
             clear();
         }
@@ -196,6 +197,10 @@ public class StatusBarSelectionContributor implements IStatusBarContribution, IM
     @objid ("0101ac7c-2bfc-45f8-8ed1-56f688a69689")
     private void updateSelectionLabel(String text, Image img) {
         if (this.selectionLabel != null && !this.selectionLabel.isDisposed()) {
+            if (text != null && this.selectionLabel.getSize() != null && this.selectionLabel.getSize().y < text.length())
+            {
+              text = text.substring(0, this.selectionLabel.getSize().y-3).concat("...");
+            }
             this.selectionLabel.setText(text != null ? text : "");
             this.selectionLabel.setImage(img != null && !img.isDisposed() ? img : null);
             fireStatusBarUpdate();
@@ -208,20 +213,20 @@ public class StatusBarSelectionContributor implements IStatusBarContribution, IM
     public void modelChanged(IModelChangeEvent event) {
         UIThreadRunner.asynExec(this.selectionLabel, () -> {
             ISelection selection = (ISelection) this.selectionService.getSelection();
-            update(SelectionHelper.getFirst(selection, Object.class));
+            update(SelectionHelper.getFirst(selection, MObject.class));
         });
         
     }
 
     @objid ("282794b0-dd6e-459a-a738-bd3cc175db08")
     private static class Resources {
-        @objid ("d84956f3-b6c9-4887-b79e-ab0a1cee5b40")
+        @objid ("cf3c41eb-aad0-4476-ae24-04ad81f28e46")
         private Image rwIcon;
 
-        @objid ("237ae60d-5340-45dc-9d9e-ae8b93615f57")
+        @objid ("378f60b5-33e8-41e3-86fe-4f2c0dc9b09d")
         private Image roIcon;
 
-        @objid ("61f28ff5-f50b-4da8-b029-90eb1e7b440d")
+        @objid ("3b634596-d54b-4b0c-a56d-64f5bd76ed92")
         private Image emptyIcon;
 
         @objid ("597f60e2-4a74-42bb-9138-b4d35743d8ce")

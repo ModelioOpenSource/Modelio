@@ -182,7 +182,11 @@ public class ModuleResolutionHelper {
         
         // Check for modules requiring a newer version than moduleHandle
         for (GModule gModuleInProject : gProject.getParts(GModule.class)) {
-            for (VersionedItem<?> requiredModuleId : gModuleInProject.getModuleHandle().getDependencies()) {
+            IModuleHandle moduleInProjectHandle = gModuleInProject.getModuleHandle();
+            if (moduleInProjectHandle == null)
+                continue;
+        
+            for (VersionedItem<?> requiredModuleId : moduleInProjectHandle.getDependencies()) {
                 if (requiredModuleId.getName().equals(moduleHandle.getName())
                         && !isVersionCompatible(moduleHandle.getVersion(), requiredModuleId.getVersion())) {
                     // gModuleInProject thinks moduleHandle is too old for him.
@@ -251,10 +255,13 @@ public class ModuleResolutionHelper {
     public static GModule getGModuleByHandle(IGProject gProject, IModuleHandle handle) {
         GModule sameName = null;
         for (GModule module : gProject.getParts(GModule.class)) {
-            if (module.getModuleHandle().getUid().equals(handle.getUid())) {
-                return module;
-            } else if (module.getName().equals(handle.getName())) {
-                sameName = module;
+            IModuleHandle moduleHandle = module.getModuleHandle();
+            if (moduleHandle != null) {
+                if (moduleHandle.getUid().equals(handle.getUid())) {
+                    return module;
+                } else if (module.getName().equals(handle.getName())) {
+                    sameName = module;
+                }
             }
         }
         return sameName;

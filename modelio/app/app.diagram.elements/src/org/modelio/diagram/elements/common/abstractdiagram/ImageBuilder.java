@@ -38,11 +38,15 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 
 /**
- * Builds an image from a gef diagram. The returned image must be disposed by
- * the caller when no longer in use.
+ * Builds an image from a gef diagram.
+ * <p>
+ * The returned image must be disposed by the caller when no longer in use.
  */
 @objid ("65b21824-33f7-11e2-95fe-001ec947c8cc")
 public class ImageBuilder {
+    /**
+     * the default margin
+     */
     @objid ("65b21826-33f7-11e2-95fe-001ec947c8cc")
     private static final int MARGIN = 10;
 
@@ -58,19 +62,35 @@ public class ImageBuilder {
     @objid ("1f5c39d7-c4b9-4dc8-af79-05e7525b13f4")
     private double scale = 1.0;
 
+    @objid ("eb52e798-2f25-4cb0-8e9c-61a924fd10a2")
+    private int deltaX;
+
+    @objid ("78c60298-4589-400d-a1e9-414fc6b6fed3")
+    private int deltaY;
+
     @objid ("45955273-14d2-41d9-b518-3742e8ec513a")
     private int format;
+
+    @objid ("3e5e9368-894e-4b90-ae8b-2c6ff4414ae7")
+    private Rectangle layerBounds;
 
     @objid ("c2af8b06-cfc7-4d8a-b4a8-3583ccb8f5b4")
     public  ImageBuilder() {
         this(SWT.IMAGE_PNG);
     }
 
+    /**
+     * @param format the image format : SWT.IMAGE_PNG, SWT.IMAGE_JPEG, SWT.IMAGE_GIF or SWT.IMAGE_BMP .
+     */
     @objid ("f00a3b84-d007-47e8-9c65-4d126d46ce41")
     public  ImageBuilder(int format) {
         this(ImageBuilder.MARGIN, format);
     }
 
+    /**
+     * @param margin the margin around the image
+     * @param format the image format : SWT.IMAGE_PNG, SWT.IMAGE_JPEG, SWT.IMAGE_GIF or SWT.IMAGE_BMP .
+     */
     @objid ("47b49445-29c8-49c8-b4b6-ba095a1bf39d")
     public  ImageBuilder(int margin, int format) {
         switch (format) {
@@ -96,20 +116,30 @@ public class ImageBuilder {
         return this.scale;
     }
 
+    /**
+     * Builds an image from a gef diagram.
+     * <p>
+     * The returned image must be disposed by the caller when no longer in use.
+     * @param rootEditPart the diagram root edit part
+     * @return The returned image.
+     */
     @objid ("39cf4348-5bf2-4f54-83c7-379cb70d716d")
     public Image makeImage(RootEditPart rootEditPart) {
         // Temporarily add the background layer to the "printable layers" set so
         // that it is present in the saved image
-        final LayerManager lm = (LayerManager) rootEditPart;
+        
+        final LayerManager lm = LayerManager.Helper.find(rootEditPart);
         final IFigure drawingLayers = lm.getLayer(AbstractDiagramEditPart.DRAWING_LAYER);
+        this.layerBounds = drawingLayers.getBounds();
         final Layer printableLayers = (Layer) lm.getLayer(LayerConstants.PRINTABLE_LAYERS);
         final ConnectionLayer connectionLayer = (ConnectionLayer) lm.getLayer(LayerConstants.CONNECTION_LAYER);
         final IFigure backgroundLayer = lm.getLayer("BACKGROUND_LAYER");
-        if (backgroundLayer == null) {
-            DiagramElements.LOG.debug("makeImage fails for " + rootEditPart);
-            return null;
+        if (backgroundLayer != null) {
+            printableLayers.add(backgroundLayer, 0);
+        } else {
+            // Happens in embedded diagrams, see
+            // org.modelio.diagram.elements.common.embeddeddiagram.EmbeddedDiagramRootEditPart.createBackgroundLayer()
         }
-        printableLayers.add(backgroundLayer, 0);
         
         // Compure the diagram figure
         final AbstractDiagramFigure diagramFigure = getDiagramFigure(printableLayers);
@@ -153,12 +183,12 @@ public class ImageBuilder {
         // - compensate for the margin
         // - deal with x and y of the contents bounds
         // the role of the scaling is ... obvious
-        final int deltaX = this.margin + -contentsBounds.x;
-        final int deltaY = this.margin + -contentsBounds.y;
+        this.deltaX = this.margin + -contentsBounds.x;
+        this.deltaY = this.margin + -contentsBounds.y;
         
         final Graphics graphics = new SWTGraphics(imageGC);
         graphics.scale(this.scale);
-        graphics.translate(deltaX, deltaY);
+        graphics.translate(this.deltaX, this.deltaY);
         graphics.setClip(contentsBounds);
         
         // draw
@@ -170,17 +200,17 @@ public class ImageBuilder {
         diagramFigure.showPageBoundaries(oldShowBoundaries);
         
         // Restore the background layer placement
-        printableLayers.remove(backgroundLayer);
-        final Layer scalableLayers = (Layer) lm.getLayer(LayerConstants.SCALABLE_LAYERS);
-        scalableLayers.add(backgroundLayer, "BACKGROUND_LAYER", 0);
-        return img; // the caller is responsible for disposing the returned
-        // image
-        
+        if (backgroundLayer != null) {
+            printableLayers.remove(backgroundLayer);
+            final Layer scalableLayers = (Layer) lm.getLayer(LayerConstants.SCALABLE_LAYERS);
+            scalableLayers.add(backgroundLayer, "BACKGROUND_LAYER", 0);
+        }
+        return img; // the caller is responsible for disposing the returned image
     }
 
     /**
      * Recurse through layers in order to find the DiagramFigure
-     * @param layer @return
+     * @return the AbstractDiagramFigure or null (should not happen)
      */
     @objid ("65b21831-33f7-11e2-95fe-001ec947c8cc")
     private AbstractDiagramFigure getDiagramFigure(Layer layer) {
@@ -228,8 +258,7 @@ public class ImageBuilder {
     /**
      * Computes the minimum bounds of a connection layer. The returned rectangle
      * is the smallest rectangle enclosing all the links.
-     * @param figure
-     * @return
+     * @return the minimum bounds of the connection layer
      */
     @objid ("65b2183e-33f7-11e2-95fe-001ec947c8cc")
     private Rectangle computeMinimumBounds(ConnectionLayer connectionLayer) {
@@ -264,7 +293,7 @@ public class ImageBuilder {
      * is the smallest rectangle enclosing all the diagram nodes (note: the
      * computation does not take links into account which are laid in the
      * Connection layer)
-     * @param figure @return
+     * @return the minimum bounds of the diagram figure
      */
     @objid ("65b21844-33f7-11e2-95fe-001ec947c8cc")
     private Rectangle computeMinimumBounds(AbstractDiagramFigure figure) {
@@ -303,6 +332,47 @@ public class ImageBuilder {
         
         }
         return new Rectangle(xMin, yMin, xMax - xMin, yMax - yMin);
+    }
+
+    @objid ("1f0bf280-1e6e-49ff-ab67-e4f356ec2ccc")
+    public ImageTransformationData getImageTransformationData() {
+        return new ImageTransformationData(this.deltaX,this.deltaY,this.scale);
+    }
+
+    @objid ("601e5f2d-1b05-4331-a82b-f722eb091eb6")
+    public static class ImageTransformationData {
+        @objid ("299383fd-132d-468d-b84d-abfab2b72d5c")
+        private final double scale;
+
+        @objid ("e9cff393-10ad-4a44-82b4-3f0d30fdde19")
+        private final int deltaX;
+
+        @objid ("270279c9-d265-4944-9c22-5978c235d56d")
+        private final int deltaY;
+
+        @objid ("bc1079ca-896b-46cf-aee9-248331425fae")
+        public  ImageTransformationData(int deltaX, int deltaY, double scale) {
+            this.scale = scale;
+            this.deltaX = deltaX;
+            this.deltaY = deltaY;
+            
+        }
+
+        @objid ("4e48088a-9e42-469e-97b8-3c222cb0e0dd")
+        public double getScale() {
+            return this.scale;
+        }
+
+        @objid ("7dbe446d-8dd2-405a-9ece-c461415cce22")
+        public int getDeltaX() {
+            return this.deltaX;
+        }
+
+        @objid ("399e6351-736a-41d8-b276-16133d3d351f")
+        public int getDeltaY() {
+            return this.deltaY;
+        }
+
     }
 
 }

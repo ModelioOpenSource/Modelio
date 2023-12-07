@@ -256,6 +256,8 @@ public class GProjectDescriptorWriter {
         case EXMLFRAGMENT:
         case SVNFRAGMENT:
         case RAMC:
+        case HTTPFRAGMENT:
+        case CONFERENCEFRAGMENT:
             writeFragmentDescriptor(fd);
             break;
         case FEATURE:
@@ -266,8 +268,6 @@ public class GProjectDescriptorWriter {
             break;
         case RESOURCE:
             writeResourceDescriptor(fd);
-            break;
-        default:
             break;
         }
         

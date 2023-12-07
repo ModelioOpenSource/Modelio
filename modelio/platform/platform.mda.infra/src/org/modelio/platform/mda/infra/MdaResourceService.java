@@ -135,8 +135,6 @@ public class MdaResourceService implements IMdaResourceProvider, IMdaResourcePro
                 return null;
             }
     
-    
-    
             @Override
             public Image getImage(Profile profile) {
                 return null;
@@ -293,12 +291,8 @@ public class MdaResourceService implements IMdaResourceProvider, IMdaResourcePro
         } else {
             IMdaResourceProvider provider = this.mdaResourceProviders.get(module.getUuid());
             if (provider == null) {
-                if (module.getName().equals("LocalModule")) {
-                    provider = new LocalModuleMdaResourceProvider(module);
-                    register(module, provider);
-                } else {
-                    provider = MdaResourceService.FALLBACK;
-                }
+                provider = new LocalModuleMdaResourceProvider(module);
+                register(module, provider);
             }
             return provider;
         }
@@ -309,9 +303,9 @@ public class MdaResourceService implements IMdaResourceProvider, IMdaResourcePro
     public void reset() {
         // Dispose LocalModuleMdaResourceProvider instances
         this.mdaResourceProviders.forEach((key, value) -> {
-          if (value instanceof LocalModuleMdaResourceProvider) {
-              ((LocalModuleMdaResourceProvider) value).dispose();
-          }
+            if (value instanceof LocalModuleMdaResourceProvider) {
+                ((LocalModuleMdaResourceProvider) value).dispose();
+            }
         });
         
         // Clear all providers

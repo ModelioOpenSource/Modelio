@@ -24,6 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.gproject.FragmentMigrationNeededException;
 import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.core.IGPartState.GPartStateEnum;
 import org.modelio.gproject.monitor.GProjectEvent;
@@ -68,7 +69,9 @@ final class ProjectMonitor implements IProjectMonitor {
             AppProjectCore.LOG.error(ev.throwable);
         
             // display problem to user
-            reportAsStatus(ev);
+            if(!(ev.throwable instanceof FragmentMigrationNeededException)) {
+                reportAsStatus(ev);
+            }
         
             // post as E4 event
             this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_DOWN, (ev.subject));

@@ -22,8 +22,8 @@ package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
-import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
@@ -54,28 +54,32 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
         super(parentElement, parentNode, context, requestConstraint);
     }
 
-    @objid ("3cf15d46-62d1-4203-bc3f-762a3d086210")
+    @objid ("d6b271a2-4fff-4286-893d-512a0449b299")
     @Override
-    protected void afterUnmask(MObject newElement, GmNodeModel gm) {
-        super.afterUnmask(newElement, gm);
+    protected MObject createElement(IGmDiagram diagram) {
+        // Call initial behavior
+        final BpmnSubProcess subProcess = (BpmnSubProcess) super.createElement(diagram);
         
-        BpmnSubProcess subProcess = (BpmnSubProcess) newElement;
-        
-        if (this.context.getElementToUnmask() == null) {
-            MTools mTools = MTools.get(subProcess);
-            IStandardModelFactory modelFactory = mTools.getModelFactory(IStandardModelFactory.class);
-            IElementNamerService namer = mTools.getNamer();
-        
-            // Create a diagram
-            BpmnSubProcessDiagram diagram = modelFactory.createBpmnSubProcessDiagram();
-            diagram.setOrigin(subProcess);
-            diagram.setName(namer.getUniqueName(diagram));
-        
-            if (this.context.getElementToUnmask() == null && !(newElement instanceof BpmnAdHocSubProcess)) {
-                populateDiagram(subProcess, modelFactory, namer, diagram);
-            }
+        // Add the subprocess to the current lane if needed
+        MObject relatedElement = this.parentNode.getRelatedElement();
+        if (relatedElement instanceof BpmnLane) {
+            subProcess.getLane().add((BpmnLane) relatedElement);
         }
         
+        // Create the BpmnSubProcessDiagram
+        
+        MTools mTools = MTools.get(subProcess);
+        IStandardModelFactory modelFactory = mTools.getModelFactory(IStandardModelFactory.class);
+        IElementNamerService namer = mTools.getNamer();
+        
+        BpmnSubProcessDiagram subDiagram = modelFactory.createBpmnSubProcessDiagram();
+        subDiagram.setOrigin(subProcess);
+        subDiagram.setName(namer.getUniqueName(subDiagram));
+        
+        if (!(subProcess instanceof BpmnAdHocSubProcess)) {
+            populateDiagram(subProcess, modelFactory, namer, subDiagram);
+        }
+        return subProcess;
     }
 
     /**
@@ -90,19 +94,6 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
      */
     @objid ("c09d0edf-609e-4a25-9df0-ca580d437fe5")
     private void populateDiagram(BpmnSubProcess subProcess, IStandardModelFactory modelFactory, IElementNamerService namer, BpmnSubProcessDiagram diagram) {
-        
-    }
-
-    @objid ("5c8ac658-2556-4b84-9ce0-c4089728dfd9")
-    @Override
-    protected void beforeUnmask(MObject newElement) {
-        super.beforeUnmask(newElement);
-        
-        MObject relatedElement = this.parentNode.getRelatedElement();
-        if (relatedElement instanceof BpmnLane) {
-            BpmnSubProcess subProcess = (BpmnSubProcess) newElement;
-            subProcess.getLane().add((BpmnLane) relatedElement);
-        }
         
     }
 

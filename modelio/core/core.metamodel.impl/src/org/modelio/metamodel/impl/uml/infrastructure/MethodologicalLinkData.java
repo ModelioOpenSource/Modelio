@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -30,10 +30,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0a2aea9c-195c-486c-ad58-68e58c037306")
 public class MethodologicalLinkData extends DependencyData {
-    @objid ("8db61673-42a6-436e-a52d-99cc448ed049")
+    @objid ("f97d0b01-6ad0-486c-a792-d47a5b10a1a3")
     SmObjectImpl mExternElement;
 
-    @objid ("08aa3f42-8855-434d-a39d-588989774f47")
+    @objid ("6d524efd-1266-4502-8922-2ec03ce8b907")
     public  MethodologicalLinkData(MethodologicalLinkSmClass smClass) {
         super(smClass);
     }

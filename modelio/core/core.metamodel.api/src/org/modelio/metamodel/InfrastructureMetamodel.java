@@ -24,13 +24,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("d56c4b9c-81de-402d-a5bf-ddec9c20f3bf")
 public final class InfrastructureMetamodel {
-    @objid ("aec1b5bb-203f-456b-9df3-24667414624e")
+    @objid ("927032ae-7052-4955-8399-f20b1d67b5ca")
     public static String NAME = "Infrastructure";
 
-    @objid ("936a7bf2-efa0-47db-9dce-d1a15a12fead")
+    @objid ("2603ce39-574d-4bd5-a2e2-57d7ef6a6ccc")
     public static String PROVIDER = "Modeliosoft";
 
-    @objid ("88fdd568-729e-4d1c-ac6d-32b3befdcee6")
-    public static String VERSION = "2.1.03";
+    @objid ("529e0a2a-0f74-4610-9eef-992fdba9ecaa")
+    public static String VERSION = "2.1.04";
 
 }

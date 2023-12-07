@@ -28,6 +28,7 @@ import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -39,7 +40,6 @@ import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.platform.ui.UIColor;
-import org.modelio.platform.ui.htmleditor.HtmlComposer;
 import org.modelio.vbasic.version.Version;
 
 /**
@@ -49,62 +49,57 @@ import org.modelio.vbasic.version.Version;
  */
 @objid ("9b577266-79f6-46bf-b051-892f87db13b6")
 public class RamcPropertyComposite extends Composite {
-    @objid ("2ded6f35-1d02-4839-9c89-1199d16dbd32")
-    protected IModelComponentInfos fragmentInfos = null;
-
-    @objid ("e0eca356-9f5b-4e03-a2f9-00c142382be9")
+    @objid ("88d66e80-764a-40aa-af16-be9c440dd721")
     protected Button closeButton = null;
 
-    @objid ("b3b0c86c-713b-433f-80de-1807faf7e44b")
+    @objid ("e0ab963b-e7d4-4a4a-b998-b2a2bb131c22")
     private Label ramcNameLabel = null;
 
-    @objid ("46c89682-6a38-434f-9196-b89ee4dd75c1")
+    @objid ("25fde578-fcf2-4281-9643-570faeed8b37")
     private Label ramcVersionLabel = null;
 
-    @objid ("f8f199d2-9b9e-4f04-8de3-8942d7b9d086")
+    @objid ("c73fb199-04c7-424f-9f32-dce5fa9e3676")
     private Label ramcVersionHistoryLabel = null;
 
-    @objid ("b971c3ef-d458-4d85-8b98-a02600463d26")
+    @objid ("fbbf73d5-ca6a-44c8-9974-80b7f3ff52e1")
     private Label ramcDependenciesLabel = null;
 
-    @objid ("05931749-d7e7-437c-b0ad-94aebf522634")
+    @objid ("e45fc431-1434-43ac-b5f8-973903b5c806")
     protected Text ramcNameText = null;
 
-    @objid ("642e388b-792d-4dcc-a425-8fae7887c20d")
+    @objid ("93f42ff2-e5ca-464d-93c2-017400ea02d4")
     protected Text ramcVersionText = null;
 
-    @objid ("dde9523d-04c7-4beb-821c-af3ee8d6ff0f")
-    protected HtmlComposer ramcVersionHistoryText = null;
+    @objid ("07770b9d-8873-4a8b-a8a5-9c05d5d19fb1")
+    protected Browser ramcVersionHistoryText = null;
 
-    @objid ("f314d1c1-3921-4549-8923-dcc6b7811bc1")
+    @objid ("40de9800-b75b-4177-a832-bdbd937a8ebe")
     private TableViewer ramcDependenciesList = null;
 
-    @objid ("ee3ec8ea-6f50-4251-9bbd-f8ab1dca69af")
+    @objid ("7c915b04-c67c-44e4-8cb2-5fbf58e707e8")
     protected Label ramcFilesLabel = null;
 
-    @objid ("f70838e7-d99e-4e92-a252-b53318a75f24")
+    @objid ("a00dcda3-83c4-4bda-b241-021f50518f3c")
     protected TableViewer ramcFilesList = null;
 
-    @objid ("ef7c13ca-b6fa-452f-9764-a20cbbaf42e6")
+    @objid ("9f7e7fed-bf15-4792-8eb3-0ab44f9d8b0c")
     private Label ramcContributingModulesLabel = null;
 
-    @objid ("55c30bf5-a826-45e0-8b2c-88816cd40c55")
+    @objid ("48c8a485-c48d-49e6-aa48-fdfa296a1449")
     private TableViewer ramcContributingModulesList = null;
+
+    @objid ("c84dd041-d607-496b-b4eb-d0aef3cdde57")
+    private Label ramcProviderLabel = null;
+
+    @objid ("e01e38fa-3e48-4bcd-94bf-97e04be1e643")
+    protected Text ramcProviderText = null;
+
+    @objid ("2ded6f35-1d02-4839-9c89-1199d16dbd32")
+    protected IModelComponentInfos fragmentInfos = null;
 
     @objid ("a5eb8d02-5186-4279-afd0-ad4052c8c930")
     private final ProjectModel projectAdapter;
 
-    @objid ("c24f55f3-49f8-4a47-9ee6-319222ccec97")
-    private Label ramcProviderLabel = null;
-
-    @objid ("56cfea85-88d3-4c12-aa33-359dacd9c142")
-    protected Text ramcProviderText = null;
-
-    /**
-     * @param parent
-     * @param style
-     * @param projectAdapter
-     */
     @objid ("f8934f5a-f189-499d-8cd3-5722773ba2e0")
     public  RamcPropertyComposite(final Composite parent, final int style, final IModelComponentInfos fragmentInfos, final ProjectModel projectAdapter) {
         super(parent, style);
@@ -178,8 +173,7 @@ public class RamcPropertyComposite extends Composite {
         this.ramcVersionHistoryLabel = new Label(area, SWT.NONE);
         this.ramcVersionHistoryLabel.setText(AppProjectConfExt.I18N.getString("RamcPropertyDialog.RamcVersionHistory"));
         
-        this.ramcVersionHistoryText = new HtmlComposer(area, SWT.BORDER | SWT.MULTI);
-        this.ramcVersionHistoryText.setEditable(false);
+        this.ramcVersionHistoryText = new Browser(area, SWT.BORDER | SWT.MULTI);
         
         this.ramcVersionHistoryText.setForeground(UIColor.EDITOR_ROTEXT_FG);
         this.ramcVersionHistoryText.setBackground(UIColor.TEXT_READONLY_BG);
@@ -266,9 +260,8 @@ public class RamcPropertyComposite extends Composite {
                     buildVersion);
         }
         
-        this.ramcVersionHistoryText.setEditable(false);
-        this.ramcVersionHistoryText.setEnabled(false);
-        this.ramcVersionHistoryText.setHtml(this.fragmentInfos.getDescription());
+        
+        this.ramcVersionHistoryText.setText(this.fragmentInfos.getDescription());
         this.ramcProviderText.setText(this.fragmentInfos.getProvider());
         this.ramcDependenciesList.setInput(this.fragmentInfos.getRequiredModelComponents());
         this.ramcContributingModulesList.setInput(this.fragmentInfos.getContributingModules());

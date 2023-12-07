@@ -71,7 +71,7 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
                             public String getText() {
                                 return iActivityEdge.getConditionExpression();
                             }
-                
+        
                             @Override
                             public void setText(String text) {
                                 iActivityEdge.setConditionExpression(text);
@@ -83,6 +83,9 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
     @objid ("619dbd82-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
+        if (!isValid())
+            return true;
+        
         if (getParent() instanceof GmBpmnSequenceFlow)
             return getDisplayedStyle().getProperty(GmBpmnSequenceFlowStyleKeys.GUARDVISIBLE);
         else

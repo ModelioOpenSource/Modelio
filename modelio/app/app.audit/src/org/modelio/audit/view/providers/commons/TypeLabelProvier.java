@@ -21,7 +21,6 @@ package org.modelio.audit.view.providers.commons;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
-import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.modelio.audit.engine.core.IAuditEntry;
 
@@ -31,14 +30,13 @@ public class TypeLabelProvier extends StyledCellLabelProvider {
     @Override
     public void update(ViewerCell cell) {
         Object element = cell.getElement();
-        StyledString text = new StyledString();
         
         if (element instanceof IAuditEntry) {
             IAuditEntry entry = (IAuditEntry) element;
             cell.setImage(entry.getSeverity().getImage());
         }
         
-        cell.setText(text.toString());
+        cell.setText("");
         super.update(cell);
         
     }

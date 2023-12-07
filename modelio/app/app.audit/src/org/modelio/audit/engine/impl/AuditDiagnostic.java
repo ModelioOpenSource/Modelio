@@ -20,10 +20,13 @@
 package org.modelio.audit.engine.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.AuditEntry;
 import org.modelio.audit.engine.core.IAuditDiagnostic;
@@ -38,44 +41,47 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("61091295-2dfe-4e8b-8cd8-f422c2aeb463")
 public class AuditDiagnostic implements IAuditDiagnostic {
-    @objid ("4dc1dd97-37d0-4dfd-bc4f-e6dd0c82fcdb")
-    private int nErrors = 0;
-
-    @objid ("ce459afc-e563-4a7f-b119-00027d0328ae")
-    private int nWarnings = 0;
-
-    @objid ("af29eec9-837c-4af5-92bb-01a7fc000d4b")
-    private int nTips = 0;
-
-    @objid ("131a6d56-f00f-49f1-94d8-1cb8b0ed6e0d")
-    private List<IAuditEntry> entries;
+    /**
+     * The current diagnostic state
+     * <p>
+     * <h2>Thread safety rules</h2>
+     * <ul>
+     * <li>this member must be read once per method
+     * <li>once completely built this state must not be modified anymore
+     * <li>Instead of modify the existing state, rebuild a new state then swap the current and the new state.
+     * <li>The methods that swap state must be "synchronized" to avoid concurrent modifications.
+     * </ul>
+     */
+    @objid ("d60d76e8-c3fd-4bb9-8d5f-422000a2bb0d")
+    private volatile State state;
 
     @objid ("93fde6ab-1a7f-4e96-980d-0014c1f24c79")
-    private List<IAuditListener> auditListeners = new ArrayList<>();
+    private final List<IAuditListener> auditListeners = new CopyOnWriteArrayList<>();
 
     /**
      * Default constructor.
      */
     @objid ("4dc825d2-d00b-49c3-952d-f14df049dc42")
     public  AuditDiagnostic() {
-        this.entries = new ArrayList<>();
+        this.state = new State(100);
     }
 
     @objid ("189bd0a7-afcf-4500-8a06-1f6854f47558")
     @Override
-    public synchronized List<IAuditEntry> getEntries() {
-        return this.entries;
+    public Collection<IAuditEntry> getEntries() {
+        return this.state.entries;
     }
 
     @objid ("308e961f-d900-49fc-aa6a-5ddf506fb612")
     @Override
-    public synchronized List<IAuditEntry> getEntries(String jobId) {
+    public Collection<IAuditEntry> getEntries(String jobId) {
         if (jobId.isEmpty()) {
             return getEntries();
         }
         
         List<IAuditEntry> jobEntries = new ArrayList<>();
-        for (IAuditEntry entry : this.entries) {
+        State curState = this.state;
+        for (IAuditEntry entry : curState.entries) {
             if (entry.getJobId().equals(jobId)) {
                 jobEntries.add(entry);
             }
@@ -83,11 +89,27 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         return jobEntries;
     }
 
+    @objid ("12fe4b54-e788-4c05-b6e4-62eb27ef45d1")
+    @Override
+    public Stream<IAuditEntry> streamEntries(String jobId) {
+        if (jobId==null || jobId.isEmpty()) {
+            return getEntries().stream();
+        }
+        return getEntries().stream().filter(en -> jobId.equals(en.getJobId()));
+    }
+
+    /**
+     * Find and remove the diagnostic with same element and rule from the given list.
+     * @param diagnosticEntries a list of diagnostic entries
+     * @param searchedEntry the entry to search for same element+rule
+     * @return the found and removed entry or null.
+     */
     @objid ("d05e581e-e7ab-423c-abad-e5170bc5b73d")
-    private IAuditEntry getDiagnosticEntry(List<IAuditEntry> diagnosticEntries, IAuditEntry searchedEntry) {
+    private static IAuditEntry pollDiagnosticEntry(List<IAuditEntry> diagnosticEntries, IAuditEntry searchedEntry) {
         int index = diagnosticEntries.indexOf(searchedEntry);
         if (index >= 0) {
-            return diagnosticEntries.get(index);
+            IAuditEntry ret = diagnosticEntries.remove(index);
+            return ret;
         }
         // else
         return null;
@@ -96,59 +118,66 @@ public class AuditDiagnostic implements IAuditDiagnostic {
     /**
      * Add audit entries in the audit diagnostic.
      * <p>
-     * If the entry is already present the passed argument is not added. If the entry is 'success' removing the previosu one(s) from
-     * the diagnostic
-     * @param diagnosticEntries The entries to be added.
+     * For each entry:<ul>
+     * <li>If the entry is already present the passed argument is not added. <br>
+     * <li>If the new entry is 'success' remove the previous one(s) from the diagnostic.
+     * </ul>
+     * @param postedDiagnosticEntries The entries to be added.
      * @param session a modeling session
      * @return <code>true</code> if the current entry list changed, and listeners must be notified.
      */
     @objid ("2fa99adc-9027-4112-9596-54654acc2679")
-    public synchronized boolean postDiagnostic(List<IAuditEntry> diagnosticEntries, ICoreSession session) {
-        boolean notifyListeners = false;
+    public synchronized boolean postDiagnostic(Collection<IAuditEntry> postedDiagnosticEntries, ICoreSession session) {
+        boolean changed = false;
+        
+        // read existing state once
+        State curState = this.state;
         
         Map<MObject, AuditSeverity> elementMap = new HashMap<>();
+        State newState = new State(postedDiagnosticEntries.size() + curState.entries.size());
+        List<IAuditEntry> remainingEntries = new ArrayList<>(postedDiagnosticEntries);
         
         // Analyze the existing entries
-        for (int i = this.entries.size() - 1; i >= 0; i--) {
-            IAuditEntry entry = this.entries.get(i);
-            MObject element = entry.getElement();
+        for (IAuditEntry existingEntry : curState.entries) {
+            IAuditEntry foundPostedEntry;
+            MObject element = existingEntry.getElement();
             if (element == null || element.isDeleted()) {
-                doRemoveEntry(i);
-                notifyListeners = true;
-            } else if (diagnosticEntries.contains(entry)) {
-                IAuditEntry diagnosticEntry = getDiagnosticEntry(diagnosticEntries, entry);
-                diagnosticEntries.remove(diagnosticEntry);
+                // obsolete entry: don't add to new state
+                changed = true;
+            } else if ((foundPostedEntry = pollDiagnosticEntry(remainingEntries, existingEntry)) != null) {
+                // modified entry
+                elementMap.merge(foundPostedEntry.getElement(), foundPostedEntry.getSeverity(), AuditDiagnostic::maxSeverity);
         
-                if (diagnosticEntry.getSeverity() == AuditSeverity.AuditSuccess) {
-                    doRemoveEntry(i);
-                    elementMap.put(diagnosticEntry.getElement(), maxSeverity(elementMap.get(diagnosticEntry.getElement()), AuditSeverity.AuditSuccess));
-                } else {
-                    elementMap.put(diagnosticEntry.getElement(), maxSeverity(elementMap.get(diagnosticEntry.getElement()), diagnosticEntry.getSeverity()));
-                    doReplaceEntry(diagnosticEntry, i);
+                if (foundPostedEntry.getSeverity() != AuditSeverity.AuditSuccess) {
+                    newState.addEntry(foundPostedEntry);
                 }
         
-                notifyListeners = true;
+                changed = true;
+            } else {
+                // unchanged entry, add it to new state as is.
+                newState.addEntry(existingEntry);
             }
         }
         
-        for (IAuditEntry diagnosticEntry : diagnosticEntries) {
+        for (IAuditEntry diagnosticEntry : remainingEntries) {
             if (diagnosticEntry.getSeverity() != AuditSeverity.AuditSuccess) {
-                doAddEntry(diagnosticEntry);
-                notifyListeners = true;
-                elementMap.put(diagnosticEntry.getElement(),
-                        maxSeverity(elementMap.get(diagnosticEntry.getElement()), diagnosticEntry.getSeverity()));
+                newState.addEntry(diagnosticEntry);
+                changed = true;
+                elementMap.merge(diagnosticEntry.getElement(), diagnosticEntry.getSeverity(), AuditDiagnostic::maxSeverity);
             }
         }
         
-        if (!diagnosticEntries.isEmpty()) {
-            updateElementsStatus(elementMap);
-        }
+        
         
         // notify audit listeners
-        if (notifyListeners) {
+        if (changed) {
+            // Swap current and new state
+            this.state = newState;
+        
+            updateElementsStatus(elementMap);
             fireAuditModelChanged();
         }
-        return notifyListeners;
+        return changed;
     }
 
     /**
@@ -174,92 +203,19 @@ public class AuditDiagnostic implements IAuditDiagnostic {
     @objid ("815b1ffc-7ee0-4d73-b90e-4a150b47b046")
     @Override
     public int getErrorCount() {
-        return this.nErrors;
+        return this.state.nErrors;
     }
 
     @objid ("f6611c7d-4b45-4b21-ba05-f5a43c41c6a7")
     @Override
     public int getWarningCount() {
-        return this.nWarnings;
+        return this.state.nWarnings;
     }
 
     @objid ("c65d9277-8b57-4f9a-8197-b859b4f42810")
     @Override
     public int getTipCount() {
-        return this.nTips;
-    }
-
-    @objid ("0d3101b3-cadc-4c98-b550-4651375c10a1")
-    private void doAddEntry(IAuditEntry entry) {
-        this.entries.add(entry);
-        switch (entry.getSeverity()) {
-        case AuditError:
-            this.nErrors++;
-            break;
-        case AuditWarning:
-            this.nWarnings++;
-            break;
-        case AuditAdvice:
-            this.nTips++;
-            break;
-        default:
-            break;
-        }
-        
-    }
-
-    @objid ("9904e062-e885-43ba-be28-027572ab346d")
-    private void doReplaceEntry(IAuditEntry entry, int index) {
-        switch (this.entries.get(index).getSeverity()) {
-        case AuditError:
-            this.nErrors--;
-            break;
-        case AuditWarning:
-            this.nWarnings--;
-            break;
-        case AuditAdvice:
-            this.nTips--;
-            break;
-        default:
-            break;
-        }
-        
-        this.entries.set(index, entry);
-        
-        switch (entry.getSeverity()) {
-        case AuditError:
-            this.nErrors++;
-            break;
-        case AuditWarning:
-            this.nWarnings++;
-            break;
-        case AuditAdvice:
-            this.nTips++;
-            break;
-        default:
-            break;
-        }
-        
-    }
-
-    @objid ("72e7cc63-00a6-460c-ad03-6806824fb9e8")
-    private void doRemoveEntry(int index) {
-        switch (this.entries.get(index).getSeverity()) {
-        case AuditError:
-            this.nErrors--;
-            break;
-        case AuditWarning:
-            this.nWarnings--;
-            break;
-        case AuditAdvice:
-            this.nTips--;
-            break;
-        default:
-            break;
-        }
-        
-        this.entries.remove(index);
-        
+        return this.state.nTips;
     }
 
     /**
@@ -271,28 +227,38 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         boolean notifyListeners = false;
         
         Map<MObject, AuditSeverity> elementMap = new HashMap<>();
+        final State curState = this.state;
+        State newState = new State(curState.entries.size());
         
         // Process the existing entries
-        for (int i = this.entries.size() - 1; i >= 0; i--) {
-            IAuditEntry entry = this.entries.get(i);
-            if (!configuredRules.containsKey(entry.getRuleId())) {
-                elementMap.put(entry.getElement(), AuditSeverity.AuditSuccess);
-                doRemoveEntry(i);
+        for (IAuditEntry entry : curState.entries) {
+            IRule rule = configuredRules.get(entry.getRuleId());
+            if (rule == null) {
+                elementMap.putIfAbsent(entry.getElement(), AuditSeverity.AuditSuccess);
                 notifyListeners = true;
-            } else {
-                IAuditEntry diagnosticEntry = new AuditEntry(entry.getRuleId(), configuredRules.get(entry.getRuleId())
-                        .getSeverity(), entry.getElement(), entry.getLinkedObjects());
+            } else if (rule.getSeverity() != entry.getSeverity()){
+                // Severity changed, make modified copy
+                IAuditEntry diagnosticEntry = new AuditEntry(
+                        entry.getRuleId(),
+                        rule.getSeverity(),
+                        entry.getElement(),
+                        entry.getLinkedObjects());
         
-                doReplaceEntry(diagnosticEntry, i);
+                newState.addEntry(diagnosticEntry);
+        
                 elementMap.put(diagnosticEntry.getElement(), diagnosticEntry.getSeverity());
         
                 notifyListeners = true;
+            } else {
+                // no change, copy the entry directly
+                newState.addEntry(entry);
             }
         }
         
-        updateElementsStatus(elementMap);
-        
         if (notifyListeners) {
+            this.state = newState;
+        
+            updateElementsStatus(elementMap);
             fireAuditModelChanged();
         }
         
@@ -309,23 +275,17 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     @objid ("c602bb98-7f92-428e-9ead-650e6fae24f5")
     public synchronized void clear() {
-        // Reset counters
-        this.nErrors = 0;
-        this.nWarnings = 0;
-        this.nTips = 0;
+        final State curState = this.state;
+        final Map<MObject, AuditSeverity> elementMap = new HashMap<>(curState.entries.size());
         
-        Map<MObject, AuditSeverity> elementMap = new HashMap<>();
-        
-        for (int i = this.entries.size() - 1; i >= 0; i--) {
-            IAuditEntry entry = this.entries.get(i);
+        for (IAuditEntry entry : curState.entries) {
             MObject element = entry.getElement();
             elementMap.put(element, AuditSeverity.AuditSuccess);
-        
         }
         
-        updateElementsStatus(elementMap);
+        this.state = new State(100);
         
-        this.entries.clear();
+        updateElementsStatus(elementMap);
         fireAuditModelChanged();
         
     }
@@ -335,7 +295,10 @@ public class AuditDiagnostic implements IAuditDiagnostic {
      * @param auditStatusMap a map of elements with their audit status.
      */
     @objid ("83fdcdb9-5698-400b-97f9-a7040b9c142e")
-    private void updateElementsStatus(Map<MObject, AuditSeverity> auditStatusMap) {
+    private static void updateElementsStatus(Map<MObject, AuditSeverity> auditStatusMap) {
+        if (auditStatusMap.isEmpty())
+            return;
+        
         for (Entry<MObject, AuditSeverity> entry : auditStatusMap.entrySet()) {
             final long on;
             final long off;
@@ -367,7 +330,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
     }
 
     @objid ("aa63e1c3-fa14-4333-978f-bb602a46cf21")
-    private AuditSeverity maxSeverity(AuditSeverity severity, AuditSeverity newSeverity) {
+    private static AuditSeverity maxSeverity(AuditSeverity severity, AuditSeverity newSeverity) {
         if (severity == null) {
             return newSeverity;
         } else if (severity.equals(AuditSeverity.AuditError) || newSeverity.equals(AuditSeverity.AuditError)) {
@@ -381,16 +344,77 @@ public class AuditDiagnostic implements IAuditDiagnostic {
     }
 
     @objid ("d06d5867-524f-4615-9011-ede89d84caf2")
-    public void purgeJob(String jobId) {
+    public synchronized void purgeJob(String jobId) {
         String jid = jobId != null ? jobId : "";
         
-        for (int index = this.entries.size() - 1; index >= 0; index--) {
-            IAuditEntry entry = this.entries.get(index);
-            if (entry.getJobId().equals(jid)) {
-                doRemoveEntry(index);
+        final State curState = this.state;
+        State newState = new State(curState.entries.size());
+        
+        for (IAuditEntry entry : curState.entries) {
+            if (! entry.getJobId().equals(jid)) {
+                newState.addEntry(entry);
             }
         }
         
+        this.state = newState;
+        
+    }
+
+    /**
+     * The current diagnostic state
+     * <p>
+     * <h2>Thread safety rules</h2>
+     * <ul>
+     * <li>this member must be read once per method
+     * <li>once completely built this state must not be modified anymore
+     * <li>Instead of modify the existing state, rebuild a new state then swap the current and the new state.
+     * <li>The methods that swap state must be "synchronized" to avoid concurrent modifications.
+     * </ul>
+     */
+    @objid ("d640274d-04dc-49d1-af7f-790ded5b3fb8")
+    private static class State {
+        @objid ("4dc1dd97-37d0-4dfd-bc4f-e6dd0c82fcdb")
+        int nErrors;
+
+        @objid ("ce459afc-e563-4a7f-b119-00027d0328ae")
+        int nWarnings;
+
+        @objid ("af29eec9-837c-4af5-92bb-01a7fc000d4b")
+        int nTips;
+
+        @objid ("131a6d56-f00f-49f1-94d8-1cb8b0ed6e0d")
+        List<IAuditEntry> entries;
+
+        @objid ("d965dbb8-360c-4bc8-88b9-f67007846e98")
+        public  State(int capacity) {
+            this.entries = new ArrayList<>(capacity);
+        }
+
+        @objid ("0d3101b3-cadc-4c98-b550-4651375c10a1")
+        public void addEntry(IAuditEntry entry) {
+            this.entries.add(entry);
+            addToStats(entry);
+            
+        }
+
+        @objid ("84d67780-c57a-4a76-bdca-5e6bed66418b")
+        private void addToStats(IAuditEntry entry) {
+            switch (entry.getSeverity()) {
+            case AuditError:
+                this.nErrors++;
+                break;
+            case AuditWarning:
+                this.nWarnings++;
+                break;
+            case AuditAdvice:
+                this.nTips++;
+                break;
+            case AuditSuccess:
+                break;
+            }
+            
+        }
+
     }
 
 }

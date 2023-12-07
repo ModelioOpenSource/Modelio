@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Display;
@@ -71,7 +72,9 @@ import org.modelio.vcore.session.api.model.change.ChangeCause;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeSupport;
 import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
+import org.modelio.vcore.session.api.transactions.ConcurrentTransactionException;
 import org.modelio.vcore.session.api.transactions.ITransaction;
+import org.modelio.vcore.session.api.transactions.ITransactionSupport;
 import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -201,14 +204,20 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         this.gmNodeFactory = createGmNodeFactory();
         
         enableRefresh(true);
+        enforceMandatoryLayers();
         
+    }
+
+    @objid ("249da93d-ca20-473b-9129-84c376b012bc")
+    private void enforceMandatoryLayers() {
         if (this.drawingLayers.isEmpty()) {
             // Add a default layer
-            final GmDrawingLayer childNode = new GmDrawingLayer(this, diagramRef, GmDrawingLayer.LAYER_ID_TOP);
+            final GmDrawingLayer childNode = new GmDrawingLayer(this, getRepresentedRef(), GmDrawingLayer.LAYER_ID_TOP);
             this.drawingLayers.add(childNode);
         }
         
-        this.backgroundDrawingLayer = new GmDrawingLayer(this, diagramRef, GmDrawingLayer.LAYER_ID_BACKGROUND);
+        if (this.backgroundDrawingLayer == null)
+            this.backgroundDrawingLayer = new GmDrawingLayer(this, getRepresentedRef(), GmDrawingLayer.LAYER_ID_BACKGROUND);
         
     }
 
@@ -327,9 +336,8 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         this.embeddedDiagrams.clear();
         
         // Add a default foreground layer
-        this.drawingLayers.add(new GmDrawingLayer(this, getRepresentedRef(), GmDrawingLayer.LAYER_ID_TOP));
         // Add a default background layer
-        this.backgroundDrawingLayer = new GmDrawingLayer(this, getRepresentedRef(), GmDrawingLayer.LAYER_ID_BACKGROUND);
+        enforceMandatoryLayers();
         
         final GmCompositeNode gmParent = getParentNode();
         if (gmParent != null) {
@@ -516,7 +524,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
     @objid ("f630fc18-b847-4543-beb0-8014587c61ce")
     @Override
     public final List<IGmDrawingLayer> getDrawingLayers() {
-        return this.drawingLayers;
+        return Collections.unmodifiableList(this.drawingLayers);
     }
 
     @objid ("82af8b2d-3d26-4291-b329-12d2715fc90c")
@@ -886,6 +894,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             firePropertyChange(GmAbstractDiagram.PROP_DIAGRAM_LOAD_END, null, Boolean.TRUE);
         } catch (PersistenceException e) {
             // Failed to read string, log error.
+            DiagramElements.LOG.error("Failed loading %s diagram: %s", this.getRepresentedRef(), e.getMessage());
             DiagramElements.LOG.error(e);
             firePropertyChange(GmAbstractDiagram.PROP_DIAGRAM_LOAD_END, null, e);
         }
@@ -1227,6 +1236,12 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         private final AtomicBoolean reloadScheduled = new AtomicBoolean();
 
         /**
+         * Used by {@link #statusChanged(IStatusChangeEvent)} to schedule refresh only once.
+         */
+        @objid ("d3a508bd-ab7a-4d1f-9474-b53520a01618")
+        private final AtomicBoolean refreshInTransactionScheduled = new AtomicBoolean();
+
+        /**
          * Default constructor.
          * @param gmAbstractDiagram the opened diagram.
          */
@@ -1401,15 +1416,37 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         @Override
         public void statusChanged(IStatusChangeEvent ev) {
             if (ev.getCause() == ChangeCause.REPOSITORY) {
-                Display.getDefault().asyncExec(() -> {
-                    // TODO : the call to refreshAllDiagram() instead of scheduleDiagramReload() leads to the creation of a ghost transaction
-                    // in the case of creation of elements including diagrams (BPMN Process for example)
-                    try (ITransaction tr = CoreSession.getSession(this.gmAbstractDiagram.getRepresentedElement()).getTransactionSupport().createTransaction(ev.getCause().toString())) {
-                        refreshAllDiagram();
-                        tr.commit();
-                    }
-                });
+                // Schedule only one diagram refresh at a time
+                if (this.refreshInTransactionScheduled.compareAndSet(false, true)) {
+                    Display.getDefault().asyncExec(() -> runScheduledDiagramRefresh(ev));
+                }
+            }
             
+        }
+
+        @objid ("4d00c961-9071-46f7-8c21-0fcffeeb4a39")
+        private void runScheduledDiagramRefresh(IStatusChangeEvent ev) {
+            assert Display.getCurrent() != null ;
+            
+            // Allow immediately another refresh schedule
+            this.refreshInTransactionScheduled.set(false);
+            
+            // TODO : the call to refreshAllDiagram() instead of scheduleDiagramReload() leads to the creation of a ghost transaction
+            // in the case of creation of elements including diagrams (BPMN Process for example)
+            MObject diagramElement = this.gmAbstractDiagram.getRepresentedElement();
+            ITransactionSupport transactionSupport = CoreSession.getSession(diagramElement).getTransactionSupport();
+            try (ITransaction tr = transactionSupport.createTransaction(
+                    String.format("Refresh %s after repository changed element status.", diagramElement),
+                    10,
+                    TimeUnit.MILLISECONDS)) {
+                    refreshAllDiagram();
+                    tr.commit();
+            } catch (ConcurrentTransactionException ex) {
+                // Log as debug and try later
+                DiagramElements.LOG.debug(ex);
+            
+                // schedule again 20 ms later
+                Display.getCurrent().timerExec(20, () -> statusChanged(ev) );
             }
             
         }

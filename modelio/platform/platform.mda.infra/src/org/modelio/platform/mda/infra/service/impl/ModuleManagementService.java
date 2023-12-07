@@ -276,7 +276,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
         IRTModule rtModule = getIRTModule(gModule);
         if (rtModule != null) {
             rtModule.getController().removeFromProject(deleteAnnotations);
-        } else {
+        } else if(gModule.getProject() != null){
             try {
                 gModule.getProject().removeGPart(null, gModule);
             } catch (GPartException e) {

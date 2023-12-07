@@ -159,7 +159,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
                 }
             }
         }
-        return !elements.isEmpty();
+        return !this.nodes.isEmpty();
     }
 
     @objid ("0c9d58a2-8734-4d5a-8c5b-c109fd7a9e8c")

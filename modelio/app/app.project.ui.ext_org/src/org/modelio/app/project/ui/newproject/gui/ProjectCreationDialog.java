@@ -184,9 +184,6 @@ public class ProjectCreationDialog extends ModelioDialog {
         @objid ("8d3891cd-8bc8-4ab5-9ef3-c895e74870b1")
         private Text projectDescriptionText = null;
 
-        @objid ("ae09e5c0-d0c5-4107-b261-950834249971")
-        private Button javaCheckBox;
-
         @objid ("004721ba-cc35-1ff2-a7f4-001ec947cd2a")
         private final BasicProjectCreationDataModel dataModel;
 
@@ -266,7 +263,6 @@ public class ProjectCreationDialog extends ModelioDialog {
             
             createProjectNameField();
             createProjectDescriptionField();
-            createJavaProjectCheckBox();
             
         }
 
@@ -292,23 +288,6 @@ public class ProjectCreationDialog extends ModelioDialog {
             final GridData gd_projectNameText = new GridData(SWT.FILL, SWT.CENTER, true, false);
             this.projectNameText.setLayoutData(gd_projectNameText);
             
-        }
-
-        @objid ("008ccddc-7ecb-10af-9941-001ec947cd2a")
-        private void createJavaProjectCheckBox() {
-            @SuppressWarnings("unused")
-            Label empty = new Label(this, SWT.NONE);
-            this.javaCheckBox = new Button(this, SWT.CHECK);
-            this.javaCheckBox.setText(AppProjectUiExt.I18N.getString("JavaProjectCheckbox.label"));
-            final GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
-            this.javaCheckBox.setLayoutData(gd);
-            this.javaCheckBox.setSelection(false);
-            
-        }
-
-        @objid ("0092cbb0-c2c2-10b4-9941-001ec947cd2a")
-        public boolean isJavaChecked() {
-            return this.javaCheckBox.getSelection();
         }
 
     }

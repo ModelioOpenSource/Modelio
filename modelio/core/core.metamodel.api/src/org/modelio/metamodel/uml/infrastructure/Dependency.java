@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -50,13 +50,13 @@ public interface Dependency extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("4a2134bc-ec46-4e3a-8382-3d019f650be5")
+    @objid ("23c6233d-5908-492b-92dd-13a493c8cf0e")
     public static final String MNAME = "Dependency";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("d88cc9ab-cc01-4e2b-96d0-04beeaec8c43")
+    @objid ("a43ddec7-2b34-498c-8f2d-19caa93bc154")
     public static final String MQNAME = "Infrastructure.Dependency";
 
     /**
@@ -66,7 +66,7 @@ public interface Dependency extends ModelElement {
      * <i>Client</i>
      * 
      */
-    @objid ("c7ca69e1-54af-478c-93e8-8aff08a5ee9c")
+    @objid ("09f21bf9-30d1-4a56-b7fa-2fa13848fd48")
     ModelElement getImpacted();
 
     /**
@@ -76,7 +76,7 @@ public interface Dependency extends ModelElement {
      * <i>Client</i>
      * 
      */
-    @objid ("d033cf37-1949-4609-bb99-6b27ecfaf1e2")
+    @objid ("22808ee8-6cd6-47a2-ab53-ffa3586f4c1c")
     void setImpacted(ModelElement value);
 
     /**
@@ -86,7 +86,7 @@ public interface Dependency extends ModelElement {
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
      * 
      */
-    @objid ("ed4e56b8-4744-4856-b679-ba18a7726af4")
+    @objid ("adbce520-42fb-456a-8604-fa20665f07fb")
     ModelElement getDependsOn();
 
     /**
@@ -96,7 +96,7 @@ public interface Dependency extends ModelElement {
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
      * 
      */
-    @objid ("962a2663-1dec-4159-b092-d026990556a4")
+    @objid ("bd52f755-94b6-4ea2-bc49-e2e62986fecf")
     void setDependsOn(ModelElement value);
 }
 

@@ -34,10 +34,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.migration.Migrator;
@@ -49,9 +49,9 @@ import org.modelio.gproject.data.module.migration.Migrator;
 public class JaxbModelPersistence {
     /**
      * Load a JAXB model from a jmdac file.
-     * @throws IOException in case of failure.
      * @param modulePath the .jmdac file path
      * @return the JAXB module
+     * @throws IOException in case of failure.
      */
     @objid ("53e607c5-6c08-4c07-94f1-4d3fc8b580d3")
     public static Jxbv2Module loadJaxbModelFromJmdac(Path modulePath) throws IOException {
@@ -76,9 +76,9 @@ public class JaxbModelPersistence {
 
     /**
      * Load a JAXB model
-     * @throws IOException in case of failure.
      * @param moduleXmlFile the module.xml file path
      * @return the JAXB module
+     * @throws IOException in case of failure.
      */
     @objid ("b38b2cc5-f27f-11e1-8543-001ec947ccaf")
     public static Jxbv2Module loadJaxbModel(final Path moduleXmlFile) throws IOException {
@@ -110,9 +110,9 @@ public class JaxbModelPersistence {
 
     /**
      * Save the JAXB model to a file.
-     * @throws IOException in case of failure.
      * @param module the JAXB module model to save.
      * @param moduleXmlFile the module.xml file path
+     * @throws IOException in case of failure.
      */
     @objid ("82033481-f366-11e1-85f6-002564c97630")
     public static void saveJaxbModel(final JxbModule module, final Path moduleXmlFile) throws IOException {

@@ -25,8 +25,11 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.PrecisionPoint;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.draw2d.geometry.Transposer;
+import org.eclipse.draw2d.geometry.Vector;
 
 /**
  * Copy of {@link org.eclipse.draw2d.ConnectionEndpointLocator} with
@@ -58,6 +61,18 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     @objid ("20fb0a09-897e-434b-9d22-fa5334fdcc2a")
     private int heightConstraint = -1;
+
+    @objid ("e6b40101-eddb-46f2-a6f7-ba9982698e17")
+    static final int QUANDRANT_TOP = 1;
+
+    @objid ("37191120-14d0-4bcb-87a5-3b64fb8e5830")
+    static final int QUANDRANT_BOTTOM = 3;
+
+    @objid ("2ae9350d-36cd-4a6d-b90f-a1ab27f9136b")
+    static final int QUANDRANT_LEFT = 4;
+
+    @objid ("903574c9-6fa3-44d1-a2ca-556e2dd01dd8")
+    static final int QUANDRANT_RIGHT = 2;
 
     @objid ("1d1524c7-445b-49f9-9e04-125924f925f3")
     private Connection connection;
@@ -97,11 +112,11 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     /**
      * Returns an integer representing the side of the passed Rectangle that a
-     * point lies on. 1 == Top 2 == Right 3 == Bottom 4 == Left
+     * point lies on. 1 == Top, 2 == Right, 3 == Bottom, 4 == Left
      * @param loc The point that is to be located
      */
     @objid ("f5e0edee-7442-4318-b481-e8254e6edcba")
-    private int calculateConnectionLocation(Point loc, Point topLeft, Point center) {
+    static int calculateConnectionLocation(Point loc, Point topLeft, Point center) {
         double m1, m2 = 0;
         m1 = (double) (topLeft.y - center.y) / (double) (topLeft.x - center.x);
         
@@ -112,64 +127,64 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
         if (loc.x == center.x) {
             // Case where m2 is vertical
             if (loc.y < center.y) {
-                return 3;
+                return QUANDRANT_BOTTOM;
             } else {
-                return 1;
+                return QUANDRANT_TOP;
             }
         } else if (Math.abs(m2) <= Math.abs(m1)) {
             // Connection start point along left or right side
             if (loc.x < center.x) {
-                return 4;
+                return QUANDRANT_LEFT;
             } else {
-                return 2;
+                return QUANDRANT_RIGHT;
             }
         } else {
             // Connection start point along top or bottom
             if (loc.y < center.y) {
-                return 3;
+                return QUANDRANT_BOTTOM;
             } else {
-                return 1;
+                return QUANDRANT_TOP;
             }
         }
         
     }
 
-    /*
-         * This method is used to calculate the "quadrant" value of a connection
-         * that does not have an owner on its starting point.
-         * 1 == Top 2 == Right 3 == Bottom 4 == Left
-         * @param startPoint The starting point of the connection.
-         * @param endPoint The end point of the connection.
-         */
+    /**
+     * This method is used to calculate the "quadrant" value of a connection
+     * that does not have an owner on its starting point.
+     * 1 == Top 2 == Right 3 == Bottom 4 == Left
+     * @param startPoint The starting point of the connection.
+     * @param endPoint The end point of the connection.
+     */
     @objid ("f52360da-3d1f-4011-9966-5deb07276286")
-    private int calculateConnectionLocation(Point startPoint, Point endPoint) {
+    static int calculateConnectionLocation(Point startPoint, Point endPoint) {
         if (Math.abs(endPoint.x - startPoint.x) > Math.abs(endPoint.y
                 - startPoint.y)) {
             if (endPoint.x > startPoint.x) {
-                return 2;
+                return QUANDRANT_RIGHT;
             } else {
-                return 4;
+                return QUANDRANT_LEFT;
             }
         } else {
             if (endPoint.y > startPoint.y) {
-                return 1;
+                return QUANDRANT_TOP;
             } else {
-                return 3;
+                return QUANDRANT_BOTTOM;
             }
         }
         
     }
 
-    /*
-         * Calculates 'tan' which is used as a factor for y adjustment when placing
-         * the connection label. 'tan' is capped at 1.0 in the positive direction
-         * and -1.0 in the negative direction.
-         * @param startPoint The starting point of the connection.
-         * @param endPoint The end point of the connection.
-         * @since 2.0
-         */
+    /**
+     * Calculates 'tan' which is used as a factor for y adjustment when placing
+     * the connection label. 'tan' is capped at 1.0 in the positive direction
+     * and -1.0 in the negative direction.
+     * @param startPoint The starting point of the connection.
+     * @param endPoint The end point of the connection.
+     * @since 2.0
+     */
     @objid ("c05e9db2-401c-469a-97d4-d2855896b036")
-    private double calculateTan(Point startPoint, Point endPoint) {
+    static double calculateTan(Point startPoint, Point endPoint) {
         double tan = 0;
         if (endPoint.x == startPoint.x) {
             tan = 1.0;
@@ -243,8 +258,8 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
     @Override
     public void relocate(IFigure figure) {
         Connection conn = getConnection();
-        Point startPoint = Point.SINGLETON;
-        Point endPoint = new Point();
+        PrecisionPoint startPoint = new PrecisionPoint();
+        PrecisionPoint endPoint = new PrecisionPoint();
         
         int startPointPosition = 0;
         int endPointPosition = 1;
@@ -256,54 +271,246 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
         conn.getPoints().getPoint(startPoint, startPointPosition);
         conn.getPoints().getPoint(endPoint, endPointPosition);
         
-        IFigure connOwner = getConnectionOwner();
         
-        int quadrant;
-        if (connOwner != null) {
-            Rectangle connOwnerBounds = connOwner.getBounds();
-            Point connOwnerCenter = connOwnerBounds.getCenter();
-            Point connOwnerTL = connOwnerBounds.getTopLeft();
-            quadrant = calculateConnectionLocation(startPoint, connOwnerTL,
-                    connOwnerCenter);
+        if (false) {
+            _relocate_chatgpt_way1(figure, startPoint, endPoint);
         } else {
-            quadrant = calculateConnectionLocation(startPoint, endPoint);
+        
+            IFigure connOwner = getConnectionOwner();
+            int quadrant;
+            if (connOwner != null) {
+                Rectangle connOwnerBounds = connOwner.getBounds();
+                Point connOwnerCenter = connOwnerBounds.getCenter();
+                Point connOwnerTL = connOwnerBounds.getTopLeft();
+                quadrant = calculateConnectionLocation(startPoint, connOwnerTL,
+                        connOwnerCenter);
+            } else {
+                quadrant = calculateConnectionLocation(startPoint, endPoint);
+            }
+        
+            this.transposer.setEnabled(false);
+        
+            /*
+             * Label placement calculations are done as if the connection point is
+             * along the left or right side of the figure. If the connection point
+             * is along the top or bottom, values are transposed.
+             */
+            if (quadrant == QUANDRANT_TOP || quadrant == QUANDRANT_BOTTOM) {
+                this.transposer.setEnabled(true);
+            }
+        
+            int cos ;
+            if (quadrant == QUANDRANT_RIGHT || quadrant == QUANDRANT_TOP) {
+                cos = 1;
+            } else {
+                cos = -1;
+            }
+        
+            Dimension figureSize = this.transposer.t(computeFigureSize(figure));
+        
+            startPoint = (PrecisionPoint) this.transposer.t(startPoint);
+            endPoint = (PrecisionPoint) this.transposer.t(endPoint);
+        
+            double tan = calculateTan(startPoint, endPoint);
+        
+            int figureWidth = figureSize.width;
+            int figureHeight = figureSize.height;
+            int yShift = calculateYShift(figureWidth, figureHeight);
+        
+            Point figurePoint = new Point(
+                    startPoint.x + (this.uDistance * cos) + figureWidth * ((cos - 1) / 2),
+                    (int) (startPoint.y + cos * this.uDistance * tan + this.vDistance + yShift));
+        
+            Rectangle figureBounds = new Rectangle();
+            figureBounds.setSize(this.transposer.t(figureSize));
+            figureBounds.setLocation(this.transposer.t(figurePoint));
+            figure.setBounds(figureBounds);
         }
         
-        int cos = 1;
-        this.transposer.setEnabled(false);
+    }
+
+    /**
+     * Asked ChatGPT for:
+     * 
+     * <pre>
+     * J'ai un segment AB avec les points A et B connus: (startPoint, endPoint).
+     * J'ai un segment AC avec les points A et C connus. (C is a point to make a segment on node figure bounds)
+     * J'ai une distance v depuis la droite AB, qui forme une droite D parall�le � AB.
+     * J'ai un vecteur u(ux, uy) depuis le point A, qui forme une droite E parall�le � AC.
+     * 
+     * Il me faut un algorithme java pour calculer l'intersection entre D et E.
+     * </pre>
+     * @deprecated does not work :-\
+     * @author ChatGPT
+     */
+    @objid ("0eaab1bc-8000-47b4-86f1-2d8af4f5e609")
+    @Deprecated
+    private void _relocate_chatgpt_way(IFigure figure, PrecisionPoint startPoint, PrecisionPoint endPoint) {
+        if (false) {
+        // Compute input for ChatGPT algo
+        Vector a = new Vector(startPoint, endPoint);
+        Vector u = new Vector(0, 0);
+        Point b = endPoint;
+        Point c = new Point(startPoint);
+        int quadrant = calculateConnectionLocation(startPoint, endPoint);
+        switch (quadrant) {
+        case QUANDRANT_BOTTOM:
+            c.translate(10, 0);
+            u.y = this.uDistance;
+            break;
+        case QUANDRANT_TOP:
+            c.translate(10, 0);
+            u.y = -this.uDistance;
+            break;
+        case QUANDRANT_LEFT:
+            c.translate(0, 10);
+            u.x = - this.uDistance;
+            break;
+        case QUANDRANT_RIGHT:
+            c.translate(0, 10);
+            u.x = + this.uDistance;
+            break;
+        }
+        
+        
+        // ChatGPT algo begins here
+        // ========================
+        // Calculer le vecteur AB et le vecteur AC
+        Vector ab = new Vector(b.x - a.x, b.y - a.y);
+        Vector ac = new Vector(c.x - a.x, c.y - a.y);
+        
+        // Normaliser le vecteur AB
+        ab = ab.getDivided(ab.getLength());
+        
+        // Calculer la distance entre A et la droite D
+        double distanceAD = ab.getCrossProduct(ac);
+        
+        // Calculer le vecteur de translation pour projeter u sur la droite D
+        Vector translation = ab.getMultiplied(u.getDotProduct(ab) / ab.getDotProduct(ab));
+        
+        // Calculer le vecteur projet� de u sur la droite D
+        Vector projectedU = u.getSubtracted(translation);
+        
+        // Calculer la distance entre A et la droite E
+        double distanceAE = ac.getCrossProduct(projectedU);
+        
+        // Calculer le point d'intersection entre les droites D et E
+        double t = distanceAE / (distanceAE - distanceAD);
+        int v = this.vDistance;
+        Point intersection = new PrecisionPoint(a.x + t * ab.x * v, a.y + t * ab.y * v);
+        
+        PrecisionRectangle figureBounds = new PrecisionRectangle(intersection, computeFigureSize(figure));
+        
+        if (a.x < 0)
+            figureBounds.translate(-figureBounds.preciseWidth(), 0);
+        if (a.y < 0)
+            figureBounds.translate(0, -figureBounds.preciseHeight());
+        
+        figure.setBounds(figureBounds);
+        }
+        
+    }
+
+    @objid ("287d0f6a-81ad-49a1-ae47-8a77c22ad672")
+    private static Vector normalized(Vector v) {
+        return v.getDivided(v.getLength());
+    }
+
+    /**
+     * Asked ChatGPT for:
+     * 
+     * <pre>
+     * J'ai un segment AB avec les points A et B connus: (startPoint, endPoint).
+     * J'ai un segment AC avec les points A et C connus. (C is a point to make a segment on node figure bounds)
+     * J'ai une distance v depuis la droite AB, qui forme une droite D parall�le � AB.
+     * J'ai un vecteur u(ux, uy) depuis le point A, qui forme une droite E parall�le � AC.
+     * 
+     * Il me faut un algorithme java pour calculer l'intersection entre D et E.
+     * </pre>
+     * @deprecated does not work :-\
+     * @author ChatGPT
+     */
+    @objid ("63abc6bb-97e2-4d41-8ccf-ca967d7b9772")
+    @Deprecated
+    private void _relocate_chatgpt_way1(IFigure figure, PrecisionPoint startPoint, PrecisionPoint endPoint) {
+        if (false) {
+        
+        // Compute input for ChatGPT algo
+        Vector A = new Vector(startPoint, endPoint);
+        Vector u = new Vector(0, 0);
+        Vector B = new Vector(endPoint);
+        Vector C = new Vector(startPoint);
+        int quadrant = calculateConnectionLocation(startPoint, endPoint);
+        switch (quadrant) {
+        case QUANDRANT_BOTTOM:
+            C.x += 10;
+            u.y = this.uDistance;
+            break;
+        case QUANDRANT_TOP:
+            C.x += 10;
+            u.y = -this.uDistance;
+            break;
+        case QUANDRANT_LEFT:
+            C.y += 10;
+            u.x = - this.uDistance;
+            break;
+        case QUANDRANT_RIGHT:
+            C.y += 10;
+            u.x = + this.uDistance;
+            break;
+        }
+        
+        int v = this.vDistance;
         
         /*
-         * Label placement calculations are done as if the connection point is
-         * along the left or right side of the figure. If the connection point
-         * is along the top or bottom, values are transposed.
+         *   A       C
+         *   +-------+
+         *   .*
+         *  U. *
+         *   .  *
+         *   .   *P    E
+         *  Q+.../*......
+         *    . /  *
+         *     . V  *
+         *      .    +B
+         *     D .
          */
-        if (quadrant == 1 || quadrant == 3) {
-            this.transposer.setEnabled(true);
-        }
+        // ChatGPT algo begins here
+        // ========================
         
-        if (quadrant == 3 || quadrant == 4) {
-            cos = -1;
-        }
+        Vector AB = B.getSubtracted(A);
+        Vector AC = C.getSubtracted(A);
+        Vector AB_norm = normalized(AB);
+        Vector AC_norm = normalized(AC);
+        Vector AP = AB_norm.getMultiplied(u.getDotProduct(AB_norm));
         
-        Dimension figureSize = this.transposer.t(computeFigureSize(figure));
+        /*
+         * Ensuite, nous allons calculer la projection du vecteur u sur la droite AB,
+         * pour trouver le point P qui se situe sur la droite AB et le plus proche de u.
+         * Pour cela, nous allons utiliser la formule suivante :
+         *
+         * AP = u . AB_norm * AB_norm
+         * P = A + AP
+         */
+        Vector P = A.getAdded(AP);
+        Vector D_norm = new Vector(-AB_norm.y, AB_norm.x);
+        // Le point Q est l'intersection entre les droites D et E
+        //  Q = P + (v / D_norm . AC_norm) * AC_norm
+        Vector Q = P.getAdded(AC_norm.getMultiplied(v / D_norm.getDotProduct(AC_norm)));
+        Vector intersection = Q.getAdded(A);
         
-        startPoint = this.transposer.t(startPoint);
-        endPoint = this.transposer.t(endPoint);
         
-        double tan = calculateTan(startPoint, endPoint);
+        //Point intersection = new PrecisionPoint(a.x + t * ab.x * v, a.y + t * ab.y * v);
         
-        int figureWidth = figureSize.width;
-        int figureHeight = figureSize.height;
-        int yShift = calculateYShift(figureWidth, figureHeight);
+        PrecisionRectangle figureBounds = new PrecisionRectangle(intersection.toPoint(), computeFigureSize(figure));
         
-        Point figurePoint = new Point(
-                startPoint.x + (this.uDistance * cos) + figureWidth * ((cos - 1) / 2),
-                (int) (startPoint.y + cos * this.uDistance * tan + this.vDistance + yShift));
+        if (A.x < 0)
+            figureBounds.translate(-figureBounds.preciseWidth(), 0);
+        if (A.y < 0)
+            figureBounds.translate(0, -figureBounds.preciseHeight());
         
-        Rectangle figureBounds = new Rectangle();
-        figureBounds.setSize(this.transposer.t(figureSize));
-        figureBounds.setLocation(this.transposer.t(figurePoint));
         figure.setBounds(figureBounds);
+        }
         
     }
 
@@ -385,6 +592,25 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
     @Override
     public void setHeightConstraint(int fixedHeight) {
         this.heightConstraint = fixedHeight;
+    }
+
+    @objid ("3b7d189b-8307-42b3-8389-32fdf01b6529")
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getClass().getSimpleName());
+        builder.append(" [end=");
+        builder.append(this.end ? "target" : "source");
+        builder.append(", u=");
+        builder.append(this.uDistance);
+        builder.append(", v=");
+        builder.append(this.vDistance);
+        builder.append(", widthConstraint=");
+        builder.append(this.widthConstraint);
+        builder.append(", heightConstraint=");
+        builder.append(this.heightConstraint);
+        builder.append("]");
+        return builder.toString();
     }
 
 }

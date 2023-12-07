@@ -50,7 +50,7 @@ public class FlatContentProvider implements ITreeContentProvider {
     @Override
     public Object[] getElements(Object inputElement) {
         AuditDiagnostic diagnostic = (AuditDiagnostic) inputElement;
-        return diagnostic.getEntries(this.jobId).toArray();
+        return diagnostic.streamEntries(this.jobId).toArray();
     }
 
     @objid ("384f929c-d36c-4cf6-9cf1-a4f6dbe34c36")

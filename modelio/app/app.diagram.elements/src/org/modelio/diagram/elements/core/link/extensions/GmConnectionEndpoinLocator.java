@@ -171,4 +171,23 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
         return new GmConnectionEndpoinLocator(this);
     }
 
+    @objid ("25ef7c7d-94de-4994-884a-f9520dc71cc5")
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getClass().getSimpleName());
+        builder.append(" [end=");
+        builder.append(this.end ? "target": "source");
+        builder.append(", u=");
+        builder.append(this.uDistance);
+        builder.append(", v=");
+        builder.append(this.vDistance);
+        builder.append(", WidthConstraint=");
+        builder.append(getWidthConstraint());
+        builder.append(", HeightConstraint=");
+        builder.append(getHeightConstraint());
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

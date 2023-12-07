@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -48,13 +48,13 @@ public interface MethodologicalLink extends Dependency {
     /**
      * The metaclass simple name.
      */
-    @objid ("c429c37b-13fc-4e98-91e3-c376cf341794")
+    @objid ("16bb785c-3e45-460d-9b0c-65fb74127285")
     public static final String MNAME = "MethodologicalLink";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("47907c21-9431-4db5-8632-7051367c092e")
+    @objid ("4380ee91-817a-40ee-bd2f-1463a8337ea0")
     public static final String MQNAME = "Infrastructure.MethodologicalLink";
 
     /**
@@ -64,7 +64,7 @@ public interface MethodologicalLink extends Dependency {
      * <i>null</i>
      * 
      */
-    @objid ("f48cdf02-014d-43c6-9907-a5333e7e0888")
+    @objid ("b3223d52-3422-45d7-97c1-a5710796bea6")
     ExternElement getExternElement();
 
     /**
@@ -74,7 +74,7 @@ public interface MethodologicalLink extends Dependency {
      * <i>null</i>
      * 
      */
-    @objid ("5e846696-595e-4299-8864-81652a7619b8")
+    @objid ("8b9e3882-c8b4-4cfa-8717-9401aad10d99")
     void setExternElement(ExternElement value);
 }
 

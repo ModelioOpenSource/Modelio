@@ -28,6 +28,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
@@ -51,7 +52,9 @@ import org.modelio.platform.model.ui.swt.images.ElementStyler;
 import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.platform.model.ui.swt.images.FragmentStyledLabelProvider;
 import org.modelio.platform.model.ui.swt.images.IModelioElementLabelProvider;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.smkernel.mapi.fake.FakeMObject;
 
 /**
  * Browser tree label provider delegating part of its job to <i>extension</i> label providers coming with metamodel fragments.
@@ -59,10 +62,18 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("6948d6a1-d63b-11e1-9955-002564c97630")
 public class BrowserLabelProvider extends LabelProvider implements IModelioElementLabelProvider {
     @objid ("c13d663c-d63b-11e1-9955-002564c97630")
-    protected BrowserLabelService umlLabelService;
+    protected final BrowserLabelService umlLabelService;
 
     @objid ("bfeb7ddf-b8a1-4d2d-8a65-f111dcca831d")
-    private Map<String, IModelioElementLabelProvider> extensions = new HashMap<>();
+    private final Map<String, IModelioElementLabelProvider> extensions = new HashMap<>();
+
+    @objid ("a23ba819-7ff5-43d0-a466-e90cb4bfc369")
+    private final Styler fakeStyler = new Styler() {
+                @Override
+                public void applyStyles(TextStyle textStyle) {
+                    textStyle.foreground = UIColor.SHELL_ELEMENT_FG;
+                }
+            };
 
     /**
      * Default c'tor.
@@ -112,10 +123,17 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
         } else if (obj instanceof MObject) {
             IModelioElementLabelProvider ext = getExtensionFor((MObject) obj);
             StyledString styledText = ext != null ? ext.getStyledText(obj) : null;
+        
+            if (styledText == null && obj instanceof MObject) {
+                styledText = this.umlLabelService.getLabel((MObject) obj);
+            }
+        
+            if (styledText == null && obj instanceof FakeMObject) {
+                styledText = createFakeObjectStyledText((FakeMObject)obj);
+            }
+        
             if (styledText != null) {
                 return styledText;
-            } else if (obj instanceof MObject) {
-                return this.umlLabelService.getLabel((MObject) obj);
             }
         } else {
             for (IModelioElementLabelProvider lbp : this.extensions.values()) {
@@ -126,6 +144,11 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
             }
         }
         return new StyledString(obj.toString(), StyledString.createColorRegistryStyler("red", null));
+    }
+
+    @objid ("648c8379-0696-492b-8cc9-f4643806fdcc")
+    private StyledString createFakeObjectStyledText(FakeMObject obj) {
+        return new StyledString(obj.getName(), this.fakeStyler);
     }
 
     /**

@@ -7,7 +7,7 @@
 
 	<groupId>org.modelio</groupId>
 	<artifactId>modelio-parent</artifactId>
-	<version>5.3.1-SNAPSHOT</version>
+	<version>5.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -22,9 +22,9 @@
 		<javadesigner.annotation.version>2.2.0</javadesigner.annotation.version>
 
 		<!-- Modelio version settings -->
-		<modelio.rootFolder>Modelio 5.3</modelio.rootFolder>
-		<modelio.version>5.3.1-SNAPSHOT</modelio.version>
-		<newVersion>5.3.1</newVersion>
+		<modelio.rootFolder>Modelio 5.4</modelio.rootFolder>
+		<modelio.version>5.4.1-SNAPSHOT</modelio.version>
+		<newVersion>5.4.1</newVersion>
 
 	</properties>
 
@@ -216,7 +216,7 @@
 						<artifact>
 							<groupId>org.modelio</groupId>
 							<artifactId>rcp</artifactId>
-							<version>5.3.1-SNAPSHOT</version>
+							<version>5.4.1-SNAPSHOT</version>
 						</artifact>
 					</target>
 				</configuration>

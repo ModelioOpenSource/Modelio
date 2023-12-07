@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.matrix;
@@ -46,13 +46,13 @@ public interface MatrixDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("6eca811e-58f7-4373-a815-6aee1bb67a1b")
+    @objid ("fe9d8312-441a-4390-a7f4-174ff8e60aea")
     public static final String MNAME = "MatrixDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("181b5ea4-d694-4bb9-add6-f9eef21bc8b2")
+    @objid ("ab57e175-d966-4cab-a4c1-f4660952a14a")
     public static final String MQNAME = "Infrastructure.MatrixDefinition";
 
     /**
@@ -62,7 +62,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Lines definition.</i>
      * 
      */
-    @objid ("3b653581-d361-42d4-be84-4f8aa19209b1")
+    @objid ("ca23aede-aeb0-44fa-8511-4f980cf3ba0e")
     QueryDefinition getLinesDefinition();
 
     /**
@@ -72,7 +72,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Lines definition.</i>
      * 
      */
-    @objid ("87c51eb8-6234-4764-a993-4351e7435ddd")
+    @objid ("ccfa8c09-df2a-4f65-85c7-b766ebe92903")
     void setLinesDefinition(QueryDefinition value);
 
     /**
@@ -82,7 +82,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Columns definition. If not specified, the line definition is used.</i>
      * 
      */
-    @objid ("eb5febca-d6cb-4d46-970b-131524205935")
+    @objid ("d7f6610c-76d6-4a1d-9fcb-245f99d62469")
     QueryDefinition getColumnsDefinition();
 
     /**
@@ -92,7 +92,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Columns definition. If not specified, the line definition is used.</i>
      * 
      */
-    @objid ("7946dfcf-7269-4433-82da-992a5c4eb9b2")
+    @objid ("a59876c6-7bc4-482e-bf60-526aae3243bf")
     void setColumnsDefinition(QueryDefinition value);
 
     /**
@@ -102,7 +102,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Matrix values definition.</i>
      * 
      */
-    @objid ("445ff945-6092-4ac5-85ed-4cf392152791")
+    @objid ("ecf75f94-f9c0-400f-b929-c65bf7557eb7")
     MatrixValueDefinition getValuesDefinition();
 
     /**
@@ -112,7 +112,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Matrix values definition.</i>
      * 
      */
-    @objid ("e83d0483-b7b6-4a3c-aa1e-209440fa8642")
+    @objid ("a1a3633f-57db-4273-aded-42ed741b0a02")
     void setValuesDefinition(MatrixValueDefinition value);
 
     /**
@@ -122,7 +122,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Depth definition. May be left undefined.</i>
      * 
      */
-    @objid ("a31ef6e6-6539-44a7-aa44-3a3d6b1f5603")
+    @objid ("174d543c-a9a2-405c-9914-b39db9ebfd88")
     QueryDefinition getDepthDefinition();
 
     /**
@@ -132,7 +132,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>Depth definition. May be left undefined.</i>
      * 
      */
-    @objid ("2c204a5a-97e3-47df-bc9e-9df333172be6")
+    @objid ("7ad13ce8-431c-4813-8182-fbfafed8754b")
     void setDepthDefinition(QueryDefinition value);
 
     /**
@@ -142,7 +142,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("b367827f-e35f-43a1-87d6-744a4c7ffb42")
+    @objid ("87c47c90-0140-4828-9344-c825933c535b")
     ModelElement getOwner();
 
     /**
@@ -152,7 +152,7 @@ public interface MatrixDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("b5b3d212-22d3-45f4-b5a9-b4f7bbdd76c6")
+    @objid ("e33a667f-06d7-424c-ae0d-48c75d8d0c64")
     void setOwner(ModelElement value);
 }
 

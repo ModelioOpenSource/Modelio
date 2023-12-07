@@ -24,6 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vcore.model.DuplicateObjectException;
+import org.modelio.vcore.session.api.repository.RepositoryClosedException;
 import org.modelio.vcore.session.impl.storage.IModelLoader;
 import org.modelio.vcore.smkernel.IRStatus;
 import org.modelio.vcore.smkernel.IRepositoryObject;
@@ -336,6 +337,12 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 this.base.loadCmsNode(this.cmsNodeId, modelLoader, false);
             } catch (DuplicateObjectException e) {
                 this.base.getErrorSupport().fireError(new IOException("Failed loading "+this+": "+e.getLocalizedMessage(), e));
+            } catch (RepositoryClosedException e) {
+                // Should not happen, this is a race condition, log an do as if loaded
+                this.loaded = true;
+                this.cmsNode.setRStatus(IRStatus.SHELL, 0, 0);
+                Log.warning("Cannot load %s : %s", this, e);
+                Log.warning(e);
             } catch (RuntimeException e) {
                 this.base.getErrorSupport().fireError(new IOException("Failed loading "+this+": "+e.toString(), e));
             }

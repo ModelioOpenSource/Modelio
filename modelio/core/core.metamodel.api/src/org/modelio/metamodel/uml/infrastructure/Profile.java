@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -44,13 +44,13 @@ public interface Profile extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("1061a008-77fe-4829-8327-e8e92018d8ed")
+    @objid ("059736cb-c7ca-4104-aebb-5e07623851a5")
     public static final String MNAME = "Profile";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("ad52dba1-8536-4f3f-b081-0b7c08871f0e")
+    @objid ("f0072f03-1583-4db7-b402-0420b7bf3fb2")
     public static final String MQNAME = "Infrastructure.Profile";
 
     /**
@@ -60,7 +60,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("9e91d3c5-2925-4fe8-9716-155cfb8c37ba")
+    @objid ("5ebeef61-7e64-4990-a5c7-eb2be756a20e")
     EList<Stereotype> getDefinedStereotype();
 
     /**
@@ -70,7 +70,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("9724e26c-1d2d-4cc8-8544-cca65b413fdb")
+    @objid ("b3345e82-045f-44d7-ace3-941fb3aeacbe")
     <T extends Stereotype> List<T> getDefinedStereotype(java.lang.Class<T> filterClass);
 
     /**
@@ -80,7 +80,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("46ed1e26-1889-4db1-afc0-44569a788348")
+    @objid ("9e1641fe-f93c-4f2a-89dc-cf7467b9aae5")
     EList<MetaclassReference> getOwnedReference();
 
     /**
@@ -90,7 +90,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("57dc8cb3-7252-4989-b1f6-d45f9af62b60")
+    @objid ("d04ccc58-84a7-4246-8703-423522fb1e93")
     <T extends MetaclassReference> List<T> getOwnedReference(java.lang.Class<T> filterClass);
 
     /**
@@ -100,7 +100,7 @@ public interface Profile extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("75611bcb-1779-4a3d-b270-27b99396e231")
+    @objid ("102a308d-38be-4ef9-a595-50774b4783f6")
     ModuleComponent getOwnerModule();
 
     /**
@@ -110,7 +110,7 @@ public interface Profile extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("7bd651e5-f2c6-476f-959d-8e14e52d384c")
+    @objid ("c4bca63e-1a81-4a2b-a0cc-d01c1916f1a6")
     void setOwnerModule(ModuleComponent value);
 
     /**
@@ -120,7 +120,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("7ff8622a-5471-4b36-8a91-7cba16ea0b6a")
+    @objid ("82dcd783-4100-4e8d-8d07-6b8930b90de8")
     EList<PropertyType> getDefinedType();
 
     /**
@@ -130,7 +130,7 @@ public interface Profile extends ModelElement {
      * <i></i>
      * 
      */
-    @objid ("a430cc91-d487-42f6-9d24-26388723d79d")
+    @objid ("4a19124c-b1b5-40a6-8d6e-8c0fd0ff5afe")
     <T extends PropertyType> List<T> getDefinedType(java.lang.Class<T> filterClass);
 }
 

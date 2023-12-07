@@ -38,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("3666b35a-55b7-11e2-877f-002564c97630")
 public class GmInterfaceRealization extends GmLink {
-    @objid ("3666b35e-55b7-11e2-877f-002564c97630")
-    private InterfaceRealization element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -49,6 +46,9 @@ public class GmInterfaceRealization extends GmLink {
 
     @objid ("3666b366-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("3666b35e-55b7-11e2-877f-002564c97630")
+    private InterfaceRealization element;
 
     @objid ("635961e1-5bd5-11e2-9e33-00137282c51b")
     private static final GmInterfaceRealizationStyleKeys styleKeyProvider = new GmInterfaceRealizationStyleKeys();
@@ -97,12 +97,16 @@ public class GmInterfaceRealization extends GmLink {
     @objid ("36683a06-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
         return this.element.getImplementer();
     }
 
     @objid ("36683a0d-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getImplemented();
     }
 

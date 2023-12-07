@@ -47,6 +47,7 @@ import org.modelio.vbasic.progress.SubProgress;
 import org.modelio.vcore.model.DuplicateObjectException;
 import org.modelio.vcore.model.MObjectCache;
 import org.modelio.vcore.session.api.blob.IBlobInfo;
+import org.modelio.vcore.session.api.repository.RepositoryClosedException;
 import org.modelio.vcore.session.api.repository.StorageErrorSupport;
 import org.modelio.vcore.session.impl.storage.IModelLoader;
 import org.modelio.vcore.session.impl.storage.IModelLoaderProvider;
@@ -291,7 +292,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         }
         
         this.baseOpen = false;
-        this.loadCache = null;
+        // this.loadCache = null; // keep load cache so that CoreSession can move all loaded objects
         
         if (this.indexes != null) {
             try {
@@ -452,7 +453,6 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("f4d29ce8-08b1-11e2-b33c-001ec947ccaf")
     @Override
     public final Collection<SmObjectImpl> getAllLoadedObjects() {
-        assertOpen();
         return this.loadCache.asCollection();
     }
 
@@ -1060,7 +1060,9 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         this.detachedObjects.remove(obj.getUuid());
         obj.setRepositoryObject(this.unloadedRepoHandler);
         
-        handler.setToReload(obj);
+        if (this.baseOpen) {
+            handler.setToReload(obj);
+        }
         
     }
 
@@ -1188,14 +1190,6 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("ab2bff3e-06ff-44a6-8ddc-c398ccc51193")
     protected abstract void doReloadCmsNode(SmObjectImpl obj, IModelLoader modelLoader) throws DuplicateObjectException, IOException, IndexException;
 
-    @objid ("fd21f545-5986-11e1-991a-001ec947ccaf")
-    @Override
-    protected void finalize() throws Throwable {
-        close();
-        super.finalize();
-        
-    }
-
     @objid ("67b15d88-2e7b-11e2-8aaa-001ec947ccaf")
     protected abstract ILoadHelper getloadHelper();
 
@@ -1259,7 +1253,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("8c5f7cc9-d02b-11e1-bf59-001ec947ccaf")
     private void assertOpen() {
         if (! this.baseOpen) {
-            throw new IllegalStateException("The '"+getURI()+"' repository is not open.");
+            throw new RepositoryClosedException("The '"+getURI()+"' repository is not open.");
         }
         
     }

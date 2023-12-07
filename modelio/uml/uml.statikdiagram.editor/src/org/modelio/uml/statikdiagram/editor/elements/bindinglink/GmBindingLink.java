@@ -37,9 +37,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("34121516-55b7-11e2-877f-002564c97630")
 public class GmBindingLink extends GmLink {
-    @objid ("3412151a-55b7-11e2-877f-002564c97630")
-    private Binding element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -48,6 +45,9 @@ public class GmBindingLink extends GmLink {
 
     @objid ("34121522-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("3412151a-55b7-11e2-877f-002564c97630")
+    private Binding element;
 
     @objid ("3412151d-55b7-11e2-877f-002564c97630")
     private static final BindingLinkStyleKeys STRUCTURED_KEYS = new BindingLinkStyleKeys();
@@ -83,6 +83,8 @@ public class GmBindingLink extends GmLink {
     @objid ("34121533-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
         return this.element.getOwner();
     }
 
@@ -113,6 +115,8 @@ public class GmBindingLink extends GmLink {
     @objid ("34139bbb-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getRepresentedFeature();
     }
 

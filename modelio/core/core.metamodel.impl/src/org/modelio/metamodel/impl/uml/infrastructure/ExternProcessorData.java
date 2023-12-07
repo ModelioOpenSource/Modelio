@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -30,16 +30,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("9bf75d8b-a1fe-4551-b3ea-8285c1a28683")
 public class ExternProcessorData extends ModelElementData {
-    @objid ("5df3cb6d-1629-46da-9ebf-45074e0fdea1")
+    @objid ("e3560552-f7bc-4aa9-8038-24bccd6bc7c9")
     Object mClassName = "";
 
-    @objid ("55bbf17d-3630-4419-9eb6-0eada03a1daa")
+    @objid ("2d0a377e-100d-40c3-9616-98f24db566e9")
     SmObjectImpl mOwnerQuery;
 
-    @objid ("06f5cfb6-8684-431c-8d3e-993bac264417")
+    @objid ("d0e2020e-4f70-49f2-be15-dc2a773ee59c")
     SmObjectImpl mOwnerValDef;
 
-    @objid ("9d9cb5d5-771d-4c48-8eca-4b1ff7c0b928")
+    @objid ("5ab2bff7-1432-4adc-9b00-a80d5afa7308")
     public  ExternProcessorData(ExternProcessorSmClass smClass) {
         super(smClass);
     }

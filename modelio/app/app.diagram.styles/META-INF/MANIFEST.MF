@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Styles
 Bundle-SymbolicName: org.modelio.app.diagram.styles;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,
  org.modelio.platform.ui,

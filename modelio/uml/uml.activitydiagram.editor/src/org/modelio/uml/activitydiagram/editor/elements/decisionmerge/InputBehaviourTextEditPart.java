@@ -57,6 +57,8 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
         
         // Set style independent properties
         f.setTextAlignment(PositionConstants.LEFT);
+        //set a default size to the InputBehaviourText figure
+        f.setPreferredSize(120, 40);
         f.setOpaque(true);
         
         // Set style dependent properties
@@ -76,7 +78,7 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
             if (editableText == null) {
                 return;
             }
-            
+        
             final MultilineTextFigure label = (MultilineTextFigure) getFigure();
         
             final CellEditorLocator cellEditorLocator = new EditorLocatorForLabelFigure(

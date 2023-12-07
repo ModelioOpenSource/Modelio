@@ -358,10 +358,13 @@ public class GProjectPartDescriptor implements Serializable {
     @objid ("211ccff2-df54-44db-ab3e-d823e6f62e27")
     public enum GProjectPartType {
         /**
-         * Local EXML fragment
+         * Local EXML model fragment
          */
         @objid ("9eb819bd-776c-4797-9631-ba062dc0551e")
         EXMLFRAGMENT,
+        /**
+         * SVN shared model fragment
+         */
         @objid ("8ff61f56-5157-4855-896d-260963ca3630")
         SVNFRAGMENT,
         /**
@@ -388,7 +391,13 @@ public class GProjectPartDescriptor implements Serializable {
          * A physical resource in the project space.
          */
         @objid ("2f5c184c-197c-4219-aa12-3b7c627558ce")
-        RESOURCE;
+        RESOURCE,
+        /**
+         * Shared real time Model server JSON fragment.
+         * @since > 5.4.0
+         */
+        @objid ("c10e9ffe-591a-42a9-83d4-472b15c3e3f7")
+        CONFERENCEFRAGMENT;
 
     }
 

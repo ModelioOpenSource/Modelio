@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: bpmn-xml
 Bundle-SymbolicName: org.modelio.bpmn-xml;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-Activator: org.modelio.bpmnxml.plugin.BPMNXml
 Bundle-Localization: plugin
 Bundle-Vendor: modelio.org
@@ -29,4 +29,4 @@ Require-Bundle: org.eclipse.e4.core.contexts,
  org.modelio.core.project,
  org.modelio.platform.core,
  org.modelio.modelermodule,
- org.modelio.jaxb;bundle-version="1.0.0"
+ org.modelio.jaxb

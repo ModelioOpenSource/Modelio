@@ -41,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.SmMultipleDependency;
  * to their initial metaobject.
  */
 @objid ("877f70d2-2d89-11e2-8aaa-001ec947ccaf")
-class ModelLoaderMetaObject implements IMetaOf {
+public class ModelLoaderMetaObject implements IMetaOf {
     @objid ("e7f1e841-e242-4056-89fc-eb34dfd784bb")
     private volatile Lock lock;
 

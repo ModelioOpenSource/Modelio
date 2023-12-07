@@ -26,6 +26,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.platform.model.ui.swt.selectmetaclass.IMetaclassSelectorListener;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
@@ -36,7 +37,7 @@ import org.modelio.vcore.smkernel.mapi.MClass;
  * An invalid element means the dialog ok button is disabled, to avoid creating this stereotype as is.
  */
 @objid ("8ce3d61a-38e2-4359-872b-e2a1a3f85a2d")
-public class StereotypeValidator implements ModifyListener {
+public class StereotypeValidator implements ModifyListener, IMetaclassSelectorListener {
     @objid ("e9a7ea2a-cf43-4c6c-a594-6f66e3d6a56a")
     private StereotypeEditionDialog dialog = null;
 
@@ -63,12 +64,23 @@ public class StereotypeValidator implements ModifyListener {
         
     }
 
+    @objid ("974c6017-3b97-4302-ba48-442baaf1c1ba")
+    @Override
+    public void selectMetaclass(MClass mClass) {
+        validate(mClass);
+    }
+
     @objid ("920a7409-b0d4-491d-9d03-50f83d63c3e0")
     @Override
     public void modifyText(ModifyEvent e) {
-        String stereotypeName = this.dialog.stereotypeNameText.getText();
         MClass stereotypeMClass = this.dialog.getBaseClass();
+        validate(stereotypeMClass);
         
+    }
+
+    @objid ("c8de7fa7-bdc9-4153-afca-b997c2da78c0")
+    private void validate(MClass stereotypeMClass) {
+        String stereotypeName = this.dialog.stereotypeNameText.getText();
         if (stereotypeMClass != null) {
             if (stereotypeName != null
                     && !stereotypeName.isEmpty()
@@ -80,12 +92,9 @@ public class StereotypeValidator implements ModifyListener {
                 this.dialog.invalidateStereotypeNameText(true);
                 this.dialog.createButton.setEnabled(false);
             }
-            
             this.dataModel.setMetaclassName(stereotypeMClass.getQualifiedName());
-        } else {
-            this.dialog.createButton.setEnabled(false);
-        
-            this.dataModel.setMetaclassName("");
+        } else  {
+                this.dialog.createButton.setEnabled(false);
         }
         
         this.dataModel.setStereotypeName(stereotypeName);

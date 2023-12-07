@@ -22,12 +22,12 @@ package org.modelio.gproject.data.module.jaxbv2;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for _PropertyType complex type.
@@ -283,8 +283,8 @@ public class Jxbv2PropertyType {
     @objid ("225422bc-33c6-4cc5-82cb-2f2766971b0e")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "stereotypeRef"
-        })
+                "stereotypeRef"
+            })
     public static class Jxbv2Extensions {
         @objid ("0d08e250-06da-4ef8-a10f-d6a0ebe54ed1")
         @XmlElement(name = "StereotypeRef")

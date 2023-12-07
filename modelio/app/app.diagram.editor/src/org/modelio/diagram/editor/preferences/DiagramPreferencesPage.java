@@ -33,6 +33,9 @@ public class DiagramPreferencesPage extends FieldEditorPreferencePage {
     @objid ("0cfe8dc2-1eea-4b85-a098-aaa939406480")
     public static final String DELETE_MODE_PREFKEY = "DeleteMode";
 
+    @objid ("4a431ef1-69f4-4d97-a256-46866989e476")
+    public static final String EMPTY = "";
+
     /**
      * Public constructor
      */
@@ -52,17 +55,20 @@ public class DiagramPreferencesPage extends FieldEditorPreferencePage {
                 {DiagramEditor.I18N.getString("DiagramPreferences.DeleteMode.MASK"), DeleteMode.MASK.name()}
             };
         
-            addField(new RadioGroupFieldEditor(DELETE_MODE_PREFKEY,
-                    DiagramEditor.I18N.getString("DiagramPreferences.DeleteMode.label"),
+            RadioGroupFieldEditor radioGroupFieldEditor = new RadioGroupFieldEditor(DELETE_MODE_PREFKEY,
+                    EMPTY,
                     1, // nb columns
                     logLevels, getFieldEditorParent(),
-                    true));
+                    true);
+            addField(radioGroupFieldEditor);
         
     }
 
     @objid ("96589756-d683-4ac5-9131-bc3585aba6d7")
     private void init() {
         setPreferenceStore(Preferences.getPreferences());
+        setDescription(DiagramEditor.I18N.getString("DiagramPreferences.DeleteMode.label"));
+        
     }
 
     @objid ("58a8520d-120a-41a6-af99-cd3e230c2cf5")

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.diagrams;
@@ -41,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("a657a72a-81df-4a12-bea4-afae63eef91e")
 public class GraphDiagramImpl extends AbstractDiagramImpl implements GraphDiagram {
-    @objid ("8de49970-68d0-4c33-8e06-f73f685d9956")
+    @objid ("324669f2-63e4-4902-96d4-8969e0d4f555")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -49,7 +49,7 @@ public class GraphDiagramImpl extends AbstractDiagramImpl implements GraphDiagra
         return super.getCompositionOwner();
     }
 
-    @objid ("0deb04a2-a3e9-4448-9432-5885ee3a6912")
+    @objid ("3d9e84b6-f36f-4bcd-a983-93466d97aeb2")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -59,7 +59,7 @@ public class GraphDiagramImpl extends AbstractDiagramImpl implements GraphDiagra
         return super.getCompositionRelation();
     }
 
-    @objid ("000eba0b-a370-44ed-b678-b2d41a60a14e")
+    @objid ("97bcdd28-70b7-4e10-8ae3-3ed4e0d988ed")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitGraphDiagram(this);

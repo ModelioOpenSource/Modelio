@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -46,13 +46,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("008caa50-c4be-1fd8-97fe-001ec947cd2a")
 public class ProfileImpl extends ModelElementImpl implements Profile {
-    @objid ("e231f443-0f68-477c-9731-be7b98b224b3")
+    @objid ("013beb8a-af98-4bd3-8a8d-424d9b778679")
     @Override
     public EList<Stereotype> getDefinedStereotype() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getDefinedStereotypeDep());
     }
 
-    @objid ("28645410-bc25-4c32-a1bb-2765f6d100b9")
+    @objid ("00e06fa2-fdf4-4779-bd0b-7fc2e19410d5")
     @Override
     public <T extends Stereotype> List<T> getDefinedStereotype(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -68,13 +68,13 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         
     }
 
-    @objid ("15d6700e-5a68-4744-8d5e-d7280cbbd9e9")
+    @objid ("10be11a5-889c-4617-a34f-c7041c6a0318")
     @Override
     public EList<MetaclassReference> getOwnedReference() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getOwnedReferenceDep());
     }
 
-    @objid ("a37e8a88-74fc-44ee-ba49-b555633b65fc")
+    @objid ("753792a4-d2bc-4698-b12b-2ad6fd42011c")
     @Override
     public <T extends MetaclassReference> List<T> getOwnedReference(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -90,26 +90,26 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         
     }
 
-    @objid ("d77a3f01-73c2-4289-a8c3-d82d3d081e51")
+    @objid ("69ff308a-82b8-4bb6-be4e-e2a76d298b08")
     @Override
     public ModuleComponent getOwnerModule() {
         Object obj = getDepVal(((ProfileSmClass)getClassOf()).getOwnerModuleDep());
         return (obj instanceof ModuleComponent)? (ModuleComponent)obj : null;
     }
 
-    @objid ("c73327ac-8189-42c6-8c19-7ce891422817")
+    @objid ("cfd541b0-074d-47ed-bc06-1be71fbb0be3")
     @Override
     public void setOwnerModule(ModuleComponent value) {
         appendDepVal(((ProfileSmClass)getClassOf()).getOwnerModuleDep(), (SmObjectImpl)value);
     }
 
-    @objid ("24fdbe37-cf21-4830-bdba-eee250e6ab8e")
+    @objid ("17856d93-2f3c-464e-9b8d-983aaf01122a")
     @Override
     public EList<PropertyType> getDefinedType() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getDefinedTypeDep());
     }
 
-    @objid ("51a20b04-47ce-4272-8965-f7fe21aa37c4")
+    @objid ("11b3fb95-f9c0-44b7-b1d2-6516f2455aa6")
     @Override
     public <T extends PropertyType> List<T> getDefinedType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -125,7 +125,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         
     }
 
-    @objid ("0671ab48-d99d-4813-8e06-63edbff20c63")
+    @objid ("6e6e690f-e89a-40a9-afc4-568d4132b1ef")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -137,7 +137,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return super.getCompositionOwner();
     }
 
-    @objid ("8e1dce1e-4a9f-4271-9102-a6ddc1049a00")
+    @objid ("04ce84a9-619e-4766-991a-c9f5158ee55b")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -152,7 +152,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return super.getCompositionRelation();
     }
 
-    @objid ("a25d00aa-86f7-4449-bad7-e92f59fff0fc")
+    @objid ("05b9f97a-e942-42d9-b126-a71a70231e5c")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitProfile(this);

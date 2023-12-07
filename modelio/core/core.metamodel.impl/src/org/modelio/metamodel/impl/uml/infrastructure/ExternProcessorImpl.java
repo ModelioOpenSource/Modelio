@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -43,45 +43,45 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("19257ea4-a0e7-4d4a-a390-75b7f65742f4")
 public class ExternProcessorImpl extends ModelElementImpl implements ExternProcessor {
-    @objid ("94cebe7a-7c87-43e5-ba02-3c5cdaaffd24")
+    @objid ("f91c3c56-710b-4f50-a922-fdfdff04505d")
     @Override
     public String getClassName() {
         return (String) getAttVal(((ExternProcessorSmClass)getClassOf()).getClassNameAtt());
     }
 
-    @objid ("365bfe7c-2d72-4bf2-a2db-19b8d0c5e71a")
+    @objid ("a6a4b779-0712-495d-821b-9c6dfdd63fce")
     @Override
     public void setClassName(String value) {
         setAttVal(((ExternProcessorSmClass)getClassOf()).getClassNameAtt(), value);
     }
 
-    @objid ("02349cef-58bb-40cd-8b91-755a7109fb34")
+    @objid ("7743bdce-617e-4763-99dd-24187954397a")
     @Override
     public QueryDefinition getOwnerQuery() {
         Object obj = getDepVal(((ExternProcessorSmClass)getClassOf()).getOwnerQueryDep());
         return (obj instanceof QueryDefinition)? (QueryDefinition)obj : null;
     }
 
-    @objid ("17364ef0-fa62-4d78-b931-414905fa5de4")
+    @objid ("8da2024f-e082-4ab3-9967-fef543b99b12")
     @Override
     public void setOwnerQuery(QueryDefinition value) {
         appendDepVal(((ExternProcessorSmClass)getClassOf()).getOwnerQueryDep(), (SmObjectImpl)value);
     }
 
-    @objid ("094df6d0-7344-4755-93ff-37226cd710f4")
+    @objid ("c3d47918-944f-48e5-a504-f7a0a84f86e8")
     @Override
     public MatrixValueDefinition getOwnerValDef() {
         Object obj = getDepVal(((ExternProcessorSmClass)getClassOf()).getOwnerValDefDep());
         return (obj instanceof MatrixValueDefinition)? (MatrixValueDefinition)obj : null;
     }
 
-    @objid ("c03941f1-82b6-4c61-9ad3-55aafd9bdb2b")
+    @objid ("9df5f401-1c01-4147-93f3-6eb09b843b16")
     @Override
     public void setOwnerValDef(MatrixValueDefinition value) {
         appendDepVal(((ExternProcessorSmClass)getClassOf()).getOwnerValDefDep(), (SmObjectImpl)value);
     }
 
-    @objid ("1f5c8447-4925-4ee3-9e62-a34cf672a6f5")
+    @objid ("934c564e-ac96-4c6d-8ac9-539fe6df8e0f")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -97,7 +97,7 @@ public class ExternProcessorImpl extends ModelElementImpl implements ExternProce
         return super.getCompositionOwner();
     }
 
-    @objid ("8424735e-abd5-4f44-a07b-855d93e133a7")
+    @objid ("5ecf7c36-8f2c-47e7-8360-6897cd808d8f")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -117,7 +117,7 @@ public class ExternProcessorImpl extends ModelElementImpl implements ExternProce
         return super.getCompositionRelation();
     }
 
-    @objid ("9a204509-c347-4b89-8064-d49a1a79d86c")
+    @objid ("a7b53e54-8e68-4c87-afc3-81a54314dc10")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitExternProcessor(this);

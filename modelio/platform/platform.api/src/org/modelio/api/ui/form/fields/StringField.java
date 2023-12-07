@@ -1,18 +1,18 @@
-/* 
+/*
  * Copyright 2013-2020 Modeliosoft
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *       http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 package org.modelio.api.ui.form.fields;
 
@@ -61,23 +61,23 @@ public class StringField extends AbstractField {
         } else {
             throw new IllegalStateException(err);
         }
-        
+
     }
 
     @objid ("dbfe9592-eabd-4f0c-8994-11471e8a14bb")
     @Override
     public Control createControl(FormToolkit toolkit, Composite parent) {
         this.text = toolkit.createText(parent, EMPTY_STRING, SWT.NONE);
-        
+
         // Initialize values
         getLabel().setText(getModel().getName());
-        
+
         Object value = getModel().getValue();
         this.text.setText(value != null ? value.toString() : EMPTY_STRING);
-        
+
         // Install Listeners
         this.text.addListener(SWT.FocusOut, e -> valueChanged());
-        
+
         this.text.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -88,7 +88,7 @@ public class StringField extends AbstractField {
                 }
             }
         });
-        
+
         this.text.addModifyListener(e -> validate());
         return this.text;
     }
@@ -104,7 +104,7 @@ public class StringField extends AbstractField {
     public void refresh() {
         final Object value = getModel().getValue();
         this.text.setText(value != null ? value.toString() : EMPTY_STRING);
-        
+
     }
 
     /**
@@ -125,7 +125,7 @@ public class StringField extends AbstractField {
         } else {
             this.text.setForeground(UIColor.RED);
         }
-        
+
     }
 
     @objid ("ed143876-7b7c-4fe6-839a-9c77922e8e73")
@@ -136,13 +136,19 @@ public class StringField extends AbstractField {
     @objid ("da532071-96cf-449d-83b1-b09421a066a9")
     protected String getValidationError(final String value) {
         if (!getModel().getType().isValidValue(value)) {
-            return Api.I18N.getMessage("StringField.invalidValueForType", 
-                    getLabel().getText(), 
-                    value, 
-                    getModel().getName(), 
+            return Api.I18N.getMessage("StringField.invalidValueForType",
+                    getLabel().getText(),
+                    value,
+                    getModel().getName(),
                     getModel().getType().getName());
         }
         return this.validator.apply(value);
+    }
+
+    @Override
+    public void setEditable(boolean onoff) {
+        // TODO Auto-generated method stub
+        super.setEditable(onoff);
     }
 
 }

@@ -128,7 +128,7 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
     private static final Image invalidBeingDeleted = ElementDecoratedStyledLabelProvider.loadImage("invalid_beingdeleted8x8.png");
 
     @objid ("138de558-8057-4f3f-8728-f7f3c1b36a70")
-    private static final Image invalidDead = ElementDecoratedStyledLabelProvider.loadImage("invalid_dead10x10.png");
+    private static final Image invalidDead = ElementDecoratedStyledLabelProvider.loadImage("invalid_dead8x8.png");
 
     // ------------------------------------------------------------------------------------
     /**

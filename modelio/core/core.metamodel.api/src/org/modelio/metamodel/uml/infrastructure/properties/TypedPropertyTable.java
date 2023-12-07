@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -40,13 +40,13 @@ public interface TypedPropertyTable extends PropertyTable {
     /**
      * The metaclass simple name.
      */
-    @objid ("01cfce5e-9fe9-441d-9e51-60b663444459")
+    @objid ("dd44329d-33d7-4b19-bd16-dcd8520f5337")
     public static final String MNAME = "TypedPropertyTable";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("0c30b666-003a-43a2-8ab8-e87dd315eb7a")
+    @objid ("5b2366c2-48e6-4c06-87f1-7adbc6ba906e")
     public static final String MQNAME = "Infrastructure.TypedPropertyTable";
 
     /**
@@ -91,7 +91,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * <i>null</i>
      * 
      */
-    @objid ("f1e997c8-6638-48b3-a67c-94560e5eb3a0")
+    @objid ("56adfc3b-92a7-46dc-bfdb-58e32ed17a1b")
     PropertyTableDefinition getType();
 
     /**
@@ -101,7 +101,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * <i>null</i>
      * 
      */
-    @objid ("26f8be33-ff8a-4315-b938-c259ca03fe4e")
+    @objid ("e52363ce-3d82-40d5-9568-c4af94dabcb3")
     void setType(PropertyTableDefinition value);
 }
 

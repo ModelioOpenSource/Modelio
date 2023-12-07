@@ -22,7 +22,7 @@ package org.modelio.bpmnxml.nodes.production.events;
 import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TFlowElement;
 import org.modelio.bpmnxml.model.TProcess;

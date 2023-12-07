@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>5.3.1-SNAPSHOT</version>
+		<version>5.4.1-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
@@ -22,8 +22,8 @@
 				<version>3.8.0</version>
 				<configuration>
 					<fork>true</fork>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
@@ -32,8 +32,8 @@
 				<artifactId>tycho-compiler-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 					<useJDK>BREE</useJDK>
 					<extraClasspathElements>

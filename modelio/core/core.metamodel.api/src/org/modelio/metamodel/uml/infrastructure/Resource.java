@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -40,13 +40,13 @@ public interface Resource extends AbstractResource {
     /**
      * The metaclass simple name.
      */
-    @objid ("623d8785-8186-4f58-a097-e10130c0040c")
+    @objid ("03d834ab-ffdf-4536-a5f6-6eb70aa709a5")
     public static final String MNAME = "Resource";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("b579b6ae-1002-4be1-bbd5-0ab063c27d54")
+    @objid ("4831b87c-14e5-4751-946c-7ca6d421a62f")
     public static final String MQNAME = "Infrastructure.Resource";
 }
 

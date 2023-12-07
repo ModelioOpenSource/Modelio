@@ -24,8 +24,7 @@ import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.plugin.DiagramElements;
-import org.modelio.metamodel.mda.Project;
-import org.modelio.metamodel.uml.statik.Package;
+import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.platform.model.ui.MetamodelLabels;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
 import org.modelio.vcore.model.api.MTools;
@@ -114,8 +113,8 @@ public class DeleteInModelCommand extends Command {
             // not CMS Managed. If any of these condition is not met, return false!
             if (!MTools.getAuthTool().canRemoveFrom(el, owner)) {
                 return false;
-            } else if (el instanceof Package && owner instanceof Project) {
-                // Never delete root package
+            } else if (el instanceof AbstractProject || owner instanceof AbstractProject) {
+                // Never delete root packages nor projects
                 return false;
             }
         }

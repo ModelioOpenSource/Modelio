@@ -89,10 +89,16 @@ public class MetamodelDescriptorReader {
         String confLocation = is.getSystemId();
         try  {
         
-            DocumentBuilderFactory domFact = DocumentBuilderFactory.newInstance();
+            // Use the JDK DOM parser, and avoid Xerces parser that don't support security attributes below
+            // see : https://stackoverflow.com/questions/58374278/org-xml-sax-saxnotrecognizedexception-property-http-javax-xml-xmlconstants-p/62404699#62404699
+            DocumentBuilderFactory domFact = DocumentBuilderFactory.newInstance("com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl", ClassLoader.getSystemClassLoader());
+        
             // XML parsers should not be vulnerable to XXE attacks (java:S2755)
             domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
             domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            domFact.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            domFact.setXIncludeAware(false);
+        
             Document dom = domFact.newDocumentBuilder().parse(is);
         
             decodeMetamodel(dom.getDocumentElement());

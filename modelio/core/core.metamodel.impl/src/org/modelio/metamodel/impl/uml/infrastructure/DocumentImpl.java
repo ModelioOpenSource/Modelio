@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -41,19 +41,19 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00927aac-c4be-1fd8-97fe-001ec947cd2a")
 public class DocumentImpl extends AbstractResourceImpl implements Document {
-    @objid ("9212434c-99a9-4551-bb6e-ab69f6aec90f")
+    @objid ("18b443d1-7819-41d2-9478-613f202fb3ff")
     @Override
     public String getAbstract() {
         return (String) getAttVal(((DocumentSmClass)getClassOf()).getAbstractAtt());
     }
 
-    @objid ("b84f8493-aecb-46f0-8715-f569e84a925e")
+    @objid ("c6a185d8-719a-4950-9539-aa507ab430ff")
     @Override
     public void setAbstract(String value) {
         setAttVal(((DocumentSmClass)getClassOf()).getAbstractAtt(), value);
     }
 
-    @objid ("8be6b110-8984-4fe6-b2cb-976c9b4d42ca")
+    @objid ("c9f8b084-72e7-40b6-9e01-c09e1271e04e")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -61,7 +61,7 @@ public class DocumentImpl extends AbstractResourceImpl implements Document {
         return super.getCompositionOwner();
     }
 
-    @objid ("a242cbb6-a6d4-4914-a13f-9d066318e495")
+    @objid ("a7abe67a-73e5-475d-ae21-749325fb1e84")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -71,7 +71,7 @@ public class DocumentImpl extends AbstractResourceImpl implements Document {
         return super.getCompositionRelation();
     }
 
-    @objid ("db15bde4-7c7a-43b1-9695-21ab9c630038")
+    @objid ("a4acd997-62cf-46cd-9154-50feb499d0e8")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDocument(this);

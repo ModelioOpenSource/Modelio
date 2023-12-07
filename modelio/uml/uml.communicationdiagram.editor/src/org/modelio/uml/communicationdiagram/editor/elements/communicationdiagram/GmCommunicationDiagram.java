@@ -22,6 +22,7 @@ package org.modelio.uml.communicationdiagram.editor.elements.communicationdiagra
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.link.ortho.migration.OrthoLinkDiagramMigrationHelper;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
@@ -45,17 +46,22 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("7a299d30-55b6-11e2-877f-002564c97630")
 public class GmCommunicationDiagram extends GmAbstractDiagram {
-    @objid ("7a299d36-55b6-11e2-877f-002564c97630")
-    private CommunicationDiagram element;
-
     /**
      * Current version of this Gm. Defaults to 0.
+     * <h2>History</h2>
+     * <ul>
+     * <li> 0 : initial version
+     * <li> 1 : 5.3.1 :  5.1 orthogonal router applied
+     * </li>
      */
     @objid ("7a299d39-55b6-11e2-877f-002564c97630")
-    private static final int MINOR_VERSION = 0;
+    private static final int MINOR_VERSION = 1;
 
     @objid ("7a299d3c-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("7a299d36-55b6-11e2-877f-002564c97630")
+    private CommunicationDiagram element;
 
     @objid ("0551512c-599a-11e2-ae45-002564c97630")
     private static final GmCommunicationDiagramStyleKeys STYLEKEYS = new GmCommunicationDiagramStyleKeys();
@@ -133,6 +139,10 @@ public class GmCommunicationDiagram extends GmAbstractDiagram {
             read_0(in);
             break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
         default: {
             assert (false) : "version number not covered!";
             // reading as last handled version: 0
@@ -172,9 +182,17 @@ public class GmCommunicationDiagram extends GmAbstractDiagram {
     }
 
     @objid ("7a2b23f9-55b6-11e2-877f-002564c97630")
+    private void read_1(IDiagramReader in) {
+        super.read(in);
+        this.element = (CommunicationDiagram) resolveRef(getRepresentedRef());
+        
+    }
+
+    @objid ("23761009-aa23-4308-8c0d-1c42350fb10b")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (CommunicationDiagram) resolveRef(getRepresentedRef());
+        OrthoLinkDiagramMigrationHelper.migrate(this);
         
     }
 

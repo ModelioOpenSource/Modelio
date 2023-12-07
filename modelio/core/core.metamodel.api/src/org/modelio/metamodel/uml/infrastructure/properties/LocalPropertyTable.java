@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -42,13 +42,13 @@ public interface LocalPropertyTable extends PropertyTable {
     /**
      * The metaclass simple name.
      */
-    @objid ("c6473a19-c74f-48dc-a4e6-23c90944d2a2")
+    @objid ("0a500151-e42c-4fcf-ab28-278b466eaa0c")
     public static final String MNAME = "LocalPropertyTable";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("49b465e0-4e30-47ac-b52a-62c95b2f48ed")
+    @objid ("eeadc232-913e-4b93-831b-373f42404945")
     public static final String MQNAME = "Infrastructure.LocalPropertyTable";
 
     /**
@@ -58,7 +58,7 @@ public interface LocalPropertyTable extends PropertyTable {
      * <i>null</i>
      * 
      */
-    @objid ("61b8c6c5-294e-4051-80eb-a6a5063b74ca")
+    @objid ("85cc69e4-6d3f-4897-8078-6264c7cc9e87")
     ModelElement getLocalAnnoted();
 
     /**
@@ -68,7 +68,7 @@ public interface LocalPropertyTable extends PropertyTable {
      * <i>null</i>
      * 
      */
-    @objid ("f7aaee88-34b8-424c-935d-f15c55f00af4")
+    @objid ("ddefdd6c-e4bf-4b67-aa36-d52b0a4f6b63")
     void setLocalAnnoted(ModelElement value);
 }
 

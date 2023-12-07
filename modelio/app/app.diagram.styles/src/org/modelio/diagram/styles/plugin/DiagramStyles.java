@@ -69,6 +69,9 @@ public class DiagramStyles implements BundleActivator {
     @objid ("0880bfc5-3505-4904-9946-50816c8ed34c")
     public static final String COBALT_THEME_NAME = "Cobalt";
 
+    @objid ("daf2bff2-9b75-4005-9000-8ca1745d33fe")
+    public static final String MODELIO_5_3_X_THEME_NAME = "Modelio 5.3.x";
+
     @objid ("daba525a-4f4f-4000-92e1-a14b0e0816e6")
     private static BundleContext context;
 

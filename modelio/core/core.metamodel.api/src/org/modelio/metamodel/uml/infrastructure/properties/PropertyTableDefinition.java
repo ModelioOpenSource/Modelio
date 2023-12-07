@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -46,13 +46,13 @@ public interface PropertyTableDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("b35df7b0-3ebc-4da2-b979-363d1922bf42")
+    @objid ("0c457f18-7f06-4f2f-96e9-0520fc5d907e")
     public static final String MNAME = "PropertyTableDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("225f5ed7-3de5-405f-b31d-5f388d818b22")
+    @objid ("1bf5b078-caf3-4233-8551-2e3838051380")
     public static final String MQNAME = "Infrastructure.PropertyTableDefinition";
 
     /**
@@ -64,6 +64,9 @@ public interface PropertyTableDefinition extends ModelElement {
     @objid ("52247448-83e6-4569-89fe-5e7b0dd2e9e8")
     PropertyDefinition getOwned(String propName);
 
+    @objid ("5778ae33-8940-4874-8d96-0b11553d2f8b")
+    ModuleComponent getModule();
+
     /**
      * Getter for relation 'PropertyTableDefinition->TypedTable'
      * 
@@ -71,7 +74,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("68665ced-fc04-4cbc-9d82-781b934ecb4c")
+    @objid ("5240f9e6-fae2-4559-9408-ebe408870bff")
     EList<TypedPropertyTable> getTypedTable();
 
     /**
@@ -81,7 +84,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("4a57fa89-bd5f-446c-89e5-40fd11b58794")
+    @objid ("e69982ff-b578-4246-9d03-2acb669394b7")
     <T extends TypedPropertyTable> List<T> getTypedTable(java.lang.Class<T> filterClass);
 
     /**
@@ -91,7 +94,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("7c573276-3cec-42ef-a158-555b34627e5c")
+    @objid ("ec7ec5cc-b43d-4598-9be5-d77f940fdbe3")
     MetaclassReference getOwnerReference();
 
     /**
@@ -101,7 +104,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("7a3c1476-78f4-4e77-aeac-5aa3de729832")
+    @objid ("e2bf2486-d7de-4c9a-bacd-374894123f1c")
     void setOwnerReference(MetaclassReference value);
 
     /**
@@ -111,7 +114,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("be419eaa-b951-4045-a7a0-cc4ea7a19057")
+    @objid ("8338daa2-4bec-43c0-804c-c2ea2a9f941c")
     Stereotype getOwnerStereotype();
 
     /**
@@ -121,7 +124,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("049ec8ab-03dc-42d3-bbf5-9f36a607dd0a")
+    @objid ("6ebd5868-d55c-49ed-87e6-6aa45741617c")
     void setOwnerStereotype(Stereotype value);
 
     /**
@@ -131,7 +134,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("3f87d97c-964b-48de-9bbb-ae5936dcd816")
+    @objid ("67acbe34-11da-4bcb-9ff5-d576c2a882a3")
     EList<PropertyDefinition> getOwned();
 
     /**
@@ -141,10 +144,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("fa620c26-5647-4122-8495-0c34d8fe0ace")
+    @objid ("e8d794fa-b346-4fc7-b93c-0447a84dc6f2")
     <T extends PropertyDefinition> List<T> getOwned(java.lang.Class<T> filterClass);
-
-    @objid ("5778ae33-8940-4874-8d96-0b11553d2f8b")
-    ModuleComponent getModule();
 }
 

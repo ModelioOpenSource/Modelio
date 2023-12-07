@@ -35,6 +35,7 @@ import org.modelio.diagram.elements.core.figures.anchors.FixedAnchor;
 import org.modelio.diagram.elements.core.figures.anchors.IFixedAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.GmFixedAnchor;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.FixedNodeAnchorLocator;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.TolerantFixedAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.shaped.ShapedFigureAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.snaptogrid.SnapToGridAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.core.IFigureAnchorsAbstractFactory;
@@ -52,11 +53,23 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
  */
 @objid ("6991aa8f-2029-4ac0-9e45-306e7a57111c")
 public class DefaultAnchorFactory implements IFigureAnchorsFactory, IFigureAnchorsAbstractFactory {
-    @objid ("6e133008-17e6-43e5-91a6-b9ab7a993a6d")
+    @objid ("ef3c37de-aa0b-4d0f-95dd-c3f6e85db8ed")
     private GraphicalEditPart curEditPart;
 
-    @objid ("64842cd7-02df-4c6a-ac80-4a5939e8ac41")
+    @objid ("9ec11268-47f5-42b9-84bb-5fa0f8765520")
     private IFigure curFigure;
+
+    @objid ("cc3d9efa-3fd7-4560-b617-6d2ff70d00e5")
+    private Collection<ConnectionAnchor> allAnchors;
+
+    @objid ("df63cffe-ae69-430b-a505-5e770b8bfcdd")
+    private final Dimension anchorCount = new Dimension();
+
+    @objid ("219ffa84-7e48-40ec-9ae6-4fda61bce80a")
+    private final Rectangle curFigBounds = new Rectangle();
+
+    @objid ("9dca4e11-3214-41f5-a817-e1724554e564")
+    private final Dimension curViewerGridSpacing = new Dimension();
 
     @objid ("808ddbe4-1f11-4fa0-a51c-aaf5aeb73ed6")
     private IFixedAnchorLocator gridLocator;
@@ -64,20 +77,8 @@ public class DefaultAnchorFactory implements IFigureAnchorsFactory, IFigureAncho
     @objid ("07bf1c02-38e6-4079-9e8b-f32223dbc8cd")
     private IFixedAnchorLocator middleLocator;
 
-    @objid ("664b7548-f2ab-4dc3-9f43-3dfedb2a9b14")
-    private final Dimension anchorCount = new Dimension();
-
-    @objid ("bb385eb1-4946-4a70-828c-b661a029c6b7")
-    private final Rectangle curFigBounds = new Rectangle();
-
-    @objid ("18785a94-d881-43c5-831c-7b0998953280")
-    private final Dimension curViewerGridSpacing = new Dimension();
-
-    @objid ("b36421c9-4800-430c-8cc5-c2b2e2b7df08")
-    private Collection<ConnectionAnchor> allAnchors;
-
     @objid ("4043224d-3465-414a-a2af-4a191efd0758")
-    private static final IFixedAnchorLocator MIDDLE_LOCATOR = new FixedNodeAnchorLocator("middle");
+    private static final IFixedAnchorLocator MIDDLE_LOCATOR = new TolerantFixedAnchorLocator(new FixedNodeAnchorLocator("middle"), 1);
 
     @objid ("de8e4c0f-2607-4003-acef-406532e64e04")
     @Override
@@ -98,11 +99,10 @@ public class DefaultAnchorFactory implements IFigureAnchorsFactory, IFigureAncho
         this.curFigBounds.setBounds(newFigBounds);
         this.curViewerGridSpacing.setSize(newViewerGridSpacing);
         Dimension gridSize = getGridAnchorSize(new Dimension());
-        SnapToGrid snapper = new Snapper(newEditPart, gridSize) ;
-        
         updateGridAnchorCount(this.anchorCount, gridSize);
         
         // Recreate figure dependent locators
+        SnapToGrid snapper = new Snapper(newEditPart, gridSize) ;
         this.gridLocator = new SnapToGridAnchorLocator(new FixedNodeAnchorLocator("grid"), snapper);
         this.middleLocator = MIDDLE_LOCATOR;
         
@@ -116,7 +116,14 @@ public class DefaultAnchorFactory implements IFigureAnchorsFactory, IFigureAncho
     @objid ("b84f1cba-a528-4000-8ba5-2fb384620dea")
     @Override
     public ConnectionAnchor createFromModel(GmFixedAnchor gmAnchor) {
-        IFixedAnchorLocator loc = ("middle".equals(gmAnchor.getLocator())) ? this.middleLocator : this.gridLocator;
+        IFixedAnchorLocator loc = this.gridLocator;
+        String locatorId = gmAnchor.getLocator();
+        if (locatorId == null || locatorId.isBlank()) {
+            // Legacy 5.3.0 behavior : use previous fixed anchor locator with tolerance
+            loc = this.middleLocator;
+        } else if ("middle".equals(locatorId)) {
+            loc = this.middleLocator;
+        }
         return new FixedAnchor(
                 getNodeFigure(),
                 gmAnchor.getFace(),
@@ -206,15 +213,17 @@ public class DefaultAnchorFactory implements IFigureAnchorsFactory, IFigureAncho
 
     /**
      * Compute the anchor count due to the grid and put the result in the passed Dimension.
-     * @param out the variable to fill
+     * <p>
+     * May be redefined by sub classes to make a different number of anchors.
+     * @param out the anchor count variable to fill
      */
     @objid ("d424ce95-e7e8-438e-a474-479d5763781b")
     protected void updateGridAnchorCount(Dimension out, Dimension gridSize) {
         Rectangle figSize = this.curFigBounds.getCopy();
         
-        // compute how many time the 'margin' fit on horizontal and vertical faces
-        int nHorizontal = Math.max(1, figSize.width / gridSize.width - 0);
-        int nVertical = Math.max(1, figSize.height / gridSize.height - 0);
+        // compute how many time the 'gridSize' fit on horizontal and vertical faces
+        int nHorizontal = Math.max(1, figSize.width / gridSize.width );
+        int nVertical = Math.max(1, figSize.height / gridSize.height );
         
         out.setSize(nHorizontal, nVertical);
         

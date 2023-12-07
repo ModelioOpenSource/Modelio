@@ -64,8 +64,9 @@ public final class CreateDiagramViewCommand extends CreateLinkedNodeCommand {
         
             // Open diagram selection popup.
             DiagramSelectionModel model = new DiagramSelectionModel(diagrams);
-            DiagramSelectionPopup popup = new DiagramSelectionPopup(Display.getDefault().getActiveShell(), model);
+            DiagramSelectionPopup popup = new DiagramSelectionPopup(Display.getDefault().getActiveShell());
             popup.setBlockOnOpen(true);
+            popup.setInput(model);
             if (popup.open() == IDialogConstants.OK_ID) {
                 // Set the link target, then proceed.
                 AbstractDiagram chosenDiagram = model.getSelected();

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -43,13 +43,13 @@ public interface EnumeratedPropertyType extends PropertyType {
     /**
      * The metaclass simple name.
      */
-    @objid ("41c384a9-852c-455b-a935-af03e1056631")
+    @objid ("a4477c52-2693-4532-a831-cba96cd18087")
     public static final String MNAME = "EnumeratedPropertyType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("7fc1ec97-ab2c-43b6-90c2-d89938187e32")
+    @objid ("f58aba8e-0f64-401a-9882-4ed1e04a2498")
     public static final String MQNAME = "Infrastructure.EnumeratedPropertyType";
 
     /**
@@ -66,7 +66,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * <i></i>
      * 
      */
-    @objid ("89fd1a16-ff09-4f51-b39b-791e77ba5a6a")
+    @objid ("91d02754-5579-494d-a538-33dadddf9755")
     EList<PropertyEnumerationLitteral> getLitteral();
 
     /**
@@ -76,7 +76,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * <i></i>
      * 
      */
-    @objid ("60556e0f-cf97-433d-bec8-62bef5639066")
+    @objid ("5818bb05-4de1-4126-868d-c741721cbecf")
     <T extends PropertyEnumerationLitteral> List<T> getLitteral(java.lang.Class<T> filterClass);
 
     /**
@@ -86,7 +86,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * <i>null</i>
      * 
      */
-    @objid ("ab677af9-3932-4eb3-b6fb-a88d80a39059")
+    @objid ("2eb76204-ed87-451d-b024-8e6eafd9f9e2")
     EList<ModuleParameter> getOccurenceConfigParam();
 
     /**
@@ -96,7 +96,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * <i>null</i>
      * 
      */
-    @objid ("772ab581-d603-4708-8f6a-ef4617b0d128")
+    @objid ("8c155da3-72c6-40ee-bc33-a037078280e3")
     <T extends ModuleParameter> List<T> getOccurenceConfigParam(java.lang.Class<T> filterClass);
 }
 

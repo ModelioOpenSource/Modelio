@@ -460,6 +460,9 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         Point p2 = editor.getView().getTargetLocation(new MPoint(), true);
         Orientation orientation = guessOrientation(connection);
         
+        if (orientation == Orientation.NONE)
+            return false; // source and target are same point
+        
         if (alignDirectConnAnchors2(editor, orientation, path, absAlignRef)) {
             return true;
         }
@@ -625,8 +628,8 @@ public final class OrthogonalPathFixer5_0_2 extends AbstractPathFixer {
         // Impossible to align anchors
         if (DiagramElements.LOG.isDebugEnabled()) {
             DiagramElements.LOG.debug("Failed align %s", editor.getConnectionEditPart());
-            DiagramElements.LOG.debug("  %s to: %s abs, %s relative:", source ? "source" : "target", absAlign, alignRef);
-            DiagramElements.LOG.debug(" - old anchor=%s -> %s%n - tried anchor=%s -> %s abs, %s rel", anchor, absAnchorLoc, relAnchorLoc);
+            DiagramElements.LOG.debug("  %s anchor to: %s abs, %s relative:", source ? "source" : "target", absAlign, alignRef);
+            DiagramElements.LOG.debug(" - old anchor=%s -> %s%n", anchor, absAnchorLoc, relAnchorLoc);
             DiagramElements.LOG.debug(" - tried anchor=%s -> %s abs, %s rel", newAnchor, newAbsAnchorLoc, newRelAnchorLoc);
         }
         return false;

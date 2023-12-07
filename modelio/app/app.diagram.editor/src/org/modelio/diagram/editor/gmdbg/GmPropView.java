@@ -162,6 +162,10 @@ public class GmPropView {
                 // # og incoming and outgoing links
                 this.properties.add(new XEntry("    # incoming links", Formatter.toString(gm.getEndingLinks().size())));
                 this.properties.add(new XEntry("    # outgoing links", Formatter.toString(gm.getStartingLinks().size())));
+            
+                if (gm.getParentLink() != null) {
+                    this.properties.add(new XEntry("    link extension layout:", Formatter.toString(gm.getParentLink().getLayoutContraint(gm))));
+                }
             }
             
             // GmLink properties
@@ -198,6 +202,7 @@ public class GmPropView {
             
                 // Representation mode
                 this.properties.add(new XEntry("    Representation mode", Formatter.toString(gm.getRepresentationMode())));
+            
             
             }
             

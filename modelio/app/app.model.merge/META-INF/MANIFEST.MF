@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Model Merge
 Bundle-SymbolicName: org.modelio.app.model.merge;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 5.3.1.qualifier
+Bundle-Version: 5.4.1.qualifier
 Bundle-Vendor: Softeam
 Require-Bundle: org.modelio.platform.utils,
  org.eclipse.osgi,

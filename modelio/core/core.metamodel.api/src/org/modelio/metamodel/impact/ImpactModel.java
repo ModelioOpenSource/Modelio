@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impact;
@@ -43,13 +43,13 @@ public interface ImpactModel extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("c1dbdc80-5277-4196-a32e-c44c12e7abab")
+    @objid ("2977c40a-5744-45ae-9790-25958e684726")
     public static final String MNAME = "ImpactModel";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("70e0cad6-e4a4-4cf8-87ef-fdd124801e04")
+    @objid ("6072d856-a794-45b8-80a1-4ea63d785302")
     public static final String MQNAME = "Infrastructure.ImpactModel";
 
     /**
@@ -59,7 +59,7 @@ public interface ImpactModel extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("ae44446a-b0a7-41d0-b43b-f28fe5c4d5d9")
+    @objid ("077f4fab-b704-4c0f-9c4a-d56e3722097e")
     ImpactProject getProject();
 
     /**
@@ -69,7 +69,7 @@ public interface ImpactModel extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("320b19c0-b20f-4cad-bcbe-37387bc491b0")
+    @objid ("05ed2f89-cac4-48fe-9f19-6c4f366fd3dd")
     void setProject(ImpactProject value);
 
     /**
@@ -79,7 +79,7 @@ public interface ImpactModel extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("9fae87fc-db51-49e4-ba35-f755cce22775")
+    @objid ("44d60220-5218-441a-932b-c4b584a01e32")
     EList<ImpactLink> getOwnedLinks();
 
     /**
@@ -89,7 +89,7 @@ public interface ImpactModel extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("9a8bb454-3077-41a9-a042-e6901ef331af")
+    @objid ("22a3832b-622d-4d38-a643-1e7527ca150d")
     <T extends ImpactLink> List<T> getOwnedLinks(java.lang.Class<T> filterClass);
 }
 

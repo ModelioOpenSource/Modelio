@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: DiagramAuto
 Bundle-SymbolicName: org.modelio.app.diagram.diagramauto;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-Activator: org.modelio.diagram.diagramauto.plugin.DiagramAuto
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.draw2d,

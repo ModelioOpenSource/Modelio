@@ -56,7 +56,6 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         // Now just override the layout policy with our own.
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new BodyHybridContainerLayoutEditPolicy());
         
-        installEditPolicy(TranslateChildrenOnResizeEditPolicy.class, new TranslateChildrenOnResizeEditPolicy());
         
         // Now just override the drop policy with our own.
         installEditPolicy(ModelElementDropRequest.TYPE, new BodyHybridContainerDropEditPolicy());
@@ -82,7 +81,8 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         EditPolicy layoutPolicy = getEditPolicy(EditPolicy.LAYOUT_ROLE);
         if (layoutPolicy instanceof BodyHybridContainerLayoutEditPolicy) {
             Behaviour newBehaviour = computeBehaviourFromModel();
-            if (((BodyHybridContainerLayoutEditPolicy) layoutPolicy).getBehaviour() != newBehaviour) {
+            BodyHybridContainerLayoutEditPolicy hybridLayoutPolicy = (BodyHybridContainerLayoutEditPolicy) layoutPolicy;
+            if (hybridLayoutPolicy.getBehaviour() != newBehaviour) {
                 updateBehaviour(newBehaviour);
             }
         }
@@ -129,6 +129,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             fig.setBorder(new MarginBorder(MARGIN));
             refreshFromStyle(fig, getModelStyle());
         
+            installEditPolicy(TranslateChildrenOnResizeEditPolicy.class, new TranslateChildrenOnResizeEditPolicy());
             break;
         }
         case FREE_ZONE: {
@@ -136,6 +137,9 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             fig.setLayoutManager(layoutManager);
             fig.setBorder(new MarginBorder(MARGIN));
             refreshFromStyle(fig, getModelStyle());
+        
+            installEditPolicy(TranslateChildrenOnResizeEditPolicy.class, new TranslateChildrenOnResizeEditPolicy());
+        
             break;
         }
         case LANE_CONTAINER: {
@@ -143,6 +147,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             fig.setBorder(null);
             refreshFromStyle(fig, getModelStyle());
         
+            removeEditPolicy(TranslateChildrenOnResizeEditPolicy.class);
             break;
         }
         }

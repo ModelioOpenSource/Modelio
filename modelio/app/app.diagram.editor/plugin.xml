@@ -70,7 +70,7 @@
 	              ifEmpty="false"
 	              operator="or">
 	           <adapt
-	                 type="org.modelio.diagram.elements.core.model.GmModel">
+	                 type="org.modelio.diagram.elements.core.node.GmNodeModel">
 	           </adapt>
 	        </iterate>
 	     </with>
@@ -93,6 +93,12 @@
               class="org.modelio.diagram.editor.preferences.DiagramPreferencesPage"
               icon="icons/preferences.png" />
 	</extension>
+
+	 <extension point="org.modelio.platform.project.services.IFragmentMigrationContributor">
+     	<contributor
+           class="org.modelio.diagram.editor.contributors.DiagramMigrationContributor">
+     	</contributor>
+  	</extension>
 
 	<extension point="org.modelio.platform.preferences">
 		<initialization>

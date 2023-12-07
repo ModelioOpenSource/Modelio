@@ -27,9 +27,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.concurrent.CompletionException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.vcore.smkernel.DeadObjectException;
 import org.modelio.vcore.smkernel.SmObjectImpl;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -50,10 +53,10 @@ public class MObjectCache {
      * Please use {@link #getMClassCache(MClass, boolean)} to access this member.
      */
     @objid ("4fe90ea4-7c19-4d9b-a547-75c3dd69c767")
-    private ConcurrentMap<MClass, IMClassCache> caches = null;
+    private final ConcurrentMap<MClass, IMClassCache> caches;
 
     @objid ("08448b81-ff4c-474f-a38c-020b42d67aca")
-    private SmMetamodel metamodel;
+    private final SmMetamodel metamodel;
 
     /**
      * Creates a new cache.
@@ -74,11 +77,21 @@ public class MObjectCache {
     @objid ("006c88d8-0d1e-1f20-85a5-001ec947cd2a")
     public void addToCache(SmObjectImpl obj) throws DuplicateObjectException {
         String oid = obj.getUuid();
+        IMClassCache mClassCache = getMClassCache(obj.getClassOf(), true);
+        
         // Put element to cache and check for duplicate identifiers
-        SmObjectImpl oldObj = getMClassCache(obj.getClassOf(), true).putIfAbsent(oid, obj);
+        SmObjectImpl oldObj = mClassCache.putIfAbsent(oid, obj);
         if (oldObj != null && oldObj != obj) {
             // Duplicate found: throw exception.
-            throw new DuplicateObjectException(oid, oldObj, obj);
+            try {
+                throw new DuplicateObjectException(oid, oldObj, obj);
+            } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+                // Either oldObj or obj is dead.
+                obj.getData(); // if obj is dead DeadObjectException will fire again, let it go.
+        
+                // Here we know oldObj is the dead object, replace oldObj by obj in the cache.
+                mClassCache.put(oid, obj);
+            }
         }
         
     }
@@ -89,27 +102,45 @@ public class MObjectCache {
      * The returned collection is a view on the cache and reflects all changes made on it.
      * The cache should not be modified while walking the returned collection to avoid unspecified
      * behavior.
+     * @see #stream()
      * @return all the cache content.
      */
     @objid ("f4aa154a-08b1-11e2-b33c-001ec947ccaf")
     public Collection<SmObjectImpl> asCollection() {
         final Map<MClass, IMClassCache> theCaches = MObjectCache.this.caches;
-        return new AbstractCollection<SmObjectImpl>() {
-                                                        
-                                                                    @Override
-                                                                    public Iterator<SmObjectImpl> iterator() {
-                                                                        return getIterator();
-                                                                    }
-                                                        
-                                                                    @Override
-                                                                    public int size() {
-                                                                        int s = 0;
-                                                                        for (Map.Entry<MClass, IMClassCache> entry : theCaches.entrySet()) {
-                                                                            s += entry.getValue().size();
-                                                                        }
-                                                                        return s;
-                                                                    }
-                                                                };
+        // ignore "Redundant specification of type arguments <SmObjectImpl>" :
+        // Removing it makes tycho 2.2 fai with "'<>' cannot be used with anonymous classes" .
+        @SuppressWarnings ("unused")
+        AbstractCollection<SmObjectImpl> ret = new AbstractCollection<SmObjectImpl>() {
+        
+            @Override
+            public Iterator<SmObjectImpl> iterator() {
+                return getIterator();
+            }
+        
+            @Override
+            public int size() {
+                int s = 0;
+                for (Map.Entry<MClass, IMClassCache> entry : theCaches.entrySet()) {
+                    s += entry.getValue().size();
+                }
+                return s;
+            }
+        };
+        return ret;
+    }
+
+    /**
+     * Get the cache content as a {@link Stream}.
+     * <p>
+     * The cache should not be modified while walking the returned Stream to avoid unspecified
+     * behavior.
+     * @return a Stream on all the cache content.
+     * @since 5.4.1 - 23/10/2023
+     */
+    @objid ("a2c9dbef-02d7-4468-ab0f-333dc1d3f014")
+    public Stream<SmObjectImpl> stream() {
+        return this.caches.values().stream().flatMap(mc -> mc.values().stream());
     }
 
     /**
@@ -246,12 +277,7 @@ public class MObjectCache {
      */
     @objid ("bd96ad7d-92d7-11e1-81e9-001ec947ccaf")
     public Iterable<SmObjectImpl> getIterable() {
-        return new Iterable<SmObjectImpl>() {
-                                                                    @Override
-                                                                    public Iterator<SmObjectImpl> iterator() {
-                                                                return getIterator();
-                                                                            }
-                                                                        };
+        return this::getIterator;
     }
 
     /**
@@ -296,6 +322,57 @@ public class MObjectCache {
     }
 
     /**
+     * Remove a model object from the cache using its identifier.
+     * @param cls the metaclass
+     * @param uuid the identifier
+     * @since 3.6
+     */
+    @objid ("2303e101-0753-480f-924d-96419f80edc0")
+    public void removeFromCache(MClass cls, String uuid) {
+        getMClassCache(cls, false).remove(uuid);
+    }
+
+    /**
+     * If the specified key is not already associated with a value (or is mapped to null or a dead object),
+     * attempts to compute its value using the given mapping function and enters it into this map unless null.
+     * 
+     * If the mapping function returns null, no mapping is recorded.
+     * If the mapping function itself throws an (unchecked) exception, the exception is rethrown, and no mapping is recorded
+     * @param cls the metaclass
+     * @param uuid the identifier
+     * @param supplier the mapping function to supply an SmObjectImpl
+     * @return the current (existing or computed) value associated with the specified uuid, or null if the computed value is null
+     */
+    @objid ("d795e499-617d-4484-ac7c-8cd7e3860577")
+    public SmObjectImpl supplyIfAbsent(MClass cls, String uuid, SmObjectSupplier supplier) throws DuplicateObjectException {
+        IMClassCache mClassCache = getMClassCache(cls, true);
+        try {
+            SmObjectImpl ret = mClassCache.compute(uuid, (String oid, SmObjectImpl existing) -> {
+                try {
+                    if (existing == null) {
+                        return supplier.get();
+                    }
+                    try {
+                        // Existing found, ensure it is alive
+                        existing.getData();
+                        return existing;
+                    } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+                        // Here we know existing is a dead object, replace existing obj in the cache.
+                        return supplier.get();
+                    }
+                } catch (DuplicateObjectException e) {
+                    throw new CompletionException(e);
+                }
+            });
+        
+            return ret;
+        } catch (CompletionException e) {
+            throw (DuplicateObjectException) e.getCause();
+        }
+        
+    }
+
+    /**
      * Get the cache for the given metaclass.
      * <p>
      * If the cache is not found and <code>createMissing</code> is <code>true</code>, creates
@@ -309,31 +386,12 @@ public class MObjectCache {
      */
     @objid ("0acd6b4f-ffe4-4c41-ab49-69f5f16fd3ec")
     private IMClassCache getMClassCache(final MClass key, boolean createMissing) {
-        IMClassCache found = this.caches.get(key);
-        
-        if (found == null) {
-            if (createMissing) {
-                MClassCache newCache = new MClassCache();
-                found = this.caches.putIfAbsent(key, newCache);
-                if (found == null) {
-                    found = newCache;
-                }
-            } else {
-                return EmptyClassCache.INSTANCE;
-            }
+        if (createMissing) {
+            return this.caches.computeIfAbsent(key, k -> new MClassCache());
+        } else {
+            return this.caches.getOrDefault(key, EmptyClassCache.INSTANCE);
         }
-        return found;
-    }
-
-    /**
-     * Remove a model object from the cache using its identifier.
-     * @param cls the metaclass
-     * @param uuid the identifier
-     * @since 3.6
-     */
-    @objid ("2303e101-0753-480f-924d-96419f80edc0")
-    public void removeFromCache(MClass cls, String uuid) {
-        getMClassCache(cls, false).remove(uuid);
+        
     }
 
     /**
@@ -406,7 +464,8 @@ public class MObjectCache {
     /**
      * Empty Map<UUID,SmObjectImpl> implementing {@link IMClassCache}.
      * <p>
-     * This is an immutable singleton.
+     * This is an immutable singleton whose remove(...) method are no-op.
+     * It is used as stub "null" pointer to avoid null checks in caller
      */
     @objid ("80504461-413d-4c89-83b6-b42180f2961e")
     private static class EmptyClassCache extends AbstractMap<String, SmObjectImpl> implements IMClassCache {
@@ -527,5 +586,13 @@ public class MObjectCache {
         }
 
     }
+
+    @objid ("c328a222-2a7f-427e-95f9-ffb726e585e4")
+    @FunctionalInterface
+    public interface SmObjectSupplier {
+        @objid ("21964988-dbb5-4d98-a949-8224f72f7acc")
+        SmObjectImpl get() throws DuplicateObjectException;
+}
+    
 
 }

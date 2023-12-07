@@ -19,8 +19,8 @@
  */
 package org.modelio.audit.view.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.IAuditEntry;
 import org.modelio.audit.service.AuditSeverity;
@@ -31,9 +31,25 @@ public class AuditRuleModel {
     public AuditSeverity severity;
 
     @objid ("85c62c2b-60e8-41bc-8584-048e4adac015")
-    public String rule;
+    public final String rule;
 
     @objid ("8f7cf4f4-4715-4488-a8a2-9075cf332f7c")
-    public Set<IAuditEntry> entries = new HashSet<>();
+    public final Collection<IAuditEntry> entries = new ArrayList<>();
+
+    @objid ("bff1d125-4b8d-4e9f-80a7-32bf6c8c4c6e")
+    public  AuditRuleModel(String rule, AuditSeverity severity) {
+        this.rule = rule;
+        this.severity = severity;
+        
+    }
+
+    @objid ("713fd1c9-2803-4ef6-9fac-565f3175a4cb")
+    public void addEntry(IAuditEntry entry) {
+        this.entries.add(entry);
+        if( this.severity.compareTo(entry.getSeverity()) < 0) {
+            this.severity = entry.getSeverity();
+        }
+        
+    }
 
 }

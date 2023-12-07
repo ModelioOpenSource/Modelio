@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.matrix;
@@ -45,13 +45,13 @@ public interface MatrixValueDefinition extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("30e25730-86ed-4370-958c-e3ff09baf420")
+    @objid ("55cab020-e34a-4c3f-a9c9-00c60cedd106")
     public static final String MNAME = "MatrixValueDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("02ec0b2f-2294-4140-9782-161d44e2ee1d")
+    @objid ("e218d0a3-bd17-4fee-9e50-139d5570827f")
     public static final String MQNAME = "Infrastructure.MatrixValueDefinition";
 
     /**
@@ -61,7 +61,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>External java processor that displays and edit matrix values.</i>
      * 
      */
-    @objid ("26925aff-a2ca-463c-bcfb-f9273b871dc6")
+    @objid ("42fb65bc-8e7f-48ab-a9a2-a2bf3125870e")
     ExternProcessor getProcessor();
 
     /**
@@ -71,7 +71,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>External java processor that displays and edit matrix values.</i>
      * 
      */
-    @objid ("08e9645f-d484-4fef-bd58-c7f1b9ad1f2d")
+    @objid ("29ed0b20-12a2-4b91-a289-ecd9cd2e59bd")
     void setProcessor(ExternProcessor value);
 
     /**
@@ -81,7 +81,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>Parameters to pass to the external processor.</i>
      * 
      */
-    @objid ("1872153e-861c-4278-b938-7e6ee5d3674a")
+    @objid ("1d87143a-dba8-4fcb-8538-120d0a70f835")
     PropertyTable getParameters();
 
     /**
@@ -91,7 +91,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>Parameters to pass to the external processor.</i>
      * 
      */
-    @objid ("2763c304-dc08-42cf-bee4-c2e96023a479")
+    @objid ("a9ea12e5-e5d9-4a8f-b280-72a9b314bb56")
     void setParameters(PropertyTable value);
 
     /**
@@ -101,7 +101,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>Matrix owner</i>
      * 
      */
-    @objid ("6b848df0-2dab-40a3-8635-2fd92767ff5d")
+    @objid ("7d3e24ee-32c3-49c9-9101-1a056c65d221")
     MatrixDefinition getMatrix();
 
     /**
@@ -111,7 +111,7 @@ public interface MatrixValueDefinition extends Element {
      * <i>Matrix owner</i>
      * 
      */
-    @objid ("d2fd3a7b-8138-466a-8103-0b9e3624c598")
+    @objid ("3d5bf32a-3602-4bb2-bb57-8dac25976b68")
     void setMatrix(MatrixDefinition value);
 }
 

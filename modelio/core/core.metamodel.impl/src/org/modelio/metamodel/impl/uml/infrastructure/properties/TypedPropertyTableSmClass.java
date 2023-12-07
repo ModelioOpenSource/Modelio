@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -43,49 +43,49 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("864b6926-ae8d-4a3b-a96e-053b5bb7f2e3")
 public class TypedPropertyTableSmClass extends PropertyTableSmClass {
-    @objid ("44caa03e-0af3-446f-b23a-0963d038de51")
+    @objid ("ac2af07e-78c4-4911-bb0e-145601617f4a")
     private SmDependency typeDep;
 
-    @objid ("239c80f9-46bc-471a-ba6d-5876a5877a0a")
+    @objid ("4e36b137-b0d4-484a-a543-871b56c28448")
     public  TypedPropertyTableSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("e5d2a7c0-e55f-4bc4-a3a4-278b1a68e9ef")
+    @objid ("cf534e5e-be77-4dff-889b-735cd46165e8")
     @Override
     public String getName() {
         return "TypedPropertyTable";
         
     }
 
-    @objid ("d7ff9a06-f003-462b-a499-5267c67fe793")
+    @objid ("4947598b-832f-4820-9c49-8af5c38368e1")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("7c213e6d-a5e2-44d6-a3a8-939d70540361")
+    @objid ("77be7da2-4bcb-4748-b41f-27068617acfb")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TypedPropertyTable.class;
         
     }
 
-    @objid ("f825da4c-76e0-4100-b3f7-75f82470565d")
+    @objid ("8192725a-e47d-4696-8b34-95879b582681")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("331fb22c-0e30-4944-8386-a2b65cd2e43f")
+    @objid ("a5edd7b7-2a2d-4c74-8d78-59a5ef6b4e39")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("8c9ff23a-0b0b-45eb-8c5e-e2d5b7f8a2e2")
+    @objid ("9e4df250-d434-42be-8b9d-239603bbbe5c")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(PropertyTable.MQNAME);
@@ -102,7 +102,7 @@ public class TypedPropertyTableSmClass extends PropertyTableSmClass {
         
     }
 
-    @objid ("4320b742-fc1f-4061-a8da-0f3e643e6ca6")
+    @objid ("65868714-b035-4ace-beda-f7a08f803277")
     public SmDependency getTypeDep() {
         if (this.typeDep == null) {
         	this.typeDep = this.getDependencyDef("Type");
@@ -112,21 +112,21 @@ public class TypedPropertyTableSmClass extends PropertyTableSmClass {
 
     @objid ("9a7ca71a-e2e6-4e5e-8bae-40417229a641")
     private static class TypedPropertyTableObjectFactory implements ISmObjectFactory {
-        @objid ("d23b5d03-6c0b-47a5-a807-1b180b018182")
+        @objid ("e5a2bc43-8e33-460a-bd5d-f9929b06ebb0")
         private TypedPropertyTableSmClass smClass;
 
-        @objid ("3f4228d9-cbd8-4d06-8750-1156528c35cf")
+        @objid ("6027065e-7655-45c7-84a6-cdbafe053e33")
         public  TypedPropertyTableObjectFactory(TypedPropertyTableSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("da2d5590-c185-4ba4-8d2c-02e95344ef0c")
+        @objid ("330739f4-912f-4906-b4ad-cf3cecd7b208")
         @Override
         public ISmObjectData createData() {
             return new TypedPropertyTableData(this.smClass);
         }
 
-        @objid ("d5c20854-3e47-4edb-8442-78ef6cf5c7b7")
+        @objid ("b1932d77-8597-4b6b-af46-53d49fe9ec75")
         @Override
         public SmObjectImpl createImpl() {
             return new TypedPropertyTableImpl();
@@ -136,22 +136,22 @@ public class TypedPropertyTableSmClass extends PropertyTableSmClass {
 
     @objid ("516a7476-698a-4b70-a9a3-e57cc2e9b20b")
     public static class TypeSmDependency extends SmSingleDependency {
-        @objid ("f83742b7-f640-4d23-9df1-97f2437686c2")
+        @objid ("cc4f4512-72e0-4372-bf5b-7c49fde37901")
         private SmDependency symetricDep;
 
-        @objid ("112e4977-f505-4b57-9080-292a8684f2fb")
+        @objid ("2d060c64-3688-4ebd-a408-3e669f78dad0")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((TypedPropertyTableData) data).mType;
         }
 
-        @objid ("89fb20fa-36f7-40ea-9c42-1cfb8f8c729a")
+        @objid ("7e33e5d9-c3cf-4066-b7ed-80b391989bbc")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((TypedPropertyTableData) data).mType = value;
         }
 
-        @objid ("dcba6579-50c2-450f-b713-66d437c1f42c")
+        @objid ("5416dabd-39c8-4caf-bfae-8edf8f6b3758")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

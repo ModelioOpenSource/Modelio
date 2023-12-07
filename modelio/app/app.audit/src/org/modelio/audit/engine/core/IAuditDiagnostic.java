@@ -19,16 +19,20 @@
  */
 package org.modelio.audit.engine.core;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.stream.Stream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("556e1d8b-2c05-4654-aecc-5cf9bfcebdb0")
 public interface IAuditDiagnostic {
     @objid ("0ce45ee3-f8b6-425c-937c-2ca5811ba728")
-    List<IAuditEntry> getEntries();
+    Collection<IAuditEntry> getEntries();
 
     @objid ("1ad3ca04-04b9-46a0-b0e5-ec42f1ffb580")
-    List<IAuditEntry> getEntries(String jobId);
+    Collection<IAuditEntry> getEntries(String jobId);
+
+    @objid ("87ba527d-182b-497c-9e85-8793a1f4c6c7")
+    Stream<IAuditEntry> streamEntries(String jobId);
 
     @objid ("46a9577a-9e84-4795-aaa2-e968e28ead95")
     int getErrorCount();

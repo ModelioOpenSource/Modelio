@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -45,13 +45,13 @@ public interface PropertyType extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("8a706a62-2722-40e9-a900-6f6ef08be566")
+    @objid ("c9a12494-a9a1-4aaa-93ca-d5e731833fa4")
     public static final String MNAME = "PropertyType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("750533c2-e918-48ca-89bf-3986a4c12390")
+    @objid ("5dc130f0-fee4-4fe6-a48b-9d6f0db472fc")
     public static final String MQNAME = "Infrastructure.PropertyType";
 
     /**
@@ -61,7 +61,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("08d6506e-75a2-43c6-b839-f9362b4c0770")
+    @objid ("659df5ea-a3a5-4760-8714-097a082ec901")
     PropertyBaseType getBaseType();
 
     /**
@@ -71,7 +71,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("a8137cea-ac3a-4d73-8fd5-6a62618877d5")
+    @objid ("65fdb874-252c-4352-a8a1-be87d5b51ef0")
     void setBaseType(PropertyBaseType value);
 
     /**
@@ -81,7 +81,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("c98b8cee-b503-442d-abbd-ba6ad777efb9")
+    @objid ("47ae6c1b-794e-4c25-8341-7abda61acbcf")
     ModuleComponent getModuleOwner();
 
     /**
@@ -91,7 +91,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("9c4d714c-0b6f-4546-a15a-9b60fbd793f3")
+    @objid ("08b93a30-a482-4a0b-b78f-daed897eac3a")
     void setModuleOwner(ModuleComponent value);
 
     /**
@@ -101,7 +101,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("874c5c06-0ff6-4aa1-bc32-0ef676b165fa")
+    @objid ("3da20f78-cf5a-417e-b952-0cd2665a78eb")
     EList<PropertyDefinition> getTyped();
 
     /**
@@ -111,7 +111,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("e20833a4-e26d-44f4-b3d4-e4e2e45b5005")
+    @objid ("89575393-487c-4fdc-bc9a-b3c1d145da4c")
     <T extends PropertyDefinition> List<T> getTyped(java.lang.Class<T> filterClass);
 
     /**
@@ -121,7 +121,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("a88dff11-af4b-4371-9ba3-eee756318721")
+    @objid ("cd8e0980-cd9e-4b94-bc6b-9de4624ed82d")
     Profile getAnalystOwner();
 
     /**
@@ -131,7 +131,7 @@ public interface PropertyType extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("72080b2e-6db9-4091-b424-8f526a9c07e5")
+    @objid ("23878237-5f54-4702-9930-0ad750c77702")
     void setAnalystOwner(Profile value);
 }
 

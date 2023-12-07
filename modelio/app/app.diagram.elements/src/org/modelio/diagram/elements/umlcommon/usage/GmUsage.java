@@ -125,12 +125,16 @@ public class GmUsage extends GmLink {
     @objid ("57c41311-31fe-4cd8-afb0-b34b115ccb83")
     @Override
     public MObject getFromElement() {
+        if (this.dependency == null)
+            return null;
         return this.dependency.getImpacted();
     }
 
     @objid ("4a6967e0-fba2-4936-9782-7e88960c7066")
     @Override
     public MObject getToElement() {
+        if (this.dependency == null)
+            return null;
         return this.dependency.getDependsOn();
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://eclipse.svnkit.com/1.7.x">
+      TMate Sofware SVNKit Library Update Site
+   </description>
+
+   <feature url="features/org.tmatesoft.svnkit_1.8.15.r10636.jar" id="org.tmatesoft.svnkit" version="1.8.15.r10636">
+      <category name="SVNKit Library"/>
+   </feature>
+
+   <feature url="features/net.java.dev.jna_4.1.0.v06022015_1911.jar" id="net.java.dev.jna" version="4.1.0.v06022015_1911">
+      <category name="JNA Library"/>
+   </feature>
+   
+   <category-def name="SVNKit Library" label="Core SVNKit Library (required)">
+      <description>SVNKit Library</description>
+   </category-def>
+   
+   <category-def name="JNA Library" label="Optional JNA Library (recommended)">
+      <description>Includes JNA Library plugin which is optionally used by SVNKit to improve performance of certain low-level filesystem operations and to implement some additional features. JNA Library is licensed under the terms of LGPL. It is strongly recommened to install JNA Library, unless you could not accept LGPL software in your environment.</description>
+   </category-def>
+</site>

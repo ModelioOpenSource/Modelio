@@ -24,9 +24,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import jakarta.xml.bind.JAXBException;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.xml.bind.JAXBException;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -83,7 +83,7 @@ public class BPMExportHandler {
         if (path != null) {
             File bpmnFile = new File(path);
             directory = bpmnFile.getParent();
-          
+        
             exportBpmn(selectedOwner, bpmnFile);
         }
         

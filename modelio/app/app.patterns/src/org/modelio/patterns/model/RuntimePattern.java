@@ -37,9 +37,9 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.URIUtil;
@@ -407,8 +407,8 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Load the executable part of a pattern.
-     * @throws IOException when pattern loading fails.
      * @return a {@link IPattern} ready to use.
+     * @throws IOException when pattern loading fails.
      */
     @objid ("6b7c4853-8523-4efa-9787-d1f3305680cf")
     private IPattern getExecutablePattern() throws IOException {

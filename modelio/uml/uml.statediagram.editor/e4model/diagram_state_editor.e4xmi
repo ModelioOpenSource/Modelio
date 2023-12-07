@@ -46,6 +46,8 @@
   <imports xsi:type="commands:Command" xmi:id="_1-xkIMqaEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.resetlink"/>
   <imports xsi:type="commands:Command" xmi:id="_2jUboMqaEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.fullresetlink"/>
   <imports xsi:type="commands:Command" xmi:id="_ynitoKCOEe27IZpVA6VVHQ" elementId="org.modelio.diagram.editor.command.SelectSameElementCommand"/>
+  <imports xsi:type="commands:Command" xmi:id="_SikpgA9hEe6mQLnhcsPn2g" elementId="org.modelio.diagram.editor.command.UnmaskInLinks"/>
+  <imports xsi:type="commands:Command" xmi:id="_S_0mMA9hEe6mQLnhcsPn2g" elementId="org.modelio.diagram.editor.command.UnmaskOutLinks"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_bYKc8IfNEeWj6a9oyLXySQ" featurename="descriptors" parentElementId="org.modelio.app.application">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_W8yy8IfPEeWj6a9oyLXySQ" elementId="org.modelio.uml.statediagram.editor.StateDiagramEditorID" label="%StateEditor.label" tooltip="%StateEditor.tooltip" bindingContexts="_PvFq0I2CEeKzwNCVVnW3jA" allowMultiple="true" category="TEST_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.uml.statediagram.editor/org.modelio.uml.statediagram.editor.editor.StateDiagramEditor">
       <handlers xmi:id="_Tys9sIGvEeKtkfwbSBQBAQ" elementId="org.modelio.uml.statediagram.editor.handler.createstate" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.popup.handlers.CreateStateHandler" command="_HheH8I8lEeekb6dj8pirkQ"/>
@@ -76,12 +78,15 @@
         <children xsi:type="menu:MenuSeparator" xmi:id="_fFuyQB7NEeO9r6b_vtRk6A" elementId="diagram.editor.state.menuseparator.1"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_xx4t9oWDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.Mask" label="%Mask.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/mask.png" tooltip="%Mask.tooltip" command="_xZJLYIfOEeWj6a9oyLXySQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_xx4t94WDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.delete" label="%Delete.label" iconURI="platform:/plugin/org.modelio.platform.ui/icons/delete.png" tooltip="%Delete.tooltip" command="_LSu-YFH9EeyrisBUaadIPA"/>
-        <children xsi:type="menu:Menu" xmi:id="_i-FUwFHOEeOxPvmodYTYgw" elementId="org.modelio.diagram.editor.menu.align" label="%Align.label">
+        <children xsi:type="menu:Menu" xmi:id="_i-FUwFHOEeOxPvmodYTYgw" elementId="org.modelio.diagram.editor.menu.align" label="%Align.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/layout.png">
           <tags>popup:org.modelio.diagram.editor.layoutmenu</tags>
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_i-FUwVHOEeOxPvmodYTYgw" coreExpressionId="diagram.editor.statik.test.iscompositionlink.id"/>
         </children>
-        <children xsi:type="menu:Menu" xmi:id="_xx5VCIWDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.menu.unmask" label="%Unmask.label">
+        <children xsi:type="menu:Menu" xmi:id="_xx5VCIWDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.menu.unmask" label="%Unmask.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/unmask.png">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_Me-lYGZREeOcF5k7r3prOw" coreExpressionId="org.modelio.diagram.editor.corexp.has-gmmodel.id"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_I2YXYA9pEe6mQLnhcsPn2g" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.UnmaskInLinksHandler" label="%UnmaskInLinks.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/unmaskinlinks.png" tooltip="%UnmaskInLinks.tooltip" command="_SikpgA9hEe6mQLnhcsPn2g"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_IhMxkA9pEe6mQLnhcsPn2g" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.UnmaskOutLinksHandler" label="%UnmaskOutLinks.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/unmaskoutlinks.png" tooltip="%UnmaskOutLinks.tooltip" command="_S_0mMA9hEe6mQLnhcsPn2g"/>
+          <children xsi:type="menu:MenuSeparator" xmi:id="_IH4SoA9pEe6mQLnhcsPn2g" elementId="uml.statediagram.editor.menuseparator.1"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_xx5VCYWDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.UnmaskChildLinks" label="%UnmaskChildLinks.label" tooltip="%UnmaskChildLinks.tooltip" command="_rAQpIIWDEeK8HPFXYIuaeQ"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_xx5VCoWDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.UnmaskNonStructuringLinksAndNodes" label="%UnmaskNonStructuringLinksAndNodes.label" tooltip="%UnmaskNonStructuringLinksAndNodes.tooltip" command="_rZvgIIWDEeK8HPFXYIuaeQ"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_xx5VC4WDEeK8HPFXYIuaeQ" elementId="org.modelio.uml.statediagram.editor.handledmenuitem.UnmaskNonStructuringLinks" label="%UnmaskNonStructuringLinks.label" tooltip="%UnmaskNonStructuringLinks.tooltip" command="_r-SXoIWDEeK8HPFXYIuaeQ"/>

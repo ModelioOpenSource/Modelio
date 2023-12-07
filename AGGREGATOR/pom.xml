@@ -8,15 +8,16 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>5.3.1-SNAPSHOT</version>
+		<version>5.4.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<groupId>org.modelio</groupId>
-	<artifactId>Modelio531</artifactId>
+	<artifactId>Modelio541</artifactId>
 	<packaging>pom</packaging>
 
 	<modules>
+   	<module>doc</module>
 		<module>prebuild</module>
 		<module>plugins</module>
 		<module>features</module>

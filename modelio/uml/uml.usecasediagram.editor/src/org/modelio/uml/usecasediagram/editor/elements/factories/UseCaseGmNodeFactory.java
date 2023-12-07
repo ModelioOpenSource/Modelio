@@ -34,6 +34,7 @@ import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.uml.usecasediagram.editor.elements.actor.GmActor;
 import org.modelio.uml.usecasediagram.editor.elements.extensionpoint.GmExtensionPoint;
 import org.modelio.uml.usecasediagram.editor.elements.usecase.GmUseCase;
+import org.modelio.uml.usecasediagram.editor.plugin.DiagramEditorUseCase;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -48,6 +49,12 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("5e8d5386-55b7-11e2-877f-002564c97630")
 public final class UseCaseGmNodeFactory implements IGmNodeFactory {
+    @objid ("43b8664e-0cd8-4c1f-a29e-1f4d825c478e")
+    private static final String USECASE_OLD_NAMESPACE_ROOT = "org.modelio.diagram.editor.usecase";
+
+    @objid ("3b3f3606-3aea-4911-a797-be449ef5b979")
+    private static final String USECASE_NAMESPACE_ROOT = "org.modelio.uml.usecasediagram.editor";
+
     @objid ("5e8d5394-55b7-11e2-877f-002564c97630")
     @Override
     public GmNodeModel create(IGmDiagram diagram, GmCompositeNode parent, MObject newElement, Object initialLayoutData) {
@@ -74,16 +81,20 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
     @objid ("5e8d53b8-55b7-11e2-877f-002564c97630")
     @Override
     public Class<? extends IPersistent> resolveClass(String namespace) {
+        String fixedNamespace = migrateNamespace(namespace);
+        if (!fixedNamespace.startsWith(USECASE_NAMESPACE_ROOT))
+            return null;
+        
         try {
-            String fixedNamespace = migrateNamespace(namespace);
-            if (fixedNamespace.startsWith("org.modelio.uml.usecasediagram.editor")) {
-                Class<?> clazz = Class.forName(fixedNamespace);
-                if (clazz != null) {
-                    return clazz.asSubclass(IPersistent.class);
-                }
+            Class<?> clazz = Class.forName(fixedNamespace);
+            if (clazz != null) {
+                return clazz.asSubclass(IPersistent.class);
             }
-        } catch (@SuppressWarnings ("unused") ClassNotFoundException | ClassCastException e) {
+        
+        } catch (ClassNotFoundException | ClassCastException e) {
             // Class not found, return null
+            DiagramEditorUseCase.LOG.debug("Failed looking for '%s' transformed to '%': %s", namespace, fixedNamespace, e);
+            DiagramEditorUseCase.LOG.debug(e);
         }
         return null;
     }
@@ -91,14 +102,19 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
     @objid ("bbefafc3-5de8-4e44-b588-7ef439b3d101")
     @Override
     public Class<? extends IPersistentMigrator> resolveMigratorClass(String classNamespace) {
+        String fixedNamespace = migrateNamespace(classNamespace);
+        if (!fixedNamespace.startsWith(USECASE_NAMESPACE_ROOT))
+            return null;
+        
         try {
-            String fixedNamespace = migrateNamespace(classNamespace);
             Class<?> clazz = Class.forName(fixedNamespace);
             if (clazz != null) {
                 return clazz.asSubclass(IPersistentMigrator.class);
             }
-        } catch (@SuppressWarnings ("unused") ClassNotFoundException | ClassCastException e) {
+        } catch (ClassNotFoundException | ClassCastException e) {
             // Class not found, return null
+            DiagramEditorUseCase.LOG.debug("Failed looking for '%s' transformed to '%': %s", classNamespace, fixedNamespace, e);
+            DiagramEditorUseCase.LOG.debug(e);
         }
         return null;
     }
@@ -106,14 +122,19 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
     @objid ("7675f455-cecb-4b9c-91d2-f9be5e662d5b")
     @Override
     public Class<? extends Enum<?>> resolveEnumClass(String enumNamespace) {
+        String fixedNamespace = migrateNamespace(enumNamespace);
+        if (!fixedNamespace.startsWith(USECASE_NAMESPACE_ROOT))
+            return null;
+        
         try {
-            String fixedNamespace = migrateNamespace(enumNamespace);
             Class<?> clazz = Class.forName(fixedNamespace);
             if (clazz != null && clazz.isEnum()) {
                 return (Class<? extends Enum<?>>) clazz;
             }
-        } catch (@SuppressWarnings ("unused") ClassNotFoundException | ClassCastException e) {
+        } catch (ClassNotFoundException | ClassCastException e) {
             // Enum not found, return null
+            DiagramEditorUseCase.LOG.debug("Failed looking for '%s' transformed to '%': %s", enumNamespace, fixedNamespace, e);
+            DiagramEditorUseCase.LOG.debug(e);
         }
         return null;
     }
@@ -121,8 +142,8 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
     @objid ("2b89067d-6291-463f-ad55-396c65956647")
     @Override
     public String migrateNamespace(String namespace) {
-        if (namespace.startsWith("org.modelio.diagram.editor.usecase")) {
-            return namespace.replaceAll("org.modelio.diagram.editor.usecase", "org.modelio.uml.usecasediagram.editor");
+        if (namespace.startsWith(USECASE_OLD_NAMESPACE_ROOT)) {
+            return namespace.replace(USECASE_OLD_NAMESPACE_ROOT, USECASE_NAMESPACE_ROOT);
         }
         return namespace;
     }

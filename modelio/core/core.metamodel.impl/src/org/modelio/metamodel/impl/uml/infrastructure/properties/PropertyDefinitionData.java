@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -31,19 +31,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00653092-ec87-1098-b22e-001ec947cd2a")
 public class PropertyDefinitionData extends ModelElementData {
-    @objid ("6f198caa-89bf-42b6-af06-4d5974eab566")
+    @objid ("f8723cdf-26be-4fd6-bd6f-03100a932a40")
     Object mIsEditable = true;
 
-    @objid ("dcd6559f-9115-4a10-97a3-e8887f442665")
+    @objid ("720ff0d1-308a-4ee9-b88e-d3d08cd7c53a")
     Object mDefaultValue = "";
 
-    @objid ("19f97416-961a-4c90-a263-1f4283da3f22")
+    @objid ("8064f26b-9ca0-4da8-b7a4-c3077ba5b0aa")
     SmObjectImpl mType;
 
-    @objid ("6fe6914e-ee9f-4c21-ae04-91b8a108cabf")
+    @objid ("55f6836d-c7da-4cc9-8774-6e8e2c117a72")
     SmObjectImpl mOwner;
 
-    @objid ("acfb144e-399a-4aef-a677-0edf612663b5")
+    @objid ("73a0bdeb-7786-4455-b2f4-1110f76debee")
     public  PropertyDefinitionData(PropertyDefinitionSmClass smClass) {
         super(smClass);
     }

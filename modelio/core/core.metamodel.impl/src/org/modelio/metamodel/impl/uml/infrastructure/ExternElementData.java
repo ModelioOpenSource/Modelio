@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -30,19 +30,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("b77438d0-b4b9-436b-ae73-660cf660e733")
 public class ExternElementData extends ModelElementData {
-    @objid ("16ccc998-d23c-4cd4-be99-4a1cf59f9536")
+    @objid ("e835a36b-fbfc-427a-89e4-994d564c84b7")
     Object mProvider = "";
 
-    @objid ("5acad07d-0544-451e-8bea-0a92f14a57fb")
+    @objid ("79619f02-1d07-4aaa-a3fe-f8ae9eb8bb42")
     Object mExternId = "";
 
-    @objid ("5d9f3921-d9d4-4754-95fa-397a3ea13fe2")
+    @objid ("488d681f-a40f-4509-987b-1876cb3f7178")
     Object mLocation = "";
 
-    @objid ("784f4495-874d-4b2f-aacc-9a159dd03323")
+    @objid ("c2a94584-b1ef-42ec-85b3-19acbfe75b5e")
     SmObjectImpl mOwner;
 
-    @objid ("9947640b-30f3-4a4f-b055-8aef231fe1e6")
+    @objid ("ae961d8d-02f9-4c5a-b5a4-b1c039ba11d3")
     public  ExternElementData(ExternElementSmClass smClass) {
         super(smClass);
     }

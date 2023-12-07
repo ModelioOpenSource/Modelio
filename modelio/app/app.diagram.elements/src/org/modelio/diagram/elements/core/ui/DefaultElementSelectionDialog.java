@@ -57,6 +57,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.UIImages;
@@ -84,13 +85,17 @@ public class DefaultElementSelectionDialog extends ModelioDialog2 {
     @objid ("a01e681a-0cd9-4320-b211-52e2655daaa9")
     private ICoreSession session;
 
+    @objid ("08038e80-fa49-4314-a142-f66c3e831044")
+    private static IModelioNavigationService navigationService;
+
     @objid ("75d42acf-be4a-4267-9e2b-73ad4e82751b")
-    public  DefaultElementSelectionDialog(Shell parentShell, ICoreSession session) {
+    public  DefaultElementSelectionDialog(Shell parentShell, ICoreSession session, IModelioNavigationService navigationService) {
         super(parentShell);
         this.controler = new Controler();
         this.ui = new Ui(this.controler);
         this.controler.setUi(this.ui);
         this.session = session;
+        DefaultElementSelectionDialog.navigationService = navigationService;
         
     }
 
@@ -179,6 +184,9 @@ public class DefaultElementSelectionDialog extends ModelioDialog2 {
                 this.data.setSelectedElement(element);
                 this.ui.update(this.data);
                 this.ui.nameText.setFocus();
+                if (DefaultElementSelectionDialog.navigationService != null) {
+                    DefaultElementSelectionDialog.navigationService.fireNavigate((MObject) element);
+                }
             }
             
         }

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.mda;
@@ -48,13 +48,13 @@ public interface ModuleComponent extends AbstractProject {
     /**
      * The metaclass simple name.
      */
-    @objid ("e3559952-8e44-456f-a74e-69ae91c479f3")
+    @objid ("bde8abe9-9da3-4909-ac1d-6d1598c869fa")
     public static final String MNAME = "ModuleComponent";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("99530df8-9d9c-4dee-b888-9a0426bef187")
+    @objid ("a37edb2c-906b-4572-b138-9efb5bc6e038")
     public static final String MQNAME = "Infrastructure.ModuleComponent";
 
     /**
@@ -64,7 +64,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("c8926609-3194-4472-b86f-e27b32206f70")
+    @objid ("f303748a-bc8a-4817-96df-08563117c78c")
     int getLicenseKey();
 
     /**
@@ -74,7 +74,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("9e36d5f2-c776-47c2-a5f7-f8a49a14648b")
+    @objid ("28b18403-3ee5-4045-a0d2-1685262c5a23")
     void setLicenseKey(int value);
 
     /**
@@ -84,7 +84,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("51841eeb-f8c2-43c2-b557-d258b7005577")
+    @objid ("c35874b0-c76a-422d-bc98-3805e1ecff77")
     int getMajVersion();
 
     /**
@@ -94,7 +94,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("4350a9d9-8864-4049-93a5-2c067287a6c7")
+    @objid ("2faeceba-c92f-4384-a95d-04729cf21f51")
     void setMajVersion(int value);
 
     /**
@@ -104,7 +104,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("e503fc4a-cbc7-4b80-8a74-161e9ab6549e")
+    @objid ("dd696a3b-34c1-4db9-bf1d-fcdd2f04b5d5")
     int getMinVersion();
 
     /**
@@ -114,7 +114,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("e629d311-c093-47c9-8e71-6a20c24947f9")
+    @objid ("9c8365f4-f577-4e7d-a579-cf4eb56cfc18")
     void setMinVersion(int value);
 
     /**
@@ -124,7 +124,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("e554d5e4-96db-4dcd-b75f-a35dece945c2")
+    @objid ("889ebae4-19f2-431d-80d7-82bc2d3d59f6")
     String getMinMinVersion();
 
     /**
@@ -134,7 +134,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("02b8a086-44b2-437e-9204-92339a161273")
+    @objid ("5263990c-4092-44d5-a4e4-74d854af886b")
     void setMinMinVersion(String value);
 
     /**
@@ -144,7 +144,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("3a1ba869-d107-4152-a8f0-873cd001ca54")
+    @objid ("1059e553-e016-4216-96b6-17a21eb6d92f")
     String getMinBinVersionCompatibility();
 
     /**
@@ -154,7 +154,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("9a908a3b-f2cb-4151-b715-a809e21bd8dd")
+    @objid ("59936308-8f00-4b9b-aac4-31f3a5918b20")
     void setMinBinVersionCompatibility(String value);
 
     /**
@@ -164,7 +164,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("3d5c1961-ea0d-4e23-9aaa-ebfcea7d62ec")
+    @objid ("5a6afda9-af32-4801-af81-bf9ae8793db3")
     String getJavaClassName();
 
     /**
@@ -174,7 +174,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("f8eb8a94-0274-495b-90b6-84a9385bf487")
+    @objid ("b03ebc64-3bf6-4978-b055-647c378f5b6e")
     void setJavaClassName(String value);
 
     /**
@@ -185,7 +185,7 @@ public interface ModuleComponent extends AbstractProject {
      * </i>
      * 
      */
-    @objid ("2557c685-5bff-47df-9ef4-f88bf506f4a8")
+    @objid ("8faf624d-7d98-4916-8fec-fc07940fec90")
     EList<PropertyType> getDefinedPropertyType();
 
     /**
@@ -196,7 +196,7 @@ public interface ModuleComponent extends AbstractProject {
      * </i>
      * 
      */
-    @objid ("fdb83583-17d6-4194-bdb8-0f67deb1b43b")
+    @objid ("9d4f96d3-ac90-40fe-9d6c-f29e578afde5")
     <T extends PropertyType> List<T> getDefinedPropertyType(java.lang.Class<T> filterClass);
 
     /**
@@ -206,7 +206,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("ddd397d6-6a57-4f48-a203-e6f12ee47ead")
+    @objid ("9a0d70de-2825-4b41-b714-714b031463e5")
     EList<Profile> getOwnedProfile();
 
     /**
@@ -216,7 +216,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("5cb67a3e-ea38-474c-8d11-4f4b3dca0005")
+    @objid ("8a7a9001-9e6d-46c3-960a-0b1338f3571b")
     <T extends Profile> List<T> getOwnedProfile(java.lang.Class<T> filterClass);
 
     /**
@@ -226,7 +226,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("4f9f698b-8805-435a-94e3-664029351314")
+    @objid ("64808af8-3c0d-4924-ab82-d6304147135f")
     EList<ModuleParameter> getModuleParameter();
 
     /**
@@ -236,7 +236,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("561d7e9c-397e-4a6d-8ba5-3015b84305a2")
+    @objid ("44471179-b91d-49ad-8e6e-9c3d952c8c4f")
     <T extends ModuleParameter> List<T> getModuleParameter(java.lang.Class<T> filterClass);
 
     /**
@@ -246,7 +246,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("e45844ff-3faf-4684-8e91-a9701f1e9629")
+    @objid ("120e3bf1-5630-405a-bfb4-16d9b9c1f3f2")
     EList<ModuleComponent> getDependsOn();
 
     /**
@@ -256,7 +256,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("71a01b94-cc67-4519-95cd-b1186cbf9e02")
+    @objid ("8b74007b-b1b3-491d-9527-1baaa4f8b345")
     <T extends ModuleComponent> List<T> getDependsOn(java.lang.Class<T> filterClass);
 
     /**
@@ -266,7 +266,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("bfe62ab9-ce32-48c2-82fe-66287ee4e35e")
+    @objid ("6a576933-4664-4e3b-8911-8cce8ec33623")
     EList<ModuleComponent> getImpacted();
 
     /**
@@ -276,7 +276,7 @@ public interface ModuleComponent extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("ccf2d218-61c6-46f4-b8cf-b808fec16de8")
+    @objid ("ded6f9d5-bbc7-4808-ba8c-c36c8f494e18")
     <T extends ModuleComponent> List<T> getImpacted(java.lang.Class<T> filterClass);
 }
 

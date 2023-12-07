@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.properties;
@@ -61,13 +61,13 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
     /**
      * The metaclass simple name.
      */
-    @objid ("89573920-1fdf-495e-a072-8f378751226e")
+    @objid ("d5aa2ec9-dd16-4615-83bf-707ca53bd3b7")
     public static final String MNAME = "DynamicPropertyDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("a2a863b2-3739-44e4-9881-7e0d97cc4fde")
+    @objid ("d98c5466-c989-4483-aab7-a4e62605dcad")
     public static final String MQNAME = "Infrastructure.DynamicPropertyDefinition";
 
     /**

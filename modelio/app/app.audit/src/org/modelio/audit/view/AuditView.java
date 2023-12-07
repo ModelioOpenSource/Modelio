@@ -33,7 +33,7 @@ import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.modelio.audit.engine.core.IAuditDiagnostic;
 import org.modelio.audit.service.IAuditService;
@@ -115,13 +115,13 @@ public class AuditView {
     @objid ("6cb8ea67-11e7-4e5e-85f0-d8adcbba433f")
     @Optional
     @Inject
-    public void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, @Optional final IMModelServices mmService, final IAuditService auditService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService) {
+    public void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final IGProject openedProject, @Optional final IMModelServices mmService, final IAuditService newAuditService, final IModelioNavigationService navigationService, final MApplication application, final EModelService emService, final EMenuService menuService) {
         this.modelService = mmService;
         
         // Sometimes, the view is instantiated only after the project is opened
         if (this.auditResultsPanel == null) {
             // Create the view content
-            this.auditResultsPanel = new AuditPanelProvider(auditService,
+            this.auditResultsPanel = new AuditPanelProvider(newAuditService,
                                                             openedProject.getSession(),
                                                             AuditView.this.modelService,
                                                             navigationService,
@@ -129,11 +129,12 @@ public class AuditView {
                                                             emService);
             this.auditResultsPanel.createPanel(AuditView.this.parentComposite);
             this.parentComposite.layout();
-            this.auditResultsPanel.setInput(auditService.getAuditEngine().getAuditDiagnostic());
-            this.auditResultsPanel.refresh(auditService.getAuditEngine().getAuditDiagnostic());
+            this.auditResultsPanel.setInput(newAuditService.getAuditEngine().getAuditDiagnostic());
+            this.auditResultsPanel.scheduleRefresh();
             menuService.registerContextMenu(AuditView.this.auditResultsPanel.getTreeViewer().getTree(), AuditView.POPUPID);
         } else {
-            this.auditResultsPanel.refresh(auditService.getAuditEngine().getAuditDiagnostic());
+            this.auditResultsPanel.setInput(newAuditService.getAuditEngine().getAuditDiagnostic());
+            this.auditResultsPanel.scheduleRefresh();
         }
         
     }
@@ -191,7 +192,7 @@ public class AuditView {
     @objid ("1d2cda0d-801b-4969-8f00-1795b03b393a")
     @Optional
     @Inject
-    public void onSelectionChanged(@Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    public void onSelectionChanged(@Named (IServiceConstants.ACTIVE_SELECTION) final ISelection selection) {
         // Protect agains't dumb case : 'audit view not yet rendered'.
         if (this.auditResultsPanel == null)
             return;

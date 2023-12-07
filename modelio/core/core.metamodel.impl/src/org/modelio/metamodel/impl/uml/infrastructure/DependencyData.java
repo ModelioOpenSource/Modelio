@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -30,13 +30,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0086407a-c4be-1fd8-97fe-001ec947cd2a")
 public class DependencyData extends ModelElementData {
-    @objid ("8fb91430-f0dc-4466-a34c-27d5c1e263bc")
+    @objid ("c2735ef2-46c8-490c-bc17-7c9e3d54e9ad")
     SmObjectImpl mImpacted;
 
-    @objid ("2d2f50b1-1bf8-4dbd-b98c-31f1641692a0")
+    @objid ("e8d6cc3f-9301-4989-8f8d-be20f26c7bb8")
     SmObjectImpl mDependsOn;
 
-    @objid ("c1b97965-dbad-4176-9937-69478b36310b")
+    @objid ("b9994553-d7aa-4849-8c5c-5feafde94af5")
     public  DependencyData(DependencySmClass smClass) {
         super(smClass);
     }

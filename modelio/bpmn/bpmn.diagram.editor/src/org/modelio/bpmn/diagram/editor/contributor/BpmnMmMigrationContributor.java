@@ -19,12 +19,17 @@
  */
 package org.modelio.bpmn.diagram.editor.contributor;
 
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.api.modelio.diagram.IDiagramGraphic;
+import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
@@ -40,8 +45,12 @@ import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessCollaborationDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
+import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.platform.project.services.IFragmentMigrationContributor;
@@ -54,6 +63,7 @@ import org.modelio.vcore.model.spi.mm.IMigrationReporter;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.repository.IRepository;
 import org.modelio.vcore.session.api.transactions.ITransaction;
+import org.modelio.vcore.session.api.transactions.ITransactionSupport;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.SmClass;
@@ -64,6 +74,15 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
  */
 @objid ("8e9bdb8c-affd-4c96-b243-4d60927c0fce")
 public class BpmnMmMigrationContributor implements IFragmentMigrationContributor {
+    @objid ("834758b3-4e48-40e5-bb4f-e9caeaed1198")
+    private static final Version VERSION = new Version (3,7,0);
+
+    @objid ("d3299225-430d-4517-a6cb-31072fb4f0b3")
+    @Override
+    public Version getTargetModelioVersion() {
+        return VERSION;
+    }
+
     @objid ("d73a0a67-3d04-4821-8b2d-b2f289ee0f1e")
     @Override
     public void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, IGProject gproject, IGModelFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException {
@@ -80,11 +99,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         // Force the style manager to load now
         DiagramStyles.getStyleManager().reloadStylesIn(gproject.getPfs().getProjectPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
         
-        try (ITransaction t = coreSession.getTransactionSupport().createTransaction("BPMN diagrams migration")) {
-            migrateTo2_1_0(reporter, eclipseContext, mon, coreSession, f, factory);
-        
-            t.commit();
-        }
+        migrateTo2_1_0(reporter, eclipseContext, mon, coreSession, f, factory);
         
     }
 
@@ -97,63 +112,74 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         IRepository repo = f.getRepository();
         SmMetamodel mm = coreSession.getMetamodel();
         String fragName = f.getId();
+        @SuppressWarnings ("resource")
+        PrintWriter logger = reporter.getLogger();
         
-        // Create BpmnProcessDesignDiagrams for migration
-        for (MObject obj : findByClass(repo, mm, BpmnProcess.class)) {
-            BpmnProcess p = (BpmnProcess) obj;
-            if (p.getProduct(BpmnProcessDesignDiagram.class).isEmpty() || isInProcessDiagram(p)) {
-                if (p.isModifiable()) {
-                    BpmnProcessDesignDiagram pdd = factory.createBpmnProcessDesignDiagram();
-                    pdd.setName(p.getName());
-                    p.getProduct().add(0, pdd);
-                    created.add(pdd);
-                } else {
-                    reporter.getLogger().format("Cannot create BpmnProcessDesignDiagram into read only %s: %s", p, p.getStatus());
+        String transactionName = "Migration to Modelio 3.7: Create missing BPMN diagrams";
+        try (ITransaction t = coreSession.getTransactionSupport().createTransaction(transactionName)) {
+            t.disableUndo();
+        
+            logger.format("Begin %s...%n", transactionName);
+        
+            // Create BpmnProcessDesignDiagrams for migration
+            for (MObject obj : findByClass(repo, mm, BpmnProcess.class)) {
+                BpmnProcess p = (BpmnProcess) obj;
+                if (p.getProduct(BpmnProcessDesignDiagram.class).isEmpty() || isUnmaskedInAnotherProcessDiagram(p)) {
+                    if (p.isModifiable()) {
+                        BpmnProcessDesignDiagram pdd = factory.createBpmnProcessDesignDiagram();
+                        pdd.setName(p.getName());
+                        p.getProduct().add(0, pdd);
+                        created.add(pdd);
+                        logger.format("  Created %s into %s.%n", pdd, p);
+                    } else {
+                        logger.format("Cannot create BpmnProcessDesignDiagram into read only %s: %s%n", p, p.getStatus());
+                    }
                 }
             }
-        }
-        mon.worked(1);
+            mon.worked(1);
         
-        // Create BpmnSubProcessDiagram for migration
-        for (BpmnSubProcess sp : findByClass(repo, mm, BpmnSubProcess.class)) {
-            if (sp.getProduct(BpmnSubProcessDiagram.class).isEmpty() || isInProcessDiagram(sp)) {
-                if (sp.isModifiable()) {
-                    BpmnSubProcessDiagram spdd = factory.createBpmnSubProcessDiagram();
-                    spdd.setName(sp.getName());
-                    sp.getProduct().add(0, spdd);
-                    created.add(spdd);
-                } else {
-                    reporter.getLogger().format("Cannot create BpmnSubProcessDiagram into read only %s: %s", sp, sp.getStatus());
+            // Create BpmnSubProcessDiagram for migration
+            for (BpmnSubProcess sp : findByClass(repo, mm, BpmnSubProcess.class)) {
+                if (sp.getProduct(BpmnSubProcessDiagram.class).isEmpty() || isUnmaskedInAnyProcessDiagram(sp)) {
+                    if (sp.isModifiable()) {
+                        BpmnSubProcessDiagram spdd = factory.createBpmnSubProcessDiagram();
+                        spdd.setName(sp.getName());
+                        sp.getProduct().add(0, spdd);
+                        created.add(spdd);
+                        logger.format("  Created %s into %s.%n", spdd, sp);
+                    } else {
+                        logger.format("Cannot create BpmnSubProcessDiagram into read only %s: %s%n", sp, sp.getStatus());
+                    }
                 }
             }
+            mon.worked(1);
+        
+            t.commit();
         }
-        mon.worked(1);
         
         // Migrate the Gm model
-        Display.getDefault().syncExec(() -> {
-            int i = 0;
-            IModelManager manager = new ModelManager(eclipseContext);
-            for (BpmnCollaborationDiagram cd : findByClass(repo, mm, BpmnCollaborationDiagram.class)) {
-                if (!created.contains(cd)) {
-                    migrateGmModel(cd, manager, reporter);
-                    advance(mon, fragName, i++);
-                }
+        int i = 1;
+        IModelManager manager = new ModelManager(eclipseContext);
+        for (BpmnCollaborationDiagram cd : findByClass(repo, mm, BpmnCollaborationDiagram.class)) {
+            if (!created.contains(cd)) {
+                migrateGmModel(cd, manager, reporter, this::migrateCollaborationGmModel);
+                advance(mon, fragName, i++);
             }
+        }
         
-            for (BpmnProcessDesignDiagram pdd : findByClass(repo, mm, BpmnProcessDesignDiagram.class)) {
-                if (!created.contains(pdd)) {
-                    migrateGmModel(pdd, manager, reporter);
-                    advance(mon, fragName, i++);
-                }
+        for (BpmnProcessDesignDiagram pdd : findByClass(repo, mm, BpmnProcessDesignDiagram.class)) {
+            if (!created.contains(pdd)) {
+                migrateGmModel(pdd, manager, reporter, this::migrateProcessGmModel);
+                advance(mon, fragName, i++);
             }
+        }
         
-            for (BpmnSubProcessDiagram spdd : findByClass(repo, mm, BpmnSubProcessDiagram.class)) {
-                if (!created.contains(spdd)) {
-                    migrateGmModel(spdd, manager, reporter);
-                    advance(mon, fragName, i++);
-                }
+        for (BpmnSubProcessDiagram spdd : findByClass(repo, mm, BpmnSubProcessDiagram.class)) {
+            if (!created.contains(spdd)) {
+                migrateGmModel(spdd, manager, reporter, this::migrateSubProcessGmModel);
+                advance(mon, fragName, i++);
             }
-        });
+        }
         
     }
 
@@ -161,34 +187,125 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
      * Open the given diagram to force the GM model migration.
      */
     @objid ("3373e65e-9ec6-401f-9d0a-01917e107983")
-    private void migrateGmModel(AbstractDiagram diagram, IModelManager modelManager, IMigrationReporter reporter) {
-        reporter.getLogger().format("Migrating %s BPMN diagram in %s...%n", diagram, diagram.getOrigin());
+    private void migrateGmModel(AbstractDiagram diagram, IModelManager modelManager, IMigrationReporter reporter, BiConsumer<DiagramHandle, PrintWriter> migrator) {
+        @SuppressWarnings ("resource")
+        PrintWriter logger = reporter.getLogger();
         
-        try (DiagramHandle dh = DiagramHandle.create(diagram, modelManager, modelManager.getService(IProjectService.class), modelManager.getService(DiagramEditorsManager.class))) {
-            dh.save();
-            dh.close();
-        } catch (LinkageError | RuntimeException e) {
-            // Log, report and continue.
-            String msg = DiagramEditorBpmn.I18N.getMessage(
-                    "BpmnMmMigrationContributor.diagramFailed",
-                    diagram.getName(),
-                    diagram.getUuid(),
-                    e.toString());
+        logger.format("  Migrating %s BPMN diagram in %s to Modelio %s...%n", diagram, diagram.getOrigin(), VERSION);
         
-            reporter.getLogger().println(msg);
-            e.printStackTrace(reporter.getLogger());
+        Display.getDefault().syncExec(() -> {
+            ITransactionSupport transactionSupport = modelManager.getModelingSession().getTransactionSupport();
+            try (ITransaction t = transactionSupport.createTransaction(String.format("Migrate '%s' BPMN diagram to %s", diagram, VERSION))) {
+                t.disableUndo();
+                try (DiagramHandle dh = DiagramHandle.create(diagram, modelManager, modelManager.getService(IProjectService.class), modelManager.getService(DiagramEditorsManager.class))) {
+                    migrator.accept(dh, logger);
+                    dh.save();
+                    dh.close();
+                    t.commit();
+                } catch (LinkageError | RuntimeException e) {
+                    // Log, report and continue.
+                    String msg = DiagramEditorBpmn.I18N.getMessage(
+                            "BpmnMmMigrationContributor.diagramFailed",
+                            diagram.getName(),
+                            diagram.getUuid(),
+                            e.toString());
         
-            reporter.getResultReporter().println(msg);
+                    logger.println(msg);
+                    e.printStackTrace(logger);
+        
+                    reporter.getResultReporter().println(msg);
+                }
+            }
+        });
+        
+    }
+
+    @objid ("051d1888-45d5-4222-90b3-dd1bbfd578e2")
+    private void migrateProcessGmModel(DiagramHandle dh, PrintWriter logger) {
+        if (false) {
+            // Aborted try to fix CAFAT 3.6 diagrams.
+            // This code could have been usefull if original 3.6 diagrams were cloned
+            // to Collaboration and ProcessDesign diagrams.
+            BpmnProcess proc = (BpmnProcess) dh.getDiagram().getOrigin();
+            if (proc == null)
+                return;
+        
+            for (BpmnParticipant participant : proc.getParticipant()) {
+                BpmnCollaboration collaboration = participant.getContainer();
+                for (IDiagramGraphic dg : dh.getDiagramGraphics(collaboration)) {
+                    logger.format("    Masking '%s' collaboration graphic from %d.%n", dg, dh.getDiagram());
+                    dg.mask();
+                }
+        
+                for (IDiagramGraphic collabDg : dh.getDiagramGraphics(participant)) {
+                    logger.format("    Masking '%s' participant from %s.%n", collabDg, dh.getDiagram());
+                    collabDg.mask();
+                }
+            }
+        
+            maskElementsOutsideProcess(proc, dh, logger, dh.getDiagramNode().getNodes());
         }
+        
+    }
+
+    @objid ("5a3359a9-3786-4814-bb09-96931fa32dd2")
+    @Deprecated
+    private void maskElementsOutsideProcess(BpmnProcess proc, DiagramHandle dh, PrintWriter logger, List<IDiagramNode> nodes) {
+        for (IDiagramNode diagramNode : nodes) {
+            MObject representedElement = diagramNode.getElement();
+            if ( representedElement instanceof BpmnFlowElement) {
+                BpmnFlowElement flowEl = (BpmnFlowElement) representedElement;
+                BpmnProcess flowOwner = getProcessOwner(flowEl);
+                if (! Objects.equals (flowOwner, proc)) {
+                    logger.format("   Masking %s from %s because it is owned by %s instead of %s." , diagramNode, dh.getDiagram(), flowOwner, proc);
+                    diagramNode.mask();
+                }
+            } else if ( representedElement instanceof BpmnLane) {
+                BpmnLane lane = (BpmnLane) representedElement;
+                BpmnLaneSet laneSet = lane.getLaneSet();
+                BpmnProcess laneProcess = laneSet != null ? laneSet.getProcess(): null;
+                if (! Objects.equals (laneProcess, proc)) {
+                    logger.format("   Masking %s from %s because it is owned by %s instead of %s." , diagramNode, dh.getDiagram(), laneProcess, proc);
+                    diagramNode.mask();
+                }
+            } else if ( representedElement instanceof BpmnParticipant) {
+                logger.format("   Masking %s because it is for collaboration diagrams." , diagramNode);
+                diagramNode.mask();
+            } else {
+                maskElementsOutsideProcess(proc, dh, logger, diagramNode.getNodes());
+            }
+        }
+        
+    }
+
+    @objid ("5d1452e8-89fc-434f-921a-21650d23a4b9")
+    @Deprecated
+    private BpmnProcess getProcessOwner(BpmnFlowElement flowEl) {
+        BpmnSubProcess sub = flowEl.getSubProcess();
+        if (sub != null)
+            return getProcessOwner(sub);
+        return flowEl.getContainer();
+    }
+
+    @objid ("1425568d-61af-43ce-a024-d5079d911e5f")
+    @SuppressWarnings ("unused")
+    private void migrateSubProcessGmModel(DiagramHandle dh, PrintWriter logger) {
+        
+    }
+
+    @objid ("18460d3b-1eab-46f9-9ae8-df196ea121ca")
+    @SuppressWarnings ("unused")
+    private void migrateCollaborationGmModel(DiagramHandle dh, PrintWriter logger) {
         
     }
 
     /**
      * @param elt a BPMN process
-     * @return <code>true</code> if the process is part of at least one {@link BpmnProcessDesignDiagram} (that it does not own) or {@link BpmnProcessCollaborationDiagram}.
+     * @return <code>true</code> if the process is part of at least one {@link BpmnProcessDesignDiagram} (that it does not own)
+     * or {@link BpmnProcessCollaborationDiagram}.
      */
     @objid ("c49290ef-c068-4cad-8336-e3476f454d4c")
-    private boolean isInProcessDiagram(BpmnProcess elt) {
+    private static boolean isUnmaskedInAnotherProcessDiagram(BpmnProcess elt) {
         for (AbstractDiagram diagram : elt.getDiagramElement()) {
             if (diagram instanceof BpmnProcessDesignDiagram) {
                 if (!Objects.equals(elt, diagram.getOrigin())) {
@@ -200,7 +317,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         }
         
         for (BpmnParticipant participant : elt.getParticipant()) {
-            if (isInProcessDiagram(participant)) {
+            if (isUnmaskedInProcessDiagram(participant)) {
                 return true;
             }
         }
@@ -209,10 +326,11 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
 
     /**
      * @param elt a BPMN participant
-     * @return <code>true</code> if the process is part of at least one {@link BpmnProcessDesignDiagram} (not owned by its referenced process) or {@link BpmnProcessCollaborationDiagram}.
+     * @return <code>true</code> if the process is part of at least one {@link BpmnProcessDesignDiagram}
+     * (not owned by its referenced process) or {@link BpmnProcessCollaborationDiagram}.
      */
     @objid ("d1fbe9f7-b5fd-4060-beef-561b31505feb")
-    private boolean isInProcessDiagram(BpmnParticipant elt) {
+    private static boolean isUnmaskedInProcessDiagram(BpmnParticipant elt) {
         for (AbstractDiagram diagram : elt.getDiagramElement()) {
             if (diagram instanceof BpmnProcessDesignDiagram) {
                 if (!Objects.equals(elt.getProcess(), diagram.getOrigin())) {
@@ -230,7 +348,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
      * @return <code>true</code> if the sub-process is part of at least one {@link BpmnProcessDesignDiagram} or {@link BpmnProcessCollaborationDiagram}.
      */
     @objid ("5d010fef-202f-4d12-931a-d1af6cf69c36")
-    private boolean isInProcessDiagram(BpmnSubProcess elt) {
+    private static boolean isUnmaskedInAnyProcessDiagram(BpmnSubProcess elt) {
         for (AbstractDiagram diagram : elt.getDiagramElement()) {
             if (diagram instanceof BpmnProcessDesignDiagram) {
                 return true;
@@ -248,6 +366,12 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         }
         mon.worked(1);
         mon.setWorkRemaining(5);
+        
+        Display currentDisplay = Display.getCurrent();
+        if (currentDisplay != null) {
+            // We are running in the SWT thread and freezing GUI
+            while (currentDisplay.readAndDispatch());
+        }
         
     }
 

@@ -32,9 +32,9 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.pattern.IPatternService.PatternException;
@@ -99,12 +99,12 @@ public class PatternExporter implements IPatternModelAnalyser, IPatternModelComp
     /**
      * Exporting metadatas from a {@link RuntimePattern}.
      * @throws JAXBException when the pattern metadatas are invalid.
-     * @throws IOException when the pattern can't be read.
      * @see org.modelio.patterns.model.information.Pattern
+     * @throws IOException when the pattern can't be read.
      * @see org.modelio.patterns.model.information.Pattern 
      */
     @objid ("1f03b502-063b-4d74-90e7-f5b683adbeb1")
-    private void exportManifest(RuntimePattern pattern, Path exportDirectory) throws JAXBException, IOException {
+    private void exportManifest(RuntimePattern pattern, Path exportDirectory) throws IOException, JAXBException {
         Path manifest = exportDirectory.resolve("Manifest.xml");
         
         JAXBContext jc = JAXBContext.newInstance("org.modelio.patterns.model.information", RuntimePattern.class.getClassLoader());
@@ -208,7 +208,7 @@ public class PatternExporter implements IPatternModelAnalyser, IPatternModelComp
             @objid ("710597b6-6eb6-427a-baad-c434b07b8916")
             public String packagingPath;
 
-            @objid ("1f1ee270-8fa9-40d6-b4a0-8e022185424c")
+            @objid ("937b6b6a-c64e-4ddb-b36d-281e1fc95782")
             public File resourceFile;
 
             @objid ("5e0040d0-fe4a-4854-87a5-5623e7732b59")

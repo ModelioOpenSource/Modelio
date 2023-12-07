@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -45,13 +45,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00903bfc-c4be-1fd8-97fe-001ec947cd2a")
 public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
-    @objid ("ec5e1353-f46d-473f-a365-8aca88ccbd84")
+    @objid ("59842a77-dd6e-4b49-8534-2b6928adc9db")
     @Override
     public EList<TagParameter> getActual() {
         return new SmList<>(this, ((TaggedValueSmClass)getClassOf()).getActualDep());
     }
 
-    @objid ("e3203144-d6e7-4dc8-b8dd-091cc101f844")
+    @objid ("e23d3a35-1b79-49fc-a095-6fe15355622f")
     @Override
     public <T extends TagParameter> List<T> getActual(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -67,46 +67,46 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         
     }
 
-    @objid ("c3379fc0-222c-4f0a-966e-e43b32199520")
+    @objid ("b39f008d-a57a-45b0-830a-8af9bbfbde9d")
     @Override
     public TagParameter getQualifier() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getQualifierDep());
         return (obj instanceof TagParameter)? (TagParameter)obj : null;
     }
 
-    @objid ("f16b895a-b49f-436b-8f56-987c52a58e2f")
+    @objid ("4b6a5b38-b796-489f-98ff-06071dd1c4e1")
     @Override
     public void setQualifier(TagParameter value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getQualifierDep(), (SmObjectImpl)value);
     }
 
-    @objid ("7d9b66b8-e17a-4bb6-be28-e8abcb00a825")
+    @objid ("9d70c644-f46a-4b1f-9bbe-d71a949b88d2")
     @Override
     public TagType getDefinition() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getDefinitionDep());
         return (obj instanceof TagType)? (TagType)obj : null;
     }
 
-    @objid ("5f694bf9-4076-44b8-8023-b260dd504921")
+    @objid ("81e47f2f-17b8-43c9-832a-4d123e095085")
     @Override
     public void setDefinition(TagType value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getDefinitionDep(), (SmObjectImpl)value);
     }
 
-    @objid ("34fabe64-3f7a-4627-98af-d30bf811ebf0")
+    @objid ("d6469513-221b-4ec1-8acd-867df27cfc1d")
     @Override
     public ModelElement getAnnoted() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getAnnotedDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("af72112c-6d34-47d5-ad57-14e1d91a23bb")
+    @objid ("429c3ecb-939f-453b-8205-f9a7591a4dfa")
     @Override
     public void setAnnoted(ModelElement value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getAnnotedDep(), (SmObjectImpl)value);
     }
 
-    @objid ("df8c5798-4fab-4be8-8617-9f5ff67a963f")
+    @objid ("4421298d-e706-4fa7-9c08-00a9893b4bc8")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -118,7 +118,7 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         return super.getCompositionOwner();
     }
 
-    @objid ("7e330eb8-d86f-4663-9e2c-4f90afde1f9c")
+    @objid ("9bb6d6da-3e1e-49d3-8138-53e94711203c")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -133,7 +133,7 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         return super.getCompositionRelation();
     }
 
-    @objid ("43006c70-398b-458b-a6c2-900e92ce193b")
+    @objid ("4351a165-5c00-452e-b2b8-e1eff9a8ba49")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitTaggedValue(this);

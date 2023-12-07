@@ -35,20 +35,29 @@ import org.modelio.vcore.session.api.ICoreSession;
  */
 @objid ("12d79e3c-cdd0-4d7d-9ab1-0d606a3b22b5")
 public class AuditRunner implements Runnable {
+    /**
+     * Publicly accessible audit runner status.
+     * <p>
+     * <b>Do not modify the value outside this class! <b>
+     * TODO : make it private and add a getter.
+     */
     @objid ("3fa7d17e-a40c-4876-9a82-fc45d8bbe396")
     public volatile AuditRunnerStatus status;
 
     @objid ("7f93a3a7-b7b0-4462-bd8a-7f7f87af4312")
-    public volatile LoopControlCommand loopControl;
+    private volatile LoopControlCommand loopControl;
 
     @objid ("8b0e7784-feb0-4b97-b880-880052abba08")
     private final CheckProgram checkProgram;
 
     @objid ("00a1db89-a59f-4ef5-8cbb-3edcaa469666")
-    private AuditDiagnostic auditDiagnostic = null;
+    private AuditDiagnostic auditDiagnostic;
 
+    /**
+     * Public list of audit listeners
+     */
     @objid ("8328a132-e575-4b65-90bc-0268d78a6840")
-    public List<IAuditMonitor> auditMonitors = new ArrayList<>();
+    public final List<IAuditMonitor> auditMonitors = new ArrayList<>();
 
     @objid ("f5068dbe-4eab-44ad-8be4-312238021aff")
     private ICoreSession session;
@@ -61,7 +70,7 @@ public class AuditRunner implements Runnable {
             try {
                 switch (this.loopControl) {
                 case TERMINATE:
-                    // termination requested
+                    // termination requested, exit.
                     return;
                 case RUN:
                     // process checks
@@ -70,18 +79,19 @@ public class AuditRunner implements Runnable {
                         additionnalDiagnosticToPost = true;
                         changeStatus(AuditRunnerStatus.PROCESSING);
                         processBatch(batch);
-                         // force a fire status to update the controls counter
-                        fireStatus();
+                         // fire status to update the controls counter
+                        fireStatusSometime();
                     } else {
                         // Before going IDLE, post an empty diagnostic to force
                         // an update of the global diagnostic
                         if (additionnalDiagnosticToPost) {
                             postDiagnostic(new DiagnosticCollector(""));
-                            // force a fire status to update the controls counter
-                            fireStatus();
                             additionnalDiagnosticToPost = false;
                         }
                         changeStatus(AuditRunnerStatus.IDLE);
+        
+                        // force a fire status to update the controls counter
+                        fireStatusAlways();
         
                         Thread.sleep(500);
                     }
@@ -90,7 +100,7 @@ public class AuditRunner implements Runnable {
                     // paused
                     changeStatus(AuditRunnerStatus.SUSPENDED);
                     // force a fire status to update the controls counter
-                    fireStatus();
+                    fireStatusAlways();
                     Thread.sleep(1000);
                     break;
         
@@ -162,22 +172,22 @@ public class AuditRunner implements Runnable {
     protected void changeStatus(AuditRunnerStatus newStatus) {
         if (this.status != newStatus) {
             this.status = newStatus;
-            fireStatus();
+            fireStatusAlways();
         }
         
     }
 
     @objid ("39fa48f1-af06-4d9a-8eff-cdcf7aaff673")
-    protected void fireStatus() {
+    protected void fireStatusSometime() {
         int nbRules = this.checkProgram.size();
+        
         boolean notify = false;
-        if (nbRules == 0) {
-            notify = true;
-        } else if (nbRules > 100000) {
+        
+        if (nbRules > 100_000) {
             if (nbRules % 100 == 0) {
                 notify = true;
             }
-        } else if (nbRules > 10000) {
+        } else if (nbRules > 1_000) {
             if (nbRules % 10 == 0) {
                 notify = true;
             }
@@ -186,9 +196,15 @@ public class AuditRunner implements Runnable {
         }
         
         if (notify) {
-            for (IAuditMonitor monitor : this.auditMonitors) {
-                monitor.status(this.status, this.checkProgram.size());
-            }
+            fireStatusAlways();
+        }
+        
+    }
+
+    @objid ("fa078289-7bb9-44a7-8c50-e5a240f8274d")
+    protected void fireStatusAlways() {
+        for (IAuditMonitor monitor : this.auditMonitors) {
+            monitor.status(this.status, this.checkProgram.size());
         }
         
     }

@@ -32,6 +32,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
+import org.modelio.diagram.styles.core.IStyle;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -138,6 +140,35 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
     protected void doSetVisible(final boolean visible) {
         getDisplayedStyle().setProperty(GmBpmnSubProcessStructuredStyleKeys.SHOWCONTENT, visible);
         super.doSetVisible(visible);
+        
+    }
+
+    @objid ("18ac09a8-6a64-4620-9c5f-9b0d74ef39d2")
+    @Override
+    public void styleChanged(IStyle changedStyle) {
+        super.styleChanged(changedStyle);
+        
+        refreshViewedDiagramVisibility();
+        
+    }
+
+    @objid ("b7091178-5bd5-41d7-b560-4a855bfc476f")
+    @Override
+    public void styleChanged(StyleKey property, Object newValue) {
+        super.styleChanged(property, newValue);
+        
+        if (property == GmBpmnSubProcessStructuredStyleKeys.SHOWCONTENT) {
+            refreshViewedDiagramVisibility();
+        }
+        
+    }
+
+    @objid ("0fdb3f31-cf1e-402a-b2f1-071f92193333")
+    private void refreshViewedDiagramVisibility() {
+        GmBpmnSubProcessDiagram viewedDiagramModel = getViewedDiagramModel(false);
+        if (viewedDiagramModel != null) {
+            viewedDiagramModel.setVisible(isVisible());
+        }
         
     }
 

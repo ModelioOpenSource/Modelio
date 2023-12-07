@@ -72,7 +72,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("5aa80088-dd25-4436-9ded-e025cf30d546")
 public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 implements PropertyChangeListener {
     @objid ("1ffe1e05-5214-406e-b18f-23fce894d272")
-    private final PropertyChangeListener diagramListener = evt -> refreshChildren();
+    private final PropertyChangeListener diagramListener = evt -> refreshDiagramChildren();
 
     @objid ("c150cf2e-7dc0-4991-8a02-ec934a800a40")
     private final EditPartViewer embeddedViewer;
@@ -252,7 +252,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     @Override
     public void propertyChange(PropertyChangeEvent ev) {
         if (ev.getPropertyName().equals(IGmObject.PROPERTY_CHILDREN)) {
-            refreshChildren();
+            refreshDiagramChildren();
         }
         
         if (GmEmbeddedDiagram.PROP_INNER_DIAGRAM.equals(ev.getPropertyName())) {
@@ -264,6 +264,15 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
             if (newViewedDiagram != null) {
                 newViewedDiagram.addPropertyChangeListener(this.diagramListener);
             }
+        }
+        
+    }
+
+    @objid ("17a6ac43-ba70-498d-ad0c-957ec9316432")
+    private void refreshDiagramChildren() {
+        EditPart contents = getContents();
+        if (contents != null) {
+            contents.refresh();
         }
         
     }
@@ -326,24 +335,6 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     protected ScalableFreeformLayeredPane createScaledLayers() {
         ScalableFreeformLayeredPane layers = super.createScaledLayers();
         layers.remove(layers.getLayer(LayerConstants.GRID_LAYER));
-        
-        // Auto fit to content
-        if (false) {
-        layers.addLayoutListener(new LayoutListener.Stub() {
-            protected boolean scheduled;
-        
-            @Override
-            public void postLayout(IFigure container) {
-                if (!this.scheduled) {
-                    this.scheduled = true;
-                    layers.getUpdateManager().runWithUpdate(() -> {
-                        this.scheduled = false;
-                        fitToContent();
-                    });
-                }
-            }
-        });
-        }
         return layers;
     }
 

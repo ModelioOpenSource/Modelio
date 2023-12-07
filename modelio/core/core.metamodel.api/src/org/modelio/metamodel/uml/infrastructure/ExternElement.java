@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -40,13 +40,13 @@ public interface ExternElement extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("c231d2d9-49f0-4706-a2bc-a0f23481807e")
+    @objid ("a7e5a833-e587-4fbc-bcbe-69d312b8dd9d")
     public static final String MNAME = "ExternElement";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("1259aa41-c68f-430a-b0cd-30dfd619a2a9")
+    @objid ("bb0bbd15-3e6a-4013-878f-a348416f38b3")
     public static final String MQNAME = "Infrastructure.ExternElement";
 
     /**
@@ -56,7 +56,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("13076b59-23b8-4bbe-bf57-a2515b84ec3b")
+    @objid ("89852537-828e-4532-aa65-b84023755844")
     String getProvider();
 
     /**
@@ -66,7 +66,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("27cc61d2-9a21-4e9b-a564-efa0af45050d")
+    @objid ("15e0e8b5-ce8a-459a-b386-797c278edb66")
     void setProvider(String value);
 
     /**
@@ -76,7 +76,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("57c5fe6f-1435-4407-b574-4dec593a1e36")
+    @objid ("1a2673fd-f4f5-4c0b-bc10-1b0c3e5dbcd6")
     String getExternId();
 
     /**
@@ -86,7 +86,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("72bdadda-713c-431c-9173-17c88b047f98")
+    @objid ("5d7ce128-cfbc-4fa2-b570-239ad87f5b97")
     void setExternId(String value);
 
     /**
@@ -96,7 +96,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("d526c094-e6d6-4cb5-97e5-a30f69108ab6")
+    @objid ("85c7702b-97d1-4c93-9037-6b330dd208ba")
     String getLocation();
 
     /**
@@ -106,7 +106,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("04d04758-f23e-4e14-9eb4-6e9045e5f9f0")
+    @objid ("d6cb67ae-770b-4063-bade-e5a07c1fabb2")
     void setLocation(String value);
 
     /**
@@ -116,7 +116,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("229e3817-6440-4030-99c2-91c84cc1ddb9")
+    @objid ("e5de208a-ca42-4f6e-a79a-4dae59f87f7d")
     MethodologicalLink getOwner();
 
     /**
@@ -126,7 +126,7 @@ public interface ExternElement extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("2c13bf5a-d1df-43f4-ac00-017192e8c89f")
+    @objid ("c926b021-653a-4f02-9395-9b8a21413fb6")
     void setOwner(MethodologicalLink value);
 }
 

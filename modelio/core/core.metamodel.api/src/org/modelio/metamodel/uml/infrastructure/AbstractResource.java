@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -40,13 +40,13 @@ public interface AbstractResource extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("cd6e89f4-a49d-45c4-83f0-9d43b1a47b43")
+    @objid ("0686789b-811d-4cb7-8116-6f95aec1e9ef")
     public static final String MNAME = "AbstractResource";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("2923908a-f104-42f8-9f77-c91629cb8561")
+    @objid ("58f0444f-2ef5-4979-97ee-130b4b0477d0")
     public static final String MQNAME = "Infrastructure.AbstractResource";
 
     /**
@@ -95,7 +95,7 @@ public interface AbstractResource extends ModelElement {
      * <i>MIME type of the rich note.</i>
      * 
      */
-    @objid ("422e5f5a-5c36-4726-ba4a-407cbd7f0076")
+    @objid ("2611729b-9048-4183-b479-0a35b0a277eb")
     String getMimeType();
 
     /**
@@ -105,7 +105,7 @@ public interface AbstractResource extends ModelElement {
      * <i>MIME type of the rich note.</i>
      * 
      */
-    @objid ("3c2c06f3-04ec-41b6-bd42-7eef7ad4f91f")
+    @objid ("54133575-5bad-48ef-ba13-199c5e7c1942")
     void setMimeType(String value);
 
     /**
@@ -116,7 +116,7 @@ public interface AbstractResource extends ModelElement {
      * </i>
      * 
      */
-    @objid ("199c6d8c-c760-42f9-a0d1-78c3281a51e2")
+    @objid ("240f687f-8baa-44d1-885b-65ad74386695")
     String getStorageInfo();
 
     /**
@@ -127,7 +127,7 @@ public interface AbstractResource extends ModelElement {
      * </i>
      * 
      */
-    @objid ("446aa24f-f97b-4247-8950-ac0d781216aa")
+    @objid ("71ae6bed-0858-4f93-89c5-c9825d23b83c")
     void setStorageInfo(String value);
 
     /**
@@ -137,7 +137,7 @@ public interface AbstractResource extends ModelElement {
      * <i>Semantic function of the rich note.</i>
      * 
      */
-    @objid ("85bfb9c6-0060-4710-b3b6-267df8454fbb")
+    @objid ("78fbc29e-f3fc-4793-922f-ac4f5b460175")
     ResourceType getType();
 
     /**
@@ -147,7 +147,7 @@ public interface AbstractResource extends ModelElement {
      * <i>Semantic function of the rich note.</i>
      * 
      */
-    @objid ("f8bcb203-c521-41ba-a8b7-9094b802b650")
+    @objid ("c82465b8-ef51-4b0e-a215-7eb65adfba75")
     void setType(ResourceType value);
 
     /**
@@ -157,7 +157,7 @@ public interface AbstractResource extends ModelElement {
      * <i>Model element owning the rich note.</i>
      * 
      */
-    @objid ("55667236-6342-4a75-ba1e-f94ffa951865")
+    @objid ("85ed967a-2bb1-4195-8f69-61c07be7bc3a")
     ModelElement getSubject();
 
     /**
@@ -167,7 +167,7 @@ public interface AbstractResource extends ModelElement {
      * <i>Model element owning the rich note.</i>
      * 
      */
-    @objid ("893518a4-2501-4d0a-b07d-4e2cfef4c1f1")
+    @objid ("aa465bd6-5086-4f7a-bd64-73e5df09bbd3")
     void setSubject(ModelElement value);
 }
 

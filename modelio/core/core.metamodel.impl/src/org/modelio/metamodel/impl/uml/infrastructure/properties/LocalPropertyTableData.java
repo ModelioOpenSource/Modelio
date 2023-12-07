@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -30,10 +30,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("006d9110-ec87-1098-b22e-001ec947cd2a")
 public class LocalPropertyTableData extends PropertyTableData {
-    @objid ("c41352b9-7e6e-488f-bbe9-c78538a2977f")
+    @objid ("3000d1e4-9ea8-4868-b2c0-f394bcc48fc1")
     SmObjectImpl mLocalAnnoted;
 
-    @objid ("cb001162-ec36-48dd-b7e6-da858e999253")
+    @objid ("be26d500-c155-4488-aecf-e5d9975f774a")
     public  LocalPropertyTableData(LocalPropertyTableSmClass smClass) {
         super(smClass);
     }

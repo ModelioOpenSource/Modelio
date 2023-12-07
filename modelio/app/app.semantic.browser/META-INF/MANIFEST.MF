@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelio Semantic Browser
 Bundle-SymbolicName: org.modelio.app.semantic.browser;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-ClassPath: .,
  res/
 Bundle-Activator: org.modelio.semantic.browser.plugin.SemanticBrowser

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impact;
@@ -43,13 +43,13 @@ public interface ImpactProject extends AbstractProject {
     /**
      * The metaclass simple name.
      */
-    @objid ("37c01cbd-0311-49a7-9274-6995253ce7a3")
+    @objid ("59b55653-dd3a-44f9-870a-546e466fab28")
     public static final String MNAME = "ImpactProject";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("4836b504-9a8a-44ea-8024-c835a26e29be")
+    @objid ("3a7054a2-3f2a-4432-8d78-2d2ea85b3c1c")
     public static final String MQNAME = "Infrastructure.ImpactProject";
 
     /**
@@ -59,7 +59,7 @@ public interface ImpactProject extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("d33a0047-ef4f-4278-b528-43b2bccd8c68")
+    @objid ("d49471df-6334-4c55-9071-d553d989c8b0")
     EList<ImpactModel> getModel();
 
     /**
@@ -69,7 +69,7 @@ public interface ImpactProject extends AbstractProject {
      * <i>null</i>
      * 
      */
-    @objid ("597244dd-fbef-40ff-af0a-17085f198026")
+    @objid ("3f54df91-1844-42b9-8cdc-0338852efdb9")
     <T extends ImpactModel> List<T> getModel(java.lang.Class<T> filterClass);
 }
 

@@ -243,7 +243,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         
         fig = new BpmnLaneFigure();
         fig.setLayoutManager(new BorderLayout());
-        MinimumSizeLayout.apply(fig, 80, 40);
+        MinimumSizeLayout.apply(fig, 800, 120);
         
         // set style independent properties
         fig.setOpaque(true);

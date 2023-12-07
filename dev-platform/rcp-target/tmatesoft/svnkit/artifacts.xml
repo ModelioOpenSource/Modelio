@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='svnkit/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1491918687453'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='6'>
+    <artifact classifier='osgi.bundle' id='org.tmatesoft.sqljet' version='1.1.10.r1317_v20140121_0107'>
+      <properties size='3'>
+        <property name='artifact.size' value='914445'/>
+        <property name='download.size' value='914445'/>
+        <property name='download.md5' value='6bf4e7f1d4dea7c17a7ee5edc2ad4d24'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='net.java.dev.jna' version='4.1.0.v06022015_1911'>
+      <properties size='4'>
+        <property name='artifact.size' value='1486'/>
+        <property name='download.size' value='1486'/>
+        <property name='download.md5' value='c39401f723cb63fed174fb81bed88a44'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.trilead.ssh2' version='1.0.0.build221_175'>
+      <properties size='3'>
+        <property name='artifact.size' value='250585'/>
+        <property name='download.size' value='250585'/>
+        <property name='download.md5' value='e5b081edaee2388a58e50afa37055178'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.tmatesoft.svnkit' version='1.8.15.r10636'>
+      <properties size='4'>
+        <property name='artifact.size' value='2307'/>
+        <property name='download.size' value='2307'/>
+        <property name='download.md5' value='ca49e700b1e85acee2a894317f697310'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.java.dev.jna' version='4.1.0.v06022015_1911'>
+      <properties size='3'>
+        <property name='artifact.size' value='914884'/>
+        <property name='download.size' value='914884'/>
+        <property name='download.md5' value='54d2e7a2b8016c4a6a55cff137d7b1b6'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.tmatesoft.svnkit' version='1.8.15.r10636'>
+      <properties size='3'>
+        <property name='artifact.size' value='6247073'/>
+        <property name='download.size' value='6247073'/>
+        <property name='download.md5' value='a4cae5afebbd47bcaf5d235429b7e781'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

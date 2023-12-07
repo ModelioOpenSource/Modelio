@@ -19,18 +19,17 @@
  */
 package org.modelio.audit.view.providers.byrules;
 
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.Viewer;
+import org.modelio.audit.engine.core.IAuditDiagnostic;
 import org.modelio.audit.engine.core.IAuditEntry;
-import org.modelio.audit.engine.impl.AuditDiagnostic;
 import org.modelio.audit.view.model.AuditRuleModel;
+import org.modelio.audit.view.providers.commons.AbstractDiagnosticContentProvider;
 
 @objid ("a66bef42-419a-4df3-916c-cc59bd8e496f")
-public class ByRuleContentProvider implements ITreeContentProvider {
+public class ByRuleContentProvider extends AbstractDiagnosticContentProvider {
     @objid ("0b4ab8b7-fa9d-46d2-8496-6306d006b71e")
     private String jobId;
 
@@ -47,43 +46,43 @@ public class ByRuleContentProvider implements ITreeContentProvider {
     @objid ("50cb486a-67bc-46f2-a0a7-3b0bd190cc72")
     @Override
     public void dispose() {
-        this.elementsMap.clear();
-    }
-
-    @objid ("185cc098-d646-4b7d-a9be-327d1abed511")
-    @Override
-    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-        // Empty
+        super.dispose();
+        
+        this.elementsMap = null;
+        
     }
 
     @objid ("0c1f4072-892e-45cc-8a3b-80d8850abd28")
     @Override
     public Object[] getElements(Object inputElement) {
-        AuditDiagnostic diagnostic = (AuditDiagnostic) inputElement;
+        refreshFromInput();
+        return this.elementsMap.values().toArray();
+    }
+
+    @objid ("d0e0ed09-f87c-4b7d-ba12-83e8d7b11028")
+    @Override
+    protected void refreshFrom(IAuditDiagnostic diagnostic) {
+        final Collection<IAuditEntry> newEntries = diagnostic.getEntries(this.jobId);
+        this.elementsMap = new HashMap<>(newEntries.size());
         
-        List<IAuditEntry> entries = diagnostic.getEntries(this.jobId);
-        
-        this.elementsMap.clear();
-        
-        for (int i = 0; i < entries.size(); i++) {
-            IAuditEntry entry = entries.get(i);
+        for (IAuditEntry entry : newEntries) {
             AuditRuleModel model = this.elementsMap.get(entry.getRuleId());
         
             if (model == null) {
-                model = new AuditRuleModel();
-                model.rule = entry.getRuleId();
-                model.severity = entry.getSeverity();
+                model = new AuditRuleModel(entry.getRuleId(), entry.getSeverity());
                 this.elementsMap.put(entry.getRuleId(), model);
             }
         
-            model.entries.add(entry);
+            model.addEntry(entry);
         }
-        return this.elementsMap.values().toArray();
+        
     }
 
     @objid ("5896405d-c418-4808-947b-8e896d8746f5")
     @Override
     public Object[] getChildren(Object parentElement) {
+        refreshFromInput();
+        
         if (parentElement instanceof AuditRuleModel) {
             return ((AuditRuleModel) parentElement).entries.toArray();
         }
@@ -93,12 +92,14 @@ public class ByRuleContentProvider implements ITreeContentProvider {
     @objid ("f9742413-7f40-496a-816e-e4c4c692042b")
     @Override
     public Object getParent(Object element) {
+        refreshFromInput();
         return null;
     }
 
     @objid ("0f3bfb34-425f-4ca4-b443-b7eeb9055d2d")
     @Override
     public boolean hasChildren(Object element) {
+        refreshFromInput();
         return element instanceof AuditRuleModel && !((AuditRuleModel) element).entries.isEmpty();
     }
 

@@ -136,78 +136,78 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
     @objid ("d655f3ca-910f-11e0-9de7-002564c97630")
     boolean lockedUI = false;
 
-    @objid ("d655ccb5-910f-11e0-9de7-002564c97630")
-    private PageContainerFillLayout pageContainerLayout = new PageContainerFillLayout(
-                5, 5, 300, 225);
-
     /**
      * The wizard the dialog is currently showing.
      */
-    @objid ("bbf20fb3-120f-11e2-b5c6-002564c97630")
+    @objid ("8f428114-87b2-4ce5-962a-4599b3970399")
     private IWizard wizard;
 
     /**
      * Wizards to dispose
      */
-    @objid ("bbf20fb5-120f-11e2-b5c6-002564c97630")
+    @objid ("8a71563c-0870-4564-afe7-25db54438f19")
     private List<IWizard> createdWizards = new ArrayList<>();
 
     /**
      * Current nested wizards
      */
-    @objid ("bbf20fb9-120f-11e2-b5c6-002564c97630")
+    @objid ("f084efa1-2209-43b7-b6a9-53058da7b0c7")
     private List<IWizard> nestedWizards = new ArrayList<>();
 
     /**
      * The currently displayed page.
      */
-    @objid ("bbf20fbd-120f-11e2-b5c6-002564c97630")
+    @objid ("5a58f521-cdf6-4426-9fdc-266e77a151c7")
     IWizardPage currentPage = null;
 
     /**
      * The progress monitor
      */
-    @objid ("bc1362eb-120f-11e2-b5c6-002564c97630")
+    @objid ("f65bda83-e8cb-4455-9a83-719f36af6bd3")
     private ProgressMonitorPart progressMonitorPart;
 
-    @objid ("bc1362ed-120f-11e2-b5c6-002564c97630")
+    @objid ("dbe3ca18-7b61-49de-8797-8a5f49395e13")
     private Cursor waitCursor;
 
-    @objid ("bc1362ee-120f-11e2-b5c6-002564c97630")
+    @objid ("f386b6ab-65b9-49b8-a7c3-585354c51440")
     private Cursor arrowCursor;
 
-    @objid ("bc1362ef-120f-11e2-b5c6-002564c97630")
+    @objid ("d0fdfd78-f76f-412b-9662-3397f8d99f38")
     private MessageDialog windowClosingDialog;
 
     /**
      * Navigation buttons
      */
-    @objid ("bc1362f0-120f-11e2-b5c6-002564c97630")
+    @objid ("bc420b06-8457-4d74-aa97-a5e009e5c5e8")
     private Button backButton;
 
-    @objid ("bc1362f2-120f-11e2-b5c6-002564c97630")
+    @objid ("47b3ebe0-e58d-45dd-bf73-1c3519fb9a2c")
     private Button nextButton;
 
-    @objid ("bc1362f3-120f-11e2-b5c6-002564c97630")
+    @objid ("cc70a2af-6b39-4d6c-91ac-9591dee26967")
     private Button finishButton;
 
-    @objid ("bc1362f4-120f-11e2-b5c6-002564c97630")
+    @objid ("910d48ea-97eb-4ee0-95f3-1d494112a0d5")
     private Button cancelButton;
 
-    @objid ("bc1362f5-120f-11e2-b5c6-002564c97630")
+    @objid ("c9b7d325-c9dd-4d1b-b4fc-67560b15f81f")
     private Button helpButton;
 
-    @objid ("bc1362f6-120f-11e2-b5c6-002564c97630")
+    @objid ("83729d68-75c4-4aa6-971e-9acf28013310")
     private SelectionAdapter cancelListener;
 
-    @objid ("bc15c44a-120f-11e2-b5c6-002564c97630")
+    @objid ("6f24d5d7-2b6e-4e5d-ba28-213cd98f3d51")
     private Composite pageContainer;
 
-    @objid ("bc1825ad-120f-11e2-b5c6-002564c97630")
+    @objid ("a1518944-883f-4748-84bf-3acf05c81e02")
     private ListenerList<IPageChangedListener> pageChangedListeners = new ListenerList<>();
 
-    @objid ("bc1825ae-120f-11e2-b5c6-002564c97630")
+    @objid ("2548a0ff-092f-4f35-a7f7-267ea5565c55")
     private ListenerList<IPageChangingListener> pageChangingListeners = new ListenerList<>();
+
+    @objid ("d655ccb5-910f-11e0-9de7-002564c97630")
+    private PageContainerFillLayout pageContainerLayout = new PageContainerFillLayout(
+                    5, 5, 300, 225);
 
     /**
      * About to start a long running operation triggered through the wizard. Shows the progress monitor and disables the wizard's buttons and controls.
@@ -281,7 +281,7 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
      * The Back button has been pressed.
      */
     @objid ("d657a17a-910f-11e0-9de7-002564c97630")
-    protected void backPressed() {
+    public void backPressed() {
         IWizardPage page = this.currentPage.getPreviousPage();
         if (page == null) {
             // should never happen since we have already visited the page
@@ -432,7 +432,7 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
      * The Next button has been pressed.
      */
     @objid ("d65b4af5-910f-11e0-9de7-002564c97630")
-    protected void nextPressed() {
+    public void nextPressed() {
         IWizardPage page = this.currentPage.getNextPage();
         if (page == null) {
             // something must have happened getting the next page
@@ -897,8 +897,6 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
 
     /**
      * Creates the container that holds all pages.
-     * @param parent
-     * @return Composite
      */
     @objid ("bc1ce87f-120f-11e2-b5c6-002564c97630")
     private Composite createPageContainer(final Composite parent) {
@@ -937,7 +935,6 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
 
     /**
      * Creates and return a new wizard closing dialog without opening it.
-     * @return MessageDalog
      */
     @objid ("bc1ce88d-120f-11e2-b5c6-002564c97630")
     private MessageDialog createWizardClosingDialog() {
@@ -981,7 +978,6 @@ public class ModelioWizardDialog extends ModelioDialog implements IWizardContain
 
     /**
      * Notifies page changing listeners and returns result of page changing processing to the sender.
-     * @param eventType
      * @return <code>true</code> if page changing listener completes successfully, <code>false</code> otherwise
      */
     @objid ("bc1f49d4-120f-11e2-b5c6-002564c97630")

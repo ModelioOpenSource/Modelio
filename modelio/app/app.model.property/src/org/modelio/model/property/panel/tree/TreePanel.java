@@ -1,21 +1,21 @@
-/* 
+/*
  * Copyright 2013-2020 Modeliosoft
- * 
+ *
  * This file is part of Modelio.
- * 
+ *
  * Modelio is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Modelio is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package org.modelio.model.property.panel.tree;
 
@@ -53,26 +53,26 @@ public class TreePanel extends Composite {
     @objid ("8faeeca3-c068-11e1-8c0a-002564c97630")
     public  TreePanel(SashForm sash, int style) {
         super(sash, style);
-        
+
         this.annotationLabelProvider = new TreeLabelProvider();
-        
+
         createGUI();
-        
+
     }
 
     @objid ("8faeeca8-c068-11e1-8c0a-002564c97630")
     private void createGUI() {
         Composite treeArea = new Composite(this, SWT.NONE);
         treeArea.setLayout(new FillLayout());
-        
+
         this.viewer = new TreeViewer(treeArea, SWT.MULTI | SWT.BORDER | SWT.V_SCROLL);
         this.viewer.setLabelProvider(this.annotationLabelProvider);
         this.contentProvider = new TreeContentProvider();
         this.viewer.setContentProvider(this.contentProvider);
         this.viewer.setAutoExpandLevel(3);
-        
+
         initEditor();
-        
+
     }
 
     @objid ("8faeecaa-c068-11e1-8c0a-002564c97630")
@@ -87,12 +87,12 @@ public class TreePanel extends Composite {
         TextCellEditor[] cellEditors = new TextCellEditor[1];
         cellEditors[0] = new TextCellEditor(this.viewer.getTree(), SWT.NONE);
         this.viewer.setCellEditors(cellEditors);
-        
+
         // Define ICellModifier:
         String[] properties = new String[1];
         properties[0] = "name";
         this.viewer.setColumnProperties(properties);
-        
+
     }
 
     /**
@@ -113,7 +113,7 @@ public class TreePanel extends Composite {
             this.viewer.setSelection(null);
             return;
         }
-        
+
         if (target == null) {
             // neither stereotype nor module => SmClass
             this.viewer.setSelection(new TreeSelection(new TreePath(new Object[] { this.currentElement.getMClass() })));
@@ -122,7 +122,7 @@ public class TreePanel extends Composite {
             this.viewer.setSelection(new TreeSelection(treePath), true);
             setLastType(target);
         }
-        
+
     }
 
     @objid ("8fb14dba-c068-11e1-8c0a-002564c97630")
@@ -135,7 +135,7 @@ public class TreePanel extends Composite {
             // Don't keep the selection if it is nor a module, nor stereotype
             this.lastSelectedType = null;
         }
-        
+
     }
 
     /**
@@ -144,16 +144,16 @@ public class TreePanel extends Composite {
     @objid ("8fb14dbe-c068-11e1-8c0a-002564c97630")
     public void setInput(TreePanelInput newInput) {
         this.contentProvider.setShowHiddenMdaElements(newInput.isDisplayHiddenAnnotations());
-        
+
         Element typedElement = newInput.getTypedElement();
         Object typingElement = newInput.getPreselectedTypingElement();
-        
+
         if (Objects.equals(typedElement, this.currentElement)) {
             // The current element did not change, only the tree selection moved
             select(typingElement);
             this.viewer.refresh();
             return;
-        } else {
+        } else if(this.currentElement!= null){
             this.currentElement = typedElement;
             this.viewer.setInput(this.currentElement);
             if (this.currentElement != null) {
@@ -171,7 +171,7 @@ public class TreePanel extends Composite {
                 }
             }
         }
-        
+
     }
 
     /**

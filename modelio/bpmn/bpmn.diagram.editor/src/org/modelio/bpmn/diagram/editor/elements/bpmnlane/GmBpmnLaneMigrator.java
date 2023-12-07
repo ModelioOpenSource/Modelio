@@ -40,6 +40,7 @@ import org.modelio.diagram.persistence.IPersistent;
 import org.modelio.diagram.persistence.IPersistentMigrator;
 import org.modelio.diagram.persistence.PersistenceException;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
@@ -111,6 +112,12 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
     @objid ("261366ff-20b8-4204-93f8-f9d67f0662c2")
     private GmBpmnParticipantPortContainer migrateLaneToParticipant(GmBpmnLaneV0 oldGmLane) {
         IGmDiagram diagram = oldGmLane.getDiagram();
+        
+        if (BpmnProcessDesignDiagram.class.isAssignableFrom(diagram.getRelatedMClass().getJavaInterface())) {
+            DiagramEditorBpmn.LOG.debug("GmBpmnLaneMigrator-01: Pruning %s from %s because it is for collaboration diagrams.", oldGmLane, diagram);
+            return null;
+        }
+        
         BpmnParticipant participant = (BpmnParticipant) oldGmLane.getRepresentedElement();
         
         Object oldLayoutData = oldGmLane.getLayoutData();
@@ -305,7 +312,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
                 }
             } else {
                 // reset ugly data
-                DiagramEditorBpmn.LOG.debug("%s: Replace %s in %s layout data by -1.", getClass().getSimpleName(), gmBpmnLane, gmLaneContainer);
+                DiagramEditorBpmn.LOG.debug("GmBpmnLaneMigrator-02: Replace %s in %s layout data by -1.", getClass().getSimpleName(), gmBpmnLane, gmLaneContainer);
                 gmBpmnLane.setLayoutData(-1);
             }
         }
@@ -320,67 +327,76 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
         }
         BpmnProcess process = participant.getProcess();
         BpmnLaneSet laneSet = process.getLaneSet();
-        if (laneSet != null) {
-            if (laneSet.getLane().isEmpty()) {
-                // No lanes in container
-                return;
-            }
+        if (laneSet == null) {
+            return;
+        }
         
-            IGmDiagram diagram = newGmParticipantPrimary.getDiagram();
-            if (!diagram.getAllGMRepresenting(new MRef(laneSet)).isEmpty()) {
-                // Container already unmasked
-                return;
-            }
+        if (laneSet.getLane().isEmpty()) {
+            // No lanes in container
+            return;
+        }
         
-            GmBpmnLaneSetContainer newContainer = new GmBpmnLaneSetContainer(diagram, laneSet, new MRef(laneSet));
+        IGmDiagram diagram = newGmParticipantPrimary.getDiagram();
+        if (!diagram.getAllGMRepresenting(new MRef(laneSet)).isEmpty()) {
+            // Container already unmasked
+            return;
+        }
         
-            // Unmask first lane
-            BpmnLane firstLane = laneSet.getLane().get(0);
-            GmBpmnLane firstLaneGm = new GmBpmnLane(diagram, firstLane, new MRef(firstLane));
-            newContainer.addChild(firstLaneGm);
+        GmCompositeNode workflow = newGmParticipantPrimary.getCompositeFor(laneSet.getClass());
         
-            GmCompositeNode workflow = newGmParticipantPrimary.getCompositeFor(laneSet.getClass());
-            GmNodeModel wrongLaneSet = workflow.getFirstChild(GmWorkflow.OWNED_LANE);
-            if (wrongLaneSet != null) {
-                // Set new container's layout data
-                Rectangle oldLayoutData = (Rectangle) wrongLaneSet.getLayoutData();
-                oldLayoutData.x -= 20;
-                oldLayoutData.width += 20;
-                newContainer.setLayoutData(oldLayoutData.getCopy());
+        if (workflow == null) {
+            DiagramEditorBpmn.LOG.warning("GmBpmnLaneMigrator-03: %s in %s has no workflow.", newGmParticipantPrimary, newGmParticipantPrimary.getDiagram());
+            DiagramEditorBpmn.LOG.debug  ("GmBpmnLaneMigrator-04:   %s.getBody() = %s .", newGmParticipantPrimary, newGmParticipantPrimary.getBody());
+            return ;
+        }
         
-                firstLaneGm.setLayoutData(oldLayoutData.height);
+        GmBpmnLaneSetContainer newContainer = new GmBpmnLaneSetContainer(diagram, laneSet, new MRef(laneSet));
         
-                // Make the wrong lane set a child of the first lane
-                workflow.removeChild(wrongLaneSet);
-                firstLaneGm.getBody().addChild(wrongLaneSet);
-            } else {
-                newContainer.setLayoutData(layoutData);
+        // Unmask first lane
+        BpmnLane firstLane = laneSet.getLane().get(0);
+        GmBpmnLane firstLaneGm = new GmBpmnLane(diagram, firstLane, new MRef(firstLane));
+        newContainer.addChild(firstLaneGm);
         
-                firstLaneGm.setLayoutData(layoutData.height);
+        GmNodeModel wrongLaneSet = workflow.getFirstChild(GmWorkflow.OWNED_LANE);
+        if (wrongLaneSet != null) {
+            // Set new container's layout data
+            Rectangle oldLayoutData = (Rectangle) wrongLaneSet.getLayoutData();
+            oldLayoutData.x -= 20;
+            oldLayoutData.width += 20;
+            newContainer.setLayoutData(oldLayoutData.getCopy());
         
-                // Process simple nodes in the old Gm
-                for (GmNodeModel ownedNode : workflow.getChildren(GmBodyHybridContainer.OWNED_NODE)) {
-                    GmCompositeNode compositeFor = firstLaneGm.getCompositeFor(getRepresentedMetaclass(ownedNode));
-                    if (compositeFor != null) {
-                        workflow.removeChild(ownedNode);
+            firstLaneGm.setLayoutData(oldLayoutData.height);
         
-                        // Avoid duplicated GMs when a process is referenced by several participants
-                        for (GmModel existingGm : compositeFor.getDiagram().getAllGMRepresenting(ownedNode.getRepresentedRef())) {
-                            if (!Objects.equals(ownedNode, existingGm)) {
-                                existingGm.delete();
-                            }
+            // Make the wrong lane set a child of the first lane
+            workflow.removeChild(wrongLaneSet);
+            firstLaneGm.getBody().addChild(wrongLaneSet);
+        } else {
+            newContainer.setLayoutData(layoutData);
+        
+            firstLaneGm.setLayoutData(layoutData.height);
+        
+            // Process simple nodes in the old Gm
+            for (GmNodeModel ownedNode : workflow.getChildren(GmBodyHybridContainer.OWNED_NODE)) {
+                GmCompositeNode compositeFor = firstLaneGm.getCompositeFor(getRepresentedMetaclass(ownedNode));
+                if (compositeFor != null) {
+                    workflow.removeChild(ownedNode);
+        
+                    // Avoid duplicated GMs when a process is referenced by several participants
+                    for (GmModel existingGm : compositeFor.getDiagram().getAllGMRepresenting(ownedNode.getRepresentedRef())) {
+                        if (!Objects.equals(ownedNode, existingGm)) {
+                            existingGm.delete();
                         }
-        
-                        compositeFor.addChild(ownedNode);
-                    } else {
-                        // There is probably no diagram for this process, delete the gm
-                        ownedNode.delete();
                     }
+        
+                    compositeFor.addChild(ownedNode);
+                } else {
+                    // There is probably no diagram for this process, delete the gm
+                    ownedNode.delete();
                 }
             }
-        
-            workflow.addChild(newContainer);
         }
+        
+        workflow.addChild(newContainer);
         
     }
 

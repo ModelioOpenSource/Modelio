@@ -90,14 +90,20 @@ public class ElementFormPanel implements IPanelProvider {
     @objid ("1d2a7aa5-a1bb-441b-bccb-fe5c5541367d")
     private static String selectedTab;
 
+    @objid ("6c2065a7-5c23-410b-a74a-7f6b15fee110")
+    private Listener formUpdater;
+
+    @objid ("3d7df8cf-0caa-4dbd-9151-72bc1c212e8f")
+    private ScrolledForm scrolledForm;
+
+    @objid ("3f3bad2c-ac06-45ea-b3ed-a36f29e59809")
+    private FormToolkit toolkit;
+
     @objid ("f912a341-4b8e-4b5d-b17f-8e7bb86ae75a")
     private final IFieldFactory fieldFactory;
 
     @objid ("b80ae420-c5a6-446a-bf19-9426d935ab7f")
     private final List<IField> fields = new ArrayList<>();
-
-    @objid ("3dc1a9ec-108b-4ac2-a6d4-4f462dda024f")
-    private Listener formUpdater;
 
     @objid ("171c2067-7fe0-410b-99e1-ebc851e31ac7")
     private ModelElement input;
@@ -110,12 +116,6 @@ public class ElementFormPanel implements IPanelProvider {
 
     @objid ("5c531f53-f600-43f1-9241-3d3c2df363ed")
     private final List<IPanelListener> panelListeners = new CopyOnWriteArrayList<>();
-
-    @objid ("a513611b-0dc1-4124-80f1-dbaaaed64463")
-    private ScrolledForm scrolledForm;
-
-    @objid ("f9be1718-9673-44c2-83f4-e77fc289dc76")
-    private FormToolkit toolkit;
 
     /**
      * Build a new instance of {@link ElementFormPanel}.
@@ -563,6 +563,17 @@ public class ElementFormPanel implements IPanelProvider {
                 createFormFields(this.scrolledForm.getBody(), formInput);
         
                 this.scrolledForm.reflow(true);
+            }
+        
+        
+            if(formInput.getStatus().isCmsReadOnly()) {
+                for(IField field : this.fields) {
+                    field.setEditable(false);
+                }
+            }else {
+                for(IField field : this.fields) {
+                    field.setEditable(true);
+                }
             }
         
             // Refresh fields

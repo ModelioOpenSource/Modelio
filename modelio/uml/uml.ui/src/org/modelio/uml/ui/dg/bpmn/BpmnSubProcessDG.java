@@ -50,10 +50,12 @@ public class BpmnSubProcessDG extends PortContainerDG {
     protected List<IDiagramNode> getPrimaryChildrenNodes() {
         GmBpmnSubProcessPrimaryNode mainNode = (GmBpmnSubProcessPrimaryNode) getPrimaryNode();
         GmCompositeNode innerZone = mainNode.getInnerZone();
-        for (GmNodeModel visibleChild : innerZone.getVisibleChildren()) {
-            if (visibleChild instanceof GmWorkflow) {
-                GmWorkflow contentsArea = (GmWorkflow) visibleChild;
-                return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, contentsArea.getChildren());
+        if (innerZone != null) {
+            for (GmNodeModel visibleChild : innerZone.getVisibleChildren()) {
+                if (visibleChild instanceof GmWorkflow) {
+                    GmWorkflow contentsArea = (GmWorkflow) visibleChild;
+                    return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, contentsArea.getChildren());
+                }
             }
         }
         return Collections.emptyList();

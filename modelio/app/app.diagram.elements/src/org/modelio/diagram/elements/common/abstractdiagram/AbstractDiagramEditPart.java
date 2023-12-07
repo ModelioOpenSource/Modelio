@@ -22,6 +22,7 @@ package org.modelio.diagram.elements.common.abstractdiagram;
 import java.beans.PropertyChangeEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -45,6 +46,7 @@ import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
@@ -68,6 +70,11 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.api.modelio.Modelio;
+import org.modelio.api.modelio.diagram.IDiagramHandle;
+import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder.ImageTransformationData;
 import org.modelio.diagram.elements.common.linktovoid.LinkToVoidConstants;
 import org.modelio.diagram.elements.common.linktovoid.LinkToVoidFinishCreationEditPolicy;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -179,7 +186,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     @objid ("2d3b2d14-b845-408c-a6eb-62997a2c36a7")
     @Override
     public DragTracker getDragTracker(Request request) {
-        return new MarqueeDragTracker(); 
+        return new MarqueeDragTracker();
     }
 
     @objid ("7e05eaf8-1dec-11e2-8cad-001ec947c8cc")
@@ -216,7 +223,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
         case GmAbstractDiagram.PROP_UIDATA_VERSION:
-            updatePreviewData();
+            updateVisualisationData();
             break;
         case GmAbstractDiagram.PROP_DIAGRAM_LOAD_END:
             // When the diagram reloads, make sure there are no pending load actions
@@ -334,10 +341,10 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     @objid ("af05e012-1761-4576-8a5b-8bd9a32c21a4")
     @Override
     protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
-        if(false && layoutPolicy instanceof ConstrainedLayoutEditPolicy)
+        if (false && layoutPolicy instanceof ConstrainedLayoutEditPolicy)
             return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy);
         else
-            return  layoutPolicy;
+            return layoutPolicy;
         
     }
 
@@ -528,41 +535,192 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         
     }
 
+    @objid ("40e63cec-8b61-4578-9843-34c96e441998")
+    private void updateVisualisationData() {
+        try {
+            getFigure().getUpdateManager().performUpdate();
+            ImageTransformationData transfo = updatePreviewData();
+            if (transfo != null) {
+                updateJsAttribute(transfo);
+            }
+        } catch (RuntimeException | LinkageError e) {
+            DiagramElements.LOG.error("Failed updating %s preview datas: %s", getModel().getRelatedElement(), e);
+            DiagramElements.LOG.warning(e);
+        }
+        
+    }
+
     /**
-     * Update the 'previewData' for the diagram. Currently preview data is a UUBase64Compressor compressed string of the PNG image of the diagram.
+     * Update the 'previewData' for the diagram.
+     * <p>
+     * Currently preview data is a UUBase64Compressor compressed string of the PNG image of the diagram.
+     * @return Since 5.4.0, also return a data representing global translations data .
      */
     @objid ("31e74d9f-a04e-4fe8-bb64-7b9653b19bfb")
-    private void updatePreviewData() {
+    private ImageTransformationData updatePreviewData() {
         ImageBuilder ib = new ImageBuilder();
         Image img = ib.makeImage(getRoot());
-        if (img != null) {
-            try {
-                ImageLoader imgLoader = new ImageLoader();
-                imgLoader.data = new ImageData[] { img.getImageData() };
+        if (img == null)
+            return null;
         
-                try (ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length)) {
+        try {
+            ImageLoader imgLoader = new ImageLoader();
+            imgLoader.data = new ImageData[] { img.getImageData() };
+        
+            StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
+        
+            try (ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length)) {
                 imgLoader.save(bos, SWT.IMAGE_PNG);
         
-                StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
                 pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
-        
-                bos.flush();
-                bos.close();
-        
-                AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
-                if (diagram != null) {
-                    diagram.setPreviewData(pngPreviewString.toString());
-                }
-        
-                img.dispose();
-                }
-            } catch (IOException e) {
-                DiagramElements.LOG.warning("Failed saving %s preview: %s", getModel().getRelatedElement(), FileUtils.getLocalizedMessage(e));
-                DiagramElements.LOG.warning(e);
             }
+        
+            AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
+            if (diagram != null) {
+                diagram.setPreviewData(pngPreviewString.toString());
+            }
+        
+            return ib.getImageTransformationData();
+        
+        } catch (IOException e) {
+            // Should not happen
+            throw new UncheckedIOException("Failed saving preview image: "+FileUtils.getLocalizedMessage(e), e);
+        } finally {
+            img.dispose();
+        }
+        
+    }
+
+    /**
+     * Update the 'JsAttribute(' for the diagram. Currently JsAttribute is a serialisaiton of position of .
+     */
+    @objid ("f36c4562-d91d-42c8-9a3b-b0913e8841ff")
+    private void updateJsAttribute(ImageTransformationData transfo) {
+        IGmDiagram gmModel = (IGmDiagram) getModel();
+        AbstractDiagram diagram = gmModel.getRelatedElement();
+        
+        IFigure diagramFigure = getFigure();
+        Rectangle diagramRelative = diagramFigure.getBounds();
+        Rectangle diagramAbsolute = diagramRelative.getCopy();
+        this.figure.translateToAbsolute(diagramAbsolute);
+        
+        float zoomFactor = (float) diagramAbsolute.width / diagramRelative.width;
+        Point absoluteTranslation = new Point(
+                (int)((diagramAbsolute.x / zoomFactor) - diagramRelative.x),
+                (int)((diagramAbsolute.y / zoomFactor) - diagramRelative.y));
+        
+        try (IDiagramHandle handle = Modelio.getInstance().getDiagramService().getDiagramHandle(diagram)) {
+            StringBuilder builder = new StringBuilder();
+            for (IDiagramNode rootNode : handle.getDiagramNode().getNodes()) {
+                for (IDiagramNode node : findAllNodes(rootNode, new ArrayList<IDiagramNode>(100))) {
+        
+                    serialiseDiagramNode(absoluteTranslation, zoomFactor, transfo, builder, node);
+        
+                    for (IDiagramLink link : node.getFromLinks()) {
+                        if (link.getElement() != null) {
+                            List<Point> points = link.getPath().getPoints();
+                            for (int i = 0; i < points.size() - 1; i++) {
+                                serialiseDiagramLink(absoluteTranslation, zoomFactor, transfo, builder, link, points.get(i), points.get(i + 1));
+                            }
+                        }
+                    }
+                }
+            }
+            diagram.setJsStructure(builder.toString());
         
         }
         
+    }
+
+    @objid ("d2f16287-b1bd-4991-8685-f8a361a52549")
+    private void serialiseDiagramLink(Point absoluteTranslation, float zoomFactor, ImageTransformationData transfo, StringBuilder builder, IDiagramLink link, Point first, Point second) {
+        int xmid = (first.x  + second.x ) / 2  ;
+        int ymid = (first.y + second.y ) / 2  ;
+        if(builder.length() != 0) {
+            builder.append("|");
+        }
+        builder.append(link.getElement().getUuid());
+        builder.append(",");
+        builder.append(link.getElement().getMClass().getQualifiedName());
+        builder.append(",");
+        builder.append((int)(((xmid / zoomFactor )  - absoluteTranslation.x + transfo.getDeltaX())* transfo.getScale() ));
+        builder.append(",");
+        builder.append((int)(((ymid / zoomFactor ) - absoluteTranslation.y + transfo.getDeltaY()) * transfo.getScale() ));
+        builder.append(",");
+        builder.append(0);
+        builder.append(",");
+        builder.append(0);
+        
+    }
+
+    @objid ("b637b041-cf97-455d-9148-32f86d249973")
+    private void serialiseDiagramNode(Point absoluteTranslation, float zoomFactor, ImageTransformationData transfo, StringBuilder builder, IDiagramNode node) {
+        if(builder.length() != 0) {
+            builder.append("|");
+        }
+        builder.append(node.getElement().getUuid());
+        builder.append(",");
+        builder.append(node.getElement().getMClass().getQualifiedName());
+        builder.append(",");
+        builder.append((int)(((node.getBounds().x /  zoomFactor )  - absoluteTranslation.x + transfo.getDeltaX()   ) * transfo.getScale() ));
+        builder.append(",");
+        builder.append((int)(((node.getBounds().y / zoomFactor) - absoluteTranslation.y  + transfo.getDeltaY() ) * transfo.getScale() ));
+        builder.append(",");
+        builder.append((int)(node.getBounds().width * transfo.getScale() / zoomFactor));
+        builder.append(",");
+        builder.append((int)(node.getBounds().height * transfo.getScale() / zoomFactor));
+        
+    }
+
+    //    @objid ("d2f16287-b1bd-4991-8685-f8a361a52549")
+    //    private void serialiseDiagramLink(ImageTransformationData transfo, StringBuilder builder, IDiagramLink link, Point first, Point second) {
+    //        int xmid = (first.x + second.x) / 2  ;
+    //           int ymid = (first.y + second.y) / 2 ;
+    //           if(builder.length() != 0) {
+    //               builder.append("|");
+    //           }
+    //           builder.append(link.getElement().getUuid());
+    //           builder.append(",");
+    //           builder.append(link.getElement().getMClass().getQualifiedName());
+    //           builder.append(",");
+    //           builder.append((int)((xmid + transfo.getDeltaX() /*+ transfo.getAbsoluteBounds().x*/) * transfo.getScale()));
+    //           builder.append(",");
+    //           builder.append((int)((ymid + transfo.getDeltaY() /*+ transfo.getAbsoluteBounds().y*/) * transfo.getScale()));
+    //           builder.append(",");
+    //           builder.append(0);
+    //           builder.append(",");
+    //           builder.append(0);
+    //
+    //    }
+    //
+    //    @objid ("b637b041-cf97-455d-9148-32f86d249973")
+    //    private void serialiseDiagramNode(ImageTransformationData transfo, StringBuilder builder, IDiagramNode node) {
+    //        if(builder.length() != 0) {
+    //            builder.append("|");
+    //        }
+    //        builder.append(node.getElement().getUuid());
+    //        builder.append(",");
+    //        builder.append(node.getElement().getMClass().getQualifiedName());
+    //        builder.append(",");
+    //        builder.append((int)((node.getBounds().x + transfo.getDeltaX()  + transfo.getAbsoluteBounds().x) * transfo.getScale()));
+    //        builder.append(",");
+    //        builder.append((int)((node.getBounds().y + transfo.getDeltaY() + transfo.getAbsoluteBounds().y) * transfo.getScale()));
+    //        builder.append(",");
+    //        builder.append((int)(node.getBounds().width  * transfo.getScale()));
+    //        builder.append(",");
+    //        builder.append((int)(node.getBounds().height  * transfo.getScale()));
+    //
+    //    }
+    @objid ("454278ca-ceba-46ac-9ced-4b8684ef8287")
+    private List<IDiagramNode> findAllNodes(IDiagramNode node, List<IDiagramNode> nodes) {
+        if (node.getElement() != null) {
+            nodes.add(node);
+        }
+        
+        for (IDiagramNode nchild : node.getNodes()) {
+            findAllNodes(nchild, nodes);
+        }
+        return nodes;
     }
 
     /**
@@ -598,10 +756,10 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
 
     @objid ("1a51575e-54c9-474b-bf54-6bd815cfc4bb")
     protected static class PageSizeParser {
-        @objid ("5f0d4879-1973-4525-9088-aaca0d535ca2")
+        @objid ("a772f360-07f2-4702-bb7b-3295d116ddee")
         private static final Pattern NOT_A_NUMBER = Pattern.compile("[^0-9\\.]");
 
-        @objid ("ba08ef2e-7e82-4e11-be5b-9cb6c43eea40")
+        @objid ("1034bc55-9e20-4dcd-88a1-15473bfb11c8")
         private static final Pattern PAGE_FORMAT = Pattern.compile("(\\d+\\.?\\d*.*)(x)(\\d+\\.?\\d*.*)", Pattern.CASE_INSENSITIVE);
 
         /**

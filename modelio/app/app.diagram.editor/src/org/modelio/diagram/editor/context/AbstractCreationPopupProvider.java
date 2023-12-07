@@ -46,6 +46,7 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuSeparator;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
+import org.modelio.diagram.elements.common.groupitem.GroupItemEditPart;
 import org.modelio.gproject.core.IGProject;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -69,7 +70,7 @@ import org.osgi.framework.Bundle;
  */
 @objid ("768ee972-0927-4756-8e70-8a144f934e1b")
 public abstract class AbstractCreationPopupProvider {
-    @objid ("2a793aa6-0c31-4bfc-a5f3-b59dcb0b480f")
+    @objid ("cc7eed03-0f1c-4067-b46d-9fca8c5a70ac")
     @Inject
     protected MApplication application;
 
@@ -80,13 +81,13 @@ public abstract class AbstractCreationPopupProvider {
      * </p>
      * .
      */
-    @objid ("ee5518d5-91cb-451f-923e-78230faf7ce8")
+    @objid ("97c62216-4eb2-406b-b5e2-9fdf3000a5c3")
     private Map<String, List<CreationPopupEntryDescriptor>> popupEntries = null;
 
     /**
      * A local MCommand cache, to minimize navigation in the e4 model. Most of the time, creation popup entries use "org.modelio.app.ui.command.create.element".
      */
-    @objid ("b073cb7c-ade6-43d1-8846-87fd7ad637d0")
+    @objid ("9892861f-d1d0-48ec-8b49-fce583b7c065")
     private final Map<String, MCommand> commandCache = new HashMap<>();
 
     /**
@@ -121,38 +122,44 @@ public abstract class AbstractCreationPopupProvider {
     @AboutToShow
     public void aboutToShow(final List<MMenuElement> items) {
         // Initialize all possible contents if needed.
-        if (this.popupEntries == null) {
-            loadPopupEntries();
-        }
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        Object firstElement = null;
+        if (selection != null) {
+            firstElement = selection.getFirstElement(); 
+        }  
+        if (!(firstElement instanceof GroupItemEditPart)) {
+            if (this.popupEntries == null) {
+                loadPopupEntries();
+            }
+            final String contributorId = getContributorId(getBundle());
+            // Add the creation menu with selection-compatible commands
+            final List<CreationPopupEntryDescriptor> entries = getPopupEntries(getSelectedElement());
+            if (!entries.isEmpty()) {
+                // create a new handled item
+                final MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
+                elementCreationMenu.setLabel(getMenuLabel());
+                elementCreationMenu.setIconURI(getMenuIconPath());
         
-        final String contributorId = getContributorId(getBundle());
-        // Add the creation menu with selection-compatible commands
-        final List<CreationPopupEntryDescriptor> entries = getPopupEntries(getSelectedElement());
-        if (!entries.isEmpty()) {
-            // create a new handled item
-            final MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
-            elementCreationMenu.setLabel(getMenuLabel());
-            elementCreationMenu.setIconURI(getMenuIconPath());
+                // make the menu visible
+                elementCreationMenu.setEnabled(true);
+                elementCreationMenu.setToBeRendered(true);
+                elementCreationMenu.setVisible(true);
         
-            // make the menu visible
-            elementCreationMenu.setEnabled(true);
-            elementCreationMenu.setToBeRendered(true);
-            elementCreationMenu.setVisible(true);
+                // bound the menu to the contributing plugin
+                elementCreationMenu.setContributorURI(contributorId);
         
-            // bound the menu to the contributing plugin
-            elementCreationMenu.setContributorURI(contributorId);
+                // add creation items
+                elementCreationMenu.getChildren().addAll(createMenuItems(entries, contributorId));
         
-            // add creation items
-            elementCreationMenu.getChildren().addAll(createMenuItems(entries, contributorId));
+                // bind the new menu to the popup
+                items.add(elementCreationMenu);
         
-            // bind the new menu to the popup
-            items.add(elementCreationMenu);
-        
-            // Add a separator
-            final MMenuSeparator separator = MMenuFactory.INSTANCE.createMenuSeparator();
-            separator.setContributorURI(contributorId);
-            items.add(separator);
-        }
+                // Add a separator
+                final MMenuSeparator separator = MMenuFactory.INSTANCE.createMenuSeparator();
+                separator.setContributorURI(contributorId);
+                items.add(separator);
+            }
+          }
         
     }
 

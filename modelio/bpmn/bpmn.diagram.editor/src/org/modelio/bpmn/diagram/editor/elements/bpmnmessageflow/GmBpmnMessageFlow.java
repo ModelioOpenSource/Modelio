@@ -104,12 +104,16 @@ public class GmBpmnMessageFlow extends GmLink {
     @objid ("616e6fd9-55b6-11e2-877f-002564c97630")
     @Override
     public BpmnBaseElement getFromElement() {
+        if (this.element==null)
+            return null;
         return this.element.getSourceRef();
     }
 
     @objid ("616e6fe0-55b6-11e2-877f-002564c97630")
     @Override
     public BpmnBaseElement getToElement() {
+        if (this.element==null)
+            return null;
         return this.element.getTargetRef();
     }
 

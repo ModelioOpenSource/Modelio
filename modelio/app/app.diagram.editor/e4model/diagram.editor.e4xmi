@@ -49,6 +49,8 @@
     <elements xsi:type="commands:Command" xmi:id="_Fx4xUFHDEeyrisBUaadIPA" elementId="org.modelio.diagram.editor.deleteindiagram" commandName="%DeleteInDiagram.Name" description="%DeleteInDiagram.Description"/>
     <elements xsi:type="commands:Command" xmi:id="_k7yOcFH4EeyrisBUaadIPA" elementId="org.modelio.diagram.editor.deleteinmodel" commandName="%DeleteInModel.Name" description="%DeleteInModel.Description"/>
     <elements xsi:type="commands:Command" xmi:id="_0DgFYKB6Ee27IZpVA6VVHQ" elementId="org.modelio.diagram.editor.command.SelectSameElementCommand" commandName="%SelectSameElement.Name" description="%SelectSameElement.Description"/>
+    <elements xsi:type="commands:Command" xmi:id="_KClF0A6aEe6nXf9krwEUQg" elementId="org.modelio.diagram.editor.command.UnmaskOutLinks" commandName="%UnmaskOutLinks.label" description="%UnmaskOutLinks.tooltip"/>
+    <elements xsi:type="commands:Command" xmi:id="_xDWl4A9OEe6mQLnhcsPn2g" elementId="org.modelio.diagram.editor.command.UnmaskInLinks" commandName="%UnmaskInLinks.label" description="%UnmaskInLinks.tooltip"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PJeFAGF_EeKZr6syzOEatQ" featurename="handlers" parentElementId="org.modelio.app.application" positionInList="">
     <elements xsi:type="commands:Handler" xmi:id="_fCCG4GGEEeKZr6syzOEatQ" elementId="org.modelio.diagram.editor.handler.ZoomInHandler" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.zoom.ZoomInHandler" command="_d0xgAGF4EeKZr6syzOEatQ"/>
@@ -93,6 +95,8 @@
     <elements xsi:type="commands:Handler" xmi:id="_bnWXwMnGEeuPAIIekqN8LA" elementId="org.modelio.diagram.editor.handler.ResetLink" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.link.ResetLinkHandler" command="_S2vIoMnEEeuPAIIekqN8LA"/>
     <elements xsi:type="commands:Handler" xmi:id="_CwWikMqCEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.handler.FullResetLink" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.link.FullResetLinkHandler" command="_9Zo8kMqBEeu67MNW4rjdAw"/>
     <elements xsi:type="commands:Handler" xmi:id="_sbfLIKB6Ee27IZpVA6VVHQ" elementId="org.modelio.diagram.editor.handler.SelectSameElementHandler" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.SelectSameElementHandler" command="_0DgFYKB6Ee27IZpVA6VVHQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_-LwBwA6ZEe6nXf9krwEUQg" elementId="org.modelio.diagram.editor.handler.UnmaskOutLinksHandler" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.unmask.UnmaskOutLinksHandler" command="_KClF0A6aEe6nXf9krwEUQg"/>
+    <elements xsi:type="commands:Handler" xmi:id="_2NqHkA9OEe6mQLnhcsPn2g" elementId="org.modelio.diagram.editor.handler.UnmaskInLinksHandler" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.handlers.unmask.UnmaskInLinksHandler" command="_xDWl4A9OEe6mQLnhcsPn2g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_LlHiIFE9EeOxPvmodYTYgw" featurename="menuContributions" parentElementId="org.modelio.app.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_Q_D68FFAEeOxPvmodYTYgw" elementId="diagram.editor.menucontribution.layoutmenucontent" parentId="org.modelio.diagram.editor.layoutmenu">

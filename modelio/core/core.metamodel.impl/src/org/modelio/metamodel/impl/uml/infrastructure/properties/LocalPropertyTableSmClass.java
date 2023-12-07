@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -44,49 +44,49 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("90df93f3-3d77-459d-8522-3bcaa78554db")
 public class LocalPropertyTableSmClass extends PropertyTableSmClass {
-    @objid ("b3a0b9d4-e15a-4803-8ec1-c62f93e1e0e0")
+    @objid ("e562402b-0056-47fa-8caf-0fee8fb7afed")
     private SmDependency localAnnotedDep;
 
-    @objid ("a9ad7735-effd-4224-ba13-4ea8dd1ab7d1")
+    @objid ("210eef03-4aef-4d95-b99a-3a58133a0477")
     public  LocalPropertyTableSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("749b9f02-d1c1-4e48-ba49-72456a6e6a2d")
+    @objid ("acd09a7e-eca8-4d1c-888b-1112c6981457")
     @Override
     public String getName() {
         return "LocalPropertyTable";
         
     }
 
-    @objid ("ef2d5f09-193a-44b7-8626-032448e2b1d7")
+    @objid ("09655d5a-1364-4c92-8108-c69613778a37")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("60906296-46a1-4211-a28f-24d8bb9b2071")
+    @objid ("ea4f2ab8-e4ed-4a69-8180-29457fa57834")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return LocalPropertyTable.class;
         
     }
 
-    @objid ("35670bd1-76b1-4eb7-b024-bbfcc4068beb")
+    @objid ("54aaf3b7-33bb-4ec8-b9b6-e81064d24605")
     @Override
     public boolean isCmsNode() {
         return true;
         
     }
 
-    @objid ("ab4afd18-38af-4fa5-94e8-383fbf81e4d4")
+    @objid ("8271b46c-227f-432e-8e3b-53622031c623")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("e12fd411-d83a-4240-910e-836a1805b701")
+    @objid ("138ad095-f999-47fd-8ee1-518cf40ce21e")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(PropertyTable.MQNAME);
@@ -103,7 +103,7 @@ public class LocalPropertyTableSmClass extends PropertyTableSmClass {
         
     }
 
-    @objid ("ae47ca21-1b5a-4348-990b-959e5fea10c1")
+    @objid ("c19f7e2d-8915-402f-8fdb-c3d1bc204071")
     public SmDependency getLocalAnnotedDep() {
         if (this.localAnnotedDep == null) {
         	this.localAnnotedDep = this.getDependencyDef("LocalAnnoted");
@@ -111,7 +111,7 @@ public class LocalPropertyTableSmClass extends PropertyTableSmClass {
         return this.localAnnotedDep;
     }
 
-    @objid ("abced0e9-31ad-466d-8151-f20bc0dcc490")
+    @objid ("becd4464-b754-4194-81b9-54b0a170d9a4")
     @Override
     public boolean areOrphansAllowed() {
         return true;
@@ -120,21 +120,21 @@ public class LocalPropertyTableSmClass extends PropertyTableSmClass {
 
     @objid ("bd28cc78-75ed-47ad-87c8-8daa92ad49ee")
     private static class LocalPropertyTableObjectFactory implements ISmObjectFactory {
-        @objid ("109f3809-ee77-49ce-97fb-731b4eee7968")
+        @objid ("304ceb96-0509-4535-971c-8be6dc790add")
         private LocalPropertyTableSmClass smClass;
 
-        @objid ("1ed69e0f-8370-41d9-a3e4-ad1b8388c577")
+        @objid ("810158f8-9834-494b-ad27-4256cf3207e7")
         public  LocalPropertyTableObjectFactory(LocalPropertyTableSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("19718626-0c54-4b7a-8f20-079efba8d459")
+        @objid ("76b482a6-ad45-43b3-a616-f95455847c41")
         @Override
         public ISmObjectData createData() {
             return new LocalPropertyTableData(this.smClass);
         }
 
-        @objid ("06c2e0a8-c446-4666-b4fe-fbeefa17bd08")
+        @objid ("be8d772a-2c02-4e3c-a457-85d24c308ebd")
         @Override
         public SmObjectImpl createImpl() {
             return new LocalPropertyTableImpl();
@@ -144,22 +144,22 @@ public class LocalPropertyTableSmClass extends PropertyTableSmClass {
 
     @objid ("0d5ff448-7ff2-49a0-b5c7-979a9f7c07a1")
     public static class LocalAnnotedSmDependency extends SmSingleDependency {
-        @objid ("f27c2baf-74ab-4f06-b931-151f304ade38")
+        @objid ("46550970-296a-4333-ba0b-122980213624")
         private SmDependency symetricDep;
 
-        @objid ("7cf3b61b-d1a3-4c1c-bf53-2b303d2237bb")
+        @objid ("83424b6b-5267-4815-941c-f8e04d174de3")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((LocalPropertyTableData) data).mLocalAnnoted;
         }
 
-        @objid ("d96b5a67-b6d2-4e34-b3c0-c88a0b6ee957")
+        @objid ("f4fcc900-b373-4ba6-9776-7cf4166e7a4a")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((LocalPropertyTableData) data).mLocalAnnoted = value;
         }
 
-        @objid ("9f03b5a6-1525-4613-a0af-291a71a71f3f")
+        @objid ("3c66349e-1098-4c35-9881-43e6349a63bd")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

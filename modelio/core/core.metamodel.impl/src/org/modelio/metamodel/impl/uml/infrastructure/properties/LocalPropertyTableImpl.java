@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -42,20 +42,20 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("006cfe26-ec87-1098-b22e-001ec947cd2a")
 public class LocalPropertyTableImpl extends PropertyTableImpl implements LocalPropertyTable {
-    @objid ("0404e9c5-6419-4afc-9af5-2429c5a98475")
+    @objid ("b63cc280-956e-4c7d-a68b-3a7a1f8484e8")
     @Override
     public ModelElement getLocalAnnoted() {
         Object obj = getDepVal(((LocalPropertyTableSmClass)getClassOf()).getLocalAnnotedDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("6ac986b3-c5eb-4430-b453-93b8da479a05")
+    @objid ("2ef3399c-c23d-488f-9932-fd130043802b")
     @Override
     public void setLocalAnnoted(ModelElement value) {
         appendDepVal(((LocalPropertyTableSmClass)getClassOf()).getLocalAnnotedDep(), (SmObjectImpl)value);
     }
 
-    @objid ("f3531e63-4356-4da5-92db-a687ca55ffad")
+    @objid ("29c4d441-bd2d-496a-9569-b174116ca05c")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -63,7 +63,7 @@ public class LocalPropertyTableImpl extends PropertyTableImpl implements LocalPr
         return super.getCompositionOwner();
     }
 
-    @objid ("082670e7-037a-49ab-9558-00933ac9f723")
+    @objid ("2f2616b0-d4db-48f2-93e2-bbee255d0c79")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -73,7 +73,7 @@ public class LocalPropertyTableImpl extends PropertyTableImpl implements LocalPr
         return super.getCompositionRelation();
     }
 
-    @objid ("ba6cb391-1520-4489-a706-3ce1fb76a76a")
+    @objid ("8a307c48-961d-4ad8-b0eb-f40d52286b64")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitLocalPropertyTable(this);

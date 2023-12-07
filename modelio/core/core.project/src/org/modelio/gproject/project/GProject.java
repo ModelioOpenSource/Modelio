@@ -214,14 +214,20 @@ public class GProject extends AbstractGProject {
     @objid ("07defca0-e01b-4f90-93a6-5c218f2f9254")
     @Override
     public void close() {
+        final NullProgress aProgress = new NullProgress();
+        
+        getState().sendClosing(aProgress);
+        
         // Unmount all parts
-        unmountParts(new NullProgress());
+        unmountParts(aProgress);
         
         // Close the session
         super.close();
         
         // Release the lock
         releaseLock();
+        
+        getState().sendClosed(aProgress);
         
     }
 
@@ -719,9 +725,9 @@ public class GProject extends AbstractGProject {
     }
 
 static {
-                    // Initialize MTools
-                    MTools.initializeMTools(new ModelTool(), new AuthTool());
-                }
+                            // Initialize MTools
+                            MTools.initializeMTools(new ModelTool(), new AuthTool());
+                        }
     
     // end class GProjectBuilder
     @objid ("75c225b9-2644-4398-9fbc-cfea6944b556")

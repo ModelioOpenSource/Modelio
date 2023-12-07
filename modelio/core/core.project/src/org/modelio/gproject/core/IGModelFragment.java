@@ -25,6 +25,7 @@ import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.core.IGPart.GPartException;
 import org.modelio.gproject.data.project.GProjectPartDescriptor;
+import org.modelio.gproject.data.project.GPropertyConstants;
 import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.gproject.parts.IGModelFragmentMigrator;
 import org.modelio.gproject.parts.fragment.AbstractGModelFragment;
@@ -45,14 +46,6 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
  */
 @objid ("f2766b2b-7300-497a-bdd4-677329e46acc")
 public interface IGModelFragment extends IGPart {
-    /**
-     * Property that tells the fragment is read only.
-     * <p>
-     * This property must be supported by all fragment implementations.
-     */
-    @objid ("b9b04627-3f94-483c-878f-a8fc496065a3")
-    public static final String PROP_READ_ONLY = "readonly";
-
     /**
      * @return the model repository
      */
@@ -131,5 +124,13 @@ public interface IGModelFragment extends IGPart {
      */
     @objid ("60c7505e-22c0-46c4-81a9-9896e352748a")
     Path getDataDirectory();
+
+    /**
+     * Get the fragment access rights.
+     * @return the fragment access rights.
+     * @since 5.5 - 29/08/2023
+     */
+    @objid ("b8a72a5d-1a74-4980-bdd6-55f8050a2090")
+    IGAccessRights getAccessRights();
 }
 

@@ -145,5 +145,21 @@ public interface ICoreSession {
      */
     @objid ("e983a3aa-4d49-4a42-bdb9-f07052488b1b")
     boolean isValid();
+
+    /**
+     * Add a session life cycle listener.
+     * @param listener a session listener.
+     * @since 5.4.0
+     */
+    @objid ("78b1a65a-8c30-4c2d-9fc3-bc389e62a89e")
+    void addSessionListener(ICoreSessionListener listener);
+
+    /**
+     * Add a session life cycle listener.
+     * @param listener a session listener.
+     * @since 5.4.0
+     */
+    @objid ("12164b0f-95fb-457e-aa81-a5303b0ba9e7")
+    void removeSessionListener(ICoreSessionListener listener);
 }
 

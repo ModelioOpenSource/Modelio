@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -69,98 +69,98 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("49737d4a-186f-4704-b4b9-1dbaae0feb67")
+    @objid ("b5fbcb21-fa60-45cc-bee7-f5e8c724edb3")
     @Override
     public String getImage() {
         return (String) getAttVal(((StereotypeSmClass)getClassOf()).getImageAtt());
     }
 
-    @objid ("13091bd3-e563-497b-a21a-ac1f849f0e3d")
+    @objid ("d1df4643-2036-471a-b2a7-1bcde43b44d6")
     @Override
     public void setImage(String value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getImageAtt(), value);
     }
 
-    @objid ("7030cb61-081c-4f69-8454-fe53164a2b71")
+    @objid ("ab6f783d-cda3-499b-b652-5fb0bd957673")
     @Override
     public String getIcon() {
         return (String) getAttVal(((StereotypeSmClass)getClassOf()).getIconAtt());
     }
 
-    @objid ("aff9acb8-af88-4e09-b647-02be908c9966")
+    @objid ("25e32110-76ef-4646-b864-e973620702ce")
     @Override
     public void setIcon(String value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getIconAtt(), value);
     }
 
-    @objid ("afa59bfd-f1c4-4e78-90ba-0613b4a7632d")
+    @objid ("54223952-0d34-4239-9f2e-f03b2def1016")
     @Override
     public boolean isIsHidden() {
         return (Boolean) getAttVal(((StereotypeSmClass)getClassOf()).getIsHiddenAtt());
     }
 
-    @objid ("94d785f1-a8d8-4991-a122-3a0572832ccd")
+    @objid ("da0bd0ce-1eb5-42a2-8762-10b14e699945")
     @Override
     public void setIsHidden(boolean value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getIsHiddenAtt(), value);
     }
 
-    @objid ("6cb6b196-d057-4ea6-9a64-85ddbd4d87f5")
+    @objid ("28a50b90-74a8-4e9b-8b49-cf1ed5bc545e")
     @Override
     public boolean isIsAbstract() {
         return (Boolean) getAttVal(((StereotypeSmClass)getClassOf()).getIsAbstractAtt());
     }
 
-    @objid ("c748555b-131b-40ec-8cfd-63f63b92a0e9")
+    @objid ("5fd84bee-55d6-4767-84db-e4e7254ab3d3")
     @Override
     public void setIsAbstract(boolean value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getIsAbstractAtt(), value);
     }
 
-    @objid ("dfc3f95a-a8ce-416c-854e-53615654d63c")
+    @objid ("5b1714c9-ccb5-4165-ba09-fdee938050ab")
     @Override
     public String getLabelKey() {
         return (String) getAttVal(((StereotypeSmClass)getClassOf()).getLabelKeyAtt());
     }
 
-    @objid ("592e3606-aefe-4286-98d2-fa9e98d7dd86")
+    @objid ("727edf7a-08d5-4915-bbcb-99dd37c7d361")
     @Override
     public void setLabelKey(String value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getLabelKeyAtt(), value);
     }
 
-    @objid ("ba95f71c-df06-41e7-90a9-43a3cce30358")
+    @objid ("92451666-0de1-43e3-83e1-28ae14fff8c7")
     @Override
     public String getBaseClassName() {
         return (String) getAttVal(((StereotypeSmClass)getClassOf()).getBaseClassNameAtt());
     }
 
-    @objid ("111c08e6-163e-4568-9d5a-76835cfda54b")
+    @objid ("0f031ba1-879f-4be5-8ccd-4a62bf7dd27f")
     @Override
     public void setBaseClassName(String value) {
         setAttVal(((StereotypeSmClass)getClassOf()).getBaseClassNameAtt(), value);
     }
 
-    @objid ("e0b88542-1514-4649-be9c-aab3424149f5")
+    @objid ("19de4756-03be-4494-8774-4cb2297912a2")
     @Override
     public PropertyTableDefinition getDefinedTable() {
         Object obj = getDepVal(((StereotypeSmClass)getClassOf()).getDefinedTableDep());
         return (obj instanceof PropertyTableDefinition)? (PropertyTableDefinition)obj : null;
     }
 
-    @objid ("7e864d11-0152-4b50-af0d-2e354c9fd05d")
+    @objid ("4afdebd7-6006-4d4a-9d76-96bc33bdfe38")
     @Override
     public void setDefinedTable(PropertyTableDefinition value) {
         appendDepVal(((StereotypeSmClass)getClassOf()).getDefinedTableDep(), (SmObjectImpl)value);
     }
 
-    @objid ("b8f51e15-aac7-4944-836e-6dddcee5d207")
+    @objid ("adbcc34a-1abc-402d-b5d5-6798c467d3a0")
     @Override
     public EList<ResourceType> getDefinedResourceType() {
         return new SmList<>(this, ((StereotypeSmClass)getClassOf()).getDefinedResourceTypeDep());
     }
 
-    @objid ("1317ab98-b1ad-4278-a860-d3bb6ef679a8")
+    @objid ("ee2983b2-14dc-456d-b1aa-cba8976e3d27")
     @Override
     public <T extends ResourceType> List<T> getDefinedResourceType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -176,39 +176,39 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("4595f7f1-a584-4a8d-9bde-fac8a2f33cfd")
+    @objid ("1685699d-69b8-4af8-b83e-afbff65dc6c2")
     @Override
     public Profile getOwner() {
         Object obj = getDepVal(((StereotypeSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof Profile)? (Profile)obj : null;
     }
 
-    @objid ("3a2fe24c-2beb-47cf-b216-c18e03315a84")
+    @objid ("4fd274ee-ffe6-40fb-9f53-3bca78b674da")
     @Override
     public void setOwner(Profile value) {
         appendDepVal(((StereotypeSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("3c2b86b2-e58e-4506-a5bb-f649a4ac49c6")
+    @objid ("2153a7ef-1b04-4f89-9c00-526326f5ab11")
     @Override
     public Stereotype getParent() {
         Object obj = getDepVal(((StereotypeSmClass)getClassOf()).getParentDep());
         return (obj instanceof Stereotype)? (Stereotype)obj : null;
     }
 
-    @objid ("7466810f-ca8e-46bf-bec5-85a2cfb2a8d0")
+    @objid ("c956a330-bb6a-4266-9d58-4d615e59e5df")
     @Override
     public void setParent(Stereotype value) {
         appendDepVal(((StereotypeSmClass)getClassOf()).getParentDep(), (SmObjectImpl)value);
     }
 
-    @objid ("cd5bad7e-9463-4135-8edf-6c9e3aa06655")
+    @objid ("78c608e6-ff68-4c00-b6c0-02b6e5d726f6")
     @Override
     public EList<TagType> getDefinedTagType() {
         return new SmList<>(this, ((StereotypeSmClass)getClassOf()).getDefinedTagTypeDep());
     }
 
-    @objid ("9be0e5c0-d4a1-44db-ae77-5babfd96b240")
+    @objid ("baca2146-60b9-42f5-85a1-eaff79591039")
     @Override
     public <T extends TagType> List<T> getDefinedTagType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -224,13 +224,13 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("7da0ed8d-61af-479a-8394-4bd8d852ec77")
+    @objid ("fed24107-ae24-4a38-b3d7-5a6a7427ffdd")
     @Override
     public EList<Stereotype> getChild() {
         return new SmList<>(this, ((StereotypeSmClass)getClassOf()).getChildDep());
     }
 
-    @objid ("7f23655f-898d-4a8b-9fb5-242b694f153c")
+    @objid ("e96c5824-bfdc-498a-885e-6afca7a2a05c")
     @Override
     public <T extends Stereotype> List<T> getChild(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -246,13 +246,13 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("8358f2ca-4581-4a0a-92fb-a3cf5acf0685")
+    @objid ("52fa4494-c820-4ff4-a4b5-5e6218e7f360")
     @Override
     public EList<NoteType> getDefinedNoteType() {
         return new SmList<>(this, ((StereotypeSmClass)getClassOf()).getDefinedNoteTypeDep());
     }
 
-    @objid ("124fdd10-8daf-4add-8cca-150b916b7e5a")
+    @objid ("2f3039cb-d454-4d04-90cf-b3e88dc945cd")
     @Override
     public <T extends NoteType> List<T> getDefinedNoteType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -268,13 +268,13 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("947016dd-026b-43f8-a26f-2219d07e3ea2")
+    @objid ("741745a1-c013-46bb-92db-b17533374bd1")
     @Override
     public EList<ModelElement> getExtendedElement() {
         return new SmList<>(this, ((StereotypeSmClass)getClassOf()).getExtendedElementDep());
     }
 
-    @objid ("80e71607-ae11-4d1c-9ca8-bebe7bab3b28")
+    @objid ("764e24b6-12f4-44d7-9cbb-93fe6e8b1742")
     @Override
     public <T extends ModelElement> List<T> getExtendedElement(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -290,7 +290,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         
     }
 
-    @objid ("aa604218-c6c7-49fa-ac1c-b7fdb5d0a79a")
+    @objid ("f4aa21d8-db65-49ea-bd5e-744bef9c587f")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -302,7 +302,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         return super.getCompositionOwner();
     }
 
-    @objid ("0b1d6117-5c77-4d3b-bf24-afa9ee0efe45")
+    @objid ("ef65d1c0-9f17-4e4d-b7e0-4b17b2018edb")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -317,7 +317,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         return super.getCompositionRelation();
     }
 
-    @objid ("b8731d15-2f74-4b14-b400-faf0f6fc8e08")
+    @objid ("9c319780-2b53-472e-91c5-ff9e403665ae")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitStereotype(this);

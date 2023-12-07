@@ -33,6 +33,7 @@ import org.modelio.vcore.model.spi.mm.IMofRepositoryMigrator;
 import org.modelio.vcore.model.spi.mm.IMofRepositoryMigratorProvider;
 import org.modelio.vcore.model.spi.mm.MofMigrationException;
 import org.modelio.vcore.model.spi.mm.NoopMofRepositoryMigrator;
+import org.modelio.vcore.model.spi.mm.NoopMofRepositoryModifyMigration;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptorReader;
@@ -70,8 +71,10 @@ public class InfrastructureMmMigrationProvider implements IMofRepositoryMigrator
         final Version lastInfraMmVersion = new Version(InfrastructureMetamodel.VERSION);
         final Version V3_6 = new Version(2,0,00);
         final Version V3_7 = new Version(2,1,00);
+        final Version V5_4 = new Version(2,1,04);
         
         Version fromVersion = fromMetamodel.getVersion(InfrastructureMetamodel.NAME);
+        Version toVersion = toMetamodel.getVersion(InfrastructureMetamodel.NAME);
         
         if (fromVersion == null) {
             // standard metamodel absent, we are not involved
@@ -82,7 +85,11 @@ public class InfrastructureMmMigrationProvider implements IMofRepositoryMigrator
         } else if (fromVersion.isNewerThan(lastInfraMmVersion)) {
             // Future version: no retro migration at least for the moment
             return null;
-        } else if (fromVersion.isNewerThan(V3_7)) {
+        } else if (toVersion.equals(V5_4)) {
+            return new NoopMofRepositoryModifyMigration(fromMetamodel, fromMetamodel
+                    .copy()
+                    .put(InfrastructureMetamodel.NAME, lastInfraMmVersion));
+        }else if (fromVersion.isNewerThan(V5_4)) {
             if (lastInfraMmVersion.isNewerBuildOf(fromVersion)) {
                 // Build compatible
                 return new NoopMofRepositoryMigrator(fromMetamodel, fromMetamodel

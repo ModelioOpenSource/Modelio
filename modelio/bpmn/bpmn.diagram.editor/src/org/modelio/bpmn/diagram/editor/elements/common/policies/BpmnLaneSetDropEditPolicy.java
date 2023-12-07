@@ -67,27 +67,27 @@ public class BpmnLaneSetDropEditPolicy extends GraphicalEditPolicy {
             if (!(droppedElement instanceof BpmnLane))
                 // Eliminating mixed cases right now.
                 return null;
+        
             // Also eliminating if dropped partition is not a sub partition
             // of host. We check that host is somewhere in the composition
             // stack of dropped partition.
             BpmnLane droppedPartition = (BpmnLane) droppedElement;
             BpmnLane ancestorPartition = droppedPartition.getLaneSet().getParentLane();
             while (ancestorPartition != null) {
-                // If ancestor IS in composition stack, OK, check next
-                // dropped element.
+                // If ancestor IS in composition stack, OK, check next dropped element.
                 if (ancestorPartition.equals(hostElement))
                     break;
-                // else
+        
                 // While we're at it, if there is a "closer" ancestor
                 // already unmasked, do not handle.
                 if (!diagram.getAllGMRepresenting(new MRef(ancestorPartition)).isEmpty())
                     return null;
-                // ancestorPartition = ancestorPartition.getpA;
+        
+                ancestorPartition = ancestorPartition.getLaneSet().getParentLane();
             }
             if (ancestorPartition == null)
-                // Dropped partition is not a sub partition of host, we
-                // cannot
-                // handle this request
+                // Dropped partition is not a sub partition of host,
+                // we cannot handle this request
                 return null;
         
         }

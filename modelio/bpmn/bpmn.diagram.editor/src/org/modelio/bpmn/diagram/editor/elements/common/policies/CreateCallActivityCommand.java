@@ -118,11 +118,11 @@ public class CreateCallActivityCommand extends Command {
             if (effectiveDependency != null) {
                 this.parentElement.mGet(effectiveDependency).add(newElement);
             } else {
-                StringBuilder msg = new StringBuilder();
-                msg.append("Cannot find a composition dependency to attach ");
-                msg.append(newElement.toString());
-                msg.append(" to ");
-                msg.append(this.parentElement.toString());
+                StringBuilder msg = new StringBuilder()
+                .append("Cannot find a composition dependency to attach ")
+                .append(newElement)
+                .append(" to ")
+                .append(this.parentElement);
                 throw new IllegalStateException(msg.toString());
             }
         }
@@ -161,7 +161,12 @@ public class CreateCallActivityCommand extends Command {
         creationRequest.setSize(new Dimension(-1, -1));
         creationRequest.setFactory(gmCreationContext);
         
-        final Command cmd = this.editPart.getTargetEditPart(creationRequest).getCommand(creationRequest);
+        EditPart targetEditPart = this.editPart.getTargetEditPart(creationRequest);
+        if (targetEditPart == null) {
+            throw new IllegalStateException(String.format("%s: No target edit part to unmask %s under %s", getClass().getSimpleName(), el, this.editPart));
+        }
+        
+        final Command cmd = targetEditPart.getCommand(creationRequest);
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }

@@ -386,14 +386,20 @@ public class ModelComponentArchive {
             
             try {
                 // Create a DocumentBuilderFactory
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                dbf.setNamespaceAware(true);
-                dbf.setXIncludeAware(false);
-                // dbf.setSchema(schema);
-                dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, false);
+                // Use the JDK DOM parser, and avoid Xerces parser that don't support security attributes below
+                // see : https://stackoverflow.com/questions/58374278/org-xml-sax-saxnotrecognizedexception-property-http-javax-xml-xmlconstants-p/62404699#62404699
+                DocumentBuilderFactory domFact = DocumentBuilderFactory.newInstance("com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl", ClassLoader.getSystemClassLoader());
+            
+                // XML parsers should not be vulnerable to XXE attacks (java:S2755)
+                domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+                domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+                domFact.setNamespaceAware(true);
+                domFact.setXIncludeAware(false);
+            
+                domFact.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, false); // don't know/remember why 'false' :-/
             
                 // Create a DocumentBuilder
-                DocumentBuilder db = dbf.newDocumentBuilder();
+                DocumentBuilder db = domFact.newDocumentBuilder();
             
                 // Parse
                 // db.setErrorHandler(parserAPIUsage);

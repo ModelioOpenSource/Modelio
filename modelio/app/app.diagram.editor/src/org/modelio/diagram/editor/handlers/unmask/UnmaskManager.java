@@ -60,6 +60,24 @@ public class UnmaskManager {
     private static final int HORIZONTAL_OFFSET = 200;
 
     /**
+     * Unmask All Links
+     * @param links the list of links to unmask
+     * @param viewer the viewer to unmask the elements on.
+     */
+    @objid ("5fbb67f5-2ee0-4d6e-b2f3-069a8cde058b")
+    public void unmaskLinks(EditPartViewer viewer, final GmModel gmModel, List<MObject> toUnmask, boolean isOut) {
+        // Layout all links in a line
+        RelativeRectangle bounds = getBounds(viewer, gmModel);
+        
+        RelativePoint initialPosition = new RelativePoint(
+                bounds.ref,
+                bounds.bounds.x + (isOut ? UnmaskManager.HORIZONTAL_OFFSET : - UnmaskManager.HORIZONTAL_OFFSET) ,
+                bounds.bounds.y + bounds.bounds.height / 2 - UnmaskManager.VERTICAL_OFFSET * ((toUnmask.size() / 2)));
+        layoutVertical(initialPosition, viewer, toUnmask);
+        
+    }
+
+    /**
      * Unmask child generalizations and realizations.<br>
      * The represented element must be at least an NameSpace.
      * @param viewer the viewer to unmask the elements on.

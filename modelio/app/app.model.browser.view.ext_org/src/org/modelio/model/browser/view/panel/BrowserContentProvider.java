@@ -20,7 +20,6 @@
 package org.modelio.model.browser.view.panel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -34,7 +33,6 @@ import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.core.IGProject;
 import org.modelio.gproject.data.project.GProjectPartDescriptor.GProjectPartType;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
-import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.platform.model.ui.swt.labelprovider.IModelContainer;
 import org.modelio.platform.model.ui.swt.labelprovider.LinkContainer;
@@ -62,9 +60,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("001a0cb6-dd16-1fab-b27f-001ec947cd2a")
 public class BrowserContentProvider implements IModelChangeListener, IStatusChangeListener, ITreeContentProvider {
-    @objid ("ff36377b-9fb0-4b83-8951-1fb16435876c")
-    private boolean showProjects = true;
-
     @objid ("eece2eec-d3d3-4fdd-a843-b854fe957d88")
     volatile boolean isEditorActive = false;
 
@@ -173,13 +168,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
             // Delegate parent resolution to the extension that added it
             ITreeContentProvider extension = this.extensions.get(element.getMClass().getOrigin().getName());
             Object owner = extension != null ? extension.getParent(element) : element.getCompositionOwner();
-            if (owner instanceof MObject) {
-                if (!this.showProjects && isProject((MObject) owner)) {
-                    return getParent(owner);
-                } else {
-                    return owner;
-                }
-            } else if (owner != null) {
+            if (owner != null) {
                 return owner;
             } else if (this.openedProject != null) {
                 return this.openedProject.getFragment(element);
@@ -304,16 +293,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         
         for (ITreeContentProvider contentProvider : this.extensions.values()) {
             for (Object root : contentProvider.getChildren(fragment)) {
-                if (root instanceof AbstractProject) {
-                    if (this.showProjects) {
-                        ret.add(root);
-                    } else {
-                        // Take children of those projects...
-                        ret.addAll(Arrays.asList(getChildren(root)));
-                    }
-                } else {
-                    ret.add(root);
-                }
+                ret.add(root);
             }
         }
         return ret;
@@ -322,21 +302,17 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("2795e64c-28ef-43f2-b82a-eea53b2f0694")
     private List<IGModelFragment> getFragments(IGProject project) {
         List<IGModelFragment> fragments = new ArrayList<>();
-        for (IGModelFragment iProjectFragment : project.getParts(IGModelFragment.class)) {
-            if (!isShowModuleFragments()) {
-                // Ignore MDA fragments
-                boolean skip = true;
-                for (MObject root : iProjectFragment.getRoots()) {
-                    if (!(root instanceof ModuleComponent)) {
-                        skip = false;
-                        break;
-                    }
-                }
-                if (skip) {
-                    continue;
-                }
+        for (IGModelFragment fragment : project.getParts(IGModelFragment.class)) {
+            // Ignore invisible model fragments
+            if (!fragment.getAccessRights().isVisible())
+                continue;
+        
+            // Ignore MDA fragments if masked
+            if (!isShowModuleFragments() && fragment.getType()==GProjectPartType.MODULE) {
+                continue;
             }
-            fragments.add(iProjectFragment);
+        
+            fragments.add(fragment);
         }
         Collections.sort(fragments, new FragmentComparator());
         return fragments;
@@ -359,11 +335,12 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     }
 
     /**
-     * @return true if projects are displayed.
+     * @return always true : projects are always displayed.
      */
     @objid ("2bde233e-e49b-4045-89b2-9def9436c902")
+    @Deprecated
     public boolean isShowProjects() {
-        return this.showProjects;
+        return true;
     }
 
     @objid ("2fa495ed-4490-44d0-ba8f-a97f019863c5")

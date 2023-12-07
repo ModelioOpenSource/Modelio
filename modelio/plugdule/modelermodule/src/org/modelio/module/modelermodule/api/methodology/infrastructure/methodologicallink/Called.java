@@ -22,24 +22,15 @@
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.modelio.model.IModelingSession;
-import org.modelio.api.modelio.model.PropertyConverter;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
-import org.modelio.module.modelermodule.api.ModelerModuleProxyFactory;
 import org.modelio.module.modelermodule.impl.ModelerModuleModule;
+import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -72,7 +63,6 @@ public class Called {
 
     /**
      * Create a new {@link MethodologicalLink} stereotyped << Called >> then instantiate a {@link Called} proxy.
-     * 
      * @return a {@link Called} proxy on the created {@link MethodologicalLink}.
      */
     @objid ("0a0e6b7d-3d43-4078-b658-745d9efb2c79")
@@ -83,7 +73,7 @@ public class Called {
     }
 
     /**
-     * Tries to instantiate a {@link Called} proxy from a {@link MethodologicalLink} stereotyped << Called >> checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Called} proxy from a {@link MethodologicalLink} stereotyped << Called >> checking its metaclass and its stereotype.
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MethodologicalLink
@@ -95,7 +85,7 @@ public class Called {
     }
 
     /**
-     * Tries to instantiate a {@link Called} proxy from a {@link MethodologicalLink} stereotyped << Called >> checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Called} proxy from a {@link MethodologicalLink} stereotyped << Called >> checking its metaclass and its stereotype.
      * <p>
      * The method throws an {@link IllegalArgumentException} if the instantiation cannot be carried out.
      * @param obj a {@link MethodologicalLink}
@@ -105,9 +95,10 @@ public class Called {
     @objid ("ae1a4e65-1fca-49e3-8562-544fa533691d")
     public static Called safeInstantiate(MethodologicalLink obj) throws IllegalArgumentException {
         if (Called.canInstantiate(obj))
-        	return new Called(obj);
+            return new Called(obj);
         else
-        	throw new IllegalArgumentException("Called: Cannot instantiate "+obj+": wrong element type or stereotype");
+            throw new IllegalArgumentException("Called: Cannot instantiate "+obj+": wrong element type or stereotype");
+        
     }
 
     /**
@@ -115,6 +106,7 @@ public class Called {
      */
     @objid ("bff86b6d-45f8-4f89-9bbe-ccce4ed5c363")
     public static ModelElement getTarget(ModelElement source) {
+        preloadStereotype(source);
         return AbstractMethodologicalLink.getTarget(source, MdaTypes.STEREOTYPE_ELT);
     }
 
@@ -123,7 +115,32 @@ public class Called {
      */
     @objid ("7de0a3b2-2dae-493d-b2e1-b4d05f76b608")
     public static void setTarget(ModelElement source, ModelElement target) {
+        preloadStereotype(source);
+        
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
+        
+    }
+
+    /**
+     * Ensure {@link MdaTypes#STEREOTYPE_ELT} is loaded with an element.
+     * <p>
+     * {@link MdaTypes#STEREOTYPE_ELT} may be null when called while doing metamodel migration on model fragments.
+     * In this case modules are not yet loaded and MDA proxies are not initialized.
+     * 
+     * WARNING: Manual method. Do not use ModelioStudio 2.0.xx API generator on ModelerModule otherwise the method will be cancelled. Need an evolution od ModelioStudio.
+     * @param source a model element to guess the {@link CoreSession} .
+     * @since 5.4.1 25/10/2023
+     */
+    @objid ("6fd27a4a-4f88-4ae6-b7d2-82b0a7fedf0d")
+    private static void preloadStereotype(ModelElement source) {
+        if (MdaTypes.STEREOTYPE_ELT == null) {
+            CoreSession session = CoreSession.getSession(source);
+            MdaTypes.STEREOTYPE_ELT = (Stereotype) session.getSmFactory().getObjectReference(
+                    session.getMetamodel().getMClass(Stereotype.class),
+                    "c3862c6c-5983-4d1a-b0e2-58dd2685eda0",
+                    STEREOTYPE_NAME);
+        }
+        
     }
 
     @objid ("89a0a547-5640-4841-8b30-7bdd6472fcf4")
@@ -143,7 +160,7 @@ public class Called {
     }
 
     /**
-     * Get the underlying {@link MethodologicalLink}. 
+     * Get the underlying {@link MethodologicalLink}.
      * @return the MethodologicalLink represented by this proxy, never null.
      */
     @objid ("e37dad08-ca30-4a51-8c68-84c9f425bc10")
@@ -155,7 +172,6 @@ public class Called {
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
-        
     }
 
     @objid ("31663257-1324-4099-85b0-3ba0be83cc85")
@@ -182,11 +198,11 @@ public class Called {
             
         }
 
-	static {
-        		if(ModelerModuleModule.getInstance() != null) {
-        			init(ModelerModuleModule.getInstance().getModuleContext());
-        		}
-        	}
+static {
+                                if(ModelerModuleModule.getInstance() != null) {
+                                    init(ModelerModuleModule.getInstance().getModuleContext());
+                                }
+                            }
         
     }
 

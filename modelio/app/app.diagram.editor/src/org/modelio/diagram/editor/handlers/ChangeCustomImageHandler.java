@@ -51,7 +51,7 @@ public class ChangeCustomImageHandler {
             GmNodeModel gmModel = editPart.getModel();
             MObject obElement = gmModel.getRelatedElement();
             ICoreSession session = CoreSession.getSession(obElement);
-            try (ITransaction t = session.getTransactionSupport().createTransaction("Update Custom Image")) {
+            try (ITransaction t = session.getTransactionSupport().createTransaction("Update "+obElement.getName()+" custom image")) {
                 editPart.changeCustomImage(gmModel, itemUrl);
                 t.commit();
             }
@@ -66,6 +66,9 @@ public class ChangeCustomImageHandler {
         for (AbstractNodeEditPart editPart : editParts) {
             GmNodeModel gmModel = editPart.getModel();
             MObject obElement = gmModel.getRelatedElement();
+            if (obElement == null)
+                return false;
+        
             TagType tagType;
             try {
                 tagType = gmModel.getDiagram().getModelManager().getModelServices().getTagType("ModelerModule", ".*", "userDiagramImage", obElement.getMClass());

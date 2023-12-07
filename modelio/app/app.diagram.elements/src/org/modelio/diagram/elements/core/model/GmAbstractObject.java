@@ -123,7 +123,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
     public void delete() {
         firePropertyChange(IGmObject.PROPERTY_DELETE, null, null);
         if (this.style != null) {
-            this.style.removeListener(this);
             this.style.dispose();
             this.style = null;
         }
@@ -440,6 +439,13 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
     @Override
     public final void removedFromDiagram() {
         this.diagram = null;
+        
+        // Since 5.4.1 27/10/2023 : also dispose the style to avoid memory leaks
+        if (this.style != null) {
+            this.style.dispose();
+            this.style = null;
+        }
+        
     }
 
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.tmatesoft.svnkit"
+      label="SVNKit Library"
+      version="1.10.9.r10853"
+      provider-name="TMate Software">
+
+   <description url="https://svnkit.com/">
+      %description
+   </description>
+
+   <copyright url="https://svnkit.com/">
+      (c) 2004-2021, TMate Software Ltd.
+   </copyright>
+
+   <license url="">
+      %license
+   </license>
+
+   <url>
+      <update label="TMate Software SVNKit 1.10.x Update Site" url="https://eclipse.tmatesoft.com/1.10.x/"/>
+      <discovery label="TMate Software SVNKit 1.10.x Update Site" url="https://eclipse.tmatesoft.com/1.10.x/"/>
+   </url>
+
+   <plugin
+         id="org.tmatesoft.svnkit"
+         download-size="0"
+         install-size="0"
+         version="1.10.9.r10853"
+         unpack="false"/>
+
+   <plugin
+         id="org.tmatesoft.sqljet"
+         download-size="0"
+         install-size="0"
+         version="1.1.14.r1345"
+         unpack="false"/>
+
+   <plugin
+         id="com.trilead.ssh2"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.build222_185"
+         unpack="false"/>
+
+</feature>

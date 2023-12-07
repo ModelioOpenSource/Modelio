@@ -89,7 +89,7 @@ public class CreateLocalModuleHandler {
         
         // Fragment checks
         IGModelFragment fragment = SelectionHelper.getFirst(selection, IGModelFragment.class);
-        if (isReadonly(fragment)) {
+        if (! fragment.getAccessRights().isEditable()) {
             return false;
         }
         
@@ -99,15 +99,6 @@ public class CreateLocalModuleHandler {
             }
         }
         return true;
-    }
-
-    /**
-     * @return true if the fragment is read only.
-     */
-    @objid ("bb0ad448-1c59-4d7b-9c8d-4216cabad51e")
-    private boolean isReadonly(IGModelFragment fragment) {
-        String s = fragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY);
-        return s != null && Boolean.parseBoolean(s);
     }
 
 }

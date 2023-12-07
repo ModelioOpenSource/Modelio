@@ -82,6 +82,12 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("33e06f51-2ce4-45e3-b1b4-05764f3927d1")
     private boolean openingEventSent;
 
+    @objid ("838a7b52-53d4-4865-ba89-35f0562b329b")
+    private IPersistentPreferenceStore appStateStore;
+
+    @objid ("b89aacad-0c89-4935-a86f-2194b20820d8")
+    private final IEclipseContext context;
+
     @objid ("d77b76fe-232e-4e7a-9232-de403377c1f1")
     private final IProjectCreator projectCreator2;
 
@@ -91,17 +97,11 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("739a6657-2bf8-4419-8800-3f37f9310cc4")
     private final IWorkspaceService worskpaceService;
 
-    @objid ("f0d75e23-6c72-4ccb-b883-8377642d25d6")
-    private IPersistentPreferenceStore appStateStore;
-
     @objid ("f354133c-7447-4867-895c-f63bf790b2f0")
     private GProjectPreferenceStore prefsStore;
 
     @objid ("008017fe-acc2-103b-a520-001ec947cd2a")
     private IGProject project;
-
-    @objid ("2ddd01d5-0476-4acd-aac8-b9e98c131935")
-    private final IEclipseContext context;
 
     @objid ("2879dc6a-867c-440a-8b48-9ddcf61495fb")
     private final IProjectCloser projectCloser;
@@ -173,7 +173,10 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("14aa57e7-a7cb-4ee1-82ed-973bb22d6870")
     @Override
     public IGProjectPreferenceStore getProjectPreferences(final String nodeId) {
-        return new GProjectPreferenceNode(this.prefsStore, nodeId);
+        if(this.prefsStore != null) {
+            return new GProjectPreferenceNode(this.prefsStore, nodeId);
+        }
+        return null;
     }
 
     @objid ("0053aa84-bb2f-103c-a520-001ec947cd2a")
@@ -248,7 +251,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("971ad6d9-026d-11e2-8189-001ec947ccaf")
     @Override
-    public void openProject(final GProjectDescriptor projectToOpen, final IAuthData authData, final IProgressMonitor monitor) throws IOException, GProjectAuthenticationException, InterruptedException {
+    public void openProject(final GProjectDescriptor projectToOpen, final IAuthData authData, final IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
         if (this.project != null) {
             throw new IllegalStateException(String.format(
                     "A '%s' project in '%s' is already opened.",

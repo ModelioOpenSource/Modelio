@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -31,22 +31,22 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0069a7f8-ec87-1098-b22e-001ec947cd2a")
 public class PropertyTableData extends ElementData {
-    @objid ("146b722e-3397-4ea7-8efa-fd9eb5686718")
+    @objid ("46bfca5d-baa0-470a-b157-1fa12123bdb5")
     Object mName = "";
 
-    @objid ("6506f4e8-b37c-41a1-905e-b3fa1bc0c314")
+    @objid ("fbddf057-a420-4496-b68d-f3960eef521c")
     Object mContent = "";
 
-    @objid ("85d1fe8b-75d0-419d-9d96-1d5a6a396167")
+    @objid ("9845a3b8-ff24-4452-b903-7e32b75d1d1d")
     SmObjectImpl mOwnerValDef;
 
-    @objid ("c0ae397d-b128-4dfa-9de3-71c70b34314f")
+    @objid ("b82c814f-5e14-42f5-8285-d65df8cce5e2")
     SmObjectImpl mOwnerQuery;
 
-    @objid ("08987e11-7618-4ff8-acc3-0e796946395e")
+    @objid ("d19747cc-66c4-4762-a4ee-0aa927aef5e9")
     SmObjectImpl mOwner;
 
-    @objid ("9124c7f5-94b3-4449-9ec5-40a8a1653a4f")
+    @objid ("5f23d958-4579-4a19-938b-3969132d416a")
     public  PropertyTableData(PropertyTableSmClass smClass) {
         super(smClass);
     }

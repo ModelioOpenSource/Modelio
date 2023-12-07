@@ -52,6 +52,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.api.ui.ModelioDialog;
 import org.modelio.gproject.core.IGProject;
+import org.modelio.metamodel.Metamodel;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.mda.Project;
@@ -475,7 +476,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         this.mclassSelector.getControl().setText(this.dataModel.getMetaclassName());
         GridData gd_metaclassCombo = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
         this.mclassSelector.getControl().setLayoutData(gd_metaclassCombo);
-        this.mclassSelector.getControl().addModifyListener(this.stereotypeValidator);
+        this.mclassSelector.addListener(this.stereotypeValidator);
         
     }
 
@@ -507,7 +508,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
     @objid ("cb5d2344-5cfd-4402-afce-9d909b424291")
     public void refresh() {
         this.stereotypeNameText.setText(this.dataModel.getStereotypeName());
-        this.mclassSelector.getControl().setText(this.dataModel.getMetaclassName());
+        this.mclassSelector.setSelected(Metamodel.getMClass(this.dataModel.getMetaclassName()));
         
         IGProject openedProject = this.projectService.getOpenedProject();
         if (openedProject != null) {

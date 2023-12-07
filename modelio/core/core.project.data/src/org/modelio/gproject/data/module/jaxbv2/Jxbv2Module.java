@@ -23,14 +23,14 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
+import jakarta.xml.bind.annotation.XmlType;
 import javax.tools.Tool;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.Command;
 
 /**
@@ -1079,9 +1079,9 @@ public class Jxbv2Module {
     @objid ("d304d04f-5fcc-4b95-96df-a37c3fbd7b8f")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "required",
-                "optional"
-        })
+                    "required",
+                    "optional"
+            })
     public static class Jxbv2Dependencies {
         @objid ("8388eca3-0a7e-447d-81d8-b2ccf010fcf5")
         @XmlElement (name = "Required")
@@ -1402,13 +1402,13 @@ public class Jxbv2Module {
     @objid ("59266f76-2516-4572-b2de-bef4f459d6f0")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "commands",
-                "tools",
-                "contextualMenu",
-                "diagrams",
-                "matrices",
-                "views"
-        })
+                    "commands",
+                    "tools",
+                    "contextualMenu",
+                    "diagrams",
+                    "matrices",
+                    "views"
+            })
     public static class Jxbv2Gui {
         @objid ("65544dac-0131-4522-a533-94fe944be167")
         @XmlElement (name = "Commands")
@@ -1572,8 +1572,8 @@ public class Jxbv2Module {
         @objid ("001ea32b-c7c2-4e88-8d26-17e82283992e")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "command"
-                })
+                                "command"
+                        })
         public static class Jxbv2Commands {
             @objid ("604e661b-dd81-49f4-b587-a06d26b4207b")
             @XmlElement (name = "Command")
@@ -1645,8 +1645,8 @@ public class Jxbv2Module {
         @objid ("b321be24-2180-44bd-a65a-094cf86154e7")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "commandRef"
-                })
+                                "commandRef"
+                        })
         public static class Jxbv2ContextualMenu {
             @objid ("579e8ed9-b61f-4c50-bce6-dd834612e66a")
             @XmlAttribute (name = "category")
@@ -1800,8 +1800,8 @@ public class Jxbv2Module {
         @objid ("793716ce-65cf-44a3-b29d-64678d35d6e2")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "diagramType"
-                })
+                                "diagramType"
+                        })
         public static class Jxbv2Diagrams {
             @objid ("3191b9f0-4a89-4338-9468-9c265a3ec4e7")
             @XmlElement (name = "DiagramType")
@@ -1894,10 +1894,10 @@ public class Jxbv2Module {
             @objid ("7aece06d-8970-4093-b51c-bc23866b7e1b")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "palette",
-                                "wizard",
-                                "handler"
-                        })
+                                            "palette",
+                                            "wizard",
+                                            "handler"
+                                    })
             public static class Jxbv2DiagramType {
                 @objid ("1acbe39a-b954-4a39-80c1-8b909e5fc82b")
                 @XmlAttribute (name = "base-diagram", required = true)
@@ -2039,8 +2039,8 @@ public class Jxbv2Module {
                 @objid ("f75a6d3f-bd9e-4300-8bc8-a823baf34de0")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "toolRef"
-                                })
+                                                        "toolRef"
+                                                })
                 public static class Jxbv2Palette {
                     @objid ("2a75698f-ca0b-4d2a-a0e0-f1847064adf4")
                     @XmlAttribute (name = "keepBasePalette")
@@ -2147,9 +2147,9 @@ public class Jxbv2Module {
                 @objid ("222a8258-c805-4f3e-8c73-203a388df3b1")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "scope",
-                                        "handler"
-                                })
+                                                        "scope",
+                                                        "handler"
+                                                })
                 public static class Jxbv2Wizard {
                     @objid ("69eb5258-97cd-4f10-b3d9-002cdeb11c94")
                     @XmlAttribute (name = "label", required = true)
@@ -2363,8 +2363,8 @@ public class Jxbv2Module {
         @objid ("7692772d-a3fd-4a20-aac1-5e6992a5f63f")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "tool"
-                })
+                                "tool"
+                        })
         public static class Jxbv2Tools {
             @objid ("01a7cebe-4298-4306-8152-f37a2c73393d")
             @XmlElement (name = "Tool")
@@ -2441,8 +2441,8 @@ public class Jxbv2Module {
         @objid ("d714d90d-117e-40d2-9100-f2cd86453141")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "propertyPage"
-                })
+                                "propertyPage"
+                        })
         public static class Jxbv2Views {
             @objid ("9ca7c73a-7452-42c5-9505-372c58568545")
             @XmlElement (name = "PropertyPage")
@@ -2507,8 +2507,8 @@ public class Jxbv2Module {
             @objid ("5be877e2-8475-4810-8624-98ac1a219788")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "commandRef"
-                        })
+                                            "commandRef"
+                                    })
             public static class Jxbv2PropertyPage {
                 @objid ("a66f74a3-2fcb-45c0-a31d-8dedfe53929c")
                 @XmlAttribute (name = "id", required = true)
@@ -2716,8 +2716,8 @@ public class Jxbv2Module {
         @objid ("9e650207-1f69-4c17-9792-d72751cb2909")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "matrixType"
-                })
+                                "matrixType"
+                        })
         public static class Jxbv2Matrices {
             @objid ("469f1673-1fbb-4518-9a47-f1906160e9c9")
             @XmlElement (name = "MatrixType")
@@ -2801,12 +2801,12 @@ public class Jxbv2Module {
             @objid ("fa82a3a9-03a9-497a-a02c-24f2ab4f5267")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "x",
-                                "y",
-                                "z",
-                                "val",
-                                "wizard"
-                        })
+                                            "x",
+                                            "y",
+                                            "z",
+                                            "val",
+                                            "wizard"
+                                    })
             public static class Jxbv2MatrixType {
                 @objid ("5b47b5d4-f735-4f03-a68f-7ceea1da7ce3")
                 @XmlAttribute (name = "id", required = true)
@@ -2991,9 +2991,9 @@ public class Jxbv2Module {
                 @objid ("11372ae6-56a1-4e31-ab6f-12d60724482e")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "scope",
-                                        "handler"
-                                })
+                                                        "scope",
+                                                        "handler"
+                                                })
                 public static class Jxbv2Wizard {
                     @objid ("259e9950-2aa4-4151-af5b-8609ee738505")
                     @XmlAttribute (name = "label", required = true)
@@ -3261,8 +3261,8 @@ public class Jxbv2Module {
     @objid ("5e91941d-f3bd-48ac-9a0e-0238ee90b7dd")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "parameter"
-        })
+                    "parameter"
+            })
     public static class Jxbv2Parameters {
         @objid ("43ddedbd-5d06-4565-889a-7e6eae68da7d")
         @XmlElement (name = "Parameter")
@@ -3336,9 +3336,9 @@ public class Jxbv2Module {
         @objid ("cc4761e9-cebf-44e9-82de-648c71fd467e")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "enumeration",
-                        "description"
-                })
+                                "enumeration",
+                                "description"
+                        })
         public static class Jxbv2Parameter {
             @objid ("767c7c3d-b395-4758-9e33-e4e01acff78b")
             @XmlElement (name = "Description")
@@ -3706,8 +3706,8 @@ public class Jxbv2Module {
     @objid ("de63257d-c3a5-45d6-953c-538a33bbbfe7")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "profile"
-        })
+                    "profile"
+            })
     public static class Jxbv2Profiles {
         @objid ("eda4109e-1f48-42a1-a8fd-d7320fc6c198")
         @XmlElement (name = "Profile")
@@ -3915,10 +3915,10 @@ public class Jxbv2Module {
         @objid ("c169d7d6-ab5a-4896-96d7-fa3c376b0f86")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "stereotype",
-                        "metaclassReference",
-                        "extensions"
-                })
+                                "stereotype",
+                                "metaclassReference",
+                                "extensions"
+                        })
         public static class Jxbv2Profile {
             @objid ("307c6006-c7a6-42fc-b4d7-03d121ccdd6d")
             @XmlAttribute (name = "uid")
@@ -4105,11 +4105,11 @@ public class Jxbv2Module {
             @objid ("71db6e4a-b903-4536-b36b-46f0f8f66178")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "propertyTable",
-                                "tagTypes",
-                                "noteTypes",
-                                "externDocumentTypes"
-                        })
+                                            "propertyTable",
+                                            "tagTypes",
+                                            "noteTypes",
+                                            "externDocumentTypes"
+                                    })
             public static class Jxbv2MetaclassReference {
                 @objid ("e1078f37-2b38-433c-adab-ac3a61492439")
                 @XmlAttribute (name = "uid")
@@ -4265,8 +4265,8 @@ public class Jxbv2Module {
                 @objid ("a6996830-180f-4855-932e-8a36efa7efff")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "externDocumentType"
-                                })
+                                                        "externDocumentType"
+                                                })
                 public static class Jxbv2ExternDocumentTypes {
                     @objid ("20f96772-f807-40af-ab99-217623b1f185")
                     @XmlElement (name = "ExternDocumentType")
@@ -4322,8 +4322,8 @@ public class Jxbv2Module {
                 @objid ("5af2424f-f965-476a-a829-4c374bd6fe38")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "noteType"
-                                })
+                                                        "noteType"
+                                                })
                 public static class Jxbv2NoteTypes {
                     @objid ("9cd837b4-1987-40eb-bf0e-5d67a62cf40a")
                     @XmlElement (name = "NoteType")
@@ -4379,8 +4379,8 @@ public class Jxbv2Module {
                 @objid ("5b9a6ce3-e465-4bb2-88c8-784a79b8efc2")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "tagType"
-                                })
+                                                        "tagType"
+                                                })
                 public static class Jxbv2TagTypes {
                     @objid ("4d3fe3a6-0427-4135-a6bb-6d75056c9b3f")
                     @XmlElement (name = "TagType")
@@ -4521,16 +4521,16 @@ public class Jxbv2Module {
             @objid ("d4f4d1e6-a77f-4386-8202-6d0021d80d96")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "description",
-                                "icon",
-                                "image",
-                                "propertyTable",
-                                "tagTypes",
-                                "noteTypes",
-                                "externDocumentTypes",
-                                "constraints",
-                                "extensions"
-                        })
+                                            "description",
+                                            "icon",
+                                            "image",
+                                            "propertyTable",
+                                            "tagTypes",
+                                            "noteTypes",
+                                            "externDocumentTypes",
+                                            "constraints",
+                                            "extensions"
+                                    })
             public static class Jxbv2Stereotype {
                 @objid ("d5dab181-6f45-45a8-b0a6-7756d02f643b")
                 @XmlAttribute (name = "name", required = true)
@@ -4911,8 +4911,8 @@ public class Jxbv2Module {
                 @objid ("b8e2b4c5-3540-4940-b604-5a408e202b74")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "externDocumentType"
-                                })
+                                                        "externDocumentType"
+                                                })
                 public static class Jxbv2ExternDocumentTypes {
                     @objid ("dd70cc1a-4228-4e74-b27e-f72ca80ce007")
                     @XmlElement (name = "ExternDocumentType")
@@ -5058,8 +5058,8 @@ public class Jxbv2Module {
                 @objid ("61ded4f1-783b-43d1-8459-449be6337e8b")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "noteType"
-                                })
+                                                        "noteType"
+                                                })
                 public static class Jxbv2NoteTypes {
                     @objid ("8951208a-abe2-4af4-ae8f-a2e9cd207534")
                     @XmlElement (name = "NoteType")
@@ -5115,8 +5115,8 @@ public class Jxbv2Module {
                 @objid ("c29d18d3-78b1-4905-ae63-1b7613183a21")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "tagType"
-                                })
+                                                        "tagType"
+                                                })
                 public static class Jxbv2TagTypes {
                     @objid ("ac6e68ac-09e7-4223-ac29-4dd4233ce174")
                     @XmlElement (name = "TagType")
@@ -5172,8 +5172,8 @@ public class Jxbv2Module {
                 @objid ("46124078-e7d5-4f66-a1fc-a25953e80154")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "constraint"
-                                })
+                                                        "constraint"
+                                                })
                 public static class Jxbv2Constraints {
                     @objid ("1ed19e2a-e9f7-45f3-ba7e-e4517748a3c5")
                     @XmlElement (name = "Constraint")
@@ -5229,8 +5229,8 @@ public class Jxbv2Module {
                 @objid ("d3d28520-5270-46bd-b7dd-8839c28bd6fd")
                 @XmlAccessorType (XmlAccessType.FIELD)
                 @XmlType (name = "", propOrder = {
-                                        "stereotypeRef"
-                                })
+                                                        "stereotypeRef"
+                                                })
                 public static class Jxbv2Extensions {
                     @objid ("d358d769-9909-4ae3-9fd2-b25948894322")
                     @XmlElement (name = "StereotypeRef")
@@ -5288,8 +5288,8 @@ public class Jxbv2Module {
             @objid ("73b95e50-3465-4a1d-a00f-17307a419920")
             @XmlAccessorType (XmlAccessType.FIELD)
             @XmlType (name = "", propOrder = {
-                                "stereotypeRef"
-                        })
+                                            "stereotypeRef"
+                                    })
             public static class Jxbv2Extensions {
                 @objid ("c8427130-f512-4acf-9375-fc5e734e1d8b")
                 @XmlElement (name = "StereotypeRef")
@@ -5356,8 +5356,8 @@ public class Jxbv2Module {
     @objid ("65e47d1a-5308-4881-a884-f0db719c6448")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "propertyType"
-        })
+                    "propertyType"
+            })
     public static class Jxbv2PropertyTypes {
         @objid ("9d8c4c6b-34ba-4187-b784-e0bc23f88f5a")
         @XmlElement (name = "PropertyType")
@@ -5526,12 +5526,12 @@ public class Jxbv2Module {
     @objid ("6ce909d3-700d-4ecc-863a-845fdfae5c54")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "styles",
-                "docFiles",
-                "macros",
-                "patterns",
-                "docTemplates"
-        })
+                    "styles",
+                    "docFiles",
+                    "macros",
+                    "patterns",
+                    "docTemplates"
+            })
     public static class Jxbv2Resources {
         @objid ("cde4c128-695c-46d6-aefc-2e678c000f05")
         @XmlElement (name = "Styles")
@@ -5674,8 +5674,8 @@ public class Jxbv2Module {
         @objid ("90d042af-529e-4257-b511-47fe0c8ac028")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "style"
-                })
+                                "style"
+                        })
         public static class Jxbv2Styles {
             @objid ("6d3ac25f-4796-4c42-a7e8-2ab751999262")
             @XmlElement (name = "Style")
@@ -5817,8 +5817,8 @@ public class Jxbv2Module {
         @objid ("7e053760-31a1-47dc-a22b-0e61dce5c5ed")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "docTemplate"
-                })
+                                "docTemplate"
+                        })
         public static class Jxbv2DocTemplates {
             @objid ("12f8864e-ecb2-4b7e-984e-b35828f7049a")
             @XmlElement (name = "DocTemplate")
@@ -6015,8 +6015,8 @@ public class Jxbv2Module {
         @objid ("8f7059bc-cb02-4505-8141-4ecd27e21e52")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "macro"
-                })
+                                "macro"
+                        })
         public static class Jxbv2Macros {
             @objid ("b840f577-1496-45c4-9324-9f9b16c30235")
             @XmlElement (name = "Macro")
@@ -6178,8 +6178,8 @@ public class Jxbv2Module {
         @objid ("5877dac5-7401-4c8b-bf10-968cf0806979")
         @XmlAccessorType (XmlAccessType.FIELD)
         @XmlType (name = "", propOrder = {
-                        "pattern"
-                })
+                                "pattern"
+                        })
         public static class Jxbv2Patterns {
             @objid ("7b59f57e-df72-49ca-8104-0d560b91d1a0")
             @XmlElement (name = "Pattern")
@@ -6345,8 +6345,8 @@ public class Jxbv2Module {
     @objid ("58e61148-f0c9-41f2-9f1d-89350928eaf2")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-                "metamodelFragment"
-        })
+                    "metamodelFragment"
+            })
     public static class Jxbv2MetamodelFragments {
         @objid ("9064eecd-a07a-4554-ba6a-bbe73f4fe00b")
         @XmlElement (name = "MetamodelFragment")

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -29,7 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("318f24b2-6d53-4602-b9ed-db2795c37f65")
 public class ResourceData extends AbstractResourceData {
-    @objid ("df34e239-7468-4271-a281-9bbc9c432677")
+    @objid ("93529536-7849-40b2-ac60-4621df70d849")
     public  ResourceData(ResourceSmClass smClass) {
         super(smClass);
     }

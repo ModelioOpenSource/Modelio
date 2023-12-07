@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure;
@@ -48,13 +48,13 @@ public interface Element extends EObject, MObject {
     /**
      * The metaclass simple name.
      */
-    @objid ("7233ed55-3bc2-4794-a881-58e6aa4ca091")
+    @objid ("e3842f20-708b-4c43-b8f0-b9e08af7edcc")
     public static final String MNAME = "Element";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("52b2af4f-0c62-4ae5-a782-615160f65bc1")
+    @objid ("93b4b01b-54d0-4235-be14-46c2bc813eaa")
     public static final String MQNAME = "Infrastructure.Element";
 
     /**
@@ -64,7 +64,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("f172fb8b-0de2-4060-aa50-6a80ea0b0fee")
+    @objid ("cfe28a85-703e-4fcb-be4a-d28933b4676a")
     EList<AbstractDiagram> getDiagramElement();
 
     /**
@@ -74,7 +74,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("ea8db136-0314-417b-a1b4-0c8df0e06029")
+    @objid ("3230d9bb-34b1-43d0-96a8-4611ab18fe98")
     <T extends AbstractDiagram> List<T> getDiagramElement(java.lang.Class<T> filterClass);
 
     /**
@@ -84,7 +84,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("a528d3d8-3134-49b7-a31f-ac514bcccb53")
+    @objid ("a9618eb9-790e-4251-95cc-04e9e8d7dd0c")
     EList<QueryDefinition> getAddedToQuery();
 
     /**
@@ -94,7 +94,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("b8dc9001-b60f-47e9-9ab6-4605ef580815")
+    @objid ("e0520ed2-6c9f-4fe5-a356-8dab6419aa62")
     <T extends QueryDefinition> List<T> getAddedToQuery(java.lang.Class<T> filterClass);
 
     /**
@@ -104,7 +104,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("b679a7d4-7fe8-432c-9804-84f8a6b6565d")
+    @objid ("5e4580e7-d3a5-4c7f-9ecf-0bfd72b1c888")
     EList<ImpactLink> getCausedImpact();
 
     /**
@@ -114,7 +114,7 @@ public interface Element extends EObject, MObject {
      * <i>null</i>
      * 
      */
-    @objid ("146467da-dca9-46fc-a67a-1e80090bebf0")
+    @objid ("b2c858eb-6212-44f5-a68f-ee48fcf09c2b")
     <T extends ImpactLink> List<T> getCausedImpact(java.lang.Class<T> filterClass);
 }
 

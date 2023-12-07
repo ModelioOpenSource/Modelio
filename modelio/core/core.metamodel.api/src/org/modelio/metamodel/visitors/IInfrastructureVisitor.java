@@ -64,124 +64,124 @@ import org.modelio.vcore.smkernel.mapi.MVisitor;
 
 @objid ("49b8aa54-ca0e-4175-84a8-2c23a219be7c")
 public interface IInfrastructureVisitor extends MVisitor {
-    @objid ("b2802aa9-29c8-4cc1-ac09-7237e2913452")
+    @objid ("75b2e17b-33d4-4aa9-a516-373feef49e15")
     Object visitAbstractDiagram(AbstractDiagram obj);
 
-    @objid ("11c22876-efd0-4cd6-a5d3-747d6834642c")
+    @objid ("7403638b-4da8-4a62-8d3a-5de0dd3023b2")
     Object visitAbstractProject(AbstractProject obj);
 
-    @objid ("9a4b3206-f892-4850-9d74-e0ff41a05c5e")
+    @objid ("5bb12a5d-6257-4cc0-8459-7cae424fe666")
     Object visitAbstractResource(AbstractResource obj);
 
-    @objid ("f488beb2-8c96-4761-ba6e-10f671b3309a")
+    @objid ("591c67bb-216a-4239-8236-e713c004eaf5")
     Object visitDependency(Dependency obj);
 
-    @objid ("b7de0bde-ea5a-40b6-8923-30c13bf61d4b")
+    @objid ("691658a3-61f0-4843-a5cd-d91d506d9866")
     Object visitDiagramSet(DiagramSet obj);
 
-    @objid ("8937405f-185d-45d0-ba2c-8e02e5f876e0")
+    @objid ("8f845b30-a403-41c2-9609-e82115b8f0dc")
     Object visitDocument(Document obj);
 
-    @objid ("5d3773b7-d61a-4e05-9f9d-4decd9f47dcb")
+    @objid ("1d258b3d-21d8-418e-b237-d0a67052f7a1")
     Object visitDynamicPropertyDefinition(DynamicPropertyDefinition obj);
 
-    @objid ("4274227a-74f1-445b-b815-95753a3d16db")
+    @objid ("4c8aa69a-733c-4f85-a66b-9ab72ac038b6")
     Object visitElement(Element obj);
 
-    @objid ("0ebf8fec-4782-4ee5-9304-b1bd1b626d58")
+    @objid ("7a257ec4-d8ce-43ce-8329-2061c8c1e297")
     Object visitEnumeratedPropertyType(EnumeratedPropertyType obj);
 
-    @objid ("963c3abc-bc6e-4799-a716-e57751cb7f55")
+    @objid ("b35a8519-6f8b-4dce-8731-a360c207f554")
     Object visitExternElement(ExternElement obj);
 
-    @objid ("72004812-8012-4a74-8f57-fc15cb617f28")
+    @objid ("3ad1ace3-fab6-4786-bfcf-89bc593ece25")
     Object visitExternProcessor(ExternProcessor obj);
 
-    @objid ("c65d8531-9d6c-478b-9878-8d1326d23b80")
+    @objid ("1b9644a2-d0e0-4214-a1e8-2d6f80b0b27e")
     Object visitGraphDiagram(GraphDiagram obj);
 
-    @objid ("db86b987-8e1e-499f-8f2f-d540e668f25f")
+    @objid ("09220b0d-8483-46b0-9f90-0f1f5023d033")
     Object visitImpactDiagram(ImpactDiagram obj);
 
-    @objid ("a557837d-2c3d-44f4-bb8a-71c31bf768c3")
+    @objid ("b34181b8-da2a-49e3-8a16-3d6361f3a756")
     Object visitImpactLink(ImpactLink obj);
 
-    @objid ("031a4606-44cf-46ea-8977-35da9670f7c5")
+    @objid ("1d3f9780-ef37-4dcc-9f72-97c8f0aeb2e5")
     Object visitImpactModel(ImpactModel obj);
 
-    @objid ("bdc4aadc-33b5-4f83-8217-ae86e69595f0")
+    @objid ("78c4adf1-24c8-4bfc-b755-8521596c9fc2")
     Object visitImpactProject(ImpactProject obj);
 
-    @objid ("edd9f825-7663-456e-a0b2-f067d343f566")
+    @objid ("4853de9f-09ea-417b-bf3c-f724c6186c95")
     Object visitLocalPropertyTable(LocalPropertyTable obj);
 
-    @objid ("e1e418c9-9056-41ff-a218-7c006303801c")
+    @objid ("4db5c0b8-ab7e-47d7-9d26-bade17decb50")
     Object visitMatrixDefinition(MatrixDefinition obj);
 
-    @objid ("bbbb4642-1279-4812-8fd6-69a80561d84a")
+    @objid ("75f37ec3-4c99-4997-8578-41dfa3636872")
     Object visitMatrixValueDefinition(MatrixValueDefinition obj);
 
-    @objid ("d6dc8863-888e-4e2c-b372-8f8911e422c8")
+    @objid ("456bd7ce-2d83-4331-a5d6-4578a6fabf7b")
     Object visitMetaclassReference(MetaclassReference obj);
 
-    @objid ("b450ef40-31c8-44cf-960c-42f4c5a18af4")
+    @objid ("044694cc-c3de-41ff-9c91-e9d5c2466ae0")
     Object visitMethodologicalLink(MethodologicalLink obj);
 
-    @objid ("d38d68a8-312e-4aed-b804-644672df694b")
+    @objid ("2d161a07-b974-48f0-bfaf-fc68a99e5e53")
     Object visitModelElement(ModelElement obj);
 
-    @objid ("b46b6a6c-bbe2-4411-9324-1a2309e2856a")
+    @objid ("0206bbf5-5fbd-4f99-82c0-2a492cc46bc9")
     Object visitModuleComponent(ModuleComponent obj);
 
-    @objid ("fcc84c94-d0c1-4e30-828d-bfa0a6259803")
+    @objid ("ccc57a01-fee6-4efd-b0dd-43be9ce07903")
     Object visitModuleParameter(ModuleParameter obj);
 
-    @objid ("ee8a90c8-0aa9-4e7a-a50d-fe47a795a4e4")
+    @objid ("d0219db6-7561-4791-a266-4ee1f1e40d73")
     Object visitNote(Note obj);
 
-    @objid ("d8b3cd30-e7fc-446f-939d-6cb33b4125ec")
+    @objid ("2025f4e0-4983-40f8-a1ae-deedecf671d4")
     Object visitNoteType(NoteType obj);
 
-    @objid ("76c3c2f7-7719-4169-b9cb-8858b73007c3")
+    @objid ("3af400f1-1085-482c-9900-01fe463ac17c")
     Object visitProfile(Profile obj);
 
-    @objid ("e7c76a4a-5eee-4442-8d49-af0f542f3649")
+    @objid ("9f169035-2374-4f5b-ab86-ba6831eaa66d")
     Object visitPropertyDefinition(PropertyDefinition obj);
 
-    @objid ("ef345074-a81b-492d-8aba-27d066e1b9cf")
+    @objid ("c697749c-1aeb-4a18-906c-353db68ea1e2")
     Object visitPropertyEnumerationLitteral(PropertyEnumerationLitteral obj);
 
-    @objid ("38dd06d0-00e3-4e17-894a-d8a61b19847c")
+    @objid ("5bf813a4-b4ac-4786-b7b4-d5bc10e7981a")
     Object visitPropertyTable(PropertyTable obj);
 
-    @objid ("2ba1c0df-c7b2-43d2-895a-3b22e6a6a900")
+    @objid ("c8d596e1-6599-4936-a416-0aeae8fea468")
     Object visitPropertyTableDefinition(PropertyTableDefinition obj);
 
-    @objid ("ae171cfc-cb9a-4195-bf4c-018edabb0de8")
+    @objid ("98234306-d488-4089-b6bf-24716ef9d48e")
     Object visitPropertyType(PropertyType obj);
 
-    @objid ("4396a575-835f-46d6-8133-f771120d4c63")
+    @objid ("903d5508-00e1-4e14-82a7-dd22e53f9429")
     Object visitQueryDefinition(QueryDefinition obj);
 
-    @objid ("9d7dc3c0-d100-4af5-be95-08f7b90deb36")
+    @objid ("e9e1ae91-60e6-4a4f-ad2d-075d08334561")
     Object visitResource(Resource obj);
 
-    @objid ("f20f59b4-8281-4b1c-89ab-ca86a7912e76")
+    @objid ("62fdf95b-34e3-42e8-b474-ead4e7913a7d")
     Object visitResourceType(ResourceType obj);
 
-    @objid ("e86dbdd3-db9f-43c3-9ab4-756339badac9")
+    @objid ("13745431-7467-4e83-8c23-c5e7acd10e93")
     Object visitStereotype(Stereotype obj);
 
-    @objid ("b3668f4e-ffc4-4989-b368-6bd6ea4d4e41")
+    @objid ("1284c0cf-1da2-4cf4-8b12-82a3ae6438a9")
     Object visitTagParameter(TagParameter obj);
 
-    @objid ("e6c7e997-8685-4976-a0f1-87aecbb96841")
+    @objid ("65076978-cd76-43f4-8cb0-f5420f95b4b3")
     Object visitTagType(TagType obj);
 
-    @objid ("d4ceb5e4-3c60-4c43-a3cf-a32dfeaf82bb")
+    @objid ("7b004701-c3c6-46e3-accc-a8da2a16371e")
     Object visitTaggedValue(TaggedValue obj);
 
-    @objid ("26d8f7b4-12eb-4258-9a5b-2486191866ec")
+    @objid ("172c7bfe-286f-41e8-bb53-711c14466a82")
     Object visitTypedPropertyTable(TypedPropertyTable obj);
 }
 

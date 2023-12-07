@@ -37,9 +37,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("34c7a966-55b7-11e2-877f-002564c97630")
 public final class GmElementImport extends GmLink {
-    @objid ("34c7a96a-55b7-11e2-877f-002564c97630")
-    private ElementImport element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -48,6 +45,9 @@ public final class GmElementImport extends GmLink {
 
     @objid ("34c92ffb-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("34c7a96a-55b7-11e2-877f-002564c97630")
+    private ElementImport element;
 
     @objid ("5c6202e8-5bd5-11e2-9e33-00137282c51b")
     private static final GmElementImportStructuredStyleKeys STRUCTURED_KEYS = new GmElementImportStructuredStyleKeys();
@@ -102,6 +102,9 @@ public final class GmElementImport extends GmLink {
     @objid ("34c93025-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
+        
         MObject ret = this.element.getImportingNameSpace();
         if (ret == null) {
             ret = this.element.getImportingOperation();
@@ -112,6 +115,8 @@ public final class GmElementImport extends GmLink {
     @objid ("34c9302c-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getImportedElement();
     }
 

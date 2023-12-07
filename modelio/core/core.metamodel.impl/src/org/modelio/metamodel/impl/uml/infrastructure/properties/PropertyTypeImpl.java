@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -47,38 +47,38 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("006ef8c0-ec87-1098-b22e-001ec947cd2a")
 public class PropertyTypeImpl extends ModelElementImpl implements PropertyType {
-    @objid ("2e139e49-b45b-4c59-be94-146fc81b0c0d")
+    @objid ("16cf33f2-032d-4fcb-8e08-46e2373d4dc1")
     @Override
     public PropertyBaseType getBaseType() {
         return (PropertyBaseType) getAttVal(((PropertyTypeSmClass)getClassOf()).getBaseTypeAtt());
     }
 
-    @objid ("394c6ca2-e848-43c7-b7a4-5edf693aef5a")
+    @objid ("f4ccc21d-50f9-4758-924f-3a5b79881e1a")
     @Override
     public void setBaseType(PropertyBaseType value) {
         setAttVal(((PropertyTypeSmClass)getClassOf()).getBaseTypeAtt(), value);
     }
 
-    @objid ("5c99fa2f-29d3-47fc-b7f3-46d04faeb3c3")
+    @objid ("721623c8-b3e9-4593-89d9-707f0e467483")
     @Override
     public ModuleComponent getModuleOwner() {
         Object obj = getDepVal(((PropertyTypeSmClass)getClassOf()).getModuleOwnerDep());
         return (obj instanceof ModuleComponent)? (ModuleComponent)obj : null;
     }
 
-    @objid ("4e74276f-787f-4c1a-b447-b167958fdebd")
+    @objid ("3ca5c60c-27aa-4ac1-9162-9a4b1d0a32f4")
     @Override
     public void setModuleOwner(ModuleComponent value) {
         appendDepVal(((PropertyTypeSmClass)getClassOf()).getModuleOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("48a84a3e-f33e-43b6-b17a-964c1e444f30")
+    @objid ("4f59809d-a4a5-4312-9a96-40083d9d45be")
     @Override
     public EList<PropertyDefinition> getTyped() {
         return new SmList<>(this, ((PropertyTypeSmClass)getClassOf()).getTypedDep());
     }
 
-    @objid ("e2b39496-73c4-4f44-8513-0e6603134ea7")
+    @objid ("1b0168e0-2e6a-4991-81c5-f6c404cbbe6f")
     @Override
     public <T extends PropertyDefinition> List<T> getTyped(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -94,20 +94,20 @@ public class PropertyTypeImpl extends ModelElementImpl implements PropertyType {
         
     }
 
-    @objid ("bbec81c4-58dd-4927-a52d-4a3746a5c50b")
+    @objid ("fa937874-da1a-4cd5-bab4-f98947c0fb65")
     @Override
     public Profile getAnalystOwner() {
         Object obj = getDepVal(((PropertyTypeSmClass)getClassOf()).getAnalystOwnerDep());
         return (obj instanceof Profile)? (Profile)obj : null;
     }
 
-    @objid ("18665e00-f651-45ec-b1f0-65012b91f9dc")
+    @objid ("d83ff2b2-429d-4fc2-8b82-dc292345ca04")
     @Override
     public void setAnalystOwner(Profile value) {
         appendDepVal(((PropertyTypeSmClass)getClassOf()).getAnalystOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("cd9f831b-a39c-4db6-a40a-c5c75eed8007")
+    @objid ("ae35135e-6e58-4475-8593-ad01e9522723")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -123,7 +123,7 @@ public class PropertyTypeImpl extends ModelElementImpl implements PropertyType {
         return super.getCompositionOwner();
     }
 
-    @objid ("05a498e8-c468-49cd-abee-add8f3ad7df8")
+    @objid ("5b115fab-b59d-4a93-8955-411d6b06012c")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -143,7 +143,7 @@ public class PropertyTypeImpl extends ModelElementImpl implements PropertyType {
         return super.getCompositionRelation();
     }
 
-    @objid ("4d001fc4-a653-430d-8eec-dc7473b90cce")
+    @objid ("4cfd27e6-be5f-4480-ad6a-6cdbf90b03f6")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyType(this);

@@ -26,6 +26,7 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.geometry.Transposer;
 
 /**
  * Factory of {@link SidedConnectionEndpointLocator}.
@@ -85,13 +86,33 @@ class SidedConnectionEndpointLocatorFactory {
             quadrant = calculateConnectionLocation(startPoint, endPoint);
         }
         
-        int cos = 1;
         
-        if (quadrant == 3 || quadrant == 4) {
+        Transposer transposer = new Transposer();
+        /*
+         * Label placement calculations are done as if the connection point is along the left or right side of the figure. If
+         * the connection point is along the top or bottom, values are transposed.
+         */
+        if (quadrant == SidedConnectionEndpointLocator.QUANDRANT_TOP || quadrant == SidedConnectionEndpointLocator.QUANDRANT_BOTTOM) {
+            transposer.setEnabled(true);
+        }
+        
+        int cos ;
+        if (quadrant == SidedConnectionEndpointLocator.QUANDRANT_RIGHT || quadrant == SidedConnectionEndpointLocator.QUANDRANT_TOP) {
+            cos = 1;
+        } else {
             cos = -1;
         }
         
-        final Dimension figureSize = extension.getPreferredSize();
+        
+        final Dimension origFigureSize = extension.getPreferredSize();
+        final Dimension figureSize = transposer.t(origFigureSize);
+        
+        startPoint = transposer.t(startPoint);
+        endPoint = transposer.t(endPoint);
+        delta = transposer.t(delta);
+        mousePosition = transposer.t(mousePosition);
+        
+        
         final double tan = calculateTan(startPoint, endPoint);
         
         Point initialLocation = getLocation(currentLocator.getUDistance(), currentLocator.getVDistance(), startPoint,
@@ -102,36 +123,37 @@ class SidedConnectionEndpointLocatorFactory {
         int uDistance = uvDistance[0];
         int vDistance = uvDistance[1];
         
+        if (false) {
+            int[] mouseUVDistance = getUVDistance(mousePosition, startPoint, new Dimension(0, 0), cos, tan);
+            int mouseV = mouseUVDistance[1];
         
-         int[] mouseUVDistance = getUVDistance(mousePosition, startPoint, new Dimension(0, 0), cos, tan);
-         int mouseV = mouseUVDistance[1];
+            if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
+                vDistance = 0;
+            } else
+                if ((mouseV > 0 && currentLocator.getVDistance() < 0) ||
+                        (mouseV < 0 && currentLocator.getVDistance() > 0)) {
+                    int sign = currentLocator.getVDistance() > 0 ? 1 : -1;
+                    location.y += figureSize.height * sign;
+                    uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
+                    vDistance = uvDistance[1];
+                    if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
+                        vDistance = 0;
+                    }
+                } else if (currentLocator.getVDistance() == 0) {
+                    if (Math.abs(delta.height) < figureSize.height / 2) {
+                        vDistance = 100;
+                    } else {
+                        int sign = vDistance < 0 ? 1 : -1;
+                        location.y += figureSize.height / 2 * sign;
+                        uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
+                        vDistance = uvDistance[1];
+                    }
+                }
+        }
         
-         if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
-            vDistance = 0;
-         } else
-           if ((mouseV > 0 && currentLocator.getVDistance() < 0) ||
-              (mouseV < 0 && currentLocator.getVDistance() > 0)) {
-              int sign = currentLocator.getVDistance() > 0 ? 1 : -1;
-              location.y += figureSize.height * sign;
-              uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
-              vDistance = uvDistance[1];
-           if ((mouseV >= 0 && vDistance <= 0) || (mouseV <= 0 && vDistance >= 0)) {
-             vDistance = 0;
-           }
-         } else if (currentLocator.getVDistance() == 0) {
-            if (Math.abs(delta.height) < figureSize.height / 2) {
-            vDistance = 100;
-         } else {
-            int sign = vDistance < 0 ? 1 : -1;
-            location.y += figureSize.height / 2 * sign;
-            uvDistance = getUVDistance(location, startPoint, figureSize, cos, tan);
-            vDistance = uvDistance[1];
-          }
-         }
-        
-        SidedConnectionEndpointLocator ret = new SidedConnectionEndpointLocator(conn, isTargetSide);
-        ret.setUDistance(uDistance);
-        ret.setVDistance(vDistance);
+         SidedConnectionEndpointLocator ret = new SidedConnectionEndpointLocator(conn, isTargetSide);
+         ret.setUDistance(uDistance);
+         ret.setVDistance(vDistance);
         return ret;
     }
 
@@ -142,37 +164,7 @@ class SidedConnectionEndpointLocatorFactory {
      */
     @objid ("800b4949-1dec-11e2-8cad-001ec947c8cc")
     private static int calculateConnectionLocation(Point loc, Point topLeft, Point center) {
-        double m1;
-        double m2 = 0;
-        m1 = (double) (topLeft.y - center.y) / (double) (topLeft.x - center.x);
-        
-        if (loc.x - center.x != 0) {
-            m2 = (double) (loc.y - center.y) / (double) (loc.x - center.x);
-        }
-        
-        if (loc.x == center.x) {
-            // Case where m2 is vertical
-            if (loc.y < center.y) {
-                return 3;
-            } else {
-                return 1;
-            }
-        } else if (Math.abs(m2) <= Math.abs(m1)) {
-            // Connection start point along left or right side
-            if (loc.x < center.x) {
-                return 4;
-            } else {
-                return 2;
-            }
-        } else {
-            // Connection start point along top or bottom
-            if (loc.y < center.y) {
-                return 3;
-            } else {
-                return 1;
-            }
-        }
-        
+        return SidedConnectionEndpointLocator.calculateConnectionLocation(loc, topLeft, center);
     }
 
     /**
@@ -184,20 +176,7 @@ class SidedConnectionEndpointLocatorFactory {
      */
     @objid ("800b4956-1dec-11e2-8cad-001ec947c8cc")
     private static int calculateConnectionLocation(Point startPoint, Point endPoint) {
-        if (Math.abs(endPoint.x - startPoint.x) > Math.abs(endPoint.y - startPoint.y)) {
-            if (endPoint.x > startPoint.x) {
-                return 2;
-            } else {
-                return 4;
-            }
-        } else {
-            if (endPoint.y > startPoint.y) {
-                return 1;
-            } else {
-                return 3;
-            }
-        }
-        
+        return SidedConnectionEndpointLocator.calculateConnectionLocation(startPoint, endPoint);
     }
 
     /**
@@ -210,19 +189,7 @@ class SidedConnectionEndpointLocatorFactory {
      */
     @objid ("800b4960-1dec-11e2-8cad-001ec947c8cc")
     private static double calculateTan(Point startPoint, Point endPoint) {
-        double tan = 0;
-        if (endPoint.x == startPoint.x) {
-            tan = 1.0;
-        } else {
-            tan = (double) (endPoint.y - startPoint.y) / (double) (endPoint.x - startPoint.x);
-        }
-        
-        if (tan > 1) {
-            tan = 1.0;
-        } else if (tan < -1) {
-            tan = -1.0;
-        }
-        return tan;
+        return SidedConnectionEndpointLocator.calculateTan(startPoint, endPoint);
     }
 
     @objid ("800b496b-1dec-11e2-8cad-001ec947c8cc")

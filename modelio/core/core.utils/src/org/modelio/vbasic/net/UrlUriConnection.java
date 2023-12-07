@@ -48,7 +48,7 @@ class UrlUriConnection extends UriConnection {
         try {
             URL url = uri.toURL();
             this.c = url.openConnection();
-            
+        
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException(e);
         }
@@ -113,10 +113,10 @@ class UrlUriConnection extends UriConnection {
                     this.c.setRequestProperty("Authorization", httpAuth);
                 }
                 break;
-                
+        
             case NoneAuthData.AUTH_NONE_SCHEME_ID:
                 break;
-                
+        
             default:
                 throw new UnsupportedOperationException(auth+ " not supported for "+this.c);
             }
@@ -138,9 +138,9 @@ class UrlUriConnection extends UriConnection {
     private static String computeHttpAuth(URL url, String user, String pass) {
         if (user != null && !user.isEmpty()) {
             String userInfo = user + ":" + (pass==null ? "" : pass);
-            return "Basic " + javax.xml.bind.DatatypeConverter.printBase64Binary(userInfo.getBytes());
+            return "Basic " + jakarta.xml.bind.DatatypeConverter.printBase64Binary(userInfo.getBytes());
         } else if (url != null && url.getUserInfo() != null) {
-            return "Basic " + javax.xml.bind.DatatypeConverter.printBase64Binary(url.getUserInfo().getBytes());
+            return "Basic " + jakarta.xml.bind.DatatypeConverter.printBase64Binary(url.getUserInfo().getBytes());
         } else {
             return null;
         }

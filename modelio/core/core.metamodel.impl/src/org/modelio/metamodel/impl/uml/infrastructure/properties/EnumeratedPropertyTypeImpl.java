@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -54,13 +54,13 @@ public class EnumeratedPropertyTypeImpl extends PropertyTypeImpl implements Enum
         return null;
     }
 
-    @objid ("009f563f-e54a-4c47-ba48-f478dcb71032")
+    @objid ("8ba75957-c654-44f5-aca4-6c98fc512074")
     @Override
     public EList<PropertyEnumerationLitteral> getLitteral() {
         return new SmList<>(this, ((EnumeratedPropertyTypeSmClass)getClassOf()).getLitteralDep());
     }
 
-    @objid ("4d6b3e2f-7b82-43ed-a8ff-96ca26c46b27")
+    @objid ("45134cb2-b644-463c-8dc1-fa69fbcc8de6")
     @Override
     public <T extends PropertyEnumerationLitteral> List<T> getLitteral(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -76,13 +76,13 @@ public class EnumeratedPropertyTypeImpl extends PropertyTypeImpl implements Enum
         
     }
 
-    @objid ("5ff0babe-6b83-4e57-9d90-5e0d32c67caf")
+    @objid ("a6615ec0-7e65-4c59-b778-31330105b80d")
     @Override
     public EList<ModuleParameter> getOccurenceConfigParam() {
         return new SmList<>(this, ((EnumeratedPropertyTypeSmClass)getClassOf()).getOccurenceConfigParamDep());
     }
 
-    @objid ("3d94da35-955a-4bbf-84c5-397dfe0d9c84")
+    @objid ("914eee28-fa31-4a27-a15e-68426379af11")
     @Override
     public <T extends ModuleParameter> List<T> getOccurenceConfigParam(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -98,7 +98,7 @@ public class EnumeratedPropertyTypeImpl extends PropertyTypeImpl implements Enum
         
     }
 
-    @objid ("8016895f-19fc-4769-a594-0f830dbf3bb7")
+    @objid ("60070b57-fa50-4d06-bba4-970418ba8642")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -106,7 +106,7 @@ public class EnumeratedPropertyTypeImpl extends PropertyTypeImpl implements Enum
         return super.getCompositionOwner();
     }
 
-    @objid ("b5d74b44-2d3e-4aa7-986f-472a130fa5da")
+    @objid ("d5db90fd-9b2f-42a1-b885-b2655d5e5bc8")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -116,7 +116,7 @@ public class EnumeratedPropertyTypeImpl extends PropertyTypeImpl implements Enum
         return super.getCompositionRelation();
     }
 
-    @objid ("2c654096-0291-403c-95de-d5d71bc35047")
+    @objid ("89606d86-adf1-4799-a4a5-7a8cf6a3f87b")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitEnumeratedPropertyType(this);

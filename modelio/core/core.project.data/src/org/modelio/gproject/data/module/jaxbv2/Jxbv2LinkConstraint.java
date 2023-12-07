@@ -22,12 +22,12 @@ package org.modelio.gproject.data.module.jaxbv2;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementRefs;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElementRef;
+import jakarta.xml.bind.annotation.XmlElementRefs;
+import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for _LinkConstraint complex type.
@@ -55,9 +55,9 @@ import javax.xml.bind.annotation.XmlType;
 public class Jxbv2LinkConstraint {
     @objid ("9f54212b-c4fc-42ba-8e46-2581da5ab4c5")
     @XmlElementRefs({
-            @XmlElementRef(name = "SourceScope", type = JAXBElement.class),
-            @XmlElementRef(name = "TargetScope", type = JAXBElement.class)
-        })
+                @XmlElementRef(name = "SourceScope", type = JAXBElement.class),
+                @XmlElementRef(name = "TargetScope", type = JAXBElement.class)
+            })
     protected List<JAXBElement<Jxbv2Scope>> sourceScopeAndTargetScope;
 
     /**

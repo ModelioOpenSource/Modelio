@@ -9,7 +9,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 
 	<groupId>org.modelio</groupId>
 	<artifactId>modelio-parent</artifactId>
-	<version>5.3.1-SNAPSHOT</version>
+	<version>5.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -19,20 +19,19 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<maven.compiler.source>11</maven.compiler.source>
 		<javadesigner.annotation.version>2.2.0</javadesigner.annotation.version>
 
-		<modelio.rootFolder>Modelio 5.3.1</modelio.rootFolder>
-		<modelio.version>5.3.1-SNAPSHOT</modelio.version>
-		<newVersion>5.3.1</newVersion>
+		<modelio.rootFolder>Modelio 5.4.1</modelio.rootFolder>
+		<modelio.version>5.4.1-SNAPSHOT</modelio.version>
+		<newVersion>5.4.1</newVersion>
 		<modelio.ws.path>${project.basedir}/${project.parent.relativePath}</modelio.ws.path>
 	</properties>
 	
 
 	<repositories>
 				<!-- Eclipse RCP platform -->
-						<repository>
-							<id>modelio-repository-maven</id>
-							<layout>default</layout>
-							<url>http://repository.modelio.org/</url>
-						</repository>
+        <repository>
+          <id>modelio</id>
+          <url>https://repository.modelio.org</url>
+        </repository>
 				<repository>
 					<id>rcp-Eclipse</id>
 					<layout>p2</layout>
@@ -212,7 +211,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 						<artifact>
 							<groupId>org.modelio</groupId>
 							<artifactId>rcp</artifactId>
-							<version>5.3.1-SNAPSHOT</version>
+							<version>5.4.1-SNAPSHOT</version>
 						</artifact>
 					</target>
 				</configuration>

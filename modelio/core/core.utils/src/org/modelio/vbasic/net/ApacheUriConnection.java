@@ -29,6 +29,7 @@ import java.net.URI;
 import java.nio.file.FileSystemException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.apache.http.Header;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -78,7 +79,10 @@ public class ApacheUriConnection extends UriConnection {
     @objid ("bcf11edd-2a78-43ac-bf86-c0b0d059c536")
     public  ApacheUriConnection(URI uri) {
         this.uri = uri;
-        this.configBuilder = RequestConfig.custom();
+        this.timeout = 5_000;
+        this.configBuilder = RequestConfig.custom()
+                .setConnectTimeout(this.timeout)
+                .setSocketTimeout(this.timeout);
         
     }
 
@@ -180,6 +184,7 @@ public class ApacheUriConnection extends UriConnection {
     @Override
     public void setConnectTimeout(int timeout) throws IllegalArgumentException {
         this.configBuilder.setConnectTimeout(timeout);
+        this.configBuilder.setSocketTimeout(timeout);
         this.timeout = timeout;
         
     }
@@ -270,7 +275,8 @@ public class ApacheUriConnection extends UriConnection {
         
         if (statusCode >=200 && statusCode < 300) {
             // Try to get content now to get an exception on failure immediately
-            this.res.getEntity().getContent();
+            HttpEntity entity = this.res.getEntity();
+            entity.getContent();
         } else {
             handleConnectionFailure();
         }
@@ -285,7 +291,10 @@ public class ApacheUriConnection extends UriConnection {
         @objid ("cac25ba2-73d0-4b92-8d68-b3b12ffb8711")
         @Override
         public boolean supports(URI uri) {
-            return uri.getScheme().equals("http") || uri.getScheme().equals("https");
+            String scheme = uri.getScheme();
+            if (scheme == null)
+                return false;
+            return scheme.equals("http") || scheme.equals("https");
         }
 
         @objid ("25d00bea-798a-4046-99c3-5adaf15e1760")

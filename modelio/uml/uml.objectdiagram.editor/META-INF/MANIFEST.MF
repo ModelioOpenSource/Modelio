@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Modelio Object Diagram Editor
 Bundle-SymbolicName: org.modelio.uml.objectdiagram.editor;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-Vendor: modelio.org
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.modelio.app.diagram.editor,

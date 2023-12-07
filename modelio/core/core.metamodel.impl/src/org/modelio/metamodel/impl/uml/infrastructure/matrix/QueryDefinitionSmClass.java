@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
@@ -51,67 +51,67 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("7e599826-c1b6-47d6-9fec-178ce027d0e1")
 public class QueryDefinitionSmClass extends ElementSmClass {
-    @objid ("a2eaf9a3-5d19-4013-96fb-79c02564a108")
+    @objid ("c7c25ec8-7beb-41f1-8ab8-0068e5ef437e")
     private SmAttribute usingAdditionsAtt;
 
-    @objid ("d228e87a-7ac9-4d25-95a6-21767948bbfb")
+    @objid ("d10363ca-003a-4c88-a5e8-d5be1a207081")
     private SmDependency addedDep;
 
-    @objid ("0c61e457-9a90-41bc-9c01-1283bb25f534")
+    @objid ("236fdcd1-8ded-42da-8516-8fdb0e5f73a5")
     private SmDependency processorDep;
 
-    @objid ("78e8f7b2-f1f4-42cc-8e5a-7ebd8dd8277a")
+    @objid ("cd036ac8-519f-4030-8c8b-c374c6ddd46c")
     private SmDependency parametersDep;
 
-    @objid ("88c66cb3-1469-4ba6-b9e7-65279bc33257")
+    @objid ("ea83a0b6-9c12-448c-bcc4-72c7fe265a0c")
     private SmDependency ownerAsLineDep;
 
-    @objid ("b1dafaee-d4b3-4970-918a-67e9c7f3e026")
+    @objid ("7dd45864-f555-4f91-b75f-eb4cff054b1a")
     private SmDependency ownerAsColDep;
 
-    @objid ("bea44476-1bc4-42e1-9560-3169d9c291d3")
+    @objid ("ee49123a-bc87-47a6-9cd8-cbbdb0534150")
     private SmDependency ownerAsDepthDep;
 
-    @objid ("81e58764-3e65-4fb5-ac4c-933a8760a80c")
+    @objid ("18cec89f-9ef1-4e7a-9ca1-ae5a1460c78f")
     public  QueryDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("1d161fb5-1c96-43cf-94b3-6cb5d6edeef7")
+    @objid ("6975d7e9-5050-47ae-b417-13d099b87d96")
     @Override
     public String getName() {
         return "QueryDefinition";
         
     }
 
-    @objid ("587aa69a-838d-4443-bf91-2c28db25d328")
+    @objid ("ff7a552a-beb8-4a9a-bb1a-120f1e10251a")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("d5846c03-5937-4bdd-9e7e-902b78416bce")
+    @objid ("3c509667-9e4c-4340-82d6-1503a153b9c3")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return QueryDefinition.class;
         
     }
 
-    @objid ("d4f4528e-eb0f-4a13-9dde-025549b3c73e")
+    @objid ("4f792b10-c715-42c6-b0af-97eede3f2687")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("03304ee0-61bd-4e89-890c-247cc7cfa0bb")
+    @objid ("0c70c1e7-93a2-420d-bbba-a1bdf34eb7bd")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("af9345e1-af95-4880-a9f0-aaa32cf17c13")
+    @objid ("f40a1617-1abb-420a-87e6-f5735d37393c")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(Element.MQNAME);
@@ -152,7 +152,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         
     }
 
-    @objid ("06f81f2e-4eee-43fd-ab60-e57701ac2e1b")
+    @objid ("e972bea3-3118-4dba-968b-40e1f935be5b")
     public SmAttribute getUsingAdditionsAtt() {
         if (this.usingAdditionsAtt == null) {
         	this.usingAdditionsAtt = this.getAttributeDef("UsingAdditions");
@@ -160,7 +160,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.usingAdditionsAtt;
     }
 
-    @objid ("e776fd6b-1455-4474-94ce-17303878022e")
+    @objid ("fbbc2668-9b11-495b-a8e7-a7bde59b73c3")
     public SmDependency getAddedDep() {
         if (this.addedDep == null) {
         	this.addedDep = this.getDependencyDef("Added");
@@ -168,7 +168,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.addedDep;
     }
 
-    @objid ("e9d15188-2dd8-42a0-acc6-eca4d8b49e61")
+    @objid ("14a6d74f-8ffb-4a8f-8ad4-2d463623739f")
     public SmDependency getProcessorDep() {
         if (this.processorDep == null) {
         	this.processorDep = this.getDependencyDef("Processor");
@@ -176,7 +176,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.processorDep;
     }
 
-    @objid ("1895bee2-7789-4640-b86d-17afe3521fd3")
+    @objid ("1e99cabc-8d8e-4435-88e8-bf0e38835fa0")
     public SmDependency getParametersDep() {
         if (this.parametersDep == null) {
         	this.parametersDep = this.getDependencyDef("Parameters");
@@ -184,7 +184,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.parametersDep;
     }
 
-    @objid ("11304c8a-3b44-4bd6-9cdb-2d71a30200c0")
+    @objid ("bd96706c-b406-4802-a190-d8afea833244")
     public SmDependency getOwnerAsLineDep() {
         if (this.ownerAsLineDep == null) {
         	this.ownerAsLineDep = this.getDependencyDef("OwnerAsLine");
@@ -192,7 +192,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.ownerAsLineDep;
     }
 
-    @objid ("fbfdc06d-424d-47bc-bf62-ce17f5c4e925")
+    @objid ("42ac0f6d-c1db-4e7f-adbc-7b010004abdc")
     public SmDependency getOwnerAsColDep() {
         if (this.ownerAsColDep == null) {
         	this.ownerAsColDep = this.getDependencyDef("OwnerAsCol");
@@ -200,7 +200,7 @@ public class QueryDefinitionSmClass extends ElementSmClass {
         return this.ownerAsColDep;
     }
 
-    @objid ("a78be006-3b97-49ac-aa62-74f28162e620")
+    @objid ("b204bfd7-92b7-494c-a736-91dba00402da")
     public SmDependency getOwnerAsDepthDep() {
         if (this.ownerAsDepthDep == null) {
         	this.ownerAsDepthDep = this.getDependencyDef("OwnerAsDepth");
@@ -210,21 +210,21 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("c35b46ae-13e1-4369-a7ec-c9d632ad78d1")
     private static class QueryDefinitionObjectFactory implements ISmObjectFactory {
-        @objid ("154cea55-04e4-421b-a9b3-345be5c11109")
+        @objid ("f6c4b0a0-ec6e-44ee-b1de-6f0ee7b1aff1")
         private QueryDefinitionSmClass smClass;
 
-        @objid ("6223a29d-7b53-4253-bc42-0625032f4e62")
+        @objid ("bbf2d78b-03fd-4078-9b61-6c67a6f0757f")
         public  QueryDefinitionObjectFactory(QueryDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("bf93003b-1e87-43ac-9c2e-ab004c82dafd")
+        @objid ("18a28dde-4145-49f5-9ad1-21f88dce9721")
         @Override
         public ISmObjectData createData() {
             return new QueryDefinitionData(this.smClass);
         }
 
-        @objid ("d1d1847b-ee96-4d5e-86f5-c0685e56f314")
+        @objid ("daa1681f-db43-4017-b9c4-7e106ac0bb4f")
         @Override
         public SmObjectImpl createImpl() {
             return new QueryDefinitionImpl();
@@ -234,12 +234,12 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("5b4a6943-4c31-439b-91f4-1f352ad662f5")
     public static class UsingAdditionsSmAttribute extends SmAttribute {
-        @objid ("c6201418-ac2e-444f-8fc2-79df290ab603")
+        @objid ("f6bb39c6-f45d-41e6-9151-814b073b39e3")
         public Object getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mUsingAdditions;
         }
 
-        @objid ("e43dd163-a3bd-4979-8c79-37cdf2780326")
+        @objid ("a6f3dc2a-769c-437e-aad8-a79405216f92")
         public void setValue(ISmObjectData data, Object value) {
             ((QueryDefinitionData) data).mUsingAdditions = value;
         }
@@ -248,23 +248,23 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("911261b9-5eab-46c8-9359-6505de122fc4")
     public static class AddedSmDependency extends SmMultipleDependency {
-        @objid ("44ec2ce7-27f4-4514-b8c6-eeb573e3a860")
+        @objid ("8ca3ff83-d9ac-4178-b490-3d710e83af35")
         private SmDependency symetricDep;
 
-        @objid ("c18e03c3-17d1-4aaf-8346-30f95a92cd6e")
+        @objid ("2258c4c9-285b-43f5-8499-1ff9f9bb4580")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((QueryDefinitionData)data).mAdded != null)? ((QueryDefinitionData)data).mAdded:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("00ec3782-752a-41f2-8b12-46af6c1f001a")
+        @objid ("addf70cb-3735-4a68-bd69-23c1aa6a8919")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((QueryDefinitionData) data).mAdded = values;
             
         }
 
-        @objid ("5c476a67-06d0-41d1-a980-653c94a3ca4f")
+        @objid ("c42cf496-3a58-474e-a269-b4764e5e4c63")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -278,22 +278,22 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("c1a4fac9-7e20-4925-9ef4-c58131b1592c")
     public static class ProcessorSmDependency extends SmSingleDependency {
-        @objid ("fc4b81e0-738a-4a36-8122-f1f4cf92a36c")
+        @objid ("6054b368-d37c-4c13-b0e8-6ca2c0bb8f9a")
         private SmDependency symetricDep;
 
-        @objid ("4f57abe2-92ce-4147-93bc-55ea8ba7e05b")
+        @objid ("076a5b9a-e6c0-4bfd-9901-845516d76f46")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mProcessor;
         }
 
-        @objid ("54fd1e98-3d15-433e-9703-16fd1870a87c")
+        @objid ("07ae6dcc-8e00-4637-82c0-32402e422448")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((QueryDefinitionData) data).mProcessor = value;
         }
 
-        @objid ("7923c3bf-6cff-4fa0-a66c-904767f2f117")
+        @objid ("ab235ba9-83b3-49e8-b59a-e65a3ed048d2")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -307,22 +307,22 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("972d7073-2a13-4cc4-947e-66b13ff32d51")
     public static class ParametersSmDependency extends SmSingleDependency {
-        @objid ("6245ce63-0872-4dff-ab84-0ef6f8e8d0f4")
+        @objid ("1992a10d-0e82-4c80-8135-b059c733ddf2")
         private SmDependency symetricDep;
 
-        @objid ("5b21d073-c114-45ee-8dae-5023fd12c4de")
+        @objid ("3b4b87f6-25cc-4df6-9ed2-f406412d56cb")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mParameters;
         }
 
-        @objid ("ab2aa5c3-3f04-4c92-84c4-91242c642725")
+        @objid ("ff557eed-0b20-417b-b646-1ac48917dd5a")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((QueryDefinitionData) data).mParameters = value;
         }
 
-        @objid ("d0d91cbf-d309-49d6-8480-1be40b69659e")
+        @objid ("b97e4427-d91a-4727-9b18-2b0d85174682")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -336,22 +336,22 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("6bcb96f3-c4d8-4637-b7f5-29105dd593a7")
     public static class OwnerAsLineSmDependency extends SmSingleDependency {
-        @objid ("75d6d6f7-cfae-4d26-bbb2-a553e28bb0ff")
+        @objid ("d1618eac-e5ac-41ad-87bb-1da6da01bc89")
         private SmDependency symetricDep;
 
-        @objid ("1801b6a6-7fab-4cc6-bf5e-2ad9a8013a72")
+        @objid ("748e8d2f-1845-4fe3-a750-1889f1d39a63")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mOwnerAsLine;
         }
 
-        @objid ("34d812c7-6986-42d0-85db-ae1db5b662ba")
+        @objid ("f16ecd75-34bc-4b1a-abb5-4d015c797a92")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((QueryDefinitionData) data).mOwnerAsLine = value;
         }
 
-        @objid ("476c6a61-49e6-4c4b-852d-2565607a1bf6")
+        @objid ("b26578d0-22ee-4292-b06b-a69754bc8239")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -365,22 +365,22 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("b8a8231a-6046-427f-9b81-9d2cb02ba597")
     public static class OwnerAsColSmDependency extends SmSingleDependency {
-        @objid ("82e96e14-d439-4a7f-b44e-d685fbca72de")
+        @objid ("ed1cd9c1-18dc-438a-86c8-117c6f2167d8")
         private SmDependency symetricDep;
 
-        @objid ("f3ac4ed1-40a6-4a69-9f36-7a1ecdb6f0c1")
+        @objid ("3124a614-fff5-4654-94ec-efbdea3f7962")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mOwnerAsCol;
         }
 
-        @objid ("b31b18c3-7c4d-4fad-912d-79c3f518f172")
+        @objid ("38d40972-3cde-410a-91b3-306f136e8c27")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((QueryDefinitionData) data).mOwnerAsCol = value;
         }
 
-        @objid ("c1af76da-6c56-4301-b096-7535a0589a31")
+        @objid ("9e627ed3-4a2d-4a44-b64b-e53d661b91c4")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -394,22 +394,22 @@ public class QueryDefinitionSmClass extends ElementSmClass {
 
     @objid ("30312de8-5b1e-422a-bce2-d26ddcd41dbf")
     public static class OwnerAsDepthSmDependency extends SmSingleDependency {
-        @objid ("83f706b7-267d-40bb-8514-0173a6af40a3")
+        @objid ("38af1fb0-3fd4-4456-bb92-3bc9561f754a")
         private SmDependency symetricDep;
 
-        @objid ("65a0dabc-5ea6-48c0-838d-044eeaa1d5a7")
+        @objid ("3a55d16a-e7be-4715-867c-5fdf533fba46")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((QueryDefinitionData) data).mOwnerAsDepth;
         }
 
-        @objid ("1c67fa4d-2ae4-4c52-88f4-f7dd21607383")
+        @objid ("4a931146-777c-46d7-81e2-29c62d86cd14")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((QueryDefinitionData) data).mOwnerAsDepth = value;
         }
 
-        @objid ("306e6ebf-4d9e-4610-bce8-2c92ec3b3535")
+        @objid ("15fec080-347b-432e-9be2-53af5c5955e0")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

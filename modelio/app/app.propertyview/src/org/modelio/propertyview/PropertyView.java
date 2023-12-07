@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import com.modeliosoft.modelio.javadesigner.annotations.mdl;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -51,6 +50,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.gproject.core.IGProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
@@ -124,10 +124,10 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     @objid ("9b78bf69-54b6-4f77-ad13-6b9b9c055eda")
     private MPart myPart;
 
-    @objid ("4a7faed8-92e8-457b-b9ce-de8aadb9852d")
+    @objid ("75eaf2ba-e8b4-44bd-ac07-5c7894ca58bb")
     private CLabel header;
 
-    @objid ("b357052a-7cfa-47b8-b378-d01ef24904b3")
+    @objid ("bd052ea7-9aa4-44b5-8f17-0e694b1e0cd9")
     private Composite parentComposite;
 
     @objid ("416c04b4-33cb-48a8-bda1-e3413d4112a9")
@@ -285,7 +285,26 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
                 session.getModelChangeSupport().removeModelChangeListener(this);
                 session.getModelChangeSupport().removeStatusChangeListener(this);
             }
+        
         }
+        
+        Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+                if (header != null) {
+                    for (final PanelDescriptor desc : pvm.getPanels()) {
+                        final IPanelProvider panel = desc.getPanel();
+                        try {
+                            panel.setInput(null);
+                        } catch (final Throwable e) {
+                            PropertyViewPlugin.LOG.error(e);
+                        }
+                    } // end for
+                }
+            }
+        });
+        
+        
         this.project = null;
         this.modelService = null;
         
@@ -472,70 +491,6 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         return (IPanelProvider) this.tabFolder.getSelection().getData(PropertyView.PANEL);
     }
 
-    @objid ("eb783bd3-a55c-4a05-8150-e02f59543368")
-    private static class PanelDescriptor {
-        
-        @mdl.prop
-        @objid ("aa18d09a-3b3d-42ef-93eb-1b5deab59fb6")
-        public final String panelLabel;
-
-        @mdl.propgetter
-        public String getPanelLabel() {
-            // Automatically generated method. Please delete this comment before entering specific code.
-            return this.panelLabel;
-        }
-
-        
-        @mdl.prop
-        @objid ("b5b08bc9-3794-4338-8ed5-2c10576da5b8")
-        public final boolean primary;
-
-        @mdl.propgetter
-        public boolean isPrimary() {
-            // Automatically generated method. Please delete this comment before entering specific code.
-            return this.primary;
-        }
-
-        
-        @mdl.prop
-        @objid ("4f9ed041-ac23-4d72-a21f-a7489d595608")
-        public final ImageDescriptor iconDescriptor;
-
-        @mdl.propgetter
-        public ImageDescriptor getIconDescriptor() {
-            // Automatically generated method. Please delete this comment before entering specific code.
-            return this.iconDescriptor;
-        }
-
-        
-        @mdl.prop
-        @objid ("88ffd378-a3a0-4cba-8e0d-1a774680c7f1")
-        public final IPanelProvider panel;
-
-        @mdl.propgetter
-        public IPanelProvider getPanel() {
-            // Automatically generated method. Please delete this comment before entering specific code.
-            return this.panel;
-        }
-
-        /**
-         * @param id the panel id
-         * @param label the panel label
-         * @param iconDescriptor the tab icon ?
-         * @param isPrimary whether it is a primary panel: to be displayed first
-         * @param panel the panel implementation
-         */
-        @objid ("e85fbe4c-fcd8-4cbe-8522-2ca29a906a2f")
-        public  PanelDescriptor(final String id, final String label, final ImageDescriptor iconDescriptor, final boolean isPrimary, final IPanelProvider panel) {
-            this.panelLabel = label != null ? label : "";
-            this.primary = isPrimary;
-            this.panel = panel;
-            this.iconDescriptor = iconDescriptor;
-            
-        }
-
-    }
-
     @objid ("c1b94bef-19df-4870-b8f8-1e1c5d6074f4")
     private static class PropertyViewConfigurator {
     }
@@ -545,7 +500,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         @objid ("782325bf-4f41-46ba-b2da-b9f4b4f38491")
         private static final String PROPERTYVIEW_PANEL_EXTENSIONPOINT = "org.modelio.app.propertyview.panels";
 
-        @objid ("90e5cfa8-a561-4e42-b370-5ce446c6d351")
+        @objid ("be920964-cb59-4a7f-8aea-f259c837056a")
         private ArrayList<PanelDescriptor> panels;
 
         @objid ("a55baa94-cdec-4a81-a542-cd22ffbea3c4")
@@ -595,6 +550,61 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         @objid ("b52a04a4-275a-4c53-841b-f1b463c3f640")
         public List<PanelDescriptor> getPanels() {
             return this.panels;
+        }
+
+    }
+
+    @objid ("81ecb5e5-b643-4586-97c7-6394a72d7536")
+    private static class PanelDescriptor {
+        @objid ("883cfb46-de95-48f7-9924-3cb343402f9f")
+        public final String panelLabel;
+
+        @objid ("ef7538be-212a-4ca1-bc45-30634ac106d9")
+        public final boolean primary;
+
+        @objid ("0c9c36f3-48eb-47c0-9d98-e078a5648a77")
+        public final ImageDescriptor iconDescriptor;
+
+        @objid ("8833fa33-fc97-4c02-ba91-a9fb2c1ffe32")
+        public final IPanelProvider panel;
+
+        @objid ("1409489e-df58-4065-9c74-6279a447f76d")
+        public boolean isPrimary() {
+            // Automatically generated method. Please delete this comment before entering specific code.
+            return this.primary;
+        }
+
+        @objid ("fbaa3876-2d75-4d9c-98f6-9b14a9fa4f45")
+        public String getPanelLabel() {
+            return this.panelLabel;
+        }
+
+        @objid ("2f3f3643-68fd-484f-8fe8-15779292664b")
+        public ImageDescriptor getIconDescriptor() {
+            // Automatically generated method. Please delete this comment before entering specific code.
+            return this.iconDescriptor;
+        }
+
+        @objid ("140ac7ff-0b30-4ba7-bc1a-fda1568860b9")
+        public IPanelProvider getPanel() {
+            // Automatically generated method. Please delete this comment before entering specific code.
+            return this.panel;
+        }
+
+        /**
+         * @param id the panel id
+         * @param label the panel label
+         * @param iconDescriptor the tab icon ?
+         * @param isPrimary whether it is a primary panel: to be displayed first
+         * @param panel the panel implementation
+         */
+        @objid ("8546f493-f199-4449-bbdc-52a1269e25c0")
+        public  PanelDescriptor(final String id, final String label, final ImageDescriptor iconDescriptor, final boolean isPrimary, final IPanelProvider panel) {
+            this.panelLabel = label != null ? label : "";
+            this.primary = isPrimary;
+            this.panel = panel;
+            this.iconDescriptor = iconDescriptor;
+            
         }
 
     }

@@ -22,6 +22,7 @@ package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.link.ortho.migration.OrthoLinkDiagramMigrationHelper;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
@@ -50,8 +51,17 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("5e82a51a-55b7-11e2-877f-002564c97630")
 public class GmUseCaseDiagram extends GmAbstractDiagram {
+    /**
+     * Current version of this Gm. Defaults to 0.
+     * <h2>History</h2>
+     * <ul>
+     * <li> 0 : initial version
+     * <li> 1 : ???
+     * <li> 2 : 5.3.1 :  5.1 orthogonal router applied
+     * </li>
+     */
     @objid ("5e82a524-55b7-11e2-877f-002564c97630")
-    private static final int MINOR_VERSION = 1;
+    private static final int MINOR_VERSION = 2;
 
     @objid ("5e82a527-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
@@ -132,10 +142,14 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
             read_1(in);
             break;
         }
+        case 2: {
+            read_2(in);
+            break;
+        }
         default: {
             assert (false) : "version number not covered!";
             // reading as last handled version
-            read_1(in);
+            read_2(in);
             break;
         }
         }
@@ -246,6 +260,26 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         
     }
 
+    @objid ("bdd659e6-14d9-4cf3-ac33-a3b85e45b209")
+    private void read_1(IDiagramReader in) {
+        read_2(in);
+        
+        OrthoLinkDiagramMigrationHelper.migrate(this);
+        
+    }
+
+    @objid ("12e3b787-fa10-481f-8ac0-fbb3f9301f7e")
+    private void read_2(IDiagramReader in) {
+        super.read(in);
+        this.element = (UseCaseDiagram) resolveRef(getRepresentedRef());
+        for (GmNodeModel child : getChildren()) {
+            if (child instanceof GmSystem) {
+                this.system = (GmSystem) child;
+            }
+        }
+        
+    }
+
     @objid ("5e85b27f-55b7-11e2-877f-002564c97630")
     @Override
     public int getMajorVersion() {
@@ -279,18 +313,6 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         style.setProperty(GmAssocStructuredStyleKeys.SHOWNAVIGABILITY, false);
         style.setProperty(GmAssocStructuredStyleKeys.SHOWROLES, false);
         style.setProperty(GmAssocStructuredStyleKeys.CONNECTIONROUTER, ConnectionRouterId.DIRECT);
-        
-    }
-
-    @objid ("12e3b787-fa10-481f-8ac0-fbb3f9301f7e")
-    private void read_1(IDiagramReader in) {
-        super.read(in);
-        this.element = (UseCaseDiagram) resolveRef(getRepresentedRef());
-        for (GmNodeModel child : getChildren()) {
-            if (child instanceof GmSystem) {
-                this.system = (GmSystem) child;
-            }
-        }
         
     }
 

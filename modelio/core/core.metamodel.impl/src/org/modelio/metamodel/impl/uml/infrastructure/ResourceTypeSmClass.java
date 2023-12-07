@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -48,67 +48,67 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("a04bbc92-8e0b-4e19-be5a-d9bf89e06abf")
 public class ResourceTypeSmClass extends ModelElementSmClass {
-    @objid ("d2e998be-e110-41b3-9044-51e534946026")
+    @objid ("4d91edf1-8190-4337-82f9-d9e93ea03e9e")
     private SmAttribute isHiddenAtt;
 
-    @objid ("168250c5-28fb-421e-8653-74cbf6733345")
+    @objid ("b82ee824-b170-4783-bc8f-087a1077e05e")
     private SmAttribute labelKeyAtt;
 
-    @objid ("f5b3fe6e-b81c-459c-bb6e-a34ad019b9cc")
+    @objid ("f6b09ccd-06d3-422c-9a9f-f6e2c76ec12c")
     private SmAttribute iconAtt;
 
-    @objid ("569f54d2-ab81-44fb-b085-4ccf08c5691b")
+    @objid ("a7c46584-a727-4093-882f-0f8fd8e963b9")
     private SmAttribute imageAtt;
 
-    @objid ("84a79169-33be-4e3e-9805-b68cdd6d7f7c")
+    @objid ("47b3a612-dd19-42c8-a038-2145c7bf360c")
     private SmDependency ownerStereotypeDep;
 
-    @objid ("3a84ae43-eb01-4fa0-93f6-639a85a6085e")
+    @objid ("e427d399-b020-4e97-9bc0-4c4c6768132c")
     private SmDependency ownerReferenceDep;
 
-    @objid ("8c0bffe9-3360-4eba-a229-0e275b3c6c55")
+    @objid ("00f3278b-8b44-4f8f-86b3-9872c28a3d55")
     private SmDependency typedResourceDep;
 
-    @objid ("34ad9de7-271d-49d0-9166-821da871262b")
+    @objid ("52329694-6691-4363-ae58-f848f0c1cd4c")
     public  ResourceTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("3362e647-78ab-4675-93d0-5ed3ef3f5f8c")
+    @objid ("4aa1aadd-28ae-444a-a3d8-5738dd8ea125")
     @Override
     public String getName() {
         return "ResourceType";
         
     }
 
-    @objid ("42c254d2-0c89-4b12-a88b-65d6deeff6ab")
+    @objid ("d7a9e46f-7faa-4fc3-a8d8-1d6b569dcedb")
     @Override
     public Version getVersion() {
         return new Version("2.1.00");
     }
 
-    @objid ("0d7f7d95-5ae7-4df8-8014-3af8b6374845")
+    @objid ("9ab34066-1ceb-41fc-b97b-3ec350fb2d93")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ResourceType.class;
         
     }
 
-    @objid ("ae9c8211-4c2e-4bc2-990d-c5286ff4a577")
+    @objid ("6ab0b8e9-fc25-4a3d-bad8-9fa249d2b057")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("586445c1-fba0-40c7-b6f6-c42d7910c6ba")
+    @objid ("8aa0a7d3-3943-40fc-ab64-4ab38811d645")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("ad949703-3ae4-4072-a3a0-1d84380281fa")
+    @objid ("1cf464e5-bf7a-4687-b48b-3cde60e8b780")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -149,7 +149,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         
     }
 
-    @objid ("352fe225-3c29-4f3c-b85f-31f580ccd7c0")
+    @objid ("a6d87bb0-86ee-4429-a4e1-497fc0d32bd4")
     public SmAttribute getIsHiddenAtt() {
         if (this.isHiddenAtt == null) {
         	this.isHiddenAtt = this.getAttributeDef("IsHidden");
@@ -157,7 +157,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.isHiddenAtt;
     }
 
-    @objid ("60b70ccb-7c32-41ea-a696-ff6ff6227abf")
+    @objid ("1a17cb81-0edb-4052-9170-3283b161fa8e")
     public SmAttribute getLabelKeyAtt() {
         if (this.labelKeyAtt == null) {
         	this.labelKeyAtt = this.getAttributeDef("LabelKey");
@@ -165,7 +165,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.labelKeyAtt;
     }
 
-    @objid ("38209db5-752e-442b-b726-b5a3482d1bf0")
+    @objid ("0d135c87-6d5c-4df9-a820-1aa02cddfaf5")
     public SmAttribute getIconAtt() {
         if (this.iconAtt == null) {
         	this.iconAtt = this.getAttributeDef("Icon");
@@ -173,7 +173,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.iconAtt;
     }
 
-    @objid ("6701fb9f-7d2d-4bd3-921c-57eedd93637f")
+    @objid ("3f118b90-6b6a-47fd-aad0-b8f7c079293a")
     public SmAttribute getImageAtt() {
         if (this.imageAtt == null) {
         	this.imageAtt = this.getAttributeDef("Image");
@@ -181,7 +181,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.imageAtt;
     }
 
-    @objid ("61eca5cb-f390-4592-a764-a86fad10ab28")
+    @objid ("d7e2b5fa-f0df-4ce5-97ec-86a2d20d8615")
     public SmDependency getOwnerStereotypeDep() {
         if (this.ownerStereotypeDep == null) {
         	this.ownerStereotypeDep = this.getDependencyDef("OwnerStereotype");
@@ -189,7 +189,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.ownerStereotypeDep;
     }
 
-    @objid ("75db11a0-411b-4faf-b578-8206d558753d")
+    @objid ("877e25a4-5a34-4eff-956c-a26ff72d0dfa")
     public SmDependency getOwnerReferenceDep() {
         if (this.ownerReferenceDep == null) {
         	this.ownerReferenceDep = this.getDependencyDef("OwnerReference");
@@ -197,7 +197,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         return this.ownerReferenceDep;
     }
 
-    @objid ("f12b52ae-e02e-4094-9925-17fbeb26f0f0")
+    @objid ("5dafb59e-6b97-472a-b3fa-b4c70b120729")
     public SmDependency getTypedResourceDep() {
         if (this.typedResourceDep == null) {
         	this.typedResourceDep = this.getDependencyDef("TypedResource");
@@ -207,12 +207,12 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("36555d86-8ca6-4215-b7ba-b6d0c31eb9d8")
     public static class IsHiddenSmAttribute extends SmAttribute {
-        @objid ("d9aa4bbd-0585-47c9-8f71-5e0dc9f097ea")
+        @objid ("2411d2c2-f7e2-4eba-bf81-4bad235888a1")
         public Object getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mIsHidden;
         }
 
-        @objid ("d69d78f4-92b0-4c93-9963-30909098044b")
+        @objid ("4cc28dfe-62e7-47c1-8c70-a4cfb9f2a77a")
         public void setValue(ISmObjectData data, Object value) {
             ((ResourceTypeData) data).mIsHidden = value;
         }
@@ -221,12 +221,12 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("eab07041-da7e-4004-8562-63daeec768ee")
     public static class LabelKeySmAttribute extends SmAttribute {
-        @objid ("0fb72877-f0ce-4003-84d2-b2eb84b74358")
+        @objid ("5a3274d3-c481-4961-b8ed-5f8850cdd39e")
         public Object getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mLabelKey;
         }
 
-        @objid ("dced6834-a394-45ac-a378-c095dd578138")
+        @objid ("72b1123c-97ce-415b-b03b-9f41245c2133")
         public void setValue(ISmObjectData data, Object value) {
             ((ResourceTypeData) data).mLabelKey = value;
         }
@@ -235,12 +235,12 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("7ac93b61-1990-4795-ac8a-af43ce83dc69")
     public static class IconSmAttribute extends SmAttribute {
-        @objid ("327790bd-ca96-487b-b24f-1eb52fee02eb")
+        @objid ("57467765-a3af-4d0e-9491-d21a9a1e162e")
         public Object getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mIcon;
         }
 
-        @objid ("f27ee6d8-6b92-49f1-a5e7-682e5e4ea1b6")
+        @objid ("67e1495a-1982-4b1a-8d29-4d52d31c8a91")
         public void setValue(ISmObjectData data, Object value) {
             ((ResourceTypeData) data).mIcon = value;
         }
@@ -249,12 +249,12 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("22365074-94f7-4cf1-8157-8ff9dfd1d51e")
     public static class ImageSmAttribute extends SmAttribute {
-        @objid ("bc1cc2e9-5996-4602-87da-dd78e2cc6b2e")
+        @objid ("fa034cbf-6967-4f35-8a7e-fb217d540a2e")
         public Object getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mImage;
         }
 
-        @objid ("294e0b33-0dd3-4de7-89bc-6e2ae7b93ad5")
+        @objid ("f5e9f3dd-1d08-4fae-b75c-cf44567cd891")
         public void setValue(ISmObjectData data, Object value) {
             ((ResourceTypeData) data).mImage = value;
         }
@@ -263,22 +263,22 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("7ff73313-d2d4-47a4-8d2b-90b34d35f16f")
     public static class OwnerStereotypeSmDependency extends SmSingleDependency {
-        @objid ("265ecd72-70b9-4161-afe7-bded971efbdc")
+        @objid ("ae681910-a727-46a5-a1a3-d23b02a25b94")
         private SmDependency symetricDep;
 
-        @objid ("97f7fe30-06cf-4fd6-aee0-90b055220755")
+        @objid ("a20df5b9-436e-481f-b7c3-e281d0d47d8d")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mOwnerStereotype;
         }
 
-        @objid ("a0a97753-e318-487c-8e6f-f024cfa29089")
+        @objid ("f12ae0ff-ff14-42f3-9b4c-a962bf139127")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ResourceTypeData) data).mOwnerStereotype = value;
         }
 
-        @objid ("2cad488c-32e2-4f59-a5c6-f172a33179ae")
+        @objid ("e2623ad4-691e-4407-b8c9-c8c8b6b99728")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -292,22 +292,22 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("68a0b4c9-afa4-4e9e-b507-27bddc252390")
     public static class OwnerReferenceSmDependency extends SmSingleDependency {
-        @objid ("806ffc17-f972-44a4-9d8e-18f6f2b61a8e")
+        @objid ("4c5288d3-6b6c-44de-b6d3-b85538a6139b")
         private SmDependency symetricDep;
 
-        @objid ("30a4ceae-a588-4f45-901d-653a9e34f66e")
+        @objid ("bb5387d0-eb51-4a8d-b9fa-9c9e429353c9")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ResourceTypeData) data).mOwnerReference;
         }
 
-        @objid ("7f881316-e0a0-46f0-b295-90968dd7a4ad")
+        @objid ("9d163d1b-6a34-40b2-9e54-7e8906b45ffb")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ResourceTypeData) data).mOwnerReference = value;
         }
 
-        @objid ("7466a542-e9d6-4e0f-8dca-441577502f4a")
+        @objid ("fd1ced54-8220-4ef6-853d-fa87340636bd")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -321,21 +321,21 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("93ee99bc-5ca3-4664-a88a-553c805d5723")
     private static class ResourceTypeObjectFactory implements ISmObjectFactory {
-        @objid ("81f6a7b4-326d-4d20-a2bc-272e49ef5ed8")
+        @objid ("0bc97304-fccd-42ae-aa5f-d0aafb793a23")
         private ResourceTypeSmClass smClass;
 
-        @objid ("9bca9151-341c-419d-9693-9fad44229a12")
+        @objid ("734885c3-2520-4f28-bbea-a6d198d96a69")
         public  ResourceTypeObjectFactory(ResourceTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("d27f7fd1-9fe1-4563-8302-757287b1ed5e")
+        @objid ("82fd415d-9b71-4067-8034-c4c62a6bfc21")
         @Override
         public ISmObjectData createData() {
             return new ResourceTypeData(this.smClass);
         }
 
-        @objid ("fb565c52-73ce-41e1-bb94-b1fcc04cf11d")
+        @objid ("5e630fa1-4af7-4720-b91d-b5a493e3298b")
         @Override
         public SmObjectImpl createImpl() {
             return new ResourceTypeImpl();
@@ -345,23 +345,23 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
 
     @objid ("537f2ae6-0d49-4736-a933-c8be3b6b0286")
     public static class TypedResourceSmDependency extends SmMultipleDependency {
-        @objid ("bf1c47de-a6cb-4354-a81f-2916bda117f0")
+        @objid ("10fd6fea-c694-4149-abde-3b57f56b2f79")
         private SmDependency symetricDep;
 
-        @objid ("32136ebd-2541-401f-8f87-26fb45f48dd4")
+        @objid ("14911087-3d13-40a1-b48a-fd02aaf09ea6")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((ResourceTypeData)data).mTypedResource != null)? ((ResourceTypeData)data).mTypedResource:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("ef794de9-93c8-4bcf-a38c-55372659791f")
+        @objid ("e02d08b8-172b-4e97-bca3-ec0e8f36f4ad")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ResourceTypeData) data).mTypedResource = values;
             
         }
 
-        @objid ("c6696a1d-96e8-4083-b3a2-5ae98f786d6d")
+        @objid ("13dfcebe-5b0a-4bba-96c8-b223a1b6c42b")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.diagrams;
@@ -41,13 +41,13 @@ public interface GraphDiagram extends AbstractDiagram {
     /**
      * The metaclass simple name.
      */
-    @objid ("87d299f0-1e37-47a9-9f57-ff55e1dfdb64")
+    @objid ("0870a20e-14d1-461b-8181-124b9c890b4a")
     public static final String MNAME = "GraphDiagram";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("2b0f34a4-8d4b-4058-a1ad-445b362af259")
+    @objid ("94126332-04e7-4a11-9123-3727c5965777")
     public static final String MQNAME = "Infrastructure.GraphDiagram";
 }
 

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.modelio.jaxb.feature"
+      label="JAXB Libraries"
+      version="2.1.1"
+      provider-name="Softeam Software">
+   <description>
+      Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.
+      p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .
+   </description>
+   <copyright>
+      (c) Softeam Software
+   </copyright>
+   <plugin
+         id="org.modelio.jaxb"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+</feature>

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.impact;
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("f1080505-52a8-4f93-a180-fddc182cfd72")
 public class ImpactLinkData extends ModelElementData {
-    @objid ("d112faf4-c2a2-46bc-ab78-bd5465587b5b")
+    @objid ("b3de42f9-dff0-4e21-91c5-63039fb06fa2")
     SmObjectImpl mDependsOn;
 
-    @objid ("435941f0-8c10-4d12-96c0-eddc18ae01b6")
+    @objid ("e1015643-485b-46c8-ae6f-07dd756beb0f")
     SmObjectImpl mImpacted;
 
-    @objid ("7ec19aba-ef54-495b-8280-3ee6c5051af0")
+    @objid ("ed33a59b-a13c-465a-ab84-af64679267e9")
     List<SmObjectImpl> mCauses = null;
 
-    @objid ("bd411fb7-165e-4c32-bbdd-de5f07f07cc3")
+    @objid ("2a0ce801-cad1-44ae-b72e-2241004958fe")
     SmObjectImpl mOwner;
 
-    @objid ("f467d2a6-c4b9-48d6-ab01-27551a86faf2")
+    @objid ("4cc716ce-d071-44e0-a43f-5440729af629")
     public  ImpactLinkData(ImpactLinkSmClass smClass) {
         super(smClass);
     }

@@ -88,10 +88,12 @@ public interface IRepositorySupport {
     /**
      * Close and remove the given model repository from the connected repositories.
      * @param toRemove the repository to disconnect.
+     * @param fastRemove if true, already loaded won't be moved to the shell repository.
+     * Set this to true only when closing the session to speed up closing.
      * @throws IllegalArgumentException if the repository is not connected to this session
      */
     @objid ("08e18da8-1771-11e2-ac36-001ec947ccaf")
-    void disconnectRepository(IRepository toRemove) throws IllegalArgumentException;
+    void disconnectRepository(IRepository toRemove, boolean fastRemove) throws IllegalArgumentException;
 
     /**
      * Notifies the registered repository change listeners of a repository change.

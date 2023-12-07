@@ -34,21 +34,21 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("002b11b4-91e1-1f74-804b-001ec947cd2a")
 public enum ModuleParameterType {
-    @objid ("c9af352f-e496-4878-af8d-8f8a3c3e16c8")
+    @objid ("698318da-f058-4919-b008-be67e72d2b11")
     TYPE_PARAM_BOOLEAN(0, "TYPE_PARAM_BOOLEAN", "TYPE_PARAM_BOOLEAN"),
-    @objid ("a45284b6-51bf-4efb-9b12-9b6a9dd9ab6d")
+    @objid ("75a23a1d-d535-4c73-a9c9-78a8092c0c72")
     TYPE_PARAM_STRING(1, "TYPE_PARAM_STRING", "TYPE_PARAM_STRING"),
-    @objid ("a0039522-3d3e-40d4-875e-c242505de898")
+    @objid ("dfec8aac-a758-44d2-93a8-e25746eb69d9")
     TYPE_PARAM_ENUM(2, "TYPE_PARAM_ENUM", "TYPE_PARAM_ENUM"),
-    @objid ("c0f3739a-0376-4d44-b1d5-4f2c1155f258")
+    @objid ("89fa9646-5fff-44b5-abbd-3c453187d146")
     TYPE_PARAM_FILE(3, "TYPE_PARAM_FILE", "TYPE_PARAM_FILE"),
-    @objid ("2e54ad75-23ae-480f-92a1-e5fcf5a0c970")
+    @objid ("62cd14ae-ff87-4e31-842c-9b911fcd2bb8")
     TYPE_PARAM_INTEGER(4, "TYPE_PARAM_INTEGER", "TYPE_PARAM_INTEGER"),
-    @objid ("6e33abc5-8e47-4a6d-af95-9b0be72aaf3f")
+    @objid ("048e953d-2f5e-41c5-b37e-7414875339f0")
     TYPE_PARAM_DIRECTORY(5, "TYPE_PARAM_DIRECTORY", "TYPE_PARAM_DIRECTORY"),
-    @objid ("1c088de7-fa00-499a-a753-0cff065748b1")
+    @objid ("fceec8f4-9c5c-4306-ad58-c174ac8af2ed")
     TYPE_PARAM_PASSWORD(6, "TYPE_PARAM_PASSWORD", "TYPE_PARAM_PASSWORD"),
-    @objid ("517c8bbd-4ac4-4265-aadc-346aaa16949c")
+    @objid ("f0ced9c6-58b9-413e-a67c-aee107880376")
     TYPE_PARAM_COLOR(7, "TYPE_PARAM_COLOR", "TYPE_PARAM_COLOR");
 
 public static final int TYPE_PARAM_BOOLEAN_VALUE = 0;

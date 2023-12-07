@@ -68,7 +68,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
         if (req.getType() == RequestConstants.REQ_DIRECT_EDIT) {
             LabelumFigure label = getMainLabelFigure();
             IEditableText editableText = getModel().getEditableText();
-            if (editableText == null) {
+            if (editableText == null || this.getViewer().getControl() == null) {
                 return;
             }
         

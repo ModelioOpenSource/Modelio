@@ -78,7 +78,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
      * You need to call {@link #register()} next.
      * @param mm The metamodel.
      */
-    @objid ("47a21945-335d-40df-8593-31096be6c138")
+    @objid ("1c655f21-a316-4498-86c9-db822cc2eb6e")
     public  InfrastructureGeneratedMetamodelExpert(MMetamodel mm) {
         super(mm);
         
@@ -88,7 +88,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
     /**
      * Initializes this expert.
      */
-    @objid ("6b9fee1d-5053-43da-a0b7-590c4386ff71")
+    @objid ("9901e1f1-c841-4fb4-9ad8-cdbb1e737b44")
     public void register() {
         registerLinkExpertForImpactLink();
         registerLinkExpertForDependency();
@@ -136,7 +136,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("4abc4bba-7e83-47f6-aea4-e22edd285521")
+    @objid ("8cc1a900-5430-4623-bd2d-1d4a40c5742e")
     protected void registerLinkExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -154,7 +154,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("c0b3a897-edbe-414b-8f5b-1e9c7ee39146")
+    @objid ("1c935152-dac4-44c9-94e1-d9b2070571e6")
     protected void registerLinkExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -172,7 +172,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("996fb2ab-05b7-4477-bb6e-3852a662327b")
+    @objid ("0ff1efd6-df6e-4b44-8f0f-5ac592090e27")
     protected void registerLinkExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
@@ -190,7 +190,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("91e3c4ef-caba-4755-aead-e6b43461aeb1")
+    @objid ("de823aaf-eebf-4066-9a28-5c914e7970be")
     protected void registerMetaExpertForTaggedValue() {
         // Infrastructure.TaggedValue
         // -----------
@@ -206,21 +206,21 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("2bcd7f3e-4a44-4a08-ae6a-8127265c7250")
+    @objid ("19b18da9-eb0f-462a-b0ea-6fcc692a79b0")
     protected void registerMetaExpertForTagType() {
         // Infrastructure.TagType
         // -----------
         
     }
 
-    @objid ("a97a0113-dda9-4f40-aaf3-347a3e44563f")
+    @objid ("a93b04c4-44a6-4dc2-957e-9ac62bbf7957")
     protected void registerMetaExpertForTagParameter() {
         // Infrastructure.TagParameter
         // -----------
         
     }
 
-    @objid ("b2b1fa00-e36e-4e1a-9794-e3f3d295ba2a")
+    @objid ("e050ec1c-630f-4883-a3f0-9e0cef32fe20")
     protected void registerMetaExpertForStereotype() {
         // Infrastructure.Stereotype
         // -----------
@@ -242,21 +242,21 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("b873a8d3-1697-4f16-83a0-0cf0c033dae2")
+    @objid ("50fb2db1-8d10-44fb-843b-5153e3df805e")
     protected void registerMetaExpertForResourceType() {
         // Infrastructure.ResourceType
         // -----------
         
     }
 
-    @objid ("f4a70bb4-2dc2-4b71-acb7-8e9995f2450e")
+    @objid ("e1a1b7d9-df2f-4bec-9bc5-d9d4fd49b37a")
     protected void registerMetaExpertForResource() {
         // Infrastructure.Resource
         // -----------
         
     }
 
-    @objid ("57533a81-b404-4ff3-a447-a6dd12e9ed89")
+    @objid ("299635fc-e18a-41bf-8287-98ea41ff647b")
     protected void registerMetaExpertForProfile() {
         // Infrastructure.Profile
         // -----------
@@ -272,14 +272,14 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("94c601e7-6630-4734-b710-35ab2bbd6ca1")
+    @objid ("2f5b54c2-3a71-4e57-bd4b-190581fa1ce0")
     protected void registerMetaExpertForNoteType() {
         // Infrastructure.NoteType
         // -----------
         
     }
 
-    @objid ("674a0bf0-6a67-4328-bd8a-831dd636f211")
+    @objid ("307cfbe0-474d-4f7c-af91-3f707a55f8cd")
     protected void registerMetaExpertForNote() {
         // Infrastructure.Note
         // -----------
@@ -289,7 +289,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("724d1f83-82b1-42b9-b27c-3538152b4a31")
+    @objid ("e2cda779-8c5d-48d3-be00-e29aac18279a")
     protected void registerMetaExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
@@ -299,7 +299,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("830a36d4-0b82-4d5b-86eb-0bcb18f896c2")
+    @objid ("87ed41fe-84d9-4eb5-a8d5-bcbb088c6428")
     protected void registerMetaExpertForMetaclassReference() {
         // Infrastructure.MetaclassReference
         // -----------
@@ -318,28 +318,28 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("d28c7c47-f3e1-45a2-9691-10dbc241123e")
+    @objid ("5f8c3cbb-0917-44ad-9733-d99ecc4e91ba")
     protected void registerMetaExpertForExternProcessor() {
         // Infrastructure.ExternProcessor
         // -----------
         
     }
 
-    @objid ("c3b677aa-cf85-4dd8-8857-9a3f81ed93af")
+    @objid ("931d3645-6ff4-4337-999e-36b9526a030a")
     protected void registerMetaExpertForExternElement() {
         // Infrastructure.ExternElement
         // -----------
         
     }
 
-    @objid ("be4426cf-c7a8-4470-ae4b-a1b3a83e014d")
+    @objid ("71b8a5e2-ed81-40d6-8998-c32899da383a")
     protected void registerMetaExpertForDocument() {
         // Infrastructure.Document
         // -----------
         
     }
 
-    @objid ("61943bb5-53c5-4f6d-aa05-8c3af7596ed3")
+    @objid ("0eac7a45-00e5-4be6-8306-d56ad45c2d6c")
     protected void registerMetaExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -350,7 +350,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("d7e708d4-fbf6-4fde-9d07-48ef1c499675")
+    @objid ("d085cd80-113d-4248-8b60-45fae83d781e")
     protected void registerMetaExpertForAbstractResource() {
         // Infrastructure.AbstractResource
         // -----------
@@ -362,7 +362,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("00941d1b-908d-41d8-9b8d-c1c900aa09b0")
+    @objid ("d0769f3d-0467-4d9e-86d5-ce75d1edd053")
     protected void registerMetaExpertForTypedPropertyTable() {
         // Infrastructure.TypedPropertyTable
         // -----------
@@ -372,7 +372,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("1d5235ed-4d27-441f-9970-8cc83b69a213")
+    @objid ("d2dfb961-0976-4a29-a1c1-73b83de4be3e")
     protected void registerMetaExpertForPropertyTableDefinition() {
         // Infrastructure.PropertyTableDefinition
         // -----------
@@ -382,14 +382,14 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("b0b2e14c-3768-4067-ba44-25166dbad8b3")
+    @objid ("f262794e-86e4-4402-9b53-427549a6edb2")
     protected void registerMetaExpertForPropertyEnumerationLitteral() {
         // Infrastructure.PropertyEnumerationLitteral
         // -----------
         
     }
 
-    @objid ("c97fdc91-5645-4270-9694-3e22d6755976")
+    @objid ("d1e4acbb-b394-4e3f-a305-3236382be3da")
     protected void registerMetaExpertForLocalPropertyTable() {
         // Infrastructure.LocalPropertyTable
         // -----------
@@ -399,14 +399,14 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("50357d44-e289-48b4-8b5e-7041e6bfccc7")
+    @objid ("d990a38e-a8fb-459e-bbe8-7a18848ae68f")
     protected void registerMetaExpertForPropertyTable() {
         // Infrastructure.PropertyTable
         // -----------
         
     }
 
-    @objid ("e5e54efc-2993-47d4-b20e-3ed254c732d7")
+    @objid ("6f9cda7f-150f-4b8f-9877-5ec9f273ecf2")
     protected void registerMetaExpertForEnumeratedPropertyType() {
         // Infrastructure.EnumeratedPropertyType
         // -----------
@@ -416,21 +416,21 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("e8853de1-b3fb-457e-b2c4-368f7dee79fe")
+    @objid ("08fb7fe9-6580-4190-954d-fcd7dbeb188c")
     protected void registerMetaExpertForPropertyType() {
         // Infrastructure.PropertyType
         // -----------
         
     }
 
-    @objid ("8a15da33-4342-4813-93a5-d7feacab6bb9")
+    @objid ("eec1b804-ce6f-4377-94cc-57b3d1deae2d")
     protected void registerMetaExpertForDynamicPropertyDefinition() {
         // Infrastructure.DynamicPropertyDefinition
         // -----------
         
     }
 
-    @objid ("df8f7fba-d8ea-4eb0-9ea4-0aaef2d385e6")
+    @objid ("137f7c97-a402-49d8-8a84-12d1c01b7d2d")
     protected void registerMetaExpertForPropertyDefinition() {
         // Infrastructure.PropertyDefinition
         // -----------
@@ -441,7 +441,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("e466eb37-4d4f-4d96-b3a8-b12c9d089c0a")
+    @objid ("d67cafcb-0eef-4e0a-92e1-452ce7789a03")
     protected void registerMetaExpertForQueryDefinition() {
         // Infrastructure.QueryDefinition
         // -----------
@@ -457,7 +457,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("2e2112b4-de09-4a65-ae7c-3c947b374110")
+    @objid ("9e512cbf-2bf7-4efa-86b2-c1f940c7f6a8")
     protected void registerMetaExpertForMatrixValueDefinition() {
         // Infrastructure.MatrixValueDefinition
         // -----------
@@ -470,7 +470,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("3f6509a9-6e7e-4c0e-b467-8d9713288ba5")
+    @objid ("1d1982da-f4ab-4461-a329-f60f283bea7f")
     protected void registerMetaExpertForMatrixDefinition() {
         // Infrastructure.MatrixDefinition
         // -----------
@@ -489,7 +489,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("21d02f99-01bd-4ebb-8cf4-169e630085b7")
+    @objid ("7bc835ca-3a8f-468f-a0a6-cc621908ddde")
     protected void registerMetaExpertForModuleParameter() {
         // Infrastructure.ModuleParameter
         // -----------
@@ -499,7 +499,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("01d0e722-315a-4519-97f2-e6f5ecf18475")
+    @objid ("3f1b065b-a782-4cb4-a272-17bda39b6340")
     protected void registerMetaExpertForModuleComponent() {
         // Infrastructure.ModuleComponent
         // -----------
@@ -518,7 +518,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("29f0d0b4-aa1b-42b9-abb2-6cc24573dd0e")
+    @objid ("92476682-8658-43aa-8663-538860198721")
     protected void registerMetaExpertForImpactProject() {
         // Infrastructure.ImpactProject
         // -----------
@@ -528,7 +528,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("e508082b-74fc-44cf-9eb7-67b1c52cf0da")
+    @objid ("088fa7df-8e19-4827-87ea-22ef0108020c")
     protected void registerMetaExpertForAbstractProject() {
         // Infrastructure.AbstractProject is abstract
         
@@ -541,7 +541,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("6820c317-ffcd-4c36-9e43-b256c953e735")
+    @objid ("fd834b68-1baf-4a6d-aa4a-256c729f0917")
     protected void registerMetaExpertForImpactModel() {
         // Infrastructure.ImpactModel
         // -----------
@@ -551,7 +551,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("cd5df3d7-72bf-44d6-aa0c-1bcb08f2f3a1")
+    @objid ("5fbec101-923b-4405-84dc-9b40edad7cb0")
     protected void registerMetaExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -570,21 +570,21 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("db1fbba4-6bc3-41fa-828b-278d922634e8")
+    @objid ("c137338b-3800-47bb-b98f-666a0588a3ef")
     protected void registerMetaExpertForImpactDiagram() {
         // Infrastructure.ImpactDiagram
         // -----------
         
     }
 
-    @objid ("49d81a3b-df20-451e-881d-f9bed7267936")
+    @objid ("15a32a8c-3377-4257-9af4-1175c18e66df")
     protected void registerMetaExpertForGraphDiagram() {
         // Infrastructure.GraphDiagram
         // -----------
         
     }
 
-    @objid ("0aedd40f-f755-4a20-a009-55ad28772f20")
+    @objid ("74694320-dc6b-4a96-b1cb-0666c1553840")
     protected void registerMetaExpertForDiagramSet() {
         // Infrastructure.DiagramSet
         // -----------
@@ -597,7 +597,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("a67a286b-f143-4937-9234-f382d22ff67c")
+    @objid ("523dfc49-ff84-4027-88fc-4d4d1bddceb6")
     protected void registerMetaExpertForAbstractDiagram() {
         // Infrastructure.AbstractDiagram is abstract
         
@@ -615,7 +615,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("573d6a55-aa5d-43b5-8e27-d5c34e1874b9")
+    @objid ("74355dc1-1cf9-4a18-ad06-501c5b69e85a")
     protected void registerMetaExpertForModelElement() {
         // Infrastructure.ModelElement is abstract
         
@@ -861,7 +861,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         
     }
 
-    @objid ("9cfadeef-7836-4ec7-9ae5-93924c39e020")
+    @objid ("a6379fc2-d637-44a1-b393-21eaf8172716")
     protected void registerMetaExpertForElement() {
         // Infrastructure.Element is abstract
         

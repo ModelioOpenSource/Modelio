@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impact;
@@ -41,13 +41,13 @@ public interface ImpactDiagram extends AbstractDiagram {
     /**
      * The metaclass simple name.
      */
-    @objid ("84cd5573-2ddc-4e32-9de2-d5603e1d3869")
+    @objid ("eb159659-1d5b-4bb1-adfe-40070de5bc7b")
     public static final String MNAME = "ImpactDiagram";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("a8e73107-7f4e-474e-b40e-796316b8bc07")
+    @objid ("10ce74c8-cb2a-484c-804a-25237e4442d4")
     public static final String MQNAME = "Infrastructure.ImpactDiagram";
 }
 

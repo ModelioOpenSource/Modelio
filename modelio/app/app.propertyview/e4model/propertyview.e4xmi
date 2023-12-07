@@ -10,7 +10,7 @@
   <imports xsi:type="commands:Command" xmi:id="_MjpwEM3tEeKwT-cXufMKNA" elementId="org.modelio.app.ui.command.editstereotype"/>
   <imports xsi:type="commands:Command" xmi:id="_1A9j8M6_EeKk9eLXstrZSw" elementId="org.modelio.app.ui.command.createstereotype"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_IwMQUG98EeasPdRypKx2oQ" featurename="sharedElements" parentElementId="org.modelio.app.ui.trimmed">
-    <elements xsi:type="basic:Part" xmi:id="_O7tXYG98EeasPdRypKx2oQ" elementId="org.modelio.propertyviewId" contributionURI="bundleclass://org.modelio.app.propertyview/org.modelio.propertyview.PropertyView" label="%PropertyView.label" iconURI="platform:/plugin/org.modelio.app.propertyview/icons/propertyview.png" tooltip="%PropertyView.tooltip"/>
+    <elements xsi:type="basic:Part" xmi:id="_O7tXYG98EeasPdRypKx2oQ" elementId="org.modelio.propertyviewId" contributionURI="bundleclass://org.modelio.app.propertyview/org.modelio.propertyview.PropertyView" label="%PropertyView.label" iconURI="platform:/plugin/org.modelio.app.propertyview/icons/propertyview.png" tooltip="%PropertyView.tooltip" closeable="true"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_cKDoAG98EeasPdRypKx2oQ" featurename="children" parentElementId="org.modelio.app.ui.menu.views">
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_hUzOkG98EeasPdRypKx2oQ" elementId="org.modelio.propertyview.menuitem.showview" label="%PropertyViewShowView.label" iconURI="platform:/plugin/org.modelio.app.propertyview/icons/propertyview.png" tooltip="%PropertyViewShowView.tooltip" command="_89ulgH9HEeK-XvSICEmsLA">

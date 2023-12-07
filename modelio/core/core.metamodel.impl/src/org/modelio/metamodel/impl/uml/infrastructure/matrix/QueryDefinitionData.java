@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
@@ -32,28 +32,28 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("8fe79750-6ab9-4493-b4ef-2e199f7d4dea")
 public class QueryDefinitionData extends ElementData {
-    @objid ("e4fe2980-50a9-4800-985f-8b8d29395eb2")
+    @objid ("1289b33d-0dc4-4618-8305-9a21b915461f")
     Object mUsingAdditions = true;
 
-    @objid ("163e6466-952e-49e9-81d3-a755b20386f2")
+    @objid ("e4bd1fcf-6924-4e89-98c4-1934496e92a9")
     List<SmObjectImpl> mAdded = null;
 
-    @objid ("c529643c-52a8-492b-924f-a5e7f7fa2922")
+    @objid ("7c67419f-a181-4f4b-a1ba-3f6aa0b535f3")
     SmObjectImpl mProcessor;
 
-    @objid ("4b897b33-f26e-406e-ba89-b96ce747ad72")
+    @objid ("38cf9069-7915-4f62-b86e-c8db999a5f1d")
     SmObjectImpl mParameters;
 
-    @objid ("6cc87115-b424-4f31-b2ac-cef46d85af5b")
+    @objid ("65bc252f-bdb5-4f82-af86-cc96b3f5ca34")
     SmObjectImpl mOwnerAsLine;
 
-    @objid ("d38ca28f-c78a-4aac-a423-c38eed3f15f4")
+    @objid ("803c3f19-2fe5-405b-80bc-f85953c38cc9")
     SmObjectImpl mOwnerAsCol;
 
-    @objid ("3c98d2d8-a721-479c-aca2-ae07040caf95")
+    @objid ("f8a0de5a-b033-4654-92bf-c45ab7fd64ef")
     SmObjectImpl mOwnerAsDepth;
 
-    @objid ("ec845a9e-0acc-46bc-a4e7-511a71f898e4")
+    @objid ("bfc8b527-234c-4f42-8147-3631affa06c7")
     public  QueryDefinitionData(QueryDefinitionSmClass smClass) {
         super(smClass);
     }

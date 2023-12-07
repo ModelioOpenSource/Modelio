@@ -19,6 +19,7 @@
  */
 package org.modelio.diagram.elements.common.group;
 
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -103,7 +104,8 @@ public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEdit
      * @author Inspired from {@link AbstractEditPart#refreshChildren()}
      */
     @objid ("1e3a37b4-f884-48eb-adda-1d76339fc4d2")
-    protected final Command getRefreshCommand() {
+    @Override
+    protected final Command getRefreshFromModelCommand(PropertyChangeEvent ev) {
         final GmGroup gmGroup = getModel();
         
         List<? extends MObject> obChildren = this.expectedChildren.apply(gmGroup.getRelatedElement());

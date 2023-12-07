@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00718aa4-ec87-1098-b22e-001ec947cd2a")
 public class EnumeratedPropertyTypeData extends PropertyTypeData {
-    @objid ("5584ea93-b9cd-481c-9689-e63031b41e3c")
+    @objid ("97e64163-4565-423b-ba3b-50d5cbf6b407")
     List<SmObjectImpl> mLitteral = null;
 
-    @objid ("4318f5f2-bbd4-449c-9f53-2a2d34974bf0")
+    @objid ("8de808e4-48f0-4c12-b427-6c1715849241")
     List<SmObjectImpl> mOccurenceConfigParam = null;
 
-    @objid ("be006dda-2a8e-4208-aa4d-055dbfdc842b")
+    @objid ("49737b5f-aada-43d7-80b2-27e6f5fb3b68")
     public  EnumeratedPropertyTypeData(EnumeratedPropertyTypeSmClass smClass) {
         super(smClass);
     }

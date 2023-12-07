@@ -35,7 +35,12 @@ public class ChangeSelectionSyncMode {
     public void execute(@Named (IServiceConstants.ACTIVE_PART) final MPart e, @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection, MToolItem tool) {
         if (e.getObject() instanceof AuditView) {
             AuditView auditView = (AuditView) e.getObject();
-            auditView.setSynchronizedSelectionMode(tool.isSelected());
+            final boolean isSelected = tool.isSelected();
+            auditView.setSynchronizedSelectionMode(isSelected);
+            if (isSelected) {
+                // Also trigger selection change to display audit on selection
+                auditView.onSelectionChanged(selection);
+            }
         }
         
     }

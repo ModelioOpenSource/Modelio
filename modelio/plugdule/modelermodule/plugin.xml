@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <extension point="org.modelio.platform.mda.infra.plugin_module">
         <!--This extension is generated and automatically updated, do not modify.-->
-        <module name="ModelerModule" version="9.3.00" mandatory="true"/>
+        <module name="ModelerModule" version="9.4.00" mandatory="true"/>
     </extension>
     <!--This part of the file is freely modifiable.-->
 </plugin>

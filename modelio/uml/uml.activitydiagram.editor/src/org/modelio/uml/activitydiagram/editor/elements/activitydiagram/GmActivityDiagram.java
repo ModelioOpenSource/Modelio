@@ -22,6 +22,7 @@ package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.link.ortho.migration.OrthoLinkDiagramMigrationHelper;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
@@ -55,17 +56,22 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("2991e69e-55b6-11e2-877f-002564c97630")
 public class GmActivityDiagram extends GmAbstractDiagram {
-    @objid ("29936cfb-55b6-11e2-877f-002564c97630")
-    private ActivityDiagram obDiagram;
-
     /**
      * Current version of this Gm. Defaults to 0.
+     * <h2>History</h2>
+     * <ul>
+     * <li> 0 : initial version
+     * <li> 1 : 5.3.1 :  5.1 orthogonal router applied
+     * </li>
      */
     @objid ("29936cfe-55b6-11e2-877f-002564c97630")
-    private static final int MINOR_VERSION = 0;
+    private static final int MINOR_VERSION = 1;
 
     @objid ("29936d01-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("29936cfb-55b6-11e2-877f-002564c97630")
+    private ActivityDiagram obDiagram;
 
     @objid ("2f75ac9c-58a2-11e2-9574-002564c97630")
     private static GmActivityDiagramStyleKeys STYLEKEYS = new GmActivityDiagramStyleKeys();
@@ -133,6 +139,9 @@ public class GmActivityDiagram extends GmAbstractDiagram {
             read_0(in);
             break;
         }
+        case 1:
+            read_1(in);
+            break;
         default: {
             assert (false) : "version number not covered!";
             // reading as last handled version: 0
@@ -203,9 +212,18 @@ public class GmActivityDiagram extends GmAbstractDiagram {
     }
 
     @objid ("2994f3d1-55b6-11e2-877f-002564c97630")
+    private void read_1(IDiagramReader in) {
+        super.read(in);
+        this.obDiagram = (ActivityDiagram) resolveRef(getRepresentedRef());
+        
+    }
+
+    @objid ("8667d82f-684f-4623-bc62-730e0f108a9c")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.obDiagram = (ActivityDiagram) resolveRef(getRepresentedRef());
+        
+        OrthoLinkDiagramMigrationHelper.migrate(this);
         
     }
 

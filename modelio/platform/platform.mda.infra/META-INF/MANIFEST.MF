@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Infra
 Bundle-SymbolicName: org.modelio.platform.mda.infra;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
 Bundle-ClassPath: res/,

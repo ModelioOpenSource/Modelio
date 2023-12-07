@@ -96,31 +96,31 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("0074c304-ec87-1098-b22e-001ec947cd2a")
 public enum PropertyBaseType {
-    @objid ("33056c64-fe35-418a-942a-d5988081a95a")
+    @objid ("56f799df-68ad-4521-a31b-f2a0c8567132")
     STRING(0, "String", "String"),
-    @objid ("906c9ec0-7df7-4902-a393-379e26ec317a")
+    @objid ("cb78e141-7076-4837-be89-a8b5d0cde2ae")
     TEXT(1, "Text", "Text"),
-    @objid ("0f4d8bc5-4e93-4490-bcb3-a5bcd04ec897")
+    @objid ("7e4c01a4-11b6-409c-84ca-bcc0f867f425")
     BOOLEAN(2, "Boolean", "Boolean"),
-    @objid ("58cab328-31d1-4566-97a2-dbdd8f587f4b")
+    @objid ("9a6da3aa-5cd9-4158-87fb-a1541f928fdb")
     INTEGER(3, "Integer", "Integer"),
-    @objid ("e1b5900a-6c57-49f1-a963-3516fc8e189d")
+    @objid ("779c677f-62c0-40c6-8531-9a36dc9ee238")
     UNSIGNED(4, "Unsigned", "Unsigned"),
-    @objid ("5e222b93-f8ec-4f4b-adef-6a67fd59daea")
+    @objid ("1a6cb6be-e0a7-4756-b583-455cf2022613")
     FLOAT(5, "Float", "Float"),
-    @objid ("038ed693-e130-4add-a5ad-871fd7dcf93a")
+    @objid ("b44f3171-b2a4-45c2-8789-2cc03490b3aa")
     ENUMERATE(6, "Enumerate", "Enumerate"),
-    @objid ("cca07c11-ecc5-4bd7-b710-375b08508e9f")
+    @objid ("11befa07-3baa-44d4-aa51-a709aa2051be")
     DATE(7, "Date", "Date"),
-    @objid ("23f6eac6-690b-4e6e-abca-2bf52cf9646d")
+    @objid ("1a9429ac-df1f-45a6-a526-0a24eaaab4cd")
     TIME(8, "Time", "Time"),
-    @objid ("5335432d-a7bb-46cf-a485-0fcd301990ac")
+    @objid ("71dfc11b-e1a1-4fc2-b9bc-252faf67aea4")
     ELEMENT(9, "Element", "Element"),
-    @objid ("b46a2160-1cf0-487f-aa8a-23e7855655bb")
+    @objid ("e42feafb-ba33-42f2-9690-e696a1867546")
     RICHTEXT(10, "Richtext", "Richtext"),
-    @objid ("dadcc62a-8c88-4173-84a7-5002516eed30")
+    @objid ("6d7f0d52-4c1e-442e-8f1a-bf81880ac5bb")
     MULTISTRING(11, "MultiString", "MultiString"),
-    @objid ("c00de649-598d-4491-8c3b-18f56ac6d356")
+    @objid ("66aefeae-285f-4bdd-abb6-c30eda564732")
     MULTIELEMENT(12, "MultiElement", "MultiElement");
 
 public static final int STRING_VALUE = 0;

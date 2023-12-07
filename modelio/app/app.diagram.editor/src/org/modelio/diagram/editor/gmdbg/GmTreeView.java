@@ -36,6 +36,7 @@ import org.modelio.diagram.elements.common.embeddeddiagram.GmEmbeddedDiagram;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -124,6 +125,11 @@ public class GmTreeView {
                 results.addAll(layer.getStartingDrawingLinks());
             }
             
+            if (parent instanceof IGmLink) {
+                GmLink l = (GmLink) parent;
+                results.addAll(l.getExtensions());
+            }
+            
             if (parent instanceof IGmLinkable) {
                 results.addAll(((IGmLinkable) parent).getStartingLinks());
                 results.addAll(((IGmLinkable) parent).getEndingLinks());
@@ -155,21 +161,26 @@ public class GmTreeView {
             if (element instanceof GmEmbeddedDiagram) {
                 return !((GmEmbeddedDiagram) element).getVisibleChildren().isEmpty();
             
-            } else if (element instanceof GmCompositeNode) {
-                return !((GmCompositeNode) element).getChildren().isEmpty();
-            
-            } else if (element instanceof IGmLinkable) {
-                final IGmLinkable gmNode = (IGmLinkable) element;
-                return !(gmNode.getStartingLinks().isEmpty() && gmNode.getEndingLinks().isEmpty());
-            
             } else if (element instanceof IGmDrawingLayer) {
                 IGmDrawingLayer layer = (IGmDrawingLayer) element;
                 return !layer.getNodes().isEmpty();
-            
-            } else {
-                return false;
             }
             
+            if (element instanceof GmCompositeNode) {
+                if (!((GmCompositeNode) element).getChildren().isEmpty())
+                    return true;
+            }
+            
+            if (element instanceof GmLink) {
+                if (! ((GmLink) element).getExtensions().isEmpty())
+                    return true;
+            }
+            
+            if (element instanceof IGmLinkable) {
+                final IGmLinkable gmNode = (IGmLinkable) element;
+                return !(gmNode.getStartingLinks().isEmpty() && gmNode.getEndingLinks().isEmpty());
+            }
+            return false;
         }
 
     }

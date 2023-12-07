@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.uml.infrastructure.matrix;
@@ -47,13 +47,13 @@ public interface QueryDefinition extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("17218617-d30e-4aa8-a60c-594874f7973f")
+    @objid ("1ab4f884-be7f-4425-90ef-74c142593c29")
     public static final String MNAME = "QueryDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("926a87f8-780a-45ea-ad9b-070f39ca8435")
+    @objid ("6d23e0dc-c43d-495c-9719-9c10faf71077")
     public static final String MQNAME = "Infrastructure.QueryDefinition";
 
     /**
@@ -63,7 +63,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("5affaafb-76f1-499c-a1d2-615bde499d20")
+    @objid ("99740acd-4974-4cb6-8593-485755fcd7ad")
     boolean isUsingAdditions();
 
     /**
@@ -73,7 +73,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("7a2f33e4-e3cc-4f2b-a90d-fae03f2d8dd2")
+    @objid ("70ed184b-a1ff-4c34-8802-acc68ba3774f")
     void setUsingAdditions(boolean value);
 
     /**
@@ -83,7 +83,7 @@ public interface QueryDefinition extends Element {
      * <i>Elements manually added to the lines or columns.</i>
      * 
      */
-    @objid ("8e519d87-9316-4a14-a9fb-1f2afa4b9d3a")
+    @objid ("0415437e-9680-474c-a5ea-392a7567a012")
     EList<Element> getAdded();
 
     /**
@@ -93,7 +93,7 @@ public interface QueryDefinition extends Element {
      * <i>Elements manually added to the lines or columns.</i>
      * 
      */
-    @objid ("94925c15-c30a-4d60-9b8a-ccc03732f575")
+    @objid ("e2c25527-e2d6-4775-8279-e1e132bbc060")
     <T extends Element> List<T> getAdded(java.lang.Class<T> filterClass);
 
     /**
@@ -103,7 +103,7 @@ public interface QueryDefinition extends Element {
      * <i>External processor used to execute the query.</i>
      * 
      */
-    @objid ("299f0126-a60f-41f3-bf7c-feb8f3dfb0fd")
+    @objid ("4a9140b2-48b4-4c85-aee3-8f5f852d3868")
     ExternProcessor getProcessor();
 
     /**
@@ -113,7 +113,7 @@ public interface QueryDefinition extends Element {
      * <i>External processor used to execute the query.</i>
      * 
      */
-    @objid ("18e4988f-af75-4e6e-9453-ada6b9967e6c")
+    @objid ("f2915778-35e0-46e6-8d32-a9f46da90165")
     void setProcessor(ExternProcessor value);
 
     /**
@@ -123,7 +123,7 @@ public interface QueryDefinition extends Element {
      * <i>Parameters to pass to the external processor.</i>
      * 
      */
-    @objid ("0af13d8e-69f9-4bd1-83b1-60d4cc99c859")
+    @objid ("007bd1ed-e749-486c-a1c7-a6c1d6ee2e25")
     PropertyTable getParameters();
 
     /**
@@ -133,7 +133,7 @@ public interface QueryDefinition extends Element {
      * <i>Parameters to pass to the external processor.</i>
      * 
      */
-    @objid ("607ac3cf-f65b-4ffd-a5b4-470319a05a20")
+    @objid ("b06746fd-ca90-4983-b8ad-c81b202c766e")
     void setParameters(PropertyTable value);
 
     /**
@@ -143,7 +143,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("dacad759-a5d6-4015-897e-f61f24cc6197")
+    @objid ("cdc91219-f66c-41a3-a845-9b505b779cf4")
     MatrixDefinition getOwnerAsLine();
 
     /**
@@ -153,7 +153,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("2128b5a2-7370-468d-aa19-a2c5a8cf7246")
+    @objid ("1a430ba1-004a-4884-8d16-b667a882cab3")
     void setOwnerAsLine(MatrixDefinition value);
 
     /**
@@ -163,7 +163,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("c9391643-bbbc-462b-80fb-8489c2780df9")
+    @objid ("acc0cfba-ad91-4831-939b-05b7ad6280ad")
     MatrixDefinition getOwnerAsCol();
 
     /**
@@ -173,7 +173,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("1d6d80d0-36b0-4606-9449-cdc2924b250e")
+    @objid ("7968cc7a-01a6-4745-aee1-ea08d971811c")
     void setOwnerAsCol(MatrixDefinition value);
 
     /**
@@ -183,7 +183,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("4c97504a-6d8d-40c0-b5d4-777bc98869a0")
+    @objid ("e71d7ef2-bfd4-444e-91a6-db372dc8649e")
     MatrixDefinition getOwnerAsDepth();
 
     /**
@@ -193,7 +193,7 @@ public interface QueryDefinition extends Element {
      * <i>null</i>
      * 
      */
-    @objid ("ac52db70-4ff2-48ec-843a-f663c15fe9f2")
+    @objid ("ccb7a3e8-7c52-42d4-8a57-79156dad6074")
     void setOwnerAsDepth(MatrixDefinition value);
 }
 

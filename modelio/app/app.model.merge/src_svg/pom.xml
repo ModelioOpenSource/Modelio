@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.modelio</groupId>
 	<artifactId>app.model.merge.svg-rasterizer</artifactId>
-	<version>5.3.1-SNAPSHOT</version>
+	<version>5.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>
 		This is a try to automate SVG rasterization using Maven and Apache BATIK.

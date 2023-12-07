@@ -25,6 +25,7 @@ import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.adefault
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.ellipse.EllipseAnchorFactory;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.ConfigurableFixedAnchorFactory;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.FixedNodeAnchorLocator;
+import org.modelio.diagram.elements.core.link.anchors.fixed2.algorithms.fixed.TolerantFixedAnchorLocator;
 import org.modelio.diagram.elements.core.link.anchors.fixed2.core.FixedNodeAnchorProvider2;
 
 @objid ("0420f82a-b2fc-4c67-9d46-094c850fc422")
@@ -97,7 +98,9 @@ public class DefaultFixedAnchorProvider {
     @objid ("4ae908e9-ce83-44ac-b4e9-6058100b177f")
     private static FixedNodeAnchorProvider2 createOnePerSide() {
         return new FixedNodeAnchorProvider2(
-                new ConfigurableFixedAnchorFactory("one", new FixedNodeAnchorLocator("one"))
+                new ConfigurableFixedAnchorFactory(
+                        "one",
+                        new TolerantFixedAnchorLocator(new FixedNodeAnchorLocator("one"), 1) )
                 .setAnchorCount(1, 1));
         
     }

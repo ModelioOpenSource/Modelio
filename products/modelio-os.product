@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modelio" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="5.3.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Modelio" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="5.4.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -61,6 +61,7 @@
       <feature id="org.modelio.application.welcome"/>
       <feature id="org.modelio.diagrams.auto"/>
       <feature id="org.modelio.diagrams.core"/>
+     
       <feature id="org.modelio.formalism.bpmn"/>
       <feature id="org.modelio.formalism.uml"/>
       <feature id="org.modelio.functions.admintool"/>
@@ -80,6 +81,7 @@
       <feature id="org.modelio.functions.xmi"/>
       <feature id="org.modelio.platform.feature"/>
       <feature id="org.modelio.platform.libraries"/>
+      <feature id="org.modelio.documentation.modeler.nl_fr.feature"/>
       <feature id="net.adoptium.temurin.jre.feature" version="11.0.15"/>
       <feature id="org.modelio.functions.modelviewtemplate"/>
    </features>
@@ -91,10 +93,10 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <property name="osgi.configuration.area" value="@user.home/.modelio/5.3/opensource-cache/conf" />
       <property name="osgi.configuration.cascaded" value="true" />
-      <property name="osgi.instance.area" value="@user.home/.modelio/5.3/opensource-cache/data" />
       <property name="osgi.locking" value="none" />
+      <property name="osgi.configuration.area" value="@user.home/.modelio/5.4/opensource-cache/conf" />
+      <property name="osgi.instance.area" value="@user.home/.modelio/5.4/opensource-cache/data" />
       <property name="osgi.sharedConfiguration.area" value="file\:configuration/" />
       <property name="osgi.sharedConfiguration.area.readlOnly" value="true" />
    </configurations>

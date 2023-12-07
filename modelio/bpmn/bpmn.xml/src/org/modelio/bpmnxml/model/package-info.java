@@ -17,5 +17,5 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.modelio.bpmnxml.model;

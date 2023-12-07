@@ -69,7 +69,7 @@ public class GmBpmnDataAssociation extends GmLink {
         this.element = element;
         
         GmDefaultModelElementLabel extension = new GmDefaultModelElementLabel(diagram, ref);
-        extension.setShowLabel(false);
+               // extension.setShowLabel(false); : this variable is now configured in the file factory.settings 
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, extension);
         
     }

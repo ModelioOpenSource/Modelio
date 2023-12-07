@@ -34,16 +34,19 @@ import org.modelio.gproject.FragmentAuthenticationException;
 import org.modelio.gproject.FragmentConflictException;
 import org.modelio.gproject.FragmentMigrationNeededException;
 import org.modelio.gproject.auth.AuthReconfigurer;
+import org.modelio.gproject.core.IGAccessRights;
 import org.modelio.gproject.core.IGModelFragment;
 import org.modelio.gproject.core.IGPart;
 import org.modelio.gproject.core.IGPart.GPartException;
 import org.modelio.gproject.core.IGPartState.GPartStateEnum;
 import org.modelio.gproject.core.IGProject;
+import org.modelio.gproject.core.IGProjectState.GProjectStateEnum;
 import org.modelio.gproject.data.project.GProjectPartDescriptor;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.monitor.GProjectEvent;
 import org.modelio.gproject.monitor.GProjectEventType;
 import org.modelio.gproject.parts.AbstractGPart;
+import org.modelio.gproject.parts.GPartAccessRights;
 import org.modelio.gproject.parts.GPartFactory;
 import org.modelio.gproject.parts.GPartState;
 import org.modelio.gproject.parts.IGModelFragmentMigrator;
@@ -96,11 +99,15 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
     @objid ("12cc7d95-fdfe-45eb-b06f-28c39ea0a0bc")
     private IRepositoryErrorListener errSupport;
 
+    @objid ("abb4a2ec-0a25-4fe1-aafa-bd0dd7deb207")
+    private IGAccessRights accessRights;
+
     @objid ("a3cf47a4-c792-4365-a9ab-8e9c7d8ac552")
     protected  AbstractGModelFragment(GProjectPartDescriptor desc) {
         super(desc);
         this.stateLock = new Object();
         this.encodedDirectoryName = FileUtils.encodeFileName(getId(), new StringBuilder()).toString();
+        this.accessRights = new GPartAccessRights(getProperties());
         
     }
 
@@ -231,7 +238,7 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
         IRepository repository = getRepository();
         if (repository != null) {
             if (repository.isOpen()) {
-                project.getSession().getRepositorySupport().disconnectRepository(repository);
+                project.getSession().getRepositorySupport().disconnectRepository(repository, isProjectBeingClosed(project));
             }
             repository.getErrorSupport().removeErrorListener(this.errSupport);
         }
@@ -245,6 +252,11 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
         
         this.state.sendUnmount();
         
+    }
+
+    @objid ("b87b6880-db3a-4ab8-a5f6-4cc50e35d599")
+    private boolean isProjectBeingClosed(IGProject project) {
+        return project.getState().getValue() == GProjectStateEnum.CLOSING;
     }
 
     /**
@@ -279,7 +291,7 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
         IRepository repository = getRepository();
         if (repository != null) {
             if (repository.isOpen()) {
-                project.getSession().getRepositorySupport().disconnectRepository(repository);
+                project.getSession().getRepositorySupport().disconnectRepository(repository, isProjectBeingClosed(project));
             }
             repository.getErrorSupport().removeErrorListener(this.errSupport);
         }
@@ -507,6 +519,9 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
             removeAndRecreateFragment(desc, aMonitor);
         }
         
+        // Reload access rights
+        this.accessRights = new GPartAccessRights(getProperties());
+        
     }
 
     /**
@@ -615,6 +630,12 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
                 .filter(s -> s != null)
                 .collect(Collectors.joining(", \n"));
         return msg;
+    }
+
+    @objid ("88040c1a-d9e3-469d-affc-639e09b9a183")
+    @Override
+    public IGAccessRights getAccessRights() {
+        return this.accessRights;
     }
 
     /**

@@ -32,18 +32,23 @@ import org.modelio.vcore.model.impl.UmlFragmentContentInitializer;
 import org.modelio.vcore.model.spi.mtools.IAuthTool;
 import org.modelio.vcore.model.spi.mtools.IModelTool;
 import org.modelio.vcore.session.api.ICoreSession;
+import org.modelio.vcore.session.api.ICoreSessionListener;
 import org.modelio.vcore.session.impl.CoreSession;
+import org.modelio.vcore.session.impl.CoreSessionWeakRef;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * Aggregation and access point for all model tools.
  * <p>
- * Some of them are accessible without a {@link GProject}, others need to call {@link #get(GProject)} first.
+ * Some of them are accessible without a {@link ICoreSession}, others need to call {@link #get(ICoreSession)} first.
  * <p>
  * <h2>Changelog</h2>
  * <ul>
  * <li>
- * <h3>Modelio 3.6</h3> Before Modelio 3.6 all methods were static. Now some of them need to get a {@link MTools} instance from a {@link ICoreSession} (or a {@link MObject} ). This class now regroups all accesses to factories and other model tools.</li>
+ * <h3>Modelio 3.6</h3>
+ * Before Modelio 3.6 all methods were static.
+ * Now some of them need to get a {@link MTools} instance from a {@link ICoreSession} (or a {@link MObject} ).
+ * This class now regroups all accesses to factories and other model tools.</li>
  * </ul>
  * 
  * @since < 3.3
@@ -56,7 +61,7 @@ public class MTools {
     
     @mdl.prop
     @objid ("7018434a-7149-4e44-b20a-c190268257be")
-    public final IElementConfiguratorService configurator;
+    private final IElementConfiguratorService configurator;
 
     @mdl.propgetter
     public IElementConfiguratorService getConfigurator() {
@@ -65,7 +70,7 @@ public class MTools {
     }
 
     @objid ("b63e4d3c-640c-4ba9-9295-26cd09ee858d")
-    private static Map<ICoreSession, MTools> instances = new WeakHashMap<>();
+    private static final Map<ICoreSession, MTools> instances = new WeakHashMap<>();
 
     /**
      * The model factories service.
@@ -81,7 +86,7 @@ public class MTools {
     
     @mdl.prop
     @objid ("975cb1da-d241-4790-b51e-831e5b4f8451")
-    public final IElementNamerService namer;
+    private final IElementNamerService namer;
 
     @mdl.propgetter
     public IElementNamerService getNamer() {
@@ -92,7 +97,7 @@ public class MTools {
     
     @mdl.prop
     @objid ("2cae1294-df9a-44b4-af8e-16209deefb14")
-    public final IRepositoryContentInitializerService populator;
+    private final IRepositoryContentInitializerService populator;
 
     @mdl.propgetter
     public IRepositoryContentInitializerService getPopulator() {
@@ -103,7 +108,7 @@ public class MTools {
     
     @mdl.prop
     @objid ("b665e985-19b1-415e-b1db-ae56b94cb914")
-    public final IRepositoryRootGetterService rootGetter;
+    private final IRepositoryRootGetterService rootGetter;
 
     @mdl.propgetter
     public IRepositoryRootGetterService getRootGetter() {
@@ -136,6 +141,7 @@ public class MTools {
                 if (ret == null) {
                     ret = new MTools(session);
                     MTools.instances.put(session, ret);
+                    session.addSessionListener(new SessionClosedListener());
                 }
             }
         }
@@ -224,12 +230,26 @@ public class MTools {
      */
     @objid ("39f94803-cd04-479d-8745-c361c0d011da")
     private  MTools(ICoreSession proj) {
+        ICoreSession ref = new CoreSessionWeakRef(proj);
         this.namer = new ElementNamer();
         this.populator = new UmlFragmentContentInitializer();
         this.configurator = new ElementConfigurator();
-        this.rootGetter = new CompositionRootGetter(proj);
-        this.modelFactory = new ModelFactory(proj);
+        this.rootGetter = new CompositionRootGetter(ref);
+        this.modelFactory = new ModelFactory(ref);
         
+    }
+
+    @objid ("012c864f-d71d-4797-9cf7-a7108728a8c6")
+    private static final class SessionClosedListener implements ICoreSessionListener {
+        @objid ("9ae54581-faf6-4afe-91ed-c239c5528648")
+        @Override
+        public void sessionClosed(ICoreSession closedSession) {
+            synchronized (MTools.instances) {
+                MTools.instances.remove(closedSession);
+            }
+            
+        }
+
     }
 
 }

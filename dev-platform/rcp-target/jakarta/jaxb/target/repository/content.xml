@@ -1,0 +1,1003 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='file:/H:/modelio/alouette/work/eclipse/dev-platform/rcp-target/jakarta/jaxb/target/repository - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1686565073266'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='23'>
+    <unit id='jakarta.xml.bind-api' version='4.0.0' singleton='false' generation='2'>
+      <update id='jakarta.xml.bind-api' range='[0.0.0,4.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jakarta XML Binding API'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta XML Binding API 4.0 Design Specification'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.bind-api' version='4.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.bind-api' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.helpers' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.util' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.annotation' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.annotation.adapters' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.attachment' version='4.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.bind-api' version='4.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='19'>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation.adapters' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.bind.attachment' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.dom' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.sax' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.ext' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jakarta.xml.bind-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.bind-api' version='4.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.bind-api&#xA;Bundle-Version: 4.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.core' version='4.0.2' singleton='false' generation='2'>
+      <update id='org.glassfish.jaxb.core' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Core'/>
+        <property name='org.eclipse.equinox.p2.description' value='JAXB Core module. Contains sources required by XJC, JXC and Runtime modules.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='21'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.core' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.core' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.impl' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.annotation' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.api' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.api.impl' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.marshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.unmarshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.util' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.annotation' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.core' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.nav' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.util' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime.unmarshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.schemagen.episode' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.util' version='4.0.2'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.core' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='28'>
+        <required namespace='java.package' name='com.sun.istack' range='[4.1.0,5.0.0)'/>
+        <required namespace='java.package' name='com.sun.xml.txw2' range='0.0.0'/>
+        <required namespace='java.package' name='com.sun.xml.txw2.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation.adapters' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.helpers' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='javax.lang.model' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.validation' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.xpath' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.nav' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime.unmarshaller' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            org.glassfish.jaxb.core
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.core' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.core&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.xml.soap-api.source' version='3.0.0' singleton='false'>
+      <update id='jakarta.xml.soap-api.source' range='[0.0.0,3.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.xml.soap-api.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.soap-api.source' version='3.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.soap-api.source' version='3.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.soap-api.source' version='3.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.soap-api.source' version='3.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.soap-api.source&#xA;Bundle-Version: 3.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.sun.istack.commons-runtime' version='4.1.1' singleton='false' generation='2'>
+      <update id='com.sun.istack.commons-runtime' range='[0.0.0,4.1.1)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='istack common utility code runtime'/>
+        <property name='org.eclipse.equinox.p2.description' value='istack common utility code'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.sun.istack.commons-runtime' version='4.1.1'/>
+        <provided namespace='osgi.bundle' name='com.sun.istack.commons-runtime' version='4.1.1'/>
+        <provided namespace='java.package' name='com.sun.istack' version='4.1.1'/>
+        <provided namespace='java.package' name='com.sun.istack.localization' version='4.1.1'/>
+        <provided namespace='java.package' name='com.sun.istack.logging' version='4.1.1'/>
+        <provided namespace='osgi.identity' name='com.sun.istack.commons-runtime' version='4.1.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.stream' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            com.sun.istack.commons-runtime
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.sun.istack.commons-runtime' version='4.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.sun.istack.commons-runtime&#xA;Bundle-Version: 4.1.1
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.runtime.source' version='4.0.2' singleton='false'>
+      <update id='org.glassfish.jaxb.runtime.source' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='org.glassfish.jaxb.runtime.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.runtime.source' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.runtime.source' version='4.0.2'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.runtime.source' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.runtime.source' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.runtime.source&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.sun.istack.commons-runtime.source' version='4.1.1' singleton='false'>
+      <update id='com.sun.istack.commons-runtime.source' range='[0.0.0,4.1.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='com.sun.istack.commons-runtime.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.sun.istack.commons-runtime.source' version='4.1.1'/>
+        <provided namespace='osgi.bundle' name='com.sun.istack.commons-runtime.source' version='4.1.1'/>
+        <provided namespace='osgi.identity' name='com.sun.istack.commons-runtime.source' version='4.1.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.sun.istack.commons-runtime.source' version='4.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.sun.istack.commons-runtime.source&#xA;Bundle-Version: 4.1.1
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.xml.soap-api' version='3.0.0' singleton='false' generation='2'>
+      <update id='jakarta.xml.soap-api' range='[0.0.0,3.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jakarta SOAP with Attachments API'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta SOAP with Attachments 3.0 API Design Specification'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.soap-api' version='3.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.soap-api' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.soap' version='3.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.soap-api' version='3.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jakarta.xml.soap-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.soap-api' version='3.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.soap-api&#xA;Bundle-Version: 3.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.runtime' version='4.0.2' singleton='false' generation='2'>
+      <update id='org.glassfish.jaxb.runtime' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Runtime'/>
+        <property name='org.eclipse.equinox.p2.description' value='JAXB (JSR 222) Reference Implementation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='21'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.runtime' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.runtime' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.api' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.unmarshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.annotation' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.runtime' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.property' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.reflect' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.reflect.opt' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.unmarshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.output' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.schemagen.xmlschema' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.schemagen' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.util' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.marshaller' version='4.0.2'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.util' version='4.0.2'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.runtime' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='63'>
+        <required namespace='java.package' name='com.sun.istack' range='[4.1.0,5.0.0)'/>
+        <required namespace='java.package' name='com.sun.xml.fastinfoset.sax' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.sun.xml.fastinfoset.stax' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.sun.xml.txw2' range='0.0.0'/>
+        <required namespace='java.package' name='com.sun.xml.txw2.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='com.sun.xml.txw2.output' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation.adapters' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.attachment' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.helpers' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='javax.imageio' range='0.0.0'/>
+        <required namespace='java.package' name='javax.imageio.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.stream.events' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.dom' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.sax' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.stream' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.annotation' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.api' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.api.impl' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.marshaller' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.unmarshaller' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.annotation' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.core' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.impl' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.nav' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.model.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime.unmarshaller' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.schemagen.episode' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.core.v2.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.api' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.marshaller' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.unmarshaller' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.output' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.property' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.unmarshaller' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.schemagen.xmlschema' range='0.0.0'/>
+        <required namespace='java.package' name='org.glassfish.jaxb.runtime.v2.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.jvnet.fastinfoset' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.jvnet.fastinfoset.stax' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.jvnet.staxex' range='[2.1.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+        <required namespace='java.package' name='sun.misc' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='jdk.internal.misc' range='0.0.0' optional='true' greedy='false'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            org.glassfish.jaxb.runtime
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.runtime' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.runtime&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.core.source' version='4.0.2' singleton='false'>
+      <update id='org.glassfish.jaxb.core.source' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='org.glassfish.jaxb.core.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.core.source' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.core.source' version='4.0.2'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.core.source' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.core.source' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.core.source&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.txw2.source' version='4.0.2' singleton='false'>
+      <update id='org.glassfish.jaxb.txw2.source' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='org.glassfish.jaxb.txw2.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.txw2.source' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.txw2.source' version='4.0.2'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.txw2.source' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.txw2.source' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.txw2.source&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.glassfish.jaxb.txw2' version='4.0.2' singleton='false' generation='2'>
+      <update id='org.glassfish.jaxb.txw2' range='[0.0.0,4.0.2)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='org.glassfish.jaxb.txw2'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.txw2' version='4.0.2'/>
+        <provided namespace='osgi.bundle' name='org.glassfish.jaxb.txw2' version='4.0.2'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2.output' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.glassfish.jaxb.txw2' version='4.0.2'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='21'>
+        <required namespace='java.package' name='com.sun.xml.txw2' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.sun.xml.txw2.annotation' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.sun.xml.txw2.output' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.io' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.lang' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.lang.annotation' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.lang.invoke' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.lang.reflect' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='java.util' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.stream' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.transform.dom' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.transform.sax' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.xml.transform.stream' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax.ext' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0' optional='true' greedy='false'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            org.glassfish.jaxb.txw2
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.glassfish.jaxb.txw2' version='4.0.2'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.glassfish.jaxb.txw2&#xA;Bundle-Version: 4.0.2
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='angus-activation.source' version='2.0.0' singleton='false'>
+      <update id='angus-activation.source' range='[0.0.0,2.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='angus-activation.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='angus-activation.source' version='2.0.0'/>
+        <provided namespace='osgi.bundle' name='angus-activation.source' version='2.0.0'/>
+        <provided namespace='osgi.identity' name='angus-activation.source' version='2.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='angus-activation.source' version='2.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: angus-activation.source&#xA;Bundle-Version: 2.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.xml.ws-api' version='4.0.0' singleton='false' generation='2'>
+      <update id='jakarta.xml.ws-api' range='[0.0.0,4.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jakarta XML Web Services API'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta XML Web Services API 4.0 Specification'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='14'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.ws-api' version='4.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.ws-api' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.jws.soap' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.jws' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.wsaddressing' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.http' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.handler' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.handler.soap' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.spi' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.spi.http' version='4.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.soap' version='4.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.ws-api' version='4.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='java.package' name='jakarta.xml.bind' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.soap' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.ws' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.ws.handler' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.ws.spi' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.ws.spi.http' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.xml.ws.wsaddressing' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.transform.stream' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jakarta.xml.ws-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.ws-api' version='4.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.ws-api&#xA;Bundle-Version: 4.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.activation-api' version='2.1.0' singleton='false' generation='2'>
+      <update id='jakarta.activation-api' range='[0.0.0,2.1.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jakarta Activation API'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta Activation API 2.1 Specification'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' version='2.1.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.activation-api' version='2.1.0'/>
+        <provided namespace='java.package' name='jakarta.activation' version='2.1.0'/>
+        <provided namespace='java.package' name='jakarta.activation.spi' version='2.1.0'/>
+        <provided namespace='osgi.identity' name='jakarta.activation-api' version='2.1.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='java.package' name='jakarta.activation' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.activation.spi' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            jakarta.activation-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.activation-api' version='2.1.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.activation-api&#xA;Bundle-Version: 2.1.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.activation-api' version='2.1.1' singleton='false' generation='2'>
+      <update id='jakarta.activation-api' range='[0.0.0,2.1.1)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jakarta Activation API'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta Activation API 2.1 Specification'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' version='2.1.1'/>
+        <provided namespace='osgi.bundle' name='jakarta.activation-api' version='2.1.1'/>
+        <provided namespace='java.package' name='jakarta.activation' version='2.1.1'/>
+        <provided namespace='java.package' name='jakarta.activation.spi' version='2.1.1'/>
+        <provided namespace='osgi.identity' name='jakarta.activation-api' version='2.1.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='jakarta.activation' range='0.0.0'/>
+        <required namespace='java.package' name='jakarta.activation.spi' range='0.0.0'/>
+        <requiredProperties namespace='osgi.extender' match='(&amp;(osgi.extender=osgi.serviceloader.processor)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' min='0' greedy='false'>
+          <description>
+            jakarta.activation-api
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.serviceloader' match='(osgi.serviceloader=jakarta.activation.spi.MailcapRegistryProvider)' min='0' greedy='false'>
+          <description>
+            jakarta.activation-api
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.serviceloader' match='(osgi.serviceloader=jakarta.activation.spi.MimeTypeRegistryProvider)' min='0' greedy='false'>
+          <description>
+            jakarta.activation-api
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            jakarta.activation-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.activation-api' version='2.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.activation-api&#xA;Bundle-Version: 2.1.1
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.modelio.jaxb.feature.feature.group' version='5.4.0.20230612121745' singleton='false'>
+      <update id='org.modelio.jaxb.feature.feature.group' range='[0.0.0,5.4.0.20230612121745)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Libraries'/>
+        <property name='org.eclipse.equinox.p2.description' value='Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.&#xA;&#xA;&#x9;&#x9;p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Softeam Software'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.group' version='5.4.0.20230612121745'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.runtime' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.core' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.bind-api' range='[4.0.0,4.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' range='[2.1.1,2.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='angus-activation' range='[2.0.0,2.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.txw2' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.sun.istack.commons-runtime' range='[4.1.1,4.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.ws-api' range='[4.0.0,4.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' range='[2.1.0,2.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.soap-api' range='[3.0.0,3.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.jar' range='[5.4.0.20230612121745,5.4.0.20230612121745]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <copyright>
+        (c) Softeam Software
+      </copyright>
+    </unit>
+    <unit id='jakarta.activation-api.source' version='2.1.0' singleton='false'>
+      <update id='jakarta.activation-api.source' range='[0.0.0,2.1.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.activation-api.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api.source' version='2.1.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.activation-api.source' version='2.1.0'/>
+        <provided namespace='osgi.identity' name='jakarta.activation-api.source' version='2.1.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.activation-api.source' version='2.1.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.activation-api.source&#xA;Bundle-Version: 2.1.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.activation-api.source' version='2.1.1' singleton='false'>
+      <update id='jakarta.activation-api.source' range='[0.0.0,2.1.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.activation-api.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api.source' version='2.1.1'/>
+        <provided namespace='osgi.bundle' name='jakarta.activation-api.source' version='2.1.1'/>
+        <provided namespace='osgi.identity' name='jakarta.activation-api.source' version='2.1.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.activation-api.source' version='2.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.activation-api.source&#xA;Bundle-Version: 2.1.1
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.modelio.jaxb.feature.feature.jar' version='5.4.0.20230612121745'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Libraries'/>
+        <property name='org.eclipse.equinox.p2.description' value='Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.&#xA;&#xA;&#x9;&#x9;p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Softeam Software'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.jar' version='5.4.0.20230612121745'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.modelio.jaxb.feature' version='5.4.0.20230612121745'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.modelio.jaxb.feature' version='5.4.0.20230612121745'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <copyright>
+        (c) Softeam Software
+      </copyright>
+    </unit>
+    <unit id='file:/H:/modelio/alouette/work/eclipse/dev-platform/rcp-target/jakarta/jaxb/target/repository/category.xml.all' version='1.0.0.947A7UcjMx3'>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Maven osgi-bundles'/>
+        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='file:/H:/modelio/alouette/work/eclipse/dev-platform/rcp-target/jakarta/jaxb/target/repository/category.xml.all' version='1.0.0.947A7UcjMx3'/>
+      </provides>
+      <requires size='20'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.bind-api' range='[4.0.0,4.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.core' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.soap-api.source' range='[3.0.0,3.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.sun.istack.commons-runtime' range='[4.1.1,4.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.runtime.source' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.sun.istack.commons-runtime.source' range='[4.1.1,4.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.soap-api' range='[3.0.0,3.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.runtime' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.core.source' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.txw2.source' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.glassfish.jaxb.txw2' range='[4.0.2,4.0.2]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='angus-activation.source' range='[2.0.0,2.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.ws-api' range='[4.0.0,4.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' range='[2.1.0,2.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api' range='[2.1.1,2.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api.source' range='[2.1.0,2.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.activation-api.source' range='[2.1.1,2.1.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.ws-api.source' range='[4.0.0,4.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='angus-activation' range='[2.0.0,2.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.bind-api.source' range='[4.0.0,4.0.0]'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
+    <unit id='jakarta.xml.ws-api.source' version='4.0.0' singleton='false'>
+      <update id='jakarta.xml.ws-api.source' range='[0.0.0,4.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.xml.ws-api.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.ws-api.source' version='4.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.ws-api.source' version='4.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.ws-api.source' version='4.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.ws-api.source' version='4.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.ws-api.source&#xA;Bundle-Version: 4.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='angus-activation' version='2.0.0' singleton='false' generation='2'>
+      <update id='angus-activation' range='[0.0.0,2.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Angus Activation Registries'/>
+        <property name='org.eclipse.equinox.p2.description' value='Angus Activation Registries Implementation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='angus-activation' version='2.0.0'/>
+        <provided namespace='osgi.bundle' name='angus-activation' version='2.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.angus.activation' version='2.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.angus.activation.nativeimage' version='2.0.0'/>
+        <provided namespace='osgi.identity' name='angus-activation' version='2.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='osgi.service' name='angus-activation_2.0.0-1' version='0.0.0'>
+          <properties size='1'>
+            <property name='objectClass' value='org.eclipse.angus.activation.MailcapRegistryProviderImpl' type='List'/>
+          </properties>
+        </provided>
+        <provided namespace='osgi.service' name='angus-activation_2.0.0-2' version='0.0.0'>
+          <properties size='1'>
+            <property name='objectClass' value='org.eclipse.angus.activation.MimeTypeRegistryProviderImpl' type='List'/>
+          </properties>
+        </provided>
+        <provided namespace='osgi.serviceloader' name='org.eclipse.angus.activation.MailcapRegistryProviderImpl' version='0.0.0'/>
+        <provided namespace='osgi.serviceloader' name='org.eclipse.angus.activation.MimeTypeRegistryProviderImpl' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='jakarta.activation' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='jakarta.activation.spi' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='org.eclipse.angus.activation' range='0.0.0'/>
+        <required namespace='java.package' name='org.graalvm.nativeimage.hosted' range='0.0.0' optional='true' greedy='false'/>
+        <requiredProperties namespace='osgi.extender' match='(&amp;(osgi.extender=osgi.serviceloader.registrar)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' min='0' greedy='false'>
+          <description>
+            angus-activation
+          </description>
+        </requiredProperties>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            angus-activation
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='angus-activation' version='2.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: angus-activation&#xA;Bundle-Version: 2.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jakarta.xml.bind-api.source' version='4.0.0' singleton='false'>
+      <update id='jakarta.xml.bind-api.source' range='[0.0.0,4.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.xml.bind-api.source'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.xml.bind-api.source' version='4.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.xml.bind-api.source' version='4.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.xml.bind-api.source' version='4.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.xml.bind-api.source' version='4.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.xml.bind-api.source&#xA;Bundle-Version: 4.0.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -31,49 +31,49 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008d9532-c4be-1fd8-97fe-001ec947cd2a")
 public class StereotypeData extends ModelElementData {
-    @objid ("10728182-e525-438d-9835-2ce163fdbc65")
+    @objid ("2a48319a-ab33-4cc3-b42a-5d3809997213")
     Object mImage = "";
 
-    @objid ("17625c52-a537-405e-98c6-b5aaaee641eb")
+    @objid ("81881e84-6e75-4fbb-a2cf-0f28d1bb9c79")
     Object mIcon = "";
 
-    @objid ("73883295-60ee-4855-aa45-11a7771a7788")
+    @objid ("19cef74d-bafc-4724-af9c-74d213713453")
     Object mIsHidden = false;
 
-    @objid ("c07bf5c1-8621-4425-84a5-393944cc5bc0")
+    @objid ("8ac1e865-535a-4aca-bc93-4538952b48f3")
     Object mIsAbstract = false;
 
-    @objid ("66650ed6-1f1e-4d43-a5db-ef62713cb81b")
+    @objid ("33c88642-e32f-41a9-8d0c-92727ec91793")
     Object mLabelKey = "";
 
-    @objid ("f18859dc-1e7c-451e-aba2-8c97ab55f1c5")
+    @objid ("6f2a57de-f944-4ec8-9faa-4476ae372917")
     Object mBaseClassName = "";
 
-    @objid ("fbe4768f-b0e9-43da-ba07-57f3c1a4a639")
+    @objid ("daf02181-d097-406a-946a-be29697806f8")
     SmObjectImpl mDefinedTable;
 
-    @objid ("595062ba-8fa9-4805-ab3f-c2c93a7176b7")
+    @objid ("89f4e79f-562f-4590-afdd-ad1dfc770c8c")
     List<SmObjectImpl> mDefinedResourceType = null;
 
-    @objid ("febfc682-f031-47a8-96c4-5e46407ea2de")
+    @objid ("d86bdb9e-9c6e-4b58-b41e-eeece98847af")
     SmObjectImpl mOwner;
 
-    @objid ("9b25e96b-d993-445e-aa6e-7e162d347329")
+    @objid ("e2100dbd-0ede-4b9c-b7de-db8114efa71d")
     SmObjectImpl mParent;
 
-    @objid ("b04fbcb9-2e48-4899-9c82-167410f7c744")
+    @objid ("599576a2-1c44-4e45-a136-e3fa7fa665b6")
     List<SmObjectImpl> mDefinedTagType = null;
 
-    @objid ("4edafcaa-dfe4-4d68-97fa-d8451b622acc")
+    @objid ("b5e98e97-e1b8-4784-b3f6-f3c932660cff")
     List<SmObjectImpl> mChild = null;
 
-    @objid ("baf08654-80dd-4289-a984-1ea5630422cb")
+    @objid ("a95ad195-018a-478f-893d-7f0b248b07ed")
     List<SmObjectImpl> mDefinedNoteType = null;
 
-    @objid ("ce695e1b-fbac-4c73-9b12-8942bf3a85e9")
+    @objid ("bad9024d-5f0f-43d7-828e-2f8eb8e94e53")
     List<SmObjectImpl> mExtendedElement = null;
 
-    @objid ("e8e534c7-3cd8-4afe-8a0c-7e3309ed30f7")
+    @objid ("0cb96898-c9bf-4f71-aa6a-60fcf67d095a")
     public  StereotypeData(StereotypeSmClass smClass) {
         super(smClass);
     }

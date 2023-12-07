@@ -192,8 +192,13 @@ public abstract class AbstractGPart implements IGPart {
     @objid ("c57e6974-ed27-404e-a534-104a87090cac")
     @Override
     public String toString() {
-        return String.format("GPart [id='%s', version='%s', type='%s', definitionScope='%s', state='%s']",
-                this.getId(), this.getVersion(), this.getType(), this.getDefinitionScope(), this.getState().getValue());
+        return String.format("%s [id='%s', version='%s', type='%s', definitionScope='%s', state='%s']",
+                getClass().getSimpleName(),
+                getId(),
+                getVersion(),
+                getType(),
+                getDefinitionScope(),
+                getState().getValue());
         
     }
 

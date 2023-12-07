@@ -294,9 +294,9 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
     private static String computeHttpAuth(URL url, String user, String pass) {
         if (user != null && !user.isEmpty()) {
             String userInfo = user + ":" + (pass==null ? "" : pass);
-            return "Basic " + javax.xml.bind.DatatypeConverter.printBase64Binary(userInfo.getBytes());
+            return "Basic " + jakarta.xml.bind.DatatypeConverter.printBase64Binary(userInfo.getBytes());
         } else if (url.getUserInfo() != null) {
-            return "Basic " + javax.xml.bind.DatatypeConverter.printBase64Binary(url.getUserInfo().getBytes());
+            return "Basic " + jakarta.xml.bind.DatatypeConverter.printBase64Binary(url.getUserInfo().getBytes());
         } else {
             return null;
         }

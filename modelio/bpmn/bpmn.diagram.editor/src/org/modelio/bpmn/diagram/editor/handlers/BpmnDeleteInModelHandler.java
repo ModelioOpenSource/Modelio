@@ -41,19 +41,21 @@ import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.core.commands.DeleteInModelCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.drawings.core.IGmDrawing;
+import org.modelio.diagram.elements.umlcommon.diagramview.GmDiagramView;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -99,15 +101,10 @@ public class BpmnDeleteInModelHandler {
 
     @objid ("06d9d953-6299-4dea-95ec-ff39f8093bd4")
     private List<GraphicalEditPart> getSelectedEditParts(ISelection selection) {
-        List<GraphicalEditPart> selected = new ArrayList<>();
-        
-        if (selection instanceof IStructuredSelection) {
-            for (Object selectedObject : ((IStructuredSelection) selection).toList()) {
-                if (selectedObject instanceof GraphicalEditPart && !(selectedObject instanceof AbstractDiagramEditPart)) {
-                    selected.add((GraphicalEditPart) selectedObject);
-                }
-            }
-        }
+        List<GraphicalEditPart> selected = SelectionHelper.toList(
+                selection,
+                GraphicalEditPart.class,
+                ep -> !(ep instanceof AbstractDiagramEditPart));
         return selected;
     }
 
@@ -118,28 +115,29 @@ public class BpmnDeleteInModelHandler {
         // Get the model elements to delete or to mask
         
         // Collect elements and edit parts to masking or delete
-        final Collection<MObject> toDelete = collectElementsToDelete(selected);
-        if (toDelete == null) {
+        final Set<GraphicalEditPart> toMask = new HashSet<>();
+        final Set<MObject> toDelete = new HashSet<>();
+        
+        if (!collectElementsToDelete(selected, toDelete, toMask)) {
             return UnexecutableCommand.INSTANCE;
         }
+        collectEditpartsToMask(selected, toMask);
         
-        final List<GraphicalEditPart> toMask = collectEditpartsToMask(selected);
-        
-        DeleteInModelCommand deleteCommand = deleteInModel(toDelete, shell, withConfirmation);
+        DeleteInModelCommand deleteCommand = buildDeleteInModelCommand(toDelete, shell, withConfirmation);
         if (deleteCommand == null) {
             // Abort
             return null;
-        } else {
-            // Store the command in the compound
-            if (deleteCommand.canExecute()) {
-                compound.add(deleteCommand);
-            }
+        }
+        
+        // Store the command in the compound
+        if (deleteCommand.canExecute()) {
+            compound.add(deleteCommand);
         }
         
         // Mask all edit parts without an element
         if (!toMask.isEmpty()) {
             GroupRequest deleteReq = new GroupRequest(RequestConstants.REQ_DELETE);
-            deleteReq.setEditParts(toMask);
+            deleteReq.setEditParts(new ArrayList<>(toMask));
         
             for (EditPart editPart : toMask) {
                 Command cmd = editPart.getCommand(deleteReq);
@@ -152,13 +150,19 @@ public class BpmnDeleteInModelHandler {
         return compound.unwrap();
     }
 
+    /**
+     * Build the delete elements command.
+     * @param toDelete the initial list of elements to delete
+     * @param shell a SWT shell to display a confirmation box
+     * @param withConfirmation whether display a confirmation box if Messages flows have to be deleted transitively
+     * @return a delete command
+     */
     @objid ("c269933c-98a6-4e17-a183-3b0ec34c9139")
-    private DeleteInModelCommand deleteInModel(final Collection<MObject> toDelete, Shell shell, boolean withConfirmation) {
-        // Build the delete command
+    private DeleteInModelCommand buildDeleteInModelCommand(final Collection<MObject> toDelete, Shell shell, boolean withConfirmation) {
         final DeleteInModelCommand cmd = new DeleteInModelCommand();
         
-        Collection<BpmnLane> lanes = new HashSet<>();
-        Collection<MObject> hasMessageFlow = new HashSet<>();
+        Collection<BpmnLane> lanesToDelete = new HashSet<>();
+        Collection<MObject> messageFlowsToDelete = new HashSet<>();
         
         for (MObject eltToDelete : toDelete) {
             cmd.addElementToDelete(eltToDelete);
@@ -166,27 +170,27 @@ public class BpmnDeleteInModelHandler {
             if (eltToDelete instanceof BpmnBaseElement) {
                 BpmnBaseElement bpmnElt = (BpmnBaseElement) eltToDelete;
         
-                hasMessageFlow.addAll(bpmnElt.getOutgoingFlow());
-                hasMessageFlow.addAll(bpmnElt.getIncomingFlow());
+                messageFlowsToDelete.addAll(bpmnElt.getOutgoingFlow());
+                messageFlowsToDelete.addAll(bpmnElt.getIncomingFlow());
         
                 if (eltToDelete instanceof BpmnLane) {
-                    lanes.add((BpmnLane) eltToDelete);
+                    lanesToDelete.add((BpmnLane) eltToDelete);
                 }
             }
         }
         
         // Delete BpmnLaneSets with no remaining BpmnLanes
-        for (BpmnLane lane : lanes) {
+        for (BpmnLane lane : lanesToDelete) {
             BpmnLaneSet laneSet = lane.getLaneSet();
-            if (lanes.containsAll(laneSet.getLane())) {
+            if (lanesToDelete.containsAll(laneSet.getLane())) {
                 cmd.addElementToDelete(laneSet);
             }
         }
         
         // Confirm message flow destruction
-        if (withConfirmation && !hasMessageFlow.isEmpty()) {
+        if (withConfirmation && !messageFlowsToDelete.isEmpty()) {
             UniversalLabelProvider labelProvider = new UniversalLabelProvider();
-            String listStr = hasMessageFlow
+            String listStr = messageFlowsToDelete
                     .stream()
                     .map(t -> " - " + labelProvider.getText(t))
                     .sorted()
@@ -195,11 +199,11 @@ public class BpmnDeleteInModelHandler {
             if (!MessageDialog.openQuestion(
                     shell,
                     DiagramEditorBpmn.I18N.getString("BpmnDeleteInModelHandler.confirmdialog.title"),
-                    DiagramEditorBpmn.I18N.getMessage("BpmnDeleteInModelHandler.confirmdialog.message", listStr, hasMessageFlow.size()))) {
+                    DiagramEditorBpmn.I18N.getMessage("BpmnDeleteInModelHandler.confirmdialog.message", listStr, messageFlowsToDelete.size()))) {
                 // Returning null here will abort the whole delete operation
                 return null;
             } else {
-                for (MObject flow : hasMessageFlow) {
+                for (MObject flow : messageFlowsToDelete) {
                     cmd.addElementToDelete(flow);
                 }
             }
@@ -212,9 +216,7 @@ public class BpmnDeleteInModelHandler {
      * @param selected the selected edit parts to analyze
      */
     @objid ("86540063-d98c-446b-af73-48d5d2c6b709")
-    private List<GraphicalEditPart> collectEditpartsToMask(List<GraphicalEditPart> selected) {
-        List<GraphicalEditPart> toMask = new ArrayList<>();
-        
+    private void collectEditpartsToMask(List<GraphicalEditPart> selected, Collection<GraphicalEditPart> toMask) {
         for (final GraphicalEditPart editPart : selected) {
             final Object model = editPart.getModel();
             if (model instanceof GmModel) {
@@ -227,7 +229,7 @@ public class BpmnDeleteInModelHandler {
                 toMask.add(editPart);
             }
         }
-        return toMask;
+        
     }
 
     /**
@@ -236,25 +238,30 @@ public class BpmnDeleteInModelHandler {
      * @return the effective elements to delete.
      */
     @objid ("088e635d-812d-4c9d-87af-6349b01c6f33")
-    private Collection<MObject> collectElementsToDelete(List<GraphicalEditPart> selected) {
-        Set<MObject> toDelete = new HashSet<>();
-        
+    private boolean collectElementsToDelete(List<GraphicalEditPart> selected, Set<MObject> toDelete, Set<GraphicalEditPart> toMask) {
         for (final GraphicalEditPart editPart : selected) {
             final Object model = editPart.getModel();
             if (model instanceof GmModel) {
                 final GmModel gmModel = (GmModel) model;
                 if (!gmModel.getDiagram().isUserEditable()) {
                     // Abort, at least one element cannot be deleted
-                    return null;
+                    return false;
                 }
         
-                final MObject el = gmModel.getRelatedElement();
-                if (el != null && !toDelete.contains(el)) {
-                    toDelete.addAll(collectElementsToDelete(el));
+                if (gmModel instanceof GmDiagramView) {
+                   for(IGmLink link : ((GmDiagramView) gmModel).getEndingLinks()) {
+                       toDelete.add(link.getRelatedElement()) ;
+                   }
+                    //
+                } else {
+                    final MObject el = gmModel.getRelatedElement();
+                    if (el != null && !toDelete.contains(el)) {
+                        toDelete.addAll(collectElementsToDelete(el));
+                    }
                 }
             }
         }
-        return toDelete;
+        return true;
     }
 
     /**

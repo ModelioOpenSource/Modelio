@@ -26,7 +26,7 @@
 package org.modelio.patterns.model.information;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 /**
  * This object contains factory methods for each Java content interface and Java

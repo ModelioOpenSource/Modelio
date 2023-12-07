@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.diagrams;
@@ -29,7 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("1749232f-f478-49a8-9867-d574a842fbbf")
 public class GraphDiagramData extends AbstractDiagramData {
-    @objid ("62f2c8ef-5ac0-47a6-a727-0699b29053f6")
+    @objid ("5d54eba6-e1bc-43d0-8065-3ee54baaccce")
     public  GraphDiagramData(GraphDiagramSmClass smClass) {
         super(smClass);
     }

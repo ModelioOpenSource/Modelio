@@ -283,7 +283,7 @@ public class DefaultMetaExpert implements IMetaExpert {
     @Override
     public boolean canDep(MClass source, MClass target, String dep) {
         MDependency mDep = source.getDependency(dep);
-        return (mDep != null && ((SmClass) mDep.getTarget()).hasBase(target));
+        return (mDep != null && target.hasBase(mDep.getTarget()));
     }
 
     @objid ("00182c84-e4d5-1097-bcec-001ec947cd2a")

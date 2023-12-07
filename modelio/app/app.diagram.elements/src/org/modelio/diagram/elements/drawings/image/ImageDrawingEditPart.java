@@ -25,6 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.widgets.Display;
@@ -45,11 +46,15 @@ public class ImageDrawingEditPart extends NodeDrawingEditPart {
     @objid ("3f0a7309-dc83-4b34-8e99-00cd231ec5d5")
     private int alpha = 255;
 
+    @objid ("4cfcfad9-b480-4ea9-bf93-6f336ff36a9c")
+    private final String[] filterExtentions = {"*.png","*.jpg","*.jpeg","*.bmp","*.gif"};
+
     @objid ("1b3577dd-2771-47f3-b5a5-a2a0511ec95d")
     @Override
     public void performRequest(Request req) {
         if (RequestConstants.REQ_OPEN.equals(req.getType()) || RequestConstants.REQ_DIRECT_EDIT.equals(req.getType())) {
             FileDialog dialog = new FileDialog(Display.getDefault().getActiveShell());
+            dialog.setFilterExtensions(this.filterExtentions);
             String file =  dialog.open();
             if(file != null && !"".equals(file)) {
                 getModel().setLabel(ImageSerialiser.serialise(new ImageData(file)));
@@ -61,16 +66,24 @@ public class ImageDrawingEditPart extends NodeDrawingEditPart {
         
     }
 
+    /**
+     * this method draw the image in the figure
+     * @param figure instance of ImageDrawingFigure
+     * @param val name of the image
+     */
     @objid ("0fcff2eb-4d2f-4511-a7af-89d5e0f98d42")
-    public void setImage(ImageDrawingFigure figure, String val, int alpha) {
+    public void setImage(ImageDrawingFigure figure, String val) {
         if (val != null && !"".equals(val)) {
             ImageData data = ImageSerialiser.deserialise(val);
         
             if (data != null) {
-                data.setAlpha(0, 0, this.alpha);
-                Arrays.fill(data.alphaData,  (byte)this.alpha);
-        
-                if(figure.getIcon() != null) {
+                if (SWT.TRANSPARENCY_NONE == data.getTransparencyType()) {
+                    data.setAlpha(0, 0, this.alpha);
+                    Arrays.fill(data.alphaData,  (byte)this.alpha);
+                } else {
+                    data.setAlpha(0, 0, this.alpha);
+                }
+                if (figure.getIcon() != null) {
                     figure.getIcon().dispose();
                 }
                 figure.setIcon(new Image(Display.getCurrent(), data));
@@ -126,7 +139,7 @@ public class ImageDrawingEditPart extends NodeDrawingEditPart {
         final ImageDrawingFigure imageFigure = (ImageDrawingFigure) getFigure();
         final GmImageDrawing model = (GmImageDrawing) getModel();
         imageFigure.getParent().setConstraint(imageFigure, model.getLayoutData());
-        setImage(imageFigure, model.getLabel(),this.alpha);
+        setImage(imageFigure, model.getLabel());
         super.refreshVisuals();
         
     }

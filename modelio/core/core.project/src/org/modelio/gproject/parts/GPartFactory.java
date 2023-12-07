@@ -26,9 +26,11 @@ import org.modelio.gproject.core.IGPart;
 import org.modelio.gproject.core.IGPartFactory;
 import org.modelio.gproject.data.project.GProjectPartDescriptor;
 import org.modelio.gproject.parts.feature.GFeature;
+import org.modelio.gproject.parts.fragment.GConferenceFragment;
 import org.modelio.gproject.parts.fragment.GExmlFragment;
 import org.modelio.gproject.parts.fragment.GHttpFragment;
 import org.modelio.gproject.parts.fragment.GRamcFragment;
+import org.modelio.gproject.parts.fragment.GUnknownFragment;
 import org.modelio.gproject.parts.module.GModule;
 import org.modelio.gproject.parts.resource.GResource;
 
@@ -69,6 +71,8 @@ public class GPartFactory implements IGPartFactory {
                     return new GFeature(d);
                 case RESOURCE:
                     return new GResource(d);
+                case CONFERENCEFRAGMENT:
+                    return new GConferenceFragment(d);
                 default:
                     return null;
                 }
@@ -83,6 +87,7 @@ public class GPartFactory implements IGPartFactory {
                 case MODULE:
                 case FEATURE:
                 case RESOURCE:
+                case CONFERENCEFRAGMENT:
                     return true;
                 default:
                     return false;
@@ -108,7 +113,9 @@ public class GPartFactory implements IGPartFactory {
                 return f.instantiate(d);
             }
         }
-        return null;
+        
+        // Last resort, instantiate ghost part
+        return new GUnknownFragment(d);
     }
 
     @objid ("5aeedbd0-422c-4d04-9636-decdb9358769")

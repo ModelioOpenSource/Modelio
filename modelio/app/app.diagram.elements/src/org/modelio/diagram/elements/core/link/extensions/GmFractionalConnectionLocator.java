@@ -262,4 +262,29 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
         
     }
 
+    @objid ("f1e2be6e-43ec-48ce-8cff-15f09edfefad")
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getClass().getSimpleName());
+        builder.append(" [uDistance=");
+        builder.append(this.uDistance);
+        builder.append(", vDistance=");
+        builder.append(this.vDistance);
+        builder.append(", fraction=");
+        builder.append(this.fraction);
+        builder.append(", toward=");
+        builder.append(this.towardTarget ? "target" : "source");
+        if (this.useObsoleteLocator) {
+            builder.append(", useObsoleteLocator=");
+            builder.append(this.useObsoleteLocator);
+        }
+        builder.append(", WidthConstraint()=");
+        builder.append(getWidthConstraint());
+        builder.append(", HeightConstraint()=");
+        builder.append(getHeightConstraint());
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

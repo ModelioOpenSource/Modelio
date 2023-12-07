@@ -149,7 +149,7 @@ public class StereotypeEditor {
                 element instanceof NoteType ||
                 element instanceof Stereotype ||
                 element instanceof ModuleParameter) {
-            metaclassName = "ModelElement";
+            metaclassName = ModelElement.MQNAME;
         
             if (session != null && element != null) {
                 MStatus status = element.getStatus();
@@ -194,7 +194,6 @@ public class StereotypeEditor {
         
         StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(editedStereotype.getBaseClassName(), editedStereotype, openedProject.getPfs().getProjectRuntimePath());
         dataModel.setStereotypeName(editedStereotype.getName());
-        
         IRepository repository = session.getRepositorySupport().getRepository(editedStereotype);
         
         if (!editedStereotype.getIcon().isEmpty()) {

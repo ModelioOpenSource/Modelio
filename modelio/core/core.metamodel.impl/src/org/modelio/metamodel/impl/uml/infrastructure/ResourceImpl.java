@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -41,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("c107e332-ec1c-4f89-adf5-2a740293d9d2")
 public class ResourceImpl extends AbstractResourceImpl implements Resource {
-    @objid ("5cc2a1bc-4760-4f52-bd39-34df6fa2c6df")
+    @objid ("f2b69965-3799-40f4-9c29-76fe7d050901")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -49,7 +49,7 @@ public class ResourceImpl extends AbstractResourceImpl implements Resource {
         return super.getCompositionOwner();
     }
 
-    @objid ("ccfa3c11-6b32-4d4c-b0c8-f24d1c73b05c")
+    @objid ("bec0ed13-7822-4ba3-8e6b-f97f623b0c05")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -59,7 +59,7 @@ public class ResourceImpl extends AbstractResourceImpl implements Resource {
         return super.getCompositionRelation();
     }
 
-    @objid ("cfadb4f2-35e0-4c89-82fb-88fecfaae331")
+    @objid ("6e5f7097-d221-4858-9f19-13dba59a0e0c")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitResource(this);

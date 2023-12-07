@@ -134,14 +134,14 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
     public void delete() {
         // delete links unless the link model source and target changed
         for (IGmReference<IGmLink> l : new ArrayList<>(this.startingLinks)) {
-            if (Objects.equals(l.getReferencedModel().getFromElement(), getRelatedElement())) {
+            if (l.getReferencedModel( )== null || Objects.equals(l.getReferencedModel().getFromElement(), getRelatedElement())) {
                 l.delete();
             } else {
                 ((GmModel) l.getReferencedModel()).obElementsUpdated();
             }
         }
         for (IGmReference<IGmLink> l : new ArrayList<>(this.endingLinks)) {
-            if (Objects.equals(l.getReferencedModel().getToElement(), getRelatedElement())) {
+            if (l.getReferencedModel( )== null ||  Objects.equals(l.getReferencedModel().getToElement(), getRelatedElement())) {
                 l.delete();
             } else {
                 ((GmModel) l.getReferencedModel()).obElementsUpdated();

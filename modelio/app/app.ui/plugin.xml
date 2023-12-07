@@ -49,7 +49,7 @@
         point="org.modelio.app.ui.statusbar">
      <group id="group1" area='left' priority="0">
         <item class="org.modelio.app.ui.statusbar.StatusBarSelectionContributor"
-        	  widthHint='150'
+        	  widthHint='300'
         	  tooltip='tooltip for selection item'/>
      </group>
   </extension>

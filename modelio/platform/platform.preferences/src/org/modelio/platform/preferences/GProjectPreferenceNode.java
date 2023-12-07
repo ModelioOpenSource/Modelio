@@ -1,21 +1,21 @@
-/* 
+/*
  * Copyright 2013-2020 Modeliosoft
- * 
+ *
  * This file is part of Modelio.
- * 
+ *
  * Modelio is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Modelio is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package org.modelio.platform.preferences;
 
@@ -27,7 +27,7 @@ import org.modelio.gproject.core.IGProject;
 /**
  * This class implements a preference node for Modelio GProject preferences.
  * It mainly prefixes the preferences keys with a specific 'nodeId' before delegating to its configured store.
- * 
+ *
  * @author phv
  */
 @objid ("2452eb5c-1e87-490f-b7a7-f2a2aaa7e49c")
@@ -46,7 +46,7 @@ public class GProjectPreferenceNode implements IGProjectPreferenceStore {
     public  GProjectPreferenceNode(GProjectPreferenceStore prefsStore, String nodeId) {
         this.store = prefsStore;
         this.prefix = nodeId + "/";
-        
+
     }
 
     @objid ("849e48a5-a3f5-4d77-91b8-f86f54ed60ea")

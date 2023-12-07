@@ -39,9 +39,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("348dada1-55b7-11e2-877f-002564c97630")
 public class GmCollabUseLink extends GmLink {
-    @objid ("348dada5-55b7-11e2-877f-002564c97630")
-    private CollaborationUse element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -53,6 +50,9 @@ public class GmCollabUseLink extends GmLink {
 
     @objid ("f769cfe5-3bd7-4b13-9a11-cb66701fd536")
     public static final String ROLE_BINDING_GROUP = "binding_group";
+
+    @objid ("348dada5-55b7-11e2-877f-002564c97630")
+    private CollaborationUse element;
 
     @objid ("348dada8-55b7-11e2-877f-002564c97630")
     private static final CollabUseLinkStructuredStyleKeys STRUCTURED_KEYS = new CollabUseLinkStructuredStyleKeys();
@@ -89,6 +89,8 @@ public class GmCollabUseLink extends GmLink {
     @objid ("348dadbe-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getFromElement() {
+        if (this.element == null)
+            return null;
         return this.element.getCompositionOwner();
     }
 
@@ -119,6 +121,8 @@ public class GmCollabUseLink extends GmLink {
     @objid ("348f3442-55b7-11e2-877f-002564c97630")
     @Override
     public MObject getToElement() {
+        if (this.element == null)
+            return null;
         return this.element.getType();
     }
 

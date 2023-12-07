@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -44,49 +44,49 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("248ccc62-bd28-427d-bfd3-d3abff00fd40")
 public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
-    @objid ("6c2df247-3662-445c-abfe-992d1959613a")
+    @objid ("460d19b3-8842-43af-a0ae-263992433020")
     private SmDependency ownerDep;
 
-    @objid ("e3949bf8-2420-498c-9fdc-5f902ae01392")
+    @objid ("88131402-dc35-48d1-ada2-201e747b1a6a")
     public  PropertyEnumerationLitteralSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("ed889f1e-f75a-4ae0-aaee-e352d1e98c1e")
+    @objid ("90e0233c-6c81-423a-97f6-7be5ae92b79e")
     @Override
     public String getName() {
         return "PropertyEnumerationLitteral";
         
     }
 
-    @objid ("9ab8b4d9-c454-43fd-858e-f10186fb680b")
+    @objid ("25122f06-873b-419b-b9a7-e2b95c48c7e2")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("80aa0191-88de-4870-b2b8-1e571d2b8010")
+    @objid ("bd2b436d-8b13-4b9c-857d-813feef64326")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PropertyEnumerationLitteral.class;
         
     }
 
-    @objid ("c1026bb1-33b8-4f40-af0a-5879cd66bf30")
+    @objid ("28dd1a66-459d-4ffa-bf33-951bea86c9b3")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("1f684b30-bc5b-478f-b88f-2165dd47f734")
+    @objid ("245a9dd9-a37d-4d1f-ab75-1d4ad34f4648")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("4d28a34e-779a-4e74-9a81-1072d8713b7a")
+    @objid ("86e86229-5384-4ebb-a9fa-37c11c9f5243")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -103,7 +103,7 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
         
     }
 
-    @objid ("c333513f-b6b5-4050-bbc4-f80444264afc")
+    @objid ("b81abefe-0733-432a-8d99-5d02edb328ce")
     public SmDependency getOwnerDep() {
         if (this.ownerDep == null) {
         	this.ownerDep = this.getDependencyDef("Owner");
@@ -113,21 +113,21 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
 
     @objid ("16973606-bfc2-4299-b464-a03207b835b2")
     private static class PropertyEnumerationLitteralObjectFactory implements ISmObjectFactory {
-        @objid ("51aa052e-7357-48e2-91a7-c5e50a395be0")
+        @objid ("42fa3376-1057-4ed5-941b-e70e8088afd3")
         private PropertyEnumerationLitteralSmClass smClass;
 
-        @objid ("cd862295-2340-4fcd-96a4-c2a4aa60a348")
+        @objid ("fb974564-747c-4411-8d15-c41cd4ea4bed")
         public  PropertyEnumerationLitteralObjectFactory(PropertyEnumerationLitteralSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("b195e5fc-f5de-45de-9c08-004bbdd3c5cf")
+        @objid ("0453767a-cfea-48b8-928f-0c6b004f2668")
         @Override
         public ISmObjectData createData() {
             return new PropertyEnumerationLitteralData(this.smClass);
         }
 
-        @objid ("c2143c38-008a-4595-a152-b2a020013159")
+        @objid ("34c7479c-801f-4c34-a5a2-dc2c774dff40")
         @Override
         public SmObjectImpl createImpl() {
             return new PropertyEnumerationLitteralImpl();
@@ -137,22 +137,22 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
 
     @objid ("39c7e8eb-8efc-4a8f-989b-105df82d442a")
     public static class OwnerSmDependency extends SmSingleDependency {
-        @objid ("9ce19fcf-d717-40ee-935e-3c77af11ba65")
+        @objid ("039d6cec-f5f3-4d18-a3cc-97661460a22d")
         private SmDependency symetricDep;
 
-        @objid ("4f201ed3-0865-44a7-a832-5ae77677f07e")
+        @objid ("8ed3e43d-be2e-4dce-b790-8bffff448e40")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((PropertyEnumerationLitteralData) data).mOwner;
         }
 
-        @objid ("530fc7af-1abb-4daf-99ec-9326ef4c1ed8")
+        @objid ("338b8c10-a6d9-4224-a7ba-8f289f840374")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((PropertyEnumerationLitteralData) data).mOwner = value;
         }
 
-        @objid ("fe9d8afc-1e41-4435-8589-61273ee21fd2")
+        @objid ("21d19c6a-4831-4dd9-b281-593c19e092a6")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

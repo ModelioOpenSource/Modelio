@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.impact;
@@ -44,13 +44,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("000072b9-ab70-4ace-abf6-01cac9042a1c")
 public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProject {
-    @objid ("b6533047-a5fe-4223-943e-886d51127504")
+    @objid ("af249df9-3766-4f61-a807-1d658e717c00")
     @Override
     public EList<ImpactModel> getModel() {
         return new SmList<>(this, ((ImpactProjectSmClass)getClassOf()).getModelDep());
     }
 
-    @objid ("3f93ec69-ebae-45f5-bf18-4ed5cee16a50")
+    @objid ("4c916bd0-dfa7-471b-abe6-03dcfb4c019a")
     @Override
     public <T extends ImpactModel> List<T> getModel(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -66,7 +66,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         
     }
 
-    @objid ("ee2c0da4-4bcf-4efe-b279-2118d12c3d49")
+    @objid ("350ce564-97d2-4cb2-85e3-0431748bc664")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -74,7 +74,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         return super.getCompositionOwner();
     }
 
-    @objid ("4844420c-139e-42e0-85b2-f592e27c46ce")
+    @objid ("50697f1f-689d-43a0-bd60-0b99d13a9492")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -84,7 +84,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         return super.getCompositionRelation();
     }
 
-    @objid ("8984234c-641a-450b-b7cc-39312892e3c5")
+    @objid ("b6ea42e7-930a-4e33-b173-ef5e6ae2f150")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitImpactProject(this);

@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -42,56 +42,56 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("7cf7f530-18cf-49e9-a9a7-98d12acb807b")
 public class ExternElementImpl extends ModelElementImpl implements ExternElement {
-    @objid ("630fb9e8-ff32-47a7-a15b-cee7e4ba00dd")
+    @objid ("3f506952-575a-4fcc-a5b2-65a895089a43")
     @Override
     public String getProvider() {
         return (String) getAttVal(((ExternElementSmClass)getClassOf()).getProviderAtt());
     }
 
-    @objid ("4898d69b-42e4-4c66-8ced-7ca4566eba24")
+    @objid ("9a6875d2-f58c-4164-8ade-5ebd9dccd064")
     @Override
     public void setProvider(String value) {
         setAttVal(((ExternElementSmClass)getClassOf()).getProviderAtt(), value);
     }
 
-    @objid ("70d8b11c-5cab-43b7-895c-c865a02299e4")
+    @objid ("582ba209-4efc-41e6-836f-9378e7178429")
     @Override
     public String getExternId() {
         return (String) getAttVal(((ExternElementSmClass)getClassOf()).getExternIdAtt());
     }
 
-    @objid ("9993792b-5058-424a-b664-2b06fc525965")
+    @objid ("8fee3eca-fbe2-4a8a-9c4e-fb4f4df87742")
     @Override
     public void setExternId(String value) {
         setAttVal(((ExternElementSmClass)getClassOf()).getExternIdAtt(), value);
     }
 
-    @objid ("eb38e5b0-dd20-474e-989f-fa5778c49091")
+    @objid ("522d6ea1-3528-43cd-919d-a3c16aab7579")
     @Override
     public String getLocation() {
         return (String) getAttVal(((ExternElementSmClass)getClassOf()).getLocationAtt());
     }
 
-    @objid ("05d758ad-5e55-4f9f-b514-8a750bcb1d65")
+    @objid ("48f27b65-2218-457a-81ef-fe29e01eac1a")
     @Override
     public void setLocation(String value) {
         setAttVal(((ExternElementSmClass)getClassOf()).getLocationAtt(), value);
     }
 
-    @objid ("8fe2d23a-3459-48a1-b61b-b1610ec9363f")
+    @objid ("31c3c095-872f-45ee-90ec-3f39b5a83702")
     @Override
     public MethodologicalLink getOwner() {
         Object obj = getDepVal(((ExternElementSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof MethodologicalLink)? (MethodologicalLink)obj : null;
     }
 
-    @objid ("7c6f6015-851d-4f43-beb8-99edc80dc4e1")
+    @objid ("cb8ce5ec-5e77-44b8-a632-cd322d9ee2e5")
     @Override
     public void setOwner(MethodologicalLink value) {
         appendDepVal(((ExternElementSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("949e3bfc-7dc2-4aa8-879e-0eb48b13ce03")
+    @objid ("e6cdfa9b-6fbe-4c8e-91bc-c36da03a13c9")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -103,7 +103,7 @@ public class ExternElementImpl extends ModelElementImpl implements ExternElement
         return super.getCompositionOwner();
     }
 
-    @objid ("26ee9211-3cdf-484f-aab7-f817706d0c11")
+    @objid ("e2e64ce4-bdb6-4822-a320-f759dcc02a29")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -118,7 +118,7 @@ public class ExternElementImpl extends ModelElementImpl implements ExternElement
         return super.getCompositionRelation();
     }
 
-    @objid ("66feeb1d-92b7-4e25-b30b-5ce778015cca")
+    @objid ("76414e1a-dec6-4c2f-b7d5-a3c9140028fb")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitExternElement(this);

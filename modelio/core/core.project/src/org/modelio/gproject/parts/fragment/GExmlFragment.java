@@ -168,7 +168,7 @@ public class GExmlFragment extends AbstractGModelFragment {
 
     @objid ("1016a327-5992-4cf4-a2d5-cd372e6b1f72")
     protected boolean isReadOnly() {
-        return Boolean.parseBoolean(getProperties().getValue(PROP_READ_ONLY));
+        return !getAccessRights().isEditable();
     }
 
     @objid ("6ee1ec76-747b-4ed3-a2f9-a068e7de80b1")

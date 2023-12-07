@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -61,87 +61,87 @@ public class ResourceTypeImpl extends ModelElementImpl implements ResourceType {
         
     }
 
-    @objid ("e4a4f175-d808-4df4-8e58-7c808a6ba645")
+    @objid ("e205ad99-23a0-4738-8d64-3dea57fde4a1")
     @Override
     public boolean isIsHidden() {
         return (Boolean) getAttVal(((ResourceTypeSmClass)getClassOf()).getIsHiddenAtt());
     }
 
-    @objid ("6729365f-ef42-4d52-92d0-3b563546c530")
+    @objid ("665383aa-ed93-4d4f-b380-a113e68bf47a")
     @Override
     public void setIsHidden(boolean value) {
         setAttVal(((ResourceTypeSmClass)getClassOf()).getIsHiddenAtt(), value);
     }
 
-    @objid ("2bc7a26a-f17d-4cac-beb4-32372189ffa4")
+    @objid ("30a25977-d32a-4872-b932-7862ea89d96f")
     @Override
     public String getLabelKey() {
         return (String) getAttVal(((ResourceTypeSmClass)getClassOf()).getLabelKeyAtt());
     }
 
-    @objid ("fc74b76d-6e0f-4b26-ab96-dee9285aab81")
+    @objid ("7414c61c-674c-40df-b521-49c39e59b242")
     @Override
     public void setLabelKey(String value) {
         setAttVal(((ResourceTypeSmClass)getClassOf()).getLabelKeyAtt(), value);
     }
 
-    @objid ("8f0c6e58-8bd8-41e7-908b-4bef458e0c1e")
+    @objid ("b83fedb5-603e-4318-84fa-e0e1723125e2")
     @Override
     public String getIcon() {
         return (String) getAttVal(((ResourceTypeSmClass)getClassOf()).getIconAtt());
     }
 
-    @objid ("9f99e5a1-eb1b-402b-909b-63c68c4c5807")
+    @objid ("5d6c8d65-c44e-4d8d-94f0-9d5c216fb8cc")
     @Override
     public void setIcon(String value) {
         setAttVal(((ResourceTypeSmClass)getClassOf()).getIconAtt(), value);
     }
 
-    @objid ("680a3567-c8ac-41ef-ad6f-a8f4a18a6625")
+    @objid ("fe4c7baa-8371-40bc-9827-79c121b51d7b")
     @Override
     public String getImage() {
         return (String) getAttVal(((ResourceTypeSmClass)getClassOf()).getImageAtt());
     }
 
-    @objid ("9627febf-0c93-494c-ac9a-d4b304c4c283")
+    @objid ("8db2753f-8475-4916-a9dd-7061820b7aa7")
     @Override
     public void setImage(String value) {
         setAttVal(((ResourceTypeSmClass)getClassOf()).getImageAtt(), value);
     }
 
-    @objid ("fedc25be-d480-43ca-aa22-401a564b20bb")
+    @objid ("2cc09fab-db4f-47fe-9817-425557786ec3")
     @Override
     public Stereotype getOwnerStereotype() {
         Object obj = getDepVal(((ResourceTypeSmClass)getClassOf()).getOwnerStereotypeDep());
         return (obj instanceof Stereotype)? (Stereotype)obj : null;
     }
 
-    @objid ("5513be31-fddd-49f2-956f-74f68ef27d32")
+    @objid ("73b3b0bb-153c-4ccd-b8c6-fbe962deebbe")
     @Override
     public void setOwnerStereotype(Stereotype value) {
         appendDepVal(((ResourceTypeSmClass)getClassOf()).getOwnerStereotypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("583f4324-49bb-491a-b054-cc8fe8c737cd")
+    @objid ("78e80347-d2db-4592-bd51-9fa34bc9fb06")
     @Override
     public MetaclassReference getOwnerReference() {
         Object obj = getDepVal(((ResourceTypeSmClass)getClassOf()).getOwnerReferenceDep());
         return (obj instanceof MetaclassReference)? (MetaclassReference)obj : null;
     }
 
-    @objid ("c62876b5-81d2-4a86-8071-2d6cd318550c")
+    @objid ("08b834cd-2b45-4b14-9af4-4946e50eaf6a")
     @Override
     public void setOwnerReference(MetaclassReference value) {
         appendDepVal(((ResourceTypeSmClass)getClassOf()).getOwnerReferenceDep(), (SmObjectImpl)value);
     }
 
-    @objid ("a55cb3dd-43c2-4120-8879-8960f4f0ac0e")
+    @objid ("fede630a-d6a8-4486-b822-6bf791cdc7ce")
     @Override
     public EList<AbstractResource> getTypedResource() {
         return new SmList<>(this, ((ResourceTypeSmClass)getClassOf()).getTypedResourceDep());
     }
 
-    @objid ("325f15dc-72b3-45fc-aaac-7d1fcb71ae9b")
+    @objid ("72d8767e-cfa3-4ae0-ba85-f29c8d86332c")
     @Override
     public <T extends AbstractResource> List<T> getTypedResource(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -157,7 +157,7 @@ public class ResourceTypeImpl extends ModelElementImpl implements ResourceType {
         
     }
 
-    @objid ("1eaaec8e-e229-4157-865e-e1918267bd5d")
+    @objid ("d57501dd-dac9-4da7-9ff5-7c018dc5d33b")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -173,7 +173,7 @@ public class ResourceTypeImpl extends ModelElementImpl implements ResourceType {
         return super.getCompositionOwner();
     }
 
-    @objid ("f0d14311-9c39-4801-b3d6-21644b01c77e")
+    @objid ("90919825-39c9-462a-8cde-8de474889685")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -193,7 +193,7 @@ public class ResourceTypeImpl extends ModelElementImpl implements ResourceType {
         return super.getCompositionRelation();
     }
 
-    @objid ("aaeb1fb5-310e-42dc-ab70-b1ae3177d685")
+    @objid ("70928f6f-f993-4024-a998-d590b1a51578")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitResourceType(this);

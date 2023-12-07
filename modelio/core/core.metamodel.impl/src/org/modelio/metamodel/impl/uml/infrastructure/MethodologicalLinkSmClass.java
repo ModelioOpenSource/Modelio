@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -43,49 +43,49 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("e0ca2607-d7fa-4215-a81e-31bcf412a838")
 public class MethodologicalLinkSmClass extends DependencySmClass {
-    @objid ("8303959a-923f-4bbd-b140-7acfe3adf5ac")
+    @objid ("9137a9cc-2844-462d-8f7e-61d61bb15353")
     private SmDependency externElementDep;
 
-    @objid ("bb2c4ed2-25c9-4c87-bc8e-a78659bffc99")
+    @objid ("e1ce4e25-c9eb-4b66-aa14-a0f8b3c664ef")
     public  MethodologicalLinkSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("e86aef39-f233-4a21-a29a-64712927acd7")
+    @objid ("531049a8-ef8f-4f7a-97dd-85b114669997")
     @Override
     public String getName() {
         return "MethodologicalLink";
         
     }
 
-    @objid ("ed85375f-cbd4-4b31-8b50-bae2d55bd893")
+    @objid ("a85dad6b-94ba-488d-8f0b-e5523e9161d1")
     @Override
     public Version getVersion() {
         return new Version("2.1.01");
     }
 
-    @objid ("5f9640c3-1eb3-4945-af7f-f9495ad92e5a")
+    @objid ("2c6626d0-24b6-4eac-85ce-71a7617ad6dd")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MethodologicalLink.class;
         
     }
 
-    @objid ("f03b0b98-e5d3-47d3-88bf-87f1e4c94f5a")
+    @objid ("53fdebd4-fd0d-4cea-b86d-b682802580b8")
     @Override
     public boolean isCmsNode() {
         return false;
         
     }
 
-    @objid ("d5449c47-8c35-4ae4-9f07-2c526d49a29d")
+    @objid ("84f83a56-76ef-4698-8c89-805e419ef1fc")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("d7165041-26b2-447f-abb9-625dea0b86a8")
+    @objid ("37c130b6-bbe0-45ef-bf0a-7370962a930f")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(Dependency.MQNAME);
@@ -102,7 +102,7 @@ public class MethodologicalLinkSmClass extends DependencySmClass {
         
     }
 
-    @objid ("84174731-bafa-4105-9f2e-214c5c2a634f")
+    @objid ("59a14ea4-1797-499c-8051-f62058e6e441")
     public SmDependency getExternElementDep() {
         if (this.externElementDep == null) {
         	this.externElementDep = this.getDependencyDef("ExternElement");
@@ -110,7 +110,7 @@ public class MethodologicalLinkSmClass extends DependencySmClass {
         return this.externElementDep;
     }
 
-    @objid ("52aff06f-2aa5-49d0-b658-1292f8528d9b")
+    @objid ("0df8a199-e100-41e5-ba33-0b2904bbb8e1")
     @Override
     public boolean isLinkMetaclass() {
         return true;
@@ -119,21 +119,21 @@ public class MethodologicalLinkSmClass extends DependencySmClass {
 
     @objid ("07da5a0e-44b5-4280-a583-dde4bf83a630")
     private static class MethodologicalLinkObjectFactory implements ISmObjectFactory {
-        @objid ("e5fa3120-963c-42dd-b106-915b93f0c1d8")
+        @objid ("682e2b46-c61b-469c-bec8-c21e779f15c6")
         private MethodologicalLinkSmClass smClass;
 
-        @objid ("4d4ae13c-da08-427f-823e-303b67d70ced")
+        @objid ("5e347a6d-e8ca-40e7-bbd6-88dd0067103b")
         public  MethodologicalLinkObjectFactory(MethodologicalLinkSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("95557ca1-b16c-458e-b825-9b82e6d57877")
+        @objid ("b69c7111-c58f-494a-b376-fe73141e5710")
         @Override
         public ISmObjectData createData() {
             return new MethodologicalLinkData(this.smClass);
         }
 
-        @objid ("13813ee6-23f0-4244-aa61-408f6e9188ba")
+        @objid ("8f394ff8-c060-4ce4-a211-4d9b2bbf01ca")
         @Override
         public SmObjectImpl createImpl() {
             return new MethodologicalLinkImpl();
@@ -143,22 +143,22 @@ public class MethodologicalLinkSmClass extends DependencySmClass {
 
     @objid ("ed2be7f1-f212-4b4a-a21f-5364755f0d55")
     public static class ExternElementSmDependency extends SmSingleDependency {
-        @objid ("55f1dd2a-460e-4780-b746-9e979bf5af5b")
+        @objid ("28a50ca9-502a-433b-a6ab-95c59c8467b2")
         private SmDependency symetricDep;
 
-        @objid ("caf01076-f76c-4cb4-8ce0-156abbceebac")
+        @objid ("78ae6a32-2fb2-4483-b463-7b3f68ef5ea0")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MethodologicalLinkData) data).mExternElement;
         }
 
-        @objid ("401a288d-65ff-4e27-8101-df67de4f5213")
+        @objid ("48e9bca0-cfef-426c-b800-082e536c8712")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MethodologicalLinkData) data).mExternElement = value;
         }
 
-        @objid ("b921a732-51a1-4ba4-942e-14c161e286f7")
+        @objid ("0e9a73ba-8dcf-4a57-9ba3-acedde5bf1e0")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

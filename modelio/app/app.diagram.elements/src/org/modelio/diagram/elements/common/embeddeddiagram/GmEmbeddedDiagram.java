@@ -22,7 +22,10 @@ package org.modelio.diagram.elements.common.embeddeddiagram;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -149,29 +152,31 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
      */
     @objid ("6c264694-8b3d-4567-b2d5-d162178266a4")
     public GmAbstractDiagram getViewedDiagramModel(final boolean loadIfNeeded) {
-        if (loadIfNeeded) {
-            if (this.viewedDiagram != null
-                    && this.viewedDiagram.isValid()
-                    && (this.viewedDiagramModel == null || this.viewedDiagramModel.isDisposed())
-                    && getDiagram() != null
-                    && !isDiagramCycle()) {
-                // Load the diagram
-                final GmAbstractDiagram newDiagramModel = createGmDiagram(getDiagram().getModelManager(), this.viewedDiagram);
-                newDiagramModel.setVisible(isVisible());
-                newDiagramModel.load();
+        if (loadIfNeeded
+                && (this.viewedDiagramModel == null || this.viewedDiagramModel.isDisposed())
+                && this.viewedDiagram != null
+                && this.viewedDiagram.isValid()
+                && getDiagram() != null
+                && !getDiagram().isDisposed()) {
+            try (CycleDetector d = new CycleDetector(getDiagram().getRelatedElement(), this.viewedDiagram)) {
+                if (! d.cycleDetected) {
+                    // Load the embedded diagram
+                    final GmAbstractDiagram newDiagramModel = createGmDiagram(getDiagram().getModelManager(), this.viewedDiagram);
+                    newDiagramModel.setVisible(isVisible());
+                    newDiagramModel.load();
         
-                // We do not want the diagram's content to be persisted, do not add it to the children
-                newDiagramModel.setParentNode(this);
-                newDiagramModel.refreshAllFromObModel();
-                newDiagramModel.enableRefresh(true);
-                setViewedDiagramModel(newDiagramModel);
-                onViewedDiagramModelLoaded(newDiagramModel);
+                    // We do not want the diagram's content to be persisted, do not add it to the children
+                    // Instead only set the inverse relation getParentNode() .
+                    newDiagramModel.setParentNode(this);
+        
+                    newDiagramModel.refreshAllFromObModel();
+                    newDiagramModel.enableRefresh(true);
+                    setViewedDiagramModel(newDiagramModel);
+                    onViewedDiagramModelLoaded(newDiagramModel);
+                }
             }
-            return this.viewedDiagramModel;
-        } else {
-            return this.viewedDiagramModel;
         }
-        
+        return this.viewedDiagramModel;
     }
 
     @objid ("8c271621-31be-441e-836d-f19e3dd0eaf3")
@@ -183,20 +188,6 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
             ret.addAll(viewedModel.getVisibleChildren());
         }
         return ret;
-    }
-
-    @objid ("e6a14e14-6d63-48e3-8bf8-85dc1fb644ee")
-    protected boolean isDiagramCycle() {
-        final IGmDiagram myDiagram = getDiagram();
-        
-        final MRef viewedRef = getRepresentedRef();
-        
-        for (IGmDiagram d = myDiagram; d != null; d = d.getDiagramOwner()) {
-            if (d.getRepresentedRef().equals(viewedRef)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @objid ("a2b094c8-5159-48c5-93d1-7a10aedbbdee")
@@ -360,9 +351,60 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
                 }
             }
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            DiagramElements.LOG.error("Failed loading embedded %s diagram", obDiagram);
+            DiagramElements.LOG.error("  in %s ", this);
+            DiagramElements.LOG.error("    in %s diagram", getDiagram());
+            if (getDiagram() != null && getDiagram().getDiagramOwner() != null) {
+                DiagramElements.LOG.error("      in %s diagram", getDiagram().getDiagramOwner());
+            }
             DiagramElements.LOG.error(e);
         }
         return null;
+    }
+
+    /**
+     * Detector for cycles in embedded diagrams composition.
+     * <p>
+     * Cycles cannot be detected by inspecting {@link GmAbstractDiagram#getParentNode()}
+     * because the relation is filled only after having loaded the embedded diagram
+     * 
+     * @author cmarin
+     * @since 5.4.1 23/10/2023
+     */
+    @objid ("f8c42ea3-5c0b-4711-b0bb-11f037c4dd7e")
+    private static final class CycleDetector implements AutoCloseable {
+        @objid ("9e8957d6-cbc1-4851-af48-f430728e3855")
+        public final boolean cycleDetected;
+
+        @objid ("5cdd84a2-fdaf-4198-9d28-207c95ef5c9c")
+        private static Collection<AbstractDiagram> loading = new HashSet<>();
+
+        @objid ("7e6b1d1c-34a2-4dc4-8f7a-8ea09782cfc6")
+        private final AbstractDiagram childDiagram;
+
+        @objid ("1086e04e-a1cc-4b86-bf8e-5bebec0eed6e")
+        private final AbstractDiagram containerAdded;
+
+        @objid ("c35a6c1b-2825-4e03-ac2b-a64b426d3eee")
+        public  CycleDetector(AbstractDiagram container, AbstractDiagram child) {
+            this.childDiagram = child;
+            this.cycleDetected =  loading.contains(container) || loading.contains(child) || Objects.equals(container, child);
+            
+            loading.add(child);
+            
+            this.containerAdded = loading.add(container) ? container : null;
+            
+        }
+
+        @objid ("f8e6119d-6322-47f7-ae85-e29382f124e8")
+        @Override
+        public void close() {
+            loading.remove(this.childDiagram);
+            if (this.containerAdded != null)
+                loading.remove(this.containerAdded);
+            
+        }
+
     }
 
 }

@@ -20,7 +20,7 @@
 package org.modelio.gproject.data.module.migration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import org.modelio.gproject.data.module.jaxbv1.JxbClasspath;
 import org.modelio.gproject.data.module.jaxbv1.JxbClasspath.Entry;
 import org.modelio.gproject.data.module.jaxbv1.JxbContextualCommand;
@@ -346,10 +346,6 @@ public class Migrator {
         
     }
 
-    /**
-     * @param stV2
-     * @param obj
-     */
     @objid ("81cb5bb7-f5b2-4c83-b73c-e1ef6ca904ef")
     private void migrateIcons(Icons icons, Jxbv2Stereotype stV2) {
         for (final Object obj : icons.getSmallOrExplorerOrDiagram()) {
@@ -439,8 +435,6 @@ public class Migrator {
 
     /**
      * Migration of the GUI of the module
-     * @param moduleV1
-     * @param moduleV2
      */
     @objid ("3e1aee9a-1096-4d75-aa9a-b880085e9853")
     private void migrateGUI(JxbModule moduleV1, Jxbv2Module moduleV2) {
@@ -559,8 +553,6 @@ public class Migrator {
 
     /**
      * In V2 there is a single 'Tools' section that holds all the tools collected from V1 in diagram palettes.
-     * @param guiV1
-     * @param guiV2
      */
     @objid ("ed5741e1-2ca0-43c4-b795-8f428fbde8d1")
     private void migrateTools(Gui guiV1, Jxbv2Gui guiV2) {
@@ -703,8 +695,6 @@ public class Migrator {
 
     /**
      * Command are collected from V1 in 'command', 'element-creation-command'
-     * @param guiV1
-     * @param guiV2
      */
     @objid ("205ee236-d62c-451f-8dbf-f569c3322756")
     private void migrateCommands(Gui guiV1, Jxbv2Gui guiV2) {
@@ -725,10 +715,6 @@ public class Migrator {
         
     }
 
-    /**
-     * @param commandV1
-     * @param commandV2
-     */
     @objid ("30ef00e7-b262-4fb6-9c33-dd348364ed3e")
     private void migrateOneCommand(org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.Command commandV1, Jxbv2Command commandV2) {
         commandV2.setGroup(commandV1.getGroup());
@@ -760,10 +746,6 @@ public class Migrator {
         
     }
 
-    /**
-     * @param commandV1
-     * @param commandV2
-     */
     @objid ("d1025882-900c-4b21-bb6a-b17f528a71f5")
     private void migrateOneCreationCommand(ElementCreationCommand commandV1, Jxbv2Command commandV2) {
         commandV2.setGroup(commandV1.getGroup());

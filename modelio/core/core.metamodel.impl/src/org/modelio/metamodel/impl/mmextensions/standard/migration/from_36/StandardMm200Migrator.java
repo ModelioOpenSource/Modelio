@@ -19,6 +19,7 @@
  */
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_36;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -127,7 +128,7 @@ public class StandardMm200Migrator implements IMofRepositoryMigrator {
     @objid ("6adf9533-e227-431f-8243-b1aed06deed6")
     @Override
     public void run(IModelioProgress monitor, IMofSession mofSession) throws MofMigrationException {
-        SubProgress mon = SubProgress.convert(monitor, 5);
+        SubProgress mon = SubProgress.convert(monitor, 6);
         
         try {
         
@@ -146,8 +147,36 @@ public class StandardMm200Migrator implements IMofRepositoryMigrator {
             new DataAssociationFixer(mofSession, this.mm).run();
             mon.worked(1);
         
+            transmuteRemainingDiagrams(mofSession);
+            mon.worked(1);
+        
         } catch (MetaclassNotFoundException e) {
             throw new MofMigrationException(e.getLocalizedMessage(), e);
+        }
+        
+    }
+
+    /**
+     * Transmute all remaining diagrams to process design diagrams.
+     * <p>
+     * These diagrams are usually orphans.
+     * @param mofSession the migration session
+     */
+    @objid ("c3aaffe7-5b6d-4371-91f8-c4c513c853b9")
+    private void transmuteRemainingDiagrams(IMofSession mofSession) {
+        final Collection<MofSmObjectImpl> remainingDiags = mofSession.findByClass(this.mm.bpmnProcessCollaborationDiagramMC, false);
+        if (remainingDiags.isEmpty())
+            return;
+        
+        @SuppressWarnings ("resource")
+        PrintWriter logger = mofSession.getReport().getLogger();
+        @SuppressWarnings ("resource")
+        PrintWriter reporter = mofSession.getReport().getResultReporter();
+        
+        for (MofSmObjectImpl diag : new ArrayList<>(remainingDiags)) {
+            logger.format("Orphan BPMN diagram found: %s . It will be transmuted to a 'Process design diagram'.%n", diag);
+            reporter.format("Orphan BPMN diagram found: %s . It will be transmuted to a 'Process design diagram'.%n", diag);
+            mofSession.transmute(diag, this.mm.bpmnProcessDesignDiagramMC);
         }
         
     }

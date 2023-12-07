@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.diagrams;
@@ -32,7 +32,7 @@ import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 
 /**
- * AbstractDiagram v0.0.9054
+ * AbstractDiagram v0.0.9055
  * 
  * 
  * <p>Graphical representation of a model.</p><p>A diagram is a attached to a ModelElement, and contains a serialized version of the graphical model than can&#39;t be manipulated as-is.</p><p>Elements can be represented in several diagrams at the same time, each diagram type having its own strategy about handling them.</p>
@@ -45,13 +45,13 @@ public interface AbstractDiagram extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("aef73608-bd59-4b3f-95d9-b26401e1267a")
+    @objid ("8771665d-5dd5-49dd-b57c-847023e1e3cf")
     public static final String MNAME = "AbstractDiagram";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("27b1ac8c-b730-4ac4-a9f2-4ae448b03db4")
+    @objid ("7e9941eb-87e7-4a2f-8fb8-55371bf3a375")
     public static final String MQNAME = "Infrastructure.AbstractDiagram";
 
     /**
@@ -61,7 +61,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>Serialized contents version.</i>
      * 
      */
-    @objid ("1ef35969-b33f-4640-8524-190eeb9c1af5")
+    @objid ("5226148f-0c4d-4a9d-9c1f-158b25b1895f")
     int getUiDataVersion();
 
     /**
@@ -71,7 +71,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>Serialized contents version.</i>
      * 
      */
-    @objid ("d91514a5-ab12-487f-b36a-cb443716e2fc")
+    @objid ("67b2253f-0ef2-4c28-90dd-a781c017147b")
     void setUiDataVersion(int value);
 
     /**
@@ -82,7 +82,7 @@ public interface AbstractDiagram extends ModelElement {
      * </i>
      * 
      */
-    @objid ("93889e33-4e7f-458f-bba2-0b9ca772251e")
+    @objid ("8f675b58-df22-4e6d-bb6e-f765a72c57ad")
     String getUiData();
 
     /**
@@ -93,7 +93,7 @@ public interface AbstractDiagram extends ModelElement {
      * </i>
      * 
      */
-    @objid ("45546b97-3e3b-4041-8021-2d54eb7d1b41")
+    @objid ("dc799fb9-4952-4760-8463-e8a35f5da204")
     void setUiData(String value);
 
     /**
@@ -104,7 +104,7 @@ public interface AbstractDiagram extends ModelElement {
      * </i>
      * 
      */
-    @objid ("b5d47a5d-eff3-422d-b0f5-0bf05649167b")
+    @objid ("48e02cc9-7b5b-4fc7-b024-7cc59f230332")
     String getPreviewData();
 
     /**
@@ -115,8 +115,28 @@ public interface AbstractDiagram extends ModelElement {
      * </i>
      * 
      */
-    @objid ("75b60745-0ea7-43b7-9320-4f121c022c4a")
+    @objid ("3d0dfc02-fc00-45a1-b156-870e18ed8156")
     void setPreviewData(String value);
+
+    /**
+     * Getter for attribute 'AbstractDiagram.JsStructure'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("77781003-b617-46c1-9a4e-779a99918bc6")
+    String getJsStructure();
+
+    /**
+     * Setter for attribute 'AbstractDiagram.JsStructure'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     * 
+     */
+    @objid ("8bba8147-e846-4d7c-b553-a8901582324f")
+    void setJsStructure(String value);
 
     /**
      * Getter for relation 'AbstractDiagram->Represented'
@@ -125,7 +145,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("2f3e2376-857d-4f83-a454-57b99f54bcfc")
+    @objid ("f4c22367-c6b2-43f5-bd2f-be7a38abe5f3")
     EList<Element> getRepresented();
 
     /**
@@ -135,7 +155,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("9f39d1bf-c96d-4d6f-ba72-8fb5a45afa7f")
+    @objid ("2be9b7f4-e8fe-4851-8d7b-fb6e58e4a6c9")
     <T extends Element> List<T> getRepresented(java.lang.Class<T> filterClass);
 
     /**
@@ -145,7 +165,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("61fcbc5f-2a96-4542-8fea-9b0258fc22d8")
+    @objid ("b4dab28f-67df-4e97-a311-9ed2cfbb455d")
     EList<DiagramSet> getReferencingSet();
 
     /**
@@ -155,7 +175,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("fd5f22b4-303a-442e-979c-436fa5f439e6")
+    @objid ("bd8f5080-f7ce-443c-8b4a-01ef57edcff2")
     <T extends DiagramSet> List<T> getReferencingSet(java.lang.Class<T> filterClass);
 
     /**
@@ -165,7 +185,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("b73de139-a2b0-49e2-88cd-ccfbe215c425")
+    @objid ("00c0ca0e-2929-4413-8eaa-a2b0df116dcf")
     ModelElement getOrigin();
 
     /**
@@ -175,7 +195,7 @@ public interface AbstractDiagram extends ModelElement {
      * <i>null</i>
      * 
      */
-    @objid ("660e9cab-a4ae-4a2b-8f43-9cca0e7a5e4b")
+    @objid ("ac782d6d-8c44-489d-bedd-dd4f601551df")
     void setOrigin(ModelElement value);
 }
 

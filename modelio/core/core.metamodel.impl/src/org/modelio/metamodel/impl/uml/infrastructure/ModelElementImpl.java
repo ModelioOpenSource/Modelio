@@ -18,10 +18,11 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -53,12 +54,14 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.session.impl.CoreSession;
+import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
 import org.modelio.vcore.smkernel.SmList;
 import org.modelio.vcore.smkernel.SmObjectImpl;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException;
+import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("0088a34c-c4be-1fd8-97fe-001ec947cd2a")
@@ -1135,263 +1138,274 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         return (TypedPropertyTable) getProperties(ref.getUuid());
     }
 
-    @objid ("1070a074-929b-43b5-8842-4eff4bdd95c7")
+    @objid ("579659f5-1b43-42d8-886d-a3f60b8c9f54")
     @Override
     public String getName() {
-        return (String) getAttVal(((ModelElementSmClass) getClassOf()).getNameAtt());
+        return (String) getAttVal(((ModelElementSmClass)getClassOf()).getNameAtt());
     }
 
-    @objid ("91f219ac-639d-4efb-a36a-07501a986b9d")
+    @objid ("c75ad143-d275-4625-beb3-187f37a83571")
     @Override
     public void setName(String value) {
-        setAttVal(((ModelElementSmClass) getClassOf()).getNameAtt(), value);
+        setAttVal(((ModelElementSmClass)getClassOf()).getNameAtt(), value);
     }
 
-    @objid ("63f47cd6-e010-4e4d-89eb-1be92b0ae76a")
+    @objid ("6e4d7d86-8be5-46fd-9c61-b3daab3e2883")
     @Override
     public LocalPropertyTable getLocalProperties() {
-        Object obj = getDepVal(((ModelElementSmClass) getClassOf()).getLocalPropertiesDep());
-        return obj instanceof LocalPropertyTable ? (LocalPropertyTable) obj : null;
+        Object obj = getDepVal(((ModelElementSmClass)getClassOf()).getLocalPropertiesDep());
+        return (obj instanceof LocalPropertyTable)? (LocalPropertyTable)obj : null;
     }
 
-    @objid ("771133b2-f5ac-45ad-bdf8-e8863f45b2c9")
+    @objid ("3b7eb12a-6314-478c-be04-511e6bb6b9b4")
     @Override
     public void setLocalProperties(LocalPropertyTable value) {
-        appendDepVal(((ModelElementSmClass) getClassOf()).getLocalPropertiesDep(), (SmObjectImpl) value);
+        appendDepVal(((ModelElementSmClass)getClassOf()).getLocalPropertiesDep(), (SmObjectImpl)value);
     }
 
-    @objid ("c2e49111-460a-4256-9c39-94ab0abc2e00")
+    @objid ("0f4953d8-89db-4143-bfd9-d140ba2db36d")
     @Override
     public EList<Stereotype> getExtension() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getExtensionDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getExtensionDep());
     }
 
-    @objid ("42c25531-3132-40c2-9c6d-ebae816f660e")
+    @objid ("2d3ea436-397d-4da5-b55f-b072b258e1d1")
     @Override
     public <T extends Stereotype> List<T> getExtension(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final Stereotype element : getExtension()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("0cd3be74-c8f4-4cc3-bb22-4cd20d630720")
+    @objid ("dc20afc9-77e5-43f4-958a-1185a2238f02")
     @Override
     public EList<Dependency> getDependsOnDependency() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getDependsOnDependencyDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getDependsOnDependencyDep());
     }
 
-    @objid ("efd71d49-ea81-4ae3-932c-add6e4afabf4")
+    @objid ("c4d0a666-6474-44d8-a53c-9cc428f703fb")
     @Override
     public <T extends Dependency> List<T> getDependsOnDependency(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final Dependency element : getDependsOnDependency()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("bb81ed0b-595e-429f-9d9e-c5d9ad5c712e")
+    @objid ("8120318f-8d25-41a6-a166-cd5806716791")
     @Override
     public EList<TaggedValue> getTag() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getTagDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getTagDep());
     }
 
-    @objid ("16c090bc-671b-4cd0-a1fe-5416105aeacb")
+    @objid ("b2250c73-1ad6-43b8-8eda-6c5373958cc0")
     @Override
     public <T extends TaggedValue> List<T> getTag(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final TaggedValue element : getTag()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("80fecf52-870a-4679-a714-1b108c909a2d")
+    @objid ("c3232cb7-427c-4fb5-9a2d-eff0cd2cf871")
     @Override
     public EList<Dependency> getImpactedDependency() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getImpactedDependencyDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getImpactedDependencyDep());
     }
 
-    @objid ("4bb88b5e-6e0d-4e73-a7e3-bb4e303edcdb")
+    @objid ("a7ef1423-47e8-400d-8e93-bed20bc77980")
     @Override
     public <T extends Dependency> List<T> getImpactedDependency(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final Dependency element : getImpactedDependency()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("85098201-3d44-482d-9741-d90b92428f8b")
+    @objid ("d0057a99-ae50-4b7b-802a-4685c8f2360b")
     @Override
     public EList<PropertyTable> getProperties() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getPropertiesDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getPropertiesDep());
     }
 
-    @objid ("d319096f-d5e3-495c-980c-f63c48b764ee")
+    @objid ("e9f0f494-4e8e-412d-a326-3a1755e4b7e6")
     @Override
     public <T extends PropertyTable> List<T> getProperties(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final PropertyTable element : getProperties()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("49573956-1370-4982-892c-e12573d490af")
+    @objid ("0e99fd64-1eb4-4602-94c6-cced880af277")
     @Override
     public EList<AbstractDiagram> getProduct() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getProductDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getProductDep());
     }
 
-    @objid ("94787f7f-3faa-4c7e-9903-7d8ab6e91d0e")
+    @objid ("fbbade5e-8b88-47cd-afb0-637ff09e2909")
     @Override
     public <T extends AbstractDiagram> List<T> getProduct(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final AbstractDiagram element : getProduct()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("f2e52d46-fe90-4b8a-a9ef-7faeb71a1d7d")
+    @objid ("ada2f194-1f5b-4830-a355-17638c30f12f")
     @Override
     public EList<Note> getDescriptor() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getDescriptorDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getDescriptorDep());
     }
 
-    @objid ("f532de7b-eaec-41dd-884c-8b7746891f8f")
+    @objid ("2fcd1f8e-1c56-4546-a172-b226329f0096")
     @Override
     public <T extends Note> List<T> getDescriptor(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final Note element : getDescriptor()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("f685bc26-6dfe-4917-9b52-7d5b31cc5838")
+    @objid ("c057400d-c68e-4463-b60d-234003c2d824")
     @Override
     public EList<MatrixDefinition> getMatrix() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getMatrixDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getMatrixDep());
     }
 
-    @objid ("9d2f6a14-1e06-4891-b18b-047bfefe148b")
+    @objid ("c057e974-dbe9-44e6-9ef2-eae0daae9eb4")
     @Override
     public <T extends MatrixDefinition> List<T> getMatrix(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final MatrixDefinition element : getMatrix()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("4edf80ed-505b-4766-8a1e-76d2891905c9")
+    @objid ("24b1c60f-50c9-4f11-a618-8429e3af79c0")
     @Override
     public EList<ImpactLink> getImpactImpacted() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getImpactImpactedDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getImpactImpactedDep());
     }
 
-    @objid ("ef7e8688-75b1-4d08-b016-f633419d513e")
+    @objid ("9fdbdc90-7732-4f28-9414-33857d61c5c7")
     @Override
     public <T extends ImpactLink> List<T> getImpactImpacted(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final ImpactLink element : getImpactImpacted()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("d97c33a4-c788-4d6a-939e-cd43a0609e9b")
+    @objid ("08126554-3241-4ce3-b1b3-0cab44649b82")
     @Override
     public EList<ImpactLink> getImpactDependsOn() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getImpactDependsOnDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getImpactDependsOnDep());
     }
 
-    @objid ("20bc5bd6-4686-4724-b07a-0e9c8942a4e4")
+    @objid ("b1c823c1-5f3d-48c5-8107-dc3a8d93f65c")
     @Override
     public <T extends ImpactLink> List<T> getImpactDependsOn(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final ImpactLink element : getImpactDependsOn()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("8198f442-9133-4ec2-a446-ef263c36ebb4")
+    @objid ("6b51cdff-f34f-437f-8234-7ddf148f4a2d")
     @Override
     public EList<AbstractResource> getAttached() {
-        return new SmList<>(this, ((ModelElementSmClass) getClassOf()).getAttachedDep());
+        return new SmList<>(this, ((ModelElementSmClass)getClassOf()).getAttachedDep());
     }
 
-    @objid ("f604c78e-599c-4eee-89b6-e26fbb3d4965")
+    @objid ("389d828a-765a-40c6-b6d4-57ccd52269f7")
     @Override
     public <T extends AbstractResource> List<T> getAttached(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
-            throw new IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         final List<T> results = new ArrayList<>();
         for (final AbstractResource element : getAttached()) {
-            if (filterClass.isInstance(element)) {
-                results.add(filterClass.cast(element));
-            }
+        	if (filterClass.isInstance(element)) {
+        		results.add(filterClass.cast(element));
+        	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
-    @objid ("c336e8b2-bdd3-4cd3-ab0a-d34c25883e9c")
+    @objid ("e55e0d04-640f-48d1-b41b-c56d62680653")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -1399,16 +1413,17 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         return super.getCompositionOwner();
     }
 
-    @objid ("df522cbc-90cd-4e22-a2c4-97ec13526730")
+    @objid ("979e812f-12a9-4c4f-a832-ecc5732e0a55")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
         SmObjectImpl obj;
         SmDependency dep;
+        
         return super.getCompositionRelation();
     }
 
-    @objid ("adba5ae0-b0f2-4416-b8e1-62488b7d9755")
+    @objid ("898e3bd1-e25c-4823-b6dc-5d5eaea624b1")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitModelElement(this);

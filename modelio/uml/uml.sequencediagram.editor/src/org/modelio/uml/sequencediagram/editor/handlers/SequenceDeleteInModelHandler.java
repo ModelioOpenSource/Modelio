@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.diagram.elements.core.commands.DeleteInModelCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.drawings.core.IGmDrawing;
+import org.modelio.diagram.elements.umlcommon.diagramview.GmDiagramView;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -95,12 +96,15 @@ public class SequenceDeleteInModelHandler {
         // Get the model elements to delete or to mask
         
         // Collect elements and edit parts to masking or delete
-        final Collection<MObject> toDelete = collectElementsToDelete(selected);
-        if (toDelete == null) {
+        final Collection<MObject> toDelete = new HashSet<>();
+        final Collection<GraphicalEditPart> toMask = new HashSet<>();
+        
+        if (!collectElementsToDelete(selected, toDelete, toMask)) {
             return UnexecutableCommand.INSTANCE;
         }
         
-        final List<GraphicalEditPart> toMask = collectEditpartsToMask(selected);
+        
+        collectEditpartsToMask(selected);
         
         DeleteInModelCommand deleteCommand = deleteInModel(toDelete);
         if (deleteCommand != null && deleteCommand.canExecute()) {
@@ -111,7 +115,7 @@ public class SequenceDeleteInModelHandler {
         // Mask all edit parts without an element
         if (!toMask.isEmpty()) {
             GroupRequest deleteReq = new GroupRequest(RequestConstants.REQ_DELETE);
-            deleteReq.setEditParts(toMask);
+            deleteReq.setEditParts(new ArrayList<>(toMask));
         
             for (EditPart editPart : toMask) {
                 Command cmd = editPart.getCommand(deleteReq);
@@ -161,26 +165,31 @@ public class SequenceDeleteInModelHandler {
     /**
      * Collect the element to delete by analyzing the selected edit parts.
      * @param selected the selected edit parts to analyze
+     * @param toDelete model elements to delete
+     * @param toMask graphic elements to mask
      * @return <code>null</code> to indicate that the delete operation is not possible due to read only element(s). Otherwise the effective of the elements to delete is returned.
      */
     @objid ("dc937006-cf21-4a02-be7c-3aa689887525")
-    private Collection<MObject> collectElementsToDelete(List<GraphicalEditPart> selected) {
-        Collection<MObject> toDelete = new HashSet<>();
-        
+    private boolean collectElementsToDelete(List<GraphicalEditPart> selected, Collection<MObject> toDelete, Collection<GraphicalEditPart> toMask) {
         for (final GraphicalEditPart editPart : selected) {
             final Object model = editPart.getModel();
             if (model instanceof GmModel) {
                 final GmModel gmModel = (GmModel) model;
                 if (!gmModel.getDiagram().isUserEditable()) {
                     // Abort, at least one element cannot be deleted
-                    return null;
+                    return false;
                 }
         
-                final MObject el = gmModel.getRelatedElement();
-                if (el != null && !toDelete.contains(el)) {
-                    toDelete.add(el);
+                if (gmModel instanceof GmDiagramView) {
+                    // Mask diagram views, don't delete them
+                    toMask.add(editPart);
+                } else {
+                    final MObject el = gmModel.getRelatedElement();
+                    if (el != null && !toDelete.contains(el)) {
+                        toDelete.add(el);
+                    }
                 }
-            } 
+            }
         }
         
         for (MObject eltToDelete : new ArrayList<>(toDelete)) {
@@ -196,7 +205,7 @@ public class SequenceDeleteInModelHandler {
                 }
             }
         }
-        return toDelete;
+        return true;
     }
 
 }

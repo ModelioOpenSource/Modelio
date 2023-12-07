@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.impact;
@@ -45,49 +45,49 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("7875d3e1-c5c0-4d92-9338-3d44834765e3")
 public class ImpactProjectSmClass extends AbstractProjectSmClass {
-    @objid ("27c4c2c6-1b4c-409d-9a5e-17b2f3e67682")
+    @objid ("34e7f721-5bdd-4e00-a122-947fb1c8f269")
     private SmDependency modelDep;
 
-    @objid ("7949905d-5446-4711-85a9-7b1eac281a13")
+    @objid ("05136748-93b8-408b-9a1b-e6e6d828927d")
     public  ImpactProjectSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("9679f0d5-1258-4dc3-8d63-416f671a085b")
+    @objid ("45bb10e9-c825-494b-ba71-e1b344d7890d")
     @Override
     public String getName() {
         return "ImpactProject";
         
     }
 
-    @objid ("a3f2c491-c779-4326-88a6-a74047133a81")
+    @objid ("9b32f095-a75b-48fd-8431-61fa1e1c706b")
     @Override
     public Version getVersion() {
         return new Version("3.6.00");
     }
 
-    @objid ("b2c18130-9c8d-4f87-a003-7b5b8ab6c8e9")
+    @objid ("f9da9d8c-5506-4068-baed-d65ef6e52aca")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ImpactProject.class;
         
     }
 
-    @objid ("0a5adbe9-d09e-4bd9-968e-fe0a1cda6ee4")
+    @objid ("9f1d88ba-a03d-4032-8fc2-808dba7fb07c")
     @Override
     public boolean isCmsNode() {
         return true;
         
     }
 
-    @objid ("44faebff-1c25-4ad8-8ea9-9f063a04388f")
+    @objid ("0458b8c5-64b8-41f5-b4e5-cb2988cc83b4")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("d4a21cec-51c5-4389-9258-91246f2102ff")
+    @objid ("ea0478cc-5c95-494b-9a00-dc7fb4f79c91")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(AbstractProject.MQNAME);
@@ -104,7 +104,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
         
     }
 
-    @objid ("04634412-1f27-4035-b202-4651746d44a9")
+    @objid ("bf4949c3-c97a-484a-b5ce-0c811fbf0c36")
     public SmDependency getModelDep() {
         if (this.modelDep == null) {
         	this.modelDep = this.getDependencyDef("model");
@@ -112,7 +112,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
         return this.modelDep;
     }
 
-    @objid ("3de7e55e-5b05-49d1-a2dc-c460c9fa2c74")
+    @objid ("8688a755-1ddb-41f9-87ae-191ef54c9d9a")
     @Override
     public boolean areOrphansAllowed() {
         return true;
@@ -121,21 +121,21 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
 
     @objid ("69fdc5dd-733a-4fc8-ba42-f9540d8b3989")
     private static class ImpactProjectObjectFactory implements ISmObjectFactory {
-        @objid ("b05574ab-aceb-4097-9be9-f94167f2d912")
+        @objid ("2162b005-7b1d-4faf-9f80-56e732ca6874")
         private ImpactProjectSmClass smClass;
 
-        @objid ("ff5b1c53-be56-42bf-b200-aa4da2fe7687")
+        @objid ("85c2579b-0528-44aa-b514-ebda8bebc973")
         public  ImpactProjectObjectFactory(ImpactProjectSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("a763f030-12f7-4790-82b4-dc76526d6b11")
+        @objid ("54498bee-6ad6-49ad-a273-4bfce3798f6c")
         @Override
         public ISmObjectData createData() {
             return new ImpactProjectData(this.smClass);
         }
 
-        @objid ("db7b08b2-129e-4b46-9718-96996458572a")
+        @objid ("63894d97-5822-40d4-b20c-8529a56dd1b9")
         @Override
         public SmObjectImpl createImpl() {
             return new ImpactProjectImpl();
@@ -145,23 +145,23 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
 
     @objid ("f2d8809b-f0b4-4730-b537-2e17d53e9e4f")
     public static class ModelSmDependency extends SmMultipleDependency {
-        @objid ("0775c1e4-87d3-444d-ae9f-a4f0deaa1cc9")
+        @objid ("dc68b333-6b29-4b65-88b4-5120fd497b7c")
         private SmDependency symetricDep;
 
-        @objid ("19a4ec08-bc40-4260-9256-190efc9b2c48")
+        @objid ("cea3403e-b83e-4885-b9f1-e4e53259259c")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((ImpactProjectData)data).mModel != null)? ((ImpactProjectData)data).mModel:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("9dce7f9d-847b-4991-bebd-27484303f7bb")
+        @objid ("19835a66-b5dc-4595-85aa-85540174cb40")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ImpactProjectData) data).mModel = values;
             
         }
 
-        @objid ("3240de08-87da-4eef-a6a7-ec3658d82264")
+        @objid ("5e807c09-8ac3-42b4-ba42-693ef254657f")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

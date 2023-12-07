@@ -108,7 +108,17 @@ public interface IGProjectState {
         @objid ("cffd0037-c01e-4149-a85a-a035e8a2cbc6")
         OPENING,
         @objid ("6fe0f3e0-2a34-4a4d-b43e-a18fc15fba89")
-        OPENED;
+        OPENED,
+        /**
+         * The project is being closed
+         */
+        @objid ("19e6d3d0-eba0-4585-9e35-90e1163246c2")
+        CLOSING,
+        /**
+         * Project closed, nothing can be done on it anymore
+         */
+        @objid ("54badb6b-cac5-4950-84b7-b76ff944a263")
+        CLOSED;
 
     }
 

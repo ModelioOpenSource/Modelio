@@ -90,8 +90,9 @@ public class GmNoteLink extends GmLink {
     @objid ("8188c1a1-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Note getRelatedElement() {
-        if (getTo() != null) {
-            return (Note) getTo().getRelatedElement();
+        IGmLinkable lto = getTo();
+        if (lto != null) {
+            return (Note) lto.getRelatedElement();
         } else {
             return null;
         }
@@ -121,7 +122,7 @@ public class GmNoteLink extends GmLink {
     public MObject getFromElement() {
         Note relatedElement = getRelatedElement();
         // Make sure there is no error when encountering a ghost note...
-        return getRelatedElement() != null ? relatedElement.getSubject() : null;
+        return relatedElement != null ? relatedElement.getSubject() : null;
     }
 
     @objid ("818b23ca-1dec-11e2-8cad-001ec947c8cc")

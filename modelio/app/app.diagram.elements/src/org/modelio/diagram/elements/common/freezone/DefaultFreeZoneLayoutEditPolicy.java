@@ -277,7 +277,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
         if (DiagramElements.LOG.isDebugEnabled()) {
             DiagramElements.LOG.warning("<%s> is not resizeable for request: move= %s , size+= %s", getHost().getClass().getSimpleName(), autoExpandRequest.getMoveDelta(), autoExpandRequest.getSizeDelta());
             DiagramElements.LOG.warning("  parent edit part= <%s>;\n\t this policy = <%s>\n\t target edit part=%s\n\t command=%s", getHost().getParent(), this, targetEp, cmd);
-            DiagramElements.LOG.warning(new Throwable("stack trace"));
+           // DiagramElements.LOG.warning(new Throwable("stack trace"));
         }
         
     }
@@ -446,10 +446,10 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      */
     @objid ("c5229c74-bef6-468c-9af8-2251f3880662")
     private static class FeedbackHelper {
-        @objid ("cfdb6c60-1174-4fec-ba52-d8e535968421")
+        @objid ("8c714706-b96c-4c03-8c6c-346fbbbd4687")
         private EditPart targetEditPart;
 
-        @objid ("a61ca9a4-7cf1-409b-9afe-636e503b8cbf")
+        @objid ("034f973b-59e9-4328-be78-7766f10d36be")
         private Request request;
 
         @objid ("b78783e7-1aac-433a-b14b-6b7a45438ec7")

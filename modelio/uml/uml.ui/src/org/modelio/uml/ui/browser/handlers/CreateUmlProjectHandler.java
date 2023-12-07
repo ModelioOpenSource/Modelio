@@ -117,8 +117,7 @@ public class CreateUmlProjectHandler {
      */
     @objid ("0c090460-494d-4641-8241-d9b00d7cd143")
     private boolean isReadonly(IGModelFragment fragment) {
-        String s = fragment.getProperties().getValue(IGModelFragment.PROP_READ_ONLY);
-        return s != null && Boolean.parseBoolean(s);
+        return ! fragment.getAccessRights().isEditable();
     }
 
 }

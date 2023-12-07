@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -42,20 +42,20 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("fd1c4e0b-0cd4-4bb5-bc18-359cb4e3c561")
 public class AbstractProjectImpl extends ModelElementImpl implements AbstractProject {
-    @objid ("d5f35d11-1f2b-4bd0-8170-3ead18d8e775")
+    @objid ("64ae87e1-86bd-47fb-87de-8978ae356902")
     @Override
     public DiagramSet getDiagramRoot() {
         Object obj = getDepVal(((AbstractProjectSmClass)getClassOf()).getDiagramRootDep());
         return (obj instanceof DiagramSet)? (DiagramSet)obj : null;
     }
 
-    @objid ("c98c528a-04f2-4288-8e2c-5fc4da6d27a7")
+    @objid ("27674284-f44b-4709-8e12-5f2f161904b9")
     @Override
     public void setDiagramRoot(DiagramSet value) {
         appendDepVal(((AbstractProjectSmClass)getClassOf()).getDiagramRootDep(), (SmObjectImpl)value);
     }
 
-    @objid ("1ca40474-482a-4096-b734-7fd8fb5efbc7")
+    @objid ("543802d8-5edc-4bda-bc86-06a7bb9fa950")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -63,7 +63,7 @@ public class AbstractProjectImpl extends ModelElementImpl implements AbstractPro
         return super.getCompositionOwner();
     }
 
-    @objid ("e06d7d2e-1b5a-4e30-80d9-9c3ec0bdf9ba")
+    @objid ("1f8b419d-d8d1-4274-86ed-4355f7acd803")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -73,7 +73,7 @@ public class AbstractProjectImpl extends ModelElementImpl implements AbstractPro
         return super.getCompositionRelation();
     }
 
-    @objid ("2bcf1f30-388d-46d7-b0b4-76abeddfea57")
+    @objid ("3ad5c64d-2b37-48e4-bbae-db93e87f9c8c")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitAbstractProject(this);

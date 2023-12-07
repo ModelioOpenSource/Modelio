@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.diagrams;
@@ -45,13 +45,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("006e3d9a-c4bf-1fd8-97fe-001ec947cd2a")
 public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
-    @objid ("cff91786-c571-418c-8b3d-b50b25f938fb")
+    @objid ("358ab473-3c41-4735-8988-4e42f3509907")
     @Override
     public EList<DiagramSet> getSub() {
         return new SmList<>(this, ((DiagramSetSmClass)getClassOf()).getSubDep());
     }
 
-    @objid ("9c5b7559-e85a-4b5e-aa53-22f2840b2a95")
+    @objid ("fbe10009-81f8-4fd0-a211-1562c6f8b1da")
     @Override
     public <T extends DiagramSet> List<T> getSub(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -67,26 +67,26 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         
     }
 
-    @objid ("5abfd184-b45c-406e-b461-705b4df1bd9d")
+    @objid ("7d98f8c0-ef44-4e2a-9dc8-dce1b90bef6c")
     @Override
     public DiagramSet getParent() {
         Object obj = getDepVal(((DiagramSetSmClass)getClassOf()).getParentDep());
         return (obj instanceof DiagramSet)? (DiagramSet)obj : null;
     }
 
-    @objid ("29368247-ae5b-4900-ac1d-4ec0912e80a5")
+    @objid ("8a7eb361-0d5d-4f20-9d54-0cf359402e30")
     @Override
     public void setParent(DiagramSet value) {
         appendDepVal(((DiagramSetSmClass)getClassOf()).getParentDep(), (SmObjectImpl)value);
     }
 
-    @objid ("8b08ab21-dd20-49d1-8678-d7f91ac82e71")
+    @objid ("21839514-e3f5-4df4-82ed-1893779e66af")
     @Override
     public EList<AbstractDiagram> getReferencedDiagram() {
         return new SmList<>(this, ((DiagramSetSmClass)getClassOf()).getReferencedDiagramDep());
     }
 
-    @objid ("7146574a-41cb-4aab-ad03-e12e39993d80")
+    @objid ("1ba250fc-5f59-410e-a5ab-0d5099848279")
     @Override
     public <T extends AbstractDiagram> List<T> getReferencedDiagram(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -102,20 +102,20 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         
     }
 
-    @objid ("4419e2eb-ad7d-43a3-920c-ff972ce42df2")
+    @objid ("8a7111b7-86c8-4f4a-951f-b3fec71a3c39")
     @Override
     public AbstractProject getOwner() {
         Object obj = getDepVal(((DiagramSetSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof AbstractProject)? (AbstractProject)obj : null;
     }
 
-    @objid ("4eff5ddd-a375-4ef4-a10c-236fe0498b20")
+    @objid ("14d4c02a-2527-4ba5-a3a6-9ebd167565b1")
     @Override
     public void setOwner(AbstractProject value) {
         appendDepVal(((DiagramSetSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("01b80d55-737d-41c6-a8d6-0d504568fc8f")
+    @objid ("d8c5dc1d-134d-421a-a958-1b7a12309668")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -131,7 +131,7 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return super.getCompositionOwner();
     }
 
-    @objid ("a801c390-c3bd-4499-bee5-d5d154af29e0")
+    @objid ("e031053f-b762-4509-bcc1-68c0f98b9836")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -151,7 +151,7 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return super.getCompositionRelation();
     }
 
-    @objid ("e0a7c825-f144-45f7-ad83-53852bc058ea")
+    @objid ("a3fa99a2-4e3d-403f-86de-2517aed98199")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDiagramSet(this);

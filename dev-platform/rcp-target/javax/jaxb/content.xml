@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='file:/H:/mtools/alouette/workint/repository-jaxb/jaxb_2.1.1/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1685543922450'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='3'>
+    <unit id='org.modelio.jaxb.feature.feature.jar' version='2.1.1'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Libraries'/>
+        <property name='org.eclipse.equinox.p2.description' value='Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.&#xA;&#xA;  p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Softeam Software'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.jar' version='2.1.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.modelio.jaxb.feature' version='2.1.1'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.modelio.jaxb.feature' version='2.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <copyright>
+        (c) Softeam Software
+      </copyright>
+    </unit>
+    <unit id='org.modelio.jaxb.feature.feature.group' version='2.1.1' singleton='false'>
+      <update id='org.modelio.jaxb.feature.feature.group' range='[0.0.0,2.1.1)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JAXB Libraries'/>
+        <property name='org.eclipse.equinox.p2.description' value='Attempt to generate a P2 repository containing all JAXB jars with their dependencies converted to OSGI plugins.&#xA;&#xA;  p2-maven-plugin also writes dependencies in terms of packages instead of Require-Bundle .'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Softeam Software'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.group' version='2.1.1'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb.feature.feature.jar' range='[2.1.1,2.1.1]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <copyright>
+        (c) Softeam Software
+      </copyright>
+    </unit>
+    <unit id='org.modelio.jaxb' version='2.1.1' generation='2'>
+      <update id='org.modelio.jaxb' range='[0.0.0,2.1.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Jaxb'/>
+        <property name='org.eclipse.equinox.p2.provider' value='modelio.org'/>
+      </properties>
+      <provides size='66'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.jaxb' version='2.1.1'/>
+        <provided namespace='osgi.bundle' name='org.modelio.jaxb' version='2.1.1'/>
+        <provided namespace='java.package' name='com.sun.istack' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.istack.localization' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.istack.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.xml.txw2.output' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.activation' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.activation.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.jws' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.jws.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.annotation.adapters' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.attachment' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.helpers' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.bind.util' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.handler' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.handler.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.http' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.spi.http' version='0.0.0'/>
+        <provided namespace='java.package' name='jakarta.xml.ws.wsaddressing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.angus.activation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.angus.activation.nativeimage' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.api' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.api.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.marshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.unmarshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.nav' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.model.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.runtime.unmarshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.schemagen.episode' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.core.v2.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.api' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.marshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.unmarshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.annotation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.model.runtime' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.output' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.property' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.reflect' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.reflect.opt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.runtime.unmarshaller' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.schemagen' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.schemagen.xmlschema' version='0.0.0'/>
+        <provided namespace='java.package' name='org.glassfish.jaxb.runtime.v2.util' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.modelio.jaxb' version='2.1.1'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            org.modelio.jaxb
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.modelio.jaxb' version='2.1.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.modelio.jaxb;singleton:=true&#xA;Bundle-Version: 2.1.1&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

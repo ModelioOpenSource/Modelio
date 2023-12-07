@@ -19,7 +19,7 @@
  */
 package org.modelio.audit.view.handlers;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -32,8 +32,7 @@ import org.modelio.audit.view.AuditView;
 public abstract class AbstractAuditEntryHandler {
     @objid ("a686e3a0-749c-4e9c-9232-a73486e9175a")
     protected Object getSelectedAuditEntry(EModelService modelService, MApplication application) {
-        List<String> tagsToMatch = new ArrayList<>();
-        List<MPart> parts = modelService.findElements(application, AuditView.VIEW_ID, MPart.class, tagsToMatch);
+        List<MPart> parts = modelService.findElements(application, AuditView.VIEW_ID, MPart.class, Collections.emptyList());
         for (MPart part : parts) {
             if (part.getObject() instanceof AuditView) {
                 AuditView view = (AuditView) part.getObject();
@@ -44,9 +43,9 @@ public abstract class AbstractAuditEntryHandler {
     }
 
     @objid ("76202796-f776-4bd8-8698-11d15c3c0632")
-    public void refreshAuditView(EModelService modelService, MApplication application, IAuditService auditService) {
-        List<String> tagsToMatch = new ArrayList<>();
-        List<MPart> parts = modelService.findElements(application, AuditView.VIEW_ID, MPart.class, tagsToMatch);
+    @Deprecated(forRemoval = true, since = "5.4.1")
+    private void refreshAuditView(EModelService modelService, MApplication application, IAuditService auditService) {
+        List<MPart> parts = modelService.findElements(application, AuditView.VIEW_ID, MPart.class, Collections.emptyList());
         for (MPart part : parts) {
             if (part.getObject() instanceof AuditView) {
                 AuditView view = (AuditView) part.getObject();

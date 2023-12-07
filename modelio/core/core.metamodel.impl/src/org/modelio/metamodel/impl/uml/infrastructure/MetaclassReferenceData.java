@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -31,25 +31,25 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0091fc9e-c4be-1fd8-97fe-001ec947cd2a")
 public class MetaclassReferenceData extends ElementData {
-    @objid ("9d1b6c54-1352-4700-ac8c-09ea6d42ebb3")
+    @objid ("97df1419-3504-41d0-b151-2643ec95aae5")
     Object mReferencedClassName = "";
 
-    @objid ("e765bf00-5a46-4bec-8e82-0769169e1fcd")
+    @objid ("83b819d5-8edd-4c87-a5c7-d7c55efadada")
     SmObjectImpl mDefinedTable;
 
-    @objid ("45555a9c-3904-4124-8ea2-893c81a1f60f")
+    @objid ("76a1c04b-ba6f-4190-92fb-03808927b844")
     List<SmObjectImpl> mDefinedNoteType = null;
 
-    @objid ("09b07d3d-a49f-441c-a343-8977ca9b2e1f")
+    @objid ("098ecf80-088c-4266-afcc-5d722f3b83f1")
     List<SmObjectImpl> mDefinedResourceType = null;
 
-    @objid ("51897df4-f241-4e43-bcd9-93feedfa2cf3")
+    @objid ("d48dbad7-08e8-44fe-9fa8-361f588d33e8")
     SmObjectImpl mOwnerProfile;
 
-    @objid ("7ab1a957-f60d-4cbd-9b6a-2a98ed196f14")
+    @objid ("86542c55-9701-4c91-bfc2-dcddfbec20f8")
     List<SmObjectImpl> mDefinedTagType = null;
 
-    @objid ("b7c8f421-713e-4bc1-b6ae-16f894a90d97")
+    @objid ("0cb41c7e-ffaf-44be-9567-d5a3f3b9c7ed")
     public  MetaclassReferenceData(MetaclassReferenceSmClass smClass) {
         super(smClass);
     }

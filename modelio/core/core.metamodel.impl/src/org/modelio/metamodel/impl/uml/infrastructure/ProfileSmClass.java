@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -50,58 +50,58 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("8062fd8e-8258-4289-a68a-5b061a57688c")
 public class ProfileSmClass extends ModelElementSmClass {
-    @objid ("4e0da114-5f87-4594-a834-b982bbc4398b")
+    @objid ("e36ab679-2798-4a29-a4eb-244ae8913150")
     private SmDependency definedStereotypeDep;
 
-    @objid ("9ce172c9-205c-42aa-b762-95b954392af8")
+    @objid ("b625bf5e-41ea-4460-854f-6dec029c5156")
     private SmDependency ownedReferenceDep;
 
-    @objid ("f44b6a0e-d86e-4f11-b50d-64b273b38c99")
+    @objid ("59a1b241-bf82-4c0a-ae06-311332b99860")
     private SmDependency ownerModuleDep;
 
-    @objid ("009eb753-5b03-4081-899e-3715da15ea43")
+    @objid ("a4c45fd7-705c-46b1-8808-2e949dd24d5c")
     private SmDependency definedTypeDep;
 
-    @objid ("0d40c03f-f160-4ca4-b729-f44159df5a2d")
+    @objid ("cde8af46-934a-4828-83a0-aeeef04b1db9")
     public  ProfileSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("63ea6a66-d62f-4bc1-9661-9b9be0dfb860")
+    @objid ("b0ef21b9-5503-4402-be11-84fea870cbe6")
     @Override
     public String getName() {
         return "Profile";
         
     }
 
-    @objid ("21ed88a7-140f-42fd-9c04-c009b56a9485")
+    @objid ("f2a444ff-37c1-49c0-9a86-01269813ea34")
     @Override
     public Version getVersion() {
         return new Version("3.6.00");
     }
 
-    @objid ("17a0847c-738a-49f3-bd02-7f320350b1bf")
+    @objid ("cc93f096-abef-4669-b061-f31b3f5d8c65")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Profile.class;
         
     }
 
-    @objid ("1d2c11aa-ce99-4e45-b98e-7625a4edccd6")
+    @objid ("fbad7e12-e769-4257-b341-9bc9b1178386")
     @Override
     public boolean isCmsNode() {
         return true;
         
     }
 
-    @objid ("5c3ebf60-4ad3-4a4e-8b54-6d7adc98f9c2")
+    @objid ("926f9889-e2ff-41b5-989d-6ab5516d5a54")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("8e3a4e5f-ef0d-4756-bc74-5f18f37af648")
+    @objid ("0576dad4-83bc-493c-b144-b4ec89fb3b66")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -130,7 +130,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         
     }
 
-    @objid ("5b69d537-65d2-4cca-8b68-9b338f3233c6")
+    @objid ("df15543c-ae5d-44f5-abc2-050a632b05ca")
     public SmDependency getDefinedStereotypeDep() {
         if (this.definedStereotypeDep == null) {
         	this.definedStereotypeDep = this.getDependencyDef("DefinedStereotype");
@@ -138,7 +138,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         return this.definedStereotypeDep;
     }
 
-    @objid ("8bba3793-add3-42c4-8f9c-491d8da928c4")
+    @objid ("6eb7b48d-e69f-4244-bebe-b1f4ad6f281d")
     public SmDependency getOwnedReferenceDep() {
         if (this.ownedReferenceDep == null) {
         	this.ownedReferenceDep = this.getDependencyDef("OwnedReference");
@@ -146,7 +146,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         return this.ownedReferenceDep;
     }
 
-    @objid ("8a7494c5-2735-4a2a-bcef-7a633b946b4f")
+    @objid ("1f80997d-40ba-4a6b-88bc-3523245ef924")
     public SmDependency getOwnerModuleDep() {
         if (this.ownerModuleDep == null) {
         	this.ownerModuleDep = this.getDependencyDef("OwnerModule");
@@ -154,7 +154,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         return this.ownerModuleDep;
     }
 
-    @objid ("e2bf93e4-abf1-4ae5-9820-b9c531d2322b")
+    @objid ("716c75a2-e75b-4917-8d8a-1c5c30fb5082")
     public SmDependency getDefinedTypeDep() {
         if (this.definedTypeDep == null) {
         	this.definedTypeDep = this.getDependencyDef("DefinedType");
@@ -164,21 +164,21 @@ public class ProfileSmClass extends ModelElementSmClass {
 
     @objid ("af3df1e5-641e-455a-a319-c3d1f2bd659c")
     private static class ProfileObjectFactory implements ISmObjectFactory {
-        @objid ("cd400cc9-e7d9-44f9-bdae-5d0de8294725")
+        @objid ("9abbc938-1581-4d4b-bf4e-510bd5195400")
         private ProfileSmClass smClass;
 
-        @objid ("38413c24-784b-41c0-a18d-198e5afaca0f")
+        @objid ("ecb335b9-440c-4e16-aa1b-7257b126e175")
         public  ProfileObjectFactory(ProfileSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("1b368660-dad7-48b7-8d69-3081463b317e")
+        @objid ("70a9b0c6-469f-4a69-a88e-042cba210ab8")
         @Override
         public ISmObjectData createData() {
             return new ProfileData(this.smClass);
         }
 
-        @objid ("1961fd90-b65e-4e0d-94c9-d5947dc7f379")
+        @objid ("b5e1b51b-1d84-43d9-a642-4bd089e54350")
         @Override
         public SmObjectImpl createImpl() {
             return new ProfileImpl();
@@ -188,23 +188,23 @@ public class ProfileSmClass extends ModelElementSmClass {
 
     @objid ("a467cebc-cf2a-41b7-a6f4-76a785bbe5c8")
     public static class DefinedStereotypeSmDependency extends SmMultipleDependency {
-        @objid ("e3d21d35-8f69-44ac-bf64-3808ad0d7cb3")
+        @objid ("ec6d4b93-718c-4f40-9a45-27f97bb7110a")
         private SmDependency symetricDep;
 
-        @objid ("c0b6c30d-33c0-4bc1-bcc3-6cb9abd51bbe")
+        @objid ("63cda987-8c4c-4a84-9226-63cb23e4c6be")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((ProfileData)data).mDefinedStereotype != null)? ((ProfileData)data).mDefinedStereotype:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("c2b5b1cc-3e15-488c-90eb-4b14dd8b7464")
+        @objid ("01423ca8-c60c-4356-9c14-c8db51a64ebc")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mDefinedStereotype = values;
             
         }
 
-        @objid ("bd959c74-7df4-4147-83f9-5db4c72d0bcf")
+        @objid ("8054f9f8-4a7f-419e-a96a-37334efb66b4")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -218,22 +218,22 @@ public class ProfileSmClass extends ModelElementSmClass {
 
     @objid ("7a8bbfd9-67b5-4ccc-8066-76c786848730")
     public static class OwnerModuleSmDependency extends SmSingleDependency {
-        @objid ("2e812e28-ae70-4a37-aeca-94d7ade2f9d1")
+        @objid ("20a4ec65-74c0-4492-9d57-ad9c5562bf18")
         private SmDependency symetricDep;
 
-        @objid ("b6e59c4c-7814-41fa-b75a-2d7b2d3ff24f")
+        @objid ("3b8f531d-6e76-43ac-8eda-a4aa373381dd")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ProfileData) data).mOwnerModule;
         }
 
-        @objid ("e61ef21e-c25f-401a-8100-815005faca92")
+        @objid ("b3dc3bd8-4303-4d24-b4aa-41353a59944c")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ProfileData) data).mOwnerModule = value;
         }
 
-        @objid ("df2ea92b-391b-4893-aaf8-8056a79fb68c")
+        @objid ("16f7aa77-7447-423f-a714-cab06862df53")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -247,23 +247,23 @@ public class ProfileSmClass extends ModelElementSmClass {
 
     @objid ("6365bf06-7c47-43e7-a78b-459e9ac9df94")
     public static class OwnedReferenceSmDependency extends SmMultipleDependency {
-        @objid ("29086fdf-488f-4e35-b4ba-2d7ebb7f3c4c")
+        @objid ("e6681540-80cd-44e2-916c-7620dd99463b")
         private SmDependency symetricDep;
 
-        @objid ("637e3fc8-99c6-492c-b6f0-706a8239cc51")
+        @objid ("f1046628-d7a2-4046-a6b4-bef90ee9a8c5")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((ProfileData)data).mOwnedReference != null)? ((ProfileData)data).mOwnedReference:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("2306c00b-da68-4c6c-8cb7-eabbf31f6f22")
+        @objid ("0f156a4a-857d-494c-94f0-5324720d7be2")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mOwnedReference = values;
             
         }
 
-        @objid ("30de4438-cfa0-4136-98b6-33898a9988e1")
+        @objid ("d8712faf-ec46-41f7-aa75-3ac3a4390559")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -277,23 +277,23 @@ public class ProfileSmClass extends ModelElementSmClass {
 
     @objid ("2ac6e53e-46f2-4a13-b15a-3271cc0aac6b")
     public static class DefinedTypeSmDependency extends SmMultipleDependency {
-        @objid ("202a883d-f80d-4c53-8f13-72e19eafe159")
+        @objid ("feed021d-e7b6-456a-a0d5-bed91ad0dcc4")
         private SmDependency symetricDep;
 
-        @objid ("4a2f6661-07db-42b7-9c07-a1a4beca9fa0")
+        @objid ("9d192686-4437-49f9-8bae-8ce5991cdc58")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((ProfileData)data).mDefinedType != null)? ((ProfileData)data).mDefinedType:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("abca1c8f-8881-4e56-994b-7a7b4cfbcc1b")
+        @objid ("55787ed6-33a2-4ac9-86fd-dd61e0b498a8")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mDefinedType = values;
             
         }
 
-        @objid ("2c3fd024-01ed-4ce9-9d8c-e019897d4ab3")
+        @objid ("ad926ea0-9786-4c1b-87b4-edbd5b9ca1e8")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

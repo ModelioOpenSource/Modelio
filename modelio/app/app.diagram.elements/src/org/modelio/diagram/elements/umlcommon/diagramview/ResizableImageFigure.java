@@ -24,6 +24,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 
 /**
@@ -45,6 +46,7 @@ class ResizableImageFigure extends Figure {
         
             Rectangle drawBounds = computeDrawBounds(imageBounds, areaBounds);
         
+            gc.setInterpolation(SWT.HIGH);
             gc.drawImage(this.image, imageBounds.x, imageBounds.y, imageBounds.width, imageBounds.height, drawBounds.x, drawBounds.y, drawBounds.width, drawBounds.height);
         }
         

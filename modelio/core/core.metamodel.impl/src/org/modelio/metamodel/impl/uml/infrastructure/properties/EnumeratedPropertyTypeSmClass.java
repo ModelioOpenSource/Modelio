@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -46,52 +46,52 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("505b6382-7d7f-4d20-85a0-d4366a65deb6")
 public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
-    @objid ("fd0593a7-a10f-4783-83a8-c453351d8e6e")
+    @objid ("ff49a43a-dfa5-452c-b586-3e328d3cec02")
     private SmDependency litteralDep;
 
-    @objid ("c073d359-fa15-41f6-b78a-5a73b414bd5f")
+    @objid ("c166ab18-6094-4153-a82a-fa14a8620d53")
     private SmDependency occurenceConfigParamDep;
 
-    @objid ("0c888a7b-cf9d-4b47-9991-1f3516afb468")
+    @objid ("3897a2f0-0656-45cd-a39b-81d933dca210")
     public  EnumeratedPropertyTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("83af6af2-6c19-4a98-9360-e983f53c6cfa")
+    @objid ("8e8bfd9b-349d-4fc8-9b84-e0097ff4accf")
     @Override
     public String getName() {
         return "EnumeratedPropertyType";
         
     }
 
-    @objid ("49c7aa25-937a-4067-b9dc-d4f979600a83")
+    @objid ("ae98a07c-4305-4f5b-8570-47046001cc60")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("7f30b94a-744d-4d18-bd19-badeac140380")
+    @objid ("5f780339-fe7d-49d8-8d67-73a0c0b678e9")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return EnumeratedPropertyType.class;
         
     }
 
-    @objid ("ce27ccd6-aa7e-48f2-a97e-34b2fc844f0e")
+    @objid ("c5eaad23-3d04-4df6-b6f9-668cd99e9c18")
     @Override
     public boolean isCmsNode() {
         return true;
         
     }
 
-    @objid ("c80aa755-736d-4cf0-b05a-52482cf41090")
+    @objid ("667c6c85-bc45-4796-83cc-16df9bd20884")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("64570944-e7cd-463e-8af4-9e8f4d018898")
+    @objid ("7ba101e5-2e7c-4a9c-9939-05cea30bc399")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(PropertyType.MQNAME);
@@ -112,7 +112,7 @@ public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
         
     }
 
-    @objid ("04464ca3-0ad1-4888-9b89-519e01af0130")
+    @objid ("a7857d03-3867-4980-b19d-983ff6a777ca")
     public SmDependency getLitteralDep() {
         if (this.litteralDep == null) {
         	this.litteralDep = this.getDependencyDef("Litteral");
@@ -120,7 +120,7 @@ public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
         return this.litteralDep;
     }
 
-    @objid ("4ab71e6b-7b68-493e-a765-b0b668ded603")
+    @objid ("01175fbc-a51b-4f2c-a0e4-5d4f4b6e32e3")
     public SmDependency getOccurenceConfigParamDep() {
         if (this.occurenceConfigParamDep == null) {
         	this.occurenceConfigParamDep = this.getDependencyDef("OccurenceConfigParam");
@@ -130,21 +130,21 @@ public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
 
     @objid ("54966067-f9b7-48fd-8f15-663cfcfd5e32")
     private static class EnumeratedPropertyTypeObjectFactory implements ISmObjectFactory {
-        @objid ("18b09122-8b27-4ca4-a4b7-51d568a8f1b2")
+        @objid ("5addc755-082d-4f5a-b935-03e2e536fc32")
         private EnumeratedPropertyTypeSmClass smClass;
 
-        @objid ("4d23608f-a70c-4f8a-9b55-008ef70dc427")
+        @objid ("81de9bff-b062-43e4-ac96-4ec877a7a825")
         public  EnumeratedPropertyTypeObjectFactory(EnumeratedPropertyTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("25e38cb0-4a0f-442d-9aff-d5bd9bb65c0c")
+        @objid ("70a30151-788f-4e4e-b954-dd0b343ba0f9")
         @Override
         public ISmObjectData createData() {
             return new EnumeratedPropertyTypeData(this.smClass);
         }
 
-        @objid ("dccf591f-da14-4a26-8c17-becfb575dbc4")
+        @objid ("51f29492-2a73-4a22-baf2-efc84c8e0d09")
         @Override
         public SmObjectImpl createImpl() {
             return new EnumeratedPropertyTypeImpl();
@@ -154,23 +154,23 @@ public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
 
     @objid ("35fb40a3-22c8-4af2-8671-3f6a020c2e74")
     public static class LitteralSmDependency extends SmMultipleDependency {
-        @objid ("83e35fa7-7c9e-4ddb-8c82-afed429b7dd8")
+        @objid ("7a643247-c8c1-4746-85ee-e66af4a34ce4")
         private SmDependency symetricDep;
 
-        @objid ("81968728-5a6e-4dfa-9e16-16ef4d930c14")
+        @objid ("d16b7251-edeb-438f-b950-3232243d7b3a")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((EnumeratedPropertyTypeData)data).mLitteral != null)? ((EnumeratedPropertyTypeData)data).mLitteral:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("029ac347-546a-4d5c-870d-e7165dbba552")
+        @objid ("ad90e0bf-497f-4ffa-9129-da8b79f0b8f5")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EnumeratedPropertyTypeData) data).mLitteral = values;
             
         }
 
-        @objid ("8359fc37-ee18-4dc0-83fb-eef520164f8e")
+        @objid ("67b619a4-7ac9-4811-b756-1eea09d852c3")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -184,23 +184,23 @@ public class EnumeratedPropertyTypeSmClass extends PropertyTypeSmClass {
 
     @objid ("b4639c50-da58-48be-80d8-0f7f1435c7ae")
     public static class OccurenceConfigParamSmDependency extends SmMultipleDependency {
-        @objid ("2a9490d7-2669-42ad-8f46-46f4c515296c")
+        @objid ("f50d4dd8-fb4a-4c59-9581-8152327768fb")
         private SmDependency symetricDep;
 
-        @objid ("2190128c-27ce-45f7-b75f-4b13350ca9cb")
+        @objid ("bde6890a-59ec-425a-9dbd-8075bac2498a")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((EnumeratedPropertyTypeData)data).mOccurenceConfigParam != null)? ((EnumeratedPropertyTypeData)data).mOccurenceConfigParam:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("be307568-60d2-4c49-acca-d3b3f7960506")
+        @objid ("44597164-1084-4400-980d-53c6f6364555")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EnumeratedPropertyTypeData) data).mOccurenceConfigParam = values;
             
         }
 
-        @objid ("3d03ac09-2ad7-49af-8268-a30bb8b842bb")
+        @objid ("b2f23cb2-6acb-42ef-8454-9dcd5d90c641")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

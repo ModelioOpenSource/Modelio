@@ -688,7 +688,9 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     @objid ("7feeacfc-1dec-11e2-8cad-001ec947c8cc")
     private boolean isLinkCycle(EditPart testedEditPart, ConnectionEditPart reconnectedConnectionEP) {
-        if (testedEditPart.equals(reconnectedConnectionEP)) {
+        if (testedEditPart==null || reconnectedConnectionEP == null) {
+            return false;
+        } else if (testedEditPart.equals(reconnectedConnectionEP)) {
             return true;
         } else if (testedEditPart instanceof ConnectionEditPart) {
             ConnectionEditPart connectionEP = (ConnectionEditPart) testedEditPart;

@@ -264,15 +264,6 @@
 		</command>
 		<separator />
 		<command id="org.modelio.app.ui.command.create.element">
-			<parameter name="metaclass" value="Standard.DataType" />
-			<parameter name="dependency" value="OwnedElement" />
-		</command>
-		<command id="org.modelio.app.ui.command.create.element">
-			<parameter name="metaclass" value="Standard.Enumeration" />
-			<parameter name="dependency" value="OwnedElement" />
-		</command>
-		<separator />
-		<command id="org.modelio.app.ui.command.create.element">
 			<parameter name="metaclass"
 				value="Standard.TemplateParameter" />
 			<parameter name="dependency" value="Template" />

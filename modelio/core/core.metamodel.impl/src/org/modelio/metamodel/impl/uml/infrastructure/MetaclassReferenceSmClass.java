@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure;
@@ -51,64 +51,64 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("c431f62a-cc67-4a1e-b558-d0d2481187a3")
 public class MetaclassReferenceSmClass extends ElementSmClass {
-    @objid ("9482c7ba-fda0-4915-a69c-ac74f6fa9f75")
+    @objid ("96df12eb-6955-4933-82b0-6f037b70ccc5")
     private SmAttribute referencedClassNameAtt;
 
-    @objid ("b3d3f6a3-5177-45e5-a0db-f0b86d88f8fc")
+    @objid ("09227bb0-151f-4d26-8f20-b8def937b562")
     private SmDependency definedTableDep;
 
-    @objid ("a15e3f6b-87a7-4bf3-9f6b-75a3778a4cb1")
+    @objid ("d9fae8c7-dbb8-4d10-9dd4-0815fa001878")
     private SmDependency definedNoteTypeDep;
 
-    @objid ("e94ebc06-a637-4155-9232-91823fa5f2b4")
+    @objid ("359087b0-6b9a-410c-99a3-99ad912f47d2")
     private SmDependency definedResourceTypeDep;
 
-    @objid ("2c6efe68-f086-403b-9f35-6cc9f70677af")
+    @objid ("e54c1668-1da7-4411-9bd2-aadb9c45ab1b")
     private SmDependency ownerProfileDep;
 
-    @objid ("7260f6d7-a234-4975-a345-a1afc995bed7")
+    @objid ("7da0229d-7500-46b4-91d3-7b0cf3725d99")
     private SmDependency definedTagTypeDep;
 
-    @objid ("e3162768-dd33-4614-a66e-261ed91e9b5e")
+    @objid ("85825926-4334-429e-8645-d160c27e61d4")
     public  MetaclassReferenceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("41eb4fd1-efbb-4113-88ec-c87c1b2efdf8")
+    @objid ("69f3a538-dfc5-4fde-adce-4f7e609c0c61")
     @Override
     public String getName() {
         return "MetaclassReference";
         
     }
 
-    @objid ("9b710970-4616-4ea4-86c3-ca72730ceb62")
+    @objid ("0a568ebf-c7fc-4633-860e-a54a0d9fa215")
     @Override
     public Version getVersion() {
         return new Version("2.1.00");
     }
 
-    @objid ("82be1023-c3ae-401d-b628-8324a09c89e2")
+    @objid ("a64b9225-d5d4-4bbd-97fa-3eefb71a5dd0")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MetaclassReference.class;
         
     }
 
-    @objid ("d2f33659-efb9-45d9-9ed6-ded7ae017686")
+    @objid ("85c24540-e137-41b7-aa3a-a15d8a1df7c4")
     @Override
     public boolean isCmsNode() {
         return true;
         
     }
 
-    @objid ("c62ad532-a228-4bff-ae40-01c83df3ef5a")
+    @objid ("be6a5329-2bd6-4234-98e6-382304d311c8")
     @Override
     public boolean isAbstract() {
         return false;
         
     }
 
-    @objid ("b25f87ef-58f3-42a1-83ec-f6fb31322510")
+    @objid ("166026b2-be4b-4692-9fba-786eb31af8cc")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(Element.MQNAME);
@@ -145,7 +145,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         
     }
 
-    @objid ("7365df90-a5a8-4bdb-b286-222bed82bab7")
+    @objid ("6431068f-ca53-496b-b213-eed498c9ead3")
     public SmAttribute getReferencedClassNameAtt() {
         if (this.referencedClassNameAtt == null) {
         	this.referencedClassNameAtt = this.getAttributeDef("ReferencedClassName");
@@ -153,7 +153,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         return this.referencedClassNameAtt;
     }
 
-    @objid ("4d288b76-d722-4189-949c-e664782e59c0")
+    @objid ("8225ce8d-02ea-4766-8a18-a00f21b9478b")
     public SmDependency getDefinedTableDep() {
         if (this.definedTableDep == null) {
         	this.definedTableDep = this.getDependencyDef("DefinedTable");
@@ -161,7 +161,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         return this.definedTableDep;
     }
 
-    @objid ("d65e567e-29e7-4ad3-8246-fbae9eef77b0")
+    @objid ("18f0dd70-4974-40b9-8a4a-00b2bf031c20")
     public SmDependency getDefinedNoteTypeDep() {
         if (this.definedNoteTypeDep == null) {
         	this.definedNoteTypeDep = this.getDependencyDef("DefinedNoteType");
@@ -169,7 +169,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         return this.definedNoteTypeDep;
     }
 
-    @objid ("f2b102b5-1d89-4ac8-8193-5d1d2f7271e4")
+    @objid ("5c6d063d-26f0-4473-9fec-ec5ff9f0dfa5")
     public SmDependency getDefinedResourceTypeDep() {
         if (this.definedResourceTypeDep == null) {
         	this.definedResourceTypeDep = this.getDependencyDef("DefinedResourceType");
@@ -177,7 +177,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         return this.definedResourceTypeDep;
     }
 
-    @objid ("ffd1259d-1b22-435a-bada-a3731399c74a")
+    @objid ("67763b0c-9179-4a89-8ff1-0eedf72f4480")
     public SmDependency getOwnerProfileDep() {
         if (this.ownerProfileDep == null) {
         	this.ownerProfileDep = this.getDependencyDef("OwnerProfile");
@@ -185,7 +185,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         return this.ownerProfileDep;
     }
 
-    @objid ("5a82c421-ddf2-457d-be7e-03c07e1b170f")
+    @objid ("bf87137a-7844-44ba-a189-28883e308dec")
     public SmDependency getDefinedTagTypeDep() {
         if (this.definedTagTypeDep == null) {
         	this.definedTagTypeDep = this.getDependencyDef("DefinedTagType");
@@ -195,21 +195,21 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("9cddf795-64df-41e2-b836-d05dfd30d000")
     private static class MetaclassReferenceObjectFactory implements ISmObjectFactory {
-        @objid ("4d65000d-fe2d-4db8-aa77-eda131c636f2")
+        @objid ("399a4249-5f6e-42ae-86a8-8c7043949190")
         private MetaclassReferenceSmClass smClass;
 
-        @objid ("6400ae41-a7ed-43b4-9fa9-b4bb705a2bb0")
+        @objid ("ac55bd67-bea4-408e-b49f-14ca8f0c7330")
         public  MetaclassReferenceObjectFactory(MetaclassReferenceSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("8b2dd1d2-bc2b-45ee-a7d2-0a0d44aec739")
+        @objid ("98820eb9-4af2-45a7-b703-aeb09fc982ee")
         @Override
         public ISmObjectData createData() {
             return new MetaclassReferenceData(this.smClass);
         }
 
-        @objid ("772c0876-8a81-4945-9ddf-be8f9778a99f")
+        @objid ("fc468768-56c6-45de-86db-a79cb8f954b5")
         @Override
         public SmObjectImpl createImpl() {
             return new MetaclassReferenceImpl();
@@ -219,12 +219,12 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("ae099c4b-ae98-457e-af7d-68e39b6dacbf")
     public static class ReferencedClassNameSmAttribute extends SmAttribute {
-        @objid ("66bc2306-8fa3-41b0-8042-1f3ee72b63dd")
+        @objid ("17eddad4-1c76-47b2-9eeb-42c9f8d331b7")
         public Object getValue(ISmObjectData data) {
             return ((MetaclassReferenceData) data).mReferencedClassName;
         }
 
-        @objid ("b1bb4d6f-736c-45bb-bae6-4c6e555b48c7")
+        @objid ("cd2517e2-826c-47b8-aa6f-d664297f887f")
         public void setValue(ISmObjectData data, Object value) {
             ((MetaclassReferenceData) data).mReferencedClassName = value;
         }
@@ -233,22 +233,22 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("c28a5d23-4440-4895-90af-4958ddf16be9")
     public static class DefinedTableSmDependency extends SmSingleDependency {
-        @objid ("edb382a6-7ebf-4d37-a4c3-c636e966933b")
+        @objid ("0deebe51-a353-46f7-a484-bfcdf3debe4e")
         private SmDependency symetricDep;
 
-        @objid ("bbb576c8-a57b-4f81-b7d6-15fc0c4ecb6f")
+        @objid ("c4cf6361-778a-44b2-a33c-18c81802658f")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MetaclassReferenceData) data).mDefinedTable;
         }
 
-        @objid ("d3b05ddd-b842-4e92-a045-b3ce2a189f12")
+        @objid ("8f147a75-8619-4606-bec7-03e978319a04")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MetaclassReferenceData) data).mDefinedTable = value;
         }
 
-        @objid ("ae65f893-3b70-4c53-b254-c4e6c3fc58c6")
+        @objid ("e3906847-c98e-4703-ba1f-8b1e20b52224")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -262,23 +262,23 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("7378ff6f-d073-4c68-a05b-7ccbd6940e62")
     public static class DefinedNoteTypeSmDependency extends SmMultipleDependency {
-        @objid ("2eb032f3-57b6-4a2e-8f4f-136ef51acce8")
+        @objid ("b107d16e-6ab0-48c3-9d9b-661312e03f37")
         private SmDependency symetricDep;
 
-        @objid ("5829eb16-6abf-4839-b5b2-ee256b286d9f")
+        @objid ("077ba744-7634-4818-abdc-2e92b2ed54be")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((MetaclassReferenceData)data).mDefinedNoteType != null)? ((MetaclassReferenceData)data).mDefinedNoteType:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("384fc93e-cde3-4368-9b05-c096a8c9d082")
+        @objid ("6d55a7b2-ab97-421c-add2-1d11cc293de4")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedNoteType = values;
             
         }
 
-        @objid ("946281c0-772f-4a4f-86a2-00521dd7fe70")
+        @objid ("355595d4-33e1-4825-8184-a1533a26a7eb")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -292,22 +292,22 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("c98111b8-390b-4fe2-a22b-51a172942d4b")
     public static class OwnerProfileSmDependency extends SmSingleDependency {
-        @objid ("ff64acab-47ab-4a43-aadd-463b2374f0bf")
+        @objid ("f31a88a0-f635-4f44-8b98-d8cfcb5f6c7f")
         private SmDependency symetricDep;
 
-        @objid ("d8020ae6-817c-44a9-89e7-944f605a6490")
+        @objid ("ef1bec4e-e635-4f0f-8005-39d90ba4e575")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MetaclassReferenceData) data).mOwnerProfile;
         }
 
-        @objid ("5751ce49-9b81-43ae-a8e2-a02210739127")
+        @objid ("bfd47cee-4af5-40b3-8929-a2545955c423")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MetaclassReferenceData) data).mOwnerProfile = value;
         }
 
-        @objid ("f2194d6f-af9f-4c16-8bd0-f9669ee623bb")
+        @objid ("ceb4f1c8-5153-40d2-b83b-bf5430476ec7")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -321,23 +321,23 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("9b5b27d4-7388-47af-84a8-5f973457c042")
     public static class DefinedTagTypeSmDependency extends SmMultipleDependency {
-        @objid ("be7f64fd-5bd4-49e2-820c-2daf2d588dd6")
+        @objid ("ba592cf2-a69e-417d-aaf2-41bd9f345164")
         private SmDependency symetricDep;
 
-        @objid ("6f64f0c5-68f1-44fa-b2cb-c4b3b1b99f93")
+        @objid ("fb0f07c9-7eca-4428-a6b6-3f6bd83fb784")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((MetaclassReferenceData)data).mDefinedTagType != null)? ((MetaclassReferenceData)data).mDefinedTagType:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("f95181b9-ed24-4bba-91af-12f0c61bbbd0")
+        @objid ("44980e68-ffb8-48c1-9b63-f9e4cd71860c")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedTagType = values;
             
         }
 
-        @objid ("1c12dac0-a40f-4489-bb06-4c12cfc2dcac")
+        @objid ("6b4b574a-0737-4f69-afd2-ec8990c54d6b")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -351,23 +351,23 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
 
     @objid ("189a154f-c91a-45f5-9add-011b22612fb1")
     public static class DefinedResourceTypeSmDependency extends SmMultipleDependency {
-        @objid ("abe738b7-187a-44dc-b029-e2dfe9f6904a")
+        @objid ("60120141-fada-4db5-8311-5f47f22453f8")
         private SmDependency symetricDep;
 
-        @objid ("579cc57a-eebd-433a-8c39-a4101712bebd")
+        @objid ("523a08f2-55c2-424f-887c-30f6f28627c7")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((MetaclassReferenceData)data).mDefinedResourceType != null)? ((MetaclassReferenceData)data).mDefinedResourceType:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("f92fbcca-40e5-4d4b-9ca7-71e9c6b22813")
+        @objid ("d37b0a18-05ba-400f-b31a-6272604c87d1")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedResourceType = values;
             
         }
 
-        @objid ("5718c99b-09fd-407f-91a7-094615127da9")
+        @objid ("3edf6e19-24a2-4de5-8ae1-5c28b03b6a42")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

@@ -22,6 +22,7 @@ package org.modelio.uml.statikdiagram.editor.elements.staticdiagram;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.link.ortho.migration.OrthoLinkDiagramMigrationHelper;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
@@ -56,17 +57,22 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("c1014b7b-55b6-11e2-877f-002564c97630")
 public class GmStaticDiagram extends GmAbstractDiagram {
-    @objid ("36b2fe9c-55b7-11e2-877f-002564c97630")
-    private StaticDiagram obDiagram;
-
     /**
      * Current version of this Gm. Defaults to 0.
+     * <h2>History</h2>
+     * <ul>
+     * <li> 0 : initial version
+     * <li> 1 : 5.3.1 :  5.1 orthogonal router applied
+     * </li>
      */
     @objid ("36b2fea1-55b7-11e2-877f-002564c97630")
-    private static final int MINOR_VERSION = 0;
+    private static final int MINOR_VERSION = 1;
 
     @objid ("36b2fea4-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("36b2fe9c-55b7-11e2-877f-002564c97630")
+    private StaticDiagram obDiagram;
 
     @objid ("64941849-5bd5-11e2-9e33-00137282c51b")
     private static final GmStaticDiagramStyleKeys STYLEKEYS = new GmStaticDiagramStyleKeys();
@@ -137,6 +143,10 @@ public class GmStaticDiagram extends GmAbstractDiagram {
             read_0(in);
             break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
         default: {
             assert (false) : "version number not covered!";
             // reading as last handled version: 0
@@ -186,10 +196,20 @@ public class GmStaticDiagram extends GmAbstractDiagram {
     }
 
     @objid ("36b60bd9-55b7-11e2-877f-002564c97630")
+    private void read_1(IDiagramReader in) {
+        super.read(in);
+        
+        this.obDiagram = (StaticDiagram) resolveRef(getRepresentedRef());
+        
+    }
+
+    @objid ("105cf82e-40a9-4bd9-9060-d49f60482cc9")
     private void read_0(IDiagramReader in) {
         super.read(in);
         
         this.obDiagram = (StaticDiagram) resolveRef(getRepresentedRef());
+        
+        OrthoLinkDiagramMigrationHelper.migrate(this);
         
     }
 

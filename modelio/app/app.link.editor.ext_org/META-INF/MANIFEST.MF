@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Link editor extensions
 Bundle-SymbolicName: org.modelio.app.link.editor.ext_org;singleton:=true
-Bundle-Version: 5.3.1.qualifier 
+Bundle-Version: 5.4.1.qualifier 
 Bundle-ClassPath: .,
  res/
 Bundle-Activator: org.modelio.linkeditor.ext.plugin.LinkEditorOrg

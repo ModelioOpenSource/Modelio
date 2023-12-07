@@ -18,9 +18,9 @@
  * 
  */
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
-     Generator version: 3.8.00
-     Generated on: Dec 13, 2018
+     Metamodel: Infrastructure, version 2.1.04, by Modeliosoft
+     Generator version: 3.14.00
+     Generated on: May 3, 2023
 */
 
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0067b7c2-ec87-1098-b22e-001ec947cd2a")
 public class PropertyTableDefinitionData extends ModelElementData {
-    @objid ("ef084381-ea72-4dd2-a0fe-34f651a55f53")
+    @objid ("2c45feac-12cd-4904-86e7-5608f5474820")
     List<SmObjectImpl> mTypedTable = null;
 
-    @objid ("6fdef107-aa38-4e84-89f7-e9388d632f09")
+    @objid ("48766be1-41d1-44e6-8610-b4df2c2bffd9")
     SmObjectImpl mOwnerReference;
 
-    @objid ("13b8a4df-e795-4952-bb46-d3b69cf7c45a")
+    @objid ("12416046-4f5f-4191-8b32-94322566c304")
     SmObjectImpl mOwnerStereotype;
 
-    @objid ("4dfc9776-b2e0-4b29-81fe-2295609aba0b")
+    @objid ("9cb3f374-fe1d-4d31-9928-0d9a3144c47f")
     List<SmObjectImpl> mOwned = null;
 
-    @objid ("340f3676-afa1-413a-a140-7f5aa0eef889")
+    @objid ("c2f583f8-1c1c-41be-8a00-59d0705bca01")
     public  PropertyTableDefinitionData(PropertyTableDefinitionSmClass smClass) {
         super(smClass);
     }
