@@ -4,7 +4,7 @@ link:https://www.modelio.org[image:README/logo-modelio-v4.png[]]
 
 We are pleased to announce the release of Modelio 5.4.1
 
-link:https://github.com/ModelioOpenSource/Modelio/releases/tag/v5.4.1[*Modelio 5.4.1 Download*] (WIP)
+link:https://github.com/ModelioOpenSource/Modelio/releases/tag/v5.4.1[*Modelio 5.4.1 Download*]
 
 https://github.com/ModelioOpenSource/Modelio/wiki[*Modelio 5.4.1 Documentation*]
 
