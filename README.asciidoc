@@ -20,7 +20,7 @@ image:README/release5-4-1-b.png[Traceability In Diagrams]
 
 image:README/release5-4-1-c.png[Archimate]
 
- https://github.com/ModelioOpenSource/Modelio/wiki/Release-541[*Modelio 5.4.1 Release Note*]
+== https://github.com/ModelioOpenSource/Modelio/wiki/Release-541[*Modelio 5.4.1 Release Note*]
 
 == Modelio Modeling Environment
 
