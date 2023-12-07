@@ -6,7 +6,7 @@ link:https://www.modelio.org[image:README/logo-modelio-v4.png[]]
 
 * *Diagram Thumbnail :* The interface for including a diagram thumbnail in another diagram has been improved, and now features search functionality and context information to differentiate between two diagrams with the same name.
 
-image:README/release5-4-1-A.png[Diagram Thumbnail]
+image:README/release5-4-1-a.png[Diagram Thumbnail]
 
 * *Traceability In Diagrams :* New feature that allows you to unmask all elements linked to elements already present in a diagram. 
 
