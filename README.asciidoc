@@ -50,6 +50,32 @@ visualization of architecture within and across business domains.
 * *TOGAF* :TOGAF is an enterprise architecture framework, providing a complete approach to enterprise information architecture design,
 planning, implementation and governance.
 
+== Project Samples
+
+Here you will find a set of projects illustrating the main frameworks supported by Modelio.
+
+=== Deployment of projects examples
+
+To access example projects :
+
+ 1. Download the desired project archive from the links below
+ 1. In Modelio, use the "Import project from archive" function to load the project: File > Import Project ...
+
+=== Projects
+
+ * https://github.com/ModelioOpenSource/Modelio/blob/master/Sample%20Projects/%5BArchiMate%20Example%5D%20Discount%20Travel%20for%20ArchiMate.zip[*Archimate : Discount Travel for ArchiMate*]  
+The 'Discount Travel' project is an example of how to model the enterprise architecture of a travel agency to manage their reservation system. 
+ 
+ * https://github.com/ModelioOpenSource/Modelio/blob/master/Sample%20Projects/%5BJAVA%20Example%5D%20Java%20Browser.zip[*JavaDesigner : Java Browser*]
+A simple HTML browser, based on a swing JEditorPane component. 
+ 
+ * https://github.com/ModelioOpenSource/Modelio/blob/master/Sample%20Projects/%5BSysML%20Example%5D%20The%20plant.zip[*SysML : The plant*]
+In the Systems and Automation Department at Federal University of Santa Catarina (UFSC) there is an experimental unit of industrial automation that is used to demonstrate the operation of several control strategies using the same equipments and supervision tools.
+
+ * https://github.com/ModelioOpenSource/Modelio/blob/master/Sample%20Projects/%5BUML%20Example%5D%20Shopping%20Cart.zip[*UML : Shopping Cart*]
+This project contains the model for the Online Shopping Cart system, including all the models used to specify and realize the IT system.
+This model addresses the development of an online shopping cart system, that allows suppliers to sell their products directly online to customers. It is provided as a UML example covering the analysis of the business context and processes, and the design and deployment of a possible implementation.
+
 
 == Build from Source
 
