@@ -76,6 +76,10 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
  */
 @objid ("7de9c170-7198-4657-b07e-e17041c607bf")
 public abstract class AbstractGModelFragment extends AbstractGPart implements IGModelFragment {
+    private static final java.util.Set<Path> scheduledDeletePendingCleanups = java.util.Collections.newSetFromMap(new java.util.concurrent.ConcurrentHashMap<>());
+
+    private static final String DELETE_PENDING_MARKER_SUFFIX = ".modelio-delete-pending";
+
     /**
      * Project data sub directory where fragments data are stored. Contains one directory for each fragment.
      */
@@ -211,6 +215,22 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
             SubProgress mon = SubProgress.convert(aMonitor, 90);
         
             IGProject project = getProject();
+
+            // Cleanup stale delete-pending fragment directories left by a previous
+            // session that may have been stopped before asynchronous NFS/EFS cleanup
+            // completed. This is only relevant for network-backed fragment
+            // directories where delete-pending cleanup may be deferred.
+            final Path runtimeFragmentsParent = getRuntimeDirectory(project).getParent();
+            final Path dataFragmentsParent = getDataDirectory(project).getParent();
+
+            if (isNetworkFilesystem(runtimeFragmentsParent)) {
+                cleanupDeletePendingDirectoriesInParent(runtimeFragmentsParent);
+            }
+
+            if (isNetworkFilesystem(dataFragmentsParent)) {
+                cleanupDeletePendingDirectoriesInParent(dataFragmentsParent);
+            }
+
             IRepository repository = doMountInitRepository(project, mon.newChild(30));
             checkVersions();
         
@@ -405,10 +425,440 @@ public abstract class AbstractGModelFragment extends AbstractGPart implements IG
         // Call sub classes
         doDelete(project, monitor);
         
-        // Do standard cleaning
-        FileUtils.delete(getRuntimeDirectory(project));
-        FileUtils.delete(getDataDirectory(project));
+        // Do standard cleaning.
+        //
+        // Keep the standard deletion path for local filesystems. On NFS/EFS
+        // backed workspaces, recursive deletion may fail with a transient
+        // DirectoryNotEmptyException because a just-closed repository may still
+        // leave .nfs entries or delayed directory updates behind. In that case
+        // only, move the fragment directory away from its canonical location so
+        // a reinstall can proceed, then clean the moved directory synchronously
+        // when possible and asynchronously while NFS still reports busy files.
+        deleteFragmentDirectory(getRuntimeDirectory(project));
+        deleteFragmentDirectory(getDataDirectory(project));
         
+    }
+
+    private void deleteFragmentDirectory(final Path path) throws IOException {
+        try {
+            FileUtils.delete(path);
+            return;
+        } catch (IOException firstFailure) {
+            if (!Files.exists(path)) {
+                return;
+            }
+
+            if (!isNetworkFilesystemDeleteFailure(path, firstFailure)) {
+                throw firstFailure;
+            }
+
+            cleanupDeletePendingSiblings(path);
+
+            final Path deletePendingPath;
+
+            try {
+                deletePendingPath = moveFragmentDirectoryToDeletePending(path);
+            } catch (IOException moveFailure) {
+                firstFailure.addSuppressed(moveFailure);
+                throw firstFailure;
+            }
+
+            try {
+                deleteDeletePendingDirectoryWithRetry(deletePendingPath, 20);
+            } catch (IOException cleanupFailure) {
+                // The canonical fragment path has already been released. Do not
+                // rollback the module/RAMC uninstall/update because NFS still
+                // keeps a transient .nfs file busy. The application keeps trying
+                // to remove the moved directory in the background and during
+                // later fragment cleanup attempts.
+                cleanupFailure.addSuppressed(firstFailure);
+                scheduleDeletePendingDirectoryCleanup(deletePendingPath);
+            } finally {
+                cleanupDeletePendingSiblings(path);
+            }
+        }
+    }
+
+    private static boolean isNetworkFilesystemDeleteFailure(final Path path, final IOException failure) {
+        if (!isNetworkFilesystem(path) && !containsNfsSillyRenameFile(path)) {
+            return false;
+        }
+
+        if (failure instanceof java.nio.file.DirectoryNotEmptyException) {
+            return true;
+        }
+
+        if (failure instanceof java.nio.file.FileSystemException) {
+            final String message = String.valueOf(failure.getMessage()).toLowerCase(java.util.Locale.ROOT);
+            return message.contains("directory not empty")
+                    || message.contains("directory is not empty")
+                    || message.contains("device or resource busy")
+                    || message.contains(".nfs")
+                    || containsNfsSillyRenameFile(path);
+        }
+
+        return containsNfsSillyRenameFile(path);
+    }
+
+    private static boolean isNetworkFilesystem(final Path path) {
+        if (path == null) {
+            return false;
+        }
+
+        try {
+            final Path probe = Files.exists(path) ? path : path.getParent();
+
+            if (probe != null) {
+                final String fileStoreType = Files.getFileStore(probe).type().toLowerCase(java.util.Locale.ROOT);
+                if (isNetworkFilesystemType(fileStoreType)) {
+                    return true;
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            // Fall through to /proc/mounts on Linux.
+        }
+
+        final String osName = System.getProperty("os.name", "").toLowerCase(java.util.Locale.ROOT);
+        if (!osName.contains("linux")) {
+            return false;
+        }
+
+        final Path procMounts = java.nio.file.Paths.get("/proc/mounts");
+        if (!Files.isRegularFile(procMounts)) {
+            return false;
+        }
+
+        final String absolutePath = path.toAbsolutePath().normalize().toString();
+
+        try (java.io.BufferedReader reader = Files.newBufferedReader(procMounts, java.nio.charset.StandardCharsets.UTF_8)) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                final String[] fields = line.split(" ");
+                if (fields.length < 3) {
+                    continue;
+                }
+
+                final String mountPoint = decodeProcMountPath(fields[1]);
+                final String filesystemType = fields[2].toLowerCase(java.util.Locale.ROOT);
+
+                if (isNetworkFilesystemType(filesystemType) && isSameOrChildPath(absolutePath, mountPoint)) {
+                    return true;
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            return false;
+        }
+
+        return false;
+    }
+
+    private static boolean isNetworkFilesystemType(final String filesystemType) {
+        return filesystemType.equals("nfs")
+                || filesystemType.equals("nfs4")
+                || filesystemType.equals("efs")
+                || filesystemType.equals("fuse.efs");
+    }
+
+    private static void deleteDeletePendingDirectoryWithRetry(final Path deletePendingPath, final int maxAttempts) throws IOException {
+        IOException lastFailure = null;
+
+        for (int attempt = 0; attempt < maxAttempts; attempt++) {
+            try {
+                FileUtils.delete(deletePendingPath);
+                deleteDeletePendingMarker(deletePendingPath);
+                return;
+            } catch (java.nio.file.NoSuchFileException e) {
+                deleteDeletePendingMarker(deletePendingPath);
+                return;
+            } catch (IOException e) {
+                lastFailure = e;
+
+                if (!Files.exists(deletePendingPath, java.nio.file.LinkOption.NOFOLLOW_LINKS)) {
+                    deleteDeletePendingMarker(deletePendingPath);
+                    return;
+                }
+
+                if (!isRetryableDeletePendingCleanupFailure(deletePendingPath, e)) {
+                    throw e;
+                }
+
+                deleteRemainingChildrenBestEffort(deletePendingPath);
+                sleepBeforeDeletePendingCleanupRetry(attempt);
+            }
+        }
+
+        if (lastFailure != null) {
+            throw lastFailure;
+        }
+    }
+
+    private static boolean isRetryableDeletePendingCleanupFailure(final Path path, final IOException failure) {
+        if (!Files.exists(path)) {
+            return true;
+        }
+
+        if (failure instanceof java.nio.file.DirectoryNotEmptyException) {
+            return true;
+        }
+
+        if (failure instanceof java.nio.file.FileSystemException) {
+            final String message = String.valueOf(failure.getMessage()).toLowerCase(java.util.Locale.ROOT);
+            return message.contains("directory not empty")
+                    || message.contains("directory is not empty")
+                    || message.contains("device or resource busy")
+                    || message.contains(".nfs")
+                    || containsNfsSillyRenameFile(path);
+        }
+
+        return containsNfsSillyRenameFile(path);
+    }
+
+    private static void scheduleDeletePendingDirectoryCleanup(final Path deletePendingPath) {
+        final Path cleanupPath = deletePendingPath.toAbsolutePath().normalize();
+
+        if (!scheduledDeletePendingCleanups.add(cleanupPath)) {
+            return;
+        }
+
+        final Thread cleaner = new Thread(() -> {
+            try {
+                for (int round = 0; round < 120; round++) {
+                    try {
+                        deleteDeletePendingDirectoryWithRetry(cleanupPath, 20);
+                        return;
+                    } catch (IOException | RuntimeException e) {
+                        sleepQuietly(5000L);
+                    }
+                }
+            } finally {
+                scheduledDeletePendingCleanups.remove(cleanupPath);
+            }
+        }, "Modelio delete-pending cleanup");
+
+        cleaner.setDaemon(true);
+        cleaner.start();
+    }
+
+    private static void deleteRemainingChildrenBestEffort(final Path path) {
+        if (!Files.isDirectory(path, java.nio.file.LinkOption.NOFOLLOW_LINKS)) {
+            return;
+        }
+
+        try (java.util.stream.Stream<Path> stream = Files.list(path)) {
+            final java.util.List<Path> children = stream.collect(java.util.stream.Collectors.toList());
+
+            for (Path child : children) {
+                try {
+                    if (Files.isDirectory(child, java.nio.file.LinkOption.NOFOLLOW_LINKS)) {
+                        deleteRemainingChildrenBestEffort(child);
+                    }
+
+                    Files.deleteIfExists(child);
+                } catch (IOException | RuntimeException e) {
+                    // Best effort only; the bounded retry loop will try again.
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            // Best effort only; the bounded retry loop will try again.
+        }
+    }
+
+    private static void cleanupDeletePendingDirectoriesInParent(final Path parent) {
+        if (parent == null || !Files.isDirectory(parent)) {
+            return;
+        }
+
+        try (java.nio.file.DirectoryStream<Path> stream = Files.newDirectoryStream(parent, "_*.delete-pending-*")) {
+            for (Path candidate : stream) {
+                if (!isDeletePendingDirectory(candidate)) {
+                    continue;
+                }
+
+                try {
+                    deleteDeletePendingDirectoryWithRetry(candidate, 10);
+                } catch (IOException | RuntimeException e) {
+                    scheduleDeletePendingDirectoryCleanup(candidate);
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            // Best effort cleanup only.
+        }
+
+        cleanupOrphanDeletePendingMarkersInParent(parent, "_*.delete-pending-*" + DELETE_PENDING_MARKER_SUFFIX);
+    }
+
+    private static void cleanupDeletePendingSiblings(final Path originalPath) {
+        final Path parent = originalPath.getParent();
+
+        if (parent == null || !Files.isDirectory(parent)) {
+            return;
+        }
+
+        final String prefix = "_" + originalPath.getFileName().toString() + ".delete-pending-";
+
+        try (java.nio.file.DirectoryStream<Path> stream = Files.newDirectoryStream(parent, prefix + "*")) {
+            for (Path candidate : stream) {
+                if (!isDeletePendingDirectory(candidate)) {
+                    continue;
+                }
+
+                try {
+                    deleteDeletePendingDirectoryWithRetry(candidate, 10);
+                } catch (IOException | RuntimeException e) {
+                    scheduleDeletePendingDirectoryCleanup(candidate);
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            // Best effort cleanup only.
+        }
+
+        cleanupOrphanDeletePendingMarkersInParent(parent, prefix + "*" + DELETE_PENDING_MARKER_SUFFIX);
+    }
+
+    private static boolean isDeletePendingDirectory(final Path path) {
+        return Files.isDirectory(path, java.nio.file.LinkOption.NOFOLLOW_LINKS)
+                && Files.isRegularFile(getDeletePendingMarkerPath(path), java.nio.file.LinkOption.NOFOLLOW_LINKS);
+    }
+
+    private static Path getDeletePendingMarkerPath(final Path deletePendingPath) {
+        return deletePendingPath.resolveSibling(deletePendingPath.getFileName().toString() + DELETE_PENDING_MARKER_SUFFIX);
+    }
+
+    private static void deleteDeletePendingMarker(final Path deletePendingPath) {
+        try {
+            Files.deleteIfExists(getDeletePendingMarkerPath(deletePendingPath));
+        } catch (IOException e) {
+            // Best effort: marker cleanup must not make fragment cleanup fail.
+        }
+    }
+
+    private static void cleanupOrphanDeletePendingMarkersInParent(final Path parent, final String markerPattern) {
+        if (parent == null || !Files.isDirectory(parent)) {
+            return;
+        }
+
+        try (java.nio.file.DirectoryStream<Path> stream = Files.newDirectoryStream(parent, markerPattern)) {
+            for (Path marker : stream) {
+                if (!Files.isRegularFile(marker, java.nio.file.LinkOption.NOFOLLOW_LINKS)) {
+                    continue;
+                }
+
+                final Path deletePendingPath = getDeletePendingDirectoryPath(marker);
+                if (!Files.exists(deletePendingPath, java.nio.file.LinkOption.NOFOLLOW_LINKS)) {
+                    Files.deleteIfExists(marker);
+                }
+            }
+        } catch (IOException | RuntimeException e) {
+            // Best effort cleanup only.
+        }
+    }
+
+    private static Path getDeletePendingDirectoryPath(final Path markerPath) {
+        final String fileName = markerPath.getFileName().toString();
+
+        if (fileName.endsWith(DELETE_PENDING_MARKER_SUFFIX)) {
+            return markerPath.resolveSibling(fileName.substring(0, fileName.length() - DELETE_PENDING_MARKER_SUFFIX.length()));
+        }
+
+        return markerPath;
+    }
+
+    private static boolean containsNfsSillyRenameFile(final Path path) {
+        final Path fileName = path.getFileName();
+
+        if (fileName != null && fileName.toString().startsWith(".nfs")) {
+            return true;
+        }
+
+        if (!Files.isDirectory(path)) {
+            return false;
+        }
+
+        try (java.util.stream.Stream<Path> stream = Files.walk(path, 8)) {
+            return stream
+                    .map(Path::getFileName)
+                    .filter(java.util.Objects::nonNull)
+                    .map(Path::toString)
+                    .anyMatch(name -> name.startsWith(".nfs"));
+        } catch (IOException | RuntimeException e) {
+            return false;
+        }
+    }
+
+    private static boolean isSameOrChildPath(final String path, final String parent) {
+        if ("/".equals(parent)) {
+            return path.startsWith("/");
+        }
+
+        final String normalizedParent = parent.endsWith("/") ? parent.substring(0, parent.length() - 1) : parent;
+
+        return path.equals(normalizedParent) || path.startsWith(normalizedParent + "/");
+    }
+
+    private static String decodeProcMountPath(final String value) {
+        return value
+                .replace("\\040", " ")
+                .replace("\\011", "\t")
+                .replace("\\012", "\n")
+                .replace("\\134", "\\");
+    }
+
+    private static void sleepBeforeDeletePendingCleanupRetry(final int attempt) {
+        final long delay = Math.min(500L, 50L + attempt * 10L);
+        sleepQuietly(delay);
+    }
+
+    private static void sleepQuietly(final long delay) {
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    private Path moveFragmentDirectoryToDeletePending(final Path path) throws IOException {
+        final Path parent = path.getParent();
+        final String name = path.getFileName().toString();
+
+        IOException lastFailure = null;
+
+        for (int attempt = 0; attempt < 100; attempt++) {
+            final Path deletePendingPath = parent.resolve("_" + name + ".delete-pending-"
+                    + System.currentTimeMillis() + "-" + attempt);
+
+            try {
+                Files.move(path, deletePendingPath);
+            } catch (java.nio.file.FileAlreadyExistsException e) {
+                lastFailure = e;
+                continue;
+            }
+
+            try {
+                Files.createFile(getDeletePendingMarkerPath(deletePendingPath));
+                return deletePendingPath;
+            } catch (IOException markerFailure) {
+                try {
+                    Files.deleteIfExists(getDeletePendingMarkerPath(deletePendingPath));
+                } catch (IOException markerCleanupFailure) {
+                    markerFailure.addSuppressed(markerCleanupFailure);
+                }
+
+                try {
+                    Files.move(deletePendingPath, path);
+                } catch (IOException restoreFailure) {
+                    markerFailure.addSuppressed(restoreFailure);
+                }
+
+                throw markerFailure;
+            }
+        }
+
+        if (lastFailure != null) {
+            throw lastFailure;
+        }
+
+        throw new IOException("Could not create delete-pending path for " + path);
     }
 
     /**
