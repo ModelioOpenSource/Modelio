@@ -1,3 +1,6 @@
+# Nix build output symlink
+/result
+
 /.metadata/
 /workspace/
 cachedir/
