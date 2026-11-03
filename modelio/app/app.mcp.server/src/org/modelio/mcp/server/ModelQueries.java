@@ -320,7 +320,9 @@ public class ModelQueries {
                 : session.getMetamodel().getMClass(Element.class);
 
         Collection<? extends MObject> candidates;
-        if (name != null && exact) {
+        // The common Element metaclass has no Name attribute. Its subclasses
+        // can still be named, so only use the indexed lookup when supported.
+        if (name != null && exact && cls.getAttribute("Name") != null) {
             candidates = session.getModel().findByName(cls, true, name);
         } else {
             candidates = session.getModel().findByClass(cls, true);
@@ -333,9 +335,9 @@ public class ModelQueries {
             if (o.isDeleted() || o.isShell()) {
                 continue;
             }
-            if (needle != null && !exact) {
+            if (needle != null) {
                 String n = o.getName();
-                if (n == null || !n.toLowerCase(Locale.ROOT).contains(needle)) {
+                if (n == null || (exact ? !n.equals(name) : !n.toLowerCase(Locale.ROOT).contains(needle))) {
                     continue;
                 }
             }
