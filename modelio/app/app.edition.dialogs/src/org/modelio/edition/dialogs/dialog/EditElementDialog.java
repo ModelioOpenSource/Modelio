@@ -211,6 +211,17 @@ public class EditElementDialog extends ModelioDialog {
         newShell.setImage(UIImages.OPENPROPERTIES);
         newShell.setMinimumSize(800, 600);
 
+        if ("cocoa".equals(SWT.getPlatform())) {
+            // Cocoa finalizes native tab/table geometry when the shell is shown.
+            // Re-layout the descendants afterwards, just as a manual resize would,
+            // so their initial bounds do not retain the pre-show measurements.
+            newShell.addListener(SWT.Show, event -> newShell.getDisplay().asyncExec(() -> {
+                if (!newShell.isDisposed()) {
+                    newShell.layout(true, true);
+                }
+            }));
+        }
+
         // Un-plug model change listener on Shell disposal
         newShell.addDisposeListener((e) -> {
             if (this.coreSession != null) {
