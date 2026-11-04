@@ -38,13 +38,17 @@ import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.modelio.diagram.dg.IDiagramDG;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.diagram.api.services.DiagramHandle;
+import org.modelio.diagram.api.services.DiagramLink;
 import org.modelio.diagram.api.services.DiagramNode;
+import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.mcp.server.McpProtocol.ToolException;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
+import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.transactions.ITransaction;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
+import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
  * Diagram contents: list what a diagram shows and unmask (draw) model elements in it.
@@ -400,6 +404,156 @@ class DiagramEdits {
         });
     }
 
+    JsonNode removeFromDiagram(JsonNode args) {
+        AbstractDiagram diagram = requireModifiableDiagram(args);
+        List<MObject> elements = new ArrayList<>();
+        for (JsonNode id : args.path("element_ids")) {
+            elements.add(this.queries.requireElement(id.asText()));
+        }
+        boolean missing = args.path("missing").asBoolean(false);
+        if (elements.isEmpty() && !missing) {
+            throw new ToolException("Give 'element_ids' and/or 'missing': true.");
+        }
+        ICoreSession session = this.queries.requireProject().getSession();
+        ArrayNode removed = this.mapper.createArrayNode();
+        ArrayNode skipped = this.mapper.createArrayNode();
+        try (ITransaction t = session.getTransactionSupport().createTransaction("MCP: remove from diagram " + diagram.getName())) {
+            try (IDiagramHandle dh = diagramService().getDiagramHandle(diagram)) {
+                for (MObject el : elements) {
+                    List<IDiagramGraphic> gs = new ArrayList<>(dh.getDiagramGraphics(el));
+                    if (gs.isEmpty()) {
+                        skipped.add(reason(el, "not shown in the diagram"));
+                        continue;
+                    }
+                    for (IDiagramGraphic g : gs) {
+                        dh.mask(g);
+                    }
+                    removed.add(this.queries.summary(el));
+                }
+                if (missing) {
+                    List<IDiagramGraphic> ghosts = new ArrayList<>();
+                    collectMissing(dh.getDiagramNode(), ghosts);
+                    for (IDiagramGraphic g : ghosts) {
+                        MRef ref = missingRef(g);
+                        // Modelio's delete edit policies refuse graphics without a represented element (unless they
+                        // are ghost edit parts, which e.g. diagram thumbnails are not): remove the graphic model itself.
+                        gmModel(g).delete();
+                        ObjectNode o = removed.addObject();
+                        o.put("id", ref.uuid);
+                        o.put("name", ref.name);
+                        o.put("metaclass", ref.mc);
+                        o.put("missing", true);
+                    }
+                }
+                dh.save();
+            }
+            t.commit();
+        } catch (ToolException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new ToolException("Cannot remove from diagram " + describe(diagram) + ": " + e);
+        }
+        ObjectNode r = this.mapper.createObjectNode();
+        r.set("diagram", this.queries.summary(diagram));
+        r.put("removed_count", removed.size());
+        r.set("removed", removed);
+        r.set("skipped", skipped);
+        return r;
+    }
+
+    /**
+     * Remove the graphics of elements about to be deleted from the other diagrams showing them, so the deletion does
+     * not leave "missing" references behind (e.g. the thumbnail of a deleted view in a viewpoint diagram).
+     * Diagrams that are deleted too are left alone.
+     */
+    void unmaskFromOtherDiagrams(Collection<MObject> toDelete) {
+        Set<MObject> deleted = new LinkedHashSet<>();
+        for (MObject o : toDelete) {
+            collectSubtree(o, deleted);
+        }
+        Map<AbstractDiagram, List<MObject>> byDiagram = new LinkedHashMap<>();
+        for (MObject o : deleted) {
+            if (o instanceof Element e) {
+                for (AbstractDiagram d : e.getDiagramElement()) {
+                    if (!deleted.contains(d) && d.isValid() && d.isModifiable()) {
+                        byDiagram.computeIfAbsent(d, k -> new ArrayList<>()).add(o);
+                    }
+                }
+            }
+        }
+        if (byDiagram.isEmpty()) {
+            return;
+        }
+        ICoreSession session = this.queries.requireProject().getSession();
+        try (ITransaction t = session.getTransactionSupport().createTransaction("MCP: unmask elements before deletion")) {
+            for (Map.Entry<AbstractDiagram, List<MObject>> e : byDiagram.entrySet()) {
+                try (IDiagramHandle dh = diagramService().getDiagramHandle(e.getKey())) {
+                    for (MObject o : e.getValue()) {
+                        for (IDiagramGraphic g : new ArrayList<>(dh.getDiagramGraphics(o))) {
+                            dh.mask(g);
+                        }
+                    }
+                    dh.save();
+                }
+            }
+            t.commit();
+        } catch (Exception e) {
+            // Best effort: the deletion itself must still happen; remove_from_diagram with missing=true cleans up.
+            if (McpPlugin.LOG != null) {
+                McpPlugin.LOG.warning("MCP: cannot unmask elements before deletion: " + e);
+            }
+        }
+    }
+
+    private static void collectSubtree(MObject o, Set<MObject> out) {
+        if (out.add(o)) {
+            for (MObject c : o.getCompositionChildren()) {
+                collectSubtree(c, out);
+            }
+        }
+    }
+
+    /** Outermost nodes and links drawing a missing element (nodes nested in them go with them). */
+    private static void collectMissing(IDiagramNode node, List<IDiagramGraphic> out) {
+        for (IDiagramNode n : node.getNodes()) {
+            if (missingRef(n) != null) {
+                out.add(n);
+            } else {
+                collectMissing(n, out);
+            }
+        }
+        if (node instanceof IDiagramDG root) {
+            for (IDiagramLink l : root.getLinks()) {
+                if (missingRef(l) != null) {
+                    out.add(l);
+                }
+            }
+        }
+    }
+
+    private static GmModel gmModel(IDiagramGraphic g) {
+        Object model = null;
+        if (g instanceof DiagramNode n) {
+            model = n.getModel();
+        } else if (g instanceof DiagramLink l) {
+            model = l.getModel();
+        }
+        return model instanceof GmModel gm ? gm : null;
+    }
+
+    /** The reference of the element a graphic draws when that element no longer exists, else <code>null</code>. */
+    private static MRef missingRef(IDiagramGraphic g) {
+        GmModel gm = gmModel(g);
+        if (gm != null) {
+            MRef ref = gm.getRepresentedRef();
+            MObject el = gm.getRepresentedElement();
+            if (ref != null && (el == null || !el.isValid())) {
+                return ref;
+            }
+        }
+        return null;
+    }
+
     // ------------------------------------------------------------------ helpers
 
     /** Spread the rectangles along one axis, keeping their current order on it. */
@@ -635,6 +789,17 @@ class DiagramEdits {
     }
 
     private ObjectNode graphic(ArrayNode out, IDiagramGraphic g) {
+        MRef missing = missingRef(g);
+        if (missing != null) {
+            // The drawn element no longer exists (deleted, or in a fragment that is not loaded).
+            ObjectNode o = this.mapper.createObjectNode();
+            o.put("id", missing.uuid);
+            o.put("name", missing.name);
+            o.put("metaclass", missing.mc);
+            o.put("missing", true);
+            out.add(o);
+            return o;
+        }
         MObject el = g.getElement();
         ObjectNode o = el != null ? this.queries.summary(el) : this.mapper.createObjectNode();
         if (el == null) {

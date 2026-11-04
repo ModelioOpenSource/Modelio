@@ -87,6 +87,10 @@ public class ModelQueries {
 
     private final DiagramEdits diagrams;
 
+    DiagramEdits diagrams() {
+        return this.diagrams;
+    }
+
     public ModelQueries(ObjectMapper mapper, IEclipseContext context) {
         this.mapper = mapper;
         this.context = context;
@@ -130,6 +134,8 @@ public class ModelQueries {
                 return this.diagrams.moveInDiagram(args);
             case McpTools.ALIGN_IN_DIAGRAM:
                 return this.diagrams.alignInDiagram(args);
+            case McpTools.REMOVE_FROM_DIAGRAM:
+                return this.diagrams.removeFromDiagram(args);
             default:
                 throw new ToolException("Unknown tool: " + tool);
             }
