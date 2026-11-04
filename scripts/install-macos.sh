@@ -43,6 +43,15 @@ if [[ -e "$destination" ]]; then
 fi
 mv "$staged_app" "$destination"
 rmdir "$staging_dir"
+
+# Local builds keep the same bundle versions, so Equinox would reuse the bundle wiring cached from the previous
+# install (new Require-Bundle entries would be ignored: NoClassDefFoundError). Drop that cache, like '-clean'; it is
+# rebuilt at the next start. Projects, preferences and modules are elsewhere and are not touched.
+osgi_state="$HOME/.modelio/6.2/opensource-cache/conf/org.eclipse.osgi"
+if [[ -d "$osgi_state" ]]; then
+    rm -rf "$osgi_state"
+    echo "Cleared the OSGi bundle cache: $osgi_state"
+fi
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "$destination"
 echo "Installed: $destination"
 echo 'To uninstall, quit Modelio and move this application to the Trash.'

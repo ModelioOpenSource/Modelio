@@ -144,17 +144,24 @@ final class McpTools {
         t = tool(tools, ADD_TO_DIAGRAM,
                 "Draw (unmask) existing model elements in a diagram, in one undoable Modelio transaction. This is how an element is shown in an ArchimateView "
                         + "or any other diagram; setting model references such as 'Represented' does not draw anything. "
-                        + "Elements already drawn are skipped. Relationships are drawn when both ends are already shown.");
+                        + "Elements already drawn are skipped. Coordinates are diagram coordinates (independent of the editor zoom). "
+                        + "A node is never dropped inside another one unless 'parent_id' asks for it: an occupied spot is replaced by the next free one to its right. "
+                        + "By default the relationships between the drawn elements and those already shown are drawn too; "
+                        + "relationships given in element_ids are drawn when both ends are shown.");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
-        prop(t, "element_ids", "array", "UUIDs of the elements to draw.");
+        prop(t, "element_ids", "array", "UUIDs of the elements (or relationships) to draw.");
         prop(t, "x", "integer", "X of the first element (default 50); following elements are placed to its right.");
         prop(t, "y", "integer", "Y of the elements (default: below the current diagram content).");
+        prop(t, "width", "integer", "Width to give each drawn node (default: Modelio's default size).");
+        prop(t, "height", "integer", "Height to give each drawn node (default: Modelio's default size).");
+        prop(t, "parent_id", "string", "UUID of an element already drawn as a container node (Grouping, Location, Node...) to draw inside; x and y are then relative to its top-left corner.");
+        prop(t, "with_relationships", "boolean", "Also draw the relationships linking the new elements to elements already shown (default true).");
         required(t, "diagram_id", "element_ids");
         writable(t, false);
 
         t = tool(tools, MOVE_IN_DIAGRAM,
                 "Move and/or resize nodes already drawn in a diagram, in one undoable Modelio transaction. "
-                        + "Omitted coordinates keep their current value. Links follow their ends.");
+                        + "Coordinates are diagram coordinates (independent of the editor zoom); omitted ones keep their current value. Links follow their ends.");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
         prop(t, "moves", "array", "[{\"element_id\": \"<uuid>\", \"x\": 100, \"y\": 50, \"width\": 120, \"height\": 60}] (x, y, width, height optional).");
         objectItems(t, "moves");
