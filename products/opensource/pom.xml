@@ -219,6 +219,55 @@
 			</build>
 		</profile>
 		<profile>
+			<!-- macOS on Apple Silicon: target environment set by the platform.mac
+			     profile of modelio-parent.  No JRE is bundled for macOS: the
+			     launcher uses the installed JDK 21 (/usr/libexec/java_home). -->
+			<id>platform.mac</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-repository-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<skipArchive>true</skipArchive>
+							<createArtifactRepository>false</createArtifactRepository>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>products</id>
+								<goals>
+									<goal>materialize-products</goal>
+									<goal>archive-products</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<products>
+								<product>
+									<id>org.modelio.product</id>
+									<attachId>OpenSource</attachId>
+									<rootFolders>
+										<macosx>Modelio.app</macosx>
+									</rootFolders>
+								</product>
+							</products>
+							<installFeatures>true</installFeatures>
+							<profile>DefaultProfile</profile>
+							<formats>
+								<macosx>tar.gz</macosx>
+							</formats>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>repositoryP2</id>
 			<build>
 				<plugins>

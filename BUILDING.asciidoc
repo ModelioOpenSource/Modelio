@@ -1,0 +1,180 @@
+= Building Modelio 6.2 from source (command line)
+
+This page describes how to build Modelio and its open-source modules
+from a clone of this repository, without the Eclipse IDE.  It
+supersedes the wiki pages
+https://github.com/ModelioOpenSource/Modelio/wiki/Compile_modelio[Compile_modelio]
+and
+https://github.com/ModelioOpenSource/Modelio/wiki/Package_modelio[Package_modelio],
+which are out of date (Eclipse 4.8, JDK 8, Maven 3.6).
+
+== Why the wiki looks contradictory
+
+The wiki has two build procedures, written years apart:
+
+* *Compile_modelio* is the Eclipse-IDE workflow: import every project
+  into an Eclipse workspace, set `dev-platform/rcp-target/rcp.target`
+  as the target platform, then build and launch `modelio-os.product`
+  from the IDE.  You only need it to develop or debug Modelio in
+  Eclipse.
+* *Package_modelio* is the real headless build: Maven + Tycho, run
+  from `maven/aggregators/opensource`.  It compiles everything and
+  produces the distributions.  This page and `build-modelio.sh`
+  automate it.
+
+There is no CI configuration in the repository.  Also, the
+`pom.xml` at the repository root is an obsolete 5.4.1 leftover, so
+*do not run `mvn` at the root*.  The real parent POM is
+`maven/modelio-parent/pom.xml` (version 6.2.0-SNAPSHOT).
+
+== Requirements
+
+[cols="1,1,3",options="header"]
+|===
+|Tool |Version |Notes
+|JDK |21 |`maven.compiler.release` is 21.  Any JDK 21 works (Temurin, MacPorts `openjdk21`, ...).
+|Maven |>= 3.9 |Tycho 4.0.13 needs Maven 3.9.  MacPorts: `port install maven39`.
+|Network | |First build downloads Tycho and some artifacts from Maven Central and https://repository.modelio.org.  Everything else (Eclipse RCP, SWT, third-party bundles, JRE) is vendored as p2 repositories under `dev-platform/`.
+|Eclipse | |*Not needed* for the command-line build.
+|===
+
+== Quick start
+
+[source,bash]
+----
+./build-modelio.sh                 # native platform (macOS -> mac, Linux -> linux)
+./build-modelio.sh -p all          # official release packaging: linux + windows
+./build-modelio.sh -p mac -m       # macOS + the ExtensionsForModelio modules
+./build-modelio.sh -M              # only the modules
+./build-modelio.sh --help
+----
+
+Maven logs go to `build-logs/`.  A full build takes about 6 minutes
+the first time (downloads included), 1 to 2 minutes afterwards.
+
+== What the script does
+
+`build-modelio.sh` checks for JDK 21 and Maven >= 3.9, then runs the
+equivalent of:
+
+[source,bash]
+----
+export ECLIPSE_WS="$PWD"      # the repository root; the parent POM resolves
+                              # every dev-platform p2 repository from it
+cd maven/aggregators/opensource
+mvn -B -P <profiles> clean install -Dmaven.test.skip=true
+----
+
+The `ECLIPSE_WS` variable is mandatory: `maven/modelio-parent/pom.xml`
+uses it to locate all the p2 repositories under `dev-platform/`.
+
+The aggregator builds, in order: `modelio-parent`, the target platform
+(`dev-platform/rcp-target`), the ~170 plugins under `modelio/`, the
+documentation plugins under `doc/`, the features under
+`features/opensource`, and the product under `products/opensource`.
+
+The `-p` option picks the Maven profiles:
+
+[cols="1,2,3",options="header"]
+|===
+|`-p` |Profiles |Result in `products/opensource/target/products/`
+|`all` |`package.all` |`org.modelio.product-linux.gtk.x86_64.tar.gz` and `org.modelio.product-win32.win32.x86_64.zip`, with a bundled Temurin JRE 21.  This is what upstream releases.
+|`linux` |`product.org,platform.linux` |linux tarball only
+|`win` |`product.org,platform.win` |windows zip only
+|`mac` |`platform.mac` |`org.modelio.product-macosx.cocoa.aarch64.tar.gz`, containing `Modelio.app` for Apple Silicon (see below)
+|===
+
+The unpacked product is also left in
+`products/opensource/target/products/org.modelio.product/<os>/<ws>/<arch>/`.
+Note that the next `clean` deletes `target/`, so copy the archives
+elsewhere if you want to keep them.
+
+== macOS (Apple Silicon) build
+
+Upstream only builds linux and windows distributions.  This checkout
+adds a macOS/aarch64 build:
+
+* `maven/modelio-parent/pom.xml`: profile `platform.mac`, which sets the
+  Tycho target environment to `macosx/cocoa/aarch64`.
+* `products/opensource/pom.xml`: profile `platform.mac`, which
+  materializes the product as a `Modelio.app` bundle.
+* `features/opensource/org.modelio.e4.rcp/feature.xml`: includes the
+  `org.eclipse.swt.cocoa.macosx.aarch64` fragment, next to the existing
+  x86_64 one.
+* `dev-platform/rcp-target/org.eclipse/swt`: the vendored SWT p2
+  repository gets that fragment, version 3.133.0.v20260225-1014 (the
+  same SWT version as the other platforms), taken from the Eclipse 4.39
+  release repository
+  (`https://download.eclipse.org/eclipse/updates/4.39/R-4.39-202602260420`).
+  Its `content.xml` and `artifacts.xml` entries are copied from the
+  x86_64 ones, with the arch, size and checksums adjusted.
+
+None of this affects the linux and windows builds.
+
+To install and run:
+
+[source,bash]
+----
+tar -xzf products/opensource/target/products/org.modelio.product-macosx.cocoa.aarch64.tar.gz -C /Applications
+open /Applications/Modelio.app
+# or, to see the log:  /Applications/Modelio.app/Contents/MacOS/modelio -consoleLog
+----
+
+Limitations of the macOS build:
+
+* No JRE is bundled (upstream's `net.adoptium.temurin.jre.feature` has
+  only linux and windows payloads).  The launcher uses the JDK 21
+  found by `/usr/libexec/java_home`.
+* The app is not signed.  When you copy it from another machine, remove
+  the quarantine flag with
+  `xattr -dr com.apple.quarantine /Applications/Modelio.app`.
+* At startup the log shows `Could not resolve module: com.sun.jna`.
+  The vendored JNA 4.5.1 has no darwin-aarch64 native library.  JNA
+  5.14 (also shipped) does, and no Modelio plugin imports JNA directly.
+* Modelio keeps its runtime data in `~/.modelio/6.2/` and its default
+  workspace in `~/modelio/workspace`, like the official builds.
+
+== Modules (ExtensionsForModelio)
+
+The open-source modules (JavaDesigner, SysMLArchitect, TogafArchitect)
+are in the separate repository
+https://github.com/ModelioOpenSource/ExtensionsForModelio[ExtensionsForModelio].
+They are plain Maven projects (no Tycho).  They compile against the
+`MDAKit` API and use the `modelio-maven-plugin`, both downloaded from
+https://repository.modelio.org.  So they don't need the Modelio build.
+
+`build-modelio.sh -m` (or `-M` for modules only) expects that
+repository next to this one (`../ExtensionsForModelio`, or use
+`--extensions DIR`) and runs, for each module:
+
+[source,bash]
+----
+cd ExtensionsForModelio/<Module>/aggregator
+mvn -B clean install -Dmaven.test.skip=true
+----
+
+Each aggregator builds the module's documentation plugin
+(`src/main/doc`) and then the module.  The result is a `.jmdac` file:
+
+----
+ExtensionsForModelio/JavaDesigner/target/JavaDesigner_6.2.00.jmdac
+ExtensionsForModelio/SysMLArchitect/target/SysMLArchitect_6.2.00.jmdac
+ExtensionsForModelio/TogafArchitect/target/TogafArchitect_6.2.00.jmdac
+----
+
+To use one, add it to the module catalog (_Configuration > Modules
+catalog_ > _Add a module to the catalog_), then deploy it in a project
+from the project configurator's _Modules_ tab.
+
+== Building inside Eclipse (optional)
+
+To develop or debug, follow the wiki's
+https://github.com/ModelioOpenSource/Modelio/wiki/Compile_modelio[Compile_modelio]
+page with a current Eclipse (an Eclipse IDE for RCP and RAP Developers,
+running on JDK 21):
+
+. Use the repository root as the workspace and import all projects
+  (_File > Import > General > Existing Projects into Workspace_).
+. Open `dev-platform/rcp-target/rcp.target` and click _Set as Target
+  Platform_.
+. Build, then launch `products/opensource/modelio-os.product`.
