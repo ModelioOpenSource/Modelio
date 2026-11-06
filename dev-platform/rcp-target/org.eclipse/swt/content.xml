@@ -5,7 +5,7 @@
     <property name='p2.timestamp' value='1777017519117'/>
     <property name='p2.compressed' value='false'/>
   </properties>
-  <units size='7'>
+  <units size='8'>
     <unit id='org.eclipse.swt' version='3.133.0.v20260225-1014' generation='2'>
       <update id='org.eclipse.swt' range='[0.0.0,3.133.0.v20260225-1014)' severity='0'/>
       <properties size='5'>
@@ -152,6 +152,61 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.swt.cocoa.macosx.x86_64; singleton:=true&#xA;Bundle-Version: 3.133.0.v20260225-1014&#xA;Fragment-Host: org.eclipse.swt;bundle-version=&quot;[3.128.0,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'>
+      <update id='org.eclipse.swt.cocoa.macosx.aarch64' range='[0.0.0,3.133.0.v20260225-1014)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.fragmentName' value='Standard Widget Toolkit for Mac OS X (Cocoa) on aarch64'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%fragmentName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='fragment'/>
+      </properties>
+      <provides size='22'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'/>
+        <provided namespace='java.package' name='org.eclipse.swt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.accessibility' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.awt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.browser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.custom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.dnd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.events' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.graphics' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.opengl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.printing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.program' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.widgets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.internal.image' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.swt.internal.cocoa' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.eclipse.swt' version='3.133.0.v20260225-1014'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.eclipse.swt' range='[3.128.0,4.0.0)'/>
+      </requires>
+      <filter>
+        (&amp;(osgi.arch=aarch64)(osgi.os=macosx)(osgi.ws=cocoa))
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.swt.cocoa.macosx.aarch64; singleton:=true&#xA;Bundle-Version: 3.133.0.v20260225-1014&#xA;Fragment-Host: org.eclipse.swt;bundle-version=&quot;[3.128.0,4.0.0)&quot;&#xA;
           </instruction>
         </instructions>
       </touchpointData>

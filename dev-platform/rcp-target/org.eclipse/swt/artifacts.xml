@@ -10,7 +10,7 @@
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='7'>
+  <artifacts size='8'>
     <artifact classifier='osgi.bundle' id='org.eclipse.swt.gtk.linux.x86_64.source' version='3.133.0.v20260225-1014'>
       <properties size='5'>
         <property name='artifact.size' value='1979008'/>
@@ -36,6 +36,15 @@
         <property name='download.md5' value='25419f33accb314c10ea4a8c43809720'/>
         <property name='download.checksum.md5' value='25419f33accb314c10ea4a8c43809720'/>
         <property name='download.checksum.sha-256' value='228b894621166ffe6fd02448dd4b9d1bf106cc266701614896362af7c1783653'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.swt.cocoa.macosx.aarch64' version='3.133.0.v20260225-1014'>
+      <properties size='5'>
+        <property name='artifact.size' value='2772403'/>
+        <property name='download.size' value='2772403'/>
+        <property name='download.md5' value='7aa803f9d5c7e0bd8c58dc7a9ae2f8f3'/>
+        <property name='download.checksum.md5' value='7aa803f9d5c7e0bd8c58dc7a9ae2f8f3'/>
+        <property name='download.checksum.sha-256' value='1399113703aefe67ff367f115af1485b7f8f431ea2c1bef8f75715a8e2522f84'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.swt.gtk.linux.x86_64' version='3.133.0.v20260225-1014'>

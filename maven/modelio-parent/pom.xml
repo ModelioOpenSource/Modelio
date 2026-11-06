@@ -491,6 +491,28 @@
 			</properties>
 		</profile>
 
+		<profile>
+			<!-- The platform.mac profile builds Modelio for macOS on Apple Silicon
+			     (macosx/cocoa/aarch64) instead of linux and win32. -->
+			<id>platform.mac</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<environments combine.self="override">
+								<environment>
+									<os>macosx</os> <ws>cocoa</ws> <arch>aarch64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>
