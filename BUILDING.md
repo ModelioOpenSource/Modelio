@@ -40,6 +40,37 @@ workaround described in [Tycho issue #6399](https://github.com/eclipse-tycho/tyc
 
 ## Run
 
+### Scripts de limpieza y arranque (macOS Apple Silicon)
+
+Desde la raíz del repositorio:
+
+```sh
+./scripts/clean.sh --dry-run       # Consultar carpetas y tamaños sin borrar
+./scripts/clean.sh                 # Borrar compilaciones, dependencias y temporales locales
+./scripts/clean.sh --runtime-cache # Incluir también la caché OSGi del usuario
+./scripts/run.sh                   # Compilar si hace falta y ejecutar
+./scripts/run.sh --rebuild         # Recompilar después de modificar el código
+```
+
+Los scripts funcionan también desde otro directorio. Cierra Modelio y espera a
+que termine cualquier compilación antes de limpiar. La limpieza conserva los
+directorios que contienen archivos versionados, las bibliotecas de
+`dev-platform`, los proyectos, las preferencias y la aplicación instalada en
+`~/Applications`. No borra la caché compartida `~/.m2` ni temporales del sistema.
+
+El arranque necesita JDK 27 ARM64 y, para compilar, Maven 3.9.9 o posterior e
+Internet. Usa `JAVA_HOME` si está definido; de lo contrario busca JDK 27 en macOS
+y después en Homebrew. Maven descarga automáticamente las dependencias que
+falten en `.cache/modelio/maven`; los temporales se guardan en `.cache/modelio/tmp`.
+La primera ejecución compila y registra que terminó correctamente; las siguientes
+reutilizan ese producto. Tras una limpieza o una compilación fallida vuelve a
+compilar. Para incorporar cambios de código usa `--rebuild`.
+
+Ejecuta el producto del repositorio directamente, sin instalarlo. Puedes pasar
+argumentos de Modelio, por ejemplo `./scripts/run.sh -- -consoleLog` o
+`./scripts/run.sh -- -workspace /ruta/a/proyectos`. Conserva las ubicaciones
+habituales de datos si no especificas otras.
+
 ### Install, update or uninstall on macOS
 
 After building, quit Modelio and run:
