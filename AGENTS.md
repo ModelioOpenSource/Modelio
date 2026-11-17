@@ -39,6 +39,39 @@ Cambios ya fusionados en `master`:
   - En Eclipse IDE hay que definirla **antes** de abrir el IDE; si no, la target
     platform no resuelve.
 
+## Desarrollar y ejecutar desde Eclipse
+
+> **Agentes: avisa siempre al usuario** de estos requisitos antes de que abra
+> Eclipse o cuando reporte errores de target platform, proyectos que faltan o un
+> `.project` en la raíz del repo. No los apliques en silencio: díselos.
+
+1. **Workspace de Eclipse fuera del repositorio**, en una carpeta hermana:
+   - Repo: `C:/Proyectos/Modelio` → workspace: `C:/Proyectos/Modelio-ws`
+     (en Mac/Linux, `~/Proyectos/Modelio` → `~/Proyectos/Modelio-ws`).
+   - **No** uses la raíz del repo como workspace ni importes la raíz como un único
+     proyecto: deja `.metadata` y un `.project` raíz dentro de git (ya ocurrió).
+2. **Define `ECLIPSE_WS` con la raíz del repo antes de abrir Eclipse.** El IDE solo
+   lee variables de entorno al arrancar:
+   - Windows: variable de usuario `ECLIPSE_WS=C:/Proyectos/Modelio` y reinicia
+     Eclipse.
+   - macOS: las apps lanzadas desde Finder no heredan la shell; usa
+     `launchctl setenv ECLIPSE_WS "$HOME/Proyectos/Modelio"` o abre Eclipse desde
+     una terminal con la variable exportada.
+   - Linux: expórtala en el perfil de sesión o lanza Eclipse desde la terminal.
+3. Ejecuta Eclipse con **JDK 27** y declara un JRE "JavaSE-21" o superior en
+   *Preferences → Java → Installed JREs* (el código compila a nivel 21).
+4. *File → Import → Existing Projects into Workspace*, raíz = carpeta del repo,
+   con **"Search for nested projects"** activado y **sin** "Copy projects into
+   workspace". Como mínimo importa `dev-platform/rcp-target`,
+   `dev-platform/test-resources`, `dev-platform/pack-resources` y los proyectos de
+   `modelio/` que vayas a tocar. No importes un proyecto para la raíz del repo.
+5. Abre `dev-platform/rcp-target/rcp.target` y pulsa **Set as Active Target
+   Platform**. Si falla al resolver rutas `${env_var:ECLIPSE_WS}/...`, la variable
+   no llegó a Eclipse (paso 2).
+6. Lanza el producto desde `products/opensource/modelio-os.product` (*Launch an
+   Eclipse application*) o con una configuración de ejecución. Añade
+   `-consoleLog` y usa un `-workspace` de Modelio de pruebas separado.
+
 ## Compilar y probar por plataforma
 
 Siempre usa el agregador `maven/aggregators/opensource/pom.xml`, no el `pom.xml`
