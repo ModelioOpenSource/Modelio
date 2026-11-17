@@ -82,7 +82,6 @@
       <feature id="org.modelio.platform.feature"/>
       <feature id="org.modelio.platform.libraries"/>
       <feature id="org.modelio.documentation.modeler.nl_fr.feature"/>
-      <feature id="net.adoptium.temurin.jre.feature" installMode="root"/>
       <feature id="org.modelio.formalism.archimate"/>
    </features>
 
