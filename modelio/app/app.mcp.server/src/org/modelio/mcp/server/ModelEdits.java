@@ -202,6 +202,8 @@ class ModelEdits {
             s.put("owned_elements_deleted", countDescendants(obj));
             deleted.add(s);
         }
+        // Remove them from the diagrams that show them first, so no "missing" graphics are left behind.
+        this.queries.diagrams().unmaskFromOtherDiagrams(toDelete);
         return inTransaction("delete " + toDelete.size() + " element(s)", () -> {
             for (MObject obj : toDelete) {
                 obj.delete();

@@ -48,6 +48,8 @@ final class McpTools {
 
     static final String ALIGN_IN_DIAGRAM = "align_in_diagram";
 
+    static final String REMOVE_FROM_DIAGRAM = "remove_from_diagram";
+
     private McpTools() {
     }
 
@@ -130,31 +132,40 @@ final class McpTools {
         writable(t, false);
 
         t = tool(tools, DELETE_ELEMENTS,
-                "Delete elements from the model in one undoable Modelio transaction. Owned elements are deleted with their owner, "
-                        + "and relationships/diagram references pointing to them are cleaned up by Modelio. Fragment roots cannot be deleted.");
+                "Delete elements from the model (undoable in Modelio). Owned elements are deleted with their owner; their graphics are first removed "
+                        + "from the other diagrams showing them (e.g. a view's thumbnail in a viewpoint diagram), and relationships pointing to them "
+                        + "are cleaned up by Modelio. Fragment roots cannot be deleted.");
         prop(t, "ids", "array", "UUIDs of the elements to delete.");
         required(t, "ids");
         writable(t, true);
 
         t = tool(tools, GET_DIAGRAM_CONTENTS,
-                "List what a diagram (ArchimateView, ClassDiagram, any AbstractDiagram...) actually draws: its nodes with bounds and parent, and its links.");
+                "List what a diagram (ArchimateView, ClassDiagram, any AbstractDiagram...) actually draws: its nodes with bounds (diagram coordinates) and parent, and its links. "
+                        + "Graphics whose element no longer exists are flagged \"missing\": true (remove them with remove_from_diagram).");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
         required(t, "diagram_id");
 
         t = tool(tools, ADD_TO_DIAGRAM,
                 "Draw (unmask) existing model elements in a diagram, in one undoable Modelio transaction. This is how an element is shown in an ArchimateView "
                         + "or any other diagram; setting model references such as 'Represented' does not draw anything. "
-                        + "Elements already drawn are skipped. Relationships are drawn when both ends are already shown.");
+                        + "Elements already drawn are skipped. Coordinates are diagram coordinates (independent of the editor zoom). "
+                        + "A node is never dropped inside another one unless 'parent_id' asks for it: an occupied spot is replaced by the next free one to its right. "
+                        + "By default the relationships between the drawn elements and those already shown are drawn too; "
+                        + "relationships given in element_ids are drawn when both ends are shown.");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
-        prop(t, "element_ids", "array", "UUIDs of the elements to draw.");
+        prop(t, "element_ids", "array", "UUIDs of the elements (or relationships) to draw.");
         prop(t, "x", "integer", "X of the first element (default 50); following elements are placed to its right.");
         prop(t, "y", "integer", "Y of the elements (default: below the current diagram content).");
+        prop(t, "width", "integer", "Width to give each drawn node (default: Modelio's default size).");
+        prop(t, "height", "integer", "Height to give each drawn node (default: Modelio's default size).");
+        prop(t, "parent_id", "string", "UUID of an element already drawn as a container node (Grouping, Location, Node...) to draw inside; x and y are then relative to its top-left corner.");
+        prop(t, "with_relationships", "boolean", "Also draw the relationships linking the new elements to elements already shown (default true).");
         required(t, "diagram_id", "element_ids");
         writable(t, false);
 
         t = tool(tools, MOVE_IN_DIAGRAM,
                 "Move and/or resize nodes already drawn in a diagram, in one undoable Modelio transaction. "
-                        + "Omitted coordinates keep their current value. Links follow their ends.");
+                        + "Coordinates are diagram coordinates (independent of the editor zoom); omitted ones keep their current value. Links follow their ends.");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
         prop(t, "moves", "array", "[{\"element_id\": \"<uuid>\", \"x\": 100, \"y\": 50, \"width\": 120, \"height\": 60}] (x, y, width, height optional).");
         objectItems(t, "moves");
@@ -173,6 +184,15 @@ final class McpTools {
         prop(t, "spacing", "integer", "Gap in pixels between consecutive nodes when distributing (default: keep the first and last node in place and make gaps equal).");
         prop(t, "anchor_id", "string", "UUID of the node the others align on (default: the first of element_ids).");
         required(t, "diagram_id", "element_ids");
+        writable(t, false);
+
+        t = tool(tools, REMOVE_FROM_DIAGRAM,
+                "Remove (mask) graphics from a diagram without deleting any model element, in one undoable Modelio transaction. "
+                        + "With missing=true, also remove the graphics whose element no longer exists (shown as <<missing>>).");
+        prop(t, "diagram_id", "string", "UUID of the diagram.");
+        prop(t, "element_ids", "array", "UUIDs of the elements whose graphics are removed from the diagram.");
+        prop(t, "missing", "boolean", "Remove every graphic of the diagram that draws a missing element (default false).");
+        required(t, "diagram_id");
         writable(t, false);
         return tools;
     }

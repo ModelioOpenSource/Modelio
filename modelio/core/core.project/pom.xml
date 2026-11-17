@@ -36,7 +36,7 @@
 					<source>${tycho.compiler.source}</source>
 					<target>${tycho.compiler.target}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<useJDK>BREE</useJDK>
+					<useJDK>SYSTEM</useJDK>
 					<extraClasspathElements>
 						<extraClasspathElement>
 							<groupId>org.modelio</groupId>
