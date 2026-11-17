@@ -15,7 +15,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
-		<tycho-version>4.0.13</tycho-version>
+		<tycho-version>5.0.4</tycho-version>
 
 		<!-- to convert Asciidoc to html files-->
 		<html.directory>html</html.directory>
