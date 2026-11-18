@@ -13,7 +13,7 @@ cuál está vigente y actualiza ambos.
 | Plataforma | Compila | Probado | Notas |
 |---|---|---|---|
 | macOS aarch64 | Sí, según BUILDING.md | `scripts/run.sh` / `install-macos.sh` | Re-validar tras los cambios de esta guía |
-| Windows x86_64 | Sí, en dos pasadas (ver abajo) | Instalado y ejecutado con JDK 27.0.1 | Documentación generada con JDK 21 |
+| Windows x86_64 | Sí | Instalado y ejecutado con JDK 27.0.1 | Documentación compila con JDK 27 desde asciidoctor 2.2.6 |
 | Linux x86_64 | Sin probar | Sin probar | Perfil `platform.linux` existe |
 
 Cambios ya fusionados en `master`:
@@ -138,9 +138,8 @@ macOS/Linux:
    *"URI has an authority component"*). Pasar
    `-Dmodelio.ws.path=/C:/ruta/al/repo` → `file:///C:/...`. `ECLIPSE_WS` se queda
    como `C:/ruta/al/repo` (lo usa `rcp.target`).
-3. La documentación no compila con JDK 27 (ver pendientes). Se compila en dos
-   pasadas: JDK 27 con `clean install` hasta que falla en la documentación, y
-   JDK 21 con `install -rf :org.modelio.documentation.modeliomodeler`.
+3. La documentación compila con JDK 27 desde que `asciidoctor.version` es 2.2.6
+   (antes 1.5.7.1 obligaba a una segunda pasada con JDK 21).
 4. **Usar `install`, no `verify`**. Con `-rf` los módulos anteriores salen del
    reactor y Tycho los toma de `~/.m2`; si allí hay una versión anterior, el
    producto se arma con bundles viejos (pasó con `org.modelio.app.ui`).
@@ -152,10 +151,7 @@ $env:ECLIPSE_WS = 'C:/Proyectos/Modelio'
 $common = '-B','-ntp','-f','maven/aggregators/opensource/pom.xml','-Pproduct.org,platform.win','-Dmodelio.ws.path=/C:/Proyectos/Modelio'
 
 $env:JAVA_HOME = 'C:\Program Files\Eclipse Adoptium\jdk-27.0.1.0-hotspot'
-mvn @common clean install          # falla en org.modelio.documentation.modeliomodeler
-
-$env:JAVA_HOME = 'C:\Program Files\Java\jdk-21.0.11'
-mvn @common install -rf :org.modelio.documentation.modeliomodeler
+mvn @common clean install
 ```
 
 Instalación local usada: copiar el producto a
@@ -183,8 +179,9 @@ seguir viva tras cerrar `modelio.exe` y bloquea los DLL del launcher.
 - **JRE embebido retirado a propósito** con la migración a JDK 27
   (`feature/upgrade-jdk27`): no restaurar `net.adoptium.temurin.jre.feature`
   (Temurin 21) del `.product`.
-- **asciidoctor-maven-plugin 1.5.7.1 + JRuby 9.1.17.0 falla con JDK 27 en
-  Windows**: `ClassCastException ... ValueLayouts$OfIntImpl cannot be cast to
+- **asciidoctor-maven-plugin 1.5.7.1 + JRuby 9.1.17.0 fallaba con JDK 27 en
+  Windows** (resuelto migrando a 2.2.6, AsciidoctorJ 2.5 / JRuby 9.4; se quitó
+  `<compact>` de los 27 poms porque ya no existe): `ClassCastException ... ValueLayouts$OfIntImpl cannot be cast to
   ValueLayout$OfLong` (FFI; en Windows `long` es de 32 bits) o
   `ExceptionInInitializerError`. Forzar `jruby-complete` 9.2.21.0 o 9.4.12.0 vía
   `pluginManagement` **no sirve**: asciidoctorj 1.5.7 llama a
@@ -198,16 +195,10 @@ seguir viva tras cerrar `modelio.exe` y bloquea los DLL del launcher.
 
 ## Tareas pendientes
 
-1. **`org.modelio.documentation.modeliomodeler` y el resto de `doc/plugins`**
-   (42 módulos con asciidoctor):
-   - Confirmar si falla también en macOS y Linux con JDK 27, o solo en Windows.
-   - Migrar `asciidoctor-maven-plugin` 1.5.7.1 → 2.2.x / 3.x (AsciidoctorJ 2.5+,
-     JRuby 9.4) en `doc/parent/pom.xml` (`asciidoctor.version`) y revisar la
-     configuración de cada `doc/plugins/*/*/pom.xml`: el parámetro `compact` ya no
-     existe y pueden cambiar otros atributos.
-   - Comparar el HTML generado antes y después (por ejemplo, con la salida de la
-     pasada JDK 21).
-   - Objetivo: compilar todo el reactor con JDK 27 en una sola pasada.
+1. **Documentación con asciidoctor 2.2.6**: compila con JDK 27 en Windows.
+   Pendiente: comparar el HTML con el generado por 1.5.7.1 y confirmar en
+   macOS/Linux. Asciidoctor 2.x avisa "stylesheet does not exist" por cada
+   página (inofensivo: `linkcss` enlaza `./modeliosoft.css`, que copia antrun).
 2. **Validar macOS** con los cambios de `rcp.target` y About (pasos arriba).
 3. **Probar Linux** de punta a punta y documentar el resultado aquí.
 4. **`package.all`**: decidir si debe incluir Linux y Windows además de Mac, o
