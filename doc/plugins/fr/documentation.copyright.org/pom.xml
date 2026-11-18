@@ -49,7 +49,6 @@
 						</goals>
 						<configuration>
 							<headerFooter>true</headerFooter>
-							<compact>true</compact>
 							<sourceDirectory>${nlfr.directory}/${adoc.directory}</sourceDirectory>
 							<outputDirectory>${nlfr.directory}/${html.directory}</outputDirectory>
 							<preserveDirectories>true</preserveDirectories>

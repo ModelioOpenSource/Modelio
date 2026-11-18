@@ -22,7 +22,7 @@
 		<adoc.directory>adoc</adoc.directory>
 		<nlfr.directory>nl/fr</nlfr.directory>
 		<css.path>../../modeliosoft.css</css.path>
-		<asciidoctor.version>1.5.7.1</asciidoctor.version>
+		<asciidoctor.version>2.2.6</asciidoctor.version>
 		<phase.generate-documentation>package</phase.generate-documentation>
 
 	</properties>
