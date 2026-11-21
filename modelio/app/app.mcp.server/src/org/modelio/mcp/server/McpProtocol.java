@@ -128,7 +128,7 @@ public class McpProtocol {
         result.put("instructions",
                 "Access to the model currently opened in the running Modelio application. "
                         + "Start with get_project_info, then browse with list_children/get_element or search with find_elements. "
-                        + "Elements are identified by their Modelio UUID. "
+                        + "Elements are identified by their Modelio UUID. Use get_diagram_image with a diagram UUID to inspect its current appearance. "
                         + "create_element, update_element and delete_elements modify the model; each call is one Modelio transaction "
                         + "that the user can undo in Modelio (Edit > Undo). Changes are saved when the user saves the project.");
         return result;
@@ -142,21 +142,29 @@ public class McpProtocol {
         }
         ObjectNode result = this.mapper.createObjectNode();
         ArrayNode content = result.putArray("content");
-        ObjectNode text = content.addObject();
-        text.put("type", "text");
         try {
-            JsonNode value = this.queries.call(name, args);
-            text.put("text", this.mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value));
+            if (McpTools.GET_DIAGRAM_IMAGE.equals(name)) {
+                content.add(this.queries.getDiagramImage(args));
+            } else {
+                JsonNode value = this.queries.call(name, args);
+                addText(content, this.mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value));
+            }
             result.put("isError", false);
         } catch (ToolException e) {
-            text.put("text", e.getMessage());
+            addText(content, e.getMessage());
             result.put("isError", true);
         } catch (Exception e) {
             McpPlugin.LOG.error(e);
-            text.put("text", "Error: " + e);
+            addText(content, "Error: " + e);
             result.put("isError", true);
         }
         return result;
+    }
+
+    private static void addText(ArrayNode content, String value) {
+        ObjectNode text = content.addObject();
+        text.put("type", "text");
+        text.put("text", value);
     }
 
     private ObjectNode error(JsonNode id, int code, String message) {

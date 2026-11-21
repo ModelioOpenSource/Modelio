@@ -44,6 +44,7 @@ import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.platform.project.services.IProjectService;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MAttribute;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -140,6 +141,10 @@ public class ModelQueries {
                 throw new ToolException("Unknown tool: " + tool);
             }
         });
+    }
+
+    JsonNode getDiagramImage(JsonNode args) {
+        return runInUi(() -> this.diagrams.getDiagramImage(args));
     }
 
     private JsonNode runInUi(Supplier<JsonNode> task) {
@@ -252,6 +257,10 @@ public class ModelQueries {
         }
         r.put("modifiable", obj.isModifiable());
         r.set("owner_path", ownerPath(obj));
+        if (obj instanceof AssociationEnd end && end.getOpposite() != null && end.getOpposite().getOwner() != null) {
+            // Non-navigable roles have no Target reference but still describe the opposite participant.
+            r.put("participant_id", end.getOpposite().getOwner().getUuid());
+        }
 
         ObjectNode attrs = r.putObject("attributes");
         for (MAttribute att : obj.getMClass().getAttributes(true)) {
