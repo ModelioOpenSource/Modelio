@@ -432,13 +432,8 @@ public class GmAssociation extends GmLink {
 
         if (this.sourceRole != null) {
             this.oppositeRole = this.sourceRole.getOpposite();
-            if (this.oppositeRole != null) {
-                this.fromAggregation = this.oppositeRole.getAggregation();
-            } else {
-                this.fromAggregation = AggregationKind.KINDISASSOCIATION;
-            }
-
-            this.toAggregation = this.sourceRole.getAggregation();
+            this.fromAggregation = this.sourceRole.getAggregation();
+            this.toAggregation = this.oppositeRole != null ? this.oppositeRole.getAggregation() : AggregationKind.KINDISASSOCIATION;
 
         } else {
             this.oppositeRole = null;

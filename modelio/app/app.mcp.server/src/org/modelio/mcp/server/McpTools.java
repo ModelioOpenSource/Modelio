@@ -40,6 +40,7 @@ final class McpTools {
 
     static final String DELETE_ELEMENTS = "delete_elements";
 
+    static final String GET_DIAGRAM_IMAGE = "get_diagram_image";
     static final String GET_DIAGRAM_CONTENTS = "get_diagram_contents";
 
     static final String ADD_TO_DIAGRAM = "add_to_diagram";
@@ -104,6 +105,9 @@ final class McpTools {
 
         t = tool(tools, CREATE_ELEMENT,
                 "Create a model element (or a relationship) in the opened project, in one undoable Modelio transaction. "
+                        + "To create a UML association between classes or between an actor and a use case, use 'Standard.Association' with source_id and target_id. "
+                        + "Omit owner_id and dependency for UML associations. Set multiplicities with source_multiplicity and target_multiplicity. "
+                        + "Pass its returned element ID to add_to_diagram once both participants are shown. "
                         + "For a relationship metaclass (e.g. 'Archimate.Serving', 'Standard.Dependency') give source_id and target_id; its owner defaults to the source. "
                         + "The composition relation from the owner is chosen automatically unless 'dependency' is given. "
                         + "The element is not drawn in any diagram: use add_to_diagram for that.");
@@ -113,6 +117,9 @@ final class McpTools {
         prop(t, "dependency", "string", "Composition relation of the owner that will hold the element (default: chosen by the metamodel).");
         prop(t, "source_id", "string", "Relationships only: UUID of the source element.");
         prop(t, "target_id", "string", "Relationships only: UUID of the target element.");
+        prop(t, "source_multiplicity", "string", "UML association multiplicity at the source participant, e.g. '1'.");
+        prop(t, "target_multiplicity", "string", "UML association multiplicity at the target participant, e.g. '1..*'.");
+        prop(t, "composition", "boolean", "UML association only. True makes the source the whole (filled diamond) and the target the part. Source multiplicity defaults to '1' for compositions.");
         editProps(t);
         prop(t, "stereotypes", "array", "Stereotypes to apply, by name or 'Module:Name'.");
         required(t, "metaclass");
@@ -138,6 +145,14 @@ final class McpTools {
         prop(t, "ids", "array", "UUIDs of the elements to delete.");
         required(t, "ids");
         writable(t, true);
+
+        t = tool(tools, GET_DIAGRAM_IMAGE,
+                "Render the whole current diagram as a PNG image, including changes made since the last project save. "
+                        + "Use this to visually inspect layout, labels and links before or after diagram edits. "
+                        + "The tool returns an MCP image. Use get_diagram_contents for element IDs and coordinates.");
+        prop(t, "diagram_id", "string", "UUID of the diagram to render.");
+        prop(t, "max_size", "integer", "Maximum width and height in pixels, from 256 to 4096 (default 2048). Aspect ratio is preserved.");
+        required(t, "diagram_id");
 
         t = tool(tools, GET_DIAGRAM_CONTENTS,
                 "List what a diagram (ArchimateView, ClassDiagram, any AbstractDiagram...) actually draws: its nodes with bounds (diagram coordinates) and parent, and its links. "
@@ -167,8 +182,9 @@ final class McpTools {
                 "Move and/or resize nodes already drawn in a diagram, in one undoable Modelio transaction. "
                         + "Coordinates are diagram coordinates (independent of the editor zoom); omitted ones keep their current value. Links follow their ends.");
         prop(t, "diagram_id", "string", "UUID of the diagram.");
-        prop(t, "moves", "array", "[{\"element_id\": \"<uuid>\", \"x\": 100, \"y\": 50, \"width\": 120, \"height\": 60}] (x, y, width, height optional).");
+        prop(t, "moves", "array", "[{\"element_id\": \"<uuid>\", \"x\": 100, \"y\": 50, \"width\": 120, \"height\": 60}] (x, y, width, height and label_width optional). label_width resizes a separate name label, such as an actor label, using the node element_id.");
         objectItems(t, "moves");
+        prop(t, "reset_routes", "boolean", "Recalculate bent connector routes attached to the requested nodes after moving or resizing (default false).");
         required(t, "diagram_id", "moves");
         writable(t, false);
 
@@ -183,6 +199,7 @@ final class McpTools {
         prop(t, "distribute", "string", "One of horizontal, vertical. Optional.");
         prop(t, "spacing", "integer", "Gap in pixels between consecutive nodes when distributing (default: keep the first and last node in place and make gaps equal).");
         prop(t, "anchor_id", "string", "UUID of the node the others align on (default: the first of element_ids).");
+        prop(t, "reset_routes", "boolean", "Recalculate bent connector routes attached to the requested nodes after alignment (default false).");
         required(t, "diagram_id", "element_ids");
         writable(t, false);
 

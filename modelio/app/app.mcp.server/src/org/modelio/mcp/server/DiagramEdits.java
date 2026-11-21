@@ -44,6 +44,8 @@ import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.mcp.server.McpProtocol.ToolException;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.metamodel.uml.statik.Association;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.transactions.ITransaction;
 import org.modelio.vcore.smkernel.mapi.MDependency;
@@ -82,6 +84,29 @@ class DiagramEdits {
 
     // ------------------------------------------------------------------ tools
 
+    JsonNode getDiagramImage(JsonNode args) {
+        AbstractDiagram diagram = requireDiagram(args);
+        JsonNode size = args.path("max_size");
+        int maxSize = size.asInt(2048);
+        if (!size.isMissingNode() && (!size.isIntegralNumber() || !size.canConvertToInt() || maxSize < 256 || maxSize > 4096)) {
+            throw new ToolException("'max_size' must be an integer between 256 and 4096.");
+        }
+        try (IDiagramHandle dh = diagramService().getDiagramHandle(diagram)) {
+            if (!(dh instanceof DiagramHandle handle)) {
+                throw new ToolException("The diagram editor does not support image rendering.");
+            }
+            ObjectNode image = this.mapper.createObjectNode();
+            image.put("type", "image");
+            image.put("mimeType", "image/png");
+            image.put("data", handle.renderPng(maxSize));
+            return image;
+        } catch (ToolException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new ToolException("Cannot render diagram " + describe(diagram) + ": " + e);
+        }
+    }
+
     JsonNode getDiagramContents(JsonNode args) {
         AbstractDiagram diagram = requireDiagram(args);
         ObjectNode r = this.mapper.createObjectNode();
@@ -96,6 +121,9 @@ class DiagramEdits {
             }
             for (IDiagramLink l : root.getLinks()) {
                 ObjectNode o = graphic(links, l);
+                if (!o.has("missing") && l.getElement() instanceof AssociationEnd end && end.getAssociation() != null) {
+                    o.put("association_id", end.getAssociation().getUuid());
+                }
                 if (l.getFrom() != null && l.getFrom().getElement() != null) {
                     o.put("from_id", l.getFrom().getElement().getUuid());
                 }
@@ -164,11 +192,16 @@ class DiagramEdits {
                 Set<MObject> nodesAdded = new LinkedHashSet<>();
                 int x = x0;
                 for (MObject el : elements) {
-                    if (!dh.getDiagramGraphics(el).isEmpty()) {
+                    MObject represented = representedElement(el);
+                    if (!elementGraphics(dh, represented).isEmpty()) {
                         skipped.add(reason(el, "already shown in the diagram"));
                         continue;
                     }
                     boolean link = el.getMClass().isLinkMetaclass();
+                    if (represented instanceof Association && !endsShown(dh, represented)) {
+                        skipped.add(reason(el, "both ends must already be shown in the diagram"));
+                        continue;
+                    }
                     int px = ox + x;
                     int py = oy + y0;
                     String shifted = null;
@@ -181,7 +214,7 @@ class DiagramEdits {
                         }
                     }
                     Rectangle drop = coords.toViewer(new Rectangle(px, py, 1, 1));
-                    List<IDiagramGraphic> gs = dh.unmask(el, drop.x, drop.y);
+                    List<IDiagramGraphic> gs = unmask(dh, represented, drop.x, drop.y);
                     if (gs == null || gs.isEmpty()) {
                         skipped.add(reason(el, link ? "both ends must already be shown in the diagram" : "this diagram cannot show it"));
                         continue;
@@ -217,7 +250,7 @@ class DiagramEdits {
                 }
                 if (withRelationships) {
                     for (MObject rel : relationshipsToDraw(dh, nodesAdded)) {
-                        List<IDiagramGraphic> gs = dh.unmask(rel, drop0(coords).x, drop0(coords).y);
+                        List<IDiagramGraphic> gs = unmask(dh, rel, drop0(coords).x, drop0(coords).y);
                         if (gs != null && !gs.isEmpty()) {
                             relAdded.add(this.queries.summary(rel));
                         }
@@ -258,8 +291,9 @@ class DiagramEdits {
                 } catch (RuntimeException e) {
                     continue;
                 }
-                for (MObject link : links) {
-                    if (result.contains(link) || !dh.getDiagramGraphics(link).isEmpty()) {
+                for (MObject related : links) {
+                    MObject link = representedElement(related);
+                    if (result.contains(link) || !elementGraphics(dh, link).isEmpty()) {
                         continue;
                     }
                     if (endsShown(dh, link)) {
@@ -271,7 +305,27 @@ class DiagramEdits {
         return result;
     }
 
+    private static MObject representedElement(MObject element) {
+        if (element instanceof AssociationEnd end && end.getAssociation() != null) {
+            return end.getAssociation();
+        }
+        return element;
+    }
+
+    private static List<IDiagramGraphic> unmask(IDiagramHandle dh, MObject element, int x, int y) {
+        if (element instanceof Association association) {
+            // The editor draws the role, but registers the graphic under the association UUID.
+            dh.unmask(association.getEnd().getFirst(), x, y);
+            return elementGraphics(dh, association);
+        }
+        return dh.unmask(element, x, y);
+    }
+
     private static boolean endsShown(IDiagramHandle dh, MObject link) {
+        if (link instanceof Association association) {
+            return association.getEnd().size() == 2 && association.getEnd().stream()
+                    .allMatch(end -> end.getOwner() != null && !dh.getDiagramGraphics(end.getOwner()).isEmpty());
+        }
         List<MObject> ends = new ArrayList<>();
         for (MDependency d : link.getMClass().getLinkMetaclassSources()) {
             ends.addAll(link.mGet(d));
@@ -337,7 +391,18 @@ class DiagramEdits {
         for (JsonNode m : moves) {
             requested.put(this.queries.requireElement(ModelQueries.requiredText(m, "element_id")), m);
         }
-        return arrange(diagram, "move in", requested.keySet(), (nodes, current) -> {
+        Map<MObject, Integer> labelWidths = new LinkedHashMap<>();
+        requested.forEach((element, move) -> {
+            if (move.has("label_width")) {
+                JsonNode width = move.get("label_width");
+                if (!width.isIntegralNumber() || !width.canConvertToInt() || width.asInt() <= 0) {
+                    throw new ToolException("'label_width' must be a positive integer.");
+                }
+                labelWidths.put(element, width.asInt());
+            }
+        });
+        return arrange(diagram, "move in", requested.keySet(), args.path("reset_routes").asBoolean(false),
+                labelWidths, (nodes, current) -> {
             Map<IDiagramNode, Rectangle> targets = new LinkedHashMap<>();
             for (Map.Entry<MObject, IDiagramNode> e : nodes.entrySet()) {
                 JsonNode m = requested.get(e.getKey());
@@ -375,7 +440,8 @@ class DiagramEdits {
         }
         Integer spacing = args.hasNonNull("spacing") ? args.get("spacing").asInt() : null;
 
-        return arrange(diagram, "align in", elements, (nodes, current) -> {
+        return arrange(diagram, "align in", elements, args.path("reset_routes").asBoolean(false),
+                Map.of(), (nodes, current) -> {
             Map<IDiagramNode, Rectangle> targets = new LinkedHashMap<>();
             for (IDiagramNode n : nodes.values()) {
                 targets.put(n, current.get(n).getCopy());
@@ -420,7 +486,7 @@ class DiagramEdits {
         try (ITransaction t = session.getTransactionSupport().createTransaction("MCP: remove from diagram " + diagram.getName())) {
             try (IDiagramHandle dh = diagramService().getDiagramHandle(diagram)) {
                 for (MObject el : elements) {
-                    List<IDiagramGraphic> gs = new ArrayList<>(dh.getDiagramGraphics(el));
+                    List<IDiagramGraphic> gs = elementGraphics(dh, el);
                     if (gs.isEmpty()) {
                         skipped.add(reason(el, "not shown in the diagram"));
                         continue;
@@ -489,7 +555,7 @@ class DiagramEdits {
             for (Map.Entry<AbstractDiagram, List<MObject>> e : byDiagram.entrySet()) {
                 try (IDiagramHandle dh = diagramService().getDiagramHandle(e.getKey())) {
                     for (MObject o : e.getValue()) {
-                        for (IDiagramGraphic g : new ArrayList<>(dh.getDiagramGraphics(o))) {
+                        for (IDiagramGraphic g : elementGraphics(dh, o)) {
                             dh.mask(g);
                         }
                     }
@@ -503,6 +569,16 @@ class DiagramEdits {
                 McpPlugin.LOG.warning("MCP: cannot unmask elements before deletion: " + e);
             }
         }
+    }
+
+    private static List<IDiagramGraphic> elementGraphics(IDiagramHandle handle, MObject element) {
+        MObject represented = representedElement(element);
+        List<IDiagramGraphic> graphics = handle.getDiagramGraphics(represented);
+        if (represented instanceof Association) {
+            // Only the link represents the association on its own. Its labels follow it.
+            return graphics.stream().filter(IDiagramLink.class::isInstance).toList();
+        }
+        return new ArrayList<>(graphics);
     }
 
     private static void collectSubtree(MObject o, Set<MObject> out) {
@@ -546,9 +622,12 @@ class DiagramEdits {
         GmModel gm = gmModel(g);
         if (gm != null) {
             MRef ref = gm.getRepresentedRef();
-            MObject el = gm.getRepresentedElement();
-            if (ref != null && (el == null || !el.isValid())) {
-                return ref;
+            if (ref != null) {
+                // Labels reference their model element without representing it themselves.
+                MObject el = gm.getDiagram().getModelManager().resolveRef(ref);
+                if (el == null || !el.isValid()) {
+                    return ref;
+                }
             }
         }
         return null;
@@ -590,11 +669,13 @@ class DiagramEdits {
      * transaction and report the resulting bounds.
      */
     private JsonNode arrange(AbstractDiagram diagram, String verb, Collection<MObject> elements,
+            boolean resetRoutes, Map<MObject, Integer> labelWidths,
             BiFunction<Map<MObject, IDiagramNode>, Map<IDiagramNode, Rectangle>, Map<IDiagramNode, Rectangle>> layout) {
         ICoreSession session = this.queries.requireProject().getSession();
         IDiagramService ds = diagramService();
         ArrayNode moved = this.mapper.createArrayNode();
         ArrayNode skipped = this.mapper.createArrayNode();
+        int routesReset = 0;
         try (ITransaction t = session.getTransactionSupport().createTransaction("MCP: " + verb + " diagram " + diagram.getName())) {
             try (IDiagramHandle dh = ds.getDiagramHandle(diagram)) {
                 Coords coords = new Coords(dh);
@@ -644,10 +725,17 @@ class DiagramEdits {
                     Rectangle after = coords.toModel(afterViewer);
                     ObjectNode o = this.queries.summary(e.getKey());
                     putBounds(o, after);
+                    Integer labelWidth = labelWidths.get(e.getKey());
+                    if (labelWidth != null) {
+                        o.put("label_width", resizeLabel(n, labelWidth, coords));
+                    }
                     if (!close(after, target)) {
                         o.put("note", "Modelio adapted the requested bounds " + target.x + "," + target.y + " " + target.width + "x" + target.height);
                     }
                     moved.add(o);
+                }
+                if (resetRoutes) {
+                    routesReset = resetRoutes(nodes.values());
                 }
                 dh.save();
             }
@@ -661,7 +749,40 @@ class DiagramEdits {
         r.set("diagram", this.queries.summary(diagram));
         r.set("nodes", moved);
         r.set("skipped", skipped);
+        if (resetRoutes) {
+            r.put("routes_reset_count", routesReset);
+        }
         return r;
+    }
+
+    private static int resizeLabel(IDiagramNode node, int width, Coords coords) {
+        IDiagramNode label = node.getFirstNode(IDiagramNode.Role.LABEL);
+        Rectangle bounds = label != null ? label.getBounds() : null;
+        if (bounds == null) {
+            throw new ToolException("The node has no visible, separately resizable name label.");
+        }
+        int viewerWidth = coords.toViewer(new Rectangle(0, 0, width, 1)).width;
+        if (!label.setSize(viewerWidth, bounds.height)) {
+            throw new ToolException("Modelio could not resize the name label.");
+        }
+        return coords.toModel(label.getBounds()).width;
+    }
+
+    private static int resetRoutes(Collection<IDiagramNode> nodes) {
+        Set<IDiagramLink> links = new LinkedHashSet<>();
+        for (IDiagramNode node : nodes) {
+            links.addAll(node.getFromLinks());
+            links.addAll(node.getToLinks());
+        }
+        int count = 0;
+        for (IDiagramLink link : links) {
+            if (link.getFrom() instanceof IDiagramNode from && link.getTo() instanceof IDiagramNode to
+                    && !from.equals(to) && link.getRouterKind() != IDiagramLink.LinkRouterKind.DIRECT) {
+                link.buildRoute().setSourceAnchorFaceTarget(true).setTargetAnchorFaceSource(true).apply();
+                count++;
+            }
+        }
+        return count;
     }
 
     /** The node drawing the element, preferring the outermost one (not a label or port). */

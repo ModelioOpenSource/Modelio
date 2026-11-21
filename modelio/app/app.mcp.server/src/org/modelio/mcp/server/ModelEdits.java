@@ -10,10 +10,11 @@
  */
 package org.modelio.mcp.server;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,9 +27,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.modelio.mcp.server.McpProtocol.ToolException;
+import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.metamodel.uml.statik.AggregationKind;
+import org.modelio.metamodel.uml.statik.Association;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
+import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.vcore.model.api.IElementNamer;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -80,7 +86,17 @@ class ModelEdits {
         if (!isLink && (source != null || target != null)) {
             throw new ToolException("'" + cls.getName() + "' is not a relationship metaclass: 'source_id'/'target_id' are not allowed.");
         }
-        if (isLink && !expert.canLink(cls, source, target)) {
+        boolean association = Association.MQNAME.equals(cls.getQualifiedName());
+        boolean associationEnd = AssociationEnd.MQNAME.equals(cls.getQualifiedName());
+        if (!association && !associationEnd && (args.has("source_multiplicity") || args.has("target_multiplicity"))) {
+            throw new ToolException("Multiplicities can only be set on UML associations.");
+        }
+        if (args.has("composition") && (!(association || associationEnd) || !args.get("composition").isBoolean())) {
+            throw new ToolException("'composition' is a boolean option for UML associations.");
+        }
+        boolean composition = args.path("composition").asBoolean(false);
+        MClass linkClass = association ? session.getMetamodel().getMClass(AssociationEnd.class) : cls;
+        if (isLink && !expert.canLink(linkClass, source, target)) {
             throw new ToolException("The metamodel does not allow a '" + cls.getName() + "' from " + describe(source) + " to " + describe(target) + ".");
         }
 
@@ -92,14 +108,45 @@ class ModelEdits {
         } else {
             throw new ToolException("Missing required argument 'owner_id'.");
         }
-        MDependency dep = compositionDependency(expert, owner, cls, args.path("dependency").asText(null));
+        if ((association || associationEnd) && !owner.equals(source)) {
+            throw new ToolException("The owner of a UML association must be its source.");
+        }
+        String dependency = args.path("dependency").asText(null);
+        MDependency dep;
+        if (association || associationEnd) {
+            // OwnedEnd is a shared composition, handled by the UML factory.
+            dep = owner.getMClass().getDependency("OwnedEnd");
+            if (dependency != null && !dependency.isBlank() && !dep.getName().equals(dependency)) {
+                throw new ToolException("A UML association uses the source's 'OwnedEnd' dependency.");
+            }
+        } else {
+            dep = compositionDependency(expert, owner, cls, dependency);
+        }
         if (!owner.isModifiable()) {
             throw new ToolException(describe(owner) + " is not modifiable (read-only fragment or library?).");
         }
 
         return inTransaction("create " + cls.getName(), () -> {
-            MObject obj = newElement(session, cls, owner, dep);
-            if (isLink) {
+            MObject obj;
+            if (association || associationEnd) {
+                IStandardModelFactory factory = MTools.get(session).getModelFactory(IStandardModelFactory.class);
+                Association created = factory.createAssociation((Classifier) source, (Classifier) target, "");
+                AssociationEnd targetEnd = created.getEnd().stream()
+                        .filter(end -> source.equals(end.getSource()) && target.equals(end.getTarget()))
+                        .findFirst().orElseThrow();
+                AssociationEnd sourceEnd = targetEnd.getOpposite();
+                if (composition) {
+                    targetEnd.setAggregation(AggregationKind.KINDISCOMPOSITION);
+                    sourceEnd.setMultiplicityMin("1");
+                    sourceEnd.setMultiplicityMax("1");
+                }
+                setMultiplicity(targetEnd, args.get("target_multiplicity"), "target_multiplicity");
+                setMultiplicity(sourceEnd, args.get("source_multiplicity"), "source_multiplicity");
+                obj = association ? created : targetEnd;
+            } else {
+                obj = newElement(session, cls, owner, dep);
+            }
+            if (isLink && !association && !associationEnd) {
                 setLinkEnd(obj, cls.getLinkMetaclassSources(), source, "source");
                 setLinkEnd(obj, cls.getLinkMetaclassTargets(), target, "target");
             }
@@ -182,9 +229,10 @@ class ModelEdits {
             throw new ToolException("Missing required argument 'ids'.");
         }
 
-        Set<MObject> toDelete = new LinkedHashSet<>();
+        Map<MObject, MObject> toDelete = new LinkedHashMap<>();
         for (String id : ids) {
-            MObject obj = this.queries.requireElement(id);
+            MObject requested = this.queries.requireElement(id);
+            MObject obj = deletionRoot(requested);
             MObject owner = obj.getCompositionOwner();
             if (owner == null) {
                 throw new ToolException(describe(obj) + " is a model fragment root and cannot be deleted.");
@@ -192,21 +240,23 @@ class ModelEdits {
             if (!obj.isModifiable() || !MTools.getAuthTool().canRemoveFrom(obj, owner)) {
                 throw new ToolException(describe(obj) + " cannot be deleted (read-only or protected element).");
             }
-            toDelete.add(obj);
+            toDelete.putIfAbsent(obj, requested);
         }
 
         ArrayNode deleted = this.mapper.createArrayNode();
-        for (MObject obj : toDelete) {
-            ObjectNode s = this.queries.summary(obj);
-            s.put("path", ModelQueries.pathString(obj));
-            s.put("owned_elements_deleted", countDescendants(obj));
+        for (MObject requested : toDelete.values()) {
+            ObjectNode s = this.queries.summary(requested);
+            s.put("path", ModelQueries.pathString(requested));
+            s.put("owned_elements_deleted", countDescendants(requested));
             deleted.add(s);
         }
         // Remove them from the diagrams that show them first, so no "missing" graphics are left behind.
-        this.queries.diagrams().unmaskFromOtherDiagrams(toDelete);
+        this.queries.diagrams().unmaskFromOtherDiagrams(toDelete.keySet());
         return inTransaction("delete " + toDelete.size() + " element(s)", () -> {
-            for (MObject obj : toDelete) {
-                obj.delete();
+            for (MObject obj : toDelete.keySet()) {
+                if (obj.isValid()) {
+                    obj.delete();
+                }
             }
             return deleted;
         }, d -> {
@@ -275,6 +325,23 @@ class ModelEdits {
             }
         }
         return String.join(", ", names);
+    }
+
+    private static void setMultiplicity(AssociationEnd end, JsonNode value, String argument) {
+        if (value == null) {
+            return;
+        }
+        String text = value.isTextual() ? value.textValue().trim() : "";
+        String[] bounds = text.split("\\.\\.", -1);
+        String min = "*".equals(text) ? "0" : bounds[0];
+        String max = bounds[bounds.length - 1];
+        if (bounds.length > 2 || !min.matches("[0-9]+")
+                || (!"*".equals(max) && (!max.matches("[0-9]+")
+                        || new BigInteger(min).compareTo(new BigInteger(max)) > 0))) {
+            throw new ToolException("'" + argument + "' must be a UML multiplicity, e.g. '1', '0..1', '1..*' or '*'.");
+        }
+        end.setMultiplicityMin(min);
+        end.setMultiplicityMax(max);
     }
 
     private static void setLinkEnd(MObject link, Collection<MDependency> deps, MObject end, String role) {
@@ -483,6 +550,19 @@ class ModelEdits {
             throw new ToolException(describe(obj) + " cannot carry " + what + ".");
         }
         return (ModelElement) obj;
+    }
+
+    private static MObject deletionRoot(MObject element) {
+        Association association = element instanceof Association a ? a
+                : element instanceof AssociationEnd end ? end.getAssociation() : null;
+        if (association == null) {
+            return element;
+        }
+        // Deleting an end removes the association and both ends. Deleting the association alone leaves orphan ends.
+        return association.getEnd().stream()
+                .filter(end -> end.getSource() != null)
+                .findFirst()
+                .orElseThrow(() -> new ToolException(describe(association) + " has no owned association end to delete."));
     }
 
     private static int countDescendants(MObject obj) {
