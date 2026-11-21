@@ -185,16 +185,8 @@ along with Modelio.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
          version="5.14.0.v20231211-1200"/>
 
    <plugin
-         id="com.sun.jna"
-         version="4.5.1.v20190425-1842"/>
-
-   <plugin
          id="com.sun.jna.platform"
          version="5.14.0"/>
-
-   <plugin
-         id="com.sun.jna.platform"
-         version="4.5.1.v20190425-1842"/>
 
    <plugin
          id="org.apache.aries.spifly.dynamic.bundle"

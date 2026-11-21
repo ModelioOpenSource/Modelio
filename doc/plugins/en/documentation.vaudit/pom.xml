@@ -49,7 +49,6 @@
 						</goals>
 						<configuration>
 							<headerFooter>true</headerFooter>
-							<compact>true</compact>
 							<sourceDirectory>${adoc.directory}</sourceDirectory>
 							<outputDirectory>${html.directory}</outputDirectory>
 							<preserveDirectories>true</preserveDirectories>

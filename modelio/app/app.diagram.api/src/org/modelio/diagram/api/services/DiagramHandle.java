@@ -19,6 +19,7 @@
  */
 package org.modelio.diagram.api.services;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -291,16 +292,36 @@ public final class DiagramHandle implements IDiagramHandle {
     @objid ("54450799-3ffe-4b7a-a299-8bc07dbea76e")
     private void saveAsImage(final RootEditPart rootEditPart, final String location, final int format, final int margin) {
         ImageBuilder imageBuilder = new ImageBuilder(margin, format);
-        Image img = imageBuilder.makeImage(rootEditPart);
+        ImageLoader loader = renderImage(rootEditPart, imageBuilder);
+        if (loader != null) {
+            loader.save(location, format);
+        }
+    }
 
-        if (img != null) {
-            try {
-                ImageLoader imgLoader = new ImageLoader();
-                imgLoader.data = new ImageData[] { img.getImageData() };
-                imgLoader.save(location, format);
-            } finally {
-                img.dispose();
-            }
+    /**
+     * Render the whole diagram as a PNG, fitting it within the requested maximum dimensions.
+     */
+    public byte[] renderPng(int maxSize) {
+        ImageLoader loader = renderImage(this.editor.getRootEditPart(), new ImageBuilder().withMaxSize(maxSize, maxSize));
+        if (loader == null) {
+            throw new IllegalStateException("No diagram image was rendered.");
+        }
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        loader.save(output, SWT.IMAGE_PNG);
+        return output.toByteArray();
+    }
+
+    private static ImageLoader renderImage(RootEditPart rootEditPart, ImageBuilder imageBuilder) {
+        Image image = imageBuilder.makeImage(rootEditPart);
+        if (image == null) {
+            return null;
+        }
+        try {
+            ImageLoader loader = new ImageLoader();
+            loader.data = new ImageData[] { image.getImageData() };
+            return loader;
+        } finally {
+            image.dispose();
         }
     }
 

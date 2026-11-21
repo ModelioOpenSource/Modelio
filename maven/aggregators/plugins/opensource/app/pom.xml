@@ -58,6 +58,7 @@
     <module>../../../../../modelio/app/app.propertyview</module>
     <module>../../../../../modelio/app/app.ramcs</module>
     <module>../../../../../modelio/app/app.script.ui</module>
+    <module>../../../../../modelio/app/app.mcp.server</module>
     <module>../../../../../modelio/app/app.semantic.browser</module>
     <module>../../../../../modelio/app/app.ui</module>
     <module>../../../../../modelio/app/app.ui.ext_org</module>

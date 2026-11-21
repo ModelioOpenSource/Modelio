@@ -77,11 +77,7 @@ public class GmActor extends GmPortContainer {
 
         this.element = el;
 
-        final GmDefaultModelElementLabel actorLabel = new GmDefaultModelElementLabel(diagram, ref);
-        actorLabel.setRoleInComposition(SATELLITE_ROLE);
-        actorLabel.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
-
-        addChild(actorLabel);
+        ensureNameLabel();
     }
 
     @objid ("5e3659f5-55b7-11e2-877f-002564c97630")
@@ -187,6 +183,22 @@ public class GmActor extends GmPortContainer {
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Actor) resolveRef(this.getRepresentedRef());
+        ensureNameLabel();
+    }
+
+    @Override
+    public void refreshFromObModel() {
+        ensureNameLabel();
+        super.refreshFromObModel();
+    }
+
+    private void ensureNameLabel() {
+        if (this.element != null && getChildren(SATELLITE_ROLE).stream().noneMatch(GmDefaultModelElementLabel.class::isInstance)) {
+            GmDefaultModelElementLabel label = new GmDefaultModelElementLabel(getDiagram(), getRepresentedRef());
+            label.setRoleInComposition(SATELLITE_ROLE);
+            label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
+            addChild(label);
+        }
     }
 
     @objid ("5e37e099-55b7-11e2-877f-002564c97630")

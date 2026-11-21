@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_mcpFragRoot0000000000001">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_mcpFragAddons00000000001" featurename="addons" parentElementId="org.modelio.app.application">
+    <elements xsi:type="application:Addon" xmi:id="_mcpAddon000000000000001" elementId="org.modelio.mcp.server.McpServerAddon" contributionURI="bundleclass://org.modelio.app.mcp.server/org.modelio.mcp.server.McpServerAddon"/>
+  </fragments>
+</fragment:ModelFragments>

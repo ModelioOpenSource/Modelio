@@ -164,6 +164,14 @@ public class AboutDialog extends TrayDialog {
         text.append(" ");
         text.append(Platform.getOSArch());
         text.append("\n");
+
+        text.append(this.aboutI18N.getString("$About.Java"));
+        text.append(" ");
+        text.append(System.getProperty("java.runtime.version", System.getProperty("java.version")));
+        text.append(" (");
+        text.append(System.getProperty("java.vendor"));
+        text.append(")");
+        text.append("\n");
         text.append("\n");
 
         text.append(copyright);

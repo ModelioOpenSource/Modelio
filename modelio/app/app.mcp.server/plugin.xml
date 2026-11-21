@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension id="org.modelio.app.mcp.server.fragment" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/mcpserver.e4xmi"/>
+   </extension>
+</plugin>

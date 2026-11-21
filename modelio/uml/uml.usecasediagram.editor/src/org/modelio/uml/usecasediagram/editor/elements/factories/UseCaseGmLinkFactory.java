@@ -29,6 +29,7 @@ import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCaseDependency;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
+import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.uml.usecasediagram.editor.elements.communicationlink.GmCommunicationLink;
 import org.modelio.uml.usecasediagram.editor.elements.usecasedependency.GmUseCaseDependency;
@@ -120,11 +121,12 @@ public final class UseCaseGmLinkFactory implements IGmLinkFactory {
         @Override
         public Object visitAssociationEnd(AssociationEnd role) {
             // Communication link are returned only for associations between actors or usecases.
-            if (!(role.getSource() instanceof Actor) && !(role.getSource() instanceof UseCase)) {
-                return null;
-            }
+            // Non-navigable ends can derive their owner from the opposite end's target.
+            Classifier owner = role.getOwner();
             AssociationEnd otherEnd = role.getOpposite();
-            if (!(otherEnd.getSource() instanceof Actor) && !(otherEnd.getSource() instanceof UseCase)) {
+            Classifier otherOwner = otherEnd != null ? otherEnd.getOwner() : null;
+            if (!(owner instanceof Actor || owner instanceof UseCase)
+                    || !(otherOwner instanceof Actor || otherOwner instanceof UseCase)) {
                 return null;
             }
             return new GmCommunicationLink(this.diagram, role, new MRef(role), new MRef(role.getAssociation()));

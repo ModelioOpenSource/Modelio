@@ -248,6 +248,13 @@
          version="3.133.0.v20260225-1014"/>
 
    <plugin
+         id="org.eclipse.swt.cocoa.macosx.aarch64"
+         os="macosx"
+         ws="cocoa"
+         arch="aarch64"
+         version="3.133.0.v20260225-1014"/>
+
+   <plugin
          id="org.eclipse.jface"
          version="3.33.0.v20240214-1640"/>
 
