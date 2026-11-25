@@ -88,6 +88,9 @@
 									<id>org.modelio.product</id>
 									<attachId>OpenSource</attachId>
 									<rootFolder>${modelio.rootFolder}</rootFolder>
+									<rootFolders>
+										<macosx>${modelio.rootFolder}.app</macosx>
+									</rootFolders>
 								</product>
 							</products>
 							<installFeatures>true</installFeatures>
@@ -144,6 +147,9 @@
 									<id>org.modelio.product</id>
 									<attachId>OpenSource</attachId>
 									<rootFolder>${modelio.rootFolder}</rootFolder>
+									<rootFolders>
+										<macosx>${modelio.rootFolder}.app</macosx>
+									</rootFolders>
 								</product>
 							</products>
 							<installFeatures>true</installFeatures>
@@ -210,6 +216,33 @@
 								<environment>
 									<os>win32</os>
 									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>platform.mac</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>aarch64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
 									<arch>x86_64</arch>
 								</environment>
 							</environments>
