@@ -2,7 +2,7 @@
 <feature
       id="net.adoptium.temurin.jre.feature"
       label="jre21"
-      version="21.0.10"
+      version="21.0.13.1"
       provider-name="Eclipse Adoptium">
 
    <description url="https://adoptium.net/temurin/">
@@ -10,7 +10,7 @@
    </description>
 
    <copyright url="https://www.eclipse.org/legal/copyright.php">
-      https://www.eclipse.org/legal/copyright.ph
+      https://www.eclipse.org/legal/copyright.php
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-2.0/">
