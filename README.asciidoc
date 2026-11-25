@@ -89,6 +89,46 @@ https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index[Building
 Modelio from Source Guide].
 
 
+=== macOS (Apple Silicon and Intel)
+
+The macOS product is built with the `platform.mac` profile. It produces
+`Modelio 6.2.app` for Apple Silicon (`macosx.cocoa.aarch64`) and Intel
+(`macosx.cocoa.x86_64`), with the bundled Java runtime, like the Linux and
+Windows products:
+
+[source,bash]
+----
+export ECLIPSE_WS=$PWD
+cd maven/aggregators/opensource
+mvn clean install -P product.org,platform.mac -DskipTests -Dmodelio.ws.path=$ECLIPSE_WS
+----
+
+Result in `products/opensource/target/products/`:
+`org.modelio.product-macosx.cocoa.aarch64.tar.gz` and
+`org.modelio.product-macosx.cocoa.x86_64.tar.gz`, each containing
+`Modelio 6.2.app`.
+
+The app is not signed or notarized. When it is downloaded with a web browser,
+macOS adds the quarantine attribute and refuses to open an unsigned app; after
+unpacking, either sign and notarize it with an Apple Developer ID, or remove
+the attribute: `xattr -dr com.apple.quarantine "Modelio 6.2.app"`.
+
+Known limit: the code formatter of generated code (`org.modelio.astyle`)
+has a macOS binary for Intel only, so it is not installed on Apple Silicon.
+
+=== Updating the bundled Java runtime
+
+All products bundle Eclipse Temurin 21 (`net.adoptium.temurin.jre.feature`,
+in `dev-platform/pack-resources/openjdk-jre`). To follow the quarterly Java
+security updates, regenerate that repository for every platform from the
+official Temurin release (archives checked against the published SHA-256):
+
+[source,bash]
+----
+python3 dev-platform/pack-resources/update-openjdk-jre.py 21.0.13.1+2
+----
+
+
 == Contribute
 
 There are many ways to get involved in the Modelio community, on
